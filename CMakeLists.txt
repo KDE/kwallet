@@ -1,7 +1,10 @@
+project(kwalletd)
 
-include_directories( ${CMAKE_SOURCE_DIR}/kwallet/backend ${CMAKE_SOURCE_DIR}/kwallet/client )
+add_subdirectory(backend)
 
-########### next target ###############
+########### kwalletd ###############
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backend)
 
 set(kwalletd_KDEINIT_SRCS
    main.cpp
@@ -30,7 +33,8 @@ install(TARGETS kdeinit_kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})
 target_link_libraries(kwalletd kdeinit_kwalletd)
 install(TARGETS kwalletd  DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
-# Note that org.kde.KWallet.xml is generated from kwalletdadaptor.h in kdeui/CMakeLists.txt
+# Note that org.kde.KWallet.xml is installed by kdelibs/kdeui
+# TODO: generate the adaptor from it
 
 ########### install files ###############
 
