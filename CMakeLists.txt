@@ -31,7 +31,7 @@ target_link_libraries(kdeinit_kwalletd  ${KDE4_KIO_LIBS} kwalletbackend )
 install(TARGETS kdeinit_kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 target_link_libraries(kwalletd kdeinit_kwalletd)
-install(TARGETS kwalletd  DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 # Note that org.kde.KWallet.xml is installed by kdelibs/kdeui
 # TODO: generate the adaptor from it
