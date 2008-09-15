@@ -35,7 +35,7 @@ static bool isWalletEnabled()
 
 extern "C" KDE_EXPORT int kdemain(int argc, char **argv)
 {
-    KAboutData aboutdata("kwalletd", "kdelibs4", ki18n("KDE Wallet Service"),
+    KAboutData aboutdata("kwalletd", 0, ki18n("KDE Wallet Service"),
                          "0.1", ki18n("KDE Wallet Service"),
                          KAboutData::License_LGPL, ki18n("(C) 2002-2008 George Staikos, Michael Leupold, Thiago Maceira"));
     // STRING FREEZE!
