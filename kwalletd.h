@@ -23,7 +23,6 @@
 #ifndef _KWALLETD_H_
 #define _KWALLETD_H_
 
-#include <kdedmodule.h>
 #include <QtCore/QString>
 #include <QtGui/QImage>
 #include <QtCore/QHash>
