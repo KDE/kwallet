@@ -1258,7 +1258,7 @@ void KWalletD::reconfigure() {
 	_implicitAllowMap.clear();
 	const KConfigGroup autoAllowGroup(&cfg, "Auto Allow");
 	QStringList entries = autoAllowGroup.entryMap().keys();
-	for (QStringList::Iterator i = entries.begin(); i != entries.end(); ++i) {
+	for (QStringList::const_iterator i = entries.begin(); i != entries.end(); ++i) {
 		_implicitAllowMap[*i] = autoAllowGroup.readEntry(*i, QStringList());
 	}
 
@@ -1266,7 +1266,7 @@ void KWalletD::reconfigure() {
 	_implicitDenyMap.clear();
 	const KConfigGroup autoDenyGroup(&cfg, "Auto Deny");
 	entries = autoDenyGroup.entryMap().keys();
-	for (QStringList::Iterator i = entries.begin(); i != entries.end(); ++i) {
+	for (QStringList::const_iterator i = entries.begin(); i != entries.end(); ++i) {
 		_implicitDenyMap[*i] = autoDenyGroup.readEntry(*i, QStringList());
 	}
 
