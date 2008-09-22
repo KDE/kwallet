@@ -10,6 +10,7 @@ set(kwalletd_KDEINIT_SRCS
    main.cpp
    kbetterthankdialog.cpp
    kwalletd.cpp
+   kwalletopenloop.cpp
    kwalletwizard.cpp
    ktimeout.cpp
    kwalletsynctimer.cpp

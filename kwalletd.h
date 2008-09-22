@@ -51,15 +51,13 @@ class KWalletD : public QObject {
 		bool isEnabled() const;
 
 		// Open and unlock the wallet
-		int open(const QString& wallet, qlonglong wId, const QString& appid, const QDBusMessage& msg);
+		int open(const QString& wallet, qlonglong wId, const QString& appid);
 
 		// Open and unlock the wallet with this path
 		int openPath(const QString& path, qlonglong wId, const QString& appid);
 
-		// Asynchronous open - must give the object to return the handle
-		// to.
-		// disabled -thiago
-		//virtual void openAsynchronous(const QString& wallet, const QByteArray& returnObject, uint wId, const QString& appid);
+		// Open the wallet asynchronously
+		int openAsync(const QString& wallet, qlonglong wId, const QString& appid);
 
 		// Close and lock the wallet
 		// If force = true, will close it for all users.  Behave.  This
@@ -82,7 +80,7 @@ class KWalletD : public QObject {
 		QStringList users(const QString& wallet) const;
 
 		// Change the password of this wallet
-		void changePassword(const QString& wallet, qlonglong wId, const QString& appid, const QDBusMessage& msg);
+		void changePassword(const QString& wallet, qlonglong wId, const QString& appid);
 
 		// A list of all wallets
 		QStringList wallets() const;
@@ -148,6 +146,7 @@ class KWalletD : public QObject {
 		void screenSaverChanged(bool);
 
 	Q_SIGNALS:
+		void walletAsyncOpened(int id, int handle); // used to notify KWallet::Wallet
 		void walletListDirty();
 		void walletCreated(const QString& wallet);
 		void walletOpened(const QString& wallet);

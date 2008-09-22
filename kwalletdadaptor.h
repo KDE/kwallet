@@ -41,15 +41,16 @@ public Q_SLOTS:
         { return parent->isEnabled(); }
 
     // Open and unlock the wallet
-    inline int open(const QString& wallet, qlonglong wId, const QString& appid, const QDBusMessage& msg)
-        { return parent->open(wallet, wId, appid, msg); }
+    inline int open(const QString& wallet, qlonglong wId, const QString& appid)
+        { return parent->open(wallet, wId, appid); }
 
     // Open and unlock the wallet with this path
     inline int openPath(const QString& path, qlonglong wId, const QString& appid)
         { return parent->openPath(path, wId, appid); }
 
-    // disabled -thiago
-    //virtual void openAsynchronous(const QString& wallet, const QByteArray& returnObject, uint wId);
+    // Asynchroneously open the wallet and emit a walletAsyncOpen signal when done
+    inline int openAsync(const QString& wallet, qlonglong wId, const QString& appid)
+        { return parent->openAsync(wallet, wId, appid); }
 
     // Close and lock the wallet
     // If force = true, will close it for all users.  Behave.  This
@@ -79,8 +80,8 @@ public Q_SLOTS:
         { return parent->users(wallet); }
 
     // Change the password of this wallet
-    inline void changePassword(const QString& wallet, qlonglong wId, const QString& appid, const QDBusMessage& msg)
-        { parent->changePassword(wallet, wId, appid, msg); }
+    inline void changePassword(const QString& wallet, qlonglong wId, const QString& appid)
+        { parent->changePassword(wallet, wId, appid); }
 
     // A list of all wallets
     inline QStringList wallets() const
@@ -174,6 +175,7 @@ Q_SIGNALS:
     void walletListDirty();
     void walletCreated(const QString& wallet);
     void walletOpened(const QString& wallet);
+	void walletAsyncOpened(int tId, int handle);
     void walletDeleted(const QString& wallet);
     void walletClosed(const QString& wallet);
     void walletClosed(int handle);

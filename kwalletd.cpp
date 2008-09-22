@@ -48,29 +48,47 @@
 #include <QtGui/QTextDocument> // Qt::escape
 #include <QtCore/QRegExp>
 #include <QtCore/QTimer>
+#include <QtCore/QEventLoop>
 
 #include <assert.h>
 
 #include "kwalletdadaptor.h"
 #include "kwalletsynctimer.h"
+#include "kwalletopenloop.h"
 
 class KWalletTransaction {
+
 	public:
-		KWalletTransaction() {
-			tType = Unknown;
+		KWalletTransaction() : tType(Unknown), tId(nextTransactionId) {
+			nextTransactionId++;
+			// make sure the id is never < 0 as that's used for the
+			// error conditions.
+			if (nextTransactionId < 0) {
+				nextTransactionId = 0;
+			}
 		}
 
 		~KWalletTransaction() {
 		}
 
-		enum Type { Unknown, Open, ChangePassword, OpenFail };
-		QDBusMessage msg;
+		enum Type {
+			Unknown,
+			Open,
+			ChangePassword,
+			OpenFail
+		};
 		Type tType;
 		QString appid;
 		qlonglong wId;
 		QString wallet;
 		bool modal;
+		int tId; // transaction id
+		
+	private:
+		static int nextTransactionId;
 };
+
+int KWalletTransaction::nextTransactionId = 0;
 
 KWalletD::KWalletD()
 	: QObject(0), _failed(0) {
@@ -150,7 +168,7 @@ void KWalletD::processTransactions() {
 	// Process remaining transactions
 	KWalletTransaction *xact;
 	while (!_transactions.isEmpty()) {
-		xact = _transactions.first();
+		xact = _transactions.takeFirst();
 		int res;
 
 		assert(xact->tType != KWalletTransaction::Unknown);
@@ -163,10 +181,8 @@ void KWalletD::processTransactions() {
 				// should not produce multiple password
 				// dialogs on a failure
 				if (res < 0) {
-					QList<KWalletTransaction *>::iterator it = _transactions.begin();
-					Q_ASSERT(*it == xact);
-					++it;
-					for (; it != _transactions.end(); ++it) {
+					QList<KWalletTransaction *>::iterator it;
+					for (it = _transactions.begin(); it != _transactions.end(); ++it) {
 						KWalletTransaction *x = *it;
 						if (xact->appid == x->appid && x->tType == KWalletTransaction::Open
 							&& x->wallet == xact->wallet && x->wId == xact->wId) {
@@ -174,55 +190,28 @@ void KWalletD::processTransactions() {
 						}
 					}
 				}
+				
+				// emit the AsyncOpened signal as a reply
+				emit walletAsyncOpened(xact->tId, res);
 				break;
 			case KWalletTransaction::OpenFail:
-				res = -1;
+				// emit the AsyncOpened signal with an invalid handle
+				emit walletAsyncOpened(xact->tId, -1);
 				break;
 			case KWalletTransaction::ChangePassword:
 				doTransactionChangePassword(xact->appid, xact->wallet, xact->wId);
 				// fall through - no return
 			default:
-				_transactions.removeAll(xact);
-				continue;
+				break;
 		}
-
-		if (xact->tType != KWalletTransaction::ChangePassword) {
-                    QDBusConnection::sessionBus().send(xact->msg.createReply(res));
-		}
-		_transactions.removeAll(xact);
+		
+		delete xact;
 	}
 
 	processing = false;
 }
 
-#if 0
-void KWalletD::openAsynchronous(const QString& wallet, const QByteArray& returnObject, uint wId, const QString& appid) {
-	DCOPClient *dc = callingDcopClient();
-	if (!dc) {
-		return;
-	}
 
-	if (!_enabled ||
-		!QRegExp("^[A-Za-z0-9]+[A-Za-z0-9\\s\\-_]*$").exactMatch(wallet)) {
-		DCOPRef(appid, returnObject).send("walletOpenResult", -1);
-		return;
-	}
-
-	KWalletTransaction *xact = new KWalletTransaction;
-
-	xact->appid = appid;
-	xact->wallet = wallet;
-	xact->wId = wId;
-	xact->modal = false;
-	xact->tType = KWalletTransaction::Open;
-	xact->returnObject = returnObject;
-	_transactions.append(xact);
-
-	DCOPRef(appid, returnObject).send("walletOpenResult", 0);
-
-	QTimer::singleShot(0, this, SLOT(processTransactions()));
-}
-#endif
 
 int KWalletD::openPath(const QString& path, qlonglong wId, const QString& appid) {
 	if (!_enabled) { // guard
@@ -234,12 +223,22 @@ int KWalletD::openPath(const QString& path, qlonglong wId, const QString& appid)
 	return rc;
 }
 
+int KWalletD::open(const QString& wallet, qlonglong wId, const QString& appid) {
+	int tId = openAsync(wallet, wId, appid);
+	if (tId < 0) {
+		return tId;
+	}
+	
+	// wait for the open-transaction to be processed
+	KWalletOpenLoop loop(this);
+	return loop.waitForAsyncOpen(tId);
+}
 
-int KWalletD::open(const QString& wallet, qlonglong wId, const QString& appid, const QDBusMessage &msg) {
+int KWalletD::openAsync(const QString& wallet, qlonglong wId, const QString& appid) {
 	if (!_enabled) { // guard
 		return -1;
 	}
-
+	
 	if (!QRegExp("^[A-Za-z0-9]+[A-Za-z0-9\\s\\-_]*$").exactMatch(wallet)) {
 		return -1;
 	}
@@ -247,8 +246,6 @@ int KWalletD::open(const QString& wallet, qlonglong wId, const QString& appid, c
 	KWalletTransaction *xact = new KWalletTransaction;
 	_transactions.append(xact);
 
-	msg.setDelayedReply(true);
-	xact->msg = msg;
 	xact->appid = appid;
 	xact->wallet = wallet;
 	xact->wId = wId;
@@ -256,7 +253,8 @@ int KWalletD::open(const QString& wallet, qlonglong wId, const QString& appid, c
 	xact->tType = KWalletTransaction::Open;
 	QTimer::singleShot(0, this, SLOT(processTransactions()));
 	checkActiveDialog();
-	return 0; // process later
+	// opening is in progress. return the transaction number
+	return xact->tId;
 }
 
 // Sets up a dialog that will be shown by kwallet.
@@ -563,11 +561,10 @@ int KWalletD::deleteWallet(const QString& wallet) {
 }
 
 
-void KWalletD::changePassword(const QString& wallet, qlonglong wId, const QString& appid, const QDBusMessage& msg) {
+void KWalletD::changePassword(const QString& wallet, qlonglong wId, const QString& appid) {
 	KWalletTransaction *xact = new KWalletTransaction;
 
 	//msg.setDelayedReply(true);
-	xact->msg = msg;
 	xact->appid = appid;
 	xact->wallet = wallet;
 	xact->wId = wId;
