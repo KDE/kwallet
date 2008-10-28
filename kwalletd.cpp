@@ -674,44 +674,19 @@ int KWalletD::closeWallet(KWallet::Backend *w, int handle, bool force) {
 
 int KWalletD::close(int handle, bool force, const QString& appid) {
 	KWallet::Backend *w = _wallets.value(handle);
-	bool contains = false;
 
-	if (w) { // the handle is valid
-		if (_handles.contains(appid)) { // we know this app
-			if (_handles[appid].contains(handle)) {
-				// the app owns this handle
-				_handles[appid].removeAt(_handles[appid].indexOf(handle));
-				contains = true;
-				if (_handles[appid].isEmpty()) {
-					_handles.remove(appid);
-				}
+	if (w) {
+		if (_handles.contains(appid) && _handles[appid].contains(handle)) {
+			// remove the handle from the application
+			_handles[appid].removeAll(handle);
+			if (_handles[appid].isEmpty()) {
+				_handles.remove(appid);
 			}
+			w->deref();
+			return closeWallet(w, handle, force);
 		}
-
-		// watch the side effect of the deref()
-		if ((contains && w->deref() == 0 && !_leaveOpen) || force) {
-			if (_closeIdle && _timeouts) {
-				_timeouts->removeTimer(handle);
-			}
-			_wallets.remove(handle);
-			if (_synctimers.contains(w->walletName())) {
-				delete _synctimers.take(w->walletName());
-			}
-			if (force) {
-				invalidateHandle(handle);
-			}
-			if (_passwords.contains(w->walletName())) {
-				w->close(QByteArray(_passwords[w->walletName()].data(), _passwords[w->walletName()].length()));
-				_passwords[w->walletName()].fill(0);
-				_passwords.remove(w->walletName());
-			}
-			doCloseSignals(handle, w->walletName());
-			delete w;
-			return 0;
-		}
-		return 1; // not closed
+		return 1; // not closed, handle unknown
 	}
-
 	return -1; // not open to begin with, or other error
 }
 
@@ -1087,10 +1062,13 @@ void KWalletD::slotServiceUnregistered(const QString& app) {
 
 
 void KWalletD::invalidateHandle(int handle) {
-	for (QHash<QString,QList<int> >::Iterator i = _handles.begin();
-							i != _handles.end();
-									++i) {
-		i.value().removeAll(handle);
+	// use the java style iterator for removing stale appids.
+	QMutableHashIterator< QString,QList<int> > it(_handles);
+	while (it.hasNext()) {
+		it.next();
+		if (it.value().removeAll(handle) > 0) {
+			it.remove();
+		}
 	}
 }
 
