@@ -649,7 +649,7 @@ int KWalletD::closeWallet(KWallet::Backend *w, int handle, bool force) {
 		const QString& wallet = w->walletName();
 		assert(_passwords.contains(wallet));
 		assert(_synctimers.contains(wallet));
-		if (w->refCount() == 0 || force) {
+		if ((w->refCount() == 0 && !_leaveOpen) || force) {
 			invalidateHandle(handle);
 			if (_closeIdle && _timeouts) {
 				_timeouts->removeTimer(handle);
@@ -1189,7 +1189,7 @@ bool KWalletD::disconnectApplication(const QString& wallet, const QString& appli
 		}
 
 		if (backend->deref() == 0) {
-			close(backend->walletName(), true);
+			close(backend->walletName(), false);
 		}
 
 		emit applicationDisconnected(wallet, application);
