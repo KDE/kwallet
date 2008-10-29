@@ -551,7 +551,8 @@ int KWalletD::deleteWallet(const QString& wallet) {
 	QString path = KGlobal::dirs()->saveLocation("kwallet") + QDir::separator() + wallet + ".kwl";
 
 	if (QFile::exists(path)) {
-		close(wallet, true);
+		const QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
+		closeWallet(walletInfo.second, walletInfo.first, true);
 		QFile::remove(path);
 		emit walletDeleted(wallet);
 		return 0;
@@ -630,7 +631,7 @@ void KWalletD::doTransactionChangePassword(const QString& appid, const QString& 
 	delete kpd;
 
 	if (reclose) {
-		close(handle, true, appid);
+		closeWallet(w, handle, true);
 	}
 }
 
@@ -1053,7 +1054,8 @@ void KWalletD::slotServiceUnregistered(const QString& app) {
 			_handles[app].removeAll(*i);
 			KWallet::Backend *w = _wallets.value(*i);
 			if (w && !_leaveOpen && 0 == w->deref()) {
-				close(w->walletName(), true);
+				// FIXME
+				closeWallet(w, *i, true);
 			}
 		}
 		_handles.remove(app);
@@ -1167,7 +1169,7 @@ bool KWalletD::disconnectApplication(const QString& wallet, const QString& appli
 		}
 
 		if (backend->deref() == 0) {
-			close(backend->walletName(), false);
+			closeWallet(backend, handle, false);
 		}
 
 		emit applicationDisconnected(wallet, application);
