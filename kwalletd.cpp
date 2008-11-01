@@ -713,7 +713,7 @@ QStringList KWalletD::wallets() const {
 	QDir dir(path, "*.kwl");
 	QStringList rc;
 
-	dir.setFilter(QDir::Files | QDir::NoSymLinks);
+	dir.setFilter(QDir::Files);
 
 	foreach (const QFileInfo &fi, dir.entryInfoList()) {
 		QString fn = fi.fileName();
