@@ -325,10 +325,10 @@ int KWalletD::doTransactionOpen(const QString& appid, const QString& wallet, qlo
 			QString pass = wiz->field("pass1").toString();
 			QByteArray p(pass.toUtf8(), pass.length());
 			b->open(p);
+			p.fill(0);
 			b->createFolder(KWallet::Wallet::PasswordFolder());
 			b->createFolder(KWallet::Wallet::FormDataFolder());
-			b->close(p);
-			p.fill(0);
+			b->close(true);
 			delete b;
 			delete wiz;
 		} else {
@@ -455,11 +455,6 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 		}
 
 		_wallets.insert(rc = generateHandle(), b);
-		if (emptyPass) {
-			_passwords[wallet] = "";
-		} else {
-			_passwords[wallet] = password.toUtf8();
-		}
 		_handles[appid].append(rc);
 		_synctimers[wallet] = new KWalletSyncTimer(this, wallet);
 		connect(_synctimers[wallet], SIGNAL(timeoutSync(const QString&)), this, SLOT(doTransactionSync(const QString&)));
@@ -613,8 +608,8 @@ void KWalletD::doTransactionChangePassword(const QString& appid, const QString& 
 	if (kpd->exec() == KDialog::Accepted) {
 		QString p = kpd->password();
 		if (!p.isNull()) {
-			_passwords[wallet] = p.toUtf8();
-			int rc = w->close(p.toUtf8());
+			w->setPassword(p.toUtf8());
+			int rc = w->close(true);
 			if (rc < 0) {
 				KMessageBox::sorryWId((WId)wId, i18n("Error re-encrypting the wallet. Password was not changed."), i18n("KDE Wallet Service"));
 				reclose = true;
@@ -648,7 +643,6 @@ int KWalletD::close(const QString& wallet, bool force) {
 int KWalletD::closeWallet(KWallet::Backend *w, int handle, bool force) {
 	if (w) {
 		const QString& wallet = w->walletName();
-		assert(_passwords.contains(wallet));
 		assert(_synctimers.contains(wallet));
 		if ((w->refCount() == 0 && !_leaveOpen) || force) {
 			invalidateHandle(handle);
@@ -657,11 +651,7 @@ int KWalletD::closeWallet(KWallet::Backend *w, int handle, bool force) {
 			}
 			_wallets.remove(handle);
 			delete _synctimers.take(wallet);
-			if (_passwords.contains(wallet)) {
-				w->close(QByteArray(_passwords[wallet].data(), _passwords[wallet].length()));
-				_passwords[wallet].fill(0);
-				_passwords.remove(wallet);
-			}
+			w->close(true);
 			doCloseSignals(handle, wallet);
 			delete w;
 			return 0;
@@ -738,12 +728,9 @@ void KWalletD::sync(int handle, const QString& appid) {
 	KWallet::Backend *b;
 	
 	// get the wallet and check if we have a password for it (safety measure)
-	if ((b = getWallet(appid, handle)) && _passwords.contains(b->walletName())) {
-		QByteArray p;
+	if ((b = getWallet(appid, handle))) {
 		QString wallet = b->walletName();
-		p = QByteArray(_passwords[wallet].data(), _passwords[wallet].length());
-		b->sync(p);
-		p.fill(0);
+		b->sync();
 	}
 }
 
@@ -754,10 +741,8 @@ void KWalletD::doTransactionSync(const QString& wallet) {
 	const QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
 	
 	// check if we have a password for this wallet. discard if not.
-	if (walletInfo.second && _passwords.contains(wallet)) {
-		QByteArray p = QByteArray(_passwords[wallet].data(), _passwords[wallet].length());
-		walletInfo.second->sync(p);
-		p.fill(0);
+	if (walletInfo.second) {
+		walletInfo.second->sync();
 	}
 }
 
@@ -1332,13 +1317,6 @@ void KWalletD::closeAllWallets() {
 
 	// All of this should be basically noop.  Let's just be safe.
 	_wallets.clear();
-
-	for (QMap<QString,QByteArray>::Iterator it = _passwords.begin();
-						it != _passwords.end();
-						++it) {
-		it.value().fill(0);
-	}
-	_passwords.clear();
 }
 
 

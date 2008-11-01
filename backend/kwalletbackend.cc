@@ -88,19 +88,6 @@ Backend::~Backend() {
 	delete d;
 }
 
-
-int Backend::close() {
-	for (FolderMap::ConstIterator i = _entries.begin(); i != _entries.end(); ++i) {
-		for (EntryMap::ConstIterator j = i.value().begin(); j != i.value().end(); ++j) {
-			delete j.value();
-		}
-	}
-	_entries.clear();
-
-return 0;
-}
-
-
 static int getRandomBlock(QByteArray& randBlock) {
 
 #ifdef Q_OS_WIN32
@@ -319,8 +306,8 @@ int Backend::open(const QByteArray& password) {
 	if (_open) {
 		return -255;  // already open
 	}
-
-	QByteArray passhash;
+	
+	setPassword(password);
 
 	// No wallet existed.  Let's create it.
 	// Note: 60 bytes is presently the minimum size of a wallet file.
@@ -332,7 +319,7 @@ int Backend::open(const QByteArray& password) {
 		}
 		newfile.close();
 		_open = true;
-		sync(password);
+		sync();
 		return 1;          // new file opened, but OK
 	}
 
@@ -404,26 +391,20 @@ int Backend::open(const QByteArray& password) {
 		return -5;	   // invalid file structure
 	}
 
-	// Decrypt the encrypted data
-	passhash.resize(bf.keyLen()/8);
-	password2hash(password, passhash);
-
-	bf.setKey((void *)passhash.data(), passhash.size()*8);
+	bf.setKey((void *)_passhash.data(), _passhash.size()*8);
 
 	if (!encrypted.data()) {
-		passhash.fill(0);
+		_passhash.fill(0);
 		encrypted.fill(0);
 		return -7; // file structure error
 	}
 
 	int rc = bf.decrypt(encrypted.data(), encrypted.size());
 	if (rc < 0) {
-		passhash.fill(0);
+		_passhash.fill(0);
 		encrypted.fill(0);
 		return -6;	// decrypt error
 	}
-
-	passhash.fill(0);        // passhash is UNUSABLE NOW
 
 	const char *t = encrypted.data();
 
@@ -517,7 +498,7 @@ int Backend::open(const QByteArray& password) {
 }
 
 
-int Backend::sync(const QByteArray& password) {
+int Backend::sync() {
 	if (!_open) {
 		return -255;  // not open yet
 	}
@@ -628,13 +609,8 @@ int Backend::sync(const QByteArray& password) {
 	sha.reset();
 	decrypted.fill(0);
 
-	// hash the passphrase
-	QByteArray passhash;
-	password2hash(password, passhash);
-
 	// encrypt the data
-	if (!bf.setKey(passhash.data(), passhash.size() * 8)) {
-		passhash.fill(0);
+	if (!bf.setKey(_passhash.data(), _passhash.size() * 8)) {
 		wholeFile.fill(0);
 		sf.abort();
 		return -2;
@@ -642,13 +618,10 @@ int Backend::sync(const QByteArray& password) {
 
 	int rc = bf.encrypt(wholeFile.data(), wholeFile.size());
 	if (rc < 0) {
-		passhash.fill(0);
 		wholeFile.fill(0);
 		sf.abort();
 		return -2;	// encrypt error
 	}
-
-	passhash.fill(0);        // passhash is UNUSABLE NOW
 
 	// write the file
 	sf.write(wholeFile, wholeFile.size());
@@ -663,15 +636,30 @@ int Backend::sync(const QByteArray& password) {
 }
 
 
-int Backend::close(const QByteArray& password) {
-	int rc = sync(password);
-	_open = false;
-	if (rc != 0) {
-		return rc;
+int Backend::close(bool save) {
+	// save if requested
+	if (save) {
+		int rc = sync();
+		if (rc != 0) {
+			return rc;
+		}
 	}
-	return close();
-}
+	
+	// do the actual close
+	for (FolderMap::ConstIterator i = _entries.begin(); i != _entries.end(); ++i) {
+		for (EntryMap::ConstIterator j = i.value().begin(); j != i.value().end(); ++j) {
+			delete j.value();
+		}
+	}
+	_entries.clear();
+	
+	// empty the password hash
+	_passhash.fill(0);
 
+	_open = false;
+	
+	return 0;
+}
 
 const QString& Backend::walletName() const {
 	return _name;
@@ -866,4 +854,10 @@ bool Backend::entryDoesNotExist(const QString& folder, const QString& entry) con
 	return true;
 }
 
-
+void Backend::setPassword(const QByteArray &password) {
+	_passhash.fill(0); // empty just in case
+	BlowFish _bf;
+	CipherBlockChain bf(&_bf);
+	_passhash.resize(bf.keyLen()/8);
+	password2hash(password, _passhash);
+}

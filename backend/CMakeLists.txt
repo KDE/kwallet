@@ -27,3 +27,5 @@ endif(WIN32)
 
 set_target_properties(kwalletbackend PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 install(TARGETS kwalletbackend ${INSTALL_TARGETS_DEFAULT_ARGS})
+
+add_subdirectory(tests)

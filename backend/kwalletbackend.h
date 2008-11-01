@@ -68,16 +68,16 @@ class KDE_EXPORT Backend {
 		~Backend();
 
 		// Open and unlock the wallet.
+		// If opening succeeds, the password's hash will be remembered.
+		// If opening fails, the password's hash will be cleared.
 		int open(const QByteArray& password);
 
-		// Close and lock the wallet (saving changes).
-		int close(const QByteArray& password);
-
 		// Close the wallet, losing any changes.
-		int close();
+		// if save is true, the wallet is saved prior to closing it.
+		int close(bool save = false);
 
 		// Write the wallet to disk
-		int sync(const QByteArray& password);
+		int sync();
 
 		// Returns true if the current wallet is open.
 		bool isOpen() const;
@@ -124,6 +124,10 @@ class KDE_EXPORT Backend {
 
 		// Rename an entry in this folder.
 		int renameEntry(const QString& oldName, const QString& newName);
+		
+		// Set the password used for opening/closing the wallet.
+		// This does not sync the wallet to disk!
+		void setPassword(const QByteArray &password);
 
 		int ref() { return ++_ref; }
 
@@ -154,6 +158,7 @@ class KDE_EXPORT Backend {
 		FolderMap _entries;
 		typedef QMap<MD5Digest, QList<MD5Digest> > HashMap;
 		HashMap _hashes;
+		QByteArray _passhash; // password hash used for saving the wallet
 };
 
 }
