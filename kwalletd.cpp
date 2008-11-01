@@ -390,6 +390,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				// don't use KStdGuiItem::open() here which has trailing ellipsis!
 				kpd->setButtonGuiItem(KDialog::Ok,KGuiItem( i18n( "&Open" ), "document-open"));
 				kpd->setCaption(i18n("KDE Wallet Service"));
+				kpd->setPixmap(KIcon("kwalletmanager").pixmap(KIconLoader::SizeHuge));
 				while (!b->isOpen()) {
 					setupDialog( kpd, w, appid, modal );
 					if (kpd->exec() == KDialog::Accepted) {
@@ -427,6 +428,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 			brandNew = true;
 			kpd->setCaption(i18n("KDE Wallet Service"));
 			kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
+			kpd->setPixmap(KIcon("kwalletmanager").pixmap(96, 96));
 			while (!b->isOpen()) {
 				setupDialog( kpd, w, appid, modal );
 				if (kpd->exec() == KDialog::Accepted) {
