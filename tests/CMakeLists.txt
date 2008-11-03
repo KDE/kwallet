@@ -51,5 +51,16 @@ kde4_add_executable(kwalletboth TEST ${kwalletboth_SRCS})
 
 target_link_libraries(kwalletboth  ${KDE4_KDEUI_LIBS} )
 
+
+########### next target ###############
+
+set(kwalletmany_SRCS kwalletmany.cpp)
+
+
+kde4_add_executable(kwalletmany TEST ${kwalletmany_SRCS})
+
+target_link_libraries(kwalletmany  ${KDE4_KDEUI_LIBS} )
+
+
 ########### install files ###############
 
