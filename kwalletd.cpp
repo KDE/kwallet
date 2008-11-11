@@ -79,7 +79,7 @@ class KWalletTransaction {
 			Open,
 			ChangePassword,
 			OpenFail,
-			CloseCancelled,
+			CloseCancelled
 		};
 		Type tType;
 		QString appid;
@@ -163,8 +163,8 @@ int KWalletD::generateHandle() {
 
 QPair<int, KWallet::Backend*> KWalletD::findWallet(const QString& walletName) const
 {
-	Wallets::const_iterator it = _wallets.begin();
-	const Wallets::const_iterator end = _wallets.end();
+	Wallets::const_iterator it = _wallets.constBegin();
+	const Wallets::const_iterator end = _wallets.constEnd();
 	for (; it != end; ++it) {
 		if (it.value()->walletName() == walletName) {
 			return qMakePair(it.key(), it.value());
@@ -1337,16 +1337,16 @@ void KWalletD::reconfigure() {
 	// Handle idle changes
 	if (_closeIdle) {
 		if (_idleTime != timeSave) { // Timer length changed
-			Wallets::const_iterator it = _wallets.begin();
-			const Wallets::const_iterator end = _wallets.end();
+			Wallets::const_iterator it = _wallets.constBegin();
+			const Wallets::const_iterator end = _wallets.constEnd();
 			for (; it != end; ++it) {
 				_timeouts->resetTimer(it.key(), _idleTime);
 			}
 		}
 
 		if (!idleSave) { // add timers for all the wallets
-			Wallets::const_iterator it = _wallets.begin();
-			const Wallets::const_iterator end = _wallets.end();
+			Wallets::const_iterator it = _wallets.constBegin();
+			const Wallets::const_iterator end = _wallets.constEnd();
 			for (; it != end; ++it) {
 				_timeouts->addTimer(it.key(), _idleTime);
 			}
@@ -1359,7 +1359,7 @@ void KWalletD::reconfigure() {
 	_implicitAllowMap.clear();
 	const KConfigGroup autoAllowGroup(&cfg, "Auto Allow");
 	QStringList entries = autoAllowGroup.entryMap().keys();
-	for (QStringList::const_iterator i = entries.begin(); i != entries.end(); ++i) {
+	for (QStringList::const_iterator i = entries.constBegin(); i != entries.constEnd(); ++i) {
 		_implicitAllowMap[*i] = autoAllowGroup.readEntry(*i, QStringList());
 	}
 
@@ -1367,14 +1367,14 @@ void KWalletD::reconfigure() {
 	_implicitDenyMap.clear();
 	const KConfigGroup autoDenyGroup(&cfg, "Auto Deny");
 	entries = autoDenyGroup.entryMap().keys();
-	for (QStringList::const_iterator i = entries.begin(); i != entries.end(); ++i) {
+	for (QStringList::const_iterator i = entries.constBegin(); i != entries.constEnd(); ++i) {
 		_implicitDenyMap[*i] = autoDenyGroup.readEntry(*i, QStringList());
 	}
 
 	// Update if wallet was enabled/disabled
 	if (!_enabled) { // close all wallets
 		while (!_wallets.isEmpty()) {
-			Wallets::const_iterator it = _wallets.begin();
+			Wallets::const_iterator it = _wallets.constBegin();
 			internalClose(it.value(), it.key(), true);
 		}
 		KUniqueApplication::exit(0);
@@ -1444,8 +1444,8 @@ void KWalletD::timedOut(int id) {
 void KWalletD::closeAllWallets() {
 	Wallets walletsCopy = _wallets;
 
-	Wallets::const_iterator it = walletsCopy.begin();
-	const Wallets::const_iterator end = walletsCopy.end();
+	Wallets::const_iterator it = walletsCopy.constBegin();
+	const Wallets::const_iterator end = walletsCopy.constEnd();
 	for (; it != end; ++it) {
 		internalClose(it.value(), it.key(), true);
 	}
@@ -1518,8 +1518,8 @@ bool KWalletD::removeSession(const QString &appid, const QString &service, int h
 	}
 	
 	QList<KWalletSession*>::const_iterator it;
-	QList<KWalletSession*>::const_iterator end = _sessions[appid].end();
-	for (it = _sessions[appid].begin(); it != end; ++it) {
+	QList<KWalletSession*>::const_iterator end = _sessions[appid].constEnd();
+	for (it = _sessions[appid].constBegin(); it != end; ++it) {
 		assert(*it);
 		if ((*it)->m_service == service && (*it)->m_handle == handle) {
 			KWalletSession *sess = *it;

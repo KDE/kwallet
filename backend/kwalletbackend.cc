@@ -543,7 +543,7 @@ int Backend::sync() {
 
 	// populate decrypted
 	QDataStream dStream(&decrypted, QIODevice::WriteOnly);
-	for (FolderMap::ConstIterator i = _entries.begin(); i != _entries.end(); ++i) {
+	for (FolderMap::ConstIterator i = _entries.constBegin(); i != _entries.constEnd(); ++i) {
 		dStream << i.key();
 		dStream << static_cast<quint32>(i.value().count());
 
@@ -552,7 +552,7 @@ int Backend::sync() {
 		hashStream.writeRawData(reinterpret_cast<const char*>(&(md5.rawDigest()[0])), 16);
 		hashStream << static_cast<quint32>(i.value().count());
 
-		for (EntryMap::ConstIterator j = i.value().begin(); j != i.value().end(); ++j) {
+		for (EntryMap::ConstIterator j = i.value().constBegin(); j != i.value().constEnd(); ++j) {
 			dStream << j.key();
 			dStream << static_cast<qint32>(j.value()->type());
 			dStream << j.value()->value();
@@ -654,8 +654,8 @@ int Backend::close(bool save) {
 	}
 	
 	// do the actual close
-	for (FolderMap::ConstIterator i = _entries.begin(); i != _entries.end(); ++i) {
-		for (EntryMap::ConstIterator j = i.value().begin(); j != i.value().end(); ++j) {
+	for (FolderMap::ConstIterator i = _entries.constBegin(); i != _entries.constEnd(); ++i) {
+		for (EntryMap::ConstIterator j = i.value().constBegin(); j != i.value().constEnd(); ++j) {
 			delete j.value();
 		}
 	}
