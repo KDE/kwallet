@@ -44,6 +44,16 @@ target_link_libraries(kwalletsync  ${KDE4_KDEUI_LIBS} )
 
 ########### next target ###############
 
+set(kwalletpath_SRCS kwalletpath.cpp )
+
+
+kde4_add_executable(kwalletpath TEST ${kwalletpath_SRCS})
+
+target_link_libraries(kwalletpath  ${KDE4_KDEUI_LIBS} )
+
+
+########### next target ###############
+
 set(kwalletboth_SRCS kwalletboth.cpp kwallettest.cpp )
 
 
@@ -60,6 +70,26 @@ set(kwalletmany_SRCS kwalletmany.cpp)
 kde4_add_executable(kwalletmany TEST ${kwalletmany_SRCS})
 
 target_link_libraries(kwalletmany  ${KDE4_KDEUI_LIBS} )
+
+
+########### next target ###############
+
+set(kwalletautoclose_SRCS kwalletautoclose.cpp)
+
+
+kde4_add_executable(kwalletautoclose TEST ${kwalletautoclose_SRCS})
+
+target_link_libraries(kwalletautoclose  ${KDE4_KDEUI_LIBS} )
+
+
+########### next target ###############
+
+set(kwalletnoautoclose_SRCS kwalletnoautoclose.cpp)
+
+
+kde4_add_executable(kwalletnoautoclose TEST ${kwalletnoautoclose_SRCS})
+
+target_link_libraries(kwalletnoautoclose  ${KDE4_KDEUI_LIBS} )
 
 
 ########### install files ###############

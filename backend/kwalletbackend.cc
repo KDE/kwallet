@@ -264,6 +264,14 @@ static int password2hash(const QByteArray& password, QByteArray& hash) {
 }
 
 
+int Backend::deref() {
+	if (--_ref < 0) {
+		kDebug() << "refCount negative!";
+		_ref = 0;
+	}
+	return _ref;
+}
+
 bool Backend::exists(const QString& wallet) {
 	initKWalletDir();
 	QString path = KGlobal::dirs()->saveLocation("kwallet") + '/' + wallet + ".kwl";

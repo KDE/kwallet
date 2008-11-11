@@ -49,8 +49,12 @@ public Q_SLOTS:
         { return parent->openPath(path, wId, appid); }
 
     // Asynchroneously open the wallet and emit a walletAsyncOpen signal when done
-    inline int openAsync(const QString& wallet, qlonglong wId, const QString& appid)
-        { return parent->openAsync(wallet, wId, appid); }
+    inline int openAsync(const QString& wallet, qlonglong wId, const QString& appid, bool handleSession)
+        { return parent->openAsync(wallet, wId, appid, handleSession); }
+
+    // Asynchroneously open the wallet with this path and emit a walletAsyncOpen signal when done
+    inline int openPathAsync(const QString& path, qlonglong wId, const QString& appid, bool handleSession)
+        { return parent->openPathAsync(path, wId, appid, handleSession); }
 
     // Close and lock the wallet
     // If force = true, will close it for all users.  Behave.  This
@@ -170,12 +174,12 @@ public Q_SLOTS:
 
     inline QString localWallet()
         { return parent->localWallet(); }
-
+        
 Q_SIGNALS:
     void walletListDirty();
     void walletCreated(const QString& wallet);
     void walletOpened(const QString& wallet);
-	void walletAsyncOpened(int tId, int handle);
+    void walletAsyncOpened(int tId, int handle);
     void walletDeleted(const QString& wallet);
     void walletClosed(const QString& wallet);
     void walletClosed(int handle);

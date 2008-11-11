@@ -131,7 +131,7 @@ class KDE_EXPORT Backend {
 
 		int ref() { return ++_ref; }
 
-		int deref() { return --_ref; }
+		int deref();
 
 		int refCount() const { return _ref; }
 

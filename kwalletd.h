@@ -3,6 +3,7 @@
    This file is part of the KDE libraries
 
    Copyright (c) 2002-2004 George Staikos <staikos@kde.org>
+   Copyright (c) 2008 Michael Leupold <lemma@confuego.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -38,8 +39,9 @@ class KTimeout;
 // @Private
 class KWalletTransaction;
 class KWalletSyncTimer;
+class KWalletSession;
 
-class KWalletD : public QObject {
+class KWalletD : public QObject, protected QDBusContext {
 	Q_OBJECT
 	
 	public:
@@ -57,7 +59,12 @@ class KWalletD : public QObject {
 		int openPath(const QString& path, qlonglong wId, const QString& appid);
 
 		// Open the wallet asynchronously
-		int openAsync(const QString& wallet, qlonglong wId, const QString& appid);
+		int openAsync(const QString& wallet, qlonglong wId, const QString& appid,
+		              bool handleSession);
+
+		// Open and unlock the wallet with this path asynchronously
+		int openPathAsync(const QString& path, qlonglong wId, const QString& appid,
+		                  bool handleSession);
 
 		// Close and lock the wallet
 		// If force = true, will close it for all users.  Behave.  This
@@ -159,7 +166,8 @@ class KWalletD : public QObject {
 		void applicationDisconnected(const QString& wallet, const QString& application);
 
 	private Q_SLOTS:
-		void slotServiceUnregistered(const QString& name);
+		void slotServiceOwnerChanged(const QString& name, const QString &oldOwner,
+		                             const QString &newOwner);
 		void emitWalletListDirty();
 		void timedOut(int);
 		void notifyFailures();
@@ -167,25 +175,29 @@ class KWalletD : public QObject {
 		void doTransactionSync(const QString& wallet);
 
 	private:
-		int internalOpen(const QString& appid, const QString& wallet, bool isPath, WId w, bool modal);
+		// Internal - open a wallet
+		int internalOpen(const QString& appid, const QString& wallet, bool isPath, WId w,
+		                 bool modal, const QString& service);
+		// Internal - close this wallet.
+		int internalClose(KWallet::Backend *w, int handle, bool force);
+		
 		bool isAuthorizedApp(const QString& appid, const QString& wallet, WId w);
 		// This also validates the handle.	May return NULL.
 		KWallet::Backend* getWallet(const QString& appid, int handle);
 		// Generate a new unique handle.
 		int generateHandle();
-		// Invalidate a handle (remove it from the QMap)
-		void invalidateHandle(int handle);
 		// Emit signals about closing wallets
 		void doCloseSignals(int,const QString&);
 		void emitFolderUpdated(const QString&, const QString&);
-		// Internal - close this wallet.
-		int closeWallet(KWallet::Backend *w, int handle, bool force);
 		// Implicitly allow access for this application
 		bool implicitAllow(const QString& wallet, const QString& app);
 		bool implicitDeny(const QString& wallet, const QString& app);
 
 		void doTransactionChangePassword(const QString& appid, const QString& wallet, qlonglong wId);
-		int doTransactionOpen(const QString& appid, const QString& wallet, qlonglong wId, bool modal);
+		void doTransactionOpenCancelled(const QString& appid, const QString& wallet,
+		                                const QString& service);
+		int doTransactionOpen(const QString& appid, const QString& wallet, bool isPath,
+		                      qlonglong wId, bool modal, const QString& service);
 		void initiateSync(const QString& wallet);
 
 		void setupDialog( QWidget* dialog, WId wId, const QString& appid, bool modal );
@@ -195,23 +207,42 @@ class KWalletD : public QObject {
 
 		typedef QHash<int, KWallet::Backend *> Wallets;
 		Wallets _wallets;
-		QHash<QString,QList<int> > _handles;
-		QMap<QString,QByteArray> _passwords;
 		KDirWatch *_dw;
 		int _failed;
 
+		// configuration values
 		bool _leaveOpen, _closeIdle, _launchManager, _enabled;
 		bool _openPrompt, _firstUse, _showingFailureNotify;
 		int _idleTime;
 		QMap<QString,QStringList> _implicitAllowMap, _implicitDenyMap;
 		KTimeout *_timeouts;
 
+		KWalletTransaction *_curtrans;
 		QList<KWalletTransaction*> _transactions;
 		QMap<QString,KWalletSyncTimer*> _synctimers;
 		QPointer< QWidget > activeDialog;
 #ifdef Q_WS_X11
 		QDBusInterface *screensaver;
 #endif
+
+		// session handling
+		// the session handling is a bit of a mess. This however is mostly
+		// due to the fact that the public dbus api is based on application
+		// names instead of session and we can't break compatibility.
+		typedef QPair<QString,int> AppHandlePair;
+		QHash< QString,QList<KWalletSession*> > _sessions; // application => session
+		// add a new sessions
+		void addSession(const QString &appid, KWalletSession *session);
+		// search if the application already has the handle
+		bool hasSession(const QString &appid, int handle = -1) const;
+		// find all sessions belonging to the service
+		QList<AppHandlePair> findSessions(const QString &service);
+		// remove one session matching the attributes.
+		bool removeSession(const QString &appid, const QString &service, int handle);
+		// remove all sessions for an application/handle pair
+		int removeAllSessions(const QString &appid, int handle);
+		// Invalidate a handle
+		void removeAllSessions(int handle);
 };
 
 
