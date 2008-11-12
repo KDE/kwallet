@@ -29,7 +29,7 @@
 class KTimeout : public QObject {
 	Q_OBJECT
 	public:
-		KTimeout();
+		KTimeout(QObject *parent = 0);
 		~KTimeout();
 
 	Q_SIGNALS:

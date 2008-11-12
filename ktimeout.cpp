@@ -23,8 +23,8 @@
 #include "ktimeout.h"
 #include <QtCore/QEvent>
 
-KTimeout::KTimeout()
-: QObject() {
+KTimeout::KTimeout(QObject *parent)
+ : QObject(parent) {
 }
 
 KTimeout::~KTimeout() {

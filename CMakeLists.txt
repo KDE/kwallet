@@ -13,7 +13,6 @@ set(kwalletd_KDEINIT_SRCS
    kwalletopenloop.cpp
    kwalletwizard.cpp
    ktimeout.cpp
-   kwalletsynctimer.cpp
    kwalletsessionstore.cpp
 )
 

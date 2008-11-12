@@ -33,6 +33,9 @@
 #include <stdlib.h>
 #include <QtDBus/QtDBus>
 
+#include "ktimeout.h"
+#include "kwalletsessionstore.h"
+
 class KDirWatch;
 class KTimeout;
 
@@ -169,10 +172,10 @@ class KWalletD : public QObject, protected QDBusContext {
 		void slotServiceOwnerChanged(const QString& name, const QString &oldOwner,
 		                             const QString &newOwner);
 		void emitWalletListDirty();
-		void timedOut(int);
+		void timedOutClose(int handle);
+		void timedOutSync(int handle);
 		void notifyFailures();
 		void processTransactions();
-		void doTransactionSync(const QString& wallet);
 
 	private:
 		// Internal - open a wallet
@@ -198,7 +201,7 @@ class KWalletD : public QObject, protected QDBusContext {
 		                                const QString& service);
 		int doTransactionOpen(const QString& appid, const QString& wallet, bool isPath,
 		                      qlonglong wId, bool modal, const QString& service);
-		void initiateSync(const QString& wallet);
+		void initiateSync(int handle);
 
 		void setupDialog( QWidget* dialog, WId wId, const QString& appid, bool modal );
 		void checkActiveDialog();
@@ -215,18 +218,19 @@ class KWalletD : public QObject, protected QDBusContext {
 		bool _openPrompt, _firstUse, _showingFailureNotify;
 		int _idleTime;
 		QMap<QString,QStringList> _implicitAllowMap, _implicitDenyMap;
-		KTimeout *_timeouts;
+		KTimeout _closeTimers;
+		KTimeout _syncTimers;
+		const int _syncTime;
 
-		KWalletTransaction *_curtrans;
+		KWalletTransaction *_curtrans; // current transaction
 		QList<KWalletTransaction*> _transactions;
-		QMap<QString,KWalletSyncTimer*> _synctimers;
 		QPointer< QWidget > activeDialog;
 #ifdef Q_WS_X11
 		QDBusInterface *screensaver;
 #endif
 
 		// sessions
-		KWalletSessionStore *_sessions;
+		KWalletSessionStore _sessions;
 };
 
 

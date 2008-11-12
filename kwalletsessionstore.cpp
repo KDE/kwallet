@@ -160,7 +160,7 @@ int KWalletSessionStore::removeAllSessions(int handle) {
 	return numrem;
 }
 
-QStringList KWalletSessionStore::getApplications(int handle) {
+QStringList KWalletSessionStore::getApplications(int handle) const {
 	QStringList rc;
 	Q_FOREACH(const QString &appid, m_sessions.uniqueKeys()) {
 		if (hasSession(appid, handle)) {

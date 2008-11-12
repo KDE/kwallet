@@ -50,7 +50,7 @@ public:
 	// remove all sessions related to a handle
 	int removeAllSessions(int handle);
 	// get all applications using a handle
-	QStringList getApplications(int handle);
+	QStringList getApplications(int handle) const;
 	
 private:
 	class Session;
