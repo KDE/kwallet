@@ -229,7 +229,7 @@ int SHA1::process(const void *block, int len) {
 	}
 
 	if (_count) {
-		for (; len && _count < 64; len--, cnt++) {
+		for (; len && _count < 64; --len, ++cnt) {
 			_buf[_count++] = *_block++;
 		}
 		process(0, 0);       // flush the buffer if necessary
@@ -247,7 +247,7 @@ int SHA1::process(const void *block, int len) {
 		_block += 64;
 	}
 
-	for (; len && _count < 64; len--, cnt++) {
+	for (; len && _count < 64; --len, ++cnt) {
 		_buf[_count++] = *_block++;
 	}
 

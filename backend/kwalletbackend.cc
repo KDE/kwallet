@@ -472,7 +472,7 @@ int Backend::open(const QByteArray& password) {
 		// Force initialisation
 		_entries[folder].clear();
 
-		for (size_t i = 0; i < n; i++) {
+		for (size_t i = 0; i < n; ++i) {
 			QString key;
 			KWallet::Wallet::EntryType et = KWallet::Wallet::Unknown;
 			Entry *e = new Entry;

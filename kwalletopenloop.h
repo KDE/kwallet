@@ -32,7 +32,7 @@ class KWalletOpenLoop : public QEventLoop {
 	Q_OBJECT
 	
 	public:
-		KWalletOpenLoop(KWalletD* w, QObject* parent = 0)
+		explicit KWalletOpenLoop(KWalletD* w, QObject* parent = 0)
 		    : QEventLoop(parent), wallet(w) {}
 		
 		// returns the open handle
