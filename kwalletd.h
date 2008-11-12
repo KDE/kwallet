@@ -39,7 +39,7 @@ class KTimeout;
 // @Private
 class KWalletTransaction;
 class KWalletSyncTimer;
-class KWalletSession;
+class KWalletSessionStore;
 
 class KWalletD : public QObject, protected QDBusContext {
 	Q_OBJECT
@@ -225,24 +225,8 @@ class KWalletD : public QObject, protected QDBusContext {
 		QDBusInterface *screensaver;
 #endif
 
-		// session handling
-		// the session handling is a bit of a mess. This however is mostly
-		// due to the fact that the public dbus api is based on application
-		// names instead of session and we can't break compatibility.
-		typedef QPair<QString,int> AppHandlePair;
-		QHash< QString,QList<KWalletSession*> > _sessions; // application => session
-		// add a new sessions
-		void addSession(const QString &appid, KWalletSession *session);
-		// search if the application already has the handle
-		bool hasSession(const QString &appid, int handle = -1) const;
-		// find all sessions belonging to the service
-		QList<AppHandlePair> findSessions(const QString &service);
-		// remove one session matching the attributes.
-		bool removeSession(const QString &appid, const QString &service, int handle);
-		// remove all sessions for an application/handle pair
-		int removeAllSessions(const QString &appid, int handle);
-		// Invalidate a handle
-		void removeAllSessions(int handle);
+		// sessions
+		KWalletSessionStore *_sessions;
 };
 
 
