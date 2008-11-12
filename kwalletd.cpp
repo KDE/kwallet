@@ -53,7 +53,7 @@
 
 #include <assert.h>
 
-#include "kwalletdadaptor.h"
+#include "kwalletadaptor.h"
 #include "kwalletsynctimer.h"
 #include "kwalletopenloop.h"
 
@@ -115,7 +115,7 @@ KWalletD::KWalletD()
 	_idleTime = 0;
 	connect(_timeouts, SIGNAL(timedOut(int)), this, SLOT(timedOut(int)));
 
-	(void)new KWalletDAdaptor(this);
+	(void)new KWalletAdaptor(this);
 	// register services
 	QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.kwalletd"));
 	QDBusConnection::sessionBus().registerObject(QLatin1String("/modules/kwalletd"), this);
@@ -1560,4 +1560,3 @@ int KWalletD::removeAllSessions(const QString &appid, int handle)
 }
 
 #include "kwalletd.moc"
-#include "kwalletdadaptor.moc"

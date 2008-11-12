@@ -25,6 +25,9 @@ kde4_add_ui_files(kwalletd_KDEINIT_SRCS
    kwalletwizardpagepassword.ui
 )
 
+set(kwallet_xml ${DBUS_INTERFACES_INSTALL_DIR}/org.kde.KWallet.xml)
+qt4_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
+
 kde4_add_kdeinit_executable( kwalletd ${kwalletd_KDEINIT_SRCS} )
 
 # uses kio for KDirWatch
