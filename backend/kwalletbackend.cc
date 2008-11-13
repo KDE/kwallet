@@ -40,7 +40,7 @@
 #include <assert.h>
 
 // quick fix to get random numbers on win32
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN //krazy:exclude=cpp
   #include <windows.h>
   #include <wincrypt.h>
 #endif
@@ -90,7 +90,7 @@ Backend::~Backend() {
 
 static int getRandomBlock(QByteArray& randBlock) {
 
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN //krazy:exclude=cpp
 
 	// Use windows crypto API to get randomness on win32
 	// HACK: this should be done using qca
