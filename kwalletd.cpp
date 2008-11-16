@@ -265,7 +265,7 @@ int KWalletD::openAsync(const QString& wallet, qlonglong wId, const QString& app
 		return -1;
 	}
 	
-	if (!QRegExp("^[A-Za-z0-9]+[A-Za-z0-9\\s\\-_]*$").exactMatch(wallet)) {
+	if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_]+$").exactMatch(wallet)) {
 		return -1;
 	}
 
@@ -768,7 +768,7 @@ QStringList KWalletD::wallets() const {
 	QDir dir(path, "*.kwl");
 	QStringList rc;
 
-	dir.setFilter(QDir::Files);
+	dir.setFilter(QDir::Files | QDir::Hidden);
 
 	foreach (const QFileInfo &fi, dir.entryInfoList()) {
 		QString fn = fi.fileName();
