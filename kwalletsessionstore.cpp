@@ -35,7 +35,7 @@ KWalletSessionStore::KWalletSessionStore()
 
 KWalletSessionStore::~KWalletSessionStore()
 {
-	Q_FOREACH(const QList<Session*> l, m_sessions.values()) {
+	Q_FOREACH(const QList<Session*> &l, m_sessions) {
 		qDeleteAll(l);
 	}
 }
