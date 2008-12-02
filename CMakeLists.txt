@@ -26,9 +26,9 @@ kde4_add_ui_files(kwalletd_KDEINIT_SRCS
 )
 
 if(WIN32)
-    find_file(kwallet_xml ${DBUS_INTERFACES_INSTALL_DIR}/org.kde.KWallet.xml)
+    find_file(kwallet_xml ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KWallet.xml)
 else(WIN32)
-    set(kwallet_xml ${DBUS_INTERFACES_INSTALL_DIR}/org.kde.KWallet.xml)
+    set(kwallet_xml ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KWallet.xml)
 endif(WIN32)
 
 qt4_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
