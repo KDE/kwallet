@@ -13,7 +13,7 @@ set(backendtest_SRCS backendtest.cpp )
 
 kde4_add_executable(backendtest TEST ${backendtest_SRCS})
 
-target_link_libraries(backendtest  ${KDE4_KDECORE_LIBS} kwalletbackend )
+target_link_libraries(backendtest  ${KDE4_KDEUI_LIBS} kwalletbackend )
 
 
 ########### next target ###############
