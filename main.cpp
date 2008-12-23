@@ -36,7 +36,7 @@ static bool isWalletEnabled()
 extern "C" KDE_EXPORT int kdemain(int argc, char **argv)
 {
     KAboutData aboutdata("kwalletd", 0, ki18n("KDE Wallet Service"),
-                         "0.1", ki18n("KDE Wallet Service"),
+                         "0.2", ki18n("KDE Wallet Service"),
                          KAboutData::License_LGPL, ki18n("(C) 2002-2008 George Staikos, Michael Leupold, Thiago Maceira"));
     aboutdata.addAuthor(ki18n("Michael Leupold"),ki18n("Maintainer"),"lemma@confuego.org");
     aboutdata.addAuthor(ki18n("George Staikos"),ki18n("Former maintainer"),"staikos@kde.org");
