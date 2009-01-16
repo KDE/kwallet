@@ -40,7 +40,7 @@ extern "C" KDE_EXPORT int kdemain(int argc, char **argv)
                          KAboutData::License_LGPL, ki18n("(C) 2002-2008 George Staikos, Michael Leupold, Thiago Maceira"));
     aboutdata.addAuthor(ki18n("Michael Leupold"),ki18n("Maintainer"),"lemma@confuego.org");
     aboutdata.addAuthor(ki18n("George Staikos"),ki18n("Former maintainer"),"staikos@kde.org");
-    aboutdata.addAuthor(ki18n("Thiago Maceira"),ki18n("DBus Interface"),"thiago@kde.org");
+    aboutdata.addAuthor(ki18n("Thiago Maceira"),ki18n("D-Bus Interface"),"thiago@kde.org");
 
     KCmdLineArgs::init( argc, argv, &aboutdata );
     KUniqueApplication::addCmdLineOptions();
