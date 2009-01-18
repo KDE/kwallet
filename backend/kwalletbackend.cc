@@ -513,12 +513,15 @@ int Backend::sync() {
 
 	KSaveFile sf(_path);
 
-	if (!sf.open()) {
+	if (!sf.open(QIODevice::WriteOnly | QIODevice::Unbuffered)) {
 		return -1;		// error opening file
 	}
 	sf.setPermissions(QFile::ReadUser|QFile::WriteUser);
 
-	sf.write(KWMAGIC, KWMAGIC_LEN);
+	if (sf.write(KWMAGIC, KWMAGIC_LEN) != KWMAGIC_LEN) {
+		sf.abort();
+		return -4; // write error
+	}
 
 	// Write the version number
 	QByteArray version(4, 0);
@@ -526,7 +529,10 @@ int Backend::sync() {
 	version[1] = KWALLET_VERSION_MINOR;
 	version[2] = KWALLET_CIPHER_BLOWFISH_CBC;
 	version[3] = KWALLET_HASH_SHA1;
-	sf.write(version, 4);
+	if (sf.write(version, 4) != 4) {
+		sf.abort();
+		return -4; // write error
+	}
 
 	// Holds the hashes we write out
 	QByteArray hashes;
@@ -563,7 +569,10 @@ int Backend::sync() {
 		}
 	}
 
-	sf.write(hashes, hashes.size());
+	if (sf.write(hashes, hashes.size()) != hashes.size()) {
+		sf.abort();
+		return -4; // write error
+	}
 
 	// calculate the hash of the file
 	SHA1 sha;
@@ -621,7 +630,7 @@ int Backend::sync() {
 	if (!bf.setKey(_passhash.data(), _passhash.size() * 8)) {
 		wholeFile.fill(0);
 		sf.abort();
-		return -2;
+		return -2; // encrypt error
 	}
 
 	int rc = bf.encrypt(wholeFile.data(), wholeFile.size());
@@ -632,7 +641,11 @@ int Backend::sync() {
 	}
 
 	// write the file
-	sf.write(wholeFile, wholeFile.size());
+	if (sf.write(wholeFile, wholeFile.size()) != wholeFile.size()) {
+		wholeFile.fill(0);
+		sf.abort();
+		return -4; // write error
+	}
 	if (!sf.finalize()) {
 		wholeFile.fill(0);
 		return -4; // write error
