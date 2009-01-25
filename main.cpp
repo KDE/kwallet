@@ -42,6 +42,8 @@ extern "C" KDE_EXPORT int kdemain(int argc, char **argv)
     aboutdata.addAuthor(ki18n("George Staikos"),ki18n("Former maintainer"),"staikos@kde.org");
     aboutdata.addAuthor(ki18n("Thiago Maceira"),ki18n("D-Bus Interface"),"thiago@kde.org");
 
+    aboutdata.setProgramIconName("kwalletmanager");
+
     KCmdLineArgs::init( argc, argv, &aboutdata );
     KUniqueApplication::addCmdLineOptions();
     KUniqueApplication app;

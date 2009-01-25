@@ -26,10 +26,17 @@ KBetterThanKDialog::KBetterThanKDialog( QWidget *parent )
   connect(_allowAlways, SIGNAL(clicked()), this, SLOT(allowAlwaysClicked()));
   connect(_deny, SIGNAL(clicked()), this, SLOT(denyClicked()));
   connect(_denyForever, SIGNAL(clicked()), this, SLOT(denyForeverClicked()));
+
+  init();
 }
 
 void KBetterThanKDialog::init()
 {
+    _allowOnce->setIcon(KIcon("dialog-ok"));
+    _allowAlways->setIcon(KIcon("dialog-ok"));
+    _deny->setIcon(KIcon("dialog-cancel"));
+    _denyForever->setIcon(KIcon("dialog-cancel"));
+
     _allowOnce->setFocus();
 }
 

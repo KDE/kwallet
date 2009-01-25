@@ -324,12 +324,10 @@ void KWalletD::setupDialog( QWidget* dialog, WId wId, const QString& appid, bool
 		// with keeping the dialog on top or on all desktops
 		kapp->updateUserTimestamp();
 	}
-#ifdef Q_WS_X11
 	if( modal )
 		KWindowSystem::setState( dialog->winId(), NET::Modal );
 	else
 		KWindowSystem::clearState( dialog->winId(), NET::Modal );
-#endif
 	activeDialog = dialog;
 }
 
@@ -343,11 +341,9 @@ void KWalletD::checkActiveDialog() {
 	if( !activeDialog || activeDialog->isHidden())
 		return;
 	kapp->updateUserTimestamp();
-#ifdef Q_WS_X11
 	KWindowSystem::setState( activeDialog->winId(), NET::KeepAbove );
 	KWindowSystem::setOnAllDesktops( activeDialog->winId(), true );
 	KWindowSystem::forceActiveWindow( activeDialog->winId());
-#endif
 }
 
 
@@ -556,15 +552,16 @@ bool KWalletD::isAuthorizedApp(const QString& appid, const QString& wallet, WId 
 	if (!implicitAllow(wallet, thisApp)) {
 		KConfigGroup cfg = KSharedConfig::openConfig("kwalletrc")->group("Auto Allow");
 		if (!cfg.isEntryImmutable(wallet)) {
-		    KBetterThanKDialog *dialog = new KBetterThanKDialog;
-		    if (appid.isEmpty()) {
-			dialog->setLabel(i18n("<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>", Qt::escape(wallet)));
-		    } else {
-			dialog->setLabel(i18n("<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>%2</b>'.</qt>", Qt::escape(QString(appid)), Qt::escape(wallet)));
-		    }
-		    setupDialog( dialog, w, appid, false );
-		    response = dialog->exec();
-		    delete dialog;
+			KBetterThanKDialog *dialog = new KBetterThanKDialog;
+			dialog->setWindowTitle(i18n("KDE Wallet Service"));
+			if (appid.isEmpty()) {
+				dialog->setLabel(i18n("<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>", Qt::escape(wallet)));
+			} else {
+				dialog->setLabel(i18n("<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>%2</b>'.</qt>", Qt::escape(QString(appid)), Qt::escape(wallet)));
+			}
+			setupDialog( dialog, w, appid, false );
+			response = dialog->exec();
+			delete dialog;
 		}
 	}
 
