@@ -265,7 +265,7 @@ int KWalletD::openAsync(const QString& wallet, qlonglong wId, const QString& app
 		return -1;
 	}
 	
-	if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_]+$").exactMatch(wallet)) {
+	if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_\\s]+$").exactMatch(wallet)) {
 		return -1;
 	}
 
