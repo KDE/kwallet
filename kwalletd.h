@@ -176,6 +176,7 @@ class KWalletD : public QObject, protected QDBusContext {
 		void timedOutSync(int handle);
 		void notifyFailures();
 		void processTransactions();
+		void activatePasswordDialog();
 
 	private:
 		// Internal - open a wallet
@@ -225,6 +226,7 @@ class KWalletD : public QObject, protected QDBusContext {
 		KWalletTransaction *_curtrans; // current transaction
 		QList<KWalletTransaction*> _transactions;
 		QPointer< QWidget > activeDialog;
+		
 #ifdef Q_WS_X11
 		QDBusInterface *screensaver;
 #endif

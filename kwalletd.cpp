@@ -43,6 +43,7 @@
 #include <kwindowsystem.h>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
+#include <KNotification>
 
 #include <QtCore/QDir>
 #include <QtGui/QTextDocument> // Qt::escape
@@ -401,7 +402,7 @@ int KWalletD::doTransactionOpen(const QString& appid, const QString& wallet, boo
 int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isPath, WId w,
                            bool modal, const QString& service) {
 	bool brandNew = false;
-
+	
 	QString thisApp;
 	if (appid.isEmpty()) {
 		thisApp = "KDE System";
@@ -443,6 +444,30 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				kpd->setButtonGuiItem(KDialog::Ok,KGuiItem( i18n( "&Open" ), "document-open"));
 				kpd->setCaption(i18n("KDE Wallet Service"));
 				kpd->setPixmap(KIcon("kwalletmanager").pixmap(KIconLoader::SizeHuge));
+				if (w != KWindowSystem::activeWindow()) {
+					// If the dialog is modal to a minimized window it might not be visible
+					// (but still blocking the calling application). Notify the user about
+					// the request to open the wallet.
+					KNotification *notification = new KNotification("needsPassword", kpd,
+					                                                KNotification::Persistent |
+					                                                KNotification::CloseWhenWidgetActivated);
+					if (appid.isEmpty()) {
+						notification->setText(i18n("<b>KDE</b> has requested to open a wallet (%1).",
+						                           Qt::escape(wallet)));
+						notification->setActions(QStringList(i18nc("Text of a button for switching to "
+						                                           "the (unnamed) application requesting a "
+						                                           "password", "Switch there")));
+					} else {
+						notification->setText(i18n("<b>%1</b> has requested to open a wallet (%2).",
+						                           Qt::escape(appid), Qt::escape(wallet)));
+						notification->setActions(QStringList(i18nc("Text of a button for switching to "
+						                                           "the application requesting a password.",
+						                                           "Switch to %1", Qt::escape(appid))));
+					}
+					connect(notification, SIGNAL(action1Activated()),
+					        this, SLOT(activatePasswordDialog()));
+					notification->sendEvent();
+				}
 				while (!b->isOpen()) {
 					setupDialog( kpd, w, appid, modal );
 					if (kpd->exec() == KDialog::Accepted) {
@@ -1405,6 +1430,13 @@ void KWalletD::screenSaverChanged(bool s)
 {
 	if (s)
 		closeAllWallets();
+}
+
+void KWalletD::activatePasswordDialog()
+{
+	if (activeDialog) {
+		KWindowSystem::forceActiveWindow(activeDialog->winId());
+	}
 }
 
 #include "kwalletd.moc"

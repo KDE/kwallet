@@ -1,0 +1,9 @@
+[Global]
+IconName=kwalletmanager
+Comment=The KDE Wallet Daemon
+Name=kwalletd
+
+[Event/needsPassword]
+Name=Needs password
+Comment=The KDE Wallet Daemon requests a password
+Action=Popup
