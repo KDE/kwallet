@@ -444,7 +444,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				kpd->setButtonGuiItem(KDialog::Ok,KGuiItem( i18n( "&Open" ), "document-open"));
 				kpd->setCaption(i18n("KDE Wallet Service"));
 				kpd->setPixmap(KIcon("kwalletmanager").pixmap(KIconLoader::SizeHuge));
-				if (w != KWindowSystem::activeWindow()) {
+				if (w != KWindowSystem::activeWindow() && w != 0L) {
 					// If the dialog is modal to a minimized window it might not be visible
 					// (but still blocking the calling application). Notify the user about
 					// the request to open the wallet.
