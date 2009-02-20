@@ -451,20 +451,22 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 					KNotification *notification = new KNotification("needsPassword", kpd,
 					                                                KNotification::Persistent |
 					                                                KNotification::CloseWhenWidgetActivated);
+					QStringList actions(i18nc("Text of a button to ignore the open-wallet notification", "Ignore"));
 					if (appid.isEmpty()) {
 						notification->setText(i18n("<b>KDE</b> has requested to open a wallet (%1).",
 						                           Qt::escape(wallet)));
-						notification->setActions(QStringList(i18nc("Text of a button for switching to "
-						                                           "the (unnamed) application requesting a "
-						                                           "password", "Switch there")));
+						actions.append(i18nc("Text of a button for switching to the (unnamed) application "
+						                     "requesting a password", "Switch there"));
 					} else {
 						notification->setText(i18n("<b>%1</b> has requested to open a wallet (%2).",
 						                           Qt::escape(appid), Qt::escape(wallet)));
-						notification->setActions(QStringList(i18nc("Text of a button for switching to "
-						                                           "the application requesting a password.",
-						                                           "Switch to %1", Qt::escape(appid))));
+						actions.append(i18nc("Text of a button for switching to the application requesting "
+						                     "a password", "Switch to %1", Qt::escape(appid)));
 					}
+					notification->setActions(actions);
 					connect(notification, SIGNAL(action1Activated()),
+					        notification, SLOT(close()));
+					connect(notification, SIGNAL(action2Activated()),
 					        this, SLOT(activatePasswordDialog()));
 					notification->sendEvent();
 				}
