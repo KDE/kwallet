@@ -1,27 +1,34 @@
 [Global]
 IconName=kwalletmanager
 Comment=The KDE Wallet Daemon
+Comment[et]=KDE turvalaeka deemon
 Comment[ga]=Deamhan Sparáin KDE
 Comment[gl]=O daemon de carteiras de KDE
+Comment[nds]=De KDE-Knipp-Dämoon
 Comment[pt]=O Servidor da Carteira do KDE
 Comment[pt_BR]=O daemon da carteira do KDE
 Comment[sv]=KDE-plånboksdemon
 Comment[uk]=Фонова служба кишені KDE
 Comment[zh_TW]=KDE 錢包伺服程式
 Name=kwalletd
+Name[nds]=Kwalletd
 
 [Event/needsPassword]
 Name=Needs password
+Name[et]=Vajalik on parool
 Name[ga]=Focal faire de dhíth
 Name[gl]=Precisa dun contrasinal
+Name[nds]=Passwoort deit noot
 Name[pt]=Necessita de senha
 Name[pt_BR]=Necessita senha
 Name[sv]=Kräver lösenord
 Name[uk]=Потрібен пароль
 Name[zh_TW]=需要密碼
 Comment=The KDE Wallet Daemon requests a password
+Comment[et]=KDE turvalaeka deemon nõuab parooli
 Comment[ga]=Tá Deamhan Sparáin KDE ag iarraidh focal faire
 Comment[gl]=O Daemon de carteiras de KDE pide un contrasinal
+Comment[nds]=De KDE-Knipp-Dämoon bruukt en Passwoort
 Comment[pt]=O Servidor da Carteira do KDE está a pedir uma senha
 Comment[pt_BR]=O servidor da carteira do KDE está solicitando uma senha
 Comment[sv]=KDE-plånboksdemonen begär ett lösenord
