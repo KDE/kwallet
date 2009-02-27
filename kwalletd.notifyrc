@@ -1,6 +1,7 @@
 [Global]
 IconName=kwalletmanager
 Comment=The KDE Wallet Daemon
+Comment[en_GB]=The KDE Wallet Dæmon
 Comment[et]=KDE turvalaeka deemon
 Comment[ga]=Deamhan Sparáin KDE
 Comment[gl]=O daemon de carteiras de KDE
@@ -25,6 +26,7 @@ Name[sv]=Kräver lösenord
 Name[uk]=Потрібен пароль
 Name[zh_TW]=需要密碼
 Comment=The KDE Wallet Daemon requests a password
+Comment[en_GB]=The KDE Wallet Dæmon requests a password
 Comment[et]=KDE turvalaeka deemon nõuab parooli
 Comment[ga]=Tá Deamhan Sparáin KDE ag iarraidh focal faire
 Comment[gl]=O Daemon de carteiras de KDE pide un contrasinal
