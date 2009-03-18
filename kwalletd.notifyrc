@@ -14,9 +14,11 @@ Comment[pt_BR]=O daemon da carteira do KDE
 Comment[ro]=Demonul de portofel KDE
 Comment[sv]=KDE-plånboksdemon
 Comment[uk]=Фонова служба кишені KDE
+Comment[x-test]=xxThe KDE Wallet Daemonxx
 Comment[zh_TW]=KDE 錢包伺服程式
 Name=kwalletd
 Name[nds]=Kwalletd
+Name[x-test]=xxkwalletdxx
 
 [Event/needsPassword]
 Name=Needs password
@@ -32,6 +34,7 @@ Name[pt_BR]=Necessita senha
 Name[ro]=Necesită parolă
 Name[sv]=Kräver lösenord
 Name[uk]=Потрібен пароль
+Name[x-test]=xxNeeds passwordxx
 Name[zh_TW]=需要密碼
 Comment=The KDE Wallet Daemon requests a password
 Comment[en_GB]=The KDE Wallet Dæmon requests a password
@@ -47,5 +50,6 @@ Comment[pt_BR]=O servidor da carteira do KDE está solicitando uma senha
 Comment[ro]=Demonul de portofel KDE cere o parolă
 Comment[sv]=KDE-plånboksdemonen begär ett lösenord
 Comment[uk]=Фонова служба кишені KDE надіслала запит на пароль
+Comment[x-test]=xxThe KDE Wallet Daemon requests a passwordxx
 Comment[zh_TW]=KDE 錢包守護程式需要密碼
 Action=Popup
