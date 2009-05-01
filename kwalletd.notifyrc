@@ -1,6 +1,7 @@
 [Global]
 IconName=kwalletmanager
 Comment=The KDE Wallet Daemon
+Comment[de]=Dienst für die digitale Brieftasche
 Comment[el]=Δαίμονας πορτοφολιού του KDE
 Comment[en_GB]=The KDE Wallet Dæmon
 Comment[et]=KDE turvalaeka deemon
