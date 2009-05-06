@@ -28,6 +28,7 @@ Name[x-test]=xxkwalletdxx
 
 [Event/needsPassword]
 Name=Needs password
+Name[de]=Passwort erforderlich
 Name[el]=Απαιτείται κωδικός πρόσβασης
 Name[et]=Vajalik on parool
 Name[ga]=Focal faire de dhíth
@@ -49,6 +50,7 @@ Name[uk]=Потрібен пароль
 Name[x-test]=xxNeeds passwordxx
 Name[zh_TW]=需要密碼
 Comment=The KDE Wallet Daemon requests a password
+Comment[de]=Die digitale Brieftasche benötigt ein Passwort
 Comment[el]=Ο δαίμονας πορτοφολιού του KDE απαιτεί έναν κωδικό πρόσβασης
 Comment[en_GB]=The KDE Wallet Dæmon requests a password
 Comment[et]=KDE turvalaeka deemon nõuab parooli
