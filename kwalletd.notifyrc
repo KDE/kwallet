@@ -2,6 +2,7 @@
 IconName=kwalletmanager
 Comment=The KDE Wallet Daemon
 Comment[csb]=Demóna KDE Wallet
+Comment[da]=Dæmon for KDE's tegnebog
 Comment[de]=Dienst für die digitale Brieftasche
 Comment[el]=Δαίμονας πορτοφολιού του KDE
 Comment[en_GB]=The KDE Wallet Dæmon
@@ -31,6 +32,7 @@ Name[x-test]=xxkwalletdxx
 [Event/needsPassword]
 Name=Needs password
 Name[csb]=Wëmôgô zjinaczi parolë
+Name[da]=Kræver adgangskode
 Name[de]=Passwort erforderlich
 Name[el]=Απαιτείται κωδικός πρόσβασης
 Name[et]=Vajalik on parool
@@ -55,6 +57,7 @@ Name[x-test]=xxNeeds passwordxx
 Name[zh_TW]=需要密碼
 Comment=The KDE Wallet Daemon requests a password
 Comment[csb]=Demóna KDE Wallet żądô parolë
+Comment[da]=Dæmonen for KDE's tegnebog anmoder om en adgangskode
 Comment[de]=Die digitale Brieftasche benötigt ein Passwort
 Comment[el]=Ο δαίμονας πορτοφολιού του KDE απαιτεί έναν κωδικό πρόσβασης
 Comment[en_GB]=The KDE Wallet Dæmon requests a password
