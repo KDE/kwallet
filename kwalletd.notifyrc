@@ -18,6 +18,7 @@ Comment[ja]=KDE ウォレットデーモン
 Comment[km]=ដេមិន​កាបូប​របស់ KDE
 Comment[ko]=KDE 지갑 데몬
 Comment[lv]=KDE Maka dēmons
+Comment[ml]=കെഡിഇയിലെ വാലറ്റ് നിരന്തരപ്രവൃത്തി
 Comment[nb]=KDEs lommeboknisse
 Comment[nds]=De KDE-Knipp-Dämoon
 Comment[pt]=O Servidor da Carteira do KDE
@@ -32,6 +33,7 @@ Comment[x-test]=xxThe KDE Wallet Daemonxx
 Comment[zh_CN]=KDE 钱包守护程序
 Comment[zh_TW]=KDE 錢包伺服程式
 Name=kwalletd
+Name[ml]=കെവാലറ്റ്ഡി
 Name[nds]=Kwalletd
 Name[x-test]=xxkwalletdxx
 
@@ -53,6 +55,7 @@ Name[ja]=パスワードが必要
 Name[km]=ត្រូវការ​ពាក្យសម្ងាត់
 Name[ko]=암호 필요함
 Name[lv]=Nepieciešama parole
+Name[ml]=അടയാളവാക്ക് വേണം
 Name[nb]=Trenger passord
 Name[nds]=Passwoort deit noot
 Name[pt]=Necessita de senha
@@ -83,6 +86,7 @@ Comment[ja]=KDE ウォレットデーモンがパスワードを要求してい�
 Comment[km]=ដេមិន​កាបូប​របស់ KDE ស្នើ​ពាក្យសម្ងាត់
 Comment[ko]=KDE 지갑 데몬에서 암호를 물어봅니다
 Comment[lv]=KDE Maka dēmons pieprasa paroli
+Comment[ml]=കെഡിയിലെ വാലറ്റ് നിരന്തരപ്രവൃത്തി ഒരു അടയാളവാക്കു് ചോദിയ്ക്കുന്നു
 Comment[nb]=KDEs lommeboknisse ber om et passord
 Comment[nds]=De KDE-Knipp-Dämoon bruukt en Passwoort
 Comment[pt]=O Servidor da Carteira do KDE está a pedir uma senha
