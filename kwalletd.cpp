@@ -414,7 +414,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 		return -1;
 	}
 
-	const QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
+	QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
 	int rc = walletInfo.first;
 	if (rc == -1) {
 		if (_wallets.count() > 20) {
@@ -555,11 +555,28 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 			KToolInvocation::startServiceByDesktopName("kwalletmanager-kwalletd");
 		}
 	} else {
-		if (!_sessions.hasSession(appid, rc) && !isAuthorizedApp(appid, wallet, w)) {
+		// prematurely add a reference so that the wallet does not close while the
+		// authorization dialog is being shown.
+		walletInfo.second->ref();
+		bool isAuthorized = _sessions.hasSession(appid, rc) || isAuthorizedApp(appid, wallet, w);
+		// as the wallet might have been forcefully closed, find it again to make sure it's
+		// still available (isAuthorizedApp might show a dialog).
+		walletInfo = findWallet(wallet);
+		if (!isAuthorized) {
+			if (walletInfo.first != -1) {
+				walletInfo.second->deref();
+				// check if the wallet should be closed now.
+				internalClose(walletInfo.second, walletInfo.first, false);
+			}
 			return -1;
+		} else {
+			if (walletInfo.first != -1) {
+				_sessions.addSession(appid, service, rc);
+			} else {
+				// wallet was forcefully closed.
+				return -1;
+			}
 		}
-		_sessions.addSession(appid, service, rc);
-		_wallets.value(rc)->ref();
 	}
 
 	return rc;
