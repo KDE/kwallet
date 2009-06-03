@@ -1,6 +1,7 @@
 [Global]
 IconName=kwalletmanager
 Comment=The KDE Wallet Daemon
+Comment[bg]=Услуга "портфейл" за KDE
 Comment[ca]=Dimoni de carteres del KDE
 Comment[ca@valencia]=Dimoni de carteres del KDE
 Comment[csb]=Demóna KDE Wallet
@@ -41,6 +42,7 @@ Name[x-test]=xxkwalletdxx
 
 [Event/needsPassword]
 Name=Needs password
+Name[bg]=Нужна е парола
 Name[ca]=Cal contrasenya
 Name[ca@valencia]=Cal contrasenya
 Name[csb]=Wëmôgô zjinaczi parolë
@@ -74,6 +76,7 @@ Name[x-test]=xxNeeds passwordxx
 Name[zh_CN]=需要密码
 Name[zh_TW]=需要密碼
 Comment=The KDE Wallet Daemon requests a password
+Comment[bg]=Услугата "портфейл" на KDE изисква парола
 Comment[ca]=El dimoni de carteres del KDE demana una contrasenya
 Comment[ca@valencia]=El dimoni de carteres del KDE demana una contrasenya
 Comment[csb]=Demóna KDE Wallet żądô parolë
