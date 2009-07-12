@@ -352,11 +352,11 @@ int KWalletD::doTransactionOpen(const QString& appid, const QString& wallet, boo
                                 qlonglong wId, bool modal, const QString& service) {
 	if (_firstUse && !wallets().contains(KWallet::Wallet::LocalWallet()) && !isPath) {
 		// First use wizard
-		KWalletWizard *wiz = new KWalletWizard(0);
+		QPointer<KWalletWizard> wiz = new KWalletWizard(0);
 		wiz->setWindowTitle(i18n("KDE Wallet Service"));
 		setupDialog( wiz, (WId)wId, appid, modal );
 		int rc = wiz->exec();
-		if (rc == QDialog::Accepted) {
+		if (rc == QDialog::Accepted && wiz) {
 			bool useWallet = wiz->field("useWallet").toBool();
 			KConfig kwalletrc("kwalletrc");
 			KConfigGroup cfg(&kwalletrc, "Wallet");
@@ -698,12 +698,12 @@ void KWalletD::doTransactionChangePassword(const QString& appid, const QString& 
 
 	assert(w);
 
-	KNewPasswordDialog *kpd = new KNewPasswordDialog();
+	QPointer<KNewPasswordDialog> kpd = new KNewPasswordDialog();
 	kpd->setPrompt(i18n("<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>", Qt::escape(wallet)));
 	kpd->setCaption(i18n("KDE Wallet Service"));
 	kpd->setAllowEmptyPasswords(true);
 	setupDialog( kpd, (WId)wId, appid, false );
-	if (kpd->exec() == KDialog::Accepted) {
+	if (kpd->exec() == KDialog::Accepted && kpd) {
 		QString p = kpd->password();
 		if (!p.isNull()) {
 			w->setPassword(p.toUtf8());
@@ -813,7 +813,7 @@ QStringList KWalletD::wallets() const {
 
 	foreach (const QFileInfo &fi, dir.entryInfoList()) {
 		QString fn = fi.fileName();
-		if (fn.endsWith(".kwl")) {
+		if (fn.endsWith(QLatin1String(".kwl"))) {
 			fn.truncate(fn.length()-4);
 		}
 		rc += fn;

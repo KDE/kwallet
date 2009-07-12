@@ -65,7 +65,5 @@ extern "C" KDE_EXPORT int kdemain(int argc, char **argv)
     }
 
     KWalletD walletd;
-    int res = app.exec();
-    
-    return res;
+    return app.exec();
 }

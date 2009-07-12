@@ -71,7 +71,8 @@ bool KWalletSessionStore::hasSession(const QString &appid, int handle) const
 QList<KWalletAppHandlePair> KWalletSessionStore::findSessions(const QString &service) const
 {
 	QList<KWalletAppHandlePair> rc;
-	Q_FOREACH(const QString &appid, m_sessions.keys()) {
+	QList<QString> sessionKeys(m_sessions.keys());
+	Q_FOREACH(const QString &appid, sessionKeys) {
 		Q_FOREACH(const Session *sess, m_sessions[appid]) {
 			Q_ASSERT(sess);
 			if (sess->m_service == service) {
@@ -134,7 +135,8 @@ int KWalletSessionStore::removeAllSessions(const QString &appid, int handle)
 int KWalletSessionStore::removeAllSessions(int handle) {
 	QList<QString> appremove;
 	int numrem = 0;
-	Q_FOREACH(const QString &appid, m_sessions.keys()) {
+	QList<QString> sessionKeys(m_sessions.keys());
+	Q_FOREACH(const QString &appid, sessionKeys) {
 		QList<Session*>::iterator it;
 		QList<Session*>::iterator end = m_sessions[appid].end();
 		for (it = m_sessions[appid].begin(); it != end; ++it) {
