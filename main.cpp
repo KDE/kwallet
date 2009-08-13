@@ -54,13 +54,13 @@ extern "C" KDE_EXPORT int kdemain(int argc, char **argv)
 
     // check if kwallet is disabled
     if (!isWalletEnabled()) {
-      kDebug(7024) << "kwalletd is disabled!";
+      kDebug() << "kwalletd is disabled!";
       return (0);
     }
 
     if (!KUniqueApplication::start())
     {
-      kDebug(7024) << "kwalletd is already running!";
+      kDebug() << "kwalletd is already running!";
       return (0);
     }
 
