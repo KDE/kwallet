@@ -52,7 +52,7 @@ Name=kwalletd
 Name[hr]=kwalletd – KNovčanik daemon
 Name[mai]=केवालेट्ड
 Name[ml]=കെവാലറ്റ്ഡി
-Name[nds]=Kwalletd
+Name[nds]=KWalletd
 Name[x-test]=xxkwalletdxx
 
 [Event/needsPassword]
@@ -79,6 +79,7 @@ Name[is]=Þarf lykilorð
 Name[ja]=パスワードが必要
 Name[km]=ត្រូវការ​ពាក្យសម្ងាត់
 Name[ko]=암호 필요함
+Name[lt]=Reikia slaptažodžio
 Name[lv]=Nepieciešama parole
 Name[mai]=गुड़किल्लीकेँ जरूरत अछि
 Name[mk]=Потребна е лозинка
