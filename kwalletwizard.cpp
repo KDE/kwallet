@@ -36,6 +36,14 @@ public:
     {
         ui.setupUi(this);
 
+        ui.ktitlewidget->setText("<h1>" + i18n("KWallet") + "</h1>");
+
+        int iconSize = 3 * fontMetrics().height();
+        // round to multiple of 16
+        iconSize = (iconSize + 8) & ~15;
+        QPixmap pix = KIconLoader::global()->loadIcon("kwalletmanager", KIconLoader::Dialog, iconSize);
+        ui.ktitlewidget->setPixmap(pix);
+
         bg = new QButtonGroup(this);
         bg->setExclusive(true);
         bg->addButton(ui._basic, 0);
