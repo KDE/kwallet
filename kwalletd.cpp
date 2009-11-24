@@ -686,7 +686,7 @@ void KWalletD::doTransactionChangePassword(const QString& appid, const QString& 
 
 	bool reclose = false;
 	if (!w) {
-		handle = doTransactionOpen(appid, wallet, false, wId, false, false);
+		handle = doTransactionOpen(appid, wallet, false, wId, false, "");
 		if (-1 == handle) {
 			KMessageBox::sorryWId((WId)wId, i18n("Unable to open wallet. The wallet must be opened in order to change the password."), i18n("KDE Wallet Service"));
 			return;
