@@ -161,14 +161,14 @@ QPair<int, KWallet::Backend*> KWalletD::findWallet(const QString& walletName) co
     return qMakePair(-1, static_cast<KWallet::Backend*>(0));
 }
 
+bool KWalletD::_processing = false;
+
 void KWalletD::processTransactions() {
-	static bool processing = false;
-	
-	if (processing) {
+	if (_processing) {
 		return;
 	}
 
-	processing = true;
+	_processing = true;
 
 	// Process remaining transactions
 	while (!_transactions.isEmpty()) {
@@ -233,7 +233,7 @@ void KWalletD::processTransactions() {
 		_curtrans = 0;
 	}
 
-	processing = false;
+	_processing = false;
 }
 
 
@@ -1456,6 +1456,54 @@ void KWalletD::activatePasswordDialog()
 	if (activeDialog) {
 		KWindowSystem::forceActiveWindow(activeDialog->winId());
 	}
+}
+
+int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout)
+{
+   // don't do anything if transactions are already being processed!
+   if (_processing) {
+      return -1;
+   }
+   
+   // check if the wallet is already open
+   QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
+   int rc = walletInfo.first;
+   if (rc == -1) {
+      if (_wallets.count() > 20) {
+         kDebug() << "Too many wallets open.";
+         return -1;
+      }
+      
+      if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_\\s]+$").exactMatch(wallet) ||
+          !KWallet::Backend::exists(wallet)) {
+         return -1;
+      }
+      
+      KWallet::Backend *b = new KWallet::Backend(wallet);
+      int openrc = b->openPreHashed(passwordHash);
+      if (openrc == 0 && b->isOpen()) {
+         // opening the wallet was successful
+         int handle = generateHandle();
+         _wallets.insert(handle, b);
+         _syncTimers.addTimer(handle, _syncTime);
+         
+         // don't reference the wallet or add a session so it
+         // can be reclosed easily.
+         
+         if (sessionTimeout > 0) {
+            _closeTimers.addTimer(handle, sessionTimeout);
+         } else if (_closeIdle) {
+            _closeTimers.addTimer(handle, _idleTime);
+         }
+         emit walletOpened(wallet);
+         if (_wallets.count() == 1 && _launchManager) {
+            KToolInvocation::startServiceByDesktopName("kwalletmanager-kwalletd");
+         }
+         return handle;
+      }
+   }
+   
+   return -1;
 }
 
 #include "kwalletd.moc"

@@ -310,13 +310,31 @@ QString Backend::openRCToString(int rc) {
 
 
 int Backend::open(const QByteArray& password) {
-
 	if (_open) {
 		return -255;  // already open
 	}
 	
 	setPassword(password);
+   return openInternal();
+}
 
+int Backend::openPreHashed(const QByteArray &passwordHash)
+{
+   if (_open) {
+      return -255;  // already open
+   }
+   
+   // check the password hash for correct size (currently fixed)
+   if (passwordHash.size() != 20) {
+      return -42; // unsupported encryption scheme
+   }
+   
+   _passhash = passwordHash;
+   return openInternal();
+}
+ 
+int Backend::openInternal()
+{
 	// No wallet existed.  Let's create it.
 	// Note: 60 bytes is presently the minimum size of a wallet file.
 	//       Anything smaller is junk and should be deleted.
@@ -882,3 +900,4 @@ void Backend::setPassword(const QByteArray &password) {
 	_passhash.resize(bf.keyLen()/8);
 	password2hash(password, _passhash);
 }
+

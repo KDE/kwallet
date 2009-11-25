@@ -154,6 +154,11 @@ class KWalletD : public QObject, protected QDBusContext {
 		QString localWallet();
 
 		void screenSaverChanged(bool);
+      
+      // Open a wallet using a pre-hashed password. This is only useful in cooperation
+      // with the kwallet PAM module. It's also less secure than manually entering the
+      // password as the password hash is transmitted using D-Bus.
+      int pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout);
 
 	Q_SIGNALS:
 		void walletAsyncOpened(int id, int handle); // used to notify KWallet::Wallet
@@ -222,6 +227,7 @@ class KWalletD : public QObject, protected QDBusContext {
 		KTimeout _closeTimers;
 		KTimeout _syncTimers;
 		const int _syncTime;
+      static bool _processing;
 
 		KWalletTransaction *_curtrans; // current transaction
 		QList<KWalletTransaction*> _transactions;
