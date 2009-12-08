@@ -1,6 +1,7 @@
 [Global]
 IconName=kwalletmanager
 Comment=The KDE Wallet Daemon
+Comment[ar]=مراقب محفظة كدي
 Comment[bg]=Услуга "портфейл" за KDE
 Comment[ca]=Dimoni de carteres del KDE
 Comment[cs]=Démon úschovny KDE
@@ -56,6 +57,7 @@ Comment[x-test]=xxThe KDE Wallet Daemonxx
 Comment[zh_CN]=KDE 钱包守护程序
 Comment[zh_TW]=KDE 錢包伺服程式
 Name=kwalletd
+Name[ar]=kwalletd
 Name[bg]=kwalletd
 Name[ca]=kwalletd
 Name[cs]=kwalletd
@@ -114,6 +116,7 @@ Name[zh_TW]=kwalletd
 
 [Event/needsPassword]
 Name=Needs password
+Name[ar]=يحتاج كلمة السر
 Name[bg]=Нужна е парола
 Name[ca]=Cal contrasenya
 Name[cs]=Je třeba heslo
@@ -170,6 +173,7 @@ Name[x-test]=xxNeeds passwordxx
 Name[zh_CN]=需要密码
 Name[zh_TW]=需要密碼
 Comment=The KDE Wallet Daemon requests a password
+Comment[ar]=مراقب محفظة كدي يطلب كلمة سر
 Comment[bg]=Услугата "портфейл" на KDE изисква парола
 Comment[ca]=El dimoni de carteres del KDE demana una contrasenya
 Comment[cs]=Démon úschovny KDE požaduje heslo
