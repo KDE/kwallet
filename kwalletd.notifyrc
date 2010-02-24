@@ -1,6 +1,6 @@
 [Global]
 IconName=kwalletmanager
-Comment=The KDE Wallet Daemon
+Comment=Wallet
 Comment[ar]=مراقب محفظة كدي
 Comment[bg]=Услуга "портфейл" за KDE
 Comment[ca]=Dimoni de carteres del KDE
