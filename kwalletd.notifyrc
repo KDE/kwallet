@@ -1,6 +1,10 @@
 [Global]
 IconName=kwalletmanager
 Comment=Wallet
+Comment[pt]=Carteira
+Comment[pt_BR]=Carteira
+Comment[uk]=Торбинка
+Comment[x-test]=xxWalletxx
 Name=kwalletd
 Name[ar]=kwalletd
 Name[bg]=kwalletd
