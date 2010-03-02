@@ -1,6 +1,10 @@
 [Global]
 IconName=kwalletmanager
 Comment=Wallet
+Comment[el]=Πορτοφόλι
+Comment[es]=Cartera
+Comment[hr]=Novčanik
+Comment[nds]=Knipp
 Comment[pt]=Carteira
 Comment[pt_BR]=Carteira
 Comment[uk]=Торбинка
@@ -28,7 +32,7 @@ Name[gl]=kwalletd
 Name[gu]=kwalletd
 Name[he]=kwalletd
 Name[hi]=kwalletd
-Name[hr]=kwalletd – KNovčanik daemon
+Name[hr]=kwalletd
 Name[hu]=kwalletd
 Name[id]=kwalletd
 Name[is]=kwalletd
