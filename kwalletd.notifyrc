@@ -1,6 +1,7 @@
 [Global]
 IconName=kwalletmanager
 Comment=Wallet
+Comment[de]=Brieftasche
 Comment[el]=Πορτοφόλι
 Comment[es]=Cartera
 Comment[hr]=Novčanik
