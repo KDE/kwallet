@@ -34,7 +34,7 @@ qt4_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
 kde4_add_kdeinit_executable( kwalletd NOGUI ${kwalletd_KDEINIT_SRCS} )
 
 # uses kio for KDirWatch
-target_link_libraries(kdeinit_kwalletd  ${KDE4_KIO_LIBS} kwalletbackend )
+target_link_libraries(kdeinit_kwalletd  ${KDE4_KDEUI_LIBS} kwalletbackend )
 install(TARGETS kdeinit_kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 target_link_libraries(kwalletd kdeinit_kwalletd)
