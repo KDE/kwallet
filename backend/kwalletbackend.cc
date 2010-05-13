@@ -325,7 +325,7 @@ int Backend::openPreHashed(const QByteArray &passwordHash)
    }
    
    // check the password hash for correct size (currently fixed)
-   if (passwordHash.size() != 20 && passwordHash.size() != passwordHash.size() != 40 &&
+   if (passwordHash.size() != 20 && passwordHash.size() != 40 &&
 	   passwordHash.size() != 56) {
       return -42; // unsupported encryption scheme
    }
