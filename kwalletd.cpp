@@ -89,7 +89,7 @@ class KWalletTransaction {
 		bool modal;
 		bool isPath;
 		int tId; // transaction id
-
+		
 	private:
 		static int nextTransactionId;
 };
@@ -110,14 +110,14 @@ KWalletD::KWalletD()
 	// register services
 	QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.kwalletd"));
 	QDBusConnection::sessionBus().registerObject(QLatin1String("/modules/kwalletd"), this);
-
+	
 #ifdef Q_WS_X11
 	screensaver = new QDBusInterface("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver");
 #endif
 
 	reconfigure();
 	KGlobal::dirs()->addResourceType("kwallet", 0, "share/apps/kwallet");
-	connect(QDBusConnection::sessionBus().interface(),
+	connect(QDBusConnection::sessionBus().interface(), 
 	        SIGNAL(serviceOwnerChanged(QString,QString,QString)),
 	        SLOT(slotServiceOwnerChanged(QString,QString,QString)));
 	_dw = new KDirWatch(this );
@@ -204,16 +204,16 @@ void KWalletD::processTransactions() {
 					_xact->service = _curtrans->service;
 					_transactions.append(_xact);
 				}
-
+				
 				// emit the AsyncOpened signal as a reply
 				emit walletAsyncOpened(_curtrans->tId, res);
 				break;
-
+				
 			case KWalletTransaction::OpenFail:
 				// emit the AsyncOpened signal with an invalid handle
 				emit walletAsyncOpened(_curtrans->tId, -1);
 				break;
-
+				
 			case KWalletTransaction::ChangePassword:
 				doTransactionChangePassword(_curtrans->appid, _curtrans->wallet, _curtrans->wId);
 				break;
@@ -222,13 +222,13 @@ void KWalletD::processTransactions() {
 				doTransactionOpenCancelled(_curtrans->appid, _curtrans->wallet,
 				                            _curtrans->service);
 				break;
-
+				
 			case KWalletTransaction::Unknown:
 				break;
 			default:
 				break;
 		}
-
+		
 		delete _curtrans;
 		_curtrans = 0;
 	}
@@ -243,7 +243,7 @@ int KWalletD::openPath(const QString& path, qlonglong wId, const QString& appid)
 	if (tId < 0) {
 		return tId;
 	}
-
+	
 	// wait for the open-transaction to be processed
 	KWalletOpenLoop loop(this);
 	return loop.waitForAsyncOpen(tId);
@@ -254,7 +254,7 @@ int KWalletD::open(const QString& wallet, qlonglong wId, const QString& appid) {
 	if (tId < 0) {
 		return tId;
 	}
-
+	
 	// wait for the open-transaction to be processed
 	KWalletOpenLoop loop(this);
 	return loop.waitForAsyncOpen(tId);
@@ -265,7 +265,7 @@ int KWalletD::openAsync(const QString& wallet, qlonglong wId, const QString& app
 	if (!_enabled) { // guard
 		return -1;
 	}
-
+	
 	if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_\\s]+$").exactMatch(wallet)) {
 		return -1;
 	}
@@ -293,10 +293,10 @@ int KWalletD::openPathAsync(const QString& path, qlonglong wId, const QString& a
 	if (!_enabled) { // gaurd
 		return -1;
 	}
-
+	
 	KWalletTransaction *xact = new KWalletTransaction;
 	_transactions.append(xact);
-
+	
 	xact->appid = appid;
 	xact->wallet = path;
 	xact->wId = wId;
@@ -402,7 +402,7 @@ int KWalletD::doTransactionOpen(const QString& appid, const QString& wallet, boo
 int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isPath, WId w,
                            bool modal, const QString& service) {
 	bool brandNew = false;
-
+	
 	QString thisApp;
 	if (appid.isEmpty()) {
 		thisApp = "KDE System";
@@ -435,7 +435,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				}
 				KPasswordDialog *kpd = new KPasswordDialog();
 				if (appid.isEmpty()) {
-					kpd->setPrompt(i18n("<qt>The KDE workspace has requested to open the wallet '<b>%1</b>'. Please enter the password for this wallet below.</qt>", Qt::escape(wallet)));
+					kpd->setPrompt(i18n("<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the password for this wallet below.</qt>", Qt::escape(wallet)));
 				} else {
 					kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</b>'. Please enter the password for this wallet below.</qt>", Qt::escape(appid), Qt::escape(wallet)));
 				}
@@ -493,13 +493,13 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 			{
 				// Auto create these wallets.
 				if (appid.isEmpty()) {
-					kpd->setPrompt(i18n("The KDE workspace has requested to open the wallet. This is used to store sensitive data in a secure fashion. Please enter a password to use with this wallet or click cancel to deny the application's request."));
+					kpd->setPrompt(i18n("KDE has requested to open the wallet. This is used to store sensitive data in a secure fashion. Please enter a password to use with this wallet or click cancel to deny the application's request."));
 				} else {
 					kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This is used to store sensitive data in a secure fashion. Please enter a password to use with this wallet or click cancel to deny the application's request.</qt>", Qt::escape(appid)));
 				}
 			} else {
 				if (appid.length() == 0) {
-					kpd->setPrompt(i18n("<qt>The KDE workspace has requested to create a new wallet named '<b>%1</b>'. Please choose a password for this wallet, or cancel to deny the application's request.</qt>", Qt::escape(wallet)));
+					kpd->setPrompt(i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please choose a password for this wallet, or cancel to deny the application's request.</qt>", Qt::escape(wallet)));
 				} else {
 					kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to create a new wallet named '<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the application's request.</qt>", Qt::escape(appid), Qt::escape(wallet)));
 				}
@@ -599,7 +599,7 @@ bool KWalletD::isAuthorizedApp(const QString& appid, const QString& wallet, WId 
 			KBetterThanKDialog *dialog = new KBetterThanKDialog;
 			dialog->setWindowTitle(i18n("KDE Wallet Service"));
 			if (appid.isEmpty()) {
-				dialog->setLabel(i18n("<qt>The KDE workspace has requested access to the open wallet '<b>%1</b>'.</qt>", Qt::escape(wallet)));
+				dialog->setLabel(i18n("<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>", Qt::escape(wallet)));
 			} else {
 				dialog->setLabel(i18n("<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>%2</b>'.</qt>", Qt::escape(QString(appid)), Qt::escape(wallet)));
 			}
@@ -824,7 +824,7 @@ QStringList KWalletD::wallets() const {
 
 void KWalletD::sync(int handle, const QString& appid) {
 	KWallet::Backend *b;
-
+	
 	// get the wallet and check if we have a password for it (safety measure)
 	if ((b = getWallet(appid, handle))) {
 		QString wallet = b->walletName();
@@ -848,7 +848,7 @@ void KWalletD::doTransactionOpenCancelled(const QString& appid, const QString& w
 	if (!_sessions.hasSession(appid)) {
 		return;
 	}
-
+	
 	const QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
 	int handle = walletInfo.first;
 	KWallet::Backend *b = walletInfo.second;
@@ -856,7 +856,7 @@ void KWalletD::doTransactionOpenCancelled(const QString& appid, const QString& w
 		b->deref();
 		internalClose(b, handle, false);
 	}
-
+	
 	// close the session in case the wallet hasn't been closed yet
 	_sessions.removeSession(appid, service, handle);
 }
@@ -1150,18 +1150,18 @@ void KWalletD::slotServiceOwnerChanged(const QString& name, const QString &oldOw
                                        const QString& newOwner)
 {
 	Q_UNUSED(name);
-
+	
 	if (!newOwner.isEmpty()) {
 		return; // no application exit, don't care.
 	}
-
+	
 	// as we don't have the application id we have to cycle
 	// all sessions. As an application can basically open wallets
 	// with several appids, we can't stop if we found one.
 	QString service(oldOwner);
 	QList<KWalletAppHandlePair> sessremove(_sessions.findSessions(service));
 	KWallet::Backend *b = 0;
-
+	
 	// check all sessions for wallets to close
 	Q_FOREACH(const KWalletAppHandlePair &s, sessremove) {
 		b = getWallet(s.first, s.second);
@@ -1185,7 +1185,7 @@ void KWalletD::slotServiceOwnerChanged(const QString& name, const QString &oldOw
 		}
 	}
 	_transactions.removeAll(0);
-
+		
 	// if there's currently an open-transaction being handled,
 	// mark it as cancelled.
 	if (_curtrans && _curtrans->tType == KWalletTransaction::Open &&
@@ -1464,7 +1464,7 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
    if (_processing) {
       return -1;
    }
-
+   
    // check if the wallet is already open
    QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
    int rc = walletInfo.first;
@@ -1473,12 +1473,12 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
          kDebug() << "Too many wallets open.";
          return -1;
       }
-
+      
       if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_\\s]+$").exactMatch(wallet) ||
           !KWallet::Backend::exists(wallet)) {
          return -1;
       }
-
+      
       KWallet::Backend *b = new KWallet::Backend(wallet);
       int openrc = b->openPreHashed(passwordHash);
       if (openrc == 0 && b->isOpen()) {
@@ -1486,10 +1486,10 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
          int handle = generateHandle();
          _wallets.insert(handle, b);
          _syncTimers.addTimer(handle, _syncTime);
-
+         
          // don't reference the wallet or add a session so it
          // can be reclosed easily.
-
+         
          if (sessionTimeout > 0) {
             _closeTimers.addTimer(handle, sessionTimeout);
          } else if (_closeIdle) {
@@ -1502,7 +1502,7 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
          return handle;
       }
    }
-
+   
    return -1;
 }
 
