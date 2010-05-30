@@ -1,6 +1,7 @@
 [Global]
 IconName=kwalletmanager
 Comment=Wallet
+Comment[bn]=ওয়ালেট
 Comment[cs]=Úschovna
 Comment[de]=Brieftasche
 Comment[el]=Πορτοφόλι
@@ -32,6 +33,7 @@ Comment[zh_TW]=錢包
 Name=kwalletd
 Name[ar]=kwalletd
 Name[bg]=kwalletd
+Name[bn]=kwalletd
 Name[ca]=kwalletd
 Name[ca@valencia]=kwalletd
 Name[cs]=kwalletd
@@ -99,6 +101,7 @@ Name[zh_TW]=kwalletd
 Name=Needs password
 Name[ar]=يحتاج كلمة السر
 Name[bg]=Нужна е парола
+Name[bn]=পাসওয়ার্ড প্রয়োজন
 Name[ca]=Cal contrasenya
 Name[ca@valencia]=Cal contrasenya
 Name[cs]=Je třeba heslo
