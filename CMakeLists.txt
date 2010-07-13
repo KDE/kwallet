@@ -38,9 +38,6 @@ target_link_libraries(kdeinit_kwalletd  ${KDE4_KDEUI_LIBS} kwalletbackend )
 install(TARGETS kdeinit_kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 target_link_libraries(kwalletd kdeinit_kwalletd)
-if(WINCE)
-target_link_libraries(kwalletd ${WCECOMPAT_LIBRARIES})
-endif(WINCE)
 install(TARGETS kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
