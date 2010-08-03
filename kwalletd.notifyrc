@@ -1,6 +1,7 @@
 [Global]
 IconName=kwalletmanager
 Comment=Wallet
+Comment[ar]=المحفظة
 Comment[bg]=Портфейл
 Comment[bn]=ওয়ালেট
 Comment[ca]=Cartera
