@@ -121,7 +121,7 @@ KWalletD::KWalletD()
 	        SIGNAL(serviceOwnerChanged(QString,QString,QString)),
 	        SLOT(slotServiceOwnerChanged(QString,QString,QString)));
 	_dw = new KDirWatch(this );
-		_dw->setObjectName( "KWallet Directory Watcher" );
+		_dw->setObjectName( QLatin1String( "KWallet Directory Watcher" ) );
 	_dw->addDir(KGlobal::dirs()->saveLocation("kwallet"));
 	_dw->startScan(true);
 	connect(_dw, SIGNAL(dirty(const QString&)), this, SLOT(emitWalletListDirty()));
