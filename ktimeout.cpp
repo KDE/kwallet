@@ -31,10 +31,15 @@ KTimeout::~KTimeout() {
 }
 
 void KTimeout::clear() {
+    foreach (int timerId, _timers)
+        killTimer(timerId);
     _timers.clear();
 }
 
 void KTimeout::removeTimer(int id) {
+    const int timerId = _timers.value(id, 0);
+    if (timerId != 0)
+        killTimer(timerId);
     _timers.remove(id);
 }
 
