@@ -58,40 +58,40 @@
 
 class KWalletTransaction {
 
-	public:
-		KWalletTransaction()
-			: tType(Unknown), cancelled(false), tId(nextTransactionId)
-		{
-			nextTransactionId++;
-			// make sure the id is never < 0 as that's used for the
-			// error conditions.
-			if (nextTransactionId < 0) {
-				nextTransactionId = 0;
-			}
-		}
+    public:
+        KWalletTransaction()
+            : tType(Unknown), cancelled(false), tId(nextTransactionId)
+        {
+            nextTransactionId++;
+            // make sure the id is never < 0 as that's used for the
+            // error conditions.
+            if (nextTransactionId < 0) {
+                nextTransactionId = 0;
+            }
+        }
 
-		~KWalletTransaction() {
-		}
+        ~KWalletTransaction() {
+        }
 
-		enum Type {
-			Unknown,
-			Open,
-			ChangePassword,
-			OpenFail,
-			CloseCancelled
-		};
-		Type tType;
-		QString appid;
-		qlonglong wId;
-		QString wallet;
-		QString service;
-		bool cancelled; // set true if the client dies before open
-		bool modal;
-		bool isPath;
-		int tId; // transaction id
-		
-	private:
-		static int nextTransactionId;
+        enum Type {
+            Unknown,
+            Open,
+            ChangePassword,
+            OpenFail,
+            CloseCancelled
+        };
+        Type tType;
+        QString appid;
+        qlonglong wId;
+        QString wallet;
+        QString service;
+        bool cancelled; // set true if the client dies before open
+        bool modal;
+        bool isPath;
+        int tId; // transaction id
+
+    private:
+        static int nextTransactionId;
 };
 
 int KWalletTransaction::nextTransactionId = 0;
@@ -117,14 +117,14 @@ KWalletD::KWalletD()
 
 	reconfigure();
 	KGlobal::dirs()->addResourceType("kwallet", 0, "share/apps/kwallet");
-	connect(QDBusConnection::sessionBus().interface(), 
-	        SIGNAL(serviceOwnerChanged(QString,QString,QString)),
-	        SLOT(slotServiceOwnerChanged(QString,QString,QString)));
 	_dw = new KDirWatch(this );
 		_dw->setObjectName( QLatin1String( "KWallet Directory Watcher" ) );
 	_dw->addDir(KGlobal::dirs()->saveLocation("kwallet"));
 	_dw->startScan(true);
 	connect(_dw, SIGNAL(dirty(const QString&)), this, SLOT(emitWalletListDirty()));
+
+    _serviceWatcher.setWatchMode( QDBusServiceWatcher::WatchForOwnerChange );
+    connect(&_serviceWatcher, SIGNAL(serviceOwnerChanged(QString,QString,QString)), this, SLOT(slotServiceOwnerChanged(QString,QString,QString)));
 }
 
 
@@ -280,6 +280,9 @@ int KWalletD::openAsync(const QString& wallet, qlonglong wId, const QString& app
 	xact->tType = KWalletTransaction::Open;
 	xact->isPath = false;
 	if (handleSession) {
+        kDebug() << "openAsync for " << message().service();
+        _serviceWatcher.setConnection(connection());
+        _serviceWatcher.addWatchedService(message().service());
 		xact->service = message().service();
 	}
 	QTimer::singleShot(0, this, SLOT(processTransactions()));
@@ -304,6 +307,9 @@ int KWalletD::openPathAsync(const QString& path, qlonglong wId, const QString& a
 	xact->tType = KWalletTransaction::Open;
 	xact->isPath = true;
 	if (handleSession) {
+        kDebug() << "openPathAsync " << message().service();
+        _serviceWatcher.setConnection(connection());
+        _serviceWatcher.addWatchedService(message().service());
 		xact->service = message().service();
 	}
 	QTimer::singleShot(0, this, SLOT(processTransactions()));
@@ -848,7 +854,7 @@ void KWalletD::doTransactionOpenCancelled(const QString& appid, const QString& w
 	if (!_sessions.hasSession(appid)) {
 		return;
 	}
-	
+
 	const QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
 	int handle = walletInfo.first;
 	KWallet::Backend *b = walletInfo.second;
@@ -856,7 +862,7 @@ void KWalletD::doTransactionOpenCancelled(const QString& appid, const QString& w
 		b->deref();
 		internalClose(b, handle, false);
 	}
-	
+
 	// close the session in case the wallet hasn't been closed yet
 	_sessions.removeSession(appid, service, handle);
 }
@@ -1150,7 +1156,8 @@ void KWalletD::slotServiceOwnerChanged(const QString& name, const QString &oldOw
                                        const QString& newOwner)
 {
 	Q_UNUSED(name);
-	
+	kDebug() << "slotServiceOwnerChanged " << name << ", " << oldOwner << ", " << newOwner;
+
 	if (!newOwner.isEmpty()) {
 		return; // no application exit, don't care.
 	}
@@ -1190,8 +1197,10 @@ void KWalletD::slotServiceOwnerChanged(const QString& name, const QString &oldOw
 	// mark it as cancelled.
 	if (_curtrans && _curtrans->tType == KWalletTransaction::Open &&
 		_curtrans->service == oldOwner) {
+        kDebug() << "Cancelling current transaction!";
 		_curtrans->cancelled = true;
 	}
+	_serviceWatcher.removeWatchedService(oldOwner);
 }
 
 KWallet::Backend *KWalletD::getWallet(const QString& appid, int handle) {

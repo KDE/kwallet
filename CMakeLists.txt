@@ -6,6 +6,8 @@ add_subdirectory(backend)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backend)
 
+add_definitions(-DKDE_DEFAULT_DEBUG_AREA=285)
+
 set(kwalletd_KDEINIT_SRCS
    main.cpp
    kbetterthankdialog.cpp

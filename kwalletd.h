@@ -32,6 +32,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <QtDBus/QtDBus>
+#include <QDBusServiceWatcher>
 
 #include "ktimeout.h"
 #include "kwalletsessionstore.h"
@@ -239,6 +240,7 @@ class KWalletD : public QObject, protected QDBusContext {
 
 		// sessions
 		KWalletSessionStore _sessions;
+        QDBusServiceWatcher _serviceWatcher;
 };
 
 
