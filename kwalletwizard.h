@@ -19,7 +19,7 @@
 #ifndef KWALLETWIZARD_H
 #define KWALLETWIZARD_H
 
-#include <QtGui/QWizard>
+#include <QWizard>
 
 class PageIntro;
 class PagePassword;

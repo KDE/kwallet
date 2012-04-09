@@ -19,7 +19,7 @@
 #ifndef KBETTERTHANKDIALOG_H
 #define KBETTERTHANKDIALOG_H
 
-#include <QtGui/QDialog>
+#include <QDialog>
 
 #include "ui_kbetterthankdialogbase.h"
 

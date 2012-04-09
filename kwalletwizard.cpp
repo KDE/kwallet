@@ -24,7 +24,7 @@
 #include "ui_kwalletwizardpageoptions.h"
 #include "ui_kwalletwizardpagepassword.h"
 
-#include <QtGui/QButtonGroup>
+#include <QButtonGroup>
 
 #include <klocale.h>
 

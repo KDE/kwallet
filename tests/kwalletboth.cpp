@@ -1,7 +1,7 @@
 #include <QtCore/QTextStream>
 #include <QtCore/QTimer>
 #include <QtCore/QMap>
-#include <QtGui/QApplication>
+#include <QApplication>
 
 #include <kaboutdata.h>
 #include <kcomponentdata.h>

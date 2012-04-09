@@ -46,7 +46,7 @@
 #include <KNotification>
 
 #include <QtCore/QDir>
-#include <QtGui/QTextDocument> // Qt::escape
+#include <QTextDocument> // Qt::escape
 #include <QtCore/QRegExp>
 #include <QtCore/QTimer>
 #include <QtCore/QEventLoop>

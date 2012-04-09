@@ -25,7 +25,7 @@
 #define _KWALLETD_H_
 
 #include <QtCore/QString>
-#include <QtGui/QImage>
+#include <QImage>
 #include <QtCore/QHash>
 #include "kwalletbackend.h"
 #include <QtCore/QPointer>

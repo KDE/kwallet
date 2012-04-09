@@ -1,5 +1,5 @@
 #include <QtCore/QTextStream>
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QtCore/QTimer>
 
 #include <kaboutdata.h>
