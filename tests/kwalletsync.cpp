@@ -12,6 +12,7 @@
 #include <QtDBus/QDBusConnectionInterface>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusReply>
+#include <klocale.h>
 
 static QTextStream _out( stdout, QIODevice::WriteOnly );
 

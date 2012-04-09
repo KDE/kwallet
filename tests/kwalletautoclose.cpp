@@ -27,6 +27,7 @@
 #include <KCmdLineArgs>
 #include <QTimer>
 #include <KWallet/Wallet>
+#include <klocale.h>
 
 #include "kwalletautoclose.h"
 

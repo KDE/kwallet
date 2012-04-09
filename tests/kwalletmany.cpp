@@ -28,6 +28,7 @@
 #include <KApplication>
 #include <KCmdLineArgs>
 #include <KWallet/Wallet>
+#include <klocale.h>
 
 #include "kwalletmany.h"
 

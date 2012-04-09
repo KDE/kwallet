@@ -13,6 +13,7 @@
 #include <QtDBus/QDBusConnectionInterface>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusReply>
+#include <klocale.h>
 
 #include "kwallettest.h"
 

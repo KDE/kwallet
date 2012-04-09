@@ -5,6 +5,7 @@
 #include <kcmdlineargs.h>
 #include <kdebug.h>
 #include <kapplication.h>
+#include <klocale.h>
 #include <QtCore/QString>
 
 #include "kwalletbackend.h"

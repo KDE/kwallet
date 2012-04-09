@@ -40,6 +40,7 @@
 #include <knewpassworddialog.h>
 #include <kstandarddirs.h>
 #include <kwalletentry.h>
+#include <kicon.h>
 #include <kwindowsystem.h>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>

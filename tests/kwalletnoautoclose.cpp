@@ -27,6 +27,7 @@
 #include <KCmdLineArgs>
 #include <QEventLoop>
 #include <QtDBus>
+#include <klocale.h>
 
 static QTextStream _out(stdout, QIODevice::WriteOnly);
 static QString _kdewallet;
