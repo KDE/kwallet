@@ -28,7 +28,6 @@
 #include <QtCore/QStringList>
 #include <QtCore/QMap>
 #include "kwalletentry.h"
-#include "kmd5.h"
 
 
 namespace KWallet {
