@@ -62,6 +62,8 @@ class MD5Digest : public QByteArray {
 
 /* @internal
  */
+// TODO GPG move this original legacy backend to it's subclass
+// TODO GPG add a new backend for GPG/smartcard
 class KDE_EXPORT Backend {
 	public:
 		explicit Backend(const QString& name = QLatin1String("kdewallet"), bool isPath = false);

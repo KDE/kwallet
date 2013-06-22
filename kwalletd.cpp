@@ -395,6 +395,7 @@ int KWalletD::doTransactionOpen(const QString& appid, const QString& wallet, boo
                                 qlonglong wId, bool modal, const QString& service) {
 	if (_firstUse && !wallets().contains(KWallet::Wallet::LocalWallet()) && !isPath) {
 		// First use wizard
+		// TODO GPG adjust new smartcard options gathered by the wizard
 		QPointer<KWalletWizard> wiz = new KWalletWizard(0);
 		wiz->setWindowTitle(i18n("KDE Wallet Service"));
 		setupDialog( wiz, (WId)wId, appid, modal );
@@ -476,6 +477,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 					delete b;
 					b = new KWallet::Backend(wallet, isPath);
 				}
+				// TODO GPG this password dialog handling should be handled by the backend or perhaps the open with an empty password above should invoke GPG?
 				KPasswordDialog *kpd = new KPasswordDialog();
 				if (appid.isEmpty()) {
 					kpd->setPrompt(i18n("<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the password for this wallet below.</qt>", Qt::escape(wallet)));
@@ -708,6 +710,8 @@ void KWalletD::changePassword(const QString& wallet, qlonglong wId, const QStrin
 
     message().setDelayedReply(true);
     xact->message = message();
+	// TODO GPG this shouldn't be allowed on a GPG managed wallet; a warning should be displayed about this
+	KWalletTransaction *xact = new KWalletTransaction;
 
 	xact->appid = appid;
 	xact->wallet = wallet;

@@ -28,6 +28,7 @@
 
 #include <klocale.h>
 
+// TODO GPG does the first use wizard need to be adjusted?
 class PageIntro : public QWizardPage
 {
 public:
