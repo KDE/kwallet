@@ -223,7 +223,6 @@ class KWalletD : public QObject, protected QDBusContext {
 		// configuration values
 		bool _leaveOpen, _closeIdle, _launchManager, _enabled;
 		bool _openPrompt, _firstUse, _showingFailureNotify;
-		bool _silentlyCreateInitialWallet;
 		int _idleTime;
 		QMap<QString,QStringList> _implicitAllowMap, _implicitDenyMap;
 		KTimeout _closeTimers;
