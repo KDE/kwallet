@@ -544,7 +544,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 			return -1;
 		}
 
-		if (emptyPass && _openPrompt && !isAuthorizedApp(appid, wallet, w)) {
+		if (emptyPass && !isAuthorizedApp(appid, wallet, w)) {
 			delete b;
 			return -1;
 		}
@@ -598,6 +598,10 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 
 
 bool KWalletD::isAuthorizedApp(const QString& appid, const QString& wallet, WId w) {
+	if (!_openPrompt) {
+		return true;
+	}
+
 	int response = 0;
 
 	QString thisApp;
@@ -1317,7 +1321,7 @@ void KWalletD::reconfigure() {
 	_leaveOpen = walletGroup.readEntry("Leave Open", false);
 	bool idleSave = _closeIdle;
 	_closeIdle = walletGroup.readEntry("Close When Idle", false);
-	_openPrompt = walletGroup.readEntry("Prompt on Open", true);
+	_openPrompt = walletGroup.readEntry("Prompt on Open", false);
 	int timeSave = _idleTime;
 	// in minutes!
 	_idleTime = walletGroup.readEntry("Idle Timeout", 10) * 60 * 1000;
