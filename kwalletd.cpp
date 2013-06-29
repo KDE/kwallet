@@ -501,40 +501,47 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				emptyPass = true;
 			}
 		} else {
-			KNewPasswordDialog *kpd = new KNewPasswordDialog();
-			if (wallet == KWallet::Wallet::LocalWallet() ||
-						 wallet == KWallet::Wallet::NetworkWallet())
-			{
-				// Auto create these wallets.
-				if (appid.isEmpty()) {
-					kpd->setPrompt(i18n("KDE has requested to open the wallet. This is used to store sensitive data in a secure fashion. Please enter a password to use with this wallet or click cancel to deny the application's request."));
-				} else {
-					kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This is used to store sensitive data in a secure fashion. Please enter a password to use with this wallet or click cancel to deny the application's request.</qt>", Qt::escape(appid)));
-				}
+			if (!_wallets.count() && _silentlyCreateInitialWallet) {
+				brandNew = true;
+				password = "";
+				b->open(QByteArray());
 			} else {
-				if (appid.length() == 0) {
-					kpd->setPrompt(i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please choose a password for this wallet, or cancel to deny the application's request.</qt>", Qt::escape(wallet)));
-				} else {
-					kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to create a new wallet named '<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the application's request.</qt>", Qt::escape(appid), Qt::escape(wallet)));
-				}
-			}
-			brandNew = true;
-			kpd->setCaption(i18n("KDE Wallet Service"));
-			kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
-			kpd->setPixmap(KIcon("kwalletmanager").pixmap(96, 96));
-			while (!b->isOpen()) {
-				setupDialog( kpd, w, appid, modal );
-				if (kpd->exec() == KDialog::Accepted) {
-					password = kpd->password();
-					int rc = b->open(password.toUtf8());
-					if (!b->isOpen()) {
-						kpd->setPrompt(i18n("<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code %2: %3)</qt>", Qt::escape(wallet), rc, KWallet::Backend::openRCToString(rc)));
+				KNewPasswordDialog *kpd = new KNewPasswordDialog();
+				if (wallet == KWallet::Wallet::LocalWallet() ||
+							wallet == KWallet::Wallet::NetworkWallet())
+				{
+					// Auto create these wallets.
+					if (appid.isEmpty()) {
+						kpd->setPrompt(i18n("KDE has requested to open the wallet. This is used to store sensitive data in a secure fashion. Please enter a password to use with this wallet or click cancel to deny the application's request."));
+					} else {
+						kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This is used to store sensitive data in a secure fashion. Please enter a password to use with this wallet or click cancel to deny the application's request.</qt>", Qt::escape(appid)));
 					}
 				} else {
-					break;
+					if (appid.length() == 0) {
+						kpd->setPrompt(i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please choose a password for this wallet, or cancel to deny the application's request.</qt>", Qt::escape(wallet)));
+					} else {
+						kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to create a new wallet named '<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the application's request.</qt>", Qt::escape(appid), Qt::escape(wallet)));
+					}
 				}
+				brandNew = true;
+				kpd->setCaption(i18n("KDE Wallet Service"));
+				kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
+				kpd->setPixmap(KIcon("kwalletmanager").pixmap(96, 96));
+				while (!b->isOpen()) {
+					setupDialog( kpd, w, appid, modal );
+					if (kpd->exec() == KDialog::Accepted) {
+						password = kpd->password();
+						kDebug() << password;
+						int rc = b->open(password.toUtf8());
+						if (!b->isOpen()) {
+							kpd->setPrompt(i18n("<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code %2: %3)</qt>", Qt::escape(wallet), rc, KWallet::Backend::openRCToString(rc)));
+						}
+					} else {
+						break;
+					}
+				}
+				delete kpd;
 			}
-			delete kpd;
 		}
 
 
@@ -544,7 +551,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 			return -1;
 		}
 
-		if (emptyPass && _openPrompt && !isAuthorizedApp(appid, wallet, w)) {
+		if (emptyPass && !isAuthorizedApp(appid, wallet, w)) {
 			delete b;
 			return -1;
 		}
@@ -598,6 +605,10 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 
 
 bool KWalletD::isAuthorizedApp(const QString& appid, const QString& wallet, WId w) {
+	if (!_openPrompt) {
+		return true;
+	}
+
 	int response = 0;
 
 	QString thisApp;
@@ -1312,12 +1323,13 @@ void KWalletD::reconfigure() {
 	KConfig cfg("kwalletrc");
 	KConfigGroup walletGroup(&cfg, "Wallet");
 	_firstUse = walletGroup.readEntry("First Use", true);
+	_silentlyCreateInitialWallet = walletGroup.readEntry("Silently Create Initial Wallet", false);
 	_enabled = walletGroup.readEntry("Enabled", true);
 	_launchManager = walletGroup.readEntry("Launch Manager", true);
 	_leaveOpen = walletGroup.readEntry("Leave Open", false);
 	bool idleSave = _closeIdle;
 	_closeIdle = walletGroup.readEntry("Close When Idle", false);
-	_openPrompt = walletGroup.readEntry("Prompt on Open", true);
+	_openPrompt = walletGroup.readEntry("Prompt on Open", false);
 	int timeSave = _idleTime;
 	// in minutes!
 	_idleTime = walletGroup.readEntry("Idle Timeout", 10) * 60 * 1000;
