@@ -1,0 +1,62 @@
+#ifndef BACKENDPERSISTHANDLER_H
+#define BACKENDPERSISTHANDLER_H
+
+#define KWMAGIC_LEN 12
+
+class QFile;
+class KSaveFile;
+namespace KWallet {
+
+class Backend;
+
+enum BackendCipherType {
+    BACKEND_CIPHER_BLOWFISH, /// use the legacy blowfish cipher type
+#ifdef HAVE_QGPGME
+    BACKEND_CIPHER_GPG       /// use GPG backend to encrypt wallet contents
+#endif // HAVE_QGPGME
+};
+        
+
+class BackendPersistHandler {
+protected:
+    BackendPersistHandler() {}
+public:
+    virtual ~BackendPersistHandler() {}
+    /**
+     * This is a factory method used to get an instance of the backend suitable
+     * for reading/writing using the given cipher type
+     * 
+     * @param cypherType indication of the backend that should be returned
+     * @return a pointer to an instance of the requested handler type. No need to delete this pointer, it's lifetime is taken care of by this factory
+     */
+    static BackendPersistHandler *getPersistHandler(BackendCipherType cipherType);
+    static BackendPersistHandler *getPersistHandler(char magicBuf[KWMAGIC_LEN]);
+    
+    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version) =0;
+    virtual int read(Backend* wb, QFile& sf) =0;
+};
+
+
+class BlowfishPersistHandler : public BackendPersistHandler {
+public:
+    BlowfishPersistHandler() {}
+    virtual ~BlowfishPersistHandler() {}
+    
+    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version);
+    virtual int read(Backend* wb, QFile& sf);
+};
+
+#ifdef HAVE_QGPGME
+class GpgPersistHandler : public BackendPersistHandler {
+public:
+    GpgPersistHandler() {}
+    virtual ~GpgPersistHandler() {}
+    
+    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version);
+    virtual int read(Backend* wb, QFile& sf);
+};
+#endif // HAVE_QGPGME
+
+} // namespace
+
+#endif // BACKENDPERSISTHANDLER_H

@@ -1,5 +1,9 @@
 project(kwalletd)
 
+########### find needed packages ######
+find_package(QGpgme) # provided by kdepimlibs
+
+########### build backends #########
 add_subdirectory(backend)
 
 ########### kwalletd ###############
@@ -44,3 +48,4 @@ install( FILES kwalletd.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 install( FILES kwalletd.notifyrc DESTINATION  ${DATA_INSTALL_DIR}/kwalletd )
 
 add_subdirectory(tests)
+

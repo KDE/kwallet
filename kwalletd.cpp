@@ -417,6 +417,7 @@ int KWalletD::doTransactionOpen(const QString& appid, const QString& wallet, boo
 			}
 
 			// Create the wallet
+            // TODO GPG select the correct wallet type upon cretion (GPG or blowfish based)
 			KWallet::Backend *b = new KWallet::Backend(KWallet::Wallet::LocalWallet());
 			QString pass = wiz->field("pass1").toString();
 			QByteArray p(pass.toUtf8(), pass.length());

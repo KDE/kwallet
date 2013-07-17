@@ -14,7 +14,12 @@ set(kwalletbackend_LIB_SRCS
    sha1.cc
    kwalletentry.cc
    kwalletbackend.cc
+   backendpersisthandler.cpp
 )
+
+if (QGPGME_FOUND)
+#    add_definitions(-DHAVE_QGPGME)
+endif(QGPGME_FOUND)
 
 kde4_add_library(kwalletbackend SHARED ${kwalletbackend_LIB_SRCS})
 
