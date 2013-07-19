@@ -27,6 +27,10 @@
 #include "kbetterthankdialog.h"
 #include "kwalletwizard.h"
 
+#ifdef HAVE_QGPGME
+#include "knewwalletdialog.h"
+#endif
+
 #include <kuniqueapplication.h>
 #include <ktoolinvocation.h>
 #include <kconfig.h>
@@ -100,7 +104,10 @@ class KWalletTransaction {
 int KWalletTransaction::nextTransactionId = 0;
 
 KWalletD::KWalletD()
- : QObject(0), _failed(0), _syncTime(5000), _curtrans(0) {
+ : QObject(0), _failed(0), _syncTime(5000), _curtrans(0), _useGpg(false) {
+#ifdef HAVE_QGPGME
+     _useGpg = true;
+#endif
 
 	srand(time(0));
 	_showingFailureNotify = false;
@@ -471,7 +478,15 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 		QString password;
 		bool emptyPass = false;
 		if ((isPath && QFile::exists(wallet)) || (!isPath && KWallet::Backend::exists(wallet))) {
+            // this open attempt will set wallet type from the file header, even if password is needed
 			int pwless = b->open(QByteArray());
+#ifdef HAVE_QGPGME
+            assert(b->cipherType != BACKEND_CIPHER_UNKNOWN);
+            if (b->cipherType() == KWallet::BACKEND_CIPHER_GPG) {
+                // GPG based wallets do not prompt for password here. Instead, GPG should already have popped pinentry utility for wallet decryption
+                emptyPass = true;
+            } else {
+#endif
 			if (0 != pwless || !b->isOpen()) {
 				if (pwless == 0) {
 					// release, start anew
@@ -533,7 +548,27 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 			} else {
 				emptyPass = true;
 			}
+#ifdef HAVE_QGPGME
+            }
+#endif
 		} else {
+#ifdef HAVE_QGPGME
+            // prompt the user for the new wallet format here
+            KWallet::BackendCipherType newWalletType = KWallet::BACKEND_CIPHER_UNKNOWN;
+
+            KWallet::KNewWalletDialog *newWalletDlg = new KWallet::KNewWalletDialog(appid, wallet);
+            if (newWalletDlg->exec() == QDialog::Accepted) {
+                newWalletType = newWalletDlg->isBlowfish() ? KWallet::BACKEND_CIPHER_BLOWFISH : KWallet::BACKEND_CIPHER_GPG;
+            } else {
+            }
+            delete newWalletDlg;
+            
+            if (newWalletType == KWallet::BACKEND_CIPHER_GPG) {
+                b->setCipherType(newWalletType);
+                b->open(QByteArray());
+            } else {
+#endif // HAVE_QGPGME
+            b->setCipherType(KWallet::BACKEND_CIPHER_BLOWFISH);
 			KNewPasswordDialog *kpd = new KNewPasswordDialog();
 			if (wallet == KWallet::Wallet::LocalWallet() ||
 						 wallet == KWallet::Wallet::NetworkWallet())
@@ -568,6 +603,9 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				}
 			}
 			delete kpd;
+#ifdef HAVE_QGPGME
+            }
+#endif
 		}
 
 

@@ -1,3 +1,21 @@
+/**
+  * This file is part of the KDE project
+  * Copyright (C) 2013 Valentin Rusu <kde@rusu.info>
+  *
+  * This library is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Library General Public
+  * License version 2 as published by the Free Software Foundation.
+  *
+  * This library is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  * Library General Public License for more details.
+  *
+  * You should have received a copy of the GNU Library General Public License
+  * along with this library; see the file COPYING.LIB.  If not, write to
+  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  * Boston, MA 02110-1301, USA.
+  */
 #ifndef BACKENDPERSISTHANDLER_H
 #define BACKENDPERSISTHANDLER_H
 
@@ -10,6 +28,7 @@ namespace KWallet {
 class Backend;
 
 enum BackendCipherType {
+    BACKEND_CIPHER_UNKNOWN,  /// this is used by freshly allocated wallets
     BACKEND_CIPHER_BLOWFISH, /// use the legacy blowfish cipher type
 #ifdef HAVE_QGPGME
     BACKEND_CIPHER_GPG       /// use GPG backend to encrypt wallet contents

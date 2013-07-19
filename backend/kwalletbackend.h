@@ -150,6 +150,9 @@ class KDE_EXPORT Backend {
 
 		static QString openRCToString(int rc);
 
+        void setCipherType(BackendCipherType ct);
+        BackendCipherType cipherType() const { return _cipherType; }
+
 	private:
 		Q_DISABLE_COPY( Backend )
 		class BackendPrivate;

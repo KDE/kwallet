@@ -17,10 +17,6 @@ set(kwalletbackend_LIB_SRCS
    backendpersisthandler.cpp
 )
 
-if (QGPGME_FOUND)
-#    add_definitions(-DHAVE_QGPGME)
-endif(QGPGME_FOUND)
-
 kde4_add_library(kwalletbackend SHARED ${kwalletbackend_LIB_SRCS})
 
 target_link_libraries(kwalletbackend ${KDE4_KDEUI_LIBS} )

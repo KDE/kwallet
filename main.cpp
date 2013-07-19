@@ -38,10 +38,11 @@ extern "C" KDE_EXPORT int kdemain(int argc, char **argv)
 {
     KAboutData aboutdata("kwalletd", 0, ki18n("KDE Wallet Service"),
                          "0.2", ki18n("KDE Wallet Service"),
-                         KAboutData::License_LGPL, ki18n("(C) 2002-2008 George Staikos, Michael Leupold, Thiago Maceira"));
+                         KAboutData::License_LGPL, ki18n("(C) 2002-2008 George Staikos, Michael Leupold, Thiago Maceira, Valentin Rusu"));
     aboutdata.addAuthor(ki18n("Michael Leupold"),ki18n("Maintainer"),"lemma@confuego.org");
     aboutdata.addAuthor(ki18n("George Staikos"),ki18n("Former maintainer"),"staikos@kde.org");
     aboutdata.addAuthor(ki18n("Thiago Maceira"),ki18n("D-Bus Interface"),"thiago@kde.org");
+    aboutdata.addAuthor(ki18n("Valentin Rusu"),ki18n("GPG backend support"),"kde@rusu.info");
 
     aboutdata.setProgramIconName("kwalletmanager");
 

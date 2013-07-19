@@ -3,6 +3,10 @@ project(kwalletd)
 ########### find needed packages ######
 find_package(QGpgme) # provided by kdepimlibs
 
+if (QGPGME_FOUND)
+    add_definitions(-DHAVE_QGPGME)
+endif(QGPGME_FOUND)
+
 ########### build backends #########
 add_subdirectory(backend)
 
@@ -21,7 +25,6 @@ set(kwalletd_KDEINIT_SRCS
    kwalletsessionstore.cpp
 )
 
-
 kde4_add_ui_files(kwalletd_KDEINIT_SRCS
    kbetterthankdialogbase.ui
    kwalletwizardpageexplanation.ui
@@ -29,6 +32,16 @@ kde4_add_ui_files(kwalletd_KDEINIT_SRCS
    kwalletwizardpageoptions.ui
    kwalletwizardpagepassword.ui
 )
+
+if (QGPGME_FOUND)
+    set(kwalletd_KDEINIT_SRCS
+        ${kwalletd_KDEINIT_SRCS}
+        knewwalletdialog.cpp
+    )
+    kde4_add_ui_files(kwalletd_KDEINIT_SRCS
+        knewwalletdialog.ui
+    )
+endif(QGPGME_FOUND)
 
 find_file(kwallet_xml org.kde.KWallet.xml HINTS ${KDE4_DBUS_INTERFACES_DIR} )
 

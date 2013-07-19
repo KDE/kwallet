@@ -1,3 +1,21 @@
+/**
+  * This file is part of the KDE project
+  * Copyright (C) 2013 Valentin Rusu <kde@rusu.info>
+  *
+  * This library is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Library General Public
+  * License version 2 as published by the Free Software Foundation.
+  *
+  * This library is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  * Library General Public License for more details.
+  *
+  * You should have received a copy of the GNU Library General Public License
+  * along with this library; see the file COPYING.LIB.  If not, write to
+  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  * Boston, MA 02110-1301, USA.
+  */
 
 #include <QIODevice>
 #include <QFile>
@@ -145,6 +163,8 @@ BackendPersistHandler *BackendPersistHandler::getPersistHandler(char magicBuf[12
   
 int BlowfishPersistHandler::write(Backend* wb, KSaveFile& sf, QByteArray& version)
 {
+    assert(wb->_cipherType == BACKEND_CIPHER_BLOWFISH);
+
     version[2] = KWALLET_CIPHER_BLOWFISH_CBC;
     version[3] = KWALLET_HASH_SHA1;
     if (sf.write(version, 4) != 4) {
@@ -277,6 +297,7 @@ int BlowfishPersistHandler::write(Backend* wb, KSaveFile& sf, QByteArray& versio
 
 int BlowfishPersistHandler::read(Backend* wb, QFile& db)
 {
+    wb->_cipherType = BACKEND_CIPHER_BLOWFISH;
     wb->_hashes.clear();
     // Read in the hashes
     QDataStream hds(&db);
@@ -423,11 +444,13 @@ int BlowfishPersistHandler::read(Backend* wb, QFile& db)
 #ifdef HAVE_QGPGME
 int GpgPersistHandler::write(Backend* wb, KSaveFile& sf, QByteArray& version)
 {
+    assert(wb->_cipherType == BACKEND_CIPHER_GPG);
     return 0;
 }
 
 int GpgPersistHandler::read(Backend* wb, QFile& sf)
 {
+    wb->_cipherType = BACKEND_CIPHER_GPG;
     return 0;
 }
 #endif // HAVE_QGPGME
