@@ -19,20 +19,62 @@
 #ifndef KNEWWALLETDIALOG_H
 #define KNEWWALLETDIALOG_H
 
-#include <QDialog>
+#include <QWizard>
 
-#include "ui_knewwalletdialog.h"
+#include "ui_knewwalletdialogintro.h"
+#include "ui_knewwalletdialoggpg.h"
+
+namespace GpgME {
+class Context;
+class Key;
+}
 
 namespace KWallet {
 
-class KNewWalletDialog : public QDialog {
+class KNewWalletDialogIntro;
+class KNewWalletDialogGpg;
+
+class KNewWalletDialog : public QWizard {
     Q_OBJECT
 public:
-    explicit KNewWalletDialog(const QString &appName, const QString &walletName, QWidget* parent = 0);
+    KNewWalletDialog(const QString &appName, const QString &walletName, QWidget* parent = 0);
 
     bool isBlowfish() const;
-private:    
-    Ui_KNewWalletDialog ui;
+    int gpgId() const { return _gpgId; }
+    GpgME::Key gpgKey() const;
+private:
+    KNewWalletDialogIntro   *_intro;
+    int                     _introId;
+    KNewWalletDialogGpg     *_gpg;
+    int                     _gpgId;
+};
+
+class KNewWalletDialogIntro : public QWizardPage {
+    Q_OBJECT
+public:
+    KNewWalletDialogIntro(const QString &appName, const QString &walletName, QWidget* parent = 0);
+    bool isBlowfish() const;
+    virtual int nextId() const;
+protected Q_SLOTS:
+    void onBlowfishToggled(bool);
+private:
+    Ui_KNewWalletDialogIntro _ui;
+};
+
+class KNewWalletDialogGpg : public QWizardPage {
+    Q_OBJECT
+public:
+    KNewWalletDialogGpg(const QString &appName, const QString &walletName, QWidget* parent = 0);
+    virtual void initializePage();
+    virtual bool isComplete() const;
+    virtual bool validateCurrentPage();
+protected Q_SLOTS:
+    void onItemSelectionChanged();
+private:
+    bool                    _alreadyInitialized;
+    Ui_KNewWalletDialogGpg  _ui;
+    GpgME::Context          *_ctx;
+    bool                    _complete;
 };
 
 } // namespace

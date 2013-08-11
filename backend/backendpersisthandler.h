@@ -21,6 +21,8 @@
 
 #define KWMAGIC_LEN 12
 
+#include <qwindowdefs.h>
+
 class QFile;
 class KSaveFile;
 namespace KWallet {
@@ -51,8 +53,8 @@ public:
     static BackendPersistHandler *getPersistHandler(BackendCipherType cipherType);
     static BackendPersistHandler *getPersistHandler(char magicBuf[KWMAGIC_LEN]);
     
-    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version) =0;
-    virtual int read(Backend* wb, QFile& sf) =0;
+    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version, WId w) =0;
+    virtual int read(Backend* wb, QFile& sf, WId w) =0;
 };
 
 
@@ -61,8 +63,8 @@ public:
     BlowfishPersistHandler() {}
     virtual ~BlowfishPersistHandler() {}
     
-    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version);
-    virtual int read(Backend* wb, QFile& sf);
+    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version, WId w);
+    virtual int read(Backend* wb, QFile& sf, WId w);
 };
 
 #ifdef HAVE_QGPGME
@@ -71,8 +73,8 @@ public:
     GpgPersistHandler() {}
     virtual ~GpgPersistHandler() {}
     
-    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version);
-    virtual int read(Backend* wb, QFile& sf);
+    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version, WId w);
+    virtual int read(Backend* wb, QFile& sf, WId w);
 };
 #endif // HAVE_QGPGME
 

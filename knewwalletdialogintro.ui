@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>KNewWalletDialog</class>
- <widget class="QWidget" name="KNewWalletDialog">
+ <class>KNewWalletDialogIntro</class>
+ <widget class="QWidget" name="KNewWalletDialogIntro">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>341</width>
-    <height>239</height>
+    <height>190</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -97,13 +97,6 @@
      </item>
     </layout>
    </item>
-   <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -114,5 +107,25 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>radioBlowfish</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>KNewWalletDialogIntro</receiver>
+   <slot>onBlowfishToggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>138</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onBlowfishToggled(bool)</slot>
+ </slots>
 </ui>

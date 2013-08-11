@@ -28,6 +28,7 @@
 #include <kcodecs.h>
 #include <ksavefile.h>
 #include <kstandarddirs.h>
+#include <gpgme++/key.h>
 
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
@@ -224,14 +225,26 @@ QString Backend::openRCToString(int rc) {
 }
 
 
-int Backend::open(const QByteArray& password) {
+int Backend::open(const QByteArray& password, WId w) {
 	if (_open) {
 		return -255;  // already open
 	}
 	
 	setPassword(password);
-   return openInternal();
+   return openInternal(w);
 }
+
+#ifdef HAVE_QGPGME
+int Backend::open(const GpgME::Key& key)
+{
+    if (_open) {
+        return -255;  // already open
+    }
+    _gpgKey = key;
+    setPassword(QByteArray());
+    return openInternal();
+}
+#endif // HAVE_QGPGME
 
 int Backend::openPreHashed(const QByteArray &passwordHash)
 {
@@ -249,7 +262,7 @@ int Backend::openPreHashed(const QByteArray &passwordHash)
    return openInternal();
 }
  
-int Backend::openInternal()
+int Backend::openInternal(WId w)
 {
 	// No wallet existed.  Let's create it.
 	// Note: 60 bytes is presently the minimum size of a wallet file.
@@ -261,7 +274,7 @@ int Backend::openInternal()
 		}
 		newfile.close();
 		_open = true;
-		sync();
+		sync(w);
 		return 1;          // new file opened, but OK
 	}
 
@@ -292,11 +305,11 @@ int Backend::openInternal()
     if (0 == phandler){
         return 42; // unknown cipher or hash
     }
-    return phandler->read(this, db);
+    return phandler->read(this, db, w);
 }
 
 
-int Backend::sync() {
+int Backend::sync(WId w) {
 	if (!_open) {
 		return -255;  // not open yet
 	}
@@ -322,14 +335,14 @@ int Backend::sync() {
     if (0 == phandler) {
         return -4; // write error
     }
-    return phandler->write(this, sf, version);
+    return phandler->write(this, sf, version, w);
 }
 
 
 int Backend::close(bool save) {
 	// save if requested
 	if (save) {
-		int rc = sync();
+		int rc = sync(0);
 		if (rc != 0) {
 			return rc;
 		}
@@ -552,3 +565,8 @@ void Backend::setPassword(const QByteArray &password) {
 	password2hash(password, _passhash);
 }
 
+#ifdef HAVE_QGPGME
+const GpgME::Key &Backend::gpgKey() const {
+    return _gpgKey;
+}
+#endif

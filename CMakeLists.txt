@@ -39,7 +39,8 @@ if (QGPGME_FOUND)
         knewwalletdialog.cpp
     )
     kde4_add_ui_files(kwalletd_KDEINIT_SRCS
-        knewwalletdialog.ui
+        knewwalletdialogintro.ui
+        knewwalletdialoggpg.ui
     )
 endif(QGPGME_FOUND)
 
@@ -49,7 +50,12 @@ qt4_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
 
 kde4_add_kdeinit_executable( kwalletd NOGUI ${kwalletd_KDEINIT_SRCS} )
 
+if (QGPGME_FOUND)
+target_link_libraries(kdeinit_kwalletd  ${KDE4_KDEUI_LIBS} kwalletbackend ${QGPGME_LIBRARIES})
+else(QGPGME_FOUND)
 target_link_libraries(kdeinit_kwalletd  ${KDE4_KDEUI_LIBS} kwalletbackend )
+endif(QGPGME_FOUND)
+
 install(TARGETS kdeinit_kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 target_link_libraries(kwalletd kdeinit_kwalletd)

@@ -2,6 +2,9 @@
 
 check_include_files(stdint.h HAVE_STDINT_H)
 check_include_files(sys/bitypes.h HAVE_SYS_BITYPES_H)
+if (QGPGME_FOUND)
+    add_definitions(-DHAVE_QGPGME)
+endif(QGPGME_FOUND)
 
 configure_file (config-kwalletbackend.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwalletbackend.h )
 
@@ -20,6 +23,9 @@ set(kwalletbackend_LIB_SRCS
 kde4_add_library(kwalletbackend SHARED ${kwalletbackend_LIB_SRCS})
 
 target_link_libraries(kwalletbackend ${KDE4_KDEUI_LIBS} )
+if(QGPGME_FOUND)
+target_link_libraries(kwalletbackend ${QGPGME_LIBRARIES} )
+endif(QGPGME_FOUND)
 
 # link with advapi32 on windows
 if(WIN32 AND NOT WINCE)
