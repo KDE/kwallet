@@ -14,10 +14,21 @@ kde4_add_ui_files(kwalletwizardtest_SRCS
    ../kwalletwizardpageintro.ui
    ../kwalletwizardpageoptions.ui
    ../kwalletwizardpagepassword.ui
+   ../kwalletwizardpagegpgkey.ui
 )
 
+if (QGPGME_FOUND)
+    kde4_add_ui_files(kwalletwizardtest_SRCS
+        ../kwalletwizardpagepasswordgpg.ui)
+endif(QGPGME_FOUND)
+
 kde4_add_executable(kwalletwizardtest TEST ${kwalletwizardtest_SRCS})
+if (QGPGME_FOUND)
+target_link_libraries(kwalletwizardtest ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} ${QT_QTGUI_LIBRARY} ${QGPGME_LIBRARIES})
+else(QGPGME_FOUND)
 target_link_libraries(kwalletwizardtest ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} ${QT_QTGUI_LIBRARY})
+endif(QGPGME_FOUND)
+
 set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
 
 include_directories( ${KDE4_KDEUI_INCLUDES} ) # for kwallet.h

@@ -427,10 +427,21 @@ int KWalletD::doTransactionOpen(const QString& appid, const QString& wallet, boo
 			// Create the wallet
             // TODO GPG select the correct wallet type upon cretion (GPG or blowfish based)
 			KWallet::Backend *b = new KWallet::Backend(KWallet::Wallet::LocalWallet());
-			QString pass = wiz->field("pass1").toString();
-			QByteArray p(pass.toUtf8(), pass.length());
-			b->open(p);
-			p.fill(0);
+#ifdef HAVE_QGPGME
+            if (wiz->field("useBlowfish").toBool()) {
+                b->setCipherType(KWallet::BACKEND_CIPHER_BLOWFISH);
+#endif
+                QString pass = wiz->field("pass1").toString();
+                QByteArray p(pass.toUtf8(), pass.length());
+                b->open(p);
+                p.fill(0);
+#ifdef HAVE_QGPGME
+            } else {
+                assert(wiz->field("useGpg").toBool());
+                b->setCipherType(KWallet::BACKEND_CIPHER_GPG);
+                b->open(wiz->gpgKey());
+            }
+#endif
 			b->createFolder(KWallet::Wallet::PasswordFolder());
 			b->createFolder(KWallet::Wallet::FormDataFolder());
 			b->close(true);

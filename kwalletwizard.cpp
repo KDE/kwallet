@@ -23,12 +23,25 @@
 #include "ui_kwalletwizardpageintro.h"
 #include "ui_kwalletwizardpageoptions.h"
 #include "ui_kwalletwizardpagepassword.h"
+#ifdef HAVE_QGPGME
+#include "ui_kwalletwizardpagepasswordgpg.h"
+#include "ui_kwalletwizardpagegpgkey.h"
+#endif
 
 #include <QButtonGroup>
 
 #include <klocale.h>
 
-// TODO GPG does the first use wizard need to be adjusted?
+#ifdef HAVE_QGPGME
+#include <QComboBox>
+#include <gpgme++/context.h>
+#include <gpgme++/key.h>
+#include <gpgme++/keylistresult.h>
+#include <kdebug.h>
+#include <kmessagebox.h>
+#include <gpgme.h>
+#endif
+
 class PageIntro : public QWizardPage
 {
 public:
@@ -60,18 +73,23 @@ private:
     Ui::KWalletWizardPageIntro ui;
 };
 
-
 class PagePassword : public QWizardPage
 {
 public:
     PagePassword(QWidget *parent)
         : QWizardPage(parent)
     {
+
         ui.setupUi(this);
 
         registerField("useWallet", ui._useWallet);
         registerField("pass1", ui._pass1);
         registerField("pass2", ui._pass2);
+#ifdef HAVE_QGPGME
+        registerField("useGPG", ui._radioGpg);
+        registerField("useBlowfish", ui._radioBlowfish);
+        connect(ui._radioBlowfish, SIGNAL(toggled(bool)), parent, SLOT(passwordPageUpdate()));
+#endif
 
         connect(ui._useWallet, SIGNAL(clicked()), parent, SLOT(passwordPageUpdate()));
         connect(ui._pass1, SIGNAL(textChanged(QString)), parent, SLOT(passwordPageUpdate()));
@@ -80,7 +98,20 @@ public:
 
     virtual int nextId() const
     {
+#ifdef HAVE_QGPGME
+        int nextId = -1;
+        if (field("useWallet").toBool()) {
+            if (field("useBlowfish").toBool()) {
+                nextId = static_cast<KWalletWizard*>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId; // same as non QGPGME case
+            } else {
+                nextId = KWalletWizard::PageGpgKeyId;
+            }
+        }
+
+        return nextId;
+#else
         return static_cast<KWalletWizard*>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId;
+#endif
     }
 
     void setMatchLabelText(const QString &text)
@@ -89,9 +120,92 @@ public:
     }
 
 private:
-    Ui::KWalletWizardPagePassword ui;
+    Ui::KWalletWizardPagePasswordGpg ui;
 };
 
+#ifdef HAVE_QGPGME
+typedef std::vector< GpgME::Key > KeysVector;
+Q_DECLARE_METATYPE(GpgME::Key)
+
+struct AddKeyToCombo {
+    QComboBox *_list;
+    AddKeyToCombo(QComboBox *list) : _list(list) {}
+    void operator()( const GpgME::Key &k) {
+        QString text = QString("%1 (%2)").arg(k.shortKeyID()).arg(k.userID(0).email());
+        QVariant varKey;
+        varKey.setValue(k);
+        _list->addItem(text, varKey);
+    }
+};
+
+class PageGpgKey : public QWizardPage
+{
+public:
+    PageGpgKey(QWidget* parent) 
+        : QWizardPage(parent)
+        , userHasGpgKeys(false)
+    {
+        ui.setupUi(this);
+
+        registerField("gpgKey", ui._gpgKey);
+
+        KeysVector keys;
+        GpgME::initializeLibrary();
+        GpgME::Error err = GpgME::checkEngine(GpgME::OpenPGP);
+        if (err){
+            kDebug() << "OpenPGP not supported on your system!";
+            KMessageBox::error(this, i18n("The QGpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
+        } else {
+            boost::shared_ptr< GpgME::Context > ctx( GpgME::Context::createForProtocol(GpgME::OpenPGP) );
+            if (0 == ctx) {
+                KMessageBox::error(this, i18n("The QGpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
+            } else {
+
+            ctx->setKeyListMode(GPGME_KEYLIST_MODE_LOCAL);
+            int row =0;
+            err = ctx->startKeyListing();
+            while (!err) {
+                GpgME::Key k = ctx->nextKey(err);
+                if (err)
+                    break;
+                if (!k.isInvalid() && k.canEncrypt()) {
+                    keys.push_back(k);
+                }
+            }
+            ctx->endKeyListing();
+            }
+        }
+        std::for_each(keys.begin(), keys.end(), AddKeyToCombo(ui._gpgKey));
+
+        userHasGpgKeys = keys.size() >0;
+        if (userHasGpgKeys) {
+            ui.stackedWidget->setCurrentWidget(ui._pageWhenHasKeys);
+        } else {
+            ui.stackedWidget->setCurrentWidget(ui._pageNoKeys);
+            setFinalPage(true);
+        }
+        emit completeChanged();
+    }
+    
+    virtual int nextId() const {
+        return static_cast<KWalletWizard*>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId;
+    }
+
+    virtual bool isComplete() const {
+        return userHasGpgKeys;
+    }
+    
+    bool hasGpgKeys() const { return userHasGpgKeys; }
+
+    GpgME::Key gpgKey() const {
+        QVariant varKey = ui._gpgKey->itemData(field("gpgKey").toInt());
+        return varKey.value< GpgME::Key >();
+    }
+private:
+    Ui::KWalletWizardPageGpgKey ui;
+    bool userHasGpgKeys;
+};
+#endif
 
 class PageOptions : public QWizardPage
 {
@@ -135,24 +249,42 @@ KWalletWizard::KWalletWizard( QWidget *parent )
     setPage(PageIntroId, m_pageIntro);
     m_pagePasswd = new PagePassword(this);
     setPage(PagePasswordId, m_pagePasswd);
+#ifdef HAVE_QGPGME
+    m_pageGpgKey = new PageGpgKey(this);
+    setPage(PageGpgKeyId, m_pageGpgKey);
+#endif
     setPage(PageOptionsId, new PageOptions(this));
     setPage(PageExplanationId, new PageExplanation(this));
+    
+    resize(500, 420);
 }
 
 void KWalletWizard::passwordPageUpdate()
 {
     bool complete = true;
     if (field("useWallet").toBool()) {
-        if (field("pass1").toString() == field("pass2").toString()) {
-            if (field("pass1").toString().isEmpty()) {
-                m_pagePasswd->setMatchLabelText(i18n("<qt>Password is empty.  <b>(WARNING: Insecure)</b></qt>"));
+#ifdef HAVE_QGPGME
+        if (field("useBlowfish").toBool()) {
+            m_pagePasswd->setFinalPage(wizardType() == Basic);
+            button(NextButton)->setVisible(wizardType() != Basic);
+#endif
+            if (field("pass1").toString() == field("pass2").toString()) {
+                if (field("pass1").toString().isEmpty()) {
+                    m_pagePasswd->setMatchLabelText(i18n("<qt>Password is empty.  <b>(WARNING: Insecure)</b></qt>"));
+                } else {
+                    m_pagePasswd->setMatchLabelText(i18n("Passwords match."));
+                }
             } else {
-                m_pagePasswd->setMatchLabelText(i18n("Passwords match."));
+                m_pagePasswd->setMatchLabelText(i18n("Passwords do not match."));
+                complete = false;
             }
+#ifdef HAVE_QGPGME
         } else {
-            m_pagePasswd->setMatchLabelText(i18n("Passwords do not match."));
-            complete = false;
+            m_pagePasswd->setFinalPage(false);
+            button(NextButton)->setEnabled(true);
+            return;
         }
+#endif
     } else {
         m_pagePasswd->setMatchLabelText(QString());
     }
@@ -177,3 +309,8 @@ void KWalletWizard::initializePage(int id)
     }
 }
 
+#ifdef HAVE_QGPGME
+GpgME::Key KWalletWizard::gpgKey() const {
+    return m_pageGpgKey->gpgKey();
+}
+#endif
