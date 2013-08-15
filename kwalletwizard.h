@@ -19,8 +19,6 @@
 #ifndef KWALLETWIZARD_H
 #define KWALLETWIZARD_H
 
-#define HAVE_QGPGME
-
 #include <QWizard>
 #include <gpgme++/key.h>
 
