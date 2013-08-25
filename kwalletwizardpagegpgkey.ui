@@ -24,7 +24,7 @@
        <item>
         <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The GPG-based wallet use an encrypting GPG key to securely encrypt data on disk. The key must be available when decrypting is needed, if not your wallet will not be accessible. For example, if you choose a SmartCard-based encryption key, the GPG system will prompt you to enter it and it's associated PIN when attempting to open the wallet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The GPG-based wallet use a GPG encryption key to securely encrypt data on disk. The key must be available when decrypting is needed, if not your wallet will not be accessible. For example, if you choose a SmartCard-based encryption key, the GPG system will prompt you to enter it and it's associated PIN when attempting to open the wallet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -39,7 +39,7 @@
             <bool>true</bool>
            </property>
            <property name="text">
-            <string>Select encrypting GPG key:</string>
+            <string>Select encryption GPG key:</string>
            </property>
           </widget>
          </item>
@@ -75,7 +75,7 @@
           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
-          </sizepolicy>
+          </sizepolicy><Merge Conflict>
          </property>
          <property name="text">
           <string>Unable to locate at least one &lt;b&gt;encrypting GPG key&lt;/b&gt;. KDE Wallet needs such &lt;b&gt;encrypting key&lt;/b&gt; to securely store passwords or other sensitive data on disk. If you still want to setup a GPG-based wallet, then cancel this wizard, set-up an &lt;b&gt;encrypting GPG key&lt;/b&gt;, then retry this assistant. Otherwise, you may still click back, then choose a classic, blowfish encrypted file format on the previous page.</string>

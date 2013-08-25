@@ -14,7 +14,7 @@
    <item>
     <widget class="QLabel" name="textLabel2_3">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The KDE Wallet system stores your data in a &lt;span style=&quot; font-style:italic;&quot;&gt;wallet&lt;/span&gt; file on your local hard disk. The data is only written in encrypted form of your choice - blowfish algorithm with your password as the key or using a GPG encrypting key. When a wallet is opened, the wallet manager application will launch and display an icon in the system tray. You can use this application to manage your wallets. It even permits you to drag wallets and wallet contents, allowing you to easily copy a wallet to a remote system.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The KDE Wallet system stores your data in a &lt;span style=&quot; font-style:italic;&quot;&gt;wallet&lt;/span&gt; file on your local hard disk. The data is only written in the encrypted form of your choice - blowfish algorithm with your password as the key or using a GPG encryption key. When a wallet is opened, the wallet manager application will launch and display an icon in the system tray. You can use this application to manage all of your wallets. It even permits you to drag wallets and wallet contents, allowing you to easily copy a wallet to a remote system.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="textFormat">
       <enum>Qt::RichText</enum>
