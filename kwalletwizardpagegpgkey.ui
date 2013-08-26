@@ -75,7 +75,7 @@
           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
-          </sizepolicy><Merge Conflict>
+          </sizepolicy>
          </property>
          <property name="text">
           <string>Unable to locate at least one &lt;b&gt;encrypting GPG key&lt;/b&gt;. KDE Wallet needs such &lt;b&gt;encrypting key&lt;/b&gt; to securely store passwords or other sensitive data on disk. If you still want to setup a GPG-based wallet, then cancel this wizard, set-up an &lt;b&gt;encrypting GPG key&lt;/b&gt;, then retry this assistant. Otherwise, you may still click back, then choose a classic, blowfish encrypted file format on the previous page.</string>
