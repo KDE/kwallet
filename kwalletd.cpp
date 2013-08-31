@@ -55,13 +55,12 @@
 #include <assert.h>
 
 #include "kwalletadaptor.h"
-#include "kwalletopenloop.h"
 
 class KWalletTransaction {
 
     public:
-        KWalletTransaction()
-            : tType(Unknown), cancelled(false), tId(nextTransactionId)
+        explicit KWalletTransaction(QDBusConnection conn)
+            : tType(Unknown), cancelled(false), tId(nextTransactionId), res(-1), connection(conn)
         {
             nextTransactionId++;
             // make sure the id is never < 0 as that's used for the
@@ -90,6 +89,9 @@ class KWalletTransaction {
         bool modal;
         bool isPath;
         int tId; // transaction id
+        int res;
+        QDBusMessage message;
+        QDBusConnection connection;
 
     private:
         static int nextTransactionId;
@@ -198,7 +200,7 @@ void KWalletD::processTransactions() {
 				} else if (_curtrans->cancelled) {
 					// the wallet opened successfully but the application
 					// opening exited/crashed while the dialog was still shown.
-					KWalletTransaction *_xact = new KWalletTransaction();
+					KWalletTransaction *_xact = new KWalletTransaction(_curtrans->connection);
 					_xact->tType = KWalletTransaction::CloseCancelled;
 					_xact->appid = _curtrans->appid;
 					_xact->wallet = _curtrans->wallet;
@@ -207,11 +209,13 @@ void KWalletD::processTransactions() {
 				}
 
 				// emit the AsyncOpened signal as a reply
+				_curtrans->res = res;
 				emit walletAsyncOpened(_curtrans->tId, res);
 				break;
 
 			case KWalletTransaction::OpenFail:
 				// emit the AsyncOpened signal with an invalid handle
+                _curtrans->res = -1;
 				emit walletAsyncOpened(_curtrans->tId, -1);
 				break;
 
@@ -230,6 +234,15 @@ void KWalletD::processTransactions() {
 				break;
 		}
 
+		// send delayed dbus message reply to the caller
+		if (_curtrans->message.type() != QDBusMessage::InvalidMessage) {
+            if (_curtrans->connection.isConnected()) {
+                QDBusMessage reply = _curtrans->message.createReply();
+                reply << _curtrans->res;
+                _curtrans->connection.send(reply);
+            }
+        }
+
 		delete _curtrans;
 		_curtrans = 0;
 	}
@@ -237,28 +250,45 @@ void KWalletD::processTransactions() {
 	_processing = false;
 }
 
-
-
 int KWalletD::openPath(const QString& path, qlonglong wId, const QString& appid) {
 	int tId = openPathAsync(path, wId, appid, false);
 	if (tId < 0) {
 		return tId;
 	}
 
+	// NOTE the real return value will be sent by the dbusmessage delayed reply
+	return 0;
 	// wait for the open-transaction to be processed
-	KWalletOpenLoop loop(this);
-	return loop.waitForAsyncOpen(tId);
+// 	KWalletOpenLoop loop(this);
+// 	return loop.waitForAsyncOpen(tId);
 }
 
 int KWalletD::open(const QString& wallet, qlonglong wId, const QString& appid) {
-	int tId = openAsync(wallet, wId, appid, false);
-	if (tId < 0) {
-		return tId;
-	}
+    if (!_enabled) { // guard
+        return -1;
+    }
 
-	// wait for the open-transaction to be processed
-	KWalletOpenLoop loop(this);
-	return loop.waitForAsyncOpen(tId);
+    if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_\\s]+$").exactMatch(wallet)) {
+        return -1;
+    }
+
+    KWalletTransaction *xact = new KWalletTransaction(connection());
+    _transactions.append(xact);
+
+    message().setDelayedReply(true);
+    xact->message = message();
+
+    xact->appid = appid;
+    xact->wallet = wallet;
+    xact->wId = wId;
+    xact->modal = true; // mark dialogs as modal, the app has blocking wait
+    xact->tType = KWalletTransaction::Open;
+    xact->isPath = false;
+
+    QTimer::singleShot(0, this, SLOT(processTransactions()));
+    checkActiveDialog();
+    // NOTE the real return value will be sent by the dbusmessage delayed reply
+    return 0;
 }
 
 int KWalletD::openAsync(const QString& wallet, qlonglong wId, const QString& appid,
@@ -271,8 +301,8 @@ int KWalletD::openAsync(const QString& wallet, qlonglong wId, const QString& app
 		return -1;
 	}
 
-	KWalletTransaction *xact = new KWalletTransaction;
-	_transactions.append(xact);
+	KWalletTransaction *xact = new KWalletTransaction(connection());
+    _transactions.append(xact);
 
 	xact->appid = appid;
 	xact->wallet = wallet;
@@ -298,8 +328,8 @@ int KWalletD::openPathAsync(const QString& path, qlonglong wId, const QString& a
 		return -1;
 	}
 
-	KWalletTransaction *xact = new KWalletTransaction;
-	_transactions.append(xact);
+    KWalletTransaction *xact = new KWalletTransaction(connection());
+    _transactions.append(xact);
 
 	xact->appid = appid;
 	xact->wallet = path;
@@ -674,9 +704,11 @@ int KWalletD::deleteWallet(const QString& wallet) {
 
 
 void KWalletD::changePassword(const QString& wallet, qlonglong wId, const QString& appid) {
-	KWalletTransaction *xact = new KWalletTransaction;
+	KWalletTransaction *xact = new KWalletTransaction(connection());
 
-	//msg.setDelayedReply(true);
+    message().setDelayedReply(true);
+    xact->message = message();
+
 	xact->appid = appid;
 	xact->wallet = wallet;
 	xact->wId = wId;
