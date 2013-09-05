@@ -771,7 +771,7 @@ void KWalletD::changePassword(const QString& wallet, qlonglong wId, const QStrin
     message().setDelayedReply(true);
     xact->message = message();
 	// TODO GPG this shouldn't be allowed on a GPG managed wallet; a warning should be displayed about this
-	KWalletTransaction *xact = new KWalletTransaction;
+	//KWalletTransaction *xact = new KWalletTransaction(;
 
 	xact->appid = appid;
 	xact->wallet = wallet;
