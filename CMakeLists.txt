@@ -6,6 +6,7 @@ find_package(QGpgme) # provided by kdepimlibs
 if (QGPGME_FOUND)
     add_definitions(-DHAVE_QGPGME)
     include_directories(${QGPGME_INCLUDE_DIR})
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
 endif(QGPGME_FOUND)
 
 ########### build backends #########

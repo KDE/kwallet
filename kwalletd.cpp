@@ -493,7 +493,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
             // this open attempt will set wallet type from the file header, even if password is needed
 			int pwless = b->open(QByteArray(), w);
 #ifdef HAVE_QGPGME
-            assert(b->cipherType != BACKEND_CIPHER_UNKNOWN);
+            assert(b->cipherType() != KWallet::BACKEND_CIPHER_UNKNOWN);
             if (b->cipherType() == KWallet::BACKEND_CIPHER_GPG) {
                 // GPG based wallets do not prompt for password here. Instead, GPG should already have popped pinentry utility for wallet decryption
                 if (!b->isOpen()){
