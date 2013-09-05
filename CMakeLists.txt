@@ -5,6 +5,7 @@ find_package(QGpgme) # provided by kdepimlibs
 
 if (QGPGME_FOUND)
     add_definitions(-DHAVE_QGPGME)
+    include_directories(${QGPGME_INCLUDE_DIR})
 endif(QGPGME_FOUND)
 
 ########### build backends #########
@@ -52,10 +53,9 @@ qt4_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
 
 kde4_add_kdeinit_executable( kwalletd NOGUI ${kwalletd_KDEINIT_SRCS} )
 
+target_link_libraries(kdeinit_kwalletd ${KDE4_KDEUI_LIBS} kwalletbackend )
 if (QGPGME_FOUND)
-target_link_libraries(kdeinit_kwalletd  ${KDE4_KDEUI_LIBS} kwalletbackend ${QGPGME_LIBRARIES})
-else(QGPGME_FOUND)
-target_link_libraries(kdeinit_kwalletd  ${KDE4_KDEUI_LIBS} kwalletbackend )
+    target_link_libraries(kdeinit_kwalletd ${QGPGME_LIBRARIES} )
 endif(QGPGME_FOUND)
 
 install(TARGETS kdeinit_kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})

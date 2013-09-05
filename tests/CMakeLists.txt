@@ -23,10 +23,9 @@ if (QGPGME_FOUND)
 endif(QGPGME_FOUND)
 
 kde4_add_executable(kwalletwizardtest TEST ${kwalletwizardtest_SRCS})
-if (QGPGME_FOUND)
-target_link_libraries(kwalletwizardtest ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} ${QT_QTGUI_LIBRARY} ${QGPGME_LIBRARIES})
-else(QGPGME_FOUND)
 target_link_libraries(kwalletwizardtest ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} ${QT_QTGUI_LIBRARY})
+if (QGPGME_FOUND)
+    target_link_libraries(kwalletwizardtest ${QGPGME_LIBRARIES})
 endif(QGPGME_FOUND)
 
 set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
