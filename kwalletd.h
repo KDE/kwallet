@@ -42,7 +42,6 @@ class KTimeout;
 
 // @Private
 class KWalletTransaction;
-class KWalletSyncTimer;
 class KWalletSessionStore;
 
 class KWalletD : public QObject, protected QDBusContext {
