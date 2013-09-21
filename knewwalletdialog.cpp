@@ -108,7 +108,7 @@ struct AddKeyToList {
         _list->setItem(_row, 2, new QTableWidgetItem(k.shortKeyID()));
         QVariant varKey;
         varKey.setValue(k);
-        _list->item(0, 0)->setData(Qt::UserRole, varKey);
+        _list->item(_row, 0)->setData(Qt::UserRole, varKey);
         ++_row;
     }
 };
@@ -134,7 +134,7 @@ void KNewWalletDialogGpg::initializePage()
         emit completeChanged();
         return;
     }
-    _ctx->setKeyListMode(GPGME_KEYLIST_MODE_LOCAL);
+    _ctx->setKeyListMode(GpgME::Local);
 
     std::vector< GpgME::Key > keys;
     int row =0;

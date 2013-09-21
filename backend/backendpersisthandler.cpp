@@ -544,7 +544,9 @@ int GpgPersistHandler::write(Backend* wb, KSaveFile& sf, QByteArray& version, WI
     keys.push_back(wb->_gpgKey);
     GpgME::EncryptionResult res = ctx->encrypt(keys, decryptedData, encryptedData, GpgME::Context::None);
     if (res.error()){
-        KMessageBox::errorWId( w, i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system configuration, then try again!</qt>", Qt::escape(wb->_name), err.code()));
+        int gpgerr = res.error().code();
+        KMessageBox::errorWId( w, i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2 (%3)</b>. Please fix your system configuration, then try again!</qt>",
+                                       Qt::escape(wb->_name), gpgerr, gpgme_strerror(gpgerr)));
         kDebug() << "GpgME encryption error: " << res.error().code();
         sf.abort();
         return -1;
