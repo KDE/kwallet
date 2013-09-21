@@ -241,7 +241,6 @@ int Backend::open(const GpgME::Key& key)
         return -255;  // already open
     }
     _gpgKey = key;
-    setPassword(QByteArray());
     return openInternal();
 }
 #endif // HAVE_QGPGME
@@ -274,8 +273,11 @@ int Backend::openInternal(WId w)
 		}
 		newfile.close();
 		_open = true;
-		sync(w);
-		return 1;          // new file opened, but OK
+		if (sync(w)) {
+            return -2;
+        } else {
+            return 1;          // new file opened, but OK
+        }
 	}
 
 	QFile db(_path);
