@@ -29,6 +29,7 @@
 #include <ksavefile.h>
 #include <kstandarddirs.h>
 #include <gpgme++/key.h>
+#include <knotification.h>
 
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
@@ -337,7 +338,15 @@ int Backend::sync(WId w) {
     if (0 == phandler) {
         return -4; // write error
     }
-    return phandler->write(this, sf, version, w);
+    int rc = phandler->write(this, sf, version, w);
+    if (rc<0) {
+        // Oops! wallet file sync filed! Display a notification about that
+        // TODO: change kwalletd status flags, when status flags will be implemented
+        KNotification *notification = new KNotification( "syncFailed" );
+        notification->setText( i18n("Failed to sync wallet <b>%1</b> to disk. Error codes are:\nRC <b>%2</b>\nSF <b>%2</b>. Please file a BUG report using this information to bugs.kde.org").arg(_name).arg(rc).arg(sf.errorString()) );
+        notification->sendEvent();
+    }
+    return rc;
 }
 
 

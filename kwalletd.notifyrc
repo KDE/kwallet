@@ -288,3 +288,8 @@ Comment[x-test]=xxThe KDE Wallet Daemon requests a passwordxx
 Comment[zh_CN]=KDE 钱包守护程序请求密码
 Comment[zh_TW]=KDE 錢包守護程式需要密碼
 Action=Popup
+
+[Event/syncFailed]
+Name=Sync Failed
+Comment=KDE Wallet System failed to sync a wallet file to disk
+Action=Popup

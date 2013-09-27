@@ -302,6 +302,7 @@ int BlowfishPersistHandler::write(Backend* wb, KSaveFile& sf, QByteArray& versio
         return -4; // write error
     }
     if (!sf.finalize()) {
+        kDebug() << "WARNING: wallet sync to disk failed! KSaveFile status was " << sf.errorString();
         wholeFile.fill(0);
         return -4; // write error
     }
