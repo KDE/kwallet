@@ -291,6 +291,8 @@ Action=Popup
 
 [Event/syncFailed]
 Name=Sync Failed
+Name[de]=Abgleich fehlgeschlagen
+Name[es]=Sincronización fallida
 Name[kk]=Қадамдастыру жаңылды
 Name[nl]=Synchronisatie mislukt
 Name[pt]=A Sincronização Falhou
@@ -301,6 +303,7 @@ Name[sv]=Synkronisering misslyckades
 Name[uk]=Спроба синхронізації зазнала невдачі
 Name[x-test]=xxSync Failedxx
 Comment=KDE Wallet System failed to sync a wallet file to disk
+Comment[es]=El sistema de carteras de KDE ha fallado al sincronizar un archivo de cartera con el disco
 Comment[kk]=KDE әмиян жүйесінің дискідегі әмиян файлымен қадамдастыру жаңылысы
 Comment[nl]=Het lukte het KDE portefeuillesysteem niet om een portefeuillebestand naar schijf te synchroniseren
 Comment[pt]=O sistema da Carteira do KDE não conseguiu sincronizar um ficheiro da carteira para o disco
