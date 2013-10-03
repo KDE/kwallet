@@ -303,6 +303,7 @@ Name[sv]=Synkronisering misslyckades
 Name[uk]=Спроба синхронізації зазнала невдачі
 Name[x-test]=xxSync Failedxx
 Comment=KDE Wallet System failed to sync a wallet file to disk
+Comment[de]=Abgleich der digitalen KDE-Brieftasche mit einer Brieftaschendatei auf der Festplatte ist fehlgeschlagen.
 Comment[es]=El sistema de carteras de KDE ha fallado al sincronizar un archivo de cartera con el disco
 Comment[kk]=KDE әмиян жүйесінің дискідегі әмиян файлымен қадамдастыру жаңылысы
 Comment[nl]=Het lukte het KDE portefeuillesysteem niet om een portefeuillebestand naar schijf te synchroniseren
