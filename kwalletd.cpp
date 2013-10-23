@@ -765,6 +765,7 @@ bool KWalletD::isAuthorizedApp(const QString& appid, const QString& wallet, WId 
 
 
 int KWalletD::deleteWallet(const QString& wallet) {
+    int result = -1;
 	QString path = KGlobal::dirs()->saveLocation("kwallet") + QDir::separator() + wallet + ".kwl";
 
 	if (QFile::exists(path)) {
@@ -772,10 +773,17 @@ int KWalletD::deleteWallet(const QString& wallet) {
 		internalClose(walletInfo.second, walletInfo.first, true);
 		QFile::remove(path);
 		emit walletDeleted(wallet);
-		return 0;
+        // also delete access control entries
+        KConfigGroup cfgAllow = KSharedConfig::openConfig("kwalletrc")->group("Auto Allow");
+        cfgAllow.deleteEntry(wallet);
+
+        KConfigGroup cfgDeny = KSharedConfig::openConfig("kwalletrc")->group("Auto Deny");
+        cfgDeny.deleteEntry(wallet);
+
+        result = 0;
 	}
 
-	return -1;
+	return result;
 }
 
 
