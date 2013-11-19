@@ -40,6 +40,11 @@
 #include "sha1.h"
 #include "cbc.h"
 
+#ifdef Q_OS_WIN 
+#include <windows.h>
+#include <wincrypt.h>
+#endif
+
 #define KWALLET_CIPHER_BLOWFISH_CBC 0
 #define KWALLET_CIPHER_3DES_CBC     1 // unsupported
 #define KWALLET_CIPHER_GPG          2
