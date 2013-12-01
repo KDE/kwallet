@@ -28,7 +28,11 @@
 #include <QtCore/QStringList>
 #include <QtCore/QMap>
 #include "kwalletentry.h"
+#include "backendpersisthandler.h"
 
+#ifdef HAVE_QGPGME
+#include <gpgme++/key.h>
+#endif // HAVE_QGPGME
 
 namespace KWallet {
 
@@ -70,7 +74,10 @@ class KDE_EXPORT Backend {
 		// Open and unlock the wallet.
 		// If opening succeeds, the password's hash will be remembered.
 		// If opening fails, the password's hash will be cleared.
-		int open(const QByteArray& password);
+		int open(const QByteArray& password, WId w=0);
+#ifdef HAVE_QGPGME
+        int open(const GpgME::Key& key);
+#endif
       
       // Open and unlock the wallet using a pre-hashed password.
       // If opening succeeds, the password's hash will be remembered.
@@ -82,7 +89,7 @@ class KDE_EXPORT Backend {
 		int close(bool save = false);
 
 		// Write the wallet to disk
-		int sync();
+		int sync(WId w);
 
 		// Returns true if the current wallet is open.
 		bool isOpen() const;
@@ -148,6 +155,12 @@ class KDE_EXPORT Backend {
 
 		static QString openRCToString(int rc);
 
+        void setCipherType(BackendCipherType ct);
+        BackendCipherType cipherType() const { return _cipherType; }
+#ifdef HAVE_QGPGME
+        const GpgME::Key &gpgKey() const;
+#endif
+
 	private:
 		Q_DISABLE_COPY( Backend )
 		class BackendPrivate;
@@ -163,11 +176,18 @@ class KDE_EXPORT Backend {
 		FolderMap _entries;
 		typedef QMap<MD5Digest, QList<MD5Digest> > HashMap;
 		HashMap _hashes;
-		QByteArray _passhash; // password hash used for saving the wallet
+		QByteArray _passhash;   // password hash used for saving the wallet
+		BackendCipherType _cipherType; // the kind of encryption used for this wallet
+#ifdef HAVE_QGPGME
+        GpgME::Key      _gpgKey;
+#endif
+		friend class BlowfishPersistHandler;
+        friend class GpgPersistHandler;
       
       // open the wallet with the password already set. This is
       // called internally by both open and openPreHashed.
-      int openInternal();
+      int openInternal(WId w=0);
+
 };
 
 }

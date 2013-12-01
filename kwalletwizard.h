@@ -20,9 +20,11 @@
 #define KWALLETWIZARD_H
 
 #include <QWizard>
+#include <gpgme++/key.h>
 
-class PageIntro;
+class PageGpgKey;
 class PagePassword;
+class PageIntro;
 
 class KWalletWizard : public QWizard
 {
@@ -37,12 +39,19 @@ class KWalletWizard : public QWizard
 
         static const int PageIntroId = 0;
         static const int PagePasswordId = 1;
-        static const int PageOptionsId = 2;
-        static const int PageExplanationId = 3;
+#ifdef HAVE_QGPGME
+        static const int PageGpgKeyId =2;
+#endif
+        static const int PageOptionsId = 3;
+        static const int PageExplanationId = 4;
 
     KWalletWizard( QWidget *parent = 0 );
 
         WizardType wizardType() const;
+
+#ifdef HAVE_QGPGME
+        GpgME::Key gpgKey() const;
+#endif // HAVE_QGPGME
 
     protected:
         virtual void initializePage(int id);
@@ -53,6 +62,9 @@ class KWalletWizard : public QWizard
     private:
         PageIntro *m_pageIntro;
         PagePassword *m_pagePasswd;
+#ifdef HAVE_QGPGME
+        PageGpgKey *m_pageGpgKey;
+#endif
 };
 
 #endif

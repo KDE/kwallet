@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>KWalletWizardPageIntro</class>
- <widget class="QWidget" name="KWalletWizardPageIntro">
+ <class>KNewWalletDialogIntro</class>
+ <widget class="QWidget" name="KNewWalletDialogIntro">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>449</width>
-    <height>327</height>
+    <width>341</width>
+    <height>190</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="KTitleWidget" name="ktitlewidget">
      <property name="comment">
@@ -19,7 +19,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="textLabel2">
+    <widget class="QLabel" name="labelIntro">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
@@ -27,7 +27,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your passwords and other personal information on disk in an encrypted file, preventing others from viewing the information.  This wizard will tell you about KWallet and help you configure it for the first time.</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The application '&lt;span style=&quot; font-weight:600;&quot;&gt;%1&lt;/span&gt;' has requested to open the KDE wallet. This is used to store sensitive data in a secure fashion. Please choose the new wallet's type below or click cancel to deny the application's request.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="textFormat">
       <enum>Qt::RichText</enum>
@@ -50,9 +50,6 @@
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
        <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
@@ -62,21 +59,21 @@
       </spacer>
      </item>
      <item>
-      <layout class="QVBoxLayout">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QRadioButton" name="_basic">
+        <widget class="QRadioButton" name="radioBlowfish">
          <property name="text">
-          <string>&amp;Basic setup (recommended)</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
+          <string>Classic, blowfish encrypted file</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="_advanced">
+        <widget class="QRadioButton" name="radioGpg">
          <property name="text">
-          <string>&amp;Advanced setup</string>
+          <string>Use GPG encryption, for better protection</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -97,22 +94,6 @@
      </item>
     </layout>
    </item>
-   <item>
-    <spacer>
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Expanding</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>21</width>
-       <height>21</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -123,5 +104,25 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>radioBlowfish</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>KNewWalletDialogIntro</receiver>
+   <slot>onBlowfishToggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>138</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onBlowfishToggled(bool)</slot>
+ </slots>
 </ui>
