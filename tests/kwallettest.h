@@ -24,14 +24,13 @@
 #include <QtCore/QObject>
 #include <QtTest/QtTest>
 
-
 class KWalletTest : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
 
-  private Q_SLOTS:
+private Q_SLOTS:
 
     void testWallet();
 
