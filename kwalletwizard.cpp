@@ -120,7 +120,11 @@ public:
     }
 
 private:
+#ifdef HAVE_QGPGME
     Ui::KWalletWizardPagePasswordGpg ui;
+#else
+    Ui::KWalletWizardPagePassword ui;
+#endif
 };
 
 #ifdef HAVE_QGPGME
