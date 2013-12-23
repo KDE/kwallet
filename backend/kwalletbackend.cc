@@ -28,7 +28,9 @@
 #include <kcodecs.h>
 #include <ksavefile.h>
 #include <kstandarddirs.h>
+#ifdef HAVE_QGPGME
 #include <gpgme++/key.h>
+#endif
 #include <knotification.h>
 
 #include <QtCore/QFile>
