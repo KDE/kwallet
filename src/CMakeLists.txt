@@ -27,7 +27,7 @@ add_library(KF5Wallet ${kwallet_SRCS})
 generate_export_header(KF5Wallet BASE_NAME KWallet)
 add_library(KF5::Wallet ALIAS KF5Wallet)
 
-target_include_directories(KF5Wallet INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/kwallet>" "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KWallet>")
+target_include_directories(KF5Wallet INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KWallet>")
 
 target_link_libraries(KF5Wallet PUBLIC  Qt5::Widgets
                                 PRIVATE KF5::WindowSystem # KWindowSystem::allowExternalProcessWindowActivation
@@ -61,5 +61,5 @@ install(TARGETS KF5Wallet EXPORT KF5WalletTargets ${INSTALL_TARGETS_DEFAULT_ARGS
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kwallet_export.h
   ${KWallet_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/kwallet COMPONENT Devel
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KWallet COMPONENT Devel
 )
