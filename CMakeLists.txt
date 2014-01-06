@@ -54,9 +54,9 @@ if (GPGME_FOUND AND QGPGME_FOUND)
     )
 endif(GPGME_FOUND AND QGPGME_FOUND)
 
-find_file(kwallet_xml org.kde.KWallet.xml HINTS ${KDE4_DBUS_INTERFACES_DIR} )
+find_file(kwallet_xml org.kde.KWallet.xml HINTS ${DBUS_INTERFACES_INSTALL_DIR} )
 
-qt4_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
+qt5_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
 
 #kf5_add_kdeinit_executable( kwalletd NOGUI ${kwalletd_KDEINIT_SRCS} )
 kf5_add_kdeinit_executable( kwalletd ${kwalletd_KDEINIT_SRCS} )
