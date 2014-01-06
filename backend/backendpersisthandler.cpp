@@ -19,7 +19,7 @@
 
 #include <QIODevice>
 #include <QFile>
-#include <QTextDocument>
+#include <QtCore/QCryptographicHash>
 #include <assert.h>
 #include <ksavefile.h>
 #include <kdebug.h>
@@ -53,6 +53,8 @@
 #define KWALLET_HASH_MD5        1 // unsupported
 
 namespace KWallet {
+
+typedef char Digest[16];
 
 static int getRandomBlock(QByteArray& randBlock) {
 
@@ -197,7 +199,7 @@ int BlowfishPersistHandler::write(Backend* wb, KSaveFile& sf, QByteArray& versio
     // Holds the hashes we write out
     QByteArray hashes;
     QDataStream hashStream(&hashes, QIODevice::WriteOnly);
-    KMD5 md5;
+    QCryptographicHash md5(QCryptographicHash::Md5);
     hashStream << static_cast<quint32>(wb->_entries.count());
 
     // Holds decrypted data prior to encryption
@@ -214,8 +216,8 @@ int BlowfishPersistHandler::write(Backend* wb, KSaveFile& sf, QByteArray& versio
         dStream << static_cast<quint32>(i.value().count());
 
         md5.reset();
-        md5.update(i.key().toUtf8());
-        hashStream.writeRawData(reinterpret_cast<const char*>(&(md5.rawDigest()[0])), 16);
+        md5.addData(i.key().toUtf8());
+        hashStream.writeRawData(md5.result().constData(), 16);
         hashStream << static_cast<quint32>(i.value().count());
 
         for (Backend::EntryMap::ConstIterator j = i.value().constBegin(); j != i.value().constEnd(); ++j) {
@@ -224,8 +226,8 @@ int BlowfishPersistHandler::write(Backend* wb, KSaveFile& sf, QByteArray& versio
             dStream << j.value()->value();
 
             md5.reset();
-            md5.update(j.key().toUtf8());
-            hashStream.writeRawData(reinterpret_cast<const char*>(&(md5.rawDigest()[0])), 16);
+            md5.addData(j.key().toUtf8());
+            hashStream.writeRawData(md5.result().constData(), 16);
         }
     }
 
@@ -331,18 +333,18 @@ int BlowfishPersistHandler::read(Backend* wb, QFile& db, WId)
     }
 
     for (size_t i = 0; i < n; ++i) {
-        KMD5::Digest d, d2; // judgment day
+        Digest d, d2; // judgment day
         MD5Digest ba;
         QMap<MD5Digest,QList<MD5Digest> >::iterator it;
         quint32 fsz;
         if (hds.atEnd()) return -43;
-        hds.readRawData(reinterpret_cast<char *>(d), 16);
+        hds.readRawData(d, 16);
         hds >> fsz;
         ba = MD5Digest(reinterpret_cast<char *>(d));
         it = wb->_hashes.insert(ba, QList<MD5Digest>());
         for (size_t j = 0; j < fsz; ++j) {
-            hds.readRawData(reinterpret_cast<char *>(d2), 16);
-            ba = MD5Digest(reinterpret_cast<char *>(d2));
+            hds.readRawData(d2, 16);
+            ba = MD5Digest(d2);
             (*it).append(ba);
         }
     }
@@ -508,7 +510,7 @@ int GpgPersistHandler::write(Backend* wb, KSaveFile& sf, QByteArray& version, WI
     
     QByteArray hashes;
     QDataStream hashStream(&hashes, QIODevice::WriteOnly);
-    KMD5 md5;
+    QCryptographicHash md5(QCryptographicHash::Md5);
     hashStream << static_cast<quint32>(wb->_entries.count());
 
     QByteArray values;
@@ -520,8 +522,8 @@ int GpgPersistHandler::write(Backend* wb, KSaveFile& sf, QByteArray& version, WI
         valueStream << static_cast<quint32>(i.value().count());
 
         md5.reset();
-        md5.update(i.key().toUtf8());
-        hashStream.writeRawData(reinterpret_cast<const char*>(&(md5.rawDigest()[0])), 16);
+        md5.addData(i.key().toUtf8());
+        hashStream.writeRawData(md5.result().constData(), 16);
         hashStream << static_cast<quint32>(i.value().count());
 
         Backend::EntryMap::ConstIterator j = i.value().constBegin();
@@ -532,8 +534,8 @@ int GpgPersistHandler::write(Backend* wb, KSaveFile& sf, QByteArray& version, WI
             valueStream << j.value()->value();
 
             md5.reset();
-            md5.update(j.key().toUtf8());
-            hashStream.writeRawData(reinterpret_cast<const char*>(&(md5.rawDigest()[0])), 16);
+            md5.addData(j.key().toUtf8());
+            hashStream.writeRawData(md5.result().constData(), 16);
         }
     }
 
@@ -667,8 +669,8 @@ int GpgPersistHandler::read(Backend* wb, QFile& sf, WId w)
 
     quint32 folderCount = hashCount;
     while (hashCount--){
-        KMD5::Digest d;
-        hashStream.readRawData(reinterpret_cast<char *>(d), 16);
+        Digest d;
+        hashStream.readRawData(d, 16);
         
         quint32 folderSize;
         hashStream >> folderSize;
@@ -676,9 +678,9 @@ int GpgPersistHandler::read(Backend* wb, QFile& sf, WId w)
         MD5Digest ba = MD5Digest(reinterpret_cast<char *>(d));
         QMap<MD5Digest, QList<MD5Digest> >::iterator it = wb->_hashes.insert(ba, QList<MD5Digest>());
         while (folderSize--){
-            KMD5::Digest d2;
-            hashStream.readRawData(reinterpret_cast<char *>(d2), 16);
-            ba = MD5Digest(reinterpret_cast<char *>(d2));
+            Digest d2;
+            hashStream.readRawData(d2, 16);
+            ba = MD5Digest(d2);
             (*it).append(ba);
         }
     }

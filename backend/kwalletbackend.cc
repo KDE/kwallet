@@ -36,6 +36,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 #include <QtCore/QRegExp>
+#include <QtCore/QCryptographicHash>
 
 #include "blowfish.h"
 #include "sha1.h"
@@ -434,9 +435,9 @@ bool Backend::createFolder(const QString& f) {
 
 	_entries.insert(f, EntryMap());
 
-	KMD5 folderMd5;
-	folderMd5.update(f.toUtf8());
-	_hashes.insert(MD5Digest(folderMd5.rawDigest()), QList<MD5Digest>());
+	QCryptographicHash folderMd5(QCryptographicHash::Md5);
+	folderMd5.addData(f.toUtf8());
+	_hashes.insert(MD5Digest(folderMd5.result()), QList<MD5Digest>());
 
 	return true;
 }
@@ -452,16 +453,16 @@ int Backend::renameEntry(const QString& oldName, const QString& newName) {
 		emap.erase(oi);
 		emap[newName] = e;
 
-		KMD5 folderMd5;
-		folderMd5.update(_folder.toUtf8());
+		QCryptographicHash folderMd5(QCryptographicHash::Md5);
+		folderMd5.addData(_folder.toUtf8());
 
-		HashMap::iterator i = _hashes.find(MD5Digest(folderMd5.rawDigest()));
+		HashMap::iterator i = _hashes.find(MD5Digest(folderMd5.result()));
 		if (i != _hashes.end()) {
-			KMD5 oldMd5, newMd5;
-			oldMd5.update(oldName.toUtf8());
-			newMd5.update(newName.toUtf8());
-			i.value().removeAll(MD5Digest(oldMd5.rawDigest()));
-			i.value().append(MD5Digest(newMd5.rawDigest()));
+			QCryptographicHash oldMd5(QCryptographicHash::Md5), newMd5(QCryptographicHash::Md5);
+			oldMd5.addData(oldName.toUtf8());
+			newMd5.addData(newName.toUtf8());
+			i.value().removeAll(MD5Digest(oldMd5.result()));
+			i.value().append(MD5Digest(newMd5.result()));
 		}
 		return 0;
 	}
@@ -479,14 +480,14 @@ void Backend::writeEntry(Entry *e) {
 	}
 	_entries[_folder][e->key()]->copy(e);
 
-	KMD5 folderMd5;
-	folderMd5.update(_folder.toUtf8());
+	QCryptographicHash folderMd5(QCryptographicHash::Md5);
+	folderMd5.addData(_folder.toUtf8());
 
-	HashMap::iterator i = _hashes.find(MD5Digest(folderMd5.rawDigest()));
+	HashMap::iterator i = _hashes.find(MD5Digest(folderMd5.result()));
 	if (i != _hashes.end()) {
-		KMD5 md5;
-		md5.update(e->key().toUtf8());
-		i.value().append(MD5Digest(md5.rawDigest()));
+		QCryptographicHash md5(QCryptographicHash::Md5);
+		md5.addData(e->key().toUtf8());
+		i.value().append(MD5Digest(md5.result()));
 	}
 }
 
@@ -507,14 +508,14 @@ bool Backend::removeEntry(const QString& key) {
 	if (fi != _entries.end() && ei != fi.value().end()) {
 		delete ei.value();
 		fi.value().erase(ei);
-		KMD5 folderMd5;
-		folderMd5.update(_folder.toUtf8());
+		QCryptographicHash folderMd5(QCryptographicHash::Md5);
+		folderMd5.addData(_folder.toUtf8());
 
-		HashMap::iterator i = _hashes.find(MD5Digest(folderMd5.rawDigest()));
+		HashMap::iterator i = _hashes.find(MD5Digest(folderMd5.result()));
 		if (i != _hashes.end()) {
-			KMD5 md5;
-			md5.update(key.toUtf8());
-			i.value().removeAll(MD5Digest(md5.rawDigest()));
+			QCryptographicHash md5(QCryptographicHash::Md5);
+			md5.addData(key.toUtf8());
+			i.value().removeAll(MD5Digest(md5.result()));
 		}
 		return true;
 	}
@@ -541,9 +542,9 @@ bool Backend::removeFolder(const QString& f) {
 
 		_entries.erase(fi);
 
-		KMD5 folderMd5;
-		folderMd5.update(f.toUtf8());
-		_hashes.remove(MD5Digest(folderMd5.rawDigest()));
+		QCryptographicHash folderMd5(QCryptographicHash::Md5);
+		folderMd5.addData(f.toUtf8());
+		_hashes.remove(MD5Digest(folderMd5.result()));
 		return true;
 	}
 
@@ -552,20 +553,20 @@ bool Backend::removeFolder(const QString& f) {
 
 
 bool Backend::folderDoesNotExist(const QString& folder) const {
-	KMD5 md5;
-	md5.update(folder.toUtf8());
-	return !_hashes.contains(MD5Digest(md5.rawDigest()));
+	QCryptographicHash md5(QCryptographicHash::Md5);
+	md5.addData(folder.toUtf8());
+	return !_hashes.contains(MD5Digest(md5.result()));
 }
 
 
 bool Backend::entryDoesNotExist(const QString& folder, const QString& entry) const {
-	KMD5 md5;
-	md5.update(folder.toUtf8());
-	HashMap::const_iterator i = _hashes.find(MD5Digest(md5.rawDigest()));
+	QCryptographicHash md5(QCryptographicHash::Md5);
+	md5.addData(folder.toUtf8());
+	HashMap::const_iterator i = _hashes.find(MD5Digest(md5.result()));
 	if (i != _hashes.end()) {
 		md5.reset();
-		md5.update(entry.toUtf8());
-		return !i.value().contains(MD5Digest(md5.rawDigest()));
+		md5.addData(entry.toUtf8());
+		return !i.value().contains(MD5Digest(md5.result()));
 	}
 	return true;
 }
