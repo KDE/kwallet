@@ -49,7 +49,9 @@
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
 #include <KNotification>
+#ifdef HAVE_QGPGME
 #include <gpgme++/key.h>
+#endif
 
 #include <QtCore/QDir>
 #include <QTextDocument> // Qt::escape

@@ -20,7 +20,9 @@
 #define KWALLETWIZARD_H
 
 #include <QWizard>
+#ifdef HAVE_QGPGME
 #include <gpgme++/key.h>
+#endif
 
 class PageGpgKey;
 class PagePassword;
