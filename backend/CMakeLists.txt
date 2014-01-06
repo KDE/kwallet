@@ -1,5 +1,6 @@
 ########### Configure checks for kwalletbackend ###############
 
+include(CheckIncludeFiles)
 check_include_files(stdint.h HAVE_STDINT_H)
 check_include_files(sys/bitypes.h HAVE_SYS_BITYPES_H)
 if (QGPGME_FOUND)

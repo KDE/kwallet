@@ -17,8 +17,8 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef KWALLET_EXPORT_H
-#define KWALLET_EXPORT_H
+#ifndef KWALLET_BACKEND_EXPORT_H
+#define KWALLET_BACKEND_EXPORT_H
 
 /* needed for KDE_EXPORT and KDE_IMPORT macros */
 #include <kdemacros.h>

@@ -11,6 +11,10 @@ if (GPGME_FOUND AND QGPGME_FOUND)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE_ENABLE_EXCEPTIONS}")
 endif(GPGME_FOUND AND QGPGME_FOUND)
 
+find_package(KF5 CONFIG REQUIRED COMPONENTS Wallet)
+include_directories($<TARGET_PROPERTY:KF5::Wallet,INTERFACE_INCLUDE_DIRECTORIES>)
+
+
 ########### build backends #########
 add_subdirectory(backend)
 
@@ -54,7 +58,8 @@ find_file(kwallet_xml org.kde.KWallet.xml HINTS ${KDE4_DBUS_INTERFACES_DIR} )
 
 qt4_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
 
-kf5_add_kdeinit_executable( kwalletd NOGUI ${kwalletd_KDEINIT_SRCS} )
+#kf5_add_kdeinit_executable( kwalletd NOGUI ${kwalletd_KDEINIT_SRCS} )
+kf5_add_kdeinit_executable( kwalletd ${kwalletd_KDEINIT_SRCS} )
 
 target_link_libraries(kdeinit_kwalletd ${KDE4_KDEUI_LIBS} kwalletbackend )
 if (GPGME_FOUND AND QGPGME_FOUND)
