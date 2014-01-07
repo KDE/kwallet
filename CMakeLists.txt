@@ -19,6 +19,7 @@ if(NOT kdelibs_SOURCE_DIR)
 endif()
 
 include(FeatureSummary)
+include(GenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 
