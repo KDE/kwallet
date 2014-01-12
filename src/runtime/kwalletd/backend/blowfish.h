@@ -31,7 +31,7 @@
 #endif
 
 #include "blockcipher.h"
-#include "kwallet_backend_export.h"
+#include "kwalletbackend_export.h"
 
 /* @internal
  */

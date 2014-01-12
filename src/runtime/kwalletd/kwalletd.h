@@ -32,7 +32,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <QtDBus/QtDBus>
-#include <QDBusServiceWatcher>
+#include <QtDBus/QDBusServiceWatcher>
 
 #include "ktimeout.h"
 #include "kwalletsessionstore.h"

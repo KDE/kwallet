@@ -28,16 +28,16 @@
 #include "ui_kwalletwizardpagegpgkey.h"
 #endif
 
+#include <KLocalizedString>
+#include <KIconLoader>
 #include <QButtonGroup>
-
-#include <klocale.h>
 
 #ifdef HAVE_QGPGME
 #include <QComboBox>
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <kdebug.h>
+#include <QDebug>
 #include <kmessagebox.h>
 #include <gpgme.h>
 #endif
@@ -157,7 +157,7 @@ public:
         GpgME::initializeLibrary();
         GpgME::Error err = GpgME::checkEngine(GpgME::OpenPGP);
         if (err){
-            kDebug() << "OpenPGP not supported on your system!";
+            qDebug() << "OpenPGP not supported on your system!";
             KMessageBox::error(this, i18n("The QGpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
         } else {
             boost::shared_ptr< GpgME::Context > ctx( GpgME::Context::createForProtocol(GpgME::OpenPGP) );

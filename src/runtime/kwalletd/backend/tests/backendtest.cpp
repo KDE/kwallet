@@ -1,19 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include <kaboutdata.h>
-#include <kcmdlineargs.h>
-#include <kdebug.h>
-#include <kapplication.h>
-#include <klocale.h>
+#include <QtWidgets/QApplication>
 #include <QtCore/QString>
 
 #include "kwalletbackend.h"
 
 int main(int argc, char **argv) {
-   KAboutData aboutData("backendtest", 0, ki18n("backendtest"), "version");
-   KCmdLineArgs::init(argc, argv, &aboutData);
-   KApplication a;
+   QApplication a(argc, argv);
+   a.setApplicationName("backendtest");
 
    KWallet::Backend be("ktestwallet");
    printf("KWalletBackend constructed\n");

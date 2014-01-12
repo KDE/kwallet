@@ -1,6 +1,8 @@
+include(CheckIncludeFiles)
+include(GenerateExportHeader)
+
 ########### Configure checks for kwalletbackend ###############
 
-include(CheckIncludeFiles)
 check_include_files(stdint.h HAVE_STDINT_H)
 check_include_files(sys/bitypes.h HAVE_SYS_BITYPES_H)
 if (QGPGME_FOUND)
@@ -10,6 +12,15 @@ endif(QGPGME_FOUND)
 configure_file (config-kwalletbackend.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwalletbackend.h )
 
 ########### kwalletbackend ###############
+find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
+find_package(KF5 CONFIG REQUIRED COMPONENTS WidgetsAddons CoreAddons Notifications I18n)
+
+include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE4_INCLUDES} ${KF5_INCLUDE_DIRS})
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../api/KWallet)
+
+#remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
+remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 set(kwalletbackend_LIB_SRCS
    blockcipher.cc
@@ -21,9 +32,10 @@ set(kwalletbackend_LIB_SRCS
    backendpersisthandler.cpp
 )
 
-kde4_add_library(kwalletbackend SHARED ${kwalletbackend_LIB_SRCS})
+add_library(kwalletbackend SHARED ${kwalletbackend_LIB_SRCS})
+generate_export_header(kwalletbackend)
 
-target_link_libraries(kwalletbackend ${KDE4_KDEUI_LIBS} )
+target_link_libraries(kwalletbackend Qt5::Widgets KF5::WidgetsAddons KF5::CoreAddons KF5::Notifications KF5::I18n)
 if(QGPGME_FOUND)
 target_link_libraries(kwalletbackend ${QGPGME_LIBRARIES} )
 endif(QGPGME_FOUND)

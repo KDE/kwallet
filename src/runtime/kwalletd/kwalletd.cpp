@@ -31,33 +31,32 @@
 #include "knewwalletdialog.h"
 #endif
 
-#include <kuniqueapplication.h>
 #include <ktoolinvocation.h>
 #include <kconfig.h>
 #include <kconfiggroup.h>
-#include <kdebug.h>
 #include <kdirwatch.h>
-#include <kglobal.h>
-#include <klocale.h>
 #include <kmessagebox.h>
 #include <kpassworddialog.h>
 #include <knewpassworddialog.h>
-#include <kstandarddirs.h>
 #include <kwalletentry.h>
-#include <kicon.h>
 #include <kwindowsystem.h>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
 #include <KNotification>
+#include <KLocalizedString>
+#include <KIconLoader>
 #ifdef HAVE_QGPGME
 #include <gpgme++/key.h>
 #endif
 
+#include <QApplication>
 #include <QtCore/QDir>
-#include <QTextDocument> // Qt::escape
+#include <QString>
 #include <QtCore/QRegExp>
 #include <QtCore/QTimer>
 #include <QtCore/QEventLoop>
+#include <QtGui/QIcon>
+#include <QDebug>
 
 #include <assert.h>
 
@@ -129,10 +128,12 @@ KWalletD::KWalletD()
 #endif
 
 	reconfigure();
-	KGlobal::dirs()->addResourceType("kwallet", 0, "share/apps/kwallet");
+//	KGlobal::dirs()->addResourceType("kwallet", 0, "share/apps/kwallet");
 	_dw = new KDirWatch(this );
-		_dw->setObjectName( QLatin1String( "KWallet Directory Watcher" ) );
-	_dw->addDir(KGlobal::dirs()->saveLocation("kwallet"));
+	_dw->setObjectName( QLatin1String( "KWallet Directory Watcher" ) );
+//	_dw->addDir(KGlobal::dirs()->saveLocation("kwallet"));
+    _dw->addDir(KWallet::Backend::getSaveLocation());
+
 	_dw->startScan(true);
 	connect(_dw, SIGNAL(dirty(const QString&)), this, SLOT(emitWalletListDirty()));
 
@@ -155,12 +156,12 @@ void KWalletD::connectToScreenSaver()
 {
     screensaver = new QDBusInterface("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver");
     if (!screensaver->isValid()) {
-        kDebug() << "Service org.freedesktop.ScreenSaver not found. Retrying in 10 seconds...";
+        qDebug() << "Service org.freedesktop.ScreenSaver not found. Retrying in 10 seconds...";
         // keep attempting every 10 seconds
         QTimer::singleShot(10000, this, SLOT(connectToScreenSaver()));
     } else {
         connect(screensaver, SIGNAL(ActiveChanged(bool)), SLOT(screenSaverChanged(bool)));
-        kDebug() << "connected to screen saver service.";
+        qDebug() << "connected to screen saver service.";
     }
 }
 #endif
@@ -335,7 +336,7 @@ int KWalletD::openAsync(const QString& wallet, qlonglong wId, const QString& app
 	xact->tType = KWalletTransaction::Open;
 	xact->isPath = false;
 	if (handleSession) {
-        kDebug() << "openAsync for " << message().service();
+        qDebug() << "openAsync for " << message().service();
         _serviceWatcher.setConnection(connection());
         _serviceWatcher.addWatchedService(message().service());
 		xact->service = message().service();
@@ -362,7 +363,7 @@ int KWalletD::openPathAsync(const QString& path, qlonglong wId, const QString& a
 	xact->tType = KWalletTransaction::Open;
 	xact->isPath = true;
 	if (handleSession) {
-        kDebug() << "openPathAsync " << message().service();
+        qDebug() << "openPathAsync " << message().service();
         _serviceWatcher.setConnection(connection());
         _serviceWatcher.addWatchedService(message().service());
 		xact->service = message().service();
@@ -379,12 +380,13 @@ void KWalletD::setupDialog( QWidget* dialog, WId wId, const QString& appid, bool
 		KWindowSystem::setMainWindow( dialog, wId ); // correct, set dialog parent
 	else {
 		if( appid.isEmpty())
-			kWarning() << "Using kwallet without parent window!";
+			qWarning() << "Using kwallet without parent window!";
 		else
-			kWarning() << "Application '" << appid << "' using kwallet without parent window!";
+			qWarning() << "Application '" << appid << "' using kwallet without parent window!";
 		// allow dialog activation even if it interrupts, better than trying hacks
 		// with keeping the dialog on top or on all desktops
-		kapp->updateUserTimestamp();
+// KF5 FIXME what should we use now instead of this:
+//         kapp->updateUserTimestamp();
 	}
 	if( modal )
 		KWindowSystem::setState( dialog->winId(), NET::Modal );
@@ -403,7 +405,8 @@ void KWalletD::checkActiveDialog() {
 	if( !activeDialog )
 		return;
 
-	kapp->updateUserTimestamp();
+// KF5 FIXME what should we use now instead of this:
+//	kapp->updateUserTimestamp();
 
 	activeDialog->show();
 
@@ -498,7 +501,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 	int rc = walletInfo.first;
 	if (rc == -1) {
 		if (_wallets.count() > 20) {
-			kDebug() << "Too many wallets open.";
+			qDebug() << "Too many wallets open.";
 			return -1;
 		}
 
@@ -528,15 +531,16 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				}
 				KPasswordDialog *kpd = new KPasswordDialog();
 				if (appid.isEmpty()) {
-					kpd->setPrompt(i18n("<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the password for this wallet below.</qt>", Qt::escape(wallet)));
+					kpd->setPrompt(i18n("<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the password for this wallet below.</qt>", wallet.toHtmlEscaped()));
 				} else {
-					kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</b>'. Please enter the password for this wallet below.</qt>", Qt::escape(appid), Qt::escape(wallet)));
+					kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</b>'. Please enter the password for this wallet below.</qt>", appid.toHtmlEscaped(), wallet.toHtmlEscaped()));
 				}
 				brandNew = false;
 				// don't use KStdGuiItem::open() here which has trailing ellipsis!
-				kpd->setButtonGuiItem(KDialog::Ok,KGuiItem( i18n( "&Open" ), "wallet-open"));
-				kpd->setCaption(i18n("KDE Wallet Service"));
-				kpd->setPixmap(KIcon("kwalletmanager").pixmap(KIconLoader::SizeHuge));
+// KDE4         kpd->setButtonGuiItem(KDialog::Ok,KGuiItem( i18n( "&Open" ), "wallet-open"));
+				kpd->setWindowTitle(i18n("KDE Wallet Service"));
+// KDE4         kpd->setPixmap(KIcon("kwalletmanager").pixmap(KIconLoader::SizeHuge));
+                kpd->setPixmap( KIconLoader::global()->loadIcon("kwalletmanager", KIconLoader::Desktop, KIconLoader::SizeHuge) );
 				if (w != KWindowSystem::activeWindow() && w != 0L) {
 					// If the dialog is modal to a minimized window it might not be visible
 					// (but still blocking the calling application). Notify the user about
@@ -547,14 +551,14 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 					QStringList actions(i18nc("Text of a button to ignore the open-wallet notification", "Ignore"));
 					if (appid.isEmpty()) {
 						notification->setText(i18n("<b>KDE</b> has requested to open a wallet (%1).",
-						                           Qt::escape(wallet)));
+						                           wallet.toHtmlEscaped()));
 						actions.append(i18nc("Text of a button for switching to the (unnamed) application "
 						                     "requesting a password", "Switch there"));
 					} else {
 						notification->setText(i18n("<b>%1</b> has requested to open a wallet (%2).",
-						                           Qt::escape(appid), Qt::escape(wallet)));
+						                           appid.toHtmlEscaped(), wallet.toHtmlEscaped()));
 						actions.append(i18nc("Text of a button for switching to the application requesting "
-						                     "a password", "Switch to %1", Qt::escape(appid)));
+						                     "a password", "Switch to %1", appid.toHtmlEscaped()));
 					}
 					notification->setActions(actions);
 					connect(notification, SIGNAL(action1Activated()),
@@ -565,11 +569,11 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				}
 				while (!b->isOpen()) {
 					setupDialog( kpd, w, appid, modal );
-					if (kpd->exec() == KDialog::Accepted) {
+					if (kpd->exec() == QDialog::Accepted) {
 						password = kpd->password();
 						int rc = b->open(password.toUtf8());
 						if (!b->isOpen()) {
-							kpd->setPrompt(i18n("<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code %2: %3)</qt>", Qt::escape(wallet), rc, KWallet::Backend::openRCToString(rc)));
+							kpd->setPrompt(i18n("<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code %2: %3)</qt>", wallet.toHtmlEscaped(), rc, KWallet::Backend::openRCToString(rc)));
                                 kpd->setPassword("");
 						}
 					} else {
@@ -615,25 +619,26 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				if (appid.isEmpty()) {
 					kpd->setPrompt(i18n("KDE has requested to open the wallet. This is used to store sensitive data in a secure fashion. Please enter a password to use with this wallet or click cancel to deny the application's request."));
 				} else {
-					kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This is used to store sensitive data in a secure fashion. Please enter a password to use with this wallet or click cancel to deny the application's request.</qt>", Qt::escape(appid)));
+					kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This is used to store sensitive data in a secure fashion. Please enter a password to use with this wallet or click cancel to deny the application's request.</qt>", appid.toHtmlEscaped()));
 				}
 			} else {
 				if (appid.length() == 0) {
-					kpd->setPrompt(i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please choose a password for this wallet, or cancel to deny the application's request.</qt>", Qt::escape(wallet)));
+					kpd->setPrompt(i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please choose a password for this wallet, or cancel to deny the application's request.</qt>", wallet.toHtmlEscaped()));
 				} else {
-					kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to create a new wallet named '<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the application's request.</qt>", Qt::escape(appid), Qt::escape(wallet)));
+					kpd->setPrompt(i18n("<qt>The application '<b>%1</b>' has requested to create a new wallet named '<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the application's request.</qt>", appid.toHtmlEscaped(), wallet.toHtmlEscaped()));
 				}
 			}
-			kpd->setCaption(i18n("KDE Wallet Service"));
-			kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
-			kpd->setPixmap(KIcon("kwalletmanager").pixmap(96, 96));
+			kpd->setWindowTitle(i18n("KDE Wallet Service"));
+// KDE4			kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
+// KDE4			kpd->setPixmap(KIcon("kwalletmanager").pixmap(96, 96));
+            kpd->setPixmap( KIconLoader::global()->loadIcon("kwalletmanager", KIconLoader::Desktop, KIconLoader::SizeHuge) );
 			while (!b->isOpen()) {
 				setupDialog( kpd, w, appid, modal );
-				if (kpd->exec() == KDialog::Accepted) {
+				if (kpd->exec() == QDialog::Accepted) {
 					password = kpd->password();
 					int rc = b->open(password.toUtf8());
 					if (!b->isOpen()) {
-						kpd->setPrompt(i18n("<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code %2: %3)</qt>", Qt::escape(wallet), rc, KWallet::Backend::openRCToString(rc)));
+						kpd->setPrompt(i18n("<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code %2: %3)</qt>", wallet.toHtmlEscaped(), rc, KWallet::Backend::openRCToString(rc)));
 					}
 				} else {
 					break;
@@ -725,9 +730,9 @@ bool KWalletD::isAuthorizedApp(const QString& appid, const QString& wallet, WId 
 			KBetterThanKDialog *dialog = new KBetterThanKDialog;
 			dialog->setWindowTitle(i18n("KDE Wallet Service"));
 			if (appid.isEmpty()) {
-				dialog->setLabel(i18n("<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>", Qt::escape(wallet)));
+				dialog->setLabel(i18n("<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>", wallet.toHtmlEscaped()));
 			} else {
-				dialog->setLabel(i18n("<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>%2</b>'.</qt>", Qt::escape(QString(appid)), Qt::escape(wallet)));
+				dialog->setLabel(i18n("<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>%2</b>'.</qt>", appid.toHtmlEscaped(), wallet.toHtmlEscaped()));
 			}
 			setupDialog( dialog, w, appid, false );
 			response = dialog->exec();
@@ -768,7 +773,8 @@ bool KWalletD::isAuthorizedApp(const QString& appid, const QString& wallet, WId 
 
 int KWalletD::deleteWallet(const QString& wallet) {
     int result = -1;
-	QString path = KGlobal::dirs()->saveLocation("kwallet") + QDir::separator() + wallet + ".kwl";
+// KDE4	QString path = KGlobal::dirs()->saveLocation("kwallet") + QDir::separator() + wallet + ".kwl";
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + wallet + ".kwl";
 
 	if (QFile::exists(path)) {
 		const QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
@@ -839,15 +845,15 @@ void KWalletD::doTransactionChangePassword(const QString& appid, const QString& 
     if (w->cipherType() == KWallet::BACKEND_CIPHER_GPG) {
         QString keyID = w->gpgKey().shortKeyID();
         assert(!keyID.isNull());
-        KMessageBox::errorWId((WId)wId, i18n("<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use <b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase associated to that key.</qt>", Qt::escape(wallet), keyID));
+        KMessageBox::errorWId((WId)wId, i18n("<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use <b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase associated to that key.</qt>", wallet.toHtmlEscaped(), keyID));
     } else {
 #endif
         QPointer<KNewPasswordDialog> kpd = new KNewPasswordDialog();
-        kpd->setPrompt(i18n("<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>", Qt::escape(wallet)));
-        kpd->setCaption(i18n("KDE Wallet Service"));
+        kpd->setPrompt(i18n("<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>", wallet.toHtmlEscaped()));
+        kpd->setWindowTitle(i18n("KDE Wallet Service"));
         kpd->setAllowEmptyPasswords(true);
         setupDialog( kpd, (WId)wId, appid, false );
-        if (kpd->exec() == KDialog::Accepted && kpd) {
+        if (kpd->exec() == QDialog::Accepted && kpd) {
             QString p = kpd->password();
             if (!p.isNull()) {
                 w->setPassword(p.toUtf8());
@@ -952,13 +958,14 @@ bool KWalletD::isOpen(int handle) {
 
 
 QStringList KWalletD::wallets() const {
-	QString path = KGlobal::dirs()->saveLocation("kwallet");
+// KDE4 	QString path = KGlobal::dirs()->saveLocation("kwallet");
+    QString path = KWallet::Backend::getSaveLocation();
 	QDir dir(path, "*.kwl");
 	QStringList rc;
 
 	dir.setFilter(QDir::Files | QDir::Hidden);
 
-	foreach (const QFileInfo &fi, dir.entryInfoList()) {
+	for (auto &fi : dir.entryInfoList()) {
 		QString fn = fi.fileName();
 		if (fn.endsWith(QLatin1String(".kwl"))) {
 			fn.truncate(fn.length()-4);
@@ -1297,7 +1304,7 @@ void KWalletD::slotServiceOwnerChanged(const QString& name, const QString &oldOw
                                        const QString& newOwner)
 {
 	Q_UNUSED(name);
-	kDebug() << "slotServiceOwnerChanged " << name << ", " << oldOwner << ", " << newOwner;
+	qDebug() << "slotServiceOwnerChanged " << name << ", " << oldOwner << ", " << newOwner;
 
 	if (!newOwner.isEmpty()) {
 		return; // no application exit, don't care.
@@ -1338,7 +1345,7 @@ void KWalletD::slotServiceOwnerChanged(const QString& name, const QString &oldOw
 	// mark it as cancelled.
 	if (_curtrans && _curtrans->tType == KWalletTransaction::Open &&
 		_curtrans->service == oldOwner) {
-        kDebug() << "Cancelling current transaction!";
+        qDebug() << "Cancelling current transaction!";
 		_curtrans->cancelled = true;
 	}
 	_serviceWatcher.removeWatchedService(oldOwner);
@@ -1510,7 +1517,7 @@ void KWalletD::reconfigure() {
 			Wallets::const_iterator it = _wallets.constBegin();
 			internalClose(it.value(), it.key(), true);
 		}
-		KUniqueApplication::exit(0);
+		QApplication::exit(0);
 	}
 }
 
@@ -1622,7 +1629,7 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
    int rc = walletInfo.first;
    if (rc == -1) {
       if (_wallets.count() > 20) {
-         kDebug() << "Too many wallets open.";
+         qDebug() << "Too many wallets open.";
          return -1;
       }
 

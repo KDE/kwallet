@@ -25,9 +25,9 @@
 #include <QtCore/QString>
 #include <QtCore/QDataStream>
 
-#include <KWallet>
+#include <kwallet.h>
 
-#include "kwallet_backend_export.h"
+#include "kwalletbackend_export.h"
 
 namespace KWallet {
 

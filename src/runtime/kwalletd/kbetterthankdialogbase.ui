@@ -45,7 +45,7 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="KPushButton" name="_allowOnce">
+      <widget class="QPushButton" name="_allowOnce">
        <property name="text">
         <string>Allow &amp;Once</string>
        </property>
@@ -55,21 +55,21 @@
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="_allowAlways">
+      <widget class="QPushButton" name="_allowAlways">
        <property name="text">
         <string>Allow &amp;Always</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="_deny">
+      <widget class="QPushButton" name="_deny">
        <property name="text">
         <string>&amp;Deny</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="_denyForever">
+      <widget class="QPushButton" name="_denyForever">
        <property name="text">
         <string>Deny &amp;Forever</string>
        </property>
@@ -95,13 +95,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

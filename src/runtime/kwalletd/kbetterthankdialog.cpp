@@ -17,7 +17,8 @@
 */
 
 #include "kbetterthankdialog.h"
-#include <kicon.h>
+#include <QtGui/QIcon>
+#include <KIconLoader>
 
 KBetterThanKDialog::KBetterThanKDialog( QWidget *parent )
   : QDialog( parent )
@@ -33,10 +34,10 @@ KBetterThanKDialog::KBetterThanKDialog( QWidget *parent )
 
 void KBetterThanKDialog::init()
 {
-    _allowOnce->setIcon(KIcon("dialog-ok"));
-    _allowAlways->setIcon(KIcon("dialog-ok"));
-    _deny->setIcon(KIcon("dialog-cancel"));
-    _denyForever->setIcon(KIcon("dialog-cancel"));
+    _allowOnce->setIcon(KDE::icon("dialog-ok"));
+    _allowAlways->setIcon(KDE::icon("dialog-ok"));
+    _deny->setIcon(KDE::icon("dialog-cancel"));
+    _denyForever->setIcon(KDE::icon("dialog-cancel"));
 
     _allowOnce->setFocus();
 }

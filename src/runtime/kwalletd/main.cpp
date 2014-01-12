@@ -17,15 +17,17 @@
   * Boston, MA 02110-1301, USA.
   */
 
-#include <kuniqueapplication.h>
-#include <k4aboutdata.h>
-#include <kcmdlineargs.h>
-#include <kdebug.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <klocale.h>
+#include <QApplication>
+#include <QDebug>
+#include <QtCore/QString>
+#include <KLocalizedString>
+#include <KAboutData>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KDBusService>
 
 #include "kwalletd.h"
+#include "kwalletd_version.h"
 
 static bool isWalletEnabled()
 {
@@ -34,39 +36,49 @@ static bool isWalletEnabled()
 	return walletGroup.readEntry("Enabled", true);
 }
 
-extern "C" KDE_EXPORT int kdemain(int argc, char **argv)
+extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 {
-    K4AboutData aboutdata("kwalletd", 0, ki18n("KDE Wallet Service"),
-                         "0.2", ki18n("KDE Wallet Service"),
-                         K4AboutData::License_LGPL, ki18n("(C) 2002-2013, The KDE Developers"));
-    aboutdata.addAuthor(ki18n("Michael Leupold"),ki18n("Maintainer"),"lemma@confuego.org");
-    aboutdata.addAuthor(ki18n("George Staikos"),ki18n("Former maintainer"),"staikos@kde.org");
-    aboutdata.addAuthor(ki18n("Thiago Maceira"),ki18n("D-Bus Interface"),"thiago@kde.org");
-    aboutdata.addAuthor(ki18n("Valentin Rusu"),ki18n("GPG backend support"),"kde@rusu.info");
+    QApplication app(argc, argv);
+    app.setApplicationName("kwalletd");
+    app.setApplicationDisplayName(i18n("KDE Wallet Service"));
+    app.setOrganizationDomain("kde.org");
+    app.setApplicationVersion(KWALLETD_VERSION_STRING);
+
+    KAboutData aboutdata(I18N_NOOP("kwalletd"), 
+                         QString(), 
+                         i18n("KDE Wallet Service"),
+                         KWALLETD_VERSION_STRING, 
+                         i18n("KDE Wallet Service"),
+                         KAboutData::License_LGPL, 
+                         i18n("(C) 2002-2013, The KDE Developers"));
+    aboutdata.addAuthor(i18n("Valentin Rusu"), i18n("Maintainer, GPG backend support"), "kde@rusu.info");
+    aboutdata.addAuthor(i18n("Michael Leupold"), i18n("Former Maintainer"), "lemma@confuego.org");
+    aboutdata.addAuthor(i18n("George Staikos"), i18n("Former maintainer"), "staikos@kde.org");
+    aboutdata.addAuthor(i18n("Thiago Maceira"), i18n("D-Bus Interface"), "thiago@kde.org");
+
+    KWalletD walletd;
+    KDBusService dbusUniqueInstance(KDBusService::Unique | KDBusService::NoExitOnFailure);
+
+    // NOTE: the command should be parsed only after KDBusService instantiation
+    QCommandLineParser cmdParser;
+    aboutdata.setupCommandLine(&cmdParser);
+    cmdParser.process(app);
 
     aboutdata.setProgramIconName("kwalletmanager");
 
-    KCmdLineArgs::init( argc, argv, &aboutdata );
-    KUniqueApplication::addCmdLineOptions();
-    KUniqueApplication app;
-
-    // This app is started automatically, no need for session management
-    app.disableSessionManagement();
     app.setQuitOnLastWindowClosed( false );
 
     // check if kwallet is disabled
     if (!isWalletEnabled()) {
-      kDebug() << "kwalletd is disabled!";
-      return (0);
+        qDebug() << "kwalletd is disabled!";
+        return (0);
     }
 
-    if (!KUniqueApplication::start())
-    {
-      kDebug() << "kwalletd is already running!";
-      return (0);
+    if (!dbusUniqueInstance.isRegistered()) {
+        qDebug() << "kwalletd is already running!";
+        return 1;
     }
 
-    kDebug() << "kwalletd started";
-    KWalletD walletd;
+    qDebug() << "kwalletd started";
     return app.exec();
 }

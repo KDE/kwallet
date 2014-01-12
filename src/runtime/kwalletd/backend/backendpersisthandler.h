@@ -24,7 +24,7 @@
 #include <qwindowdefs.h>
 
 class QFile;
-class KSaveFile;
+class QSaveFile;
 namespace KWallet {
 
 class Backend;
@@ -53,7 +53,7 @@ public:
     static BackendPersistHandler *getPersistHandler(BackendCipherType cipherType);
     static BackendPersistHandler *getPersistHandler(char magicBuf[KWMAGIC_LEN]);
     
-    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version, WId w) =0;
+    virtual int write(Backend* wb, QSaveFile& sf, QByteArray& version, WId w) =0;
     virtual int read(Backend* wb, QFile& sf, WId w) =0;
 };
 
@@ -63,7 +63,7 @@ public:
     BlowfishPersistHandler() {}
     virtual ~BlowfishPersistHandler() {}
     
-    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version, WId w);
+    virtual int write(Backend* wb, QSaveFile& sf, QByteArray& version, WId w);
     virtual int read(Backend* wb, QFile& sf, WId w);
 };
 
@@ -73,7 +73,7 @@ public:
     GpgPersistHandler() {}
     virtual ~GpgPersistHandler() {}
     
-    virtual int write(Backend* wb, KSaveFile& sf, QByteArray& version, WId w);
+    virtual int write(Backend* wb, QSaveFile& sf, QByteArray& version, WId w);
     virtual int read(Backend* wb, QFile& sf, WId w);
 };
 #endif // HAVE_QGPGME

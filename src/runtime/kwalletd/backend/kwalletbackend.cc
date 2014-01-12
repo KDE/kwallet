@@ -22,21 +22,22 @@
 
 #include <stdlib.h>
 
-#include <kdebug.h>
-#include <kglobal.h>
-#include <klocale.h>
-#include <kcodecs.h>
-#include <ksavefile.h>
-#include <kstandarddirs.h>
+#include <QSaveFile>
+//#include <kstandarddirs.h>
 #ifdef HAVE_QGPGME
 #include <gpgme++/key.h>
 #endif
-#include <knotification.h>
+#include <KNotification>
+#include <KLocalizedString>
 
+#include <QDebug>
+#include <QtCore/QDir>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
+#include <QtCore/QSaveFile>
 #include <QtCore/QRegExp>
 #include <QtCore/QCryptographicHash>
+#include <QStandardPaths>
 
 #include "blowfish.h"
 #include "sha1.h"
@@ -62,17 +63,18 @@ class Backend::BackendPrivate
 {
 };
 
-static void initKWalletDir()
-{
-    KGlobal::dirs()->addResourceType("kwallet", 0, "share/apps/kwallet");
-}
+// static void initKWalletDir()
+// {
+//     KGlobal::dirs()->addResourceType("kwallet", 0, "share/apps/kwallet");
+// }
 
 Backend::Backend(const QString& name, bool isPath) : d(0), _name(name), _ref(0), _cipherType(KWallet::BACKEND_CIPHER_UNKNOWN) {
-	initKWalletDir();
+// 	initKWalletDir();
 	if (isPath) {
 		_path = name;
 	} else {
-		_path = KGlobal::dirs()->saveLocation("kwallet") + _name + ".kwl";
+// KDE4 _path = KGlobal::dirs()->saveLocation("kwallet") + _name + ".kwl";
+        _path = getSaveLocation() + _name + ".kwl";
 	}
 
 	_open = false;
@@ -84,6 +86,20 @@ Backend::~Backend() {
 		close();
 	}
 	delete d;
+}
+
+QString Backend::getSaveLocation()
+{
+    QString writeLocation = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    QDir writeDir(writeLocation);
+    if (!writeDir.exists()) {
+        if (!writeDir.mkpath(writeLocation)){
+           qFatal("Cannot create wallet save location!");
+        }
+    }
+
+    qDebug() << "Using saveLocation " + writeLocation;
+    return writeLocation;
 }
 
 void Backend::setCipherType(BackendCipherType ct)
@@ -186,15 +202,16 @@ static int password2hash(const QByteArray& password, QByteArray& hash) {
 
 int Backend::deref() {
 	if (--_ref < 0) {
-		kDebug() << "refCount negative!";
+		qDebug() << "refCount negative!";
 		_ref = 0;
 	}
 	return _ref;
 }
 
 bool Backend::exists(const QString& wallet) {
-	initKWalletDir();
-	QString path = KGlobal::dirs()->saveLocation("kwallet") + '/' + wallet + ".kwl";
+// 	initKWalletDir();
+// 	QString path = KGlobal::dirs()->saveLocation("kwallet") + '/' + wallet + ".kwl";
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + '/' + wallet + QLatin1String(".kwl");
 	// Note: 60 bytes is presently the minimum size of a wallet file.
 	//       Anything smaller is junk.
 	return QFile::exists(path) && QFileInfo(path).size() >= 60;
@@ -320,7 +337,7 @@ int Backend::sync(WId w) {
 		return -255;  // not open yet
 	}
 
-	KSaveFile sf(_path);
+	QSaveFile sf(_path);
 
 	if (!sf.open(QIODevice::WriteOnly | QIODevice::Unbuffered)) {
 		return -1;		// error opening file
@@ -328,7 +345,7 @@ int Backend::sync(WId w) {
 	sf.setPermissions(QFile::ReadUser|QFile::WriteUser);
 
 	if (sf.write(KWMAGIC, KWMAGIC_LEN) != KWMAGIC_LEN) {
-		sf.abort();
+		sf.cancelWriting();
 		return -4; // write error
 	}
 
@@ -345,7 +362,7 @@ int Backend::sync(WId w) {
     if (rc<0) {
         // Oops! wallet file sync filed! Display a notification about that
         // TODO: change kwalletd status flags, when status flags will be implemented
-        KNotification *notification = new KNotification( "syncFailed" );
+        KNotification *notification = new KNotification( QLatin1String("syncFailed") );
         notification->setText( i18n("Failed to sync wallet <b>%1</b> to disk. Error codes are:\nRC <b>%2</b>\nSF <b>%2</b>. Please file a BUG report using this information to bugs.kde.org").arg(_name).arg(rc).arg(sf.errorString()) );
         notification->sendEvent();
     }
