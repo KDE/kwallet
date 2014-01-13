@@ -1,9 +1,10 @@
 project(kwalletd)
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
+
 find_package(KF5 CONFIG REQUIRED COMPONENTS
+    Init
     Config
-    Wallet 
     I18n
     CoreAddons
     IconThemes
@@ -13,8 +14,6 @@ find_package(KF5 CONFIG REQUIRED COMPONENTS
     WindowSystem
     Notifications
 )
-
-include_directories($<TARGET_PROPERTY:KF5::Wallet,INTERFACE_INCLUDE_DIRECTORIES>)
 
 ########### find needed packages ######
 find_package(Gpgme)  # Called by FindQGpgme, but since we call some gpgme
@@ -35,6 +34,7 @@ add_subdirectory(backend)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backend)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../api/KWallet)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../api/KWallet)
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=285)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
@@ -74,16 +74,16 @@ if (GPGME_FOUND AND QGPGME_FOUND)
     )
 endif(GPGME_FOUND AND QGPGME_FOUND)
 
-#message("DBUS_INTERFACES_INSTALL_DIR = " ${CMAKE_INSTALL_PREFIX}/${DBUS_INTERFACES_INSTALL_DIR}) 
-find_file(kwallet_xml org.kde.KWallet.xml HINTS ${CMAKE_INSTALL_PREFIX}/${DBUS_INTERFACES_INSTALL_DIR})
+find_file(kwallet_xml org.kde.KWallet.xml HINTS ${CMAKE_CURRENT_SOURCE_DIR}/../../api/KWallet)
 
 qt5_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
 
 kf5_add_kdeinit_executable( kwalletd ${kwalletd_KDEINIT_SRCS} )
 
-target_link_libraries(kdeinit_kwalletd  kwalletbackend
+target_link_libraries(kdeinit_kwalletd
+    kwalletbackend
+    KF5Wallet
     Qt5::Widgets
-    KF5::Wallet
     KF5::I18n
     KF5::CoreAddons
     KF5::ConfigCore
