@@ -1,18 +1,19 @@
 project(kwalletd)
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
-find_package(KF5Config CONFIG REQUIRED)
-find_package(KF5Init CONFIG REQUIRED)
-find_package(KF5Wallet CONFIG REQUIRED)
-find_package(KF5I18n CONFIG REQUIRED)
-find_package(KF5Config CONFIG REQUIRED)
-find_package(KF5CoreAddons CONFIG REQUIRED)
-find_package(KF5IconThemes CONFIG REQUIRED)
-find_package(KF5Service CONFIG REQUIRED)
-find_package(KF5DBusAddons CONFIG REQUIRED)
-find_package(KF5WidgetsAddons CONFIG REQUIRED)
-find_package(KF5WindowSystem CONFIG REQUIRED)
-find_package(KF5Notifications CONFIG REQUIRED)
+find_package(KF5 CONFIG REQUIRED COMPONENTS
+    Config
+    Wallet 
+    I18n
+    CoreAddons
+    IconThemes
+    Service
+    DBusAddons
+    WidgetsAddons
+    WindowSystem
+    Notifications
+)
+
 include_directories($<TARGET_PROPERTY:KF5::Wallet,INTERFACE_INCLUDE_DIRECTORIES>)
 
 ########### find needed packages ######
