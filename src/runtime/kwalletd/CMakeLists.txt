@@ -1,7 +1,6 @@
 project(kwalletd)
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
-find_package(KF5Init CONFIG REQUIRED)
 find_package(KF5Config CONFIG REQUIRED)
 find_package(KF5Init CONFIG REQUIRED)
 find_package(KF5Wallet CONFIG REQUIRED)
