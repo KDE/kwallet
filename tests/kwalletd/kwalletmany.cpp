@@ -66,8 +66,6 @@ void KWalletMany::quit()
 
 void KWalletMany::openWallet()
 {
-	QEventLoop waitLoop;
-	
 	// open plenty of wallets in synchronous and asynchronous mode
 	for (int i = 0; i < NUMWALLETS; ++i) {
 		// request asynchronous wallet
@@ -76,15 +74,13 @@ void KWalletMany::openWallet()
 		wallet = Wallet::openWallet(Wallet::NetworkWallet(), 0, Wallet::Asynchronous);
 		connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool)));
 		_wallets.append(wallet);
-		
-		QTimer::singleShot(500, &waitLoop, SLOT(quit()));
-		waitLoop.exec();
 	}
 	
 	_loop.exec();
 	while (!_wallets.isEmpty()) {
 		delete _wallets.takeFirst();
 	}
+	QApplication::quit();
 }
 
 int main(int argc, char *argv[])

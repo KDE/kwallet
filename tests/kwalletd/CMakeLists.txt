@@ -57,6 +57,7 @@ macro(kwalletd_tests)
         Qt5::DBus
         KF5::CoreAddons
         KF5::I18n)
+    add_test(${_testname} ${_testname})
   endforeach(_testname)
 endmacro()
 
@@ -67,7 +68,7 @@ kwalletd_tests(
     kwalletboth
     kwalletmany
     kwalletautoclose
-    kwalletnoautoclose
+#    kwalletnoautoclose
 )
 
 
