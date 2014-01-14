@@ -1,22 +1,14 @@
 project(kwalletd)
 
-set(KF5_VERSION "5.0.0")
-include(KDEInstallDirs)
-include(KDEFrameworkCompilerSettings)
-include(KDECMakeSettings)
-
-find_package(KF5 CONFIG REQUIRED COMPONENTS
-    Init
-    Config
-    I18n
-    CoreAddons
-    IconThemes
-    Service
-    DBusAddons
-    WidgetsAddons
-    WindowSystem
-    Notifications
-)
+find_package(KF5Config ${KF5_VERSION} REQUIRED)
+find_package(KF5CoreAddons ${KF5_VERSION} REQUIRED)
+find_package(KF5DBusAddons ${KF5_VERSION} REQUIRED)
+find_package(KF5I18n ${KF5_VERSION} REQUIRED)
+find_package(KF5IconThemes ${KF5_VERSION} REQUIRED)
+find_package(KF5Notifications ${KF5_VERSION} REQUIRED)
+find_package(KF5Service ${KF5_VERSION} REQUIRED)
+find_package(KF5WidgetsAddons ${KF5_VERSION} REQUIRED)
+find_package(KF5WindowSystem ${KF5_VERSION} REQUIRED)
 
 ########### find needed packages ######
 find_package(Gpgme)  # Called by FindQGpgme, but since we call some gpgme
@@ -47,7 +39,7 @@ ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLETD
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kwalletd_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake")
 
-set(kwalletd_KDEINIT_SRCS
+set(kwalletd_SRCS
    main.cpp
    kbetterthankdialog.cpp
    kwalletd.cpp
@@ -56,7 +48,7 @@ set(kwalletd_KDEINIT_SRCS
    kwalletsessionstore.cpp
 )
 
-qt5_wrap_ui(kwalletd_KDEINIT_SRCS
+qt5_wrap_ui(kwalletd_SRCS
    kbetterthankdialogbase.ui
    kwalletwizardpageexplanation.ui
    kwalletwizardpageintro.ui
@@ -65,11 +57,11 @@ qt5_wrap_ui(kwalletd_KDEINIT_SRCS
 )
 
 if (GPGME_FOUND AND QGPGME_FOUND)
-    set(kwalletd_KDEINIT_SRCS
-        ${kwalletd_KDEINIT_SRCS}
+    set(kwalletd_SRCS
+        ${kwalletd_SRCS}
         knewwalletdialog.cpp
     )
-    qt5_wrap_ui(kwalletd_KDEINIT_SRCS
+    qt5_wrap_ui(kwalletd_SRCS
         kwalletwizardpagepasswordgpg.ui
         kwalletwizardpagegpgkey.ui
         knewwalletdialogintro.ui
@@ -79,11 +71,11 @@ endif(GPGME_FOUND AND QGPGME_FOUND)
 
 find_file(kwallet_xml org.kde.KWallet.xml HINTS ${CMAKE_CURRENT_SOURCE_DIR}/../../api/KWallet)
 
-qt5_add_dbus_adaptor( kwalletd_KDEINIT_SRCS ${kwallet_xml} kwalletd.h KWalletD )
+qt5_add_dbus_adaptor( kwalletd_SRCS ${kwallet_xml} kwalletd.h KWalletD )
 
-kf5_add_kdeinit_executable( kwalletd ${kwalletd_KDEINIT_SRCS} )
+add_executable( kwalletd ${kwalletd_SRCS} )
 
-target_link_libraries(kdeinit_kwalletd
+target_link_libraries(kwalletd
     kwalletbackend
     KF5Wallet
     Qt5::Widgets
@@ -97,13 +89,10 @@ target_link_libraries(kdeinit_kwalletd
     KF5::WindowSystem
     KF5::Notifications)
 if (GPGME_FOUND AND QGPGME_FOUND)
-    target_link_libraries(kdeinit_kwalletd ${QGPGME_LIBRARIES} )
+    target_link_libraries(kwalletd ${QGPGME_LIBRARIES} )
 endif(GPGME_FOUND AND QGPGME_FOUND)
 
-install(TARGETS kdeinit_kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})
-
-target_link_libraries(kwalletd kdeinit_kwalletd)
-install(TARGETS kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 

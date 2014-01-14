@@ -36,7 +36,11 @@ static bool isWalletEnabled()
 	return walletGroup.readEntry("Enabled", true);
 }
 
+#ifdef HAVE_KF5INIT
 extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
+#else
+int main(int argc, char **argv)
+#endif
 {
     QApplication app(argc, argv);
     app.setApplicationName("kwalletd");

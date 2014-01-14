@@ -13,7 +13,10 @@ configure_file (config-kwalletbackend.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config
 
 ########### kwalletbackend ###############
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
-find_package(KF5 CONFIG REQUIRED COMPONENTS WidgetsAddons CoreAddons Notifications I18n)
+find_package(KF5CoreAddons ${KF5_VERSION} REQUIRED)
+find_package(KF5I18n ${KF5_VERSION} REQUIRED)
+find_package(KF5Notifications ${KF5_VERSION} REQUIRED)
+find_package(KF5WidgetsAddons ${KF5_VERSION} REQUIRED)
 
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE4_INCLUDES} ${KF5_INCLUDE_DIRS})
 
