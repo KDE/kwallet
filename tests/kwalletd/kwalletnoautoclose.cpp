@@ -23,11 +23,10 @@
 
 #include <QTextStream>
 #include <KAboutData>
-#include <KApplication>
-#include <KCmdLineArgs>
+#include <QtWidgets/QApplication>
 #include <QEventLoop>
 #include <QtDBus>
-#include <klocale.h>
+#include <KLocalizedString>
 
 static QTextStream _out(stdout, QIODevice::WriteOnly);
 static QString _kdewallet;
@@ -57,9 +56,9 @@ int openAndClose()
 
 int main(int argc, char *argv[])
 {
-	KAboutData aboutData("kwalletnoautoclose", 0, ki18n("kwalletnoautoclose"), "version");
-	KCmdLineArgs::init(argc, argv, &aboutData);
-	KApplication app;
+	QApplication app(argc, argv);
+    app.setApplicationName("kwalletnoautoclose");
+    app.setApplicationDisplayName(i18n("kwalletnoautoclose"));
 
 	QDBusInterface service("org.kde.kwalletd", "/modules/kwalletd");
 	if (!service.isValid()) {

@@ -1,106 +1,73 @@
-set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
-# Tests don't need to go into toplevel/bin, they are fine in the current dir.
-include_directories(
-   ${CMAKE_CURRENT_SOURCE_DIR}/..
-)
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../src/api/KWallet ) # for kwallet.h
+include_directories( ${CMAKE_CURRENT_BINARY_DIR}/../../src/api/KWallet )
+
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../src/runtime/kwalletd ) # kwalletwizard.h
+
+include(ECMMarkAsTest)
+
+find_package(KF5CoreAddons ${KF5_VERSION} REQUIRED)
+find_package(KF5I18n ${KF5_VERSION} REQUIRED)
+find_package(KF5IconThemes ${KF5_VERSION} REQUIRED)
+find_package(KF5WidgetsAddons ${KF5_VERSION} REQUIRED)
+
+remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
 set(kwalletwizardtest_SRCS
    kwalletwizardtest.cpp
-   ../kwalletwizard.cpp
+   ../../src/runtime/kwalletd/kwalletwizard.cpp
 )
-kde4_add_ui_files(kwalletwizardtest_SRCS
-   ../kbetterthankdialogbase.ui
-   ../kwalletwizardpageexplanation.ui
-   ../kwalletwizardpageintro.ui
-   ../kwalletwizardpageoptions.ui
-   ../kwalletwizardpagepassword.ui
-   ../kwalletwizardpagegpgkey.ui
+qt5_wrap_ui(kwalletwizardtest_SRCS
+   ../../src/runtime/kwalletd/kbetterthankdialogbase.ui
+   ../../src/runtime/kwalletd/kwalletwizardpageexplanation.ui
+   ../../src/runtime/kwalletd/kwalletwizardpageintro.ui
+   ../../src/runtime/kwalletd/kwalletwizardpageoptions.ui
+   ../../src/runtime/kwalletd/kwalletwizardpagepassword.ui
+   ../../src/runtime/kwalletd/kwalletwizardpagegpgkey.ui
 )
 
 if (QGPGME_FOUND)
     kde4_add_ui_files(kwalletwizardtest_SRCS
-        ../kwalletwizardpagepasswordgpg.ui)
+        ../../src/runtime/kwalletd/kwalletwizardpagepasswordgpg.ui)
 endif(QGPGME_FOUND)
 
-kde4_add_executable(kwalletwizardtest TEST ${kwalletwizardtest_SRCS})
-target_link_libraries(kwalletwizardtest ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} ${QT_QTGUI_LIBRARY})
+add_executable(kwalletwizardtest ${kwalletwizardtest_SRCS})
+ecm_mark_as_test(kwalletwizardtest)
+target_link_libraries(kwalletwizardtest
+    KF5Wallet
+    KF5::CoreAddons
+    KF5::I18n
+    KF5::IconThemes
+    KF5::WidgetsAddons)
 if (QGPGME_FOUND)
     target_link_libraries(kwalletwizardtest ${QGPGME_LIBRARIES})
 endif(QGPGME_FOUND)
 
-set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
+set(kwallettestlib_SRCS kwallettest.cpp)
+add_library(kwallettestlib STATIC ${kwallettestlib_SRCS})
+target_link_libraries(kwallettestlib KF5Wallet Qt5::Widgets)
 
-include_directories( ${KDE4_KDEUI_INCLUDES} ) # for kwallet.h
+macro(kwalletd_tests)
+  foreach(_testname ${ARGN})
+    add_executable(${_testname} ${_testname}.cpp)
+    ecm_mark_as_test(${_testname})
+    target_link_libraries(${_testname} 
+        kwallettestlib
+        KF5Wallet
+        Qt5::DBus
+        KF5::CoreAddons
+        KF5::I18n)
+  endforeach(_testname)
+endmacro()
 
-########### next target ###############
+kwalletd_tests(
+    kwalletasync
+    kwalletsync
+    kwalletpath
+    kwalletboth
+    kwalletmany
+    kwalletautoclose
+    kwalletnoautoclose
+)
 
-set(kwalletasync_SRCS kwalletasync.cpp kwallettest.cpp )
-
-
-kde4_add_executable(kwalletasync TEST ${kwalletasync_SRCS})
-
-target_link_libraries(kwalletasync ${KDE4_KDEUI_LIBS} )
-
-
-########### next target ###############
-
-set(kwalletsync_SRCS kwalletsync.cpp )
-
-
-kde4_add_executable(kwalletsync TEST ${kwalletsync_SRCS})
-
-target_link_libraries(kwalletsync  ${KDE4_KDEUI_LIBS} )
-
-
-########### next target ###############
-
-set(kwalletpath_SRCS kwalletpath.cpp )
-
-
-kde4_add_executable(kwalletpath TEST ${kwalletpath_SRCS})
-
-target_link_libraries(kwalletpath  ${KDE4_KDEUI_LIBS} )
-
-
-########### next target ###############
-
-set(kwalletboth_SRCS kwalletboth.cpp kwallettest.cpp )
-
-
-kde4_add_executable(kwalletboth TEST ${kwalletboth_SRCS})
-
-target_link_libraries(kwalletboth  ${KDE4_KDEUI_LIBS} )
-
-
-########### next target ###############
-
-set(kwalletmany_SRCS kwalletmany.cpp)
-
-
-kde4_add_executable(kwalletmany TEST ${kwalletmany_SRCS})
-
-target_link_libraries(kwalletmany  ${KDE4_KDEUI_LIBS} )
-
-
-########### next target ###############
-
-set(kwalletautoclose_SRCS kwalletautoclose.cpp)
-
-
-kde4_add_executable(kwalletautoclose TEST ${kwalletautoclose_SRCS})
-
-target_link_libraries(kwalletautoclose  ${KDE4_KDEUI_LIBS} )
-
-
-########### next target ###############
-
-set(kwalletnoautoclose_SRCS kwalletnoautoclose.cpp)
-
-
-kde4_add_executable(kwalletnoautoclose TEST ${kwalletnoautoclose_SRCS})
-
-target_link_libraries(kwalletnoautoclose  ${KDE4_KDEUI_LIBS} )
-
-
-########### install files ###############
 

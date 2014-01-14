@@ -19,7 +19,7 @@
 
 #include <QApplication>
 
-#include "kwalletwizard.h"
+#include <kwalletwizard.h>
 
 int main(int argc, char **argv)
 {

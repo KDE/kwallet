@@ -25,10 +25,9 @@
 #include <QTimer>
 #include <QThread>
 #include <KAboutData>
-#include <KApplication>
-#include <KCmdLineArgs>
-#include <KWallet/Wallet>
-#include <klocale.h>
+#include <QtWidgets/QApplication>
+#include <KLocalizedString>
+#include <kwallet.h>
 
 #include "kwalletmany.h"
 
@@ -90,9 +89,9 @@ void KWalletMany::openWallet()
 
 int main(int argc, char *argv[])
 {
-	KAboutData aboutData("kwalletmany", 0, ki18n("kwalletmany"), "version");
-	KCmdLineArgs::init(argc, argv, &aboutData);
-	KApplication app;
+	QApplication app(argc, argv);
+    app.setApplicationName("kwalletmany");
+    app.setApplicationDisplayName(i18n("kwalletmany"));
 	KWalletMany m;
 	
 	QTimer::singleShot(0, &m, SLOT(openWallet()));

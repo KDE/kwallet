@@ -23,11 +23,10 @@
 
 #include <QTextStream>
 #include <KAboutData>
-#include <KApplication>
-#include <KCmdLineArgs>
+#include <QtWidgets/QApplication>
 #include <QTimer>
-#include <KWallet/Wallet>
-#include <klocale.h>
+#include <kwallet.h>
+#include <KLocalizedString>
 
 #include "kwalletautoclose.h"
 
@@ -44,14 +43,14 @@ void KWalletAutoClose::openWallet()
 	_out << "Opening wallet synchronously" << endl;
 	Wallet *wallet = Wallet::openWallet(Wallet::NetworkWallet(), 0, Wallet::Synchronous);
 	_out << "Exiting without closing. The wallet should autoclose." << endl;
-	kapp->exit(0);
+	QApplication::exit(0);
 }
 
 int main(int argc, char *argv[]) 
 {
-	KAboutData aboutData("kwalletmany", 0, ki18n("kwalletmany"), "version");
-	KCmdLineArgs::init(argc, argv, &aboutData);
-	KApplication app;
+	QApplication app(argc, argv);
+    app.setApplicationName("kwalletmany");
+    app.setApplicationDisplayName(i18n("kwalletmany"));
 	KWalletAutoClose m;
 	
 	QTimer::singleShot(0, &m, SLOT(openWallet()));

@@ -2,16 +2,12 @@
 #include <QtCore/QTimer>
 
 #include <kaboutdata.h>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
-#include <kdebug.h>
-#include <kglobal.h>
-#include <kstandarddirs.h>
+#include <QtWidgets/QApplication>
 #include <kwallet.h>
 #include <QtDBus/QDBusConnectionInterface>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusReply>
-#include <klocale.h>
+#include <KLocalizedString>
 
 static QTextStream _out(stdout, QIODevice::WriteOnly);
 
@@ -28,14 +24,14 @@ void openWallet()
 		delete wallet;
 	}
 	
-	kapp->exit(0);
+	QApplication::exit(0);
 }
 
 int main(int argc, char *argv[])
 {
-	KAboutData aboutData("kwalletpath", 0, ki18n("kwalletpath"), "version");
-	KCmdLineArgs::init(argc, argv, &aboutData);
-	KApplication app;
+	QApplication app(argc, argv);
+    app.setApplicationName("kwalletpath");
+    app.setApplicationDisplayName(i18n("kwalletpath"));
 
 	openWallet();
 

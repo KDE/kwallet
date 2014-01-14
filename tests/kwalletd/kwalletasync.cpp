@@ -1,18 +1,14 @@
 #include <QtCore/QTextStream>
-#include <QApplication>
+#include <QtWidgets/QApplication>
 #include <QtCore/QTimer>
 
 #include <kaboutdata.h>
-#include <kcomponentdata.h>
-#include <kcmdlineargs.h>
-#include <kdebug.h>
-#include <kglobal.h>
-#include <kstandarddirs.h>
+#include <QDebug>
 #include <kwallet.h>
 #include <QtDBus/QDBusConnectionInterface>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusReply>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "kwallettest.h"
 
@@ -47,9 +43,10 @@ void WalletReceiver::walletOpened( bool got )
 
 int main( int argc, char *argv[] )
 {
-	KAboutData aboutData("kwalletasync", 0, ki18n("kwalletasync"), "version");
-	KComponentData componentData(&aboutData);
 	QApplication app( argc, argv );
+    app.setApplicationName("kwalletasync");
+    app.setApplicationDisplayName(i18n("kwalletasync"));
+    
 
 	// force name with D-BUS
         QDBusReply<QDBusConnectionInterface::RegisterServiceReply> reply

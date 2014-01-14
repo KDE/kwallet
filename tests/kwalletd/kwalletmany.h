@@ -39,7 +39,7 @@ public:
 	KWalletMany();
 	~KWalletMany();
 	
-public slots:
+public Q_SLOTS:
 	void openWallet();
 	void quit();
 	void walletOpened(bool open);
