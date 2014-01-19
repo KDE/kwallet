@@ -11,11 +11,12 @@
 #include <QtDBus/QDBusReply>
 #include <KLocalizedString>
 
+#include "kwalletboth.h"
 #include "kwallettest.h"
 
 static QTextStream _out( stdout, QIODevice::WriteOnly );
 
-void openWallet()
+void KWalletBothTest::openWallet()
 {
 	_out << "About to ask for wallet async" << endl;
 
@@ -66,26 +67,6 @@ void WalletReceiver::walletOpened( bool got )
 	qApp->exit( 1 );
 }
 
-int main( int argc, char *argv[] )
-{
-	QApplication app( argc, argv );
-    app.setApplicationName("kwalletboth");
-    app.setApplicationDisplayName(i18n("kwalletboth"));
-
-	// force name with D-BUS
-        QDBusReply<QDBusConnectionInterface::RegisterServiceReply> reply
-            = QDBusConnection::sessionBus().interface()->registerService( "org.kde.kwalletboth",
-                                                                QDBusConnectionInterface::ReplaceExistingService );
-
-        if ( !reply.isValid() )
-        {
-                _out << "D-BUS name request returned " << reply.error().name() << endl;
-        }
-
-	openWallet();
-
-	return 0;
-}
-
+QTEST_MAIN(KWalletBothTest)
 // vim: set noet ts=4 sts=4 sw=4:
 
