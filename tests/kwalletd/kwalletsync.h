@@ -18,13 +18,13 @@
     the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
     Boston, MA 02110-1301, USA.
 */
-#ifndef KWALLETASYNC_H
-#define KWALLETASYNC_H
+#ifndef KWALLETSYNC_H
+#define KWALLETSYNC_H
 
 #include <QtCore/QObject>
 #include <QtTest/QtTest>
 
-class KWalletAsyncTest : public QObject
+class KWalletSyncTest : public QObject
 {
     Q_OBJECT
 
@@ -36,4 +36,4 @@ private Q_SLOTS:
 
 };
 
-#endif // KWALLETASYNC_H
+#endif // KWALLETSYNC_H
