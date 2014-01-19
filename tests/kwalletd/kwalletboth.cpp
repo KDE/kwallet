@@ -16,6 +16,13 @@
 
 static QTextStream _out( stdout, QIODevice::WriteOnly );
 
+void KWalletBothTest::init()
+{
+    if (!qEnvironmentVariableIsSet("DISPLAY")) {
+        QSKIP("$DISPLAY is not set. These tests cannot be done without a graphical system.");
+    }
+}
+
 void KWalletBothTest::openWallet()
 {
 	_out << "About to ask for wallet async" << endl;
@@ -67,6 +74,6 @@ void WalletReceiver::walletOpened( bool got )
 	qApp->exit( 1 );
 }
 
-QTEST_MAIN(KWalletBothTest)
+QTEST_GUILESS_MAIN(KWalletBothTest)
 // vim: set noet ts=4 sts=4 sw=4:
 

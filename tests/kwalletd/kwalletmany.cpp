@@ -46,6 +46,13 @@ KWalletMany::~KWalletMany()
 {
 }
 
+void KWalletMany::init()
+{
+    if (!qEnvironmentVariableIsSet("DISPLAY")) {
+        QSKIP("$DISPLAY is not set. These tests cannot be done without a graphical system.");
+    }
+}
+
 void KWalletMany::walletOpened(bool open)
 {
 	_out << "Got async wallet: " << (open) << endl;
@@ -74,19 +81,4 @@ void KWalletMany::openWallet()
 	QApplication::quit();
 }
 
-QTEST_MAIN(KWalletMany)
-
-// int main(int argc, char *argv[])
-// {
-// 	QApplication app(argc, argv);
-//     app.setApplicationName("kwalletmany");
-//     app.setApplicationDisplayName(i18n("kwalletmany"));
-// 	KWalletMany m;
-// 	
-// 	QTimer::singleShot(0, &m, SLOT(openWallet()));
-// 	QTimer::singleShot(30000, &m, SLOT(quit()));
-// 	
-// 	return app.exec();
-// }
-
-#include "kwalletmany.moc"
+QTEST_GUILESS_MAIN(KWalletMany)

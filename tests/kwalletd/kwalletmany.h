@@ -43,6 +43,7 @@ public Q_SLOTS:
 	void walletOpened(bool open);
 
 private Q_SLOTS:
+    void init();
     void openWallet();
 	
 private:

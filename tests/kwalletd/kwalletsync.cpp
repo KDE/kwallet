@@ -14,6 +14,13 @@
 
 static QTextStream _out( stdout, QIODevice::WriteOnly );
 
+void KWalletSyncTest::init()
+{
+    if (!qEnvironmentVariableIsSet("DISPLAY")) {
+        QSKIP("$DISPLAY is not set. These tests cannot be done without a graphical system.");
+    }
+}
+
 void KWalletSyncTest::openWallet()
 {
 	_out << "About to ask for wallet sync" << endl;
@@ -24,7 +31,7 @@ void KWalletSyncTest::openWallet()
 	_out << "Got sync wallet: " << (w != 0) << endl;
 }
 
-QTEST_MAIN(KWalletSyncTest)
+QTEST_GUILESS_MAIN(KWalletSyncTest)
 
 // vim: set noet ts=4 sts=4 sw=4:
 

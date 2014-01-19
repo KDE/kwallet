@@ -22,10 +22,18 @@
 
 #include <QtTest>
 #include <QWidget>
+#include <QtCore/qglobal.h>
 
 #include <kwallet.h>
 
 using namespace KWallet;
+
+void KWalletTest::init()
+{
+    if (!qEnvironmentVariableIsSet("DISPLAY")) {
+        QSKIP("$DISPLAY is not set. These tests cannot be done without a graphical system.");
+    }
+}
 
 void KWalletTest::testWallet()
 {
@@ -37,12 +45,8 @@ void KWalletTest::testWallet()
     QByteArray testValues[] = { "test", "@(!§\"%&", "", ".test", "\\" };
     int numTests = 5;
 
-    // Create a widget to serve as the wallet's parent widget, to get rid of a
-    // warning
-    QWidget *w = new QWidget();
-
     // open
-    Wallet *wallet = Wallet::openWallet(testWallet, w->winId(), Wallet::Synchronous);
+    Wallet *wallet = Wallet::openWallet(testWallet, 0, Wallet::Synchronous);
     if (wallet == 0) {
         qDebug() << "Couldn't open the wallet. Maybe the wallet daemon is not running?";
     }
@@ -79,7 +83,7 @@ void KWalletTest::testWallet()
     }
 
     // open
-    wallet = Wallet::openWallet(testWallet, w->winId(), Wallet::Synchronous);
+    wallet = Wallet::openWallet(testWallet, 0, Wallet::Synchronous);
     QVERIFY2(wallet != 0, "openWallet failed");
     QVERIFY2(Wallet::isOpen(testWallet), "openWallet succeeded but the wallet !isOpen (2)");
 
@@ -112,5 +116,5 @@ void KWalletTest::testWallet()
     QVERIFY2(!Wallet::isOpen("kdewallet"), "Failed to close wallet");
 }
 
-QTEST_MAIN(KWalletTest)
+QTEST_GUILESS_MAIN(KWalletTest)
 

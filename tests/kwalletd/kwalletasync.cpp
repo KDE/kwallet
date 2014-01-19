@@ -16,6 +16,13 @@
 
 static QTextStream _out( stdout, QIODevice::WriteOnly );
 
+void KWalletAsyncTest::init()
+{
+    if (!qEnvironmentVariableIsSet("DISPLAY")) {
+        QSKIP("$DISPLAY is not set. These tests cannot be done without a graphical system.");
+    }
+}
+
 void KWalletAsyncTest::openWallet()
 {
 	_out << "About to ask for wallet async" << endl;
@@ -45,4 +52,4 @@ void WalletReceiver::walletOpened( bool got )
 	qApp->exit( 1 );
 }
 
-QTEST_MAIN(KWalletAsyncTest);
+QTEST_GUILESS_MAIN(KWalletAsyncTest);

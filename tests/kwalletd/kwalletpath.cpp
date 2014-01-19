@@ -14,6 +14,13 @@
 
 static QTextStream _out(stdout, QIODevice::WriteOnly);
 
+void KWalletPathTest::init()
+{
+    if (!qEnvironmentVariableIsSet("DISPLAY")) {
+        QSKIP("$DISPLAY is not set. These tests cannot be done without a graphical system.");
+    }
+}
+
 void KWalletPathTest::openWallet()
 {
 	_out << "About to ask for wallet /tmp/test.kwl sync" << endl;
@@ -29,4 +36,4 @@ void KWalletPathTest::openWallet()
 	}
 }
 
-QTEST_MAIN(KWalletPathTest)
+QTEST_GUILESS_MAIN(KWalletPathTest)
