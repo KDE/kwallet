@@ -1,6 +1,7 @@
 #include <QtCore/QTextStream>
 #include <QtWidgets/QApplication>
 #include <QtCore/QTimer>
+#include <QtTest/QTest>
 
 #include <kaboutdata.h>
 #include <kwallet.h>
@@ -16,6 +17,7 @@ void openWallet()
 	_out << "About to ask for wallet sync" << endl;
 
 	KWallet::Wallet *w = KWallet::Wallet::openWallet( KWallet::Wallet::NetworkWallet(), 0, KWallet::Wallet::Synchronous );
+    QVERIFY(w != 0);
 
 	_out << "Got sync wallet: " << (w != 0) << endl;
 }

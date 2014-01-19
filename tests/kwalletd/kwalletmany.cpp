@@ -26,6 +26,7 @@
 #include <QThread>
 #include <KAboutData>
 #include <QtWidgets/QApplication>
+#include <QtTest/QTest>
 #include <KLocalizedString>
 #include <kwallet.h>
 
@@ -72,6 +73,7 @@ void KWalletMany::openWallet()
 		_out << "About to ask for wallet async" << endl;
 		Wallet *wallet;
 		wallet = Wallet::openWallet(Wallet::NetworkWallet(), 0, Wallet::Asynchronous);
+        QVERIFY(wallet != 0);
 		connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool)));
 		_wallets.append(wallet);
 	}

@@ -2,6 +2,7 @@
 #include <QtCore/QTimer>
 #include <QtCore/QMap>
 #include <QtWidgets/QApplication>
+#include <QtTest/QTest>
 
 #include <kaboutdata.h>
 #include <kwallet.h>
@@ -20,6 +21,7 @@ void openWallet()
 
         // we have no wallet: ask for one.
 	KWallet::Wallet *wallet = KWallet::Wallet::openWallet( KWallet::Wallet::NetworkWallet(), 0, KWallet::Wallet::Asynchronous );
+    QVERIFY(wallet != 0);
 
 	WalletReceiver r;
 	r.connect( wallet, SIGNAL( walletOpened(bool) ), SLOT( walletOpened(bool) ) );
@@ -27,6 +29,7 @@ void openWallet()
 	_out << "About to ask for wallet sync" << endl;
 
 	wallet = KWallet::Wallet::openWallet( KWallet::Wallet::NetworkWallet(), 0, KWallet::Wallet::Synchronous );
+    QVERIFY(wallet != 0);
 
 	_out << "Got sync wallet: " << (wallet != 0) << endl;
 	_out << "About to start 30 second event loop" << endl;

@@ -27,6 +27,7 @@
 #include <QTimer>
 #include <kwallet.h>
 #include <KLocalizedString>
+#include <QtTest/QTest>
 
 #include "kwalletautoclose.h"
 
@@ -42,6 +43,7 @@ void KWalletAutoClose::openWallet()
 {
 	_out << "Opening wallet synchronously" << endl;
 	Wallet *wallet = Wallet::openWallet(Wallet::NetworkWallet(), 0, Wallet::Synchronous);
+    QVERIFY(wallet != 0);
 	_out << "Exiting without closing. The wallet should autoclose." << endl;
 	QApplication::exit(0);
 }
