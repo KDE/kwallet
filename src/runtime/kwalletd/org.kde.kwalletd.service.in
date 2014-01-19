@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.kde.kwalletd
+Exec=@CMAKE_INSTALL_PREFIX@/bin/kwalletd
