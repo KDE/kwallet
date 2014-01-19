@@ -74,7 +74,7 @@ Backend::Backend(const QString& name, bool isPath) : d(0), _name(name), _ref(0),
 		_path = name;
 	} else {
 // KDE4 _path = KGlobal::dirs()->saveLocation("kwallet") + _name + ".kwl";
-        _path = getSaveLocation() + _name + ".kwl";
+        _path = getSaveLocation() + QDir::separator() + _name + ".kwl";
 	}
 
 	_open = false;
