@@ -50,19 +50,6 @@ void KWalletMany::walletOpened(bool open)
 {
 	_out << "Got async wallet: " << (open) << endl;
 	--_pending;
-	if (_pending == 0) {
-		quit();
-	}
-}
-
-void KWalletMany::quit()
-{
-	if (_pending == 0) {
-		_out << "Success!" << endl;
-	} else {
-		_out << "Failed: " << _pending << " requests were not handled!" << endl;
-	}
-	_loop.quit();
 }
 
 void KWalletMany::openWallet()
@@ -77,25 +64,29 @@ void KWalletMany::openWallet()
 		connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool)));
 		_wallets.append(wallet);
 	}
-	
-	_loop.exec();
+
+	// wait for 30s to receive the wallet opened replies from kwalletd
+	QTRY_VERIFY_WITH_TIMEOUT(_pending == 0, 30000);
+
 	while (!_wallets.isEmpty()) {
 		delete _wallets.takeFirst();
 	}
 	QApplication::quit();
 }
 
-int main(int argc, char *argv[])
-{
-	QApplication app(argc, argv);
-    app.setApplicationName("kwalletmany");
-    app.setApplicationDisplayName(i18n("kwalletmany"));
-	KWalletMany m;
-	
-	QTimer::singleShot(0, &m, SLOT(openWallet()));
-	QTimer::singleShot(30000, &m, SLOT(quit()));
-	
-	return app.exec();
-}
+QTEST_MAIN(KWalletMany)
+
+// int main(int argc, char *argv[])
+// {
+// 	QApplication app(argc, argv);
+//     app.setApplicationName("kwalletmany");
+//     app.setApplicationDisplayName(i18n("kwalletmany"));
+// 	KWalletMany m;
+// 	
+// 	QTimer::singleShot(0, &m, SLOT(openWallet()));
+// 	QTimer::singleShot(30000, &m, SLOT(quit()));
+// 	
+// 	return app.exec();
+// }
 
 #include "kwalletmany.moc"

@@ -40,14 +40,14 @@ public:
 	~KWalletMany();
 	
 public Q_SLOTS:
-	void openWallet();
-	void quit();
 	void walletOpened(bool open);
+
+private Q_SLOTS:
+    void openWallet();
 	
 private:
 	QList<KWallet::Wallet*> _wallets;
 	int _pending;
-	QEventLoop _loop;
 };
 
 #endif // KWALLETMANY_H
