@@ -10,9 +10,11 @@
 #include <QtDBus/QDBusReply>
 #include <KLocalizedString>
 
+#include "kwalletpath.h"
+
 static QTextStream _out(stdout, QIODevice::WriteOnly);
 
-void openWallet()
+void KWalletPathTest::openWallet()
 {
 	_out << "About to ask for wallet /tmp/test.kwl sync" << endl;
 
@@ -25,17 +27,6 @@ void openWallet()
 		_out << "Closing wallet" << endl;
 		delete wallet;
 	}
-	
-	QApplication::exit(0);
 }
 
-int main(int argc, char *argv[])
-{
-	QApplication app(argc, argv);
-    app.setApplicationName("kwalletpath");
-    app.setApplicationDisplayName(i18n("kwalletpath"));
-
-	openWallet();
-
-	exit(0);
-}
+QTEST_MAIN(KWalletPathTest)
