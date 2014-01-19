@@ -1,5 +1,5 @@
-#ifndef KWALLETASYNC_H
-#define KWALLETASYNC_H
+#ifndef KWALLETTEST_H
+#define KWALLETTEST_H
 
 #include <QtCore/QObject>
 
@@ -12,4 +12,4 @@ public Q_SLOTS:
 	void walletOpened( bool );
 };
 
-#endif
+#endif // KWALLETTEST_H

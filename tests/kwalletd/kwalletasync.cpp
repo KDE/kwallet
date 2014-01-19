@@ -1,6 +1,7 @@
 #include <QtCore/QTextStream>
 #include <QtWidgets/QApplication>
 #include <QtCore/QTimer>
+#include <QtTest/QTest>
 
 #include <kaboutdata.h>
 #include <QDebug>
@@ -10,19 +11,21 @@
 #include <QtDBus/QDBusReply>
 #include <KLocalizedString>
 
+#include "kwalletasync.h"
 #include "kwallettest.h"
 
 static QTextStream _out( stdout, QIODevice::WriteOnly );
 
-void openWallet()
+void KWalletAsyncTest::openWallet()
 {
 	_out << "About to ask for wallet async" << endl;
 
         // we have no wallet: ask for one.
 	KWallet::Wallet *wallet = KWallet::Wallet::openWallet( KWallet::Wallet::NetworkWallet(), 0, KWallet::Wallet::Asynchronous );
+    QVERIFY(wallet != 0);
 
 	WalletReceiver r;
-	r.connect( wallet, SIGNAL( walletOpened(bool) ), SLOT( walletOpened(bool) ) );
+	QVERIFY(r.connect( wallet, SIGNAL( walletOpened(bool) ), SLOT( walletOpened(bool) ) ));
 
 	_out << "About to start 30 second event loop" << endl;
 
@@ -33,6 +36,7 @@ void openWallet()
 		_out << "Timed out!" << endl;
 	else
 		_out << "Success!" << endl;
+    QVERIFY2(ret == 1, "Timeout when waiting for wallet open");
 }
 
 void WalletReceiver::walletOpened( bool got )
@@ -41,27 +45,4 @@ void WalletReceiver::walletOpened( bool got )
 	qApp->exit( 1 );
 }
 
-int main( int argc, char *argv[] )
-{
-	QApplication app( argc, argv );
-    app.setApplicationName("kwalletasync");
-    app.setApplicationDisplayName(i18n("kwalletasync"));
-    
-
-	// force name with D-BUS
-        QDBusReply<QDBusConnectionInterface::RegisterServiceReply> reply
-            = QDBusConnection::sessionBus().interface()->registerService( "org.kde.kwalletasync",
-                                                                QDBusConnectionInterface::ReplaceExistingService );
-
-        if ( !reply.isValid() )
-        {
-                _out << "D-BUS name request returned " << reply.error().name() << endl;
-        }
-
-	openWallet();
-
-	return 0;
-}
-
-// vim: set noet ts=4 sts=4 sw=4:
-
+QTEST_MAIN(KWalletAsyncTest);
