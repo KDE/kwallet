@@ -73,6 +73,9 @@ find_file(kwallet_xml org.kde.KWallet.xml HINTS ${CMAKE_CURRENT_SOURCE_DIR}/../.
 
 qt5_add_dbus_adaptor( kwalletd_SRCS ${kwallet_xml} kwalletd.h KWalletD )
 
+include(ECMDBusAddActivationService)
+ecm_dbus_add_activation_service(org.kde.kwalletd.service.in)
+
 add_executable( kwalletd ${kwalletd_SRCS} )
 
 target_link_libraries(kwalletd
@@ -98,5 +101,4 @@ install(TARGETS kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install( FILES kwalletd.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 install( FILES kwalletd.notifyrc DESTINATION  ${DATA_INSTALL_DIR}/kwalletd )
-
 
