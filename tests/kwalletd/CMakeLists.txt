@@ -70,8 +70,6 @@ kwalletd_tests(
     kwalletpath
     kwalletboth
     kwalletmany
-    kwalletautoclose
-#    kwalletnoautoclose
 )
 
 
