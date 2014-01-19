@@ -46,70 +46,70 @@ void KWalletTest::testWallet()
     if (wallet == 0) {
         qDebug() << "Couldn't open the wallet. Maybe the wallet daemon is not running?";
     }
-    QVERIFY(wallet != 0);
-    QVERIFY(Wallet::isOpen(testWallet));
+    QVERIFY2(wallet != 0, "openWallet failed!");
+    QVERIFY2(Wallet::isOpen(testWallet), "opwnWallet succeeded but the wallet !isOpen");
 
     // create folder
     wallet->createFolder(testFolder);
-    QVERIFY(wallet->hasFolder(testFolder));
+    QVERIFY2(wallet->hasFolder(testFolder), "Failed to create testFolder");
     wallet->setFolder(testFolder);
-    QVERIFY(wallet->currentFolder() == testFolder);
-    QVERIFY(wallet->folderList().contains(testFolder));
+    QVERIFY2(wallet->currentFolder() == testFolder, "Failed to set current testFolder");
+    QVERIFY2(wallet->folderList().contains(testFolder), "The wallet does not contain freshly created testFolder");
 
     // write & read many entries
     for (int i = 0; i < numTests; i++) {
         wallet->writeEntry(testKeys[i], testValues[i]);
-        QVERIFY(wallet->hasEntry(testKeys[i]));
+        QVERIFY2(wallet->hasEntry(testKeys[i]), "hasEntry failed!");
         QByteArray readEntry;
         wallet->readEntry(testKeys[i], readEntry);
-        QVERIFY(readEntry == testValues[i]);
+        QVERIFY2(readEntry == testValues[i], "readEntry failed!");
     }
 
     // close
     wallet->sync();
     Wallet::closeWallet("kdewallet", true);
-    QVERIFY(!Wallet::isOpen("kdewallet"));
+    QVERIFY2(!Wallet::isOpen("kdewallet"), "wallet is still opened after close call!");
 
     // test for key - closed wallet
     for (int i = 0; i < 5; i++) {
-        QVERIFY(!Wallet::keyDoesNotExist(testWallet, testFolder, testKeys[i]));
-        QVERIFY(Wallet::keyDoesNotExist(testWallet, testFolder, "madeUpKey"));
-        QVERIFY(Wallet::keyDoesNotExist(testWallet, "madeUpFolderName", "madeUpKey"));
-        QVERIFY(Wallet::keyDoesNotExist(testWallet, "madeUpFolderName", testKeys[i]));
+        QVERIFY2(!Wallet::keyDoesNotExist(testWallet, testFolder, testKeys[i]), "keyDoesNotExist(1) failed");
+        QVERIFY2(Wallet::keyDoesNotExist(testWallet, testFolder, "madeUpKey"), "keyDoesNotExist(2) failed");
+        QVERIFY2(Wallet::keyDoesNotExist(testWallet, "madeUpFolderName", "madeUpKey"), "keyDoesNotExist(3) failed");
+        QVERIFY2(Wallet::keyDoesNotExist(testWallet, "madeUpFolderName", testKeys[i]), "keyDoesNotExist(4) failed");
     }
 
     // open
     wallet = Wallet::openWallet(testWallet, w->winId(), Wallet::Synchronous);
-    QVERIFY(wallet != 0);
-    QVERIFY(Wallet::isOpen(testWallet));
+    QVERIFY2(wallet != 0, "openWallet failed");
+    QVERIFY2(Wallet::isOpen(testWallet), "openWallet succeeded but the wallet !isOpen (2)");
 
     // set folder
-    QVERIFY(wallet->hasFolder(testFolder));
+    QVERIFY2(wallet->hasFolder(testFolder), "The wallet do not have testFolder!");
     wallet->setFolder(testFolder);
-    QVERIFY(wallet->currentFolder() == testFolder);
+    QVERIFY2(wallet->currentFolder() == testFolder, "Failed to set current folder");
 
     // test for key - opened wallet
     for (int i = 0; i < numTests; i++) {
-        QVERIFY(!Wallet::keyDoesNotExist(testWallet, testFolder, testKeys[i]));
-        QVERIFY(Wallet::keyDoesNotExist(testWallet, testFolder, "madeUpKey"));
-        QVERIFY(Wallet::keyDoesNotExist(testWallet, "madeUpFolderName", "madeUpKey"));
-        QVERIFY(Wallet::keyDoesNotExist(testWallet, "madeUpFolderName", testKeys[i]));
+        QVERIFY2(!Wallet::keyDoesNotExist(testWallet, testFolder, testKeys[i]), "keyDoesNotExist(1) failed");
+        QVERIFY2(Wallet::keyDoesNotExist(testWallet, testFolder, "madeUpKey"), "keyDoesNotExist(2) failed");
+        QVERIFY2(Wallet::keyDoesNotExist(testWallet, "madeUpFolderName", "madeUpKey"), "keyDoesNotExist(3) failed");
+        QVERIFY2(Wallet::keyDoesNotExist(testWallet, "madeUpFolderName", testKeys[i]), "keyDoesNotExist(4) failed");
     }
 
     // read many keys
     for (int i = 0; i < numTests; i++) {
         QByteArray readEntry;
         wallet->readEntry(testKeys[i], readEntry);
-        QVERIFY(readEntry == testValues[i]);
+        QVERIFY2(readEntry == testValues[i], "Test value after read many keys failed!");
     }
 
     // delete folder
     wallet->removeFolder(testFolder);
-    QVERIFY(!wallet->hasFolder(testFolder));
+    QVERIFY2(!wallet->hasFolder(testFolder), "Failed to delete the testFolder");
 
     // close
     Wallet::closeWallet("kdewallet", true);
-    QVERIFY(!Wallet::isOpen("kdewallet"));
+    QVERIFY2(!Wallet::isOpen("kdewallet"), "Failed to close wallet");
 }
 
 QTEST_MAIN(KWalletTest)
