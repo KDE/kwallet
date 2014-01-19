@@ -5,6 +5,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../src/runtime/kwalletd ) # 
 
 include(ECMMarkAsTest)
 
+find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Test)
 find_package(KF5CoreAddons ${KF5_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_VERSION} REQUIRED)
 find_package(KF5IconThemes ${KF5_VERSION} REQUIRED)
@@ -35,6 +36,7 @@ add_executable(kwalletwizardtest ${kwalletwizardtest_SRCS})
 ecm_mark_as_test(kwalletwizardtest)
 target_link_libraries(kwalletwizardtest
     KF5Wallet
+    Qt5::Test
     KF5::CoreAddons
     KF5::I18n
     KF5::IconThemes
@@ -55,6 +57,7 @@ macro(kwalletd_tests)
         kwallettestlib
         KF5Wallet
         Qt5::DBus
+        Qt5::Test
         KF5::CoreAddons
         KF5::I18n)
     add_test(${_testname} ${_testname})
