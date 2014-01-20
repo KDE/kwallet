@@ -120,8 +120,8 @@ KWalletD::KWalletD()
 
 	(void)new KWalletAdaptor(this);
 	// register services
-	QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.kwalletd"));
-	QDBusConnection::sessionBus().registerObject(QLatin1String("/modules/kwalletd"), this);
+	QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.kwalletd5"));
+	QDBusConnection::sessionBus().registerObject(QLatin1String("/modules/kwalletd5"), this);
 
 #ifdef Q_WS_X11
     screensaver = 0;

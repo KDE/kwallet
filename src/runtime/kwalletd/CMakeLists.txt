@@ -1,4 +1,4 @@
-project(kwalletd)
+project(kwalletd5)
 
 find_package(KF5Config ${KF5_VERSION} REQUIRED)
 find_package(KF5CoreAddons ${KF5_VERSION} REQUIRED)
@@ -74,12 +74,12 @@ find_file(kwallet_xml org.kde.KWallet.xml HINTS ${CMAKE_CURRENT_SOURCE_DIR}/../.
 qt5_add_dbus_adaptor( kwalletd_SRCS ${kwallet_xml} kwalletd.h KWalletD )
 
 include(ECMDBusAddActivationService)
-ecm_dbus_add_activation_service(org.kde.kwalletd.service.in)
+ecm_dbus_add_activation_service(org.kde.kwalletd5.service.in)
 
-add_executable( kwalletd ${kwalletd_SRCS} )
+add_executable( kwalletd5 ${kwalletd_SRCS} )
 
-target_link_libraries(kwalletd
-    kwalletbackend
+target_link_libraries(kwalletd5
+    kwalletbackend5
     KF5Wallet
     Qt5::Widgets
     KF5::I18n
@@ -95,10 +95,10 @@ if (GPGME_FOUND AND QGPGME_FOUND)
     target_link_libraries(kwalletd ${QGPGME_LIBRARIES} )
 endif(GPGME_FOUND AND QGPGME_FOUND)
 
-install(TARGETS kwalletd  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kwalletd5  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( FILES kwalletd.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
+install( FILES kwalletd5.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 install( FILES kwalletd.notifyrc DESTINATION  ${DATA_INSTALL_DIR}/kwalletd )
 

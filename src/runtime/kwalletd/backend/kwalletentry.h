@@ -27,13 +27,13 @@
 
 #include <kwallet.h>
 
-#include "kwalletbackend_export.h"
+#include "kwalletbackend5_export.h"
 
 namespace KWallet {
 
 /* @internal
  */
-class KWALLETBACKEND_EXPORT Entry {
+class KWALLETBACKEND5_EXPORT Entry {
 	public:
 		Entry();
 		~Entry();

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-Exec=kwalletd
+Exec=kwalletd5
 X-KDE-ServiceTypes=
 # It is a server
 X-DBUS-StartupType=Unique

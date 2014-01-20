@@ -226,7 +226,7 @@ void Wallet::WalletPrivate::createDefaultFolders()
 }
 #endif // HAVE_KSECRETSSERVICE
 
-static const char s_kwalletdServiceName[] = "org.kde.kwalletd";
+static const char s_kwalletdServiceName[] = "org.kde.kwalletd5";
 
 Wallet::Wallet(int handle, const QString &name)
     : QObject(0L), d(new WalletPrivate(this, handle, name))
@@ -1597,7 +1597,7 @@ KWalletDLauncher::KWalletDLauncher()
         // NOOP
     } else {
 #endif
-        m_wallet = new org::kde::KWallet(QString::fromLatin1(s_kwalletdServiceName), "/modules/kwalletd", QDBusConnection::sessionBus());
+        m_wallet = new org::kde::KWallet(QString::fromLatin1(s_kwalletdServiceName), "/modules/kwalletd5", QDBusConnection::sessionBus());
 #if HAVE_KSECRETSSERVICE
     }
 #endif

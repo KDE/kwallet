@@ -22,11 +22,11 @@
 #ifndef __sha1__ko__h
 #define __sha1__ko__h
 
-#include "kwalletbackend_export.h"
+#include "kwalletbackend5_export.h"
 
 /* @internal
  */
-class KWALLETBACKEND_EXPORT SHA1 {
+class KWALLETBACKEND5_EXPORT SHA1 {
 	public:
 		SHA1();
 		~SHA1();

@@ -36,20 +36,22 @@ set(kwalletbackend_LIB_SRCS
    backendpersisthandler.cpp
 )
 
-add_library(kwalletbackend SHARED ${kwalletbackend_LIB_SRCS})
-generate_export_header(kwalletbackend)
+add_library(kwalletbackend5 SHARED ${kwalletbackend_LIB_SRCS})
+generate_export_header(kwalletbackend5)
 
-target_link_libraries(kwalletbackend Qt5::Widgets KF5::WidgetsAddons KF5::CoreAddons KF5::Notifications KF5::I18n)
+ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLETBACKEND)
+
+target_link_libraries(kwalletbackend5 Qt5::Widgets KF5::WidgetsAddons KF5::CoreAddons KF5::Notifications KF5::I18n)
 if(QGPGME_FOUND)
-target_link_libraries(kwalletbackend ${QGPGME_LIBRARIES} )
+target_link_libraries(kwalletbackend5 ${QGPGME_LIBRARIES} )
 endif(QGPGME_FOUND)
 
 # link with advapi32 on windows
 if(WIN32 AND NOT WINCE)
-   target_link_libraries(kwalletbackend advapi32)
+   target_link_libraries(kwalletbackend5 advapi32)
 endif(WIN32 AND NOT WINCE)
 
-set_target_properties(kwalletbackend PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
-install(TARGETS kwalletbackend ${INSTALL_TARGETS_DEFAULT_ARGS})
+set_target_properties(kwalletbackend5 PROPERTIES VERSION ${KWALLETBACKEND_VERSION_STRING} SOVERSION ${KWALLETBACKEND_SOVERSION} )
+install(TARGETS kwalletbackend5 ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_subdirectory(tests)

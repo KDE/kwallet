@@ -31,11 +31,11 @@
 #endif
 
 #include "blockcipher.h"
-#include "kwalletbackend_export.h"
+#include "kwalletbackend5_export.h"
 
 /* @internal
  */
-class KWALLETBACKEND_EXPORT BlowFish : public BlockCipher {
+class KWALLETBACKEND5_EXPORT BlowFish : public BlockCipher {
 	public:
 		BlowFish();
 		virtual ~BlowFish();

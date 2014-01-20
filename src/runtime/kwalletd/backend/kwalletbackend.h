@@ -27,7 +27,7 @@
 #include <QtCore/QMap>
 #include "kwalletentry.h"
 #include "backendpersisthandler.h"
-#include "kwalletbackend_export.h"
+#include "kwalletbackend5_export.h"
 
 #ifdef HAVE_QGPGME
 #include <gpgme++/key.h>
@@ -65,7 +65,7 @@ class MD5Digest : public QByteArray {
 
 /* @internal
  */
-class KWALLETBACKEND_EXPORT Backend {
+class KWALLETBACKEND5_EXPORT Backend {
 	public:
 		explicit Backend(const QString& name = QLatin1String("kdewallet"), bool isPath = false);
 		~Backend();
