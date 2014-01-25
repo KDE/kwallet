@@ -1,14 +1,20 @@
 [Global]
 IconName=kwalletmanager
 Comment=Wallet
+Comment[x-test]=xxWalletxx
 Name=kwalletd
+Name[x-test]=xxkwalletdxx
 
 [Event/needsPassword]
 Name=Needs password
+Name[x-test]=xxNeeds passwordxx
 Comment=The KDE Wallet Daemon requests a password
+Comment[x-test]=xxThe KDE Wallet Daemon requests a passwordxx
 Action=Popup
 
 [Event/syncFailed]
 Name=Sync Failed
+Name[x-test]=xxSync Failedxx
 Comment=KDE Wallet System failed to sync a wallet file to disk
+Comment[x-test]=xxKDE Wallet System failed to sync a wallet file to diskxx
 Action=Popup

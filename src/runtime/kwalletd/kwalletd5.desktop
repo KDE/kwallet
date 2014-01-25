@@ -6,4 +6,6 @@ X-KDE-ServiceTypes=
 X-DBUS-StartupType=Unique
 X-KDE-StartupNotify=false
 Name=Wallet Server
+Name[x-test]=xxWallet Serverxx
 Comment=Wallet Server
+Comment[x-test]=xxWallet Serverxx
