@@ -1,20 +1,38 @@
 [Global]
 IconName=kwalletmanager
 Comment=Wallet
+Comment[pt_BR]=Carteira
+Comment[sk]=Wallet
+Comment[uk]=Торбинка
 Comment[x-test]=xxWalletxx
 Name=kwalletd
+Name[pt_BR]=kwalletd
+Name[sk]=kwalletd
+Name[uk]=kwalletd
 Name[x-test]=xxkwalletdxx
 
 [Event/needsPassword]
 Name=Needs password
+Name[pt_BR]=Necessita senha
+Name[sk]=Vyžaduje heslo
+Name[uk]=Потрібен пароль
 Name[x-test]=xxNeeds passwordxx
 Comment=The KDE Wallet Daemon requests a password
+Comment[pt_BR]=O servidor da carteira do KDE está solicitando uma senha
+Comment[sk]=Démon KDE Wallet vyžaduje heslo
+Comment[uk]=Фонова служба торбинок KDE надіслала запит на пароль
 Comment[x-test]=xxThe KDE Wallet Daemon requests a passwordxx
 Action=Popup
 
 [Event/syncFailed]
 Name=Sync Failed
+Name[pt_BR]=Falha na sincronização
+Name[sk]=Synchronizácia zlyhala
+Name[uk]=Спроба синхронізації зазнала невдачі
 Name[x-test]=xxSync Failedxx
 Comment=KDE Wallet System failed to sync a wallet file to disk
+Comment[pt_BR]=O Sistema da Carteiras do KDE não conseguiu sincronizar um arquivo de carteira com o disco
+Comment[sk]=Systému KDE peňaženky sa nepodarilo synchronizovať súbor peňaženky na disk
+Comment[uk]=Система торбинок KDE не змогла синхронізувати дані файла торбинок з диском
 Comment[x-test]=xxKDE Wallet System failed to sync a wallet file to diskxx
 Action=Popup
