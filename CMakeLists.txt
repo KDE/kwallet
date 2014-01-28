@@ -12,6 +12,8 @@ include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings)
 include(KDECMakeSettings)
 
+option(BUILD_KWALLETD "Build the kwallet daemon" ON)
+
 add_subdirectory(src)
 add_subdirectory(autotests)
 add_subdirectory(tests)
