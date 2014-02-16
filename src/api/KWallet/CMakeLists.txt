@@ -105,13 +105,12 @@ set_target_properties(KF5Wallet PROPERTIES VERSION   ${KWALLET_VERSION_STRING}
                                          EXPORT_NAME Wallet
 )
 
-ecm_generate_headers(
+ecm_generate_headers(KWallet_HEADERS
+  HEADER_NAMES
   KWallet
 
-  MODULE_NAME KWallet
   REQUIRED_HEADERS KWallet_HEADERS
 )
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KWallet DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
 
 install(TARGETS KF5Wallet EXPORT KF5WalletTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES
