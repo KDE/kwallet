@@ -39,7 +39,7 @@ set(kwalletbackend_LIB_SRCS
 add_library(kwalletbackend5 SHARED ${kwalletbackend_LIB_SRCS})
 generate_export_header(kwalletbackend5)
 
-ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLETBACKEND)
+ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 5)
 
 target_link_libraries(kwalletbackend5 Qt5::Widgets KF5::WidgetsAddons KF5::CoreAddons KF5::Notifications KF5::I18n)
 if(QGPGME_FOUND)

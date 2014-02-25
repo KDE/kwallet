@@ -15,7 +15,8 @@ set(KF5_VERSION "4.96.0")
 
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLET
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kwallet_version.h"
-                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake")
+                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
+                        SOVERSION 5)
 
 if (APPLE)
    find_package(Carbon REQUIRED)
