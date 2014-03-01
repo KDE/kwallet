@@ -1,6 +1,3 @@
-project(KWallet)
-
-
 if(NOT kdelibs_SOURCE_DIR)
     find_package(KF5Config ${KF5_VERSION} REQUIRED)
     find_package(KF5WindowSystem ${KF5_VERSION} REQUIRED)
@@ -10,8 +7,6 @@ include(FeatureSummary)
 include(GenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
-
-set(KF5_VERSION "4.96.0")
 
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLET
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kwallet_version.h"
@@ -52,13 +47,6 @@ install(FILES
   DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel
 )
 
-if ("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
-  feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
-endif()
-
-set(kwallet_SRCS
-)
-
 set(HAVE_KSECRETSSERVICE 0)
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/config-kwallet.h.cmake
@@ -73,9 +61,9 @@ endif()
 
 if (MAC_USE_OSXKEYCHAIN)
     FIND_LIBRARY(SECURITY_LIBRARY Security)
-    set(kwallet_SRCS ${kwallet_LIB_SRCS} kwallet_mac.cpp)
+    set(kwallet_SRCS kwallet_mac.cpp)
 else()
-    set(kwallet_SRCS ${kwallet_LIB_SRCS} kwallet.cpp)
+    set(kwallet_SRCS kwallet.cpp)
     set(kwallet_xml org.kde.KWallet.xml)
     qt5_add_dbus_interface( kwallet_SRCS ${kwallet_xml} kwallet_interface )
 endif()
