@@ -1,4 +1,4 @@
 REVIEWBOARD_URL = "https://git.reviewboard.kde.org"
-REPOSITORY = 'git://anongit.kde.org/kwallet-framework'
+REPOSITORY = 'git://anongit.kde.org/kwallet'
 BRANCH = 'master'
 TARGET_GROUPS = 'kdeframeworks'
