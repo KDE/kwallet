@@ -28,7 +28,7 @@ qt5_wrap_ui(kwalletwizardtest_SRCS
 )
 
 if (QGPGME_FOUND)
-    kde4_add_ui_files(kwalletwizardtest_SRCS
+    qt5_wrap_ui(kwalletwizardtest_SRCS
         ../../src/runtime/kwalletd/kwalletwizardpagepasswordgpg.ui)
 endif(QGPGME_FOUND)
 
