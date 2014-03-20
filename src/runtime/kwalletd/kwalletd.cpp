@@ -1453,7 +1453,7 @@ void KWalletD::reconfigure() {
 	KConfigGroup walletGroup(&cfg, "Wallet");
 	_firstUse = walletGroup.readEntry("First Use", true);
 	_enabled = walletGroup.readEntry("Enabled", true);
-	_launchManager = walletGroup.readEntry("Launch Manager", true);
+	_launchManager = walletGroup.readEntry("Launch Manager", false);
 	_leaveOpen = walletGroup.readEntry("Leave Open", false);
 	bool idleSave = _closeIdle;
 	_closeIdle = walletGroup.readEntry("Close When Idle", false);
@@ -1619,50 +1619,59 @@ void KWalletD::activatePasswordDialog()
 
 int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout)
 {
-   // don't do anything if transactions are already being processed!
-   if (_processing) {
-      return -1;
-   }
+    if (_processing) {
+        return -1;
+    }
 
-   // check if the wallet is already open
-   QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
-   int rc = walletInfo.first;
-   if (rc == -1) {
-      if (_wallets.count() > 20) {
-         qDebug() << "Too many wallets open.";
-         return -1;
-      }
+    if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_\\s]+$").exactMatch(wallet)) {
+        return -1;
+    }
 
-      if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_\\s]+$").exactMatch(wallet) ||
-          !KWallet::Backend::exists(wallet)) {
-         return -1;
-      }
+    // check if the wallet is already open
+    QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
+    int rc = walletInfo.first;
+    if (rc != -1) {
+        return rc;//Wallet already opened, return handle
+    }
 
-      KWallet::Backend *b = new KWallet::Backend(wallet);
-      int openrc = b->openPreHashed(passwordHash);
-      if (openrc == 0 && b->isOpen()) {
-         // opening the wallet was successful
-         int handle = generateHandle();
-         _wallets.insert(handle, b);
-         _syncTimers.addTimer(handle, _syncTime);
+    KWallet::Backend *b = 0;
+    //If the wallet we want to open does not exists. create it and set pam hash
+    if (!wallets().contains(wallet)) {
+        b = new KWallet::Backend(wallet);
+        b->setCipherType(KWallet::BACKEND_CIPHER_BLOWFISH);
+    } else {
+        b = new KWallet::Backend(wallet);
+    }
 
-         // don't reference the wallet or add a session so it
-         // can be reclosed easily.
+    if (_wallets.count() > 20) {
+        return -1;
+    }
 
-         if (sessionTimeout > 0) {
-            _closeTimers.addTimer(handle, sessionTimeout);
-         } else if (_closeIdle) {
-            _closeTimers.addTimer(handle, _idleTime);
-         }
-         emit walletOpened(wallet);
-         if (_wallets.count() == 1 && _launchManager) {
-            KToolInvocation::startServiceByDesktopName("kwalletmanager-kwalletd");
-         }
-         return handle;
-      }
-   }
+    int openrc = b->openPreHashed(passwordHash);
+    if (openrc != 0 || !b->isOpen()) {
+        return -1;
+    }
 
-   return -1;
+    // opening the wallet was successful
+    int handle = generateHandle();
+    _wallets.insert(handle, b);
+    _syncTimers.addTimer(handle, _syncTime);
+
+    // don't reference the wallet or add a session so it
+    // can be reclosed easily.
+
+    if (sessionTimeout > 0) {
+        _closeTimers.addTimer(handle, sessionTimeout);
+    } else if (_closeIdle) {
+        _closeTimers.addTimer(handle, _idleTime);
+    }
+    emit walletOpened(wallet);
+
+    if (_wallets.count() == 1 && _launchManager) {
+        KToolInvocation::startServiceByDesktopName("kwalletmanager-kwalletd");
+    }
+
+    return handle;
 }
 
 #include "kwalletd.moc"

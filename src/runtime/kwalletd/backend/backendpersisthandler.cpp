@@ -51,6 +51,7 @@
 
 #define KWALLET_HASH_SHA1       0
 #define KWALLET_HASH_MD5        1 // unsupported
+#define KWALLET_HASH_PBKDF2_SHA512 2 // used when using kwallet with pam or since 4.13 version
 
 namespace KWallet {
 
@@ -169,7 +170,7 @@ BackendPersistHandler *BackendPersistHandler::getPersistHandler(BackendCipherTyp
 BackendPersistHandler *BackendPersistHandler::getPersistHandler(char magicBuf[12])
 {
     if (magicBuf[2] == KWALLET_CIPHER_BLOWFISH_CBC && 
-        magicBuf[3] == KWALLET_HASH_SHA1) {
+        (magicBuf[3] == KWALLET_HASH_SHA1 || magicBuf[3] == KWALLET_HASH_PBKDF2_SHA512)) {
         if (0 == blowfishHandler)
             blowfishHandler = new BlowfishPersistHandler;
         return blowfishHandler;
@@ -190,7 +191,12 @@ int BlowfishPersistHandler::write(Backend* wb, QSaveFile& sf, QByteArray& versio
     assert(wb->_cipherType == BACKEND_CIPHER_BLOWFISH);
 
     version[2] = KWALLET_CIPHER_BLOWFISH_CBC;
-    version[3] = KWALLET_HASH_SHA1;
+    if(!wb->_useNewHash) {
+        version[3] = KWALLET_HASH_SHA1;
+    } else {
+        version[3] = KWALLET_HASH_PBKDF2_SHA512;//Since 4.13 we always use PBKDF2_SHA512
+    }
+
     if (sf.write(version) != 4) {
         sf.cancelWriting();
         return -4; // write error
@@ -497,14 +503,14 @@ int GpgPersistHandler::write(Backend* wb, QSaveFile& sf, QByteArray& version, WI
         qDebug() << "initGpgME returned " << err.code();
         KMessageBox::errorWId( w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system configuration, then try again!</qt>", Qt::escape(wb->_name), err.code()));
         sf.cancelWriting();
-        return -1;
+        return -5;
     }
     
     boost::shared_ptr< GpgME::Context > ctx( GpgME::Context::createForProtocol(GpgME::OpenPGP) );
     if (0 == ctx) {
         qDebug() << "Cannot setup OpenPGP context!";
         KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Please fix your system configuration, then try again!</qt>"), Qt::escape(wb->_name));
-        return -1;
+        return -6;
     }
 
     assert(wb->_cipherType == BACKEND_CIPHER_GPG);
@@ -558,7 +564,7 @@ int GpgPersistHandler::write(Backend* wb, QSaveFile& sf, QByteArray& version, WI
                                        Qt::escape(wb->_name), gpgerr, gpgme_strerror(gpgerr)));
         qDebug() << "GpgME encryption error: " << res.error().code();
         sf.cancelWriting();
-        return -1;
+        return -7;
     }
 
     char buffer[4096];

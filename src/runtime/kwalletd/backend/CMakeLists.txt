@@ -41,7 +41,7 @@ generate_export_header(kwalletbackend5)
 
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 5)
 
-target_link_libraries(kwalletbackend5 Qt5::Widgets KF5::WidgetsAddons KF5::CoreAddons KF5::Notifications KF5::I18n)
+target_link_libraries(kwalletbackend5 Qt5::Widgets KF5::WidgetsAddons KF5::CoreAddons KF5::Notifications KF5::I18n ${LIBGCRYPT_LIBRARIES})
 if(QGPGME_FOUND)
 target_link_libraries(kwalletbackend5 ${QGPGME_LIBRARIES} )
 endif(QGPGME_FOUND)
