@@ -19,6 +19,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;NOTE:&lt;/span&gt; this list shows only &amp;quot;ultimate-level&amp;quot; trusted keys&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QTableWidget" name="listCertificates">
      <property name="showDropIndicator" stdset="0">
       <bool>false</bool>

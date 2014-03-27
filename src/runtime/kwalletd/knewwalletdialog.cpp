@@ -143,7 +143,7 @@ void KNewWalletDialogGpg::initializePage()
         GpgME::Key k = _ctx->nextKey(err);
         if (err)
             break;
-        if (!k.isInvalid() && k.canEncrypt()) {
+        if (!k.isInvalid() && k.canEncrypt() && (k.ownerTrust() == GpgME::Key::Ultimate)) {
             keys.push_back(k);
         }
     }
