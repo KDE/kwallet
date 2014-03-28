@@ -189,7 +189,7 @@ public:
     /**
      *  Request to the wallet service to change the password of
      *  the wallet @p name.
-     *  @param name The the wallet to change the password of.
+     *  @param name The wallet to change the password of.
      *  @param w The window id to associate any dialogs with. You can pass
      *           0 if you don't have a window the password dialog should
      *           associate with.
