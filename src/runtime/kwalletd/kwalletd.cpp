@@ -33,6 +33,7 @@
 
 #include <ktoolinvocation.h>
 #include <kconfig.h>
+#include <ksharedconfig.h>
 #include <kconfiggroup.h>
 #include <kdirwatch.h>
 #include <kmessagebox.h>
