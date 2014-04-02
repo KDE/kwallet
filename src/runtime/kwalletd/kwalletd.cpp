@@ -538,7 +538,8 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				}
 				brandNew = false;
 				// don't use KStdGuiItem::open() here which has trailing ellipsis!
-// KDE4         kpd->setButtonGuiItem(KDialog::Ok,KGuiItem( i18n( "&Open" ), "wallet-open"));
+// KF5 FIXME what should we use now instead of this:
+//              kpd->setButtonGuiItem(KDialog::Ok,KGuiItem( i18n( "&Open" ), "wallet-open"));
 				kpd->setWindowTitle(i18n("KDE Wallet Service"));
                 kpd->setPixmap( KIconLoader::global()->loadIcon("kwalletmanager", KIconLoader::Desktop, KIconLoader::SizeHuge) );
 				if (w != KWindowSystem::activeWindow() && w != 0L) {
@@ -629,7 +630,8 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				}
 			}
 			kpd->setWindowTitle(i18n("KDE Wallet Service"));
-// KDE4			kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
+// KF5 FIXME what should we use now instead of this:
+//      		kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
             kpd->setPixmap( KIconLoader::global()->loadIcon("kwalletmanager", KIconLoader::Desktop, KIconLoader::SizeHuge) );
 			while (!b->isOpen()) {
 				setupDialog( kpd, w, appid, modal );
