@@ -540,7 +540,6 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 				// don't use KStdGuiItem::open() here which has trailing ellipsis!
 // KDE4         kpd->setButtonGuiItem(KDialog::Ok,KGuiItem( i18n( "&Open" ), "wallet-open"));
 				kpd->setWindowTitle(i18n("KDE Wallet Service"));
-// KDE4         kpd->setPixmap(KIcon("kwalletmanager").pixmap(KIconLoader::SizeHuge));
                 kpd->setPixmap( KIconLoader::global()->loadIcon("kwalletmanager", KIconLoader::Desktop, KIconLoader::SizeHuge) );
 				if (w != KWindowSystem::activeWindow() && w != 0L) {
 					// If the dialog is modal to a minimized window it might not be visible
@@ -631,7 +630,6 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 			}
 			kpd->setWindowTitle(i18n("KDE Wallet Service"));
 // KDE4			kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
-// KDE4			kpd->setPixmap(KIcon("kwalletmanager").pixmap(96, 96));
             kpd->setPixmap( KIconLoader::global()->loadIcon("kwalletmanager", KIconLoader::Desktop, KIconLoader::SizeHuge) );
 			while (!b->isOpen()) {
 				setupDialog( kpd, w, appid, modal );
@@ -774,7 +772,6 @@ bool KWalletD::isAuthorizedApp(const QString& appid, const QString& wallet, WId 
 
 int KWalletD::deleteWallet(const QString& wallet) {
     int result = -1;
-// KDE4	QString path = KGlobal::dirs()->saveLocation("kwallet") + QDir::separator() + wallet + ".kwl";
     QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + wallet + ".kwl";
 
 	if (QFile::exists(path)) {
@@ -959,7 +956,6 @@ bool KWalletD::isOpen(int handle) {
 
 
 QStringList KWalletD::wallets() const {
-// KDE4 	QString path = KGlobal::dirs()->saveLocation("kwallet");
     QString path = KWallet::Backend::getSaveLocation();
 	QDir dir(path, "*.kwl");
 	QStringList rc;
