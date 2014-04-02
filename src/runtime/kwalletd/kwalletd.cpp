@@ -400,8 +400,8 @@ void KWalletD::setupDialog( QWidget* dialog, WId wId, const QString& appid, bool
 // opening a dialog, that application will be blocked by this dialog. A proper solution would
 // be to set the second application's window also as a parent for the active dialog, so that
 // KWin properly handles focus changes and so on, but there's currently no support for multiple
-// dialog parents. Hopefully to be done in KDE4, for now just use all kinds of bad hacks to make
-//  sure the user doesn't overlook the active dialog.
+// dialog parents. In the absence of this support, we use all kinds of bad hacks to make
+// sure the user doesn't overlook the active dialog.
 void KWalletD::checkActiveDialog() {
 	if( !activeDialog )
 		return;
