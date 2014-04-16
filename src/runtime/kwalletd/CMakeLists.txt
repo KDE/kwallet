@@ -73,8 +73,10 @@ find_file(kwallet_xml org.kde.KWallet.xml HINTS ${CMAKE_CURRENT_SOURCE_DIR}/../.
 
 qt5_add_dbus_adaptor( kwalletd_SRCS ${kwallet_xml} kwalletd.h KWalletD )
 
-include(ECMDBusAddActivationService)
-ecm_dbus_add_activation_service(org.kde.kwalletd5.service.in)
+configure_file(org.kde.kwalletd5.service.in
+               ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
+        DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
 
 add_executable( kwalletd5 ${kwalletd_SRCS} )
 
