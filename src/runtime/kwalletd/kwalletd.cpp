@@ -964,7 +964,7 @@ QStringList KWalletD::wallets() const {
 
 	dir.setFilter(QDir::Files | QDir::Hidden);
 
-	for (auto &fi : dir.entryInfoList()) {
+	foreach (const QFileInfo &fi, dir.entryInfoList()) {
 		QString fn = fi.fileName();
 		if (fn.endsWith(QLatin1String(".kwl"))) {
 			fn.truncate(fn.length()-4);
