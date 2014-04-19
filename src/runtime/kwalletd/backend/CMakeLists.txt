@@ -20,6 +20,7 @@ find_package(KF5WidgetsAddons ${KF5_VERSION} REQUIRED)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../api/KWallet)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../../api/KWallet)
+include_directories(${LIBGCRYPT_INCLUDE_DIRS})
 
 #remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
