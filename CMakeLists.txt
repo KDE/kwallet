@@ -15,12 +15,6 @@ include(FeatureSummary)
 
 option(BUILD_KWALLETD "Build the kwallet daemon" ON)
 
-find_package(LibGcrypt 1.5.0 REQUIRED QUIET)
-set_package_properties(LibGcrypt PROPERTIES
-                       TYPE REQUIRED
-                       PURPOSE "kwalletd needs libgcrypt to perform PBKDF2-SHA512 hashing"
-                      )
-
 add_subdirectory(src)
 add_subdirectory(autotests)
 add_subdirectory(tests)

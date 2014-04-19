@@ -18,6 +18,12 @@ find_package(KF5I18n ${KF5_VERSION} REQUIRED)
 find_package(KF5Notifications ${KF5_VERSION} REQUIRED)
 find_package(KF5WidgetsAddons ${KF5_VERSION} REQUIRED)
 
+find_package(LibGcrypt 1.5.0 REQUIRED)
+set_package_properties(LibGcrypt PROPERTIES
+                       TYPE REQUIRED
+                       PURPOSE "kwalletd needs libgcrypt to perform PBKDF2-SHA512 hashing"
+                      )
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../api/KWallet)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../../api/KWallet)
 include_directories(${LIBGCRYPT_INCLUDE_DIRS})
