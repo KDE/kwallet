@@ -42,9 +42,16 @@
 
 find_program(LIBGCRYPTCONFIG_SCRIPT NAMES libgcrypt-config)
 if(LIBGCRYPTCONFIG_SCRIPT)
-    execute_process(COMMAND "${LIBGCRYPTCONFIG_SCRIPT}" --prefix OUTPUT_VARIABLE PREFIX)
-    set(LIBGCRYPT_LIB_HINT "${PREFIX}/lib")
-    set(LIBGCRYPT_INCLUDE_HINT "${PREFIX}/include")
+    execute_process(
+        COMMAND "${LIBGCRYPTCONFIG_SCRIPT}" --prefix
+        RESULT_VARIABLE CONFIGSCRIPT_RESULT
+        OUTPUT_VARIABLE PREFIX
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    if (CONFIGSCRIPT_RESULT EQUAL 0)
+        set(LIBGCRYPT_LIB_HINT "${PREFIX}/lib")
+        set(LIBGCRYPT_INCLUDE_HINT "${PREFIX}/include")
+    endif()
 endif()
 
 find_library(LIBGCRYPT_LIBRARY
