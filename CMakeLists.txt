@@ -15,6 +15,7 @@ include(FeatureSummary)
 
 option(BUILD_KWALLETD "Build the kwallet daemon" ON)
 
+add_definitions(-DTRANSLATION_DOMAIN=\"kwalletd5\")
 add_subdirectory(src)
 add_subdirectory(autotests)
 add_subdirectory(tests)
