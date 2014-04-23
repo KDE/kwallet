@@ -26,7 +26,7 @@
 #include <QApplication>
 #include <QtCore/QPointer>
 #include <QWidget>
-#include <QDBusConnection>
+#include <QtDBus/QDBusConnection>
 #include <QDebug>
 
 #include <kconfiggroup.h>

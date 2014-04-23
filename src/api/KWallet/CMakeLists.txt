@@ -13,10 +13,6 @@ ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLET
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
                         SOVERSION 5)
 
-if (APPLE)
-   find_package(Carbon REQUIRED)
-endif ()
-
 remove_definitions(-DQT_NO_CAST_TO_ASCII)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
@@ -75,6 +71,7 @@ add_library(KF5::Wallet ALIAS KF5Wallet)
 target_include_directories(KF5Wallet INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KWallet>")
 
 target_link_libraries(KF5Wallet PUBLIC  Qt5::Widgets
+                                PRIVATE Qt5::DBus
                                 PRIVATE KF5::WindowSystem # KWindowSystem::allowExternalProcessWindowActivation
                                         KF5::ConfigCore   # used to store the wallet to be used
 )
