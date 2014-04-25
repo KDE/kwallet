@@ -12,6 +12,7 @@ include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings)
 include(KDECMakeSettings)
 include(FeatureSummary)
+include(ECMSetupVersion)
 
 option(BUILD_KWALLETD "Build the kwallet daemon" ON)
 

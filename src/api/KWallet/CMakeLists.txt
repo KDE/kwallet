@@ -3,9 +3,7 @@ if(NOT kdelibs_SOURCE_DIR)
     find_package(KF5WindowSystem ${KF5_VERSION} REQUIRED)
 endif()
 
-include(FeatureSummary)
 include(GenerateExportHeader)
-include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLET
