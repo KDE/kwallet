@@ -1,5 +1,0 @@
-# We changed the default in 4.13
-Id=kde4.13
-File=kwalletrc
-Group=Wallet
-RemoveKey=Launch Manager
