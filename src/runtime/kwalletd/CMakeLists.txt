@@ -105,5 +105,5 @@ install(TARGETS kwalletd5  ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 install( FILES kwalletd5.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 # This is DATA_INSTALL_DIR, rather than KF5_DATA_INSTALL_DIR, because of
 # how KNotifyConfig searches for this file.
-install( FILES kwalletd.notifyrc DESTINATION  ${DATA_INSTALL_DIR}/kwalletd )
+install( FILES kwalletd.notifyrc DESTINATION  ${KNOTIFYRC_INSTALL_DIR} )
 
