@@ -10,7 +10,6 @@ macro(kwallet_executable_tests)
     add_executable(${_testname} ${_testname}.cpp)
     ecm_mark_as_test(${_testname})
     target_link_libraries(${_testname} Qt5::Test KF5::Wallet)
-    add_test(${_testname} ${_testname})
   endforeach(_testname)
 endmacro()
 

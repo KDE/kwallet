@@ -60,7 +60,6 @@ macro(kwalletd_tests)
         Qt5::Test
         KF5::CoreAddons
         KF5::I18n)
-    add_test(${_testname} ${_testname})
   endforeach(_testname)
 endmacro()
 
