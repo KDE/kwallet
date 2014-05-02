@@ -1,26 +1,32 @@
 [Global]
 IconName=kwalletmanager
 Comment=Wallet
+Comment[nl]=Portefeuille
 Comment[uk]=Торбинка
 Comment[x-test]=xxWalletxx
 Name=kwalletd
+Name[nl]=kwalletd
 Name[uk]=kwalletd
 Name[x-test]=xxkwalletdxx
 
 [Event/needsPassword]
 Name=Needs password
+Name[nl]=Wachtwoord nodig
 Name[uk]=Потрібен пароль
 Name[x-test]=xxNeeds passwordxx
 Comment=The KDE Wallet Daemon requests a password
+Comment[nl]=De KDE-portefeuille-daemon vereist een wachtwoord
 Comment[uk]=Фонова служба торбинок KDE надіслала запит на пароль
 Comment[x-test]=xxThe KDE Wallet Daemon requests a passwordxx
 Action=Popup
 
 [Event/syncFailed]
 Name=Sync Failed
+Name[nl]=Synchronisatie mislukt
 Name[uk]=Спроба синхронізації зазнала невдачі
 Name[x-test]=xxSync Failedxx
 Comment=KDE Wallet System failed to sync a wallet file to disk
+Comment[nl]=Het lukte het KDE portefeuillesysteem niet om een portefeuillebestand naar schijf te synchroniseren
 Comment[uk]=Система торбинок KDE не змогла синхронізувати дані файла торбинок з диском
 Comment[x-test]=xxKDE Wallet System failed to sync a wallet file to diskxx
 Action=Popup
