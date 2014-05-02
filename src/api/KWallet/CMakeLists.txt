@@ -104,5 +104,5 @@ install(FILES
 )
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KWallet LIB_NAME KF5Wallet DEPS "widgets" FILENAME_VAR PRI_FILENAME)
+ecm_generate_pri_file(BASE_NAME KWallet LIB_NAME KF5Wallet DEPS "widgets" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KF5_INCLUDE_INSTALL_DIR}/KWallet)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
