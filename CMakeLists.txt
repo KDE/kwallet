@@ -10,6 +10,7 @@ set(REQUIRED_QT_VERSION 5.2.0)
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
 
 set(KF5_VERSION "4.99.0") # handled by release scripts
+set(KF5_DEP_VERSION "4.98.0") # handled by release scripts
 include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings)
 include(KDECMakeSettings)
@@ -17,6 +18,9 @@ include(FeatureSummary)
 include(ECMSetupVersion)
 
 option(BUILD_KWALLETD "Build the kwallet daemon" ON)
+
+find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kwalletd5\")
 add_subdirectory(src)

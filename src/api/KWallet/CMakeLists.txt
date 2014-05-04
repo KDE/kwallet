@@ -1,7 +1,3 @@
-if(NOT kdelibs_SOURCE_DIR)
-    find_package(KF5Config ${KF5_VERSION} REQUIRED)
-    find_package(KF5WindowSystem ${KF5_VERSION} REQUIRED)
-endif()
 
 include(GenerateExportHeader)
 include(ECMGenerateHeaders)
