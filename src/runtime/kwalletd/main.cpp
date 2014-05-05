@@ -31,9 +31,9 @@
 
 static bool isWalletEnabled()
 {
-	KConfig cfg("kwalletrc");
-	KConfigGroup walletGroup(&cfg, "Wallet");
-	return walletGroup.readEntry("Enabled", true);
+    KConfig cfg("kwalletrc");
+    KConfigGroup walletGroup(&cfg, "Wallet");
+    return walletGroup.readEntry("Enabled", true);
 }
 
 #ifdef HAVE_KF5INIT
@@ -48,12 +48,12 @@ int main(int argc, char **argv)
     app.setOrganizationDomain("kde.org");
     app.setApplicationVersion(KWALLETD_VERSION_STRING);
 
-    KAboutData aboutdata(I18N_NOOP("kwalletd"), 
-                         QString(), 
+    KAboutData aboutdata(I18N_NOOP("kwalletd"),
+                         QString(),
                          i18n("KDE Wallet Service"),
-                         KWALLETD_VERSION_STRING, 
+                         KWALLETD_VERSION_STRING,
                          i18n("KDE Wallet Service"),
-                         KAboutData::License_LGPL, 
+                         KAboutData::License_LGPL,
                          i18n("(C) 2002-2013, The KDE Developers"));
     aboutdata.addAuthor(i18n("Valentin Rusu"), i18n("Maintainer, GPG backend support"), "kde@rusu.info");
     aboutdata.addAuthor(i18n("Michael Leupold"), i18n("Former Maintainer"), "lemma@confuego.org");
@@ -70,7 +70,7 @@ int main(int argc, char **argv)
 
     aboutdata.setProgramIconName("kwalletmanager");
 
-    app.setQuitOnLastWindowClosed( false );
+    app.setQuitOnLastWindowClosed(false);
 
     // check if kwallet is disabled
     if (!isWalletEnabled()) {

@@ -29,42 +29,41 @@ class PageIntro;
 
 class KWalletWizard : public QWizard
 {
-  Q_OBJECT
-  public:
+    Q_OBJECT
+public:
 
-        enum WizardType
-        {
-            Basic,
-            Advanced
-        };
+    enum WizardType {
+        Basic,
+        Advanced
+    };
 
-        static const int PageIntroId = 0;
-        static const int PagePasswordId = 1;
+    static const int PageIntroId = 0;
+    static const int PagePasswordId = 1;
 #ifdef HAVE_QGPGME
-        static const int PageGpgKeyId =2;
+    static const int PageGpgKeyId = 2;
 #endif
-        static const int PageOptionsId = 3;
-        static const int PageExplanationId = 4;
+    static const int PageOptionsId = 3;
+    static const int PageExplanationId = 4;
 
-    KWalletWizard( QWidget *parent = 0 );
+    KWalletWizard(QWidget *parent = 0);
 
-        WizardType wizardType() const;
+    WizardType wizardType() const;
 
 #ifdef HAVE_QGPGME
-        GpgME::Key gpgKey() const;
+    GpgME::Key gpgKey() const;
 #endif // HAVE_QGPGME
 
-    protected:
-        virtual void initializePage(int id);
+protected:
+    virtual void initializePage(int id);
 
-  protected Q_SLOTS:
+protected Q_SLOTS:
     void passwordPageUpdate();
 
-    private:
-        PageIntro *m_pageIntro;
-        PagePassword *m_pagePasswd;
+private:
+    PageIntro *m_pageIntro;
+    PagePassword *m_pagePasswd;
 #ifdef HAVE_QGPGME
-        PageGpgKey *m_pageGpgKey;
+    PageGpgKey *m_pageGpgKey;
 #endif
 };
 

@@ -1,4 +1,3 @@
-// -*- indent-tabs-mode: t; tab-width: 4; c-basic-offset: 4; -*-
 /*
    This file is part of the KDE Wallet Daemon
 
@@ -29,32 +28,32 @@
 #include <QHash>
 #include <QStringList>
 
-typedef QPair<QString,int> KWalletAppHandlePair;
+typedef QPair<QString, int> KWalletAppHandlePair;
 
 class KWalletSessionStore
 {
 public:
-	KWalletSessionStore();
-	~KWalletSessionStore();
-	
-	// add a new session
-	void addSession(const QString &appid, const QString &service, int handle);
-	// check if the application has a session using that handle
-	bool hasSession(const QString &appid, int handle = -1) const;
-	// find all sessions a service has
-	QList<KWalletAppHandlePair> findSessions(const QString &service) const;
-	// remove a specific session
-	bool removeSession(const QString &appid, const QString &service, int handle);
-	// remove all sessions an application has to a specific handle
-	int removeAllSessions(const QString &appid, int handle);
-	// remove all sessions related to a handle
-	int removeAllSessions(int handle);
-	// get all applications using a handle
-	QStringList getApplications(int handle) const;
-	
+    KWalletSessionStore();
+    ~KWalletSessionStore();
+
+    // add a new session
+    void addSession(const QString &appid, const QString &service, int handle);
+    // check if the application has a session using that handle
+    bool hasSession(const QString &appid, int handle = -1) const;
+    // find all sessions a service has
+    QList<KWalletAppHandlePair> findSessions(const QString &service) const;
+    // remove a specific session
+    bool removeSession(const QString &appid, const QString &service, int handle);
+    // remove all sessions an application has to a specific handle
+    int removeAllSessions(const QString &appid, int handle);
+    // remove all sessions related to a handle
+    int removeAllSessions(int handle);
+    // get all applications using a handle
+    QStringList getApplications(int handle) const;
+
 private:
-	class Session;
-	QHash< QString,QList<Session*> > m_sessions; // appid => session
+    class Session;
+    QHash< QString, QList<Session *> > m_sessions; // appid => session
 };
 
 #endif // _KWALLETSESSIONSTORE_H_

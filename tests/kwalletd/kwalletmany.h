@@ -1,4 +1,3 @@
-// -*- indent-tabs-mode: t; tab-width: 4; c-basic-offset: 4; -*-
 /*
    This file is part of the KDE libraries
 
@@ -29,26 +28,29 @@
 #include <QEventLoop>
 #include <QWaitCondition>
 
-namespace KWallet { class Wallet; }
+namespace KWallet
+{
+class Wallet;
+}
 
 class KWalletMany : public QObject
 {
-	Q_OBJECT
-	
+    Q_OBJECT
+
 public:
-	KWalletMany();
-	~KWalletMany();
-	
+    KWalletMany();
+    ~KWalletMany();
+
 public Q_SLOTS:
-	void walletOpened(bool open);
+    void walletOpened(bool open);
 
 private Q_SLOTS:
     void init();
     void openWallet();
-	
+
 private:
-	QList<KWallet::Wallet*> _wallets;
-	int _pending;
+    QList<KWallet::Wallet *> _wallets;
+    int _pending;
 };
 
 #endif // KWALLETMANY_H

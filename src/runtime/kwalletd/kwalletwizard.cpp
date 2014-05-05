@@ -101,7 +101,7 @@ public:
         int nextId = -1;
         if (field("useWallet").toBool()) {
             if (field("useBlowfish").toBool()) {
-                nextId = static_cast<KWalletWizard*>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId; // same as non QGPGME case
+                nextId = static_cast<KWalletWizard *>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId; // same as non QGPGME case
             } else {
                 nextId = KWalletWizard::PageGpgKeyId;
             }
@@ -109,7 +109,7 @@ public:
 
         return nextId;
 #else
-        return static_cast<KWalletWizard*>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId;
+        return static_cast<KWalletWizard *>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId;
 #endif
     }
 
@@ -133,7 +133,8 @@ Q_DECLARE_METATYPE(GpgME::Key)
 struct AddKeyToCombo {
     QComboBox *_list;
     AddKeyToCombo(QComboBox *list) : _list(list) {}
-    void operator()( const GpgME::Key &k) {
+    void operator()(const GpgME::Key &k)
+    {
         QString text = QString("%1 (%2)").arg(k.shortKeyID()).arg(k.userID(0).email());
         QVariant varKey;
         varKey.setValue(k);
@@ -144,7 +145,7 @@ struct AddKeyToCombo {
 class PageGpgKey : public QWizardPage
 {
 public:
-    PageGpgKey(QWidget* parent) 
+    PageGpgKey(QWidget *parent)
         : QWizardPage(parent)
         , userHasGpgKeys(false)
     {
@@ -155,32 +156,33 @@ public:
         KeysVector keys;
         GpgME::initializeLibrary();
         GpgME::Error err = GpgME::checkEngine(GpgME::OpenPGP);
-        if (err){
+        if (err) {
             qDebug() << "OpenPGP not supported on your system!";
             KMessageBox::error(this, i18n("The QGpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
         } else {
-            boost::shared_ptr< GpgME::Context > ctx( GpgME::Context::createForProtocol(GpgME::OpenPGP) );
+            boost::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
             if (0 == ctx) {
                 KMessageBox::error(this, i18n("The QGpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
             } else {
 
-            ctx->setKeyListMode(GPGME_KEYLIST_MODE_LOCAL);
-            int row =0;
-            err = ctx->startKeyListing();
-            while (!err) {
-                GpgME::Key k = ctx->nextKey(err);
-                if (err)
-                    break;
-                if (!k.isInvalid() && k.canEncrypt() && (k.ownerTrust() == GpgME::Key::Ultimate)) {
-                    keys.push_back(k);
+                ctx->setKeyListMode(GPGME_KEYLIST_MODE_LOCAL);
+                int row = 0;
+                err = ctx->startKeyListing();
+                while (!err) {
+                    GpgME::Key k = ctx->nextKey(err);
+                    if (err) {
+                        break;
+                    }
+                    if (!k.isInvalid() && k.canEncrypt() && (k.ownerTrust() == GpgME::Key::Ultimate)) {
+                        keys.push_back(k);
+                    }
                 }
-            }
-            ctx->endKeyListing();
+                ctx->endKeyListing();
             }
         }
         std::for_each(keys.begin(), keys.end(), AddKeyToCombo(ui._gpgKey));
 
-        userHasGpgKeys = keys.size() >0;
+        userHasGpgKeys = keys.size() > 0;
         if (userHasGpgKeys) {
             ui.stackedWidget->setCurrentWidget(ui._pageWhenHasKeys);
         } else {
@@ -189,18 +191,24 @@ public:
         }
         emit completeChanged();
     }
-    
-    virtual int nextId() const {
-        return static_cast<KWalletWizard*>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId;
+
+    virtual int nextId() const
+    {
+        return static_cast<KWalletWizard *>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId;
     }
 
-    virtual bool isComplete() const {
+    virtual bool isComplete() const
+    {
         return userHasGpgKeys;
     }
-    
-    bool hasGpgKeys() const { return userHasGpgKeys; }
 
-    GpgME::Key gpgKey() const {
+    bool hasGpgKeys() const
+    {
+        return userHasGpgKeys;
+    }
+
+    GpgME::Key gpgKey() const
+    {
         QVariant varKey = ui._gpgKey->itemData(field("gpgKey").toInt());
         return varKey.value< GpgME::Key >();
     }
@@ -226,7 +234,6 @@ private:
     Ui::KWalletWizardPageOptions ui;
 };
 
-
 class PageExplanation : public QWizardPage
 {
 public:
@@ -241,9 +248,7 @@ private:
     Ui::KWalletWizardPageExplanation ui;
 };
 
-
-
-KWalletWizard::KWalletWizard( QWidget *parent )
+KWalletWizard::KWalletWizard(QWidget *parent)
     : QWizard(parent)
 {
     setOption(HaveFinishButtonOnEarlyPages);
@@ -258,7 +263,7 @@ KWalletWizard::KWalletWizard( QWidget *parent )
 #endif
     setPage(PageOptionsId, new PageOptions(this));
     setPage(PageExplanationId, new PageExplanation(this));
-    
+
     resize(500, 420);
 }
 
@@ -302,8 +307,7 @@ KWalletWizard::WizardType KWalletWizard::wizardType() const
 void KWalletWizard::initializePage(int id)
 {
     switch (id) {
-    case PagePasswordId:
-    {
+    case PagePasswordId: {
         bool islast = m_pageIntro->bg->checkedId() == 0;
         m_pagePasswd->setFinalPage(islast);
         button(NextButton)->setVisible(!islast);
@@ -313,7 +317,8 @@ void KWalletWizard::initializePage(int id)
 }
 
 #ifdef HAVE_QGPGME
-GpgME::Key KWalletWizard::gpgKey() const {
+GpgME::Key KWalletWizard::gpgKey() const
+{
     return m_pageGpgKey->gpgKey();
 }
 #endif

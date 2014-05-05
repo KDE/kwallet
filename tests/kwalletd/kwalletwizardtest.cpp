@@ -30,7 +30,6 @@ int main(int argc, char **argv)
 
     int ret = app.exec();
 
-
     return ret;
 }
 

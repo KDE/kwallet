@@ -24,19 +24,19 @@
 
 class KBetterThanKDialog : public QDialog, private Ui_KBetterThanKDialogBase
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    KBetterThanKDialog( QWidget *parent = 0 );
+public:
+    KBetterThanKDialog(QWidget *parent = 0);
 
     void init();
-    void setLabel( const QString &label );
+    void setLabel(const QString &label);
 
-  protected Q_SLOTS:
+protected Q_SLOTS:
     virtual void accept();
     virtual void reject();
-  
-  private Q_SLOTS:
+
+private Q_SLOTS:
     void allowOnceClicked();
     void allowAlwaysClicked();
     void denyClicked();

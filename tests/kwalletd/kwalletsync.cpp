@@ -12,7 +12,7 @@
 
 #include "kwalletsync.h"
 
-static QTextStream _out( stdout, QIODevice::WriteOnly );
+static QTextStream _out(stdout, QIODevice::WriteOnly);
 
 void KWalletSyncTest::init()
 {
@@ -23,15 +23,13 @@ void KWalletSyncTest::init()
 
 void KWalletSyncTest::openWallet()
 {
-	_out << "About to ask for wallet sync" << endl;
+    _out << "About to ask for wallet sync" << endl;
 
-	KWallet::Wallet *w = KWallet::Wallet::openWallet( KWallet::Wallet::NetworkWallet(), 0, KWallet::Wallet::Synchronous );
+    KWallet::Wallet *w = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), 0, KWallet::Wallet::Synchronous);
     QVERIFY(w != 0);
 
-	_out << "Got sync wallet: " << (w != 0) << endl;
+    _out << "Got sync wallet: " << (w != 0) << endl;
 }
 
 QTEST_GUILESS_MAIN(KWalletSyncTest)
-
-// vim: set noet ts=4 sts=4 sw=4:
 

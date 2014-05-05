@@ -23,17 +23,17 @@ void KWalletPathTest::init()
 
 void KWalletPathTest::openWallet()
 {
-	_out << "About to ask for wallet /tmp/test.kwl sync" << endl;
+    _out << "About to ask for wallet /tmp/test.kwl sync" << endl;
 
-	KWallet::Wallet *wallet = KWallet::Wallet::openWallet("/tmp/test.kwl", 0, KWallet::Wallet::Path);
+    KWallet::Wallet *wallet = KWallet::Wallet::openWallet("/tmp/test.kwl", 0, KWallet::Wallet::Path);
     QVERIFY(wallet != 0);
 
-	_out << "Got path wallet: " << (wallet != 0) << endl;
-	
-	if (wallet) {
-		_out << "Closing wallet" << endl;
-		delete wallet;
-	}
+    _out << "Got path wallet: " << (wallet != 0) << endl;
+
+    if (wallet) {
+        _out << "Closing wallet" << endl;
+        delete wallet;
+    }
 }
 
 QTEST_GUILESS_MAIN(KWalletPathTest)

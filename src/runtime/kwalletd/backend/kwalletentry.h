@@ -18,7 +18,6 @@
  * Boston, MA 02110-1301, USA.
  */
 
-
 #ifndef _KWALLETENTRY_H
 #define _KWALLETENTRY_H
 
@@ -29,33 +28,38 @@
 
 #include "kwalletbackend5_export.h"
 
-namespace KWallet {
+namespace KWallet
+{
 
 /* @internal
  */
-class KWALLETBACKEND5_EXPORT Entry {
-	public:
-		Entry();
-		~Entry();
+class KWALLETBACKEND5_EXPORT Entry
+{
+public:
+    Entry();
+    ~Entry();
 
-		const QString& key() const;
-		const QByteArray& value() const;
-		QString password() const;
-		const QByteArray& map() const { return value(); }
+    const QString &key() const;
+    const QByteArray &value() const;
+    QString password() const;
+    const QByteArray &map() const
+    {
+        return value();
+    }
 
-		void setValue(const QByteArray& val);
-		void setValue(const QString& val);
-		void setKey(const QString& key);
+    void setValue(const QByteArray &val);
+    void setValue(const QString &val);
+    void setKey(const QString &key);
 
-		Wallet::EntryType type() const;
-		void setType(Wallet::EntryType type);
+    Wallet::EntryType type() const;
+    void setType(Wallet::EntryType type);
 
-		void copy(const Entry* x);
+    void copy(const Entry *x);
 
-	private:
-		QString _key;
-		QByteArray _value;
-		Wallet::EntryType _type;
+private:
+    QString _key;
+    QByteArray _value;
+    Wallet::EntryType _type;
 };
 
 }

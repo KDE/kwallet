@@ -1,4 +1,3 @@
-// -*- indent-tabs-mode: t; tab-width: 4; c-basic-offset: 4; -*-
 /*
    This file is part of the KDE libraries
 
@@ -55,30 +54,30 @@ void KWalletMany::init()
 
 void KWalletMany::walletOpened(bool open)
 {
-	_out << "Got async wallet: " << (open) << endl;
-	--_pending;
+    _out << "Got async wallet: " << (open) << endl;
+    --_pending;
 }
 
 void KWalletMany::openWallet()
 {
-	// open plenty of wallets in synchronous and asynchronous mode
-	for (int i = 0; i < NUMWALLETS; ++i) {
-		// request asynchronous wallet
-		_out << "About to ask for wallet async" << endl;
-		Wallet *wallet;
-		wallet = Wallet::openWallet(Wallet::NetworkWallet(), 0, Wallet::Asynchronous);
+    // open plenty of wallets in synchronous and asynchronous mode
+    for (int i = 0; i < NUMWALLETS; ++i) {
+        // request asynchronous wallet
+        _out << "About to ask for wallet async" << endl;
+        Wallet *wallet;
+        wallet = Wallet::openWallet(Wallet::NetworkWallet(), 0, Wallet::Asynchronous);
         QVERIFY(wallet != 0);
-		connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool)));
-		_wallets.append(wallet);
-	}
+        connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool)));
+        _wallets.append(wallet);
+    }
 
-	// wait for 30s to receive the wallet opened replies from kwalletd
-	QTRY_VERIFY_WITH_TIMEOUT(_pending == 0, 30000);
+    // wait for 30s to receive the wallet opened replies from kwalletd
+    QTRY_VERIFY_WITH_TIMEOUT(_pending == 0, 30000);
 
-	while (!_wallets.isEmpty()) {
-		delete _wallets.takeFirst();
-	}
-	QApplication::quit();
+    while (!_wallets.isEmpty()) {
+        delete _wallets.takeFirst();
+    }
+    QApplication::quit();
 }
 
 QTEST_GUILESS_MAIN(KWalletMany)
