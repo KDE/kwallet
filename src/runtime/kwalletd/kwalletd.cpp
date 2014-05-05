@@ -377,22 +377,22 @@ int KWalletD::openPathAsync(const QString& path, qlonglong wId, const QString& a
 
 // Sets up a dialog that will be shown by kwallet.
 void KWalletD::setupDialog( QWidget* dialog, WId wId, const QString& appid, bool modal ) {
-	if( wId != 0 )
-		KWindowSystem::setMainWindow( dialog, wId ); // correct, set dialog parent
-	else {
-		if( appid.isEmpty())
-			qWarning() << "Using kwallet without parent window!";
-		else
-			qWarning() << "Application '" << appid << "' using kwallet without parent window!";
-		// allow dialog activation even if it interrupts, better than trying hacks
-		// with keeping the dialog on top or on all desktops
+    if( wId != 0 )
+        KWindowSystem::setMainWindow( dialog, wId ); // correct, set dialog parent
+    else {
+        if( appid.isEmpty())
+            qWarning() << "Using kwallet without parent window!";
+        else
+            qWarning() << "Application '" << appid << "' using kwallet without parent window!";
+        // allow dialog activation even if it interrupts, better than trying hacks
+        // with keeping the dialog on top or on all desktops
 // KF5 FIXME what should we use now instead of this:
 //         kapp->updateUserTimestamp();
-	}
-	if( modal )
-		KWindowSystem::setState( dialog->winId(), NET::Modal );
-	else
-		KWindowSystem::clearState( dialog->winId(), NET::Modal );
+    }
+    if( modal )
+        KWindowSystem::setState( dialog->winId(), NET::Modal );
+    else
+        KWindowSystem::clearState( dialog->winId(), NET::Modal );
 	activeDialog = dialog;
 }
 
@@ -546,27 +546,26 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet, bool isP
 					// If the dialog is modal to a minimized window it might not be visible
 					// (but still blocking the calling application). Notify the user about
 					// the request to open the wallet.
-					KNotification *notification = new KNotification("needsPassword", kpd,
-					                                                KNotification::Persistent |
-					                                                KNotification::CloseWhenWidgetActivated);
-					QStringList actions(i18nc("Text of a button to ignore the open-wallet notification", "Ignore"));
-					if (appid.isEmpty()) {
-						notification->setText(i18n("<b>KDE</b> has requested to open a wallet (%1).",
-						                           wallet.toHtmlEscaped()));
-						actions.append(i18nc("Text of a button for switching to the (unnamed) application "
-						                     "requesting a password", "Switch there"));
-					} else {
-						notification->setText(i18n("<b>%1</b> has requested to open a wallet (%2).",
-						                           appid.toHtmlEscaped(), wallet.toHtmlEscaped()));
-						actions.append(i18nc("Text of a button for switching to the application requesting "
-						                     "a password", "Switch to %1", appid.toHtmlEscaped()));
-					}
-					notification->setActions(actions);
-					connect(notification, SIGNAL(action1Activated()),
-					        notification, SLOT(close()));
-					connect(notification, SIGNAL(action2Activated()),
-					        this, SLOT(activatePasswordDialog()));
-					notification->sendEvent();
+                    KNotification *notification = new KNotification("needsPassword",
+                                                                    KNotification::Persistent |
+                                                                    KNotification::CloseWhenWidgetActivated,
+                                                                    this);
+                    QStringList actions;
+                    if (appid.isEmpty()) {
+                        notification->setText(i18n("An application has requested to open a wallet (%1).",
+                                                   wallet.toHtmlEscaped()));
+                        actions.append(i18nc("Text of a button for switching to the (unnamed) application "
+                                             "requesting a password", "Switch there"));
+                    } else {
+                        notification->setText(i18n("<b>%1</b> has requested to open a wallet (%2).",
+                                                   appid.toHtmlEscaped(), wallet.toHtmlEscaped()));
+                        actions.append(i18nc("Text of a button for switching to the application requesting "
+                                             "a password", "Switch to %1", appid.toHtmlEscaped()));
+                    }
+                    notification->setActions(actions);
+                    connect(notification, SIGNAL(action1Activated()),
+                            this, SLOT(activatePasswordDialog()));
+                    notification->sendEvent();
 				}
 				while (!b->isOpen()) {
 					setupDialog( kpd, w, appid, modal );
