@@ -559,10 +559,9 @@ int KWalletD::internalOpen(const QString &appid, const QString &wallet, bool isP
                         // If the dialog is modal to a minimized window it might not be visible
                         // (but still blocking the calling application). Notify the user about
                         // the request to open the wallet.
-                        KNotification *notification = new KNotification("needsPassword",
-                                KNotification::Persistent |
-                                KNotification::CloseWhenWidgetActivated,
-                                this);
+                        KNotification *notification = new KNotification("needsPassword", kpd,
+                                                                        KNotification::Persistent |
+                                                                        KNotification::CloseWhenWidgetActivated);
                         QStringList actions;
                         if (appid.isEmpty()) {
                             notification->setText(i18n("An application has requested to open a wallet (%1).",
