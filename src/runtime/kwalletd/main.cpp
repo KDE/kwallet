@@ -49,11 +49,10 @@ int main(int argc, char **argv)
     app.setApplicationVersion(KWALLETD_VERSION_STRING);
 
     KAboutData aboutdata(I18N_NOOP("kwalletd"),
-                         QString(),
                          i18n("KDE Wallet Service"),
                          KWALLETD_VERSION_STRING,
                          i18n("KDE Wallet Service"),
-                         KAboutData::License_LGPL,
+                         KAboutLicense::LGPL,
                          i18n("(C) 2002-2013, The KDE Developers"));
     aboutdata.addAuthor(i18n("Valentin Rusu"), i18n("Maintainer, GPG backend support"), "kde@rusu.info");
     aboutdata.addAuthor(i18n("Michael Leupold"), i18n("Former Maintainer"), "lemma@confuego.org");
