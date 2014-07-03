@@ -62,6 +62,14 @@
 
 #include "kwalletadaptor.h"
 
+// this defines the required throw_exception function in the namespace boost
+namespace boost {
+  void throw_exception(std::exception const &e) {
+     qDebug() << "boost::throw_exception called: " << e.what();
+     // FIXME: how to notify the user in this case?
+  }
+}
+
 class KWalletTransaction
 {
 

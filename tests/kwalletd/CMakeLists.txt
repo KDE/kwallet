@@ -5,11 +5,12 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../src/runtime/kwalletd ) # 
 
 include(ECMMarkAsTest)
 
-find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Test)
+find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Test Network)
 find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5IconThemes ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Gpgmepp) # provided by kdepimlibs
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
@@ -27,10 +28,10 @@ qt5_wrap_ui(kwalletwizardtest_SRCS
    ../../src/runtime/kwalletd/kwalletwizardpagegpgkey.ui
 )
 
-if (QGPGME_FOUND)
+if (KF5Gpgmepp_FOUND)
     qt5_wrap_ui(kwalletwizardtest_SRCS
         ../../src/runtime/kwalletd/kwalletwizardpagepasswordgpg.ui)
-endif(QGPGME_FOUND)
+endif(KF5Gpgmepp_FOUND)
 
 add_executable(kwalletwizardtest ${kwalletwizardtest_SRCS})
 ecm_mark_as_test(kwalletwizardtest)
@@ -41,9 +42,9 @@ target_link_libraries(kwalletwizardtest
     KF5::I18n
     KF5::IconThemes
     KF5::WidgetsAddons)
-if (QGPGME_FOUND)
-    target_link_libraries(kwalletwizardtest ${QGPGME_LIBRARIES})
-endif(QGPGME_FOUND)
+if (KF5Gpgmepp_FOUND)
+    target_link_libraries(kwalletwizardtest KF5::Gpgmepp)
+endif(KF5Gpgmepp_FOUND)
 
 set(kwallettestlib_SRCS kwallettest.cpp)
 add_library(kwallettestlib STATIC ${kwallettestlib_SRCS})

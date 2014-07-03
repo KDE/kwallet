@@ -5,9 +5,10 @@ include(GenerateExportHeader)
 
 check_include_files(stdint.h HAVE_STDINT_H)
 check_include_files(sys/bitypes.h HAVE_SYS_BITYPES_H)
-if (QGPGME_FOUND)
+if (KF5Gpgmepp_FOUND)
     add_definitions(-DHAVE_QGPGME)
-endif(QGPGME_FOUND)
+    add_definitions(-DBOOST_NO_EXCEPTIONS)
+endif(KF5Gpgmepp_FOUND)
 
 configure_file (config-kwalletbackend.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwalletbackend.h )
 
@@ -47,9 +48,9 @@ generate_export_header(kwalletbackend5)
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 5)
 
 target_link_libraries(kwalletbackend5 Qt5::Widgets KF5::WidgetsAddons KF5::CoreAddons KF5::Notifications KF5::I18n ${LIBGCRYPT_LIBRARIES})
-if(QGPGME_FOUND)
-target_link_libraries(kwalletbackend5 ${QGPGME_LIBRARIES} )
-endif(QGPGME_FOUND)
+if(KF5Gpgmepp_FOUND)
+target_link_libraries(kwalletbackend5 KF5::Gpgmepp)
+endif(KF5Gpgmepp_FOUND)
 
 # link with advapi32 on windows
 if(WIN32 AND NOT WINCE)

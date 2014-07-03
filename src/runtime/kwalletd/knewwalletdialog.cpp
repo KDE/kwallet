@@ -62,9 +62,9 @@ KNewWalletDialogIntro::KNewWalletDialogIntro(const QString &appName, const QStri
 {
     _ui.setupUi(this);
     if (appName.isEmpty()) {
-        _ui.labelIntro->setText(i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used to store sensitive data in a secure fashion. Please choose the new wallet's type below or click cancel to deny the application's request.</qt>", Qt::escape(walletName)));
+        _ui.labelIntro->setText(i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used to store sensitive data in a secure fashion. Please choose the new wallet's type below or click cancel to deny the application's request.</qt>", walletName.toHtmlEscaped()));
     } else {
-        _ui.labelIntro->setText(i18n("<qt>The application '<b>%1</b>' has requested to create a new wallet named '<b>%2</b>'. This is used to store sensitive data in a secure fashion. Please choose the new wallet's type below or click cancel to deny the application's request.</qt>", Qt::escape(appName), Qt::escape(walletName)));
+        _ui.labelIntro->setText(i18n("<qt>The application '<b>%1</b>' has requested to create a new wallet named '<b>%2</b>'. This is used to store sensitive data in a secure fashion. Please choose the new wallet's type below or click cancel to deny the application's request.</qt>", appName.toHtmlEscaped(), walletName.toHtmlEscaped()));
     }
 }
 
