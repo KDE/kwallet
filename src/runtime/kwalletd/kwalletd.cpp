@@ -792,8 +792,8 @@ bool KWalletD::isAuthorizedApp(const QString &appid, const QString &wallet, WId 
 int KWalletD::deleteWallet(const QString &wallet)
 {
     int result = -1;
-    QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/" + wallet + ".kwl";
-    QString pathSalt = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/" + wallet + ".salt";
+    QString path = KWallet::Backend::getSaveLocation() + "/" + wallet + ".kwl";
+    QString pathSalt = KWallet::Backend::getSaveLocation() + "/" + wallet + ".salt";
 
     if (QFile::exists(path)) {
         const QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);

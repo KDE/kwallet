@@ -95,6 +95,13 @@ Backend::~Backend()
 QString Backend::getSaveLocation()
 {
     QString writeLocation = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    if (writeLocation.right(1) == "5") {
+      // HACK
+      // setApplicationName("kwalletd5") yields the path ~/.local/share/kwalletd5 for the location where to store wallets
+      // that is not desirable, as the 5 is present in the data folder's name
+      // this workaround getts the right ~/.local/share/kwalletd location
+      writeLocation = writeLocation.left(writeLocation.length() -1);
+    }
     QDir writeDir(writeLocation);
     if (!writeDir.exists()) {
         if (!writeDir.mkpath(writeLocation)) {
@@ -243,9 +250,8 @@ int Backend::deref()
 
 bool Backend::exists(const QString &wallet)
 {
-//  initKWalletDir();
-//  QString path = KGlobal::dirs()->saveLocation("kwallet") + '/' + wallet + ".kwl";
-    QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + '/' + wallet + QLatin1String(".kwl");
+    QString saveLocation = getSaveLocation();
+    QString path = saveLocation + '/' + wallet + QLatin1String(".kwl");
     // Note: 60 bytes is presently the minimum size of a wallet file.
     //       Anything smaller is junk.
     return QFile::exists(path) && QFileInfo(path).size() >= 60;
