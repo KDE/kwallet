@@ -793,6 +793,7 @@ int KWalletD::deleteWallet(const QString &wallet)
 {
     int result = -1;
     QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/" + wallet + ".kwl";
+    QString pathSalt = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/" + wallet + ".salt";
 
     if (QFile::exists(path)) {
         const QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
@@ -805,6 +806,10 @@ int KWalletD::deleteWallet(const QString &wallet)
 
         KConfigGroup cfgDeny = KSharedConfig::openConfig("kwalletrc")->group("Auto Deny");
         cfgDeny.deleteEntry(wallet);
+	
+	if (QFile::exists(pathSalt)) {
+	  QFile::remove(pathSalt);
+	}
 
         result = 0;
     }
