@@ -94,6 +94,7 @@ public:
         connect(ui._useWallet, SIGNAL(clicked()), parent, SLOT(passwordPageUpdate()));
         connect(ui._pass1, SIGNAL(textChanged(QString)), parent, SLOT(passwordPageUpdate()));
         connect(ui._pass2, SIGNAL(textChanged(QString)), parent, SLOT(passwordPageUpdate()));
+        ui._useWallet->setChecked(true);
     }
 
     virtual int nextId() const
