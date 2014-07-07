@@ -28,6 +28,7 @@
 
 #include "kwalletd.h"
 #include "kwalletd_version.h"
+#include "migrationagent.h"
 
 static bool isWalletEnabled()
 {
@@ -63,6 +64,7 @@ int main(int argc, char **argv)
     aboutdata.addAuthor(i18n("Thiago Maceira"), i18n("D-Bus Interface"), "thiago@kde.org");
 
     KWalletD walletd;
+    MigrationAgent migrationAgent(&walletd);
     KDBusService dbusUniqueInstance(KDBusService::Unique | KDBusService::NoExitOnFailure);
 
     // NOTE: the command should be parsed only after KDBusService instantiation
@@ -85,6 +87,6 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    qDebug() << "kwalletd started";
+    qDebug() << "kwalletd5 started";
     return app.exec();
 }

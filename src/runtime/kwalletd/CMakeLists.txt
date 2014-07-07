@@ -48,6 +48,7 @@ set(kwalletd_SRCS
    kwalletwizard.cpp
    ktimeout.cpp
    kwalletsessionstore.cpp
+   migrationagent.cpp
 )
 
 qt5_wrap_ui(kwalletd_SRCS
@@ -74,6 +75,11 @@ endif(KF5Gpgmepp_FOUND)
 find_file(kwallet_xml org.kde.KWallet.xml HINTS ${CMAKE_CURRENT_SOURCE_DIR}/../../api/KWallet)
 
 qt5_add_dbus_adaptor( kwalletd_SRCS ${kwallet_xml} kwalletd.h KWalletD )
+
+# this is needed for the migration agent
+qt5_add_dbus_interface(kwalletd_SRCS
+    ../../api/KWallet/org.kde.KWallet.xml kwallet4_interface
+)
 
 configure_file(org.kde.kwalletd5.service.in
                ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
