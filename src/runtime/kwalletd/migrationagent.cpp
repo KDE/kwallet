@@ -25,6 +25,7 @@
 #include <QTimer>
 
 #include "migrationagent.h"
+#include "migrationwizard.h"
 
 #define SERVICE_KWALLETD4 "org.kde.kwalletd"
 #define ENTRY_ALREADY_MIGRATED "alreadyMigrated"
@@ -52,7 +53,7 @@ void MigrationAgent::migrateWallets()
       if (isMigrationWizardOk()) {
         setAlreadyMigrated();
       } else {
-        qDebug() << "Migration wizard returned an error. The migration agent will resume upon next daemon start";
+        qDebug() << "Migration wizard returned an error or has been canceled. The migration agent will resume upon next daemon start";
       }
     } else {
       qDebug() << "KDE4 kwalletd not present, stopping migration agent";
@@ -80,6 +81,9 @@ void MigrationAgent::setAlreadyMigrated()
 bool MigrationAgent::connectOldDaemon()
 {
     // the old daemon may not have been started, so attempt start it
+    // NOTE we provide a "fake" org.kde.kwalletd.service file - see the project structure
+    // however, this thing is a HACK as we cannot tell here, in KF5, user's KDE4 install prefix
+    // the provided .service file assumes /usr/bin
     QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
     if (!bus->isServiceRegistered(QString::fromLatin1(SERVICE_KWALLETD4))) {
         qDebug() << "kwalletd not started. Attempting start...";
@@ -103,6 +107,13 @@ bool MigrationAgent::connectOldDaemon()
 bool MigrationAgent::isMigrationWizardOk()
 {
     bool ok = false;
+    
+    MigrationWizard *wizard = new MigrationWizard();
+    int result = wizard->exec();
+    if (QDialog::Accepted == result) {
+        // the user either migrated the wallets, or choose not to be prompted again
+        ok = true;
+    }
     
     return ok;
 }

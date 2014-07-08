@@ -1,5 +1,7 @@
 project(kwalletd5)
 
+find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
+
 find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5DBusAddons ${KF5_DEP_VERSION} REQUIRED)
@@ -49,6 +51,7 @@ set(kwalletd_SRCS
    ktimeout.cpp
    kwalletsessionstore.cpp
    migrationagent.cpp
+   migrationwizard.cpp
 )
 
 qt5_wrap_ui(kwalletd_SRCS
@@ -57,6 +60,8 @@ qt5_wrap_ui(kwalletd_SRCS
    kwalletwizardpageintro.ui
    kwalletwizardpageoptions.ui
    kwalletwizardpagepassword.ui
+   migrationwizard1.ui
+   migrationwizard2.ui
 )
 
 if (KF5Gpgmepp_FOUND)
@@ -84,6 +89,8 @@ qt5_add_dbus_interface(kwalletd_SRCS
 configure_file(org.kde.kwalletd5.service.in
                ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
+        DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/org.kde.kwalletd.service
         DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
 
 add_executable( kwalletd5 ${kwalletd_SRCS} )

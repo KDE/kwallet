@@ -1,0 +1,6 @@
+# this installs an activatable service for the legacy, KDE4, kwalletd
+# NOTE this file assumes the kwalletd daemon is installed in the usual /usr/bin directory
+# that is because we have no means here, in KF5, to know about the KDE4 prefix
+[D-BUS Service]
+Name=org.kde.kwalletd
+Exec=/usr/bin/kwalletd
