@@ -24,14 +24,21 @@
 
 #include <QtWidgets/QWizard>
 
+class MigrationAgent;
+
 class MigrationWizard : public QWizard {
     Q_OBJECT
 public:
-    MigrationWizard();
+    MigrationWizard(MigrationAgent *agent);
     ~MigrationWizard();
     
+    MigrationAgent *agent() const { return _agent; }
+
 public Q_SLOTS:
     void page1Updated();
+    
+private:
+    MigrationAgent  *_agent;
 };
 
 #endif // _MIGRATIONWIZARD_H_

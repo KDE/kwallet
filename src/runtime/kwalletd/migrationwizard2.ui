@@ -22,26 +22,27 @@
     </widget>
    </item>
    <item>
-    <widget class="KRichTextWidget" name="_report"/>
+    <widget class="QTextEdit" name="_report">
+     <property name="autoFormatting">
+      <set>QTextEdit::AutoBulletList</set>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
+     <property name="undoRedoEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KRichTextWidget</class>
-   <extends>KRichTextEdit</extends>
-   <header>krichtextwidget.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KTextEdit</class>
-   <extends>QTextEdit</extends>
-   <header>ktextedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KRichTextEdit</class>
-   <extends>KTextEdit</extends>
-   <header>krichtextedit.h</header>
-  </customwidget>
   <customwidget>
    <class>KTitleWidget</class>
    <extends>QWidget</extends>

@@ -26,6 +26,10 @@
 
 #include "migrationagent.h"
 #include "migrationwizard.h"
+#include "kwalletd.h"
+
+#include <KLocalizedString>
+#include <KWallet>
 
 #define SERVICE_KWALLETD4 "org.kde.kwalletd"
 #define ENTRY_ALREADY_MIGRATED "alreadyMigrated"
@@ -108,7 +112,7 @@ bool MigrationAgent::isMigrationWizardOk()
 {
     bool ok = false;
     
-    MigrationWizard *wizard = new MigrationWizard();
+    MigrationWizard *wizard = new MigrationWizard(this);
     int result = wizard->exec();
     if (QDialog::Accepted == result) {
         // the user either migrated the wallets, or choose not to be prompted again
@@ -116,6 +120,32 @@ bool MigrationAgent::isMigrationWizardOk()
     }
     
     return ok;
+}
+
+bool MigrationAgent::performMigration()
+{
+    QDBusPendingReply<QStringList> rwl = _kde4_daemon->wallets();
+    rwl.waitForFinished();
+    if (!rwl.isValid()) {
+        emit progressMessage(i18n("Cannot read old wallet list! Aborting."));
+        return false;
+    }
+    
+    QStringList wallets = rwl.value();
+    for (const QString &wallet : wallets) {
+        emit progressMessage(i18n("Migrating wallet: %1</p>", wallet));
+        emit progressMessage(i18n("* Creating KF5 wallet: %1", wallet));
+        
+        int whandle = _kf5_daemon->internalOpen(i18n("KDE Wallet Migration Agent"), wallet, false, 0, true, QString());
+        if (whandle <0) {
+            emit progressMessage(i18n("ERROR when attempting new wallet creation! Aborting."));
+            return false;
+        }
+        
+        _kf5_daemon->close(whandle, true, i18n("KDE Wallet Migration Agent"));
+        emit progressMessage(i18n("DONE migrating wallet\n"));
+    }
+    return true;
 }
 
 #include "migrationagent.moc"

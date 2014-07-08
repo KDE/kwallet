@@ -32,12 +32,17 @@ class MigrationAgent : public QObject {
 public:
     MigrationAgent(KWalletD* kd);
 
+    bool performMigration();
+
 private Q_SLOTS:
     void migrateWallets();
     bool isAlreadyMigrated();
     bool connectOldDaemon();
     bool isMigrationWizardOk();
     void setAlreadyMigrated();
+
+Q_SIGNALS:
+    void progressMessage(QString);
 
 private:
     KWalletD		*_kf5_daemon;
