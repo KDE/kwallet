@@ -58,7 +58,7 @@ public:
     
     virtual void initializePage() {
         connect(_agent, SIGNAL(progressMessage(QString)), _ui._report, SLOT(append(QString)));
-        _migrationCompleted = _agent->performMigration();
+        _migrationCompleted = _agent->performMigration(winId());
         emit completeChanged();
     }
     

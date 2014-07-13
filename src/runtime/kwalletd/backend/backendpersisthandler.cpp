@@ -593,6 +593,11 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
             return -4; // write error
         }
     }
+    
+    if (!sf.commit()) {
+        qDebug() << "WARNING: wallet sync to disk failed! QSaveFile status was " << sf.errorString();
+        return -4; // write error
+    }
 
     return 0;
 }

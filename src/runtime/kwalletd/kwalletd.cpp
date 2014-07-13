@@ -1024,6 +1024,8 @@ void KWalletD::timedOutSync(int handle)
     _syncTimers.removeTimer(handle);
     if (_wallets.contains(handle) && _wallets[handle]) {
         _wallets[handle]->sync(0);
+    } else {
+        qDebug("wallet not found for sync!");
     }
 }
 

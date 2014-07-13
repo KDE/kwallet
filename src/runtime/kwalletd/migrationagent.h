@@ -24,6 +24,8 @@
 
 #include <kwallet_interface.h>
 
+#include <QWidget>
+
 class KWalletD;
 
 
@@ -32,7 +34,7 @@ class MigrationAgent : public QObject {
 public:
     MigrationAgent(KWalletD* kd);
 
-    bool performMigration();
+    bool performMigration(WId wid);
 
 private Q_SLOTS:
     void migrateWallets();
@@ -40,6 +42,8 @@ private Q_SLOTS:
     bool connectOldDaemon();
     bool isMigrationWizardOk();
     void setAlreadyMigrated();
+public Q_SLOTS:
+    void emitProgressMessage(QString);
 
 Q_SIGNALS:
     void progressMessage(QString);
