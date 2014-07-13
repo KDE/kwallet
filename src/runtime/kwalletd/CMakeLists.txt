@@ -39,8 +39,7 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
 # migration agent need exceptions enabled
-string(REPLACE "-fno-exceptions" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-add_definitions(-fexceptions)
+kde_enable_exceptions()
 
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLETD
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kwalletd_version.h"
