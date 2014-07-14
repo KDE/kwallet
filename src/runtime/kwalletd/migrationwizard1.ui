@@ -56,7 +56,7 @@ Would you like them to be migrated to this new KWallet version? The operation wi
        <item>
         <widget class="QRadioButton" name="_optionYes">
          <property name="text">
-          <string>&amp;Yes, migrate my wallets now!</string>
+          <string>&amp;Yes, migrate my wallets now.</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -67,7 +67,7 @@ Would you like them to be migrated to this new KWallet version? The operation wi
         <widget class="QRadioButton" name="_optionNo">
          <property name="text">
           <string>No, I'd rather do this upon ne&amp;xt session start,
-and I'll Cancel this wizard for now</string>
+and I'll cancel this wizard for now.</string>
          </property>
         </widget>
        </item>
