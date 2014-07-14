@@ -175,7 +175,7 @@ bool MigrationAgent::performMigration(WId wid)
                 i18n("Cannot retrieve folder list! Aborting."));
             
             for (const QString &folder: folders) {
-                emit progressMessage(i18n("* Migrationg folder %1", folder));
+                emit progressMessage(i18n("* Migrating folder %1", folder));
 
                 QStringList entries = invokeAndCheck<QStringList>(
                     [this, handle4, folder, appId] { return _kde4_daemon->entryList(handle4, folder, appId); },
