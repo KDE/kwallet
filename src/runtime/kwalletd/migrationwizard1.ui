@@ -74,7 +74,7 @@ and I'll cancel this wizard for now.</string>
        <item>
         <widget class="QRadioButton" name="_optionNotInterested">
          <property name="text">
-          <string>No, and p&amp;lease do not prompt me again!</string>
+          <string>No, and p&amp;lease do not prompt me again.</string>
          </property>
         </widget>
        </item>

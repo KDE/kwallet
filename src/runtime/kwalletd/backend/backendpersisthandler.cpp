@@ -517,7 +517,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     GpgME::Error err = initGpgME();
     if (err) {
         qDebug() << "initGpgME returned " << err.code();
-        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system configuration, then try again!</qt>", wb->_name.toHtmlEscaped(), err.code()));
+        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped(), err.code()));
         sf.cancelWriting();
         return -5;
     }
@@ -525,7 +525,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     boost::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (0 == ctx) {
         qDebug() << "Cannot setup OpenPGP context!";
-        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Please fix your system configuration, then try again!</qt>"), wb->_name.toHtmlEscaped());
+        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"), wb->_name.toHtmlEscaped());
         return -6;
     }
 
@@ -576,7 +576,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     GpgME::EncryptionResult res = ctx->encrypt(keys, decryptedData, encryptedData, GpgME::Context::None);
     if (res.error()) {
         int gpgerr = res.error().code();
-        KMessageBox::errorWId(w, i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2 (%3)</b>. Please fix your system configuration, then try again!</qt>",
+        KMessageBox::errorWId(w, i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2 (%3)</b>. Please fix your system configuration, then try again.</qt>",
                                       wb->_name.toHtmlEscaped(), gpgerr, gpgme_strerror(gpgerr)));
         qDebug() << "GpgME encryption error: " << res.error().code();
         sf.cancelWriting();
@@ -588,7 +588,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     encryptedData.seek(0, SEEK_SET);
     while (bytes = encryptedData.read(buffer, sizeof(buffer) / sizeof(buffer[0]))) {
         if (sf.write(buffer, bytes) != bytes) {
-            KMessageBox::errorWId(w, i18n("<qt>File handling error while attempting to save the wallet <b>%1</b>. Error was <b>%2</b>. Please fix your system configuration, then try again!</qt>", wb->_name.toHtmlEscaped(), sf.errorString()));
+            KMessageBox::errorWId(w, i18n("<qt>File handling error while attempting to save the wallet <b>%1</b>. Error was <b>%2</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped(), sf.errorString()));
             sf.cancelWriting();
             return -4; // write error
         }
@@ -606,7 +606,7 @@ int GpgPersistHandler::read(Backend *wb, QFile &sf, WId w)
 {
     GpgME::Error err = initGpgME();
     if (err) {
-        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to open the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system configuration, then try again!</qt>", wb->_name.toHtmlEscaped(), err.code()));
+        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to open the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped(), err.code()));
         return -1;
     }
 
@@ -624,7 +624,7 @@ int GpgPersistHandler::read(Backend *wb, QFile &sf, WId w)
 retry_label:
     boost::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (0 == ctx) {
-        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to open the wallet <b>%1</b>. Please fix your system configuration, then try again!</qt>", wb->_name.toHtmlEscaped()));
+        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to open the wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped()));
         qDebug() << "Cannot setup OpenPGP context!";
         return -1;
     }

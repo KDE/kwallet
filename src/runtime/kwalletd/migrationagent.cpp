@@ -153,7 +153,7 @@ bool MigrationAgent::performMigration(WId wid)
         migrationAgent = this;
         QStringList wallets = invokeAndCheck<QStringList>(
                 [this] { return _kde4_daemon->wallets(); }, 
-                i18n("Cannot read old wallet list! Aborting."));
+                i18n("Cannot read old wallet list. Aborting."));
 
         for (const QString &wallet : wallets) {
             emit progressMessage(i18n("Migrating wallet: %1</p>", wallet));
@@ -161,7 +161,7 @@ bool MigrationAgent::performMigration(WId wid)
             
             int handle5 = _kf5_daemon->internalOpen(appId, wallet, false, 0, true, QString());
             if (handle5 <0) {
-                emit progressMessage(i18n("ERROR when attempting new wallet creation! Aborting."));
+                emit progressMessage(i18n("ERROR when attempting new wallet creation. Aborting."));
                 return false;
             }
             
@@ -172,20 +172,20 @@ bool MigrationAgent::performMigration(WId wid)
             
             const QStringList folders = invokeAndCheck<QStringList>(
                 [this, handle4, appId] { return _kde4_daemon->folderList(handle4, appId); },
-                i18n("Cannot retrieve folder list! Aborting."));
+                i18n("Cannot retrieve folder list. Aborting."));
             
             for (const QString &folder: folders) {
                 emit progressMessage(i18n("* Migrating folder %1", folder));
 
                 QStringList entries = invokeAndCheck<QStringList>(
                     [this, handle4, folder, appId] { return _kde4_daemon->entryList(handle4, folder, appId); },
-                    i18n("Cannot retrieve folder %1 entries. Aborting!", folder));
+                    i18n("Cannot retrieve folder %1 entries. Aborting.", folder));
                 
                 for (const QString &key: entries) {
 
                     int entryType = invokeAndCheck<int>(
                         [this, handle4, folder, key, appId] { return _kde4_daemon->entryType(handle4, folder, key, appId); },
-                        i18n("Cannot retrieve key %1 info! Aborting.", key));
+                        i18n("Cannot retrieve key %1 info. Aborting.", key));
                     
                     // handle the case where the entries are already there
                     if (_kf5_daemon->hasEntry(handle5, folder, key, appId)) {
@@ -193,9 +193,9 @@ bool MigrationAgent::performMigration(WId wid)
                     } else {
                         QByteArray entry = invokeAndCheck<QByteArray>(
                             [this, handle4, folder, key, appId] { return _kde4_daemon->readEntry(handle4, folder, key, appId); },
-                                                                      i18n("Cannot retrieve key %1 data! Aborting.", key));
+                                                                      i18n("Cannot retrieve key %1 data. Aborting.", key));
                         if ( _kf5_daemon->writeEntry(handle5, folder, key, entry, entryType, appId) != 0 ) {
-                            auto msg = i18n("Cannot write entry %1 in the new wallet! Aborting.", key);
+                            auto msg = i18n("Cannot write entry %1 in the new wallet. Aborting.", key);
                             emit progressMessage(msg);
                             throw MigrationException(msg);
                         }
