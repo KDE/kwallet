@@ -87,12 +87,6 @@ if ( WIN32 )
 
   else()
 
-    # is this needed, of just unreflected cut'n'paste?
-    # this isn't a KDE library, after all!
-    if( NOT KDEWIN_FOUND )
-      find_package( KDEWIN REQUIRED )
-    endif()
-
     set( GPGME_FOUND         false )
     set( GPGME_VANILLA_FOUND false )
     set( GPGME_GLIB_FOUND    false )
