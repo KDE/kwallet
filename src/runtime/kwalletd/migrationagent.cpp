@@ -155,7 +155,7 @@ bool MigrationAgent::performMigration(WId wid)
                 [this] { return _kde4_daemon->wallets(); }, 
                 i18n("Cannot read old wallet list. Aborting."));
 
-        for (const QString &wallet : wallets) {
+        foreach (const QString &wallet, wallets) {
             emit progressMessage(i18n("Migrating wallet: %1</p>", wallet));
             emit progressMessage(i18n("* Creating KF5 wallet: %1", wallet));
             
@@ -174,14 +174,14 @@ bool MigrationAgent::performMigration(WId wid)
                 [this, handle4, appId] { return _kde4_daemon->folderList(handle4, appId); },
                 i18n("Cannot retrieve folder list. Aborting."));
             
-            for (const QString &folder: folders) {
+            foreach (const QString &folder, folders) {
                 emit progressMessage(i18n("* Migrating folder %1", folder));
 
                 QStringList entries = invokeAndCheck<QStringList>(
                     [this, handle4, folder, appId] { return _kde4_daemon->entryList(handle4, folder, appId); },
                     i18n("Cannot retrieve folder %1 entries. Aborting.", folder));
                 
-                for (const QString &key: entries) {
+                foreach (const QString &key, entries) {
 
                     int entryType = invokeAndCheck<int>(
                         [this, handle4, folder, key, appId] { return _kde4_daemon->entryType(handle4, folder, key, appId); },
