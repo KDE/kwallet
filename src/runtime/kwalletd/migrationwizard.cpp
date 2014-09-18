@@ -35,7 +35,7 @@ public:
             connect(_ui._optionNotInterested, SIGNAL(toggled(bool)), wizard, SLOT(page1Updated()));
             connect(_ui._optionYes, SIGNAL(toggled(bool)), wizard, SLOT(page1Updated()));
             connect(_ui._optionNo, &QRadioButton::toggled, this, [this](bool t) {
-                emit completeChanged();
+                emit this->completeChanged();
             });
         }
     
