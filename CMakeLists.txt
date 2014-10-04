@@ -21,6 +21,7 @@ option(BUILD_KWALLETD "Build the kwallet daemon" ON)
 
 find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kwalletd5\")
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
