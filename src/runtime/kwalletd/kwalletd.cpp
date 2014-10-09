@@ -147,6 +147,7 @@ KWalletD::KWalletD()
 
     _dw->startScan(true);
     connect(_dw, SIGNAL(dirty(QString)), this, SLOT(emitWalletListDirty()));
+    connect(_dw, &KDirWatch::deleted, this, &KWalletD::emitWalletListDirty);
 
     _serviceWatcher.setWatchMode(QDBusServiceWatcher::WatchForOwnerChange);
     connect(&_serviceWatcher, SIGNAL(serviceOwnerChanged(QString,QString,QString)), this, SLOT(slotServiceOwnerChanged(QString,QString,QString)));
