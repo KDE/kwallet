@@ -56,7 +56,7 @@ set(kwalletd_SRCS
    migrationwizard.cpp
 )
 
-qt5_wrap_ui(kwalletd_SRCS
+ki18n_wrap_ui(kwalletd_SRCS
    kbetterthankdialogbase.ui
    kwalletwizardpageexplanation.ui
    kwalletwizardpageintro.ui
@@ -71,7 +71,7 @@ if (KF5Gpgmepp_FOUND)
         ${kwalletd_SRCS}
         knewwalletdialog.cpp
     )
-    qt5_wrap_ui(kwalletd_SRCS
+    ki18n_wrap_ui(kwalletd_SRCS
         kwalletwizardpagepasswordgpg.ui
         kwalletwizardpagegpgkey.ui
         knewwalletdialogintro.ui
