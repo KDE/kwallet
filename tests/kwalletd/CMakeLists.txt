@@ -2,6 +2,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../src/api/KWallet ) # for k
 include_directories( ${CMAKE_CURRENT_BINARY_DIR}/../../src/api/KWallet )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../src/runtime/kwalletd ) # kwalletwizard.h
+include_directories( ${CMAKE_CURRENT_BINARY_DIR}/../../src/runtime/kwalletd/backend ) # kwalletwizard.h
 
 include(ECMMarkAsTest)
 
@@ -54,8 +55,9 @@ macro(kwalletd_tests)
   foreach(_testname ${ARGN})
     add_executable(${_testname} ${_testname}.cpp)
     ecm_mark_as_test(${_testname})
-    target_link_libraries(${_testname} 
+    target_link_libraries(${_testname}
         kwallettestlib
+        kwalletbackend5
         KF5Wallet
         Qt5::DBus
         Qt5::Test
@@ -70,6 +72,7 @@ kwalletd_tests(
     kwalletpath
     kwalletboth
     kwalletmany
+    kwalletcbc
 )
 
 
