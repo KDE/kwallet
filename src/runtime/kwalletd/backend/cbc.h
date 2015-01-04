@@ -50,6 +50,8 @@ public:
     virtual int decrypt(void *block, int len);
 
 private:
+    void initRegister();
+
     BlockCipher *_cipher;
     void *_register;
     void *_next;

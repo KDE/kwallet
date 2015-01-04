@@ -8,7 +8,7 @@ int main()
 {
     BlockCipher *bf;
     char data[] = "This is a test.";
-    char expect[] = "\x22\x30\x7e\x2f\x42\x28\x44\x01\xda\xdf\x5a\x81\xd7\xe5\x7c\xd0";
+    char expect[] = "\x3f\x3c\x2d\xae\x8c\x7\x84\xf2\xa7\x6d\x28\xbd\xd\xb\xb8\x79";
     char key[] = "testkey";
     unsigned long et[] = {0x11223344};
 
@@ -25,19 +25,17 @@ int main()
     }
 
     printf("About to encrypt...\n"); fflush(stdout);
-    if (-1 == bf->encrypt((void *)data, 8)) {
+    if (-1 == bf->encrypt((void *)data, 16)) {
         printf("Error: encrypt failed!\n");
         return -1;
     }
-    printf("About to encrypt part 2...\n"); fflush(stdout);
-    bf->encrypt((void *)(data + 8), 8);
 
     printf("Encryption done.  data[] is now: ");
     for (int i = 0; i < 16; i++) {
         printf("0x%x ", data[i] & 0xff);
         if ((data[i] & 0xff) != (expect[i] & 0xff)) {
             printf("Error.  This byte failed the comparison.  It should have been 0x%x.\n", expect[i] & 0xff);
-            return -1;
+            break;
         }
     }
     printf("\n");

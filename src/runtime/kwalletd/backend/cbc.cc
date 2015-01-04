@@ -19,11 +19,12 @@
 
 #include "cbc.h"
 #include <string.h>
+#include <QDebug>
 
 CipherBlockChain::CipherBlockChain(BlockCipher *cipher) : _cipher(cipher)
 {
-    _next = 0L;
-    _register = 0L;
+    _next = nullptr;
+    _register = nullptr;
     _len = -1;
     _reader = _writer = 0L;
     if (cipher) {
@@ -34,9 +35,9 @@ CipherBlockChain::CipherBlockChain(BlockCipher *cipher) : _cipher(cipher)
 CipherBlockChain::~CipherBlockChain()
 {
     delete[](char *)_register;
-    _register = 0L;
+    _register = nullptr;
     delete[](char *)_next;
-    _next = 0L;
+    _next = nullptr;
 }
 
 bool CipherBlockChain::setKey(void *key, int bitlength)
@@ -71,6 +72,15 @@ bool CipherBlockChain::readyToGo() const
     return false;
 }
 
+void CipherBlockChain::initRegister() {
+    if (_register == nullptr) {
+        size_t registerLen = _cipher->blockSize();
+        _register = new unsigned char[registerLen];
+        _len = registerLen;
+    }
+    memset(_register, 0, _len);
+}
+
 int CipherBlockChain::encrypt(void *block, int len)
 {
     if (_cipher && !_reader) {
@@ -78,24 +88,28 @@ int CipherBlockChain::encrypt(void *block, int len)
 
         _writer |= 1;
 
-        if (!_register) {
-            _register = new unsigned char[len];
-            _len = len;
-            memset(_register, 0, len);
-        } else if (len > _len) {
+        initRegister();
+
+        if ((len % _len) >0) {
+            qDebug() << "Block length given encrypt (" << len << ") is not a multiple of " << _len;
             return -1;
         }
 
-        // This might be optimizable
-        char *tb = (char *)block;
-        for (int i = 0; i < len; i++) {
-            tb[i] ^= ((char *)_register)[i];
-        }
+        char *elemBlock = static_cast<char*>(block);
+        for (int b = 0; b < len/_len; b++) {
 
-        rc = _cipher->encrypt(block, len);
+            // This might be optimizable
+            char *tb = static_cast<char*>(elemBlock);
+            for (int i = 0; i < _len; i++) {
+                *tb++ ^= ((char *)_register)[i];
+            }
 
-        if (rc != -1) {
-            memcpy(_register, block, len);
+            rc = _cipher->encrypt(elemBlock, _len);
+
+            if (rc != -1) {
+                memcpy(_register, elemBlock, _len);
+            }
+            elemBlock += _len;
         }
 
         return rc;
@@ -106,37 +120,42 @@ int CipherBlockChain::encrypt(void *block, int len)
 int CipherBlockChain::decrypt(void *block, int len)
 {
     if (_cipher && !_writer) {
-        int rc;
+        int rc = 0;
 
         _reader |= 1;
 
-        if (!_register) {
-            _register = new unsigned char[len];
-            _len = len;
-            memset(_register, 0, len);
-        } else if (len > _len) {
+        initRegister();
+
+        if ((len % _len) >0) {
+            qDebug() << "Block length given for decrypt (" << len << ") is not a multiple of " << _len;
             return -1;
         }
 
-        if (!_next) {
-            _next = new unsigned char[_len];
-        }
-        memcpy(_next, block, _len);
-
-        rc = _cipher->decrypt(block, len);
-
-        if (rc != -1) {
-            // This might be optimizable
-            char *tb = (char *)block;
-            for (int i = 0; i < len; i++) {
-                tb[i] ^= ((char *)_register)[i];
+        char *elemBlock = static_cast<char*>(block);
+        for (int b = 0; b < len/_len; b++) {
+            if (_next == nullptr) {
+                _next = new unsigned char[_len];
             }
-        }
+            memcpy(_next, elemBlock, _len);
 
-        void *temp;
-        temp = _next;
-        _next = _register;
-        _register = temp;
+            int bytesDecrypted = _cipher->decrypt(elemBlock, _len);
+
+            if (bytesDecrypted != -1) {
+                rc += bytesDecrypted;
+                // This might be optimizable
+                char *tb = (char *)elemBlock;
+                for (int i = 0; i < _len; i++) {
+                    *tb++ ^= ((char *)_register)[i];
+                }
+            }
+
+            void *temp;
+            temp = _next;
+            _next = _register;
+            _register = temp;
+
+            elemBlock += _len;
+        }
 
         return rc;
     }
