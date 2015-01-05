@@ -34,7 +34,7 @@
 class CipherBlockChain : public BlockCipher
 {
 public:
-    CipherBlockChain(BlockCipher *cipher);
+    CipherBlockChain(BlockCipher *cipher, bool useECBforReading =false);
     virtual ~CipherBlockChain();
 
     virtual bool setKey(void *key, int bitlength);
@@ -51,13 +51,14 @@ public:
 
 private:
     void initRegister();
+    int decryptECB(void *block, int len);
 
     BlockCipher *_cipher;
     void *_register;
     void *_next;
     int _len;
     int _reader, _writer;
-
+    bool _useECBforReading;
 };
 
 #endif

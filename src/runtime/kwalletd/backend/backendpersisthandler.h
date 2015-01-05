@@ -61,11 +61,13 @@ public:
 class BlowfishPersistHandler : public BackendPersistHandler
 {
 public:
-    BlowfishPersistHandler() {}
+    explicit BlowfishPersistHandler(bool useECBforReading =false) : _useECBforReading(useECBforReading) {}
     virtual ~BlowfishPersistHandler() {}
 
     virtual int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w);
     virtual int read(Backend *wb, QFile &sf, WId w);
+private:
+    bool _useECBforReading;
 };
 
 #ifdef HAVE_QGPGME

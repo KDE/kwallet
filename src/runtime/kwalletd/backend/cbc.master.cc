@@ -19,14 +19,11 @@
 
 #include "cbc.h"
 #include <string.h>
-#include <QDebug>
 
-CipherBlockChain::CipherBlockChain(BlockCipher *cipher, bool useECBforReading) :
-    _cipher(cipher)
-    , _useECBforReading(useECBforReading)
+CipherBlockChain::CipherBlockChain(BlockCipher *cipher) : _cipher(cipher)
 {
-    _next = nullptr;
-    _register = nullptr;
+    _next = 0L;
+    _register = 0L;
     _len = -1;
     _reader = _writer = 0L;
     if (cipher) {
@@ -37,9 +34,9 @@ CipherBlockChain::CipherBlockChain(BlockCipher *cipher, bool useECBforReading) :
 CipherBlockChain::~CipherBlockChain()
 {
     delete[](char *)_register;
-    _register = nullptr;
+    _register = 0L;
     delete[](char *)_next;
-    _next = nullptr;
+    _next = 0L;
 }
 
 bool CipherBlockChain::setKey(void *key, int bitlength)
@@ -74,15 +71,6 @@ bool CipherBlockChain::readyToGo() const
     return false;
 }
 
-void CipherBlockChain::initRegister() {
-    if (_register == nullptr) {
-        size_t registerLen = _cipher->blockSize();
-        _register = new unsigned char[registerLen];
-        _len = registerLen;
-    }
-    memset(_register, 0, _len);
-}
-
 int CipherBlockChain::encrypt(void *block, int len)
 {
     if (_cipher && !_reader) {
@@ -90,28 +78,24 @@ int CipherBlockChain::encrypt(void *block, int len)
 
         _writer |= 1;
 
-        initRegister();
-
-        if ((len % _len) >0) {
-            qDebug() << "Block length given encrypt (" << len << ") is not a multiple of " << _len;
+        if (!_register) {
+            _register = new unsigned char[len];
+            _len = len;
+            memset(_register, 0, len);
+        } else if (len > _len) {
             return -1;
         }
 
-        char *elemBlock = static_cast<char*>(block);
-        for (int b = 0; b < len/_len; b++) {
+        // This might be optimizable
+        char *tb = (char *)block;
+        for (int i = 0; i < len; i++) {
+            tb[i] ^= ((char *)_register)[i];
+        }
 
-            // This might be optimizable
-            char *tb = static_cast<char*>(elemBlock);
-            for (int i = 0; i < _len; i++) {
-                *tb++ ^= ((char *)_register)[i];
-            }
+        rc = _cipher->encrypt(block, len);
 
-            rc = _cipher->encrypt(elemBlock, _len);
-
-            if (rc != -1) {
-                memcpy(_register, elemBlock, _len);
-            }
-            elemBlock += _len;
+        if (rc != -1) {
+            memcpy(_register, block, len);
         }
 
         return rc;
@@ -119,9 +103,8 @@ int CipherBlockChain::encrypt(void *block, int len)
     return -1;
 }
 
-// This is the old decrypt method, that was decrypting using ECB
-// instead of CBC
-int CipherBlockChain::decryptECB(void *block, int len) {
+int CipherBlockChain::decrypt(void *block, int len)
+{
     if (_cipher && !_writer) {
         int rc;
 
@@ -154,56 +137,6 @@ int CipherBlockChain::decryptECB(void *block, int len) {
         temp = _next;
         _next = _register;
         _register = temp;
-
-        return rc;
-    }
-    return -1;
-}
-
-int CipherBlockChain::decrypt(void *block, int len)
-{
-    if (_useECBforReading) {
-        qDebug() << "decrypting using ECB!";
-        return decryptECB(block, len);
-    }
-
-    if (_cipher && !_writer) {
-        int rc = 0;
-
-        _reader |= 1;
-
-        initRegister();
-
-        if ((len % _len) >0) {
-            qDebug() << "Block length given for decrypt (" << len << ") is not a multiple of " << _len;
-            return -1;
-        }
-
-        char *elemBlock = static_cast<char*>(block);
-        for (int b = 0; b < len/_len; b++) {
-            if (_next == nullptr) {
-                _next = new unsigned char[_len];
-            }
-            memcpy(_next, elemBlock, _len);
-
-            int bytesDecrypted = _cipher->decrypt(elemBlock, _len);
-
-            if (bytesDecrypted != -1) {
-                rc += bytesDecrypted;
-                // This might be optimizable
-                char *tb = (char *)elemBlock;
-                for (int i = 0; i < _len; i++) {
-                    *tb++ ^= ((char *)_register)[i];
-                }
-            }
-
-            void *temp;
-            temp = _next;
-            _next = _register;
-            _register = temp;
-
-            elemBlock += _len;
-        }
 
         return rc;
     }

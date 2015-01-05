@@ -46,9 +46,10 @@
 #include <wincrypt.h>
 #endif
 
-#define KWALLET_CIPHER_BLOWFISH_CBC 0
+#define KWALLET_CIPHER_BLOWFISH_ECB 0 // this was the old KWALLET_CIPHER_BLOWFISH_CBC
 #define KWALLET_CIPHER_3DES_CBC     1 // unsupported
 #define KWALLET_CIPHER_GPG          2
+#define KWALLET_CIPHER_BLOWFISH_CBC 3
 
 #define KWALLET_HASH_SHA1       0
 #define KWALLET_HASH_MD5        1 // unsupported
@@ -182,10 +183,14 @@ BackendPersistHandler *BackendPersistHandler::getPersistHandler(BackendCipherTyp
 
 BackendPersistHandler *BackendPersistHandler::getPersistHandler(char magicBuf[12])
 {
-    if (magicBuf[2] == KWALLET_CIPHER_BLOWFISH_CBC &&
+    if ((magicBuf[2] == KWALLET_CIPHER_BLOWFISH_ECB || magicBuf[2] == KWALLET_CIPHER_BLOWFISH_CBC) &&
             (magicBuf[3] == KWALLET_HASH_SHA1 || magicBuf[3] == KWALLET_HASH_PBKDF2_SHA512)) {
         if (0 == blowfishHandler) {
-            blowfishHandler = new BlowfishPersistHandler;
+            bool useECBforReading = magicBuf[2] == KWALLET_CIPHER_BLOWFISH_ECB;
+            if (useECBforReading) {
+                qDebug() << "this wallet uses ECB encryption. It'll be converted to CBC on next save.";
+            }
+            blowfishHandler = new BlowfishPersistHandler(useECBforReading);
         }
         return blowfishHandler;
     }
@@ -204,6 +209,11 @@ BackendPersistHandler *BackendPersistHandler::getPersistHandler(char magicBuf[12
 int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WId)
 {
     assert(wb->_cipherType == BACKEND_CIPHER_BLOWFISH);
+
+    if (_useECBforReading) {
+        qDebug() << "This wallet used ECB and is now saved using CBC";
+        _useECBforReading = false;
+    }
 
     version[2] = KWALLET_CIPHER_BLOWFISH_CBC;
     if (!wb->_useNewHash) {
@@ -377,7 +387,7 @@ int BlowfishPersistHandler::read(Backend *wb, QFile &db, WId)
     assert(encrypted.size() < db.size());
 
     BlowFish _bf;
-    CipherBlockChain bf(&_bf);
+    CipherBlockChain bf(&_bf, _useECBforReading);
     int blksz = bf.blockSize();
     if ((encrypted.size() % blksz) != 0) {
         return -5;     // invalid file structure
@@ -593,7 +603,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
             return -4; // write error
         }
     }
-    
+
     if (!sf.commit()) {
         qDebug() << "WARNING: wallet sync to disk failed! QSaveFile status was " << sf.errorString();
         return -4; // write error

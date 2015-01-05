@@ -109,7 +109,7 @@ QString Backend::getSaveLocation()
         }
     }
 
-    qDebug() << "Using saveLocation " + writeLocation;
+    // qDebug() << "Using saveLocation " + writeLocation;
     return writeLocation;
 }
 
@@ -397,7 +397,7 @@ QByteArray Backend::createAndSaveSalt(const QString &path) const
         return QByteArray();
     }
     saltFile.setPermissions(QFile::ReadUser | QFile::WriteUser);
-    
+
     char *randomData = (char *) gcry_random_bytes(PBKDF2_SHA512_SALTSIZE, GCRY_STRONG_RANDOM);
     QByteArray salt(randomData, PBKDF2_SHA512_SALTSIZE);
     free(randomData);
