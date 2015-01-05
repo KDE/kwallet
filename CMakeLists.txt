@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8.12)
 
 project(KWallet)
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 find_package(ECM 1.6.0 REQUIRED NO_MODULE)
 
