@@ -925,7 +925,7 @@ int KWalletD::close(const QString &wallet, bool force)
     return internalClose(w, handle, force);
 }
 
-int KWalletD::internalClose(KWallet::Backend *w, int handle, bool force)
+int KWalletD::internalClose(KWallet::Backend * const w, const int handle, const bool force, const bool saveBeforeClose)
 {
     if (w) {
         const QString &wallet = w->walletName();
@@ -937,7 +937,7 @@ int KWalletD::internalClose(KWallet::Backend *w, int handle, bool force)
             }
             _syncTimers.removeTimer(handle);
             _wallets.remove(handle);
-            w->close(true);
+            w->close(saveBeforeClose);
             doCloseSignals(handle, wallet);
             delete w;
             return 0;
@@ -1483,6 +1483,12 @@ void KWalletD::emitFolderUpdated(const QString &wallet, const QString &folder)
 
 void KWalletD::emitWalletListDirty()
 {
+    const QStringList walletsInDisk = wallets();
+    foreach (auto i, _wallets.values()) {
+        if (!walletsInDisk.contains(i->walletName())) {
+            internalClose(i, _wallets.key(i), true, false);
+        }
+    }
     emit walletListDirty();
 }
 

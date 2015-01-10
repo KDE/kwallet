@@ -192,7 +192,7 @@ private:
     int internalOpen(const QString &appid, const QString &wallet, bool isPath, WId w,
                      bool modal, const QString &service);
     // Internal - close this wallet.
-    int internalClose(KWallet::Backend *w, int handle, bool force);
+    int internalClose(KWallet::Backend * const w, const int handle, const bool force, const bool saveBeforeClose = true);
 
     bool isAuthorizedApp(const QString &appid, const QString &wallet, WId w);
     // This also validates the handle.  May return NULL.

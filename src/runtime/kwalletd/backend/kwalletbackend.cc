@@ -417,6 +417,10 @@ int Backend::sync(WId w)
         return -255;  // not open yet
     }
 
+    if (!QFile::exists(_path)) {
+        return -3; // File does not exist
+    }
+
     QSaveFile sf(_path);
 
     if (!sf.open(QIODevice::WriteOnly | QIODevice::Unbuffered)) {
