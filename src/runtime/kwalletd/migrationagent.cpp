@@ -214,4 +214,3 @@ bool MigrationAgent::performMigration(WId wid)
     return true;
 }
 
-#include "migrationagent.moc"

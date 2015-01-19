@@ -77,5 +77,4 @@ void KTimeout::timerEvent(QTimerEvent *ev)
     }
 }
 
-#include "ktimeout.moc"
 

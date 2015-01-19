@@ -16,7 +16,6 @@
 */
 
 #include "kwalletwizard.h"
-#include "kwalletwizard.moc"
 
 #include "ui_kwalletwizardpageexplanation.h"
 #include "ui_kwalletwizardpageintro.h"

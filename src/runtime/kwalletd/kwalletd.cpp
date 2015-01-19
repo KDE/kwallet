@@ -1720,4 +1720,3 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
     return handle;
 }
 
-#include "kwalletd.moc"

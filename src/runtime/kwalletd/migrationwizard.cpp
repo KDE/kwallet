@@ -108,4 +108,3 @@ void MigrationWizard::page1Updated()
 }
 
 
-#include "migrationwizard.moc"
