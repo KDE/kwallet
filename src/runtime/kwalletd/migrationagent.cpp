@@ -156,7 +156,7 @@ bool MigrationAgent::performMigration(WId wid)
                 i18n("Cannot read old wallet list. Aborting."));
 
         foreach (const QString &wallet, wallets) {
-            emit progressMessage(i18n("Migrating wallet: %1</p>", wallet));
+            emit progressMessage(i18n("Migrating wallet: %1", wallet));
             emit progressMessage(i18n("* Creating KF5 wallet: %1", wallet));
             
             int handle5 = _kf5_daemon->internalOpen(appId, wallet, false, 0, true, QString());
