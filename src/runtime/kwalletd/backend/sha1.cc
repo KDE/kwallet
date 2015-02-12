@@ -31,6 +31,8 @@
 
 #include <string.h>
 
+#include <qglobal.h>
+
 // FIXME: this can be optimized to one instruction on most cpus.
 #define rol(x,y) ((x << y) | (x >> (32-y)))
 
