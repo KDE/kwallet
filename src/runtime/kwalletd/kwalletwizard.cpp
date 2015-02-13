@@ -96,7 +96,7 @@ public:
         ui._useWallet->setChecked(true);
     }
 
-    virtual int nextId() const
+    int nextId() const Q_DECL_OVERRIDE
     {
 #ifdef HAVE_QGPGME
         int nextId = -1;
@@ -192,12 +192,12 @@ public:
         emit completeChanged();
     }
 
-    virtual int nextId() const
+    int nextId() const Q_DECL_OVERRIDE
     {
         return static_cast<KWalletWizard *>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId;
     }
 
-    virtual bool isComplete() const
+    bool isComplete() const Q_DECL_OVERRIDE
     {
         return userHasGpgKeys;
     }

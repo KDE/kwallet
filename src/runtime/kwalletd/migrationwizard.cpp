@@ -39,7 +39,7 @@ public:
             });
         }
     
-    virtual bool isComplete() const {
+    bool isComplete() const Q_DECL_OVERRIDE {
         return !_ui._optionNo->isChecked();
     }
 
@@ -56,13 +56,13 @@ public:
             _ui.setupUi(this);
         }
     
-    virtual void initializePage() {
+    void initializePage() Q_DECL_OVERRIDE {
         connect(_agent, SIGNAL(progressMessage(QString)), _ui._report, SLOT(append(QString)));
         _migrationCompleted = _agent->performMigration(winId());
         emit completeChanged();
     }
     
-    virtual bool isComplete() const {
+    bool isComplete() const Q_DECL_OVERRIDE {
         return _migrationCompleted;
     }
     

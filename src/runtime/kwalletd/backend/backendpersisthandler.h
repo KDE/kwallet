@@ -64,8 +64,8 @@ public:
     explicit BlowfishPersistHandler(bool useECBforReading =false) : _useECBforReading(useECBforReading) {}
     virtual ~BlowfishPersistHandler() {}
 
-    virtual int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w);
-    virtual int read(Backend *wb, QFile &sf, WId w);
+    int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) Q_DECL_OVERRIDE;
+    int read(Backend *wb, QFile &sf, WId w) Q_DECL_OVERRIDE;
 private:
     bool _useECBforReading;
 };
@@ -77,8 +77,8 @@ public:
     GpgPersistHandler() {}
     virtual ~GpgPersistHandler() {}
 
-    virtual int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w);
-    virtual int read(Backend *wb, QFile &sf, WId w);
+    int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) Q_DECL_OVERRIDE;
+    int read(Backend *wb, QFile &sf, WId w) Q_DECL_OVERRIDE;
 };
 #endif // HAVE_QGPGME
 

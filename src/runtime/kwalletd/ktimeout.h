@@ -43,7 +43,7 @@ public Q_SLOTS:
     void clear();
 
 protected:
-    void timerEvent(QTimerEvent *);
+    void timerEvent(QTimerEvent *) Q_DECL_OVERRIDE;
 
 private:
     QHash<int /*id*/, int /*timerId*/> _timers;
