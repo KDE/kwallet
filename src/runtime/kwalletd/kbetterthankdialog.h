@@ -33,8 +33,8 @@ public:
     void setLabel(const QString &label);
 
 protected Q_SLOTS:
-    void accept() Q_DECL_OVERRIDE;
-    void reject() Q_DECL_OVERRIDE;
+    virtual void accept();
+    virtual void reject();
 
 private Q_SLOTS:
     void allowOnceClicked();

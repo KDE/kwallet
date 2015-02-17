@@ -54,7 +54,7 @@ public:
 #endif // HAVE_QGPGME
 
 protected:
-    void initializePage(int id) Q_DECL_OVERRIDE;
+    virtual void initializePage(int id);
 
 protected Q_SLOTS:
     void passwordPageUpdate();

@@ -33,8 +33,6 @@
 #include "blockcipher.h"
 #include "kwalletbackend5_export.h"
 
-#include <qglobal.h>
-
 /* @internal
  */
 class KWALLETBACKEND5_EXPORT BlowFish : public BlockCipher
@@ -43,17 +41,17 @@ public:
     BlowFish();
     virtual ~BlowFish();
 
-    bool setKey(void *key, int bitlength) Q_DECL_OVERRIDE;
+    virtual bool setKey(void *key, int bitlength);
 
-    int keyLen() const Q_DECL_OVERRIDE;
+    virtual int keyLen() const;
 
-    bool variableKeyLen() const Q_DECL_OVERRIDE;
+    virtual bool variableKeyLen() const;
 
-    bool readyToGo() const Q_DECL_OVERRIDE;
+    virtual bool readyToGo() const;
 
-    int encrypt(void *block, int len) Q_DECL_OVERRIDE;
+    virtual int encrypt(void *block, int len);
 
-    int decrypt(void *block, int len) Q_DECL_OVERRIDE;
+    virtual int decrypt(void *block, int len);
 
 private:
     uint32_t _S[4][256];

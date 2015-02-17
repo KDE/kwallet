@@ -22,8 +22,6 @@
 
 #include "blockcipher.h"
 
-#include <qglobal.h>
-
 /* @internal
  *   Initialize this class with a pointer to a valid, uninitialized BlockCipher
  *   and it will apply that cipher using CBC.  You may want to make the
@@ -39,17 +37,17 @@ public:
     CipherBlockChain(BlockCipher *cipher, bool useECBforReading =false);
     virtual ~CipherBlockChain();
 
-    bool setKey(void *key, int bitlength) Q_DECL_OVERRIDE;
+    virtual bool setKey(void *key, int bitlength);
 
-    int keyLen() const Q_DECL_OVERRIDE;
+    virtual int keyLen() const;
 
-    bool variableKeyLen() const Q_DECL_OVERRIDE;
+    virtual bool variableKeyLen() const;
 
-    bool readyToGo() const Q_DECL_OVERRIDE;
+    virtual bool readyToGo() const;
 
-    int encrypt(void *block, int len) Q_DECL_OVERRIDE;
+    virtual int encrypt(void *block, int len);
 
-    int decrypt(void *block, int len) Q_DECL_OVERRIDE;
+    virtual int decrypt(void *block, int len);
 
 private:
     void initRegister();
