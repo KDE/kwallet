@@ -155,25 +155,14 @@ static int getRandomBlock(QByteArray &randBlock)
 #endif
 }
 
-static BlowfishPersistHandler *blowfishHandler = 0;
-#ifdef HAVE_QGPGME
-static GpgPersistHandler *gpgHandler = 0;
-#endif // HAVE_QGPGME
-
 BackendPersistHandler *BackendPersistHandler::getPersistHandler(BackendCipherType cipherType)
 {
     switch (cipherType) {
     case BACKEND_CIPHER_BLOWFISH:
-        if (0 == blowfishHandler) {
-            blowfishHandler = new BlowfishPersistHandler;
-        }
-        return blowfishHandler;
+        return new BlowfishPersistHandler;
 #ifdef HAVE_QGPGME
     case BACKEND_CIPHER_GPG:
-        if (0 == gpgHandler) {
-            gpgHandler = new GpgPersistHandler;
-        }
-        return gpgHandler;
+        return new GpgPersistHandler;
 #endif // HAVE_QGPGME
     default:
         Q_ASSERT(0);
@@ -185,22 +174,16 @@ BackendPersistHandler *BackendPersistHandler::getPersistHandler(char magicBuf[12
 {
     if ((magicBuf[2] == KWALLET_CIPHER_BLOWFISH_ECB || magicBuf[2] == KWALLET_CIPHER_BLOWFISH_CBC) &&
             (magicBuf[3] == KWALLET_HASH_SHA1 || magicBuf[3] == KWALLET_HASH_PBKDF2_SHA512)) {
-        if (0 == blowfishHandler) {
-            bool useECBforReading = magicBuf[2] == KWALLET_CIPHER_BLOWFISH_ECB;
-            if (useECBforReading) {
-                qDebug() << "this wallet uses ECB encryption. It'll be converted to CBC on next save.";
-            }
-            blowfishHandler = new BlowfishPersistHandler(useECBforReading);
+        bool useECBforReading = magicBuf[2] == KWALLET_CIPHER_BLOWFISH_ECB;
+        if (useECBforReading) {
+            qDebug() << "this wallet uses ECB encryption. It'll be converted to CBC on next save.";
         }
-        return blowfishHandler;
+        return new BlowfishPersistHandler(useECBforReading);
     }
 #ifdef HAVE_QGPGME
     if (magicBuf[2] == KWALLET_CIPHER_GPG &&
             magicBuf[3] == 0) {
-        if (0 == gpgHandler) {
-            gpgHandler = new GpgPersistHandler;
-        }
-        return gpgHandler;
+        return  new GpgPersistHandler;
     }
 #endif // HAVE_QGPGME
     return 0;    // unknown cipher or hash

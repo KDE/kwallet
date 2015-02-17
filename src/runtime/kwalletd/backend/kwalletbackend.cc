@@ -374,7 +374,9 @@ int Backend::openInternal(WId w)
     if (0 == phandler) {
         return 42; // unknown cipher or hash
     }
-    return phandler->read(this, db, w);
+    int result = phandler->read(this, db, w);
+    delete phandler;
+    return result;
 }
 
 void Backend::swapToNewHash()
@@ -456,6 +458,7 @@ int Backend::sync(WId w)
         notification->setText(i18n("Failed to sync wallet <b>%1</b> to disk. Error codes are:\nRC <b>%2</b>\nSF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org").arg(_name).arg(rc).arg(sf.errorString()));
         notification->sendEvent();
     }
+    delete phandler;
     return rc;
 }
 
