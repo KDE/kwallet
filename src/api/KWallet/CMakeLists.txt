@@ -64,8 +64,9 @@ add_library(KF5::Wallet ALIAS KF5Wallet)
 
 target_include_directories(KF5Wallet INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KWallet>")
 
-target_link_libraries(KF5Wallet PUBLIC  Qt5::Widgets
+target_link_libraries(KF5Wallet PUBLIC  Qt5::Gui
                                 PRIVATE Qt5::DBus
+                                        Qt5::Widgets
                                 PRIVATE KF5::WindowSystem # KWindowSystem::allowExternalProcessWindowActivation
                                         KF5::ConfigCore   # used to store the wallet to be used
 )
