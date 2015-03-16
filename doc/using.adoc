@@ -1,0 +1,6 @@
+= Using the kwallet-dmenu tool
+
+See this for an example usage:
+https://github.com/valir/kwallet-dmenu
+
+
