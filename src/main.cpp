@@ -43,11 +43,14 @@ int main(int argc, char* argv[]) {
     QCommandLineParser cmdParser;
     QCommandLineOption verboseOption(QStringList() << "v" << "verbose", i18n("verbose output"));
     QCommandLineOption listOption(QStringList() << "l" << "list-entries", i18n("list password entries"));
-    QCommandLineOption readOption(QStringList() << "r" << "read-password", i18n("list password from the given <entry>"), i18n("Entry"));
+    QCommandLineOption readOption(QStringList() << "r" << "read-password", i18n("list secrets from the given <entry>"), i18n("Entry"));
+    QCommandLineOption writeOption(QStringList() << "w" << "write-password", i18n("write screts to the given <entry>. The values are read from the standard input. IMPORTANT: previous wallet entry value will be overwritten!"), i18n("Entry"));
+
     cmdParser.addHelpOption();
     cmdParser.addPositionalArgument(I18N_NOOP("wallet"), i18n("The wallet to query"));
     cmdParser.addOption(listOption);
     cmdParser.addOption(readOption);
+    cmdParser.addOption(writeOption);
     cmdParser.addOption(verboseOption);
     cmdParser.process(app);
 
@@ -61,11 +64,15 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     app.setWalletName(args.first());
-    if (cmdParser.isSet(listOption) && cmdParser.isSet(readOption)) {
-        std::cout << i18n("Only one mode (list or read) can be set. Aborting").toStdString() << std::endl;
+    if (cmdParser.isSet(listOption) &&
+        cmdParser.isSet(readOption) &&
+        cmdParser.isSet(writeOption)) {
+        std::cout << i18n("Only one mode (list, read or write) can be set. Aborting").toStdString() << std::endl;
         return 1;
     }
-    if (!cmdParser.isSet(listOption) && !cmdParser.isSet(readOption)) {
+    if (!cmdParser.isSet(listOption) &&
+        !cmdParser.isSet(readOption) &&
+        !cmdParser.isSet(writeOption)) {
         std::cout << i18n("Please specify the mode (list or read).").toStdString() << std::endl;
         return 1;
     }
@@ -73,8 +80,12 @@ int main(int argc, char* argv[]) {
         app.setMode(QueryDriver::List);
     }
     if (cmdParser.isSet(readOption)) {
-        app.setReadEntryName(cmdParser.value(readOption));
+        app.setEntryName(cmdParser.value(readOption));
         app.setMode(QueryDriver::Read);
+    }
+    if (cmdParser.isSet(writeOption)) {
+        app.setEntryName(cmdParser.value(writeOption));
+        app.setMode(QueryDriver::Write);
     }
     if (cmdParser.isSet(verboseOption)) {
         app.setVerbose();

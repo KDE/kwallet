@@ -83,6 +83,9 @@ void QueryDriver::walletOpened(bool success) {
             case Read:
                 readPasswordValue();
                 break;
+            case Write:
+                writePasswordValue();
+                break;
             default:
                 Q_ASSERT(0);
         }
@@ -106,17 +109,35 @@ void QueryDriver::readPasswordEntries() {
 }
 
 void QueryDriver::readPasswordValue() {
-    if (verbose) qDebug() << "reading " << readEntryName << " from " << walletName;
+    if (verbose) qDebug() << "reading " << entryName << " from " << walletName;
     QString entryValue;
     theWallet->setFolder("Passwords");
-    int rc = theWallet->readPassword(readEntryName, entryValue);
+    int rc = theWallet->readPassword(entryName, entryValue);
     if (rc != 0) {
-        std::cout << i18n("Failed to read entry %1 value from the %2 wallet", readEntryName, walletName).toStdString() << std::endl;
+        std::cout << i18n("Failed to read entry %1 value from the %2 wallet", entryName, walletName).toStdString() << std::endl;
         exit(2);
     }
     QStringList el = entryValue.split("\n", QString::SkipEmptyParts);
     for (auto e : el) {
         std::cout << e.toStdString() << std::endl;
+    }
+    quit();
+}
+
+void QueryDriver::writePasswordValue() {
+    if (verbose) qDebug() << "writing " << entryName << " to " << walletName;
+    theWallet->setFolder("Passwords");
+    QString passwordContents;
+    for (std::string line; std::getline(std::cin, line); ) {
+        if (!passwordContents.isEmpty()) passwordContents += '\n';
+        passwordContents += QString::fromStdString(line);
+        if (!std::cin) break;
+    }
+    if (verbose) qDebug() << "  about to write " << passwordContents;
+    int rc = theWallet->writePassword(entryName, passwordContents);
+    if (rc != 0) {
+        std::cout << i18n("Failed to write entry %1 value to %2 wallet", entryName, walletName).toStdString() << std::endl;
+        exit(2);
     }
     quit();
 }

@@ -32,7 +32,8 @@ class QueryDriver : public QApplication {
 public:
     enum Mode {
         List,
-        Read
+        Read,
+        Write
     };
     QueryDriver(int &argc, char* argv[]);
     ~QueryDriver();
@@ -40,12 +41,13 @@ public:
     void setWalletName(const QString& walletName);
     void setMode(Mode mode);
     void setVerbose() { verbose = true; }
-    void setReadEntryName(const QString& entryName) { readEntryName = entryName; }
+    void setEntryName(const QString& entryName) { this->entryName = entryName; }
 
 private:
     virtual void timerEvent(QTimerEvent* event);
     void readPasswordEntries();
     void readPasswordValue();
+    void writePasswordValue();
 
 private Q_SLOTS:
     void walletOpened(bool);
@@ -55,6 +57,6 @@ public:
     Wallet* theWallet;
     Mode mode;
     bool verbose;
-    QString readEntryName;
+    QString entryName;
 };
 
