@@ -1679,6 +1679,10 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
     if (rc != -1) {
         return rc;//Wallet already opened, return handle
     }
+    if (_wallets.count() > 20) {
+        return -1;
+    }
+
 
     KWallet::Backend *b = 0;
     //If the wallet we want to open does not exists. create it and set pam hash
@@ -1689,12 +1693,9 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
         b = new KWallet::Backend(wallet);
     }
 
-    if (_wallets.count() > 20) {
-        return -1;
-    }
-
     int openrc = b->openPreHashed(passwordHash);
     if (openrc != 0 || !b->isOpen()) {
+        delete b;
         return -1;
     }
 
