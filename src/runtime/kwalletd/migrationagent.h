@@ -34,6 +34,7 @@ class MigrationAgent : public QObject {
 public:
     MigrationAgent(KWalletD* kd);
 
+    bool isEmptyOldWallet() const;
     bool performMigration(WId wid);
 
 private Q_SLOTS:

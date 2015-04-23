@@ -55,10 +55,15 @@ void MigrationAgent::migrateWallets()
   qDebug() << "Migration agent starting...";
   if (!isAlreadyMigrated()) {
     if (connectOldDaemon()) {
-      if (isMigrationWizardOk()) {
-        setAlreadyMigrated();
+      if (!isEmptyOldWallet()) {
+        if (isMigrationWizardOk()) {
+          setAlreadyMigrated();
+        } else {
+          qDebug() << "Migration wizard returned an error or has been canceled. The migration agent will resume upon next daemon start";
+        }
       } else {
-        qDebug() << "Migration wizard returned an error or has been canceled. The migration agent will resume upon next daemon start";
+        qDebug() << "Old wallet is empty. No need to migrate.";
+        setAlreadyMigrated();
       }
     } else {
       qDebug() << "KDE4 kwalletd not present, stopping migration agent";
@@ -144,6 +149,19 @@ template <typename R, typename F> R invokeAndCheck(F f, QString errorMsg) {
         throw MigrationException(errorMsg);
     }
     return reply.value();
+}
+
+bool MigrationAgent::isEmptyOldWallet() const {
+    QStringList wallets;
+    try {
+      wallets = invokeAndCheck<QStringList>(
+              [this] { return _kde4_daemon->wallets(); },
+              i18n("Cannot read old wallet list. Aborting."));
+    } catch (MigrationException ex) {
+        return true;
+    }
+
+    return wallets.length() == 0;
 }
 
 bool MigrationAgent::performMigration(WId wid)
