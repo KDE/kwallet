@@ -104,7 +104,7 @@ bool MigrationAgent::connectOldDaemon()
             qDebug() << "The kwalletd service has been registered";
         }
     }
-    
+
     _kde4_daemon = new org::kde::KWallet(QString::fromLatin1(SERVICE_KWALLETD4), "/modules/kwalletd", QDBusConnection::sessionBus());
     return _kde4_daemon->isValid();
 }
@@ -112,14 +112,14 @@ bool MigrationAgent::connectOldDaemon()
 bool MigrationAgent::isMigrationWizardOk()
 {
     bool ok = false;
-    
+
     MigrationWizard *wizard = new MigrationWizard(this);
     int result = wizard->exec();
     if (QDialog::Accepted == result) {
         // the user either migrated the wallets, or choose not to be prompted again
         ok = true;
     }
-    
+
     return ok;
 }
 
@@ -145,48 +145,48 @@ template <typename R, typename F> R invokeAndCheck(F f, QString errorMsg) {
     }
     return reply.value();
 }
-    
+
 bool MigrationAgent::performMigration(WId wid)
 {
     auto appId = i18n("KDE Wallet Migration Agent");
     try {
         migrationAgent = this;
         QStringList wallets = invokeAndCheck<QStringList>(
-                [this] { return _kde4_daemon->wallets(); }, 
+                [this] { return _kde4_daemon->wallets(); },
                 i18n("Cannot read old wallet list. Aborting."));
 
         foreach (const QString &wallet, wallets) {
             emit progressMessage(i18n("Migrating wallet: %1", wallet));
             emit progressMessage(i18n("* Creating KF5 wallet: %1", wallet));
-            
+
             int handle5 = _kf5_daemon->internalOpen(appId, wallet, false, 0, true, QString());
             if (handle5 <0) {
                 emit progressMessage(i18n("ERROR when attempting new wallet creation. Aborting."));
                 return false;
             }
-            
+
             int handle4 = invokeAndCheck<int>(
                 [this, wallet, wid, appId] { return _kde4_daemon->open(wallet, wid, appId); },
                 i18n("Cannot open KDE4 wallet named: %1", wallet));
             emit progressMessage(i18n("* Opened KDE4 wallet: %1", wallet));
-            
+
             const QStringList folders = invokeAndCheck<QStringList>(
                 [this, handle4, appId] { return _kde4_daemon->folderList(handle4, appId); },
                 i18n("Cannot retrieve folder list. Aborting."));
-            
+
             foreach (const QString &folder, folders) {
                 emit progressMessage(i18n("* Migrating folder %1", folder));
 
                 QStringList entries = invokeAndCheck<QStringList>(
                     [this, handle4, folder, appId] { return _kde4_daemon->entryList(handle4, folder, appId); },
                     i18n("Cannot retrieve folder %1 entries. Aborting.", folder));
-                
+
                 foreach (const QString &key, entries) {
 
                     int entryType = invokeAndCheck<int>(
                         [this, handle4, folder, key, appId] { return _kde4_daemon->entryType(handle4, folder, key, appId); },
                         i18n("Cannot retrieve key %1 info. Aborting.", key));
-                    
+
                     // handle the case where the entries are already there
                     if (_kf5_daemon->hasEntry(handle5, folder, key, appId)) {
                         emit progressMessage(i18n("* SKIPPING entry %1 in folder %2 as it seems already migrated", key, folder));
@@ -202,7 +202,7 @@ bool MigrationAgent::performMigration(WId wid)
                     }
                 }
             }
-            
+
             //_kde4_daemon->close(handle4, false, appId);
             //_kf5_daemon->close(handle5, true, appId);
             _kf5_daemon->sync(handle5, appId);
