@@ -31,7 +31,7 @@
 #include "querydriver.h"
 
 int main(int argc, char* argv[]) {
-    KLocalizedString::setApplicationDomain(I18N_NOOP("kwallet-query"));
+    KLocalizedString::setApplicationDomain("kwallet-query");
 
     KAboutData aboutData(
             I18N_NOOP("kwallet-query"),
