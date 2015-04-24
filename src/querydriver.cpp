@@ -3,12 +3,12 @@
 
     Copyright (C) 2015 Valentin Rusu (kde@rusu.info)
 
-    This library is free software; you can redistribute it and/or
+    This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
     License as published by the Free Software Foundation; either
     version 2 of the License, or (at your option) any later version.
 
-    This library is distributed in the hope that it will be useful,
+    This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
     Library General Public License for more details.
@@ -97,7 +97,7 @@ void QueryDriver::readPasswordEntries() {
     auto fl = theWallet->folderList();
     if (fl.indexOf("Passwords") == -1) {
         std::cout << i18n("'Passwords' folder not found").toStdString() << std::endl;
-        exit(2);
+        exit(3);
     }
     theWallet->setFolder("Passwords");
     auto el = theWallet->entryList();
@@ -115,7 +115,7 @@ void QueryDriver::readPasswordValue() {
     int rc = theWallet->readPassword(entryName, entryValue);
     if (rc != 0) {
         std::cout << i18n("Failed to read entry %1 value from the %2 wallet", entryName, walletName).toStdString() << std::endl;
-        exit(2);
+        exit(4);
     }
     QStringList el = entryValue.split("\n", QString::SkipEmptyParts);
     for (auto e : el) {
@@ -137,7 +137,7 @@ void QueryDriver::writePasswordValue() {
     int rc = theWallet->writePassword(entryName, passwordContents);
     if (rc != 0) {
         std::cout << i18n("Failed to write entry %1 value to %2 wallet", entryName, walletName).toStdString() << std::endl;
-        exit(2);
+        exit(4);
     }
     quit();
 }
