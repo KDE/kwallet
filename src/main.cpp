@@ -45,8 +45,8 @@ int main(int argc, char* argv[]) {
     QCommandLineParser cmdParser;
     QCommandLineOption verboseOption(QStringList() << "v" << "verbose", i18n("verbose output"));
     QCommandLineOption listOption(QStringList() << "l" << "list-entries", i18n("list password entries"));
-    QCommandLineOption readOption(QStringList() << "r" << "read-password", i18n("list secrets from the given <entry>"), i18n("Entry"));
-    QCommandLineOption writeOption(QStringList() << "w" << "write-password", i18n("write screts to the given <entry>. The values are read from the standard input. IMPORTANT: previous wallet entry value will be overwritten!"), i18n("Entry"));
+    QCommandLineOption readOption(QStringList() << "r" << "read-password", i18n("reads the secrets from the given <entry>"), i18n("Entry"));
+    QCommandLineOption writeOption(QStringList() << "w" << "write-password", i18n("write secrets to the given <entry>. The values are read from the standard input. IMPORTANT: previous wallet entry value will be overwritten!"), i18n("Entry"));
 
     cmdParser.addHelpOption();
     cmdParser.addPositionalArgument(I18N_NOOP("wallet"), i18n("The wallet to query"));
