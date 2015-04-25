@@ -1,0 +1,67 @@
+kwallet-query(1)
+================
+:doctype: manpage
+
+NAME
+----
+kwallet-query - KDE Wallet command-line manipulation tool
+
+SYNOPSIS
+--------
+*kwallet-query* 'OPTIONS' 'wallet'
+
+DESCRIPTION
+-----------
+kwallet-query comes in handy when shell scripts need to read or update the KDE
+Wallet. It works by manipulating the entries under the *Passwords* section, as
+displayed in the *KDE Wallet Manager* utility. It's only parameter is the
+'wallet' name the tool should read or update. The operation mode is specified
+by the options.
+
+OPTIONS
+-------
+*-h,--help*::
+  Display a short help message
+*-l,--list-entries*::
+  List password entries. These are the folder names under the *Passwords*
+  section when the 'wallet' is displayed in the *KDE Wallet Manager* utility.
+*-r,--read-password* 'Entry'::
+  Read the contents of the given 'Entry' from the *Passwords* section of the
+  'wallet' and output it on the standard output.
+*-w,--write-password* 'Entry'::
+  Write secrets to the given 'Entry' under the *Passwords* section of the given
+  'wallet'. The secrets are read from the standard input.
+  *IMPORTANT* previous wallet entry value will be overwritten by this option, so
+  be careful when using it!
+*-v,--verbose*::
+  Output more information when performing the operation, to help debugging.
+
+EXIT STATUS
+-----------
+*0*::
+  Success
+*1*::
+  The wallet 'wallet' was not found
+*2*::
+  The wallet 'wallet' could not be opened. For example, that would be an indication
+  of a bad password entry or some other problem with the KDE Wallet system
+*3*::
+  The *Passwords* section was not found inside the wallet 'wallet'. Perhaps the
+  wallet file is corrupt?
+*4*::
+  The read or write operation has failed for some reason.
+
+BUGS
+----
+Please report all bugs on the KDE bug reporting website: bugs.kde.org. Be sure to
+select kwallet-query when submitting your bug-report.
+
+AUTHOR
+------
+kwallet-query was originally written by Valentin Rusu and is part of KDE.
+
+COPYING
+-------
+Copyright \(C) 2015 Valentin Rusu. Free use of this software is
+granted under the terms of the GNU General Public License (GPL).
+
