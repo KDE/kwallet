@@ -10,7 +10,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_S
 set(REQUIRED_QT_VERSION 5.2.0)
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
 
-set(KF5_VERSION "5.10.0") # handled by release scripts
+set(KF5_VERSION "5.11.0") # handled by release scripts
 set(KF5_DEP_VERSION "5.10.0") # handled by release scripts
 include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings)
