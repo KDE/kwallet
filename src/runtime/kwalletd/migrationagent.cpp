@@ -39,7 +39,11 @@ MigrationAgent::MigrationAgent(KWalletD* kd) :
   _kf5_daemon(kd)
   , _kde4_daemon(0)
 {
-  QTimer::singleShot(100, this, SLOT(migrateWallets()));
+  if (isAlreadyMigrated()) {
+    qDebug() << "old wallets were already migrated";
+  } else {
+    QTimer::singleShot(100, this, SLOT(migrateWallets()));
+  }
 }
 
 void MigrationAgent::migrateWallets()
@@ -53,7 +57,7 @@ void MigrationAgent::migrateWallets()
   // if the migration wizard returns without error
   // create "alreadyMigrated=true" setting
   qDebug() << "Migration agent starting...";
-  if (!isAlreadyMigrated()) {
+  {
     if (connectOldDaemon()) {
       if (!isEmptyOldWallet()) {
         if (isMigrationWizardOk()) {
@@ -68,8 +72,6 @@ void MigrationAgent::migrateWallets()
     } else {
       qDebug() << "KDE4 kwalletd not present, stopping migration agent";
     }
-  } else {
-    qDebug() << "old wallets were already migrated";
   }
   qDebug() << "Migration agent stop.";
 }
