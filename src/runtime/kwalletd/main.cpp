@@ -63,9 +63,10 @@ int main(int argc, char **argv)
     aboutdata.addAuthor(i18n("George Staikos"), i18n("Former maintainer"), "staikos@kde.org");
     aboutdata.addAuthor(i18n("Thiago Maceira"), i18n("D-Bus Interface"), "thiago@kde.org");
 
+    KDBusService dbusUniqueInstance(KDBusService::Unique);
+
     KWalletD walletd;
     MigrationAgent migrationAgent(&walletd);
-    KDBusService dbusUniqueInstance(KDBusService::Unique | KDBusService::NoExitOnFailure);
 
     // NOTE: the command should be parsed only after KDBusService instantiation
     QCommandLineParser cmdParser;
@@ -80,11 +81,6 @@ int main(int argc, char **argv)
     if (!isWalletEnabled()) {
         qDebug() << "kwalletd is disabled!";
         return (0);
-    }
-
-    if (!dbusUniqueInstance.isRegistered()) {
-        qDebug() << "kwalletd is already running!";
-        return 1;
     }
 
     qDebug() << "kwalletd5 started";
