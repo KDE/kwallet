@@ -41,6 +41,7 @@ MigrationAgent::MigrationAgent(KWalletD* kd, const char *hash) :
   , _kde4_daemon(nullptr)
   , _pam_hash(hash)
 {
+  connect(this, &MigrationAgent::migrationFinished, _kf5_daemon, &KWalletD::registerKWalletd4Service);
   if (isAlreadyMigrated()) {
     qDebug() << "old wallets were already migrated";
     emit migrationFinished();

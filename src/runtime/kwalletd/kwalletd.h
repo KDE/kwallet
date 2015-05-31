@@ -182,6 +182,7 @@ private Q_SLOTS:
     void notifyFailures();
     void processTransactions();
     void activatePasswordDialog();
+    void registerKWalletd4Service();
 #ifdef Q_WS_X11
     void connectToScreenSaver();
 #endif
