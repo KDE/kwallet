@@ -153,6 +153,19 @@ KWalletD::KWalletD()
     connect(&_serviceWatcher, SIGNAL(serviceOwnerChanged(QString,QString,QString)), this, SLOT(slotServiceOwnerChanged(QString,QString,QString)));
 }
 
+void KWalletD::registerKWalletd4Service()
+{
+    auto bus = QDBusConnection::sessionBus().interface();
+    auto reply = bus->registerService(QLatin1String("org.kde.kwalletd"), QDBusConnectionInterface::QueueService);
+    if (reply.isValid() && (reply.value() == QDBusConnectionInterface::ServiceQueued)) {
+      QDBusInterface _kde_kwalletd4("org.kde.kwalletd", "/MainApplication", "org.kde.KApplication");
+      if (_kde_kwalletd4.isValid()) {
+	auto qreply = _kde_kwalletd4.call("quit");
+      }
+    }
+    QDBusConnection::sessionBus().registerObject(QLatin1String("/modules/kwalletd"), this);
+}
+
 KWalletD::~KWalletD()
 {
 #ifdef Q_WS_X11
