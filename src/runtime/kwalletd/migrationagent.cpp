@@ -43,6 +43,7 @@ MigrationAgent::MigrationAgent(KWalletD* kd, const char *hash) :
 {
   if (isAlreadyMigrated()) {
     qDebug() << "old wallets were already migrated";
+    emit migrationFinished();
   } else {
     QTimer::singleShot(100, this, SLOT(migrateWallets()));
   }
@@ -63,15 +64,18 @@ void MigrationAgent::migrateWallets()
     if (!isEmptyOldWallet()) {
       if (isMigrationWizardOk()) {
         setAlreadyMigrated();
+        emit migrationFinished();
       } else {
         qDebug() << "Migration wizard returned an error or has been canceled. The migration agent will resume upon next daemon start";
       }
     } else {
       qDebug() << "Old wallet is empty. No need to migrate.";
       setAlreadyMigrated();
+      emit migrationFinished();
     }
   } else {
     qDebug() << "KDE4 kwalletd not present, stopping migration agent";
+    emit migrationFinished();
   }
   qDebug() << "Migration agent stop.";
 }

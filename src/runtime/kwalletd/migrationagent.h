@@ -48,6 +48,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void progressMessage(const QString &);
+    void migrationFinished();
 
 private:
     KWalletD		*_kf5_daemon;
