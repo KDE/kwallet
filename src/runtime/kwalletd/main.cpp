@@ -189,9 +189,10 @@ int main(int argc, char **argv)
     aboutdata.addAuthor(i18n("George Staikos"), i18n("Former maintainer"), QStringLiteral("staikos@kde.org"));
     aboutdata.addAuthor(i18n("Thiago Maceira"), i18n("D-Bus Interface"), QStringLiteral("thiago@kde.org"));
 
+    KDBusService dbusUniqueInstance(KDBusService::Unique);
+
     KWalletD walletd;
     MigrationAgent migrationAgent(&walletd, hash);
-    KDBusService dbusUniqueInstance(KDBusService::Unique);
 
     // NOTE: the command should be parsed only after KDBusService instantiation
     QCommandLineParser cmdParser;
