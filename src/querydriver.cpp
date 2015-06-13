@@ -22,10 +22,13 @@
 #include "querydriver.h"
 
 #include <iostream>
-#include <QDebug>
-#include <QTimer>
-#include <QDesktopWidget>
+
 #include <QByteArray>
+#include <QDebug>
+#include <QDesktopWidget>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QTimer>
 
 #include <KLocalizedString>
 
@@ -129,9 +132,11 @@ void QueryDriver::readMapValue() {
         std::cout << i18n("Failed to read entry %1 value from the %2 wallet", entryName, walletName).toStdString() << std::endl;
         exit(4);
     }
+    QJsonObject json;
     for (auto e : map.keys()) {
-        std::cout << e.toStdString() << ": " << map.value(e).toStdString() << std::endl;
+        json.insert(e, QJsonValue::fromVariant(QVariant(map.value(e))));
     }
+    std::cout << QJsonDocument(json).toJson().toStdString() << std::endl;
 }
 
 void QueryDriver::readPasswordValue() {
