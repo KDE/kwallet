@@ -58,7 +58,7 @@
 <listitem>
 <simpara>
   Read the contents of the given <emphasis>Entry</emphasis> from the <emphasis role="strong">Folder</emphasis> section of the
-  <emphasis>wallet</emphasis> and output it on the standard output.
+  <emphasis>wallet</emphasis> and output it on the standard output. Maps are exported as JSON object.
 </simpara>
 </listitem>
 </varlistentry>
@@ -69,7 +69,7 @@
 <listitem>
 <simpara>
   Write secrets to the given <emphasis>Entry</emphasis> under the <emphasis role="strong">Folder</emphasis> section of the given
-  <emphasis>wallet</emphasis>. The secrets are read from the standard input.
+  <emphasis>wallet</emphasis>. The secrets are read from the standard input. Maps take in input a well-formed JSON object.
   <emphasis role="strong">IMPORTANT</emphasis> previous wallet entry value will be overwritten by this option, so
   be careful when using it!
 </simpara>

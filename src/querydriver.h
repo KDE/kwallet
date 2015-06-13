@@ -50,7 +50,7 @@ private:
     void readValue();
     void readMapValue();
     void readPasswordValue();
-    void writePasswordValue();
+    void writeValue();
 
 private Q_SLOTS:
     void walletOpened(bool);

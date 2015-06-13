@@ -88,7 +88,7 @@ void QueryDriver::walletOpened(bool success) {
                 readValue();
                 break;
             case Write:
-                writePasswordValue();
+                writeValue();
                 break;
             default:
                 Q_ASSERT(0);
@@ -152,15 +152,9 @@ void QueryDriver::readPasswordValue() {
     }
 }
 
-void QueryDriver::writePasswordValue() {
+void QueryDriver::writeValue() {
     if (verbose) qDebug() << "writing" << entryName << "to" << entryFolder << "to" << walletName;
     theWallet->setFolder(entryFolder);
-
-    Wallet::EntryType kind = theWallet->entryType(entryName);
-    if (kind != Wallet::Password) {
-        std::cout << i18n("You can only write password values. Maps are not supported.").toStdString() << std::endl;
-        exit(4);
-    }
 
     QString passwordContents;
     for (std::string line; std::getline(std::cin, line); ) {
@@ -168,11 +162,29 @@ void QueryDriver::writePasswordValue() {
         passwordContents += QString::fromStdString(line);
         if (!std::cin) break;
     }
-    if (verbose) qDebug() << "  about to write " << passwordContents;
-    int rc = theWallet->writePassword(entryName, passwordContents);
-    if (rc != 0) {
-        std::cout << i18n("Failed to write entry %1 value to %2 wallet", entryName, walletName).toStdString() << std::endl;
-        exit(4);
+    Wallet::EntryType kind = theWallet->entryType(entryName);
+    if (kind == Wallet::Password) {
+        if (verbose) qDebug() << "about to write" << passwordContents;
+        int rc = theWallet->writePassword(entryName, passwordContents);
+        if (rc != 0) {
+            std::cout << i18n("Failed to write entry %1 value to %2 wallet", entryName, walletName).toStdString() << std::endl;
+            exit(4);
+        }
+    } else if (kind == Wallet::Map) {
+        const QJsonDocument json = QJsonDocument::fromJson(passwordContents.toLatin1());
+        if (!json.isNull()) {
+            QJsonObject values = json.object();
+            QMap<QString, QString> map;
+            for (auto e : values.keys()) {
+                map.insert(e, values.value(e).toString());
+            }
+            if (verbose) qDebug() << "about to write" << map;
+            int rc = theWallet->writeMap(entryName, map);
+            if (rc != 0) {
+                std::cout << i18n("Failed to write entry %1 value to %2 wallet", entryName, walletName).toStdString() << std::endl;
+                exit(4);
+            }
+        }
     }
     quit();
 }
