@@ -21,11 +21,11 @@
 </refsynopsisdiv>
 <refsect1 id="_description">
 <title>DESCRIPTION</title>
-<simpara>kwallet-query comes in handy when shell scripts need to read or update the KDE
-Wallet. It works by manipulating the entries under the <emphasis role="strong">Passwords</emphasis> section, as
-displayed in the <emphasis role="strong">KDE Wallet Manager</emphasis> utility. It&#8217;s only parameter is the
-<emphasis>wallet</emphasis> name the tool should read or update. The operation mode is specified
-by the options.</simpara>
+<simpara>
+  kwallet-query comes in handy when shell scripts need to read or update the KDE Wallet. It works by manipulating the entries
+  displayed in the <emphasis role="strong">KDE Wallet Manager</emphasis> utility. It&#8217;s only parameter is the
+  <emphasis>wallet</emphasis> name the tool should read or update. The operation mode is specified by the options.
+</simpara>
 </refsect1>
 <refsect1 id="_options">
 <title>OPTIONS</title>
@@ -46,8 +46,8 @@ by the options.</simpara>
 </term>
 <listitem>
 <simpara>
-  List password entries. These are the folder names under the <emphasis role="strong">Passwords</emphasis>
-  section when the <emphasis>wallet</emphasis> is displayed in the <emphasis role="strong">KDE Wallet Manager</emphasis> utility.
+  List password entries. These are the folder names displayed in the <emphasis role="strong">KDE Wallet Manager</emphasis>
+  utility.
 </simpara>
 </listitem>
 </varlistentry>
@@ -57,7 +57,7 @@ by the options.</simpara>
 </term>
 <listitem>
 <simpara>
-  Read the contents of the given <emphasis>Entry</emphasis> from the <emphasis role="strong">Passwords</emphasis> section of the
+  Read the contents of the given <emphasis>Entry</emphasis> from the <emphasis role="strong">Folder</emphasis> section of the
   <emphasis>wallet</emphasis> and output it on the standard output.
 </simpara>
 </listitem>
@@ -68,10 +68,20 @@ by the options.</simpara>
 </term>
 <listitem>
 <simpara>
-  Write secrets to the given <emphasis>Entry</emphasis> under the <emphasis role="strong">Passwords</emphasis> section of the given
+  Write secrets to the given <emphasis>Entry</emphasis> under the <emphasis role="strong">Folder</emphasis> section of the given
   <emphasis>wallet</emphasis>. The secrets are read from the standard input.
   <emphasis role="strong">IMPORTANT</emphasis> previous wallet entry value will be overwritten by this option, so
   be careful when using it!
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<emphasis role="strong">-f,--folder</emphasis> <emphasis>Folder</emphasis>
+</term>
+<listitem>
+<simpara>
+  Set the <emphasis>wallet</emphasis> folder to <emphasis>Folder</emphasis> value. By default <emphasis role="strong">Passwords</emphasis> is used.
 </simpara>
 </listitem>
 </varlistentry>
@@ -127,7 +137,7 @@ by the options.</simpara>
 </term>
 <listitem>
 <simpara>
-  The <emphasis role="strong">Passwords</emphasis> section was not found inside the wallet <emphasis>wallet</emphasis>. Perhaps the
+  The <emphasis role="strong">Folder</emphasis> section was not found inside the wallet <emphasis>wallet</emphasis>. Perhaps the
   wallet file is corrupt?
 </simpara>
 </listitem>

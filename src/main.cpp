@@ -47,12 +47,14 @@ int main(int argc, char* argv[]) {
     QCommandLineOption listOption(QStringList() << "l" << "list-entries", i18n("list password entries"));
     QCommandLineOption readOption(QStringList() << "r" << "read-password", i18n("reads the secrets from the given <entry>"), i18n("Entry"));
     QCommandLineOption writeOption(QStringList() << "w" << "write-password", i18n("write secrets to the given <entry>. The values are read from the standard input. IMPORTANT: previous wallet entry value will be overwritten!"), i18n("Entry"));
+    QCommandLineOption folderOption(QStringList() << "f" << "folder", i18n("specify the folder in the wallet <folder>"), i18n("Folder"));
 
     cmdParser.addHelpOption();
     cmdParser.addPositionalArgument(I18N_NOOP("wallet"), i18n("The wallet to query"));
     cmdParser.addOption(listOption);
     cmdParser.addOption(readOption);
     cmdParser.addOption(writeOption);
+    cmdParser.addOption(folderOption);
     cmdParser.addOption(verboseOption);
     cmdParser.process(app);
 
@@ -88,6 +90,9 @@ int main(int argc, char* argv[]) {
     if (cmdParser.isSet(writeOption)) {
         app.setEntryName(cmdParser.value(writeOption));
         app.setMode(QueryDriver::Write);
+    }
+    if (cmdParser.isSet(folderOption)) {
+        app.setEntryFolder(cmdParser.value(folderOption));
     }
     if (cmdParser.isSet(verboseOption)) {
         app.setVerbose();

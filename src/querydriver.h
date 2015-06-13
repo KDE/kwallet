@@ -42,10 +42,13 @@ public:
     void setMode(Mode mode);
     void setVerbose() { verbose = true; }
     void setEntryName(const QString& entryName) { this->entryName = entryName; }
+    void setEntryFolder(const QString& entryFolder) { this->entryFolder = entryFolder; }
 
 private:
     virtual void timerEvent(QTimerEvent* event);
-    void readPasswordEntries();
+    void readEntries();
+    void readValue();
+    void readMapValue();
     void readPasswordValue();
     void writePasswordValue();
 
@@ -58,5 +61,6 @@ public:
     Mode mode;
     bool verbose;
     QString entryName;
+    QString entryFolder;
 };
 

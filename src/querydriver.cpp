@@ -34,6 +34,7 @@ QueryDriver::QueryDriver(int &argc, char* argv[]) :
     QApplication(argc, argv)
     , theWallet(0)
     , verbose(false)
+    , entryFolder("Passwords")
 {
     QTimerEvent *timerEvent = new QTimerEvent(100);
     postEvent(this, timerEvent);
@@ -78,10 +79,10 @@ void QueryDriver::walletOpened(bool success) {
     } else {
         switch (mode) {
             case List:
-                readPasswordEntries();
+                readEntries();
                 break;
             case Read:
-                readPasswordValue();
+                readValue();
                 break;
             case Write:
                 writePasswordValue();
@@ -92,26 +93,49 @@ void QueryDriver::walletOpened(bool success) {
     }
 }
 
-void QueryDriver::readPasswordEntries() {
+void QueryDriver::readEntries() {
     theWallet = Wallet::openWallet(walletName, 0);
     auto fl = theWallet->folderList();
-    if (fl.indexOf("Passwords") == -1) {
-        std::cout << i18n("'Passwords' folder not found").toStdString() << std::endl;
-        exit(3);
-    }
-    theWallet->setFolder("Passwords");
-    auto el = theWallet->entryList();
-    for (auto e: el) {
-        if (theWallet->entryType(e) == Wallet::Password)
-            std::cout << e.toStdString() << std::endl;
+    for (auto f: fl) {
+        std::cout << f.toStdString() << std::endl;
+        theWallet->setFolder(f);
+        auto el = theWallet->entryList();
+        for (auto e: el) {
+            std::cout << "\t" << e.toStdString() << std::endl;
+        }
     }
     quit();
 }
 
+void QueryDriver::readValue() {
+    if (verbose) qDebug() << "reading" << entryName << "from" << entryFolder << "from" << walletName;
+    theWallet->setFolder(entryFolder);
+    Wallet::EntryType kind = theWallet->entryType(entryName);
+    if (kind == Wallet::Password) {
+        readPasswordValue();
+    } else if (kind == Wallet::Map) {
+        readMapValue();
+    } else {
+        std::cout << i18n("Failed to read entry %1 value from the %2 wallet.", entryName, walletName).toStdString() << std::endl;
+        exit(4);
+    }
+    quit();
+}
+
+void QueryDriver::readMapValue() {
+    QMap<QString, QString> map;
+    int rc = theWallet->readMap(entryName, map);
+    if (rc != 0) {
+        std::cout << i18n("Failed to read entry %1 value from the %2 wallet", entryName, walletName).toStdString() << std::endl;
+        exit(4);
+    }
+    for (auto e : map.keys()) {
+        std::cout << e.toStdString() << ": " << map.value(e).toStdString() << std::endl;
+    }
+}
+
 void QueryDriver::readPasswordValue() {
-    if (verbose) qDebug() << "reading " << entryName << " from " << walletName;
     QString entryValue;
-    theWallet->setFolder("Passwords");
     int rc = theWallet->readPassword(entryName, entryValue);
     if (rc != 0) {
         std::cout << i18n("Failed to read entry %1 value from the %2 wallet", entryName, walletName).toStdString() << std::endl;
@@ -121,12 +145,18 @@ void QueryDriver::readPasswordValue() {
     for (auto e : el) {
         std::cout << e.toStdString() << std::endl;
     }
-    quit();
 }
 
 void QueryDriver::writePasswordValue() {
-    if (verbose) qDebug() << "writing " << entryName << " to " << walletName;
-    theWallet->setFolder("Passwords");
+    if (verbose) qDebug() << "writing" << entryName << "to" << entryFolder << "to" << walletName;
+    theWallet->setFolder(entryFolder);
+
+    Wallet::EntryType kind = theWallet->entryType(entryName);
+    if (kind != Wallet::Password) {
+        std::cout << i18n("You can only write password values. Maps are not supported.").toStdString() << std::endl;
+        exit(4);
+    }
+
     QString passwordContents;
     for (std::string line; std::getline(std::cin, line); ) {
         if (!passwordContents.isEmpty()) passwordContents += '\n';
