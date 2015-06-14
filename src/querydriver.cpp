@@ -98,21 +98,35 @@ void QueryDriver::walletOpened(bool success) {
 
 void QueryDriver::readEntries() {
     theWallet = Wallet::openWallet(walletName, 0);
-    auto fl = theWallet->folderList();
-    for (auto f: fl) {
-        std::cout << f.toStdString() << std::endl;
-        theWallet->setFolder(f);
-        auto el = theWallet->entryList();
-        for (auto e: el) {
-            std::cout << "\t" << e.toStdString() << std::endl;
-        }
+    if (entryFolder.isEmpty()) {
+      auto fl = theWallet->folderList();
+      for (auto f: fl) {
+          std::cout << f.toStdString() << std::endl;
+          Q_ASSERT(theWallet->setFolder(f));
+          auto el = theWallet->entryList();
+          for (auto e: el) {
+              std::cout << "\t" << e.toStdString() << std::endl;
+          }
+      }
+    } else {
+      if (!theWallet->setFolder(entryFolder)) {
+        std::cout << i18n("The folder %1 do not exist!", entryFolder).toStdString() << std::endl;
+        exit(4);
+      }
+      auto el = theWallet->entryList();
+      for (auto e: el) {
+          std::cout << e.toStdString() << std::endl;
+      }
     }
     quit();
 }
 
 void QueryDriver::readValue() {
     if (verbose) qDebug() << "reading" << entryName << "from" << entryFolder << "from" << walletName;
-    theWallet->setFolder(entryFolder);
+    if (!theWallet->setFolder(entryFolder)) {
+      std::cout << i18n("The folder %1 do not exist!", entryFolder).toStdString() << std::endl;
+      exit(4);
+    }
     Wallet::EntryType kind = theWallet->entryType(entryName);
     if (kind == Wallet::Password) {
         readPasswordValue();
