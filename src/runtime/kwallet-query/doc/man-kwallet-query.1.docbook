@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<?asciidoc-toc?>
-<?asciidoc-numbered?>
-<refentry lang="en">
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % English "INCLUDE"><!-- change language only here -->
+]>
+
+<refentry>
 <refentryinfo>
-    <title>kwallet-query(1)</title>
+  <title>kwallet-query(1)</title>
+  <author>
+    <firstname>Valentin</firstname>
+    <surname>Rusu</surname>
+    <contrib>Original author</contrib>
+    <address><email>kde@rusu.info</email></address>
+  </author>
 </refentryinfo>
 <refmeta>
 <refentrytitle>kwallet-query</refentrytitle>
