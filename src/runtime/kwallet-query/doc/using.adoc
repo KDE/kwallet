@@ -1,4 +1,4 @@
-= Using the kwallet-dmenu tool
+= Using the kwallet-query tool
 
 See this for an example usage:
 https://github.com/valir/kwallet-dmenu
