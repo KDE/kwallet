@@ -23,6 +23,7 @@ include(KDECMakeSettings)
 include(ECMSetupVersion)
 
 option(BUILD_KWALLETD "Build the kwallet daemon" ON)
+option(BUILD_KWALLET_QUERY "Build kwallet-query tool" ON)
 
 find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)

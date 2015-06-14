@@ -1,8 +1,11 @@
 set(CMAKE_BUILD_TYPE Debug)
+set(KF5Wallet_DIR ${CMAKE_CURRENT_BINARY_DIR}/../../../api/KWallet)
 FIND_PACKAGE(KF5 ${KF5_VERSION} REQUIRED
-    Wallet
     CoreAddons
     I18n)
+
+include_directories(${CMAKE_SOURCE_DIR}/src/api/KWallet)
+include_directories(${CMAKE_BINARY_DIR}/src/api/KWallet)
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 set(kwallet-query_SRCS
@@ -12,7 +15,7 @@ set(kwallet-query_SRCS
 add_executable(kwallet-query ${kwallet-query_SRCS})
 
 TARGET_LINK_LIBRARIES(kwallet-query
-    KF5::Wallet
+    KF5Wallet
     KF5::CoreAddons
     KF5::I18n
     Qt5::Widgets
