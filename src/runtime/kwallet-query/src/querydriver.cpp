@@ -110,7 +110,7 @@ void QueryDriver::readEntries() {
       }
     } else {
       if (!theWallet->setFolder(entryFolder)) {
-        std::cout << i18n("The folder %1 do not exist!", entryFolder).toStdString() << std::endl;
+        std::cout << i18n("The folder %1 doeos not exist!", entryFolder).toStdString() << std::endl;
         exit(4);
       }
       auto el = theWallet->entryList();
@@ -124,7 +124,7 @@ void QueryDriver::readEntries() {
 void QueryDriver::readValue() {
     if (verbose) qDebug() << "reading" << entryName << "from" << entryFolder << "from" << walletName;
     if (!theWallet->setFolder(entryFolder)) {
-      std::cout << i18n("The folder %1 do not exist!", entryFolder).toStdString() << std::endl;
+      std::cout << i18n("The folder %1 does not exist!", entryFolder).toStdString() << std::endl;
       exit(4);
     }
     Wallet::EntryType kind = theWallet->entryType(entryName);
