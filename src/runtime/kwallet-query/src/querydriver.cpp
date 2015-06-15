@@ -110,7 +110,7 @@ void QueryDriver::readEntries() {
       }
     } else {
       if (!theWallet->setFolder(entryFolder)) {
-        std::cout << i18n("The folder %1 doeos not exist!", entryFolder).toUtf8().constData() << std::endl;
+        std::cout << i18n("The folder %1 does not exist!", entryFolder).toUtf8().constData() << std::endl;
         exit(4);
       }
       auto el = theWallet->entryList();
