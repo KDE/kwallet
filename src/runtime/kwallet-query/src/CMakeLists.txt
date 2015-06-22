@@ -1,4 +1,6 @@
-set(CMAKE_BUILD_TYPE Debug)
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build." FORCE)
+endif ()
 set(KF5Wallet_DIR ${CMAKE_CURRENT_BINARY_DIR}/../../../api/KWallet)
 FIND_PACKAGE(KF5 ${KF5_VERSION} REQUIRED
     CoreAddons
