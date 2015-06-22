@@ -7,6 +7,4 @@
 FIND_PACKAGE(KF5 ${KF5_VERSION} REQUIRED DocTools)
 
 set(m kwallet-query)
-kdoctools_create_manpage(man-${m}.1.docbook 1)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${m}.1 DESTINATION ${MAN_INSTALL_DIR})
-
+kdoctools_create_manpage(man-${m}.1.docbook 1 INSTALL_DESTINATION ${KDE_INSTALL_MANDIR})
