@@ -138,9 +138,7 @@ class MigrationException {
     QString _msg;
 };
 
-MigrationAgent *migrationAgent = NULL;
-
-template <typename R, typename F> R invokeAndCheck(F f, QString errorMsg) {
+template <typename R, typename F> R invokeAndCheck(MigrationAgent *migrationAgent, F f, QString errorMsg) {
     QDBusPendingReply<R> reply = f();
     reply.waitForFinished();
     QApplication::processEvents(); // keep UI responsive to show progress messages
@@ -155,7 +153,7 @@ bool MigrationAgent::isEmptyOldWallet() const {
     QStringList wallets;
     try {
       wallets = invokeAndCheck<QStringList>(
-              [this] { return _kde4_daemon->wallets(); },
+              const_cast<MigrationAgent*>(this), [this] { return _kde4_daemon->wallets(); },
               i18n("Cannot read old wallet list. Aborting."));
     } catch (MigrationException ex) {
         return true;
@@ -168,9 +166,8 @@ bool MigrationAgent::performMigration(WId wid)
 {
     auto appId = i18n("KDE Wallet Migration Agent");
     try {
-        migrationAgent = this;
         QStringList wallets = invokeAndCheck<QStringList>(
-                [this] { return _kde4_daemon->wallets(); },
+                this, [this] { return _kde4_daemon->wallets(); },
                 i18n("Cannot read old wallet list. Aborting."));
 
         foreach (const QString &wallet, wallets) {
@@ -184,25 +181,25 @@ bool MigrationAgent::performMigration(WId wid)
             }
 
             int handle4 = invokeAndCheck<int>(
-                [this, wallet, wid, appId] { return _kde4_daemon->open(wallet, wid, appId); },
+                this, [this, wallet, wid, appId] { return _kde4_daemon->open(wallet, wid, appId); },
                 i18n("Cannot open KDE4 wallet named: %1", wallet));
             emit progressMessage(i18n("* Opened KDE4 wallet: %1", wallet));
 
             const QStringList folders = invokeAndCheck<QStringList>(
-                [this, handle4, appId] { return _kde4_daemon->folderList(handle4, appId); },
+                this, [this, handle4, appId] { return _kde4_daemon->folderList(handle4, appId); },
                 i18n("Cannot retrieve folder list. Aborting."));
 
             foreach (const QString &folder, folders) {
                 emit progressMessage(i18n("* Migrating folder %1", folder));
 
                 QStringList entries = invokeAndCheck<QStringList>(
-                    [this, handle4, folder, appId] { return _kde4_daemon->entryList(handle4, folder, appId); },
+                    this, [this, handle4, folder, appId] { return _kde4_daemon->entryList(handle4, folder, appId); },
                     i18n("Cannot retrieve folder %1 entries. Aborting.", folder));
 
                 foreach (const QString &key, entries) {
 
                     int entryType = invokeAndCheck<int>(
-                        [this, handle4, folder, key, appId] { return _kde4_daemon->entryType(handle4, folder, key, appId); },
+                        this, [this, handle4, folder, key, appId] { return _kde4_daemon->entryType(handle4, folder, key, appId); },
                         i18n("Cannot retrieve key %1 info. Aborting.", key));
 
                     // handle the case where the entries are already there
@@ -210,8 +207,8 @@ bool MigrationAgent::performMigration(WId wid)
                         emit progressMessage(i18n("* SKIPPING entry %1 in folder %2 as it seems already migrated", key, folder));
                     } else {
                         QByteArray entry = invokeAndCheck<QByteArray>(
-                            [this, handle4, folder, key, appId] { return _kde4_daemon->readEntry(handle4, folder, key, appId); },
-                                                                      i18n("Cannot retrieve key %1 data. Aborting.", key));
+                            this, [this, handle4, folder, key, appId] { return _kde4_daemon->readEntry(handle4, folder, key, appId); },
+                            i18n("Cannot retrieve key %1 data. Aborting.", key));
                         if ( _kf5_daemon->writeEntry(handle5, folder, key, entry, entryType, appId) != 0 ) {
                             auto msg = i18n("Cannot write entry %1 in the new wallet. Aborting.", key);
                             emit progressMessage(msg);
