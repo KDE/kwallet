@@ -372,7 +372,7 @@ int Backend::openInternal(WId w)
 
     BackendPersistHandler *phandler = BackendPersistHandler::getPersistHandler(magicBuf);
     if (0 == phandler) {
-        return 42; // unknown cipher or hash
+        return -42; // unknown cipher or hash
     }
     int result = phandler->read(this, db, w);
     delete phandler;
