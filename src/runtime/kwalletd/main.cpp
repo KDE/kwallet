@@ -209,7 +209,11 @@ int main(int argc, char **argv)
     if (hash) {
         QByteArray passHash(hash, PBKDF2_SHA512_KEYSIZE);
         int wallet = walletd.pamOpen(KWallet::Wallet::LocalWallet(), passHash, 0);
-        qDebug() << "Wallet opened by PAM";
+        if (wallet < 0) {
+            qWarning() << "Wallet failed to get opened by PAM, error code is" << wallet;
+        } else {
+            qDebug() << "Wallet opened by PAM";
+        }
         free(hash);
     }
 
