@@ -1696,7 +1696,7 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
     int openrc = b->openPreHashed(passwordHash);
     if (openrc != 0 || !b->isOpen()) {
         delete b;
-        return -1;
+        return openrc;
     }
 
     // opening the wallet was successful
