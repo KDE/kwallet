@@ -268,6 +268,8 @@ QString Backend::openRCToString(int rc)
         return i18n("Not a wallet file.");
     case -4:
         return i18n("Unsupported file format revision.");
+    case -41:
+        return QStringLiteral("Unknown cipher or hash"); //FIXME: use i18n after string freeze
     case -42:
         return i18n("Unknown encryption scheme.");
     case -43:
@@ -372,7 +374,7 @@ int Backend::openInternal(WId w)
 
     BackendPersistHandler *phandler = BackendPersistHandler::getPersistHandler(magicBuf);
     if (0 == phandler) {
-        return 42; // unknown cipher or hash
+        return -41; // unknown cipher or hash
     }
     int result = phandler->read(this, db, w);
     delete phandler;
