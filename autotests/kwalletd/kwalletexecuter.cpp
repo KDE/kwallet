@@ -156,7 +156,7 @@ void KWalletExecuter::execute()
         qFatal("Couldn't listen into the socket");
     }
 
-    qputenv("PAM_KWALLET_LOGIN", "1");
+    qputenv("PAM_KWALLET5_LOGIN", "1");
     pid_t pid;
     switch (pid = fork ()) {
     case -1:
