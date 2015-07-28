@@ -156,7 +156,7 @@ int main(int argc, char **argv)
 #endif
 {
     char *hash = NULL;
-    if (getenv("PAM_KWALLET_LOGIN")) {
+    if (getenv("PAM_KWALLET5_LOGIN")) {
         hash = checkPamModule(argc, argv);
     }
 
