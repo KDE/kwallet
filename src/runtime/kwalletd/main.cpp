@@ -28,20 +28,22 @@
 #include <KDBusService>
 
 #include <stdio.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <sys/un.h>
-#include <unistd.h>
-#include "kwalletd.h"
-#include "backend/kwalletbackend.h" //For the hash size
 
+#include "backend/kwalletbackend.h" //For the hash size
 #include "kwalletd.h"
 #include "kwalletd_version.h"
 #include "migrationagent.h"
 
+#ifndef Q_OS_WIN
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+#include <unistd.h>
+
 #define BSIZE 1000
 static int pipefd = 0;
 static int socketfd = 0;
+#endif
 
 static bool isWalletEnabled()
 {
@@ -50,6 +52,7 @@ static bool isWalletEnabled()
     return walletGroup.readEntry("Enabled", true);
 }
 
+#ifndef Q_OS_WIN
 //Waits until the PAM_MODULE sends the hash
 static char *waitForHash()
 {
@@ -147,7 +150,7 @@ char* checkPamModule(int argc, char **argv)
 
     return hash;
 }
-
+#endif
 
 #ifdef HAVE_KF5INIT
 extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
@@ -155,10 +158,12 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 int main(int argc, char **argv)
 #endif
 {
+#ifndef Q_OS_WIN
     char *hash = NULL;
     if (getenv("PAM_KWALLET5_LOGIN")) {
         hash = checkPamModule(argc, argv);
     }
+#endif
 
     QApplication app(argc, argv);
     // this kwalletd5 program should be able to start with KDE4's kwalletd
@@ -206,6 +211,7 @@ int main(int argc, char **argv)
 
     qDebug() << "kwalletd5 started";
 
+#ifndef Q_OS_WIN
     if (hash) {
         QByteArray passHash(hash, PBKDF2_SHA512_KEYSIZE);
         int wallet = walletd.pamOpen(KWallet::Wallet::LocalWallet(), passHash, 0);
@@ -216,6 +222,7 @@ int main(int argc, char **argv)
         }
         free(hash);
     }
+#endif
 
     return app.exec();
 }
