@@ -5,7 +5,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 [
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
-<refentry>
+<refentry lang="&language;">
   <refentryinfo>
     <title>kwallet-query(1)</title>
     <author>
@@ -16,6 +16,9 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
         <email>kde@rusu.info</email>
       </address>
     </author>
+    <date>2015-06-14</date>
+    <releaseinfo>Frameworks 5.11</releaseinfo>
+    <productname>KDE Frameworks</productname>
   </refentryinfo>
   <refmeta>
     <refentrytitle>kwallet-query</refentrytitle>
