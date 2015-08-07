@@ -34,10 +34,12 @@
 
 #define SERVICE_KWALLETD4 "org.kde.kwalletd"
 #define ENTRY_ALREADY_MIGRATED "alreadyMigrated"
+#define ENTRY_SHOW_MIGRATION_WIZARD "showMigrationWizard"
 
-MigrationAgent::MigrationAgent(KWalletD* kd) :
+MigrationAgent::MigrationAgent(KWalletD* kd, const char *hash) :
   _kf5_daemon(kd)
   , _kde4_daemon(0)
+  , _pam_hash(hash)
 {
   QTimer::singleShot(100, this, SLOT(migrateWallets()));
 }
@@ -118,11 +120,27 @@ bool MigrationAgent::isMigrationWizardOk()
 {
     bool ok = false;
 
-    MigrationWizard *wizard = new MigrationWizard(this);
-    int result = wizard->exec();
-    if (QDialog::Accepted == result) {
-        // the user either migrated the wallets, or choose not to be prompted again
-        ok = true;
+    // The migration wizard would no longer been shown by default.
+    // see BUG 351056
+    // NOTE if user wants to show the migration wizard, then he should add the
+    // following setting to the kwalletrc:
+    // [Migration]
+    // showMigrationWizard=true
+    KConfig kwalletrc("kwalletrc");
+    KConfigGroup cfg(&kwalletrc, "Migration");
+    bool showMigrationWizard = cfg.readEntry<bool>(ENTRY_SHOW_MIGRATION_WIZARD, false);
+
+    if (showMigrationWizard) {
+        MigrationWizard *wizard = new MigrationWizard(this);
+        int result = wizard->exec();
+        if (QDialog::Accepted == result) {
+            // the user either migrated the wallets, or choose not to be prompted again
+            ok = true;
+        }
+    } else {
+        if (performMigration(0, true)) {
+            qDebug() << "Migration failed.";
+        }
     }
 
     return ok;
@@ -162,7 +180,7 @@ bool MigrationAgent::isEmptyOldWallet() const {
     return wallets.length() == 0;
 }
 
-bool MigrationAgent::performMigration(WId wid)
+bool MigrationAgent::performMigration(WId wid, bool withoutWizard)
 {
     auto appId = i18n("KDE Wallet Migration Agent");
     try {
@@ -174,7 +192,15 @@ bool MigrationAgent::performMigration(WId wid)
             emit progressMessage(i18n("Migrating wallet: %1", wallet));
             emit progressMessage(i18n("* Creating KF5 wallet: %1", wallet));
 
-            int handle5 = _kf5_daemon->internalOpen(appId, wallet, false, 0, true, QString());
+            int handle5 = -1;
+            if (withoutWizard && (_pam_hash != nullptr)) {
+                // see BUG 351056 for why this hacky code
+                // If the user has several wallets, all the values will be
+                // merged into the single LocalWallet
+                handle5 = _kf5_daemon->pamOpen(KWallet::Wallet::LocalWallet(), _pam_hash, 0);
+            } else {
+                handle5 = _kf5_daemon->internalOpen(appId, wallet, false, 0, true, QString());
+            }
             if (handle5 <0) {
                 emit progressMessage(i18n("ERROR when attempting new wallet creation. Aborting."));
                 return false;

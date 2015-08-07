@@ -32,10 +32,10 @@ class KWalletD;
 class MigrationAgent : public QObject {
     Q_OBJECT
 public:
-    MigrationAgent(KWalletD* kd);
+    MigrationAgent(KWalletD* kd, const char* hash);
 
     bool isEmptyOldWallet() const;
-    bool performMigration(WId wid);
+    bool performMigration(WId wid, bool withoutWizard);
 
 private Q_SLOTS:
     void migrateWallets();
@@ -52,6 +52,7 @@ Q_SIGNALS:
 private:
     KWalletD		*_kf5_daemon;
     org::kde::KWallet 	*_kde4_daemon;
+    const char  *_pam_hash;
 };
 
 #endif // _MIGRATIONAGENT_H_
