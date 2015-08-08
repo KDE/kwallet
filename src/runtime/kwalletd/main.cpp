@@ -158,8 +158,8 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 int main(int argc, char **argv)
 #endif
 {
-#ifndef Q_OS_WIN
     char *hash = NULL;
+#ifndef Q_OS_WIN
     if (getenv("PAM_KWALLET5_LOGIN")) {
         hash = checkPamModule(argc, argv);
     }
