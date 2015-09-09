@@ -1694,7 +1694,7 @@ void KWalletD::reconfigure()
     _firstUse = walletGroup.readEntry("First Use", true);
     _enabled = walletGroup.readEntry("Enabled", true);
     _launchManager = walletGroup.readEntry("Launch Manager", false);
-    _leaveOpen = walletGroup.readEntry("Leave Open", false);
+    _leaveOpen = walletGroup.readEntry("Leave Open", true);
     bool idleSave = _closeIdle;
     _closeIdle = walletGroup.readEntry("Close When Idle", false);
     _openPrompt = walletGroup.readEntry("Prompt on Open", false);
