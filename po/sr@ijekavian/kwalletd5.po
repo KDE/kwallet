@@ -1,0 +1,798 @@
+# Translation of kwalletd5.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2009, 2010, 2013, 2014, 2015.
+# Dalibor Djuric <daliborddjuric@gmail.com>, 2009, 2010, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kwalletd5\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-09-10 09:06+0000\n"
+"PO-Revision-Date: 2015-01-31 12:56+0100\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Часлав Илић"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "caslav.ilic@gmx.net"
+
+#: backend/backendpersisthandler.cpp:513
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+"<qt>Грешка при покушају припремања опенПГП‑а ради уписивања новчаника <b>%1</"
+"b>. Ко̂д грешке је <b>%2</b>. Поправите поставу система, па покушајте поново."
+"</qt>"
+
+#: backend/backendpersisthandler.cpp:521
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt>Грешка при покушају припремања опенПГП‑а ради уписивања новчаника <b>%1</"
+"b>. Поправите поставу система, па покушајте поново.</qt>"
+
+#: backend/backendpersisthandler.cpp:572
+#, kde-format
+msgid ""
+"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+"again. This error may occur if you are not using a full trust GPG key. "
+"Please ensure you have the secret key for the key you are using.</qt>"
+msgstr ""
+"<qt>Грешка у шифровању при покушају уписивања новчаника <b>%1</b>. Ко̂д "
+"грешке је <b>%2 (%3)</b>. Поправите поставу система, па покушајте поново. "
+"Узрок ове грешке може бити то што ГПГ кључ који користите није потпуне "
+"поузданости. Побрините се да имате тајни кључ за кључ који користите.</qt>"
+
+#: backend/backendpersisthandler.cpp:584
+#, kde-format
+msgid ""
+"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
+"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt>Грешка у руковању фајлом при покушају уписивања новчаника <b>%1</b>. "
+"Грешка је <b>%2</b>. Поправите поставу система, па покушајте поново.</qt>"
+
+#: backend/backendpersisthandler.cpp:602
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+"<qt>Грешка при покушају припремања опенПГП‑а ради отварања новчаника <b>%1</"
+"b>. Ко̂д грешке је <b>%2</b>. Поправите поставу система, па покушајте поново."
+"</qt>"
+
+#: backend/backendpersisthandler.cpp:620
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt>Грешка при покушају припремања опенПГП‑а ради отварања новчаника <b>%1</"
+"b>. Поправите поставу система, па покушајте поново.</qt>"
+
+#: backend/backendpersisthandler.cpp:630
+msgid "Retry"
+msgstr "Покушај поново"
+
+#: backend/backendpersisthandler.cpp:632
+#, kde-format
+msgid ""
+"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+"you're using a SmartCard, please ensure it's inserted then try again."
+"<br><br>GPG error was <b>%2</b></qt>"
+msgstr ""
+"<qt><p>Грешка при покушају дешифровања новчаника <b>%1</b> помоћу ГПГ‑а. Ако "
+"користите смарт-картицу, уверите се да је убачена па покушајте поново.</"
+"p><p>Грешка ГПГ‑а: <b>%2</b></p></qt>"
+
+#: backend/backendpersisthandler.cpp:633
+msgid "kwalletd GPG backend"
+msgstr "Позадина К‑новчаника за ГПГ"
+
+#: backend/backendpersisthandler.cpp:677
+#, kde-format
+msgid ""
+"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
+"system.</qt>"
+msgstr ""
+"<qt>Грешка при покушају отварања новчаника <b>%1</b>. Новчаник је шифрован "
+"ГПГ кључем ИД‑а <b>%2</b>, али овај кључ није нађен на систему.</qt>"
+
+# >? Already open what? A wallet?
+#: backend/kwalletbackend.cc:264
+msgid "Already open."
+msgstr "Већ отворен."
+
+#: backend/kwalletbackend.cc:266
+msgid "Error opening file."
+msgstr "Грешка при отварању фајла."
+
+#: backend/kwalletbackend.cc:268
+msgid "Not a wallet file."
+msgstr "Није фајл новчаника."
+
+#: backend/kwalletbackend.cc:270
+msgid "Unsupported file format revision."
+msgstr "Неподржана ревизија фајл формата."
+
+#: backend/kwalletbackend.cc:274
+msgid "Unknown encryption scheme."
+msgstr "Непозната шема шифровања."
+
+#: backend/kwalletbackend.cc:276
+msgid "Corrupt file?"
+msgstr "Искварен фајл?"
+
+#: backend/kwalletbackend.cc:278
+msgid "Error validating wallet integrity. Possibly corrupted."
+msgstr "Грешка при овјери цјеловитости новчаника. Можда је искварен."
+
+#: backend/kwalletbackend.cc:282
+msgid "Read error - possibly incorrect password."
+msgstr "Грешка читања — можда је лозинка погрешна."
+
+#: backend/kwalletbackend.cc:284
+msgid "Decryption error."
+msgstr "Грешка у дешифровању."
+
+#: backend/kwalletbackend.cc:460
+#, kde-format
+msgid ""
+"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
+msgstr ""
+"Не могу да синхронизујем новчаник <b>%1</b> на диск. Кодови грешака:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Поднесите извештај о грешци са овим подацима на https://bugs."
+"kde.org ."
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
+#: kbetterthankdialogbase.ui:50
+msgid "Allow &Once"
+msgstr "Дозволи &једном"
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowAlways)
+#: kbetterthankdialogbase.ui:60
+msgid "Allow &Always"
+msgstr "Дозволи &увијек"
+
+#. i18n: ectx: property (text), widget (QPushButton, _deny)
+#: kbetterthankdialogbase.ui:67
+msgid "&Deny"
+msgstr "&Одбиј"
+
+#. i18n: ectx: property (text), widget (QPushButton, _denyForever)
+#: kbetterthankdialogbase.ui:74
+msgid "Deny &Forever"
+msgstr "Одбиј &заувијек"
+
+# >? Really "click Cancel", or "click Deny"?
+# rewrite-msgid: /KDE//
+# rewrite-msgid: /application//
+#: knewwalletdialog.cpp:65
+#, kde-format
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
+"to store sensitive data in a secure fashion. Please choose the new wallet's "
+"type below or click cancel to deny the application's request.</qt>"
+msgstr ""
+"<qt>Затражено је стварање новог новчаника по имену <b>%1</b>. Намена овога "
+"је безбедно складиштење осетљивих података. Изаберите испод тип новог "
+"новчаника, или кликните на <interface>Одбиј</interface> да одбијете захтев.</"
+"qt>"
+
+# >? Really "click Cancel", or "click Deny"?
+#: knewwalletdialog.cpp:67
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
+"Please choose the new wallet's type below or click cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+"<qt>Програм <b>%1</b> затражио је стварање новог новчаника по имену <b>%2</"
+"b>. Намена овога је безбедно складиштење осетљивих података. Изаберите испод "
+"тип новог новчаника, или кликните на <interface>Одбиј</interface> да "
+"одбијете захтев програма.</qt>"
+
+# rewrite-msgid: /QGpgME/GPGME/
+#: knewwalletdialog.cpp:129 knewwalletdialog.cpp:135 kwalletwizard.cpp:162
+#: kwalletwizard.cpp:166
+msgid ""
+"The QGpgME library failed to initialize for the OpenPGP protocol. Please "
+"check your system's configuration then try again."
+msgstr ""
+"Библиотека ГПГМЕ не може да припреми протокол опенПГП‑а. Проверите поставу "
+"система, па покушајте поново."
+
+#: knewwalletdialog.cpp:156
+msgid ""
+"Seems that your system has no keys suitable for encryption. Please set-up at "
+"least an encryption key, then try again."
+msgstr ""
+"Изгледа да на систему нема кључева погодних за шифровање. Припремите бар "
+"један кључ за шифровање, па покушајте поново."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: knewwalletdialoggpg.ui:17
+msgid "Please select the signing key from the list below:"
+msgstr "Изаберите кључ за потписивање са доњег списка:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: knewwalletdialoggpg.ui:24
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"list shows only \"ultimate-level\" trusted keys</p></body></html>"
+msgstr ""
+"<html><p><b>Напомена:</b> Овај списак приказује само кључеве безусловне "
+"поузданости.</p></html>"
+
+# >> @title:column
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:59
+msgid "Name"
+msgstr "име"
+
+# >> @title:column
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:64
+msgid "E-Mail"
+msgstr "е‑пошта"
+
+# >> @title:column
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:69
+msgid "Key-ID"
+msgstr "ИД кључа"
+
+#. i18n: ectx: property (text), widget (KTitleWidget, title)
+#. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
+#: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
+#: migrationwizard1.ui:17 migrationwizard2.ui:17
+msgid "The KDE Wallet System"
+msgstr "КДЕ‑ов систем новчаника"
+
+# >? Really "click Cancel", or "click Deny"?
+#. i18n: ectx: property (text), widget (QLabel, labelIntro)
+#: knewwalletdialogintro.ui:30
+#, no-c-format, kde-format
+msgid ""
+"<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
+"span>' has requested to open the KDE wallet. This is used to store sensitive "
+"data in a secure fashion. Please choose the new wallet's type below or click "
+"cancel to deny the application's request.</p></body></html>"
+msgstr ""
+"<html><p>Програм <b>%1</b> затражио је да отвори КДЕ новчаник. Намена овога "
+"је безбедно складиштење осетљивих података. Изаберите испод тип новог "
+"новчаника, или кликните на <interface>Одбиј</interface> да одбијете захтев "
+"програма.</p></html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
+#. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
+#: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
+msgid "Classic, blowfish encrypted file"
+msgstr "Класичан, блоуфишом шифрован фајл"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
+#. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
+#: knewwalletdialogintro.ui:73 kwalletwizardpagepasswordgpg.ui:55
+msgid "Use GPG encryption, for better protection"
+msgstr "Шифровање ГПГ‑ом, ради боље заштите"
+
+# rewrite-msgid: /KDE//
+#: kwalletd.cpp:614
+#, kde-format
+msgid ""
+"<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
+"password for this wallet below.</qt>"
+msgstr ""
+"<qt>Затражено је отварање новчаника <b>%1</b>. Унесите испод лозинку "
+"новчаника.</qt>"
+
+#: kwalletd.cpp:621
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+"b>'. Please enter the password for this wallet below.</qt>"
+msgstr ""
+"<qt>Програм <b>%1</b> тражи да отвори новчаник <b>%2</b>. Унесите испод "
+"лозинку новчаника.</qt>"
+
+#. i18n( "&Open" ), "wallet-open"));
+#: kwalletd.cpp:632 kwalletd.cpp:774 kwalletd.cpp:892 kwalletd.cpp:1021
+#: kwalletd.cpp:1048 kwalletd.cpp:1060 kwalletd.cpp:1069 kwalletd.cpp:1616
+#: main.cpp:173 main.cpp:178 main.cpp:180
+msgid "KDE Wallet Service"
+msgstr "КДЕ‑ов сервис новчаника"
+
+#: kwalletd.cpp:648
+#, kde-format
+msgid "An application has requested to open a wallet (%1)."
+msgstr "Програм је затражио отварање новчаника (%1)."
+
+#: kwalletd.cpp:655
+msgctxt ""
+"Text of a button for switching to the (unnamed) application requesting a "
+"password"
+msgid "Switch there"
+msgstr "Пребаци тамо"
+
+#: kwalletd.cpp:659
+#, kde-format
+msgid "<b>%1</b> has requested to open a wallet (%2)."
+msgstr "<b>%1</b> тражи да отвори новчаник (%2)."
+
+#: kwalletd.cpp:667
+#, kde-format
+msgctxt ""
+"Text of a button for switching to the application requesting a password"
+msgid "Switch to %1"
+msgstr "Пребаци на %1|/|Пребаци на $[аку %1]"
+
+#: kwalletd.cpp:681 kwalletd.cpp:787
+#, kde-format
+msgid ""
+"<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
+"%2: %3)</qt>"
+msgstr ""
+"<qt>Грешка при отварању новчаника <b>%1</b>. Покушајте поново.<br />(Ко̂д "
+"грешке %2: %3)</qt>"
+
+# >? Really "click Cancel", or "click Deny"?
+# rewrite-msgid: /KDE//
+#: kwalletd.cpp:739
+msgid ""
+"KDE has requested to open the wallet. This is used to store sensitive data "
+"in a secure fashion. Please enter a password to use with this wallet or "
+"click cancel to deny the application's request."
+msgstr ""
+"<qt>Затражено је отварање новчаника. Намјена овога је безбједно складиштење "
+"осетљивих података. Унесите лозинку која припада овом новчанику, или "
+"кликните на <interface>Одбиј</interface> да одбијете захтјев.</qt>"
+
+# >? Really "click Cancel", or "click Deny"?
+#: kwalletd.cpp:747
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
+"is used to store sensitive data in a secure fashion. Please enter a password "
+"to use with this wallet or click cancel to deny the application's request.</"
+"qt>"
+msgstr ""
+"<qt>Програм <b>%1</b> тражи да отвори КДЕ новчаник. Намјена овога је "
+"безбједно складиштење осетљивих података. Унесите лозинку која припада овом "
+"новчанику, или кликните на <interface>Одбиј</interface> да одбијете захтјев."
+"</qt>"
+
+# >? Really "click Cancel", or "click Deny"?
+# rewrite-msgid: /KDE//
+#: kwalletd.cpp:759
+#, kde-format
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
+"choose a password for this wallet, or cancel to deny the application's "
+"request.</qt>"
+msgstr ""
+"<qt>Затражено је стварање новог новчаника по имену <b>%1</b>. Изаберите "
+"лозинку за овај новчаник, или кликните на <interface>Одбиј</interface> да "
+"одбијете захтев.</qt>"
+
+# >? Really "click Cancel", or "click Deny"?
+#: kwalletd.cpp:767
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+"<qt>Програм <b>%1</b> тражи да направи нови новчаник по имену <b>%2</b>. "
+"Изаберите лозинку за овај новчаник, или <interface>Одбиј</interface> да "
+"одбијете захтјев.</qt>"
+
+# rewrite-msgid: /KDE//
+#: kwalletd.cpp:894
+#, kde-format
+msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
+msgstr "<qt>Затражен је приступ отвореном новчанику <b>%1</b>.</qt>"
+
+#: kwalletd.cpp:900
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
+"%2</b>'.</qt>"
+msgstr ""
+"<qt>Програм <b>%1</b> тражи приступ отвореном новчанику <b>%2</b>.</qt>"
+
+#: kwalletd.cpp:1019
+msgid ""
+"Unable to open wallet. The wallet must be opened in order to change the "
+"password."
+msgstr ""
+"<qt>Не могу да отворим новчаник. Мора бити отворен да би се измијенила "
+"лозинка.</qt>"
+
+#: kwalletd.cpp:1036
+#, kde-format
+msgid ""
+"<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
+"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
+"associated to that key.</qt>"
+msgstr ""
+"<qt>Новчаник <b>%1</b> шифрован је ГПГ кључем <b>%2</b>. Употребите неку ГПГ "
+"алатку (попут Клеопатре) да измените лозинку придружену овом кључу.</qt>"
+
+#: kwalletd.cpp:1045
+#, kde-format
+msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
+msgstr "<qt>Изаберите нову лозинку за новчаник <b>%1</b>.</qt>"
+
+#: kwalletd.cpp:1058
+msgid "Error re-encrypting the wallet. Password was not changed."
+msgstr "Грешка при поновном шифровању новчаника. Лозинка није измијењена."
+
+#: kwalletd.cpp:1067
+msgid "Error reopening the wallet. Data may be lost."
+msgstr ""
+"Грешка при поновном отварању новчанику. Може бити да су неки подаци "
+"изгубљени."
+
+#: kwalletd.cpp:1614
+msgid ""
+"There have been repeated failed attempts to gain access to a wallet. An "
+"application may be misbehaving."
+msgstr ""
+"Било је више узастопних пропалих захтјева за приступ новчанику. Можда се "
+"неки програм лоше понаша."
+
+#: kwalletwizard.cpp:52
+msgid "KWallet"
+msgstr "К‑новчаник"
+
+#: kwalletwizard.cpp:281
+msgid "<qt>Password is empty.  <b>(WARNING: Insecure)</b></qt>"
+msgstr "<qt>Лозинка је празна.  <b>(УПОЗОРЕЊЕ: није безбједно)</b></qt>"
+
+#: kwalletwizard.cpp:283
+msgid "Passwords match."
+msgstr "Лозинке се поклапају."
+
+#: kwalletwizard.cpp:286
+msgid "Passwords do not match."
+msgstr "Лозинке се не поклапају."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: kwalletwizardpageexplanation.ui:17
+msgid ""
+"<html><head/><body><p>The KDE Wallet system stores your data in a <span "
+"style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
+"The data is only written in the encrypted form of your choice - blowfish "
+"algorithm with your password as the key or using a GPG encryption key. When "
+"a wallet is opened, the wallet manager application will launch and display "
+"an icon in the system tray. You can use this application to manage all of "
+"your wallets. It even permits you to drag wallets and wallet contents, "
+"allowing you to easily copy a wallet to a remote system.</p></body></html>"
+msgstr ""
+"<html><p>КДЕ‑ов систем новчаника складишти ваше податке у фајл <i>новчаника</"
+"i> на локалном диску. Подаци се уписују само у шифрованом облику по избору — "
+"алгоритмом блоуфиш са вашом лозинком као кључем или ГПГ кључем за шифровање. "
+"При отварању новчаника, покренуће се програм менаџера новчаника и приказати "
+"икону у системској касети. Овим програмом можете управљати свим својим "
+"новчаницима. Можете чак и превлачити новчанике и њихов садржај, и тако их "
+"лако копирати на удаљени систем.</p></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: kwalletwizardpagegpgkey.ui:24
+msgid ""
+"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when decrypting is "
+"needed or your wallet will not be accessible. For example, if you choose a "
+"SmartCard-based encryption key, the GPG system will prompt you to enter it "
+"and its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">NOTE:</span> this list contains only \"ultimate-level\" "
+"trusted keys.</p></body></html>"
+msgstr ""
+"<html><p>Новчаник на основи ГПГ‑а користи ГПГ шифровање за безбедно одлагање "
+"података на диск. Кључ мора бити доступан у тренутку дешифровања, иначе се "
+"новчанику  не може приступити. На пример, ако изаберете кључ за шифровање на "
+"основу смарт-картице, при покушају отварања новчаника ГПГ систем ће вам "
+"затражити да је убаците и унесете њен ПИН. <b>Напомена:</b> Овај списак "
+"садржи само кључеве безусловне поузданости.</p></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kwalletwizardpagegpgkey.ui:42
+msgid "Select encryption GPG key:"
+msgstr "ГПГ кључ за шифровање:"
+
+# rewrite-msgid: /click back/go back/
+# rewrite-msgid: /cancel/quit/
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: kwalletwizardpagegpgkey.ui:81
+msgid ""
+"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
+"such <b>encrypting key</b> to securely store passwords or other sensitive "
+"data on disk. If you still want to setup a GPG-based wallet, then cancel "
+"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
+"Otherwise, you may still click back, then choose a classic, blowfish "
+"encrypted file format on the previous page."
+msgstr ""
+"Нема ниједног <b>ГПГ кључа за шифровање</b>. К‑новчанику треба <b>кључ за "
+"шифровање</b> ради безбедног складиштења лозинки и осталих осетљивих "
+"података на диску. Ако и даље желите да поставите новчаник на основу ГПГ‑а, "
+"напустите овај чаробњак, припремите <b>ГПГ кључ за шифровање</b>, па поново "
+"покрените чаробњак. Иначе, вратите се страницу назад у чаробњаку, па "
+"изаберите класични шифровани фајл преко блоуфиша."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: kwalletwizardpageintro.ui:30
+msgid ""
+"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
+"passwords and other personal information on disk in an encrypted file, "
+"preventing others from viewing the information.  This wizard will tell you "
+"about KWallet and help you configure it for the first time."
+msgstr ""
+"Добро дошли у К‑новчаник, КДЕ‑ов систем новчаника. К‑новчаником можете "
+"складиштити лозинке и друге личне податке у шифровани фајл на диску, тако да "
+"их друга лица не могу прибавити. Овај чаробњак ће вам испричати о "
+"К‑новчанику и помоћи да га подесите по први пут."
+
+#. i18n: ectx: property (text), widget (QRadioButton, _basic)
+#: kwalletwizardpageintro.ui:69
+msgid "&Basic setup (recommended)"
+msgstr "&Основна постава (препоручено)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _advanced)
+#: kwalletwizardpageintro.ui:79
+msgid "&Advanced setup"
+msgstr "&Напредна постава"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: kwalletwizardpageoptions.ui:16
+msgid ""
+"The KDE Wallet system allows you to control the level of security of your "
+"personal data.  Some of these settings do impact usability.  While the "
+"default settings are generally acceptable for most users, you may wish to "
+"change some of them.  You may further tune these settings from the KWallet "
+"control module."
+msgstr ""
+"У КДЕ‑овом систему новчаника можете управљати степеном безбједности личних "
+"података. Неке од ових поставки пак утичу на употребљивост. Док су "
+"подразумијеване поставке начелно прихватљиве већини корисника, можете жељети "
+"да измијените неке. Поставке даље можете штеловати из контролног модула "
+"К‑новчаника."
+
+#. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
+#: kwalletwizardpageoptions.ui:48
+msgid "Automatically close idle wallets"
+msgstr "Аутоматски затварај некоришћене новчанике"
+
+#. i18n: ectx: property (text), widget (QCheckBox, _networkWallet)
+#: kwalletwizardpageoptions.ui:55
+msgid "Store network passwords and local passwords in separate wallet files"
+msgstr "Складишти мрежне и локалне лозинке у различитим фајловима новчаника"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kwalletwizardpagepassword.ui:16
+msgid ""
+"Various applications may attempt to use the KDE wallet to store passwords or "
+"other information such as web form data and cookies.  If you would like "
+"these applications to use the wallet, you must enable it now and choose a "
+"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
+"and will allow anyone who knows it to obtain all the information contained "
+"in the wallet."
+msgstr ""
+"Разни програми могу покушати да употријебе КДЕ новчаник за складиштење "
+"лозинки и других података, попут веб формулара и колачића. Ако желите да ови "
+"програми користе новчаник, сада га морате активирати и изабрати лозинку. "
+"Изабрану лозинку <i>не можете</i> повратити ако је изгубите, и свако ко је "
+"сазна моћи ће да прибави све податке садржане у новчанику."
+
+#. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
+#: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
+msgid "Yes, I wish to use the KDE wallet to store my personal information."
+msgstr "Да, желим да користим КДЕ новчаник за складиштење личних података"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: kwalletwizardpagepassword.ui:88 kwalletwizardpagepasswordgpg.ui:106
+msgid "Enter a new password:"
+msgstr "Унесите нову лозинку:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: kwalletwizardpagepassword.ui:104 kwalletwizardpagepasswordgpg.ui:122
+msgid "Verify password:"
+msgstr "Потврдите лозинку:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kwalletwizardpagepasswordgpg.ui:17
+msgid ""
+"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
+"to store passwords or other information such as web form data and cookies. "
+"If you would like these applications to use the wallet, you must enable it "
+"now and choose method for its encryption.</p><p>GPG method is more secure, "
+"but you must have configured at least one encrypting key on your system.</"
+"p><p>If you choose the classic format, be warned that the password you "
+"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
+"is lost, and will allow anyone who knows it to obtain all the information "
+"contained in the wallet.</p></body></html>"
+msgstr ""
+"<html><p>Разни програми могу покушати да употребе КДЕ новчаник за "
+"складиштење лозинки и других података, попут веб формулара и колачића. Ако "
+"желите да ови програми користе новчаник, сада га морате активирати и "
+"изабрати метод његовог шифровања.</p><p>ГПГ је безбеднији метод, али за њега "
+"на систему морате имати подешен бар један кључ за шифровање.</p><p>Ако пак "
+"изаберете класични метод, имајте на уму да лозинку <i>не можете</i> "
+"повратити ако је заборавите, као и да ће свако ко је буде знао моћи да "
+"прибави све податке садржане у новчанику.</p></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
+#: kwalletwizardpagepasswordgpg.ui:46
+msgid "What kind of encryption do you wish?"
+msgstr "Какву врсту шифровања желите?"
+
+#: main.cpp:177
+msgid "kwalletd"
+msgstr "kwalletd"
+
+#: main.cpp:182
+msgid "(C) 2002-2013, The KDE Developers"
+msgstr "© 2002–2013, КДЕ програмери"
+
+#: main.cpp:183
+msgid "Valentin Rusu"
+msgstr "Валантен Ризи"
+
+#: main.cpp:183
+msgid "Maintainer, GPG backend support"
+msgstr "одржавалац, подршка за ГПГ позадину"
+
+#: main.cpp:184
+msgid "Michael Leupold"
+msgstr "Михаел Лојполд"
+
+#: main.cpp:184
+msgid "Former Maintainer"
+msgstr "бивши одржавалац"
+
+#: main.cpp:185
+msgid "George Staikos"
+msgstr "Џорџ Стајкос"
+
+#: main.cpp:185
+msgid "Former maintainer"
+msgstr "бивши одржавалац"
+
+#: main.cpp:186
+msgid "Thiago Maceira"
+msgstr "Тијаго Масијеира"
+
+#: main.cpp:186
+msgid "D-Bus Interface"
+msgstr "д‑бус сучеље"
+
+#: migrationagent.cpp:175 migrationagent.cpp:189
+msgid "Cannot read old wallet list. Aborting."
+msgstr "Не могу да прочитам стару листу новчаника. Обустављам."
+
+#: migrationagent.cpp:185
+msgid "KDE Wallet Migration Agent"
+msgstr "КДЕ‑ов агент селидбе новчаника"
+
+#: migrationagent.cpp:192
+#, kde-format
+msgid "Migrating wallet: %1"
+msgstr "Селим новчаник: %1"
+
+#: migrationagent.cpp:193
+#, kde-format
+msgid "* Creating KF5 wallet: %1"
+msgstr "* Правим КФ5 новчаник: %1"
+
+#: migrationagent.cpp:205
+msgid "ERROR when attempting new wallet creation. Aborting."
+msgstr "Грешка при покушају стварања новог новчаника. Обустављам."
+
+#: migrationagent.cpp:211
+#, kde-format
+msgid "Cannot open KDE4 wallet named: %1"
+msgstr "Не могу да отворим КДЕ‑4 новчаник: %1"
+
+#: migrationagent.cpp:212
+#, kde-format
+msgid "* Opened KDE4 wallet: %1"
+msgstr "* Отворен КДЕ‑4 новчаник: %1"
+
+#: migrationagent.cpp:216
+msgid "Cannot retrieve folder list. Aborting."
+msgstr "Не могу да добавим листу фасцикли. Обустављам."
+
+#: migrationagent.cpp:219
+#, kde-format
+msgid "* Migrating folder %1"
+msgstr "* Селим новчаник %1"
+
+#: migrationagent.cpp:223
+#, kde-format
+msgid "Cannot retrieve folder %1 entries. Aborting."
+msgstr "Не могу да добавим ставке фасцикле %1. Обустављам."
+
+#: migrationagent.cpp:229
+#, kde-format
+msgid "Cannot retrieve key %1 info. Aborting."
+msgstr "Не могу да добавим податке кључа %1. Обустављам."
+
+#: migrationagent.cpp:233
+#, kde-format
+msgid "* SKIPPING entry %1 in folder %2 as it seems already migrated"
+msgstr "* ПРЕСКАЧЕМ ставку %1 у фасцикли %2 јер делује да је већ пресељена."
+
+#: migrationagent.cpp:237
+#, kde-format
+msgid "Cannot retrieve key %1 data. Aborting."
+msgstr "Не могу да добавим податке кључа %1. Обустављам."
+
+#: migrationagent.cpp:239
+#, kde-format
+msgid "Cannot write entry %1 in the new wallet. Aborting."
+msgstr "Не могу да упишем ставку %1 у нови новчаник. Обустављам."
+
+#: migrationagent.cpp:250
+msgid "DONE migrating wallet\n"
+msgstr "ГОТОВА селидба новчаника.\n"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: migrationwizard1.ui:29
+msgid ""
+"Congratulations! The system detected that you're running the latest version "
+"of the KWallet, using KDE Frameworks 5.\n"
+"\n"
+"It seems that you also have KDE4 wallet(s) on your system.\n"
+"\n"
+"Would you like them to be migrated to this new KWallet version? The "
+"operation will only take one minute to be performed.\n"
+msgstr ""
+"Честитамо! Систем је открио да је у погону најновије издање К‑новчаника, "
+"преко Радних оквира КДЕ‑а 5.\n"
+"\n"
+"Изгледа да се на систему такође налазе КДЕ‑4 новчаници.\n"
+"\n"
+"Желите ли да се преселе на ово ново издање К‑новчаника? Поступак ће "
+"потрајати само око минут.\n"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionYes)
+#: migrationwizard1.ui:59
+msgid "&Yes, migrate my wallets now."
+msgstr "&Да, пресели новчанике сада"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionNo)
+#: migrationwizard1.ui:70
+msgid ""
+"No, I'd rather do this upon ne&xt session start,\n"
+"and I'll cancel this wizard for now."
+msgstr ""
+"Не, боље то урадити на почетку &следеће сесије,\n"
+"а сада ћу напустити овај чаробњак."
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionNotInterested)
+#: migrationwizard1.ui:77
+msgid "No, and p&lease do not prompt me again."
+msgstr "Не, и не желим више ово &питање."
