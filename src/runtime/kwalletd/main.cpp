@@ -56,7 +56,7 @@ static bool isWalletEnabled()
 //Waits until the PAM_MODULE sends the hash
 static char *waitForHash()
 {
-    printf("kwalletd: Waiting for hash on %d-\n", pipefd);
+    printf("kwalletd5: Waiting for hash on %d-\n", pipefd);
     int totalRead = 0;
     int readBytes = 0;
     int attempts = 0;
@@ -79,16 +79,16 @@ static char *waitForHash()
 //Waits until startkde sends the environment variables
 static int waitForEnvironment()
 {
-    printf("kwalletd: waitingForEnvironment on: %d\n", socketfd);
+    printf("kwalletd5: waitingForEnvironment on: %d\n", socketfd);
 
     int s2;
     socklen_t t;
     struct sockaddr_un remote;
     if ((s2 = accept(socketfd, (struct sockaddr *)&remote, &t)) == -1) {
-        fprintf(stdout, "kwalletd: Couldn't accept incoming connection\n");
+        fprintf(stdout, "kwalletd5: Couldn't accept incoming connection\n");
         return -1;
     }
-    printf("kwalletd: client connected\n");
+    printf("kwalletd5: client connected\n");
 
     char str[BSIZE];
     memset(str, '\0', sizeof(char) * BSIZE);
@@ -102,26 +102,26 @@ static int waitForEnvironment()
             putenv(strdup(str));
         }
     }
-    printf("kwalletd: client disconnected\n");
+    printf("kwalletd5: client disconnected\n");
     close(socketfd);
     return 1;
 }
 
 char* checkPamModule(int argc, char **argv)
 {
-    printf("Checking for pam module\n");
+    printf("kwalletd5: Checking for pam module\n");
     char *hash = NULL;
     int x = 1;
     for (; x < argc; ++x) {
         if (strcmp(argv[x], "--pam-login") != 0) {
             continue;
         }
-        printf("Got pam-login\n");
+        printf("kwalletd5: Got pam-login param\n");
         argv[x] = NULL;
         x++;
         //We need at least 2 extra arguments after --pam-login
         if (x + 1 > argc) {
-            printf("Invalid arguments (less than needed)\n");
+            printf("kwalletd5: Invalid arguments (less than needed)\n");
             return NULL;
         }
 
@@ -143,7 +143,7 @@ char* checkPamModule(int argc, char **argv)
     hash = waitForHash();
 
     if (hash == NULL || waitForEnvironment() == -1) {
-        printf("Hash or environment not received\n");
+        printf("kwalletd5: Hash or environment not received\n");
         free(hash);
         return NULL;
     }
