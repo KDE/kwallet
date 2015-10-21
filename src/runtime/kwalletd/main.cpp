@@ -82,8 +82,8 @@ static int waitForEnvironment()
     printf("kwalletd5: waitingForEnvironment on: %d\n", socketfd);
 
     int s2;
-    socklen_t t;
     struct sockaddr_un remote;
+    socklen_t t = sizeof(remote);
     if ((s2 = accept(socketfd, (struct sockaddr *)&remote, &t)) == -1) {
         fprintf(stdout, "kwalletd5: Couldn't accept incoming connection\n");
         return -1;
