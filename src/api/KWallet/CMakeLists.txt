@@ -20,6 +20,7 @@ include(ECMPackageConfigHelpers)
 ecm_configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/KF5WalletConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfig.cmake"
+  PATH_VARS KDE_INSTALL_DBUSINTERFACEDIR
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
 )
 
@@ -78,7 +79,7 @@ elseif(APPLE)
     target_link_libraries(KF5Wallet PRIVATE ${CARBON_LIBRARY})
 else()
     target_link_libraries(KF5Wallet PRIVATE Qt5::DBus)
-    install(FILES ${kwallet_xml} DESTINATION ${DBUS_INTERFACES_INSTALL_DIR} RENAME kf5_org.kde.KWallet.xml)
+    install(FILES ${kwallet_xml} DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf5_org.kde.KWallet.xml)
 endif()
 
 set_target_properties(KF5Wallet PROPERTIES VERSION   ${KWALLET_VERSION_STRING}
