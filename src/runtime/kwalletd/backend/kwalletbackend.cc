@@ -95,7 +95,7 @@ Backend::~Backend()
 QString Backend::getSaveLocation()
 {
     QString writeLocation = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
-    if (writeLocation.right(1) == "5") {
+    if (writeLocation.right(1) == QLatin1String("5")) {
       // HACK
       // setApplicationName("kwalletd5") yields the path ~/.local/share/kwalletd5 for the location where to store wallets
       // that is not desirable, as the 5 is present in the data folder's name
@@ -456,7 +456,7 @@ int Backend::sync(WId w)
     if (rc < 0) {
         // Oops! wallet file sync filed! Display a notification about that
         // TODO: change kwalletd status flags, when status flags will be implemented
-        KNotification *notification = new KNotification(QLatin1String("syncFailed"));
+        KNotification *notification = new KNotification(QStringLiteral("syncFailed"));
         notification->setText(i18n("Failed to sync wallet <b>%1</b> to disk. Error codes are:\nRC <b>%2</b>\nSF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org").arg(_name).arg(rc).arg(sf.errorString()));
         notification->sendEvent();
     }

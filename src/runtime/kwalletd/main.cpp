@@ -47,7 +47,7 @@ static int socketfd = 0;
 
 static bool isWalletEnabled()
 {
-    KConfig cfg("kwalletrc");
+    KConfig cfg(QStringLiteral("kwalletrc"));
     KConfigGroup walletGroup(&cfg, "Wallet");
     return walletGroup.readEntry("Enabled", true);
 }
@@ -169,9 +169,9 @@ int main(int argc, char **argv)
     // this kwalletd5 program should be able to start with KDE4's kwalletd
     // using kwalletd name would prevent KDBusService unique instance to initialize
     // so we setApplicationName("kwalletd5")
-    app.setApplicationName("kwalletd5");
+    app.setApplicationName(QStringLiteral("kwalletd5"));
     app.setApplicationDisplayName(i18n("KDE Wallet Service"));
-    app.setOrganizationDomain("kde.org");
+    app.setOrganizationDomain(QStringLiteral("kde.org"));
     app.setApplicationVersion(KWALLETD_VERSION_STRING);
 
     KAboutData aboutdata(I18N_NOOP("kwalletd"),
@@ -180,10 +180,10 @@ int main(int argc, char **argv)
                          i18n("KDE Wallet Service"),
                          KAboutLicense::LGPL,
                          i18n("(C) 2002-2013, The KDE Developers"));
-    aboutdata.addAuthor(i18n("Valentin Rusu"), i18n("Maintainer, GPG backend support"), "kde@rusu.info");
-    aboutdata.addAuthor(i18n("Michael Leupold"), i18n("Former Maintainer"), "lemma@confuego.org");
-    aboutdata.addAuthor(i18n("George Staikos"), i18n("Former maintainer"), "staikos@kde.org");
-    aboutdata.addAuthor(i18n("Thiago Maceira"), i18n("D-Bus Interface"), "thiago@kde.org");
+    aboutdata.addAuthor(i18n("Valentin Rusu"), i18n("Maintainer, GPG backend support"), QStringLiteral("kde@rusu.info"));
+    aboutdata.addAuthor(i18n("Michael Leupold"), i18n("Former Maintainer"), QStringLiteral("lemma@confuego.org"));
+    aboutdata.addAuthor(i18n("George Staikos"), i18n("Former maintainer"), QStringLiteral("staikos@kde.org"));
+    aboutdata.addAuthor(i18n("Thiago Maceira"), i18n("D-Bus Interface"), QStringLiteral("thiago@kde.org"));
 
     KWalletD walletd;
     MigrationAgent migrationAgent(&walletd, hash);
@@ -194,7 +194,7 @@ int main(int argc, char **argv)
     aboutdata.setupCommandLine(&cmdParser);
     cmdParser.process(app);
 
-    aboutdata.setProgramIconName("kwalletmanager");
+    aboutdata.setProgramIconName(QStringLiteral("kwalletmanager"));
 
     app.setQuitOnLastWindowClosed(false);
 

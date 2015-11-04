@@ -52,16 +52,16 @@ void KWalletBothTest::openWallet()
     }
 
     QMap<QString, QString> p;
-    ret = wallet->readPasswordList("*", p);
+    ret = wallet->readPasswordList(QStringLiteral("*"), p);
     _out << "readPasswordList returned: " << ret << endl;
     _out << "readPasswordList returned " << p.keys().count() << " entries" << endl;
     QMap<QString, QMap<QString, QString> > q;
-    ret = wallet->readMapList("*", q);
+    ret = wallet->readMapList(QStringLiteral("*"), q);
     _out << "readMapList returned: " << ret << endl;
     _out << "readMapList returned " << q.keys().count() << " entries" << endl;
 
     QMap<QString, QByteArray> s;
-    ret = wallet->readEntryList("*", s);
+    ret = wallet->readEntryList(QStringLiteral("*"), s);
     _out << "readEntryList returned: " << ret << endl;
     _out << "readEntryList returned " << s.keys().count() << " entries" << endl;
 

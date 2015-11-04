@@ -54,7 +54,7 @@ public:
         int iconSize = 3 * fontMetrics().height();
         // round to multiple of 16
         iconSize = (iconSize + 8) & ~15;
-        QPixmap pix = KIconLoader::global()->loadIcon("kwalletmanager", KIconLoader::Dialog, iconSize);
+        QPixmap pix = KIconLoader::global()->loadIcon(QStringLiteral("kwalletmanager"), KIconLoader::Dialog, iconSize);
         ui.ktitlewidget->setPixmap(pix);
 
         bg = new QButtonGroup(this);
@@ -81,12 +81,12 @@ public:
 
         ui.setupUi(this);
 
-        registerField("useWallet", ui._useWallet);
-        registerField("pass1", ui._pass1);
-        registerField("pass2", ui._pass2);
+        registerField(QStringLiteral("useWallet"), ui._useWallet);
+        registerField(QStringLiteral("pass1"), ui._pass1);
+        registerField(QStringLiteral("pass2"), ui._pass2);
 #ifdef HAVE_QGPGME
-        registerField("useGPG", ui._radioGpg);
-        registerField("useBlowfish", ui._radioBlowfish);
+        registerField(QStringLiteral("useGPG"), ui._radioGpg);
+        registerField(QStringLiteral("useBlowfish"), ui._radioBlowfish);
         connect(ui._radioBlowfish, SIGNAL(toggled(bool)), parent, SLOT(passwordPageUpdate()));
 #endif
 
@@ -100,8 +100,8 @@ public:
     {
 #ifdef HAVE_QGPGME
         int nextId = -1;
-        if (field("useWallet").toBool()) {
-            if (field("useBlowfish").toBool()) {
+        if (field(QStringLiteral("useWallet")).toBool()) {
+            if (field(QStringLiteral("useBlowfish")).toBool()) {
                 nextId = static_cast<KWalletWizard *>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId; // same as non QGPGME case
             } else {
                 nextId = KWalletWizard::PageGpgKeyId;
@@ -136,7 +136,7 @@ struct AddKeyToCombo {
     AddKeyToCombo(QComboBox *list) : _list(list) {}
     void operator()(const GpgME::Key &k)
     {
-        QString text = QString("%1 (%2)").arg(k.shortKeyID()).arg(k.userID(0).email());
+        QString text = QStringLiteral("%1 (%2)").arg(k.shortKeyID()).arg(k.userID(0).email());
         QVariant varKey;
         varKey.setValue(k);
         _list->addItem(text, varKey);
@@ -152,7 +152,7 @@ public:
     {
         ui.setupUi(this);
 
-        registerField("gpgKey", ui._gpgKey);
+        registerField(QStringLiteral("gpgKey"), ui._gpgKey);
 
         KeysVector keys;
         GpgME::initializeLibrary();
@@ -209,7 +209,7 @@ public:
 
     GpgME::Key gpgKey() const
     {
-        QVariant varKey = ui._gpgKey->itemData(field("gpgKey").toInt());
+        QVariant varKey = ui._gpgKey->itemData(field(QStringLiteral("gpgKey")).toInt());
         return varKey.value< GpgME::Key >();
     }
 private:
@@ -226,8 +226,8 @@ public:
     {
         ui.setupUi(this);
 
-        registerField("closeWhenIdle", ui._closeIdle);
-        registerField("networkWallet", ui._networkWallet);
+        registerField(QStringLiteral("closeWhenIdle"), ui._closeIdle);
+        registerField(QStringLiteral("networkWallet"), ui._networkWallet);
     }
 
 private:
@@ -270,14 +270,14 @@ KWalletWizard::KWalletWizard(QWidget *parent)
 void KWalletWizard::passwordPageUpdate()
 {
     bool complete = true;
-    if (field("useWallet").toBool()) {
+    if (field(QStringLiteral("useWallet")).toBool()) {
 #ifdef HAVE_QGPGME
-        if (field("useBlowfish").toBool()) {
+        if (field(QStringLiteral("useBlowfish")).toBool()) {
             m_pagePasswd->setFinalPage(wizardType() == Basic);
             button(NextButton)->setVisible(wizardType() != Basic);
 #endif
-            if (field("pass1").toString() == field("pass2").toString()) {
-                if (field("pass1").toString().isEmpty()) {
+            if (field(QStringLiteral("pass1")).toString() == field(QStringLiteral("pass2")).toString()) {
+                if (field(QStringLiteral("pass1")).toString().isEmpty()) {
                     m_pagePasswd->setMatchLabelText(i18n("<qt>Password is empty.  <b>(WARNING: Insecure)</b></qt>"));
                 } else {
                     m_pagePasswd->setMatchLabelText(i18n("Passwords match."));

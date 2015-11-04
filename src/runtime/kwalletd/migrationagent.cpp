@@ -78,14 +78,14 @@ void MigrationAgent::migrateWallets()
 
 bool MigrationAgent::isAlreadyMigrated()
 {
-    KConfig kwalletrc("kwalletrc");
+    KConfig kwalletrc(QStringLiteral("kwalletrc"));
     KConfigGroup cfg(&kwalletrc, "Migration");
     return cfg.readEntry<bool>(ENTRY_ALREADY_MIGRATED, false);
 }
 
 void MigrationAgent::setAlreadyMigrated()
 {
-    KConfig kwalletrc("kwalletrc");
+    KConfig kwalletrc(QStringLiteral("kwalletrc"));
     KConfigGroup cfg(&kwalletrc, "Migration");
     cfg.writeEntry(ENTRY_ALREADY_MIGRATED, true);
 }
@@ -97,14 +97,14 @@ bool MigrationAgent::connectOldDaemon()
     // however, this thing is a HACK as we cannot tell here, in KF5, user's KDE4 install prefix
     // the provided .service file assumes /usr/bin
     QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
-    if (!bus->isServiceRegistered(QString::fromLatin1(SERVICE_KWALLETD4))) {
+    if (!bus->isServiceRegistered(QStringLiteral(SERVICE_KWALLETD4))) {
         qDebug() << "kwalletd not started. Attempting start...";
         QDBusReply<void> reply = bus->startService(SERVICE_KWALLETD4);
         if (!reply.isValid()) {
             qDebug() << "Couldn't start kwalletd: " << reply.error();
             return false;
         }
-        if (!bus->isServiceRegistered(QString::fromLatin1(SERVICE_KWALLETD4))) {
+        if (!bus->isServiceRegistered(QStringLiteral(SERVICE_KWALLETD4))) {
             qDebug() << "The kwalletd service is still not registered after start attemtp. Aborting migration";
             return false;
         } else {
@@ -112,7 +112,7 @@ bool MigrationAgent::connectOldDaemon()
         }
     }
 
-    _kde4_daemon = new org::kde::KWallet(QString::fromLatin1(SERVICE_KWALLETD4), "/modules/kwalletd", QDBusConnection::sessionBus());
+    _kde4_daemon = new org::kde::KWallet(QLatin1String(SERVICE_KWALLETD4), QStringLiteral("/modules/kwalletd"), QDBusConnection::sessionBus());
     return _kde4_daemon->isValid();
 }
 
@@ -126,7 +126,7 @@ bool MigrationAgent::isMigrationWizardOk()
     // following setting to the kwalletrc:
     // [Migration]
     // showMigrationWizard=true
-    KConfig kwalletrc("kwalletrc");
+    KConfig kwalletrc(QStringLiteral("kwalletrc"));
     KConfigGroup cfg(&kwalletrc, "Migration");
     bool showMigrationWizard = cfg.readEntry<bool>(ENTRY_SHOW_MIGRATION_WIZARD, false);
 
@@ -146,13 +146,13 @@ bool MigrationAgent::isMigrationWizardOk()
     return ok;
 }
 
-void MigrationAgent::emitProgressMessage(QString msg)
+void MigrationAgent::emitProgressMessage(const QString &msg)
 {
     emit progressMessage(msg);
 }
 
 class MigrationException {
-    public: MigrationException(QString msg): _msg(msg) {}
+    public: MigrationException(const QString &msg): _msg(msg) {}
     QString _msg;
 };
 

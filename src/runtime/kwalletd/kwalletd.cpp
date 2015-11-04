@@ -134,9 +134,9 @@ KWalletD::KWalletD()
     (void)new KWalletAdaptor(this);
     // register services
     QDBusConnection::sessionBus().registerService(
-        QLatin1String("org.kde.kwalletd5"));
+        QStringLiteral("org.kde.kwalletd5"));
     QDBusConnection::sessionBus().registerObject(
-        QLatin1String("/modules/kwalletd5"), this);
+        QStringLiteral("/modules/kwalletd5"), this);
 
 #ifdef Q_WS_X11
     screensaver = 0;
@@ -145,7 +145,7 @@ KWalletD::KWalletD()
     reconfigure();
     //  KGlobal::dirs()->addResourceType("kwallet", 0, "share/apps/kwallet");
     _dw = new KDirWatch(this);
-    _dw->setObjectName(QLatin1String("KWallet Directory Watcher"));
+    _dw->setObjectName(QStringLiteral("KWallet Directory Watcher"));
     //  _dw->addDir(KGlobal::dirs()->saveLocation("kwallet"));
     _dw->addDir(KWallet::Backend::getSaveLocation());
 
@@ -329,8 +329,8 @@ int KWalletD::open(const QString& wallet, qlonglong wId, const QString& appid)
         return -1;
     }
 
-    if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
-                 "\\+\\_\\s]+$").exactMatch(wallet)) {
+    if (!QRegExp(QStringLiteral("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
+                 "\\+\\_\\s]+$")).exactMatch(wallet)) {
         return -1;
     }
 
@@ -361,8 +361,8 @@ int KWalletD::openAsync(const QString& wallet, qlonglong wId,
         return -1;
     }
 
-    if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
-                 "\\+\\_\\s]+$").exactMatch(wallet)) {
+    if (!QRegExp(QStringLiteral("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
+                 "\\+\\_\\s]+$")).exactMatch(wallet)) {
         return -1;
     }
 
@@ -482,12 +482,12 @@ int KWalletD::doTransactionOpen(const QString& appid, const QString& wallet,
         // if the user specifies a wallet name, the use it as the default
         // wallet name
         if (wallet != KWallet::Wallet::LocalWallet()) {
-            KConfig kwalletrc("kwalletrc");
+            KConfig kwalletrc(QStringLiteral("kwalletrc"));
             KConfigGroup cfg(&kwalletrc, "Wallet");
             cfg.writeEntry("Default Wallet", wallet);
         }
         if (wallets().contains(KWallet::Wallet::LocalWallet())) {
-            KConfig kwalletrc("kwalletrc");
+            KConfig kwalletrc(QStringLiteral("kwalletrc"));
             KConfigGroup cfg(&kwalletrc, "Wallet");
             _firstUse = false;
             cfg.writeEntry("First Use", false);
@@ -561,7 +561,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
 
     QString thisApp;
     if (appid.isEmpty()) {
-        thisApp = "KDE System";
+        thisApp = QStringLiteral("KDE System");
     }
     else {
         thisApp = appid;
@@ -631,7 +631,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
                     //              i18n( "&Open" ), "wallet-open"));
                     kpd->setWindowTitle(i18n("KDE Wallet Service"));
                     kpd->setPixmap(
-                        KIconLoader::global()->loadIcon("kwalletmanager",
+                        KIconLoader::global()->loadIcon(QStringLiteral("kwalletmanager"),
                             KIconLoader::Desktop, KIconLoader::SizeHuge));
                     if (w != KWindowSystem::activeWindow() && w != 0L) {
                         // If the dialog is modal to a minimized window it
@@ -640,7 +640,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
                         // Notify the user about
                         // the request to open the wallet.
                         KNotification* notification = new KNotification(
-                            "needsPassword", kpd, KNotification::Persistent
+                            QStringLiteral("needsPassword"), kpd, KNotification::Persistent
                                 | KNotification::CloseWhenWidgetActivated);
                         QStringList actions;
                         if (appid.isEmpty()) {
@@ -683,7 +683,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
                                     "/>(Error code %2: %3)</qt>",
                                     wallet.toHtmlEscaped(), rc,
                                     KWallet::Backend::openRCToString(rc)));
-                                kpd->setPassword("");
+                                kpd->setPassword(QLatin1String(""));
                             }
                         }
                         else {
@@ -775,7 +775,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
                 // KF5 FIXME what should we use now instead of this:
                 //              kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
                 kpd->setPixmap(
-                    KIconLoader::global()->loadIcon("kwalletmanager",
+                    KIconLoader::global()->loadIcon(QStringLiteral("kwalletmanager"),
                         KIconLoader::Desktop, KIconLoader::SizeHuge));
                 while (!b->isOpen()) {
                     setupDialog(kpd, w, appid, modal);
@@ -831,7 +831,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
         emit walletOpened(wallet);
         if (_wallets.count() == 1 && _launchManager) {
             KToolInvocation::startServiceByDesktopName(
-                "kwalletmanager-kwalletd");
+                QStringLiteral("kwalletmanager-kwalletd"));
         }
     }
     else {
@@ -878,7 +878,7 @@ bool KWalletD::isAuthorizedApp(
 
     QString thisApp;
     if (appid.isEmpty()) {
-        thisApp = "KDE System";
+        thisApp = QStringLiteral("KDE System");
     }
     else {
         thisApp = appid;
@@ -886,7 +886,7 @@ bool KWalletD::isAuthorizedApp(
 
     if (!implicitAllow(wallet, thisApp)) {
         KConfigGroup cfg
-            = KSharedConfig::openConfig("kwalletrc")->group("Auto Allow");
+            = KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Auto Allow");
         if (!cfg.isEntryImmutable(wallet)) {
             KBetterThanKDialog* dialog = new KBetterThanKDialog;
             dialog->setWindowTitle(i18n("KDE Wallet Service"));
@@ -910,7 +910,7 @@ bool KWalletD::isAuthorizedApp(
     if (response == 0 || response == 1) {
         if (response == 1) {
             KConfigGroup cfg
-                = KSharedConfig::openConfig("kwalletrc")->group("Auto Allow");
+                = KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Auto Allow");
             QStringList apps = cfg.readEntry(wallet, QStringList());
             if (!apps.contains(thisApp)) {
                 if (cfg.isEntryImmutable(wallet)) {
@@ -925,7 +925,7 @@ bool KWalletD::isAuthorizedApp(
     }
     else if (response == 3) {
         KConfigGroup cfg
-            = KSharedConfig::openConfig("kwalletrc")->group("Auto Deny");
+            = KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Auto Deny");
         QStringList apps = cfg.readEntry(wallet, QStringList());
         if (!apps.contains(thisApp)) {
             apps += thisApp;
@@ -956,11 +956,11 @@ int KWalletD::deleteWallet(const QString& wallet)
         emit walletDeleted(wallet);
         // also delete access control entries
         KConfigGroup cfgAllow
-            = KSharedConfig::openConfig("kwalletrc")->group("Auto Allow");
+            = KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Auto Allow");
         cfgAllow.deleteEntry(wallet);
 
         KConfigGroup cfgDeny
-            = KSharedConfig::openConfig("kwalletrc")->group("Auto Deny");
+            = KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Auto Deny");
         cfgDeny.deleteEntry(wallet);
 
         if (QFile::exists(pathSalt)) {
@@ -1013,7 +1013,7 @@ void KWalletD::doTransactionChangePassword(
 
     bool reclose = false;
     if (!w) {
-        handle = doTransactionOpen(appid, wallet, false, wId, false, "");
+        handle = doTransactionOpen(appid, wallet, false, wId, false, QLatin1String(""));
         if (-1 == handle) {
             KMessageBox::sorryWId((WId)wId,
                 i18n("Unable to open wallet. The wallet must be opened in "
@@ -1126,7 +1126,7 @@ int KWalletD::close(int handle, bool force, const QString& appid)
             bool removed
                 = _sessions.removeSession(appid, message().service(), handle);
             // alternatively try sessionless
-            if (removed || _sessions.removeSession(appid, "", handle)) {
+            if (removed || _sessions.removeSession(appid, QLatin1String(""), handle)) {
                 w->deref();
             }
             return internalClose(w, handle, force);
@@ -1164,7 +1164,7 @@ bool KWalletD::isOpen(int handle)
 QStringList KWalletD::wallets() const
 {
     QString path = KWallet::Backend::getSaveLocation();
-    QDir dir(path, "*.kwl");
+    QDir dir(path, QStringLiteral("*.kwl"));
     QStringList rc;
 
     dir.setFilter(QDir::Files | QDir::Hidden);
@@ -1689,7 +1689,7 @@ void KWalletD::emitWalletListDirty()
 
 void KWalletD::reconfigure()
 {
-    KConfig cfg("kwalletrc");
+    KConfig cfg(QStringLiteral("kwalletrc"));
     KConfigGroup walletGroup(&cfg, "Wallet");
     _firstUse = walletGroup.readEntry("First Use", true);
     _enabled = walletGroup.readEntry("Enabled", true);
@@ -1862,8 +1862,8 @@ int KWalletD::pamOpen(
         return -1;
     }
 
-    if (!QRegExp("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
-                 "\\+\\_\\s]+$").exactMatch(wallet)) {
+    if (!QRegExp(QStringLiteral("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
+                 "\\+\\_\\s]+$")).exactMatch(wallet)) {
         return -1;
     }
 
@@ -1911,7 +1911,7 @@ int KWalletD::pamOpen(
     emit walletOpened(wallet);
 
     if (_wallets.count() == 1 && _launchManager) {
-        KToolInvocation::startServiceByDesktopName("kwalletmanager-kwalletd");
+        KToolInvocation::startServiceByDesktopName(QStringLiteral("kwalletmanager-kwalletd"));
     }
 
     return handle;

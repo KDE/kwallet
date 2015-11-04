@@ -73,7 +73,7 @@ public:
 class KWALLETBACKEND5_EXPORT Backend
 {
 public:
-    explicit Backend(const QString &name = QLatin1String("kdewallet"), bool isPath = false);
+    explicit Backend(const QString &name = QStringLiteral("kdewallet"), bool isPath = false);
     ~Backend();
 
     // Open and unlock the wallet.

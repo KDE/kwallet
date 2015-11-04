@@ -37,10 +37,10 @@ void KWalletTest::init()
 
 void KWalletTest::testWallet()
 {
-    QString testWallet = "kdewallet";
-    QString testFolder = "wallettestfolder";
-    QString testKeys[] = { "testKey", "account-302948", "\\", "/abc",
-                           "a@b.c"
+    QString testWallet = QStringLiteral("kdewallet");
+    QString testFolder = QStringLiteral("wallettestfolder");
+    QString testKeys[] = { QStringLiteral("testKey"), QStringLiteral("account-302948"), QStringLiteral("\\"), QStringLiteral("/abc"),
+                           QStringLiteral("a@b.c")
                          };
     QByteArray testValues[] = { "test", "@(!§\"%&", "", ".test", "\\" };
     int numTests = 5;
@@ -71,7 +71,7 @@ void KWalletTest::testWallet()
 
     // close
     wallet->sync();
-    Wallet::closeWallet("kdewallet", true);
+    Wallet::closeWallet(QStringLiteral("kdewallet"), true);
     QVERIFY2(!Wallet::isOpen("kdewallet"), "wallet is still opened after close call!");
 
     // test for key - closed wallet
@@ -112,7 +112,7 @@ void KWalletTest::testWallet()
     QVERIFY2(!wallet->hasFolder(testFolder), "Failed to delete the testFolder");
 
     // close
-    Wallet::closeWallet("kdewallet", true);
+    Wallet::closeWallet(QStringLiteral("kdewallet"), true);
     QVERIFY2(!Wallet::isOpen("kdewallet"), "Failed to close wallet");
 }
 

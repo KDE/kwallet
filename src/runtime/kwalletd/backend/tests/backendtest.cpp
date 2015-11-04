@@ -9,9 +9,9 @@
 int main(int argc, char **argv)
 {
     QApplication a(argc, argv);
-    a.setApplicationName("backendtest");
+    a.setApplicationName(QStringLiteral("backendtest"));
 
-    KWallet::Backend be("ktestwallet");
+    KWallet::Backend be(QStringLiteral("ktestwallet"));
     printf("KWalletBackend constructed\n");
 
     QByteArray apass("apassword", 9);

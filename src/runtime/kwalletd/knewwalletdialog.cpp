@@ -54,7 +54,7 @@ bool KNewWalletDialog::isBlowfish() const
 
 GpgME::Key KNewWalletDialog::gpgKey() const
 {
-    QVariant varKey = field("key");
+    QVariant varKey = field(QStringLiteral("key"));
     return varKey.value< GpgME::Key >();
 }
 
@@ -102,7 +102,7 @@ struct AddKeyToList {
         GpgME::UserID uid = k.userID(0);
         QString name(uid.name());
         if (uid.comment()) {
-            name = QString("%1 (%2)").arg(name).arg(uid.comment());
+            name = QStringLiteral("%1 (%2)").arg(name).arg(uid.comment());
         }
         _list->setItem(_row, 0, new QTableWidgetItem(name));
         _list->setItem(_row, 1, new QTableWidgetItem(uid.email()));
@@ -120,7 +120,7 @@ void KNewWalletDialogGpg::initializePage()
         return;
     }
 
-    registerField("key", this);
+    registerField(QStringLiteral("key"), this);
 
     GpgME::initializeLibrary();
     GpgME::Error err = GpgME::checkEngine(GpgME::OpenPGP);
@@ -170,7 +170,7 @@ void KNewWalletDialogGpg::onItemSelectionChanged()
 {
     _complete = _ui.listCertificates->currentRow() >= 0;
     QVariant varKey = _ui.listCertificates->item(_ui.listCertificates->currentRow(), 0)->data(Qt::UserRole);
-    setField("key", varKey);
+    setField(QStringLiteral("key"), varKey);
     emit completeChanged();
 }
 

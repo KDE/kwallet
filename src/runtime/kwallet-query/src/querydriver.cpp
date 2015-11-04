@@ -37,7 +37,7 @@ QueryDriver::QueryDriver(int &argc, char* argv[]) :
     QApplication(argc, argv)
     , theWallet(0)
     , verbose(false)
-    , entryFolder("Passwords")
+    , entryFolder(QStringLiteral("Passwords"))
 {
     QTimerEvent *timerEvent = new QTimerEvent(100);
     postEvent(this, timerEvent);
@@ -160,7 +160,7 @@ void QueryDriver::readPasswordValue() {
         std::cout << i18n("Failed to read entry %1 value from the %2 wallet", entryName, walletName).toUtf8().constData() << std::endl;
         exit(4);
     }
-    QStringList el = entryValue.split("\n", QString::SkipEmptyParts);
+    QStringList el = entryValue.split(QStringLiteral("\n"), QString::SkipEmptyParts);
     for (auto e : el) {
         std::cout << e.toUtf8().constData() << std::endl;
     }

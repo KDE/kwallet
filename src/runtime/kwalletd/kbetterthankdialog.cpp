@@ -33,10 +33,10 @@ KBetterThanKDialog::KBetterThanKDialog(QWidget *parent)
 
 void KBetterThanKDialog::init()
 {
-    _allowOnce->setIcon(KDE::icon("dialog-ok"));
-    _allowAlways->setIcon(KDE::icon("dialog-ok"));
-    _deny->setIcon(KDE::icon("dialog-cancel"));
-    _denyForever->setIcon(KDE::icon("dialog-cancel"));
+    _allowOnce->setIcon(KDE::icon(QStringLiteral("dialog-ok")));
+    _allowAlways->setIcon(KDE::icon(QStringLiteral("dialog-ok")));
+    _deny->setIcon(KDE::icon(QStringLiteral("dialog-cancel")));
+    _denyForever->setIcon(KDE::icon(QStringLiteral("dialog-cancel")));
 
     _allowOnce->setFocus();
 }

@@ -93,18 +93,18 @@ bool Wallet::isUsingKSecretsService()
 const QString Wallet::LocalWallet()
 {
     // NOTE: This method stays unchanged for KSecretsService
-    KConfigGroup cfg(KSharedConfig::openConfig("kwalletrc")->group("Wallet"));
+    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Wallet"));
     if (!cfg.readEntry("Use One Wallet", true)) {
         QString tmp = cfg.readEntry("Local Wallet", "localwallet");
         if (tmp.isEmpty()) {
-            return "localwallet";
+            return QStringLiteral("localwallet");
         }
         return tmp;
     }
 
     QString tmp = cfg.readEntry("Default Wallet", "kdewallet");
     if (tmp.isEmpty()) {
-        return "kdewallet";
+        return QStringLiteral("kdewallet");
     }
     return tmp;
 }
@@ -112,23 +112,23 @@ const QString Wallet::LocalWallet()
 const QString Wallet::NetworkWallet()
 {
     // NOTE: This method stays unchanged for KSecretsService
-    KConfigGroup cfg(KSharedConfig::openConfig("kwalletrc")->group("Wallet"));
+    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Wallet"));
 
     QString tmp = cfg.readEntry("Default Wallet", "kdewallet");
     if (tmp.isEmpty()) {
-        return "kdewallet";
+        return QStringLiteral("kdewallet");
     }
     return tmp;
 }
 
 const QString Wallet::PasswordFolder()
 {
-    return "Passwords";
+    return QStringLiteral("Passwords");
 }
 
 const QString Wallet::FormDataFolder()
 {
-    return "Form Data";
+    return QStringLiteral("Form Data");
 }
 
 class Wallet::WalletPrivate
@@ -1589,7 +1589,7 @@ void Wallet::virtual_hook(int, void *)
 
 KWalletDLauncher::KWalletDLauncher()
     : m_wallet(0),
-      m_cgroup(KSharedConfig::openConfig("kwalletrc", KConfig::NoGlobals)->group("Wallet"))
+      m_cgroup(KSharedConfig::openConfig(QStringLiteral("kwalletrc"), KConfig::NoGlobals)->group("Wallet"))
 {
     m_useKSecretsService = m_cgroup.readEntry("UseKSecretsService", false);
 #if HAVE_KSECRETSSERVICE
@@ -1597,7 +1597,7 @@ KWalletDLauncher::KWalletDLauncher()
         // NOOP
     } else {
 #endif
-        m_wallet = new org::kde::KWallet(QString::fromLatin1(s_kwalletdServiceName), "/modules/kwalletd5", QDBusConnection::sessionBus());
+        m_wallet = new org::kde::KWallet(QString::fromLatin1(s_kwalletdServiceName), QStringLiteral("/modules/kwalletd5"), QDBusConnection::sessionBus());
 #if HAVE_KSECRETSSERVICE
     }
 #endif

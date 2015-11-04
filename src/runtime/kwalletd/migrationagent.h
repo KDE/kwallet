@@ -44,10 +44,10 @@ private Q_SLOTS:
     bool isMigrationWizardOk();
     void setAlreadyMigrated();
 public Q_SLOTS:
-    void emitProgressMessage(QString);
+    void emitProgressMessage(const QString &);
 
 Q_SIGNALS:
-    void progressMessage(QString);
+    void progressMessage(const QString &);
 
 private:
     KWalletD		*_kf5_daemon;

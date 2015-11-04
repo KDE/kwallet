@@ -95,8 +95,8 @@ static int getRandomBlock(QByteArray &randBlock)
 #else
 
     // First try /dev/urandom
-    if (QFile::exists("/dev/urandom")) {
-        QFile devrand("/dev/urandom");
+    if (QFile::exists(QStringLiteral("/dev/urandom"))) {
+        QFile devrand(QStringLiteral("/dev/urandom"));
         if (devrand.open(QIODevice::ReadOnly)) {
             int rc = devrand.read(randBlock.data(), randBlock.size());
 
@@ -110,8 +110,8 @@ static int getRandomBlock(QByteArray &randBlock)
 
     // If that failed, try /dev/random
     // FIXME: open in noblocking mode!
-    if (QFile::exists("/dev/random")) {
-        QFile devrand("/dev/random");
+    if (QFile::exists(QStringLiteral("/dev/random"))) {
+        QFile devrand(QStringLiteral("/dev/random"));
         if (devrand.open(QIODevice::ReadOnly)) {
             int rc = 0;
             int cnt = 0;
