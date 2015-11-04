@@ -53,4 +53,4 @@ void WalletReceiver::walletOpened(bool got)
     qApp->exit(1);
 }
 
-QTEST_GUILESS_MAIN(KWalletAsyncTest);
+QTEST_GUILESS_MAIN(KWalletAsyncTest)
