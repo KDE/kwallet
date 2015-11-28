@@ -61,7 +61,7 @@ public:
     // KSecretsService infrastructure. It's value can be changed via the
     // the Wallet configuration module in System Settings
     bool m_useKSecretsService;
-    org::kde::KWallet *m_wallet;
+    org::kde::KWallet *m_wallet_deamon;
     KConfigGroup m_cgroup;
 };
 
@@ -1588,7 +1588,7 @@ void Wallet::virtual_hook(int, void *)
 }
 
 KWalletDLauncher::KWalletDLauncher()
-    : m_wallet(0),
+    : m_wallet_deamon(0),
       m_cgroup(KSharedConfig::openConfig(QStringLiteral("kwalletrc"), KConfig::NoGlobals)->group("Wallet"))
 {
     m_useKSecretsService = m_cgroup.readEntry("UseKSecretsService", false);
@@ -1597,7 +1597,7 @@ KWalletDLauncher::KWalletDLauncher()
         // NOOP
     } else {
 #endif
-        m_wallet = new org::kde::KWallet(QString::fromLatin1(s_kwalletdServiceName), QStringLiteral("/modules/kwalletd5"), QDBusConnection::sessionBus());
+        m_wallet_deamon = new org::kde::KWallet(QString::fromLatin1(s_kwalletdServiceName), QStringLiteral("/modules/kwalletd5"), QDBusConnection::sessionBus());
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -1605,13 +1605,13 @@ KWalletDLauncher::KWalletDLauncher()
 
 KWalletDLauncher::~KWalletDLauncher()
 {
-    delete m_wallet;
+    delete m_wallet_deamon;
 }
 
 org::kde::KWallet &KWalletDLauncher::getInterface()
 {
 //    Q_ASSERT(!m_useKSecretsService);
-    Q_ASSERT(m_wallet != 0);
+    Q_ASSERT(m_wallet_deamon != 0);
 
     // check if kwalletd is already running
     QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
@@ -1635,7 +1635,7 @@ org::kde::KWallet &KWalletDLauncher::getInterface()
         }
     }
 
-    return *m_wallet;
+    return *m_wallet_deamon;
 }
 
 } // namespace KWallet
