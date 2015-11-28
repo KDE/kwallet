@@ -63,6 +63,7 @@ public:
     bool m_useKSecretsService;
     org::kde::KWallet *m_wallet_deamon;
     KConfigGroup m_cgroup;
+    bool m_walletEnabled;
 };
 
 Q_GLOBAL_STATIC(KWalletDLauncher, walletLauncher)
@@ -294,12 +295,14 @@ QStringList Wallet::walletList()
         }
     } else {
 #endif
-        QDBusReply<QStringList> r = walletLauncher()->getInterface().wallets();
+        if (walletLauncher()->m_walletEnabled) {
+            QDBusReply<QStringList> r = walletLauncher()->getInterface().wallets();
 
-        if (!r.isValid()) {
-            qDebug() << "Invalid DBus reply: " << r.error();
-        } else {
-            result = r;
+            if (!r.isValid()) {
+                qDebug() << "Invalid DBus reply: " << r.error();
+            } else {
+                result = r;
+            }
         }
 #if HAVE_KSECRETSSERVICE
     }
@@ -325,7 +328,9 @@ void Wallet::changePassword(const QString &name, WId w)
         coll->deleteLater();
     } else {
 #endif
-        walletLauncher()->getInterface().changePassword(name, (qlonglong)w, appid());
+        if (walletLauncher()->m_walletEnabled) {
+            walletLauncher()->getInterface().changePassword(name, (qlonglong)w, appid());
+        }
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -338,14 +343,7 @@ bool Wallet::isEnabled()
         return walletLauncher()->m_cgroup.readEntry("Enabled", true);
     } else {
 #endif
-        QDBusReply<bool> r = walletLauncher()->getInterface().isEnabled();
-
-        if (!r.isValid()) {
-            qDebug() << "Invalid DBus reply: " << r.error();
-            return false;
-        } else {
-            return r;
-        }
+        return walletLauncher()->m_walletEnabled;
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -386,14 +384,16 @@ int Wallet::closeWallet(const QString &name, bool force)
         return 0;
     } else {
 #endif
-        QDBusReply<int> r = walletLauncher()->getInterface().close(name, force);
+        if (walletLauncher()->m_walletEnabled) {
+            QDBusReply<int> r = walletLauncher()->getInterface().close(name, force);
 
-        if (!r.isValid()) {
-            qDebug() << "Invalid DBus reply: " << r.error();
-            return -1;
-        } else {
-            return r;
-        }
+            if (!r.isValid()) {
+                qDebug() << "Invalid DBus reply: " << r.error();
+                return -1;
+            } else {
+                return r;
+            }
+        } else return -1;
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -411,14 +411,16 @@ int Wallet::deleteWallet(const QString &name)
         return deleteJob->error();
     } else {
 #endif
-        QDBusReply<int> r = walletLauncher()->getInterface().deleteWallet(name);
+        if (walletLauncher->m_walletEnabled) {
+            QDBusReply<int> r = walletLauncher()->getInterface().deleteWallet(name);
 
-        if (!r.isValid()) {
-            qDebug() << "Invalid DBus reply: " << r.error();
-            return -1;
-        } else {
-            return r;
-        }
+            if (!r.isValid()) {
+                qDebug() << "Invalid DBus reply: " << r.error();
+                return -1;
+            } else {
+                return r;
+            }
+        } else return -1;
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -428,6 +430,11 @@ Wallet *Wallet::openWallet(const QString &name, WId w, OpenType ot)
 {
     if (w == 0) {
         qDebug() << "Pass a valid window to KWallet::Wallet::openWallet().";
+    }
+
+    if (!walletLauncher()->m_walletEnabled) {
+        qDebug() << "User disabled the wallet system so returning 0 here.";
+        return 0;
     }
 
 #if HAVE_KSECRETSSERVICE
@@ -539,14 +546,16 @@ bool Wallet::disconnectApplication(const QString &wallet, const QString &app)
         return true;
     } else {
 #endif
-        QDBusReply<bool> r = walletLauncher()->getInterface().disconnectApplication(wallet, app);
+        if (walletLauncher()->m_walletEnabled) {
+            QDBusReply<bool> r = walletLauncher()->getInterface().disconnectApplication(wallet, app);
 
-        if (!r.isValid()) {
-            qDebug() << "Invalid DBus reply: " << r.error();
-            return false;
-        } else {
-            return r;
-        }
+            if (!r.isValid()) {
+                qDebug() << "Invalid DBus reply: " << r.error();
+                return false;
+            } else {
+                return r;
+            }
+        } else return -1;
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -560,13 +569,15 @@ QStringList Wallet::users(const QString &name)
         return QStringList();
     } else {
 #endif
-        QDBusReply<QStringList> r = walletLauncher()->getInterface().users(name);
-        if (!r.isValid()) {
-            qDebug() << "Invalid DBus reply: " << r.error();
-            return QStringList();
-        } else {
-            return r;
-        }
+        if (walletLauncher()->m_walletEnabled) {
+            QDBusReply<QStringList> r = walletLauncher()->getInterface().users(name);
+            if (!r.isValid()) {
+                qDebug() << "Invalid DBus reply: " << r.error();
+                return QStringList();
+            } else {
+                return r;
+            }
+        } else return QStringList();
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -1546,13 +1557,15 @@ bool Wallet::folderDoesNotExist(const QString &wallet, const QString &folder)
         }
     } else {
 #endif
-        QDBusReply<bool> r = walletLauncher()->getInterface().folderDoesNotExist(wallet, folder);
-        if (!r.isValid()) {
-            qDebug() << "Invalid DBus reply: " << r.error();
-            return false;
-        } else {
-            return r;
-        }
+        if (walletLauncher()->m_walletEnabled) {
+            QDBusReply<bool> r = walletLauncher()->getInterface().folderDoesNotExist(wallet, folder);
+            if (!r.isValid()) {
+                qDebug() << "Invalid DBus reply: " << r.error();
+                return false;
+            } else {
+                return r;
+            }
+        } else return false;
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -1570,13 +1583,15 @@ bool Wallet::keyDoesNotExist(const QString &wallet, const QString &folder, const
         return false;
     } else {
 #endif
-        QDBusReply<bool> r = walletLauncher()->getInterface().keyDoesNotExist(wallet, folder, key);
-        if (!r.isValid()) {
-            qDebug() << "Invalid DBus reply: " << r.error();
-            return false;
-        } else {
-            return r;
-        }
+        if (walletLauncher()->m_walletEnabled) {
+            QDBusReply<bool> r = walletLauncher()->getInterface().keyDoesNotExist(wallet, folder, key);
+            if (!r.isValid()) {
+                qDebug() << "Invalid DBus reply: " << r.error();
+                return false;
+            } else {
+                return r;
+            }
+        } else return false;
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -1588,10 +1603,17 @@ void Wallet::virtual_hook(int, void *)
 }
 
 KWalletDLauncher::KWalletDLauncher()
-    : m_wallet_deamon(0),
-      m_cgroup(KSharedConfig::openConfig(QStringLiteral("kwalletrc"), KConfig::NoGlobals)->group("Wallet"))
+    : m_wallet_deamon(0)
+    , m_cgroup(KSharedConfig::openConfig(QStringLiteral("kwalletrc")
+    , KConfig::NoGlobals)->group("Wallet"))
+    , m_walletEnabled(false)
 {
     m_useKSecretsService = m_cgroup.readEntry("UseKSecretsService", false);
+    m_walletEnabled = m_cgroup.readEntry("Enabled", true);
+    if (!m_walletEnabled) {
+        qDebug() << "The wallet service was disabled by the user";
+        return;
+    }
 #if HAVE_KSECRETSSERVICE
     if (m_useKSecretsService) {
         // NOOP
@@ -1617,8 +1639,7 @@ org::kde::KWallet &KWalletDLauncher::getInterface()
     QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
     if (!bus->isServiceRegistered(QString::fromLatin1(s_kwalletdServiceName))) {
         // not running! check if it is enabled.
-        bool walletEnabled = m_cgroup.readEntry("Enabled", true);
-        if (walletEnabled) {
+        if (m_walletEnabled) {
             // wallet is enabled! try launching it
             QDBusReply<void> reply = bus->startService(s_kwalletdServiceName);
             if (!reply.isValid()) {

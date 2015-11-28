@@ -149,6 +149,8 @@ public:
      *           associate with.
      *  @return Returns a pointer to the wallet if successful,
      *          or a null pointer on error or if rejected.
+     *          A null pointer can also be returned if user choose to
+     *          deactivate the wallet system.
      */
     static Wallet *openWallet(const QString &name, WId w, OpenType ot = Synchronous);
 
