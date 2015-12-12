@@ -175,8 +175,7 @@ void KWalletD::connectToScreenSaver()
     screensaver = new QDBusInterface("org.freedesktop.ScreenSaver",
         "/ScreenSaver", "org.freedesktop.ScreenSaver");
     if (!screensaver->isValid()) {
-        qDebug() << "Service org.freedesktop.ScreenSaver not found. Retrying "
-                    "in 10 seconds...";
+        qDebug() << "Service org.freedesktop.ScreenSaver not found. Retrying in 10 seconds...";
         // keep attempting every 10 seconds
         QTimer::singleShot(10000, this, SLOT(connectToScreenSaver()));
     }
@@ -329,7 +328,7 @@ int KWalletD::open(const QString& wallet, qlonglong wId, const QString& appid)
         return -1;
     }
 
-    if (!QRegExp(QStringLiteral("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
+    if (!QRegExp(QString::fromLatin1("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
                  "\\+\\_\\s]+$")).exactMatch(wallet)) {
         return -1;
     }
@@ -361,7 +360,7 @@ int KWalletD::openAsync(const QString& wallet, qlonglong wId,
         return -1;
     }
 
-    if (!QRegExp(QStringLiteral("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
+    if (!QRegExp(QString::fromLatin1("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
                  "\\+\\_\\s]+$")).exactMatch(wallet)) {
         return -1;
     }
@@ -1862,7 +1861,7 @@ int KWalletD::pamOpen(
         return -1;
     }
 
-    if (!QRegExp(QStringLiteral("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
+    if (!QRegExp(QString::fromLatin1("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
                  "\\+\\_\\s]+$")).exactMatch(wallet)) {
         return -1;
     }
