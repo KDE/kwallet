@@ -90,18 +90,21 @@ static int waitForEnvironment()
     }
     printf("kwalletd5: client connected\n");
 
-    char str[BSIZE];
-    memset(str, '\0', sizeof(char) * BSIZE);
+    char str[BSIZE] = {'\0'};
 
     int chop = 0;
     FILE *s3 = fdopen(s2, "r");
     while(!feof(s3)) {
         if (fgets(str, BSIZE, s3)) {
             chop = strlen(str) - 1;
-            str[chop] = '\0';
+            if (str[chop] == '\n') {
+                str[chop] = '\0';
+            }
             putenv(strdup(str));
         }
     }
+    fclose(s3);
+
     printf("kwalletd5: client disconnected\n");
     close(socketfd);
     return 1;
