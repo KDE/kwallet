@@ -3,6 +3,7 @@ project(kwalletd5)
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
 
 find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5ConfigWidgets ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5DBusAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5IconThemes ${KF5_DEP_VERSION} REQUIRED)
@@ -104,6 +105,7 @@ target_link_libraries(kwalletd5
     KF5::I18n
     KF5::CoreAddons
     KF5::ConfigCore
+    KF5::ConfigWidgets
     KF5::IconThemes
     KF5::Service
     KF5::DBusAddons

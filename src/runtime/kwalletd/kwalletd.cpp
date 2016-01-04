@@ -42,6 +42,7 @@
 #include <kwindowsystem.h>
 #include <kpluginfactory.h>
 #include <kpluginloader.h>
+#include <KColorScheme>
 #include <KNotification>
 #include <KLocalizedString>
 #include <KIconLoader>
@@ -730,6 +731,8 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
 #endif // HAVE_QGPGME
                 b->setCipherType(KWallet::BACKEND_CIPHER_BLOWFISH);
                 KNewPasswordDialog* kpd = new KNewPasswordDialog();
+                KColorScheme colorScheme(QPalette::Active, KColorScheme::View);
+                kpd->setBackgroundWarningColor(colorScheme.background(KColorScheme::NegativeBackground).color());
                 if (wallet == KWallet::Wallet::LocalWallet()
                     || wallet == KWallet::Wallet::NetworkWallet()) {
                     // Auto create these wallets.
@@ -1046,6 +1049,8 @@ void KWalletD::doTransactionChangePassword(
             wallet.toHtmlEscaped()));
         kpd->setWindowTitle(i18n("KDE Wallet Service"));
         kpd->setAllowEmptyPasswords(true);
+        KColorScheme colorScheme(QPalette::Active, KColorScheme::View);
+        kpd->setBackgroundWarningColor(colorScheme.background(KColorScheme::NegativeBackground).color());
         setupDialog(kpd, (WId)wId, appid, false);
         if (kpd->exec() == QDialog::Accepted && kpd) {
             QString p = kpd->password();
