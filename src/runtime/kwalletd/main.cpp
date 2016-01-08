@@ -93,7 +93,7 @@ static int waitForEnvironment()
     char str[BSIZE] = {'\0'};
 
     int chop = 0;
-    FILE *s3 = fdopen(s2, "r");
+    FILE *s3 = fdopen(dup(s2), "r");
     while(!feof(s3)) {
         if (fgets(str, BSIZE, s3)) {
             chop = strlen(str) - 1;
