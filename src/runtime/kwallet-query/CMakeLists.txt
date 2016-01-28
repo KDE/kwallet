@@ -5,7 +5,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS "ON")
 FIND_PACKAGE(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Widgets)
 
 include(KDEInstallDirs)
-include(KDEFrameworkCompilerSettings)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(FeatureSummary)
 
