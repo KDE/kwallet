@@ -1,0 +1,131 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Maxime Corteel <mcorteel@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-06-16 11:56+0000\n"
+"PO-Revision-Date: 2015-05-29 00:20+0100\n"
+"Last-Translator: Maxime Corteel <mcorteel@gmail.com>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 2.0\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Maxime Corteel"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mcorteel@gmail.com"
+
+#: main.cpp:37
+msgid "kwallet-query"
+msgstr "kwallet-query"
+
+#: main.cpp:38 main.cpp:40
+msgid "KWallet query interface"
+msgstr "Interface de requête KWallet"
+
+#: main.cpp:42
+msgid "(c) 2015, The KDE Developers"
+msgstr "(c) 2015, les développeurs de KDE"
+
+#: main.cpp:46
+msgid "verbose output"
+msgstr "sortie verbeuse"
+
+#: main.cpp:47
+msgid "list password entries"
+msgstr "Afficher les entrées de mots de passe"
+
+#: main.cpp:48
+msgid "reads the secrets from the given <entry>"
+msgstr "lit le mot de passe de l'<entry> donnée"
+
+#: main.cpp:48 main.cpp:49
+msgid "Entry"
+msgstr "Entrée"
+
+#: main.cpp:49
+msgid ""
+"write secrets to the given <entry>. The values are read from the standard "
+"input. IMPORTANT: previous wallet entry value will be overwritten!"
+msgstr ""
+"écrit le mot de passe dans l'<entry> donnée. Les valeurs sont lues à partir "
+"de l'entrée standard. IMPORTANT : les entrées de portefeuilles précédentes "
+"seront écrasées !"
+
+#: main.cpp:50
+msgid "specify the folder in the wallet <folder>"
+msgstr ""
+
+#: main.cpp:50
+msgid "Folder"
+msgstr ""
+
+#: main.cpp:53
+msgid "wallet"
+msgstr "portefeuille"
+
+#: main.cpp:53
+msgid "The wallet to query"
+msgstr "Le portefeuille à interroger"
+
+#: main.cpp:63
+msgid "Missing argument"
+msgstr "Argument manquant"
+
+#: main.cpp:67
+msgid "Too many arguments given"
+msgstr "Trop d'arguments donnés"
+
+#: main.cpp:74
+msgid "Only one mode (list, read or write) can be set. Aborting"
+msgstr ""
+"Il n'est possible de définir qu'un seul mode (liste, lecture ou écriture). "
+"Annulation"
+
+#: main.cpp:80
+msgid "Please specify the mode (list or read)."
+msgstr "Veuillez spécifier le mode (liste ou lecture)."
+
+#: querydriver.cpp:60
+#, kde-format
+msgid "Wallet %1 not found"
+msgstr "Impossible de trouver le portefeuille %1"
+
+#: querydriver.cpp:80
+#, kde-format
+msgid "Failed to open wallet %1. Aborting"
+msgstr "Impossible d'ouvrir le portefeuille %1. Annulation"
+
+#: querydriver.cpp:113 querydriver.cpp:127
+#, kde-format
+msgid "The folder %1 does not exist!"
+msgstr ""
+
+#: querydriver.cpp:136
+#, fuzzy, kde-format
+#| msgid "Failed to read entry %1 value from the %2 wallet"
+msgid "Failed to read entry %1 value from the %2 wallet."
+msgstr "Impossible de lire la valeur de l'entrée %1 du portefeuille %2"
+
+#: querydriver.cpp:146 querydriver.cpp:160
+#, kde-format
+msgid "Failed to read entry %1 value from the %2 wallet"
+msgstr "Impossible de lire la valeur de l'entrée %1 du portefeuille %2"
+
+#: querydriver.cpp:184 querydriver.cpp:198
+#, kde-format
+msgid "Failed to write entry %1 value to %2 wallet"
+msgstr "Impossible d'écrire la valeur de l'entrée %1 dans le portefeuille %2"
