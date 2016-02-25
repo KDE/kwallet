@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
     KLocalizedString::setApplicationDomain("kwallet-query");
 
     KAboutData aboutData(
-            I18N_NOOP("kwallet-query"),
+            QStringLiteral("kwallet-query"),
             i18n("KWallet query interface"),
             QStringLiteral("0.1"),
             i18n("KWallet query interface"),
