@@ -21,6 +21,7 @@
 #include <QApplication>
 #include <QDebug>
 #include <QtCore/QString>
+#include <QSessionManager>
 #include <KLocalizedString>
 #include <KAboutData>
 #include <KConfig>
@@ -200,6 +201,11 @@ int main(int argc, char **argv)
     aboutdata.setProgramIconName(QStringLiteral("kwalletmanager"));
 
     app.setQuitOnLastWindowClosed(false);
+    auto disableSessionManagement = [](QSessionManager &sm) {
+        sm.setRestartHint(QSessionManager::RestartNever);
+    };
+    QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
+    QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
 
     // check if kwallet is disabled
     if (!isWalletEnabled()) {
