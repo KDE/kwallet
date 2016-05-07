@@ -31,6 +31,8 @@
 
 #include "blowfishtables.h"
 
+#include <QtCore/qglobal.h> // for Q_BYTE_ORDER and friends
+
 BlowFish::BlowFish()
 {
     _blksz = 8;
@@ -250,4 +252,3 @@ void BlowFish::decipher(uint32_t *xl, uint32_t *xr)
     *xl = Xl;
     *xr = Xr;
 }
-

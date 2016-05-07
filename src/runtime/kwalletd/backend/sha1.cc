@@ -21,6 +21,9 @@
 #include "sha1.h"
 
 #include <config-kwalletbackend.h>
+
+#include <QtCore/qglobal.h> // for Q_BYTE_ORDER and friends
+
 #include <sys/types.h>
 #ifdef HAVE_SYS_BITYPES_H
 #include <sys/bitypes.h> /* For uintXX_t on Tru64 */
@@ -331,4 +334,3 @@ const unsigned char *SHA1::hash()
 
     return (unsigned char *)_buf;
 }
-
