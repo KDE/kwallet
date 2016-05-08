@@ -133,7 +133,7 @@ bool BlowFish::setKey(void *key, int bitlength)
     return init();
 }
 
-#if Q_BYTE_ORDER == Q_BIG_ENDIAN
+#if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
 #define shuffle(x) do {             \
         uint32_t r = x;             \
         x  = (r & 0xff000000) >> 24;    \
@@ -152,12 +152,12 @@ int BlowFish::encrypt(void *block, int len)
     }
 
     for (int i = 0; i < len / _blksz; i++) {
-#if Q_BYTE_ORDER == Q_BIG_ENDIAN
+#if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
         shuffle(*d);
         shuffle(*(d + 1));
 #endif
         encipher(d, d + 1);
-#if Q_BYTE_ORDER == Q_BIG_ENDIAN
+#if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
         shuffle(*d);
         shuffle(*(d + 1));
 #endif
@@ -176,12 +176,12 @@ int BlowFish::decrypt(void *block, int len)
     }
 
     for (int i = 0; i < len / _blksz; i++) {
-#if Q_BYTE_ORDER == Q_BIG_ENDIAN
+#if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
         shuffle(*d);
         shuffle(*(d + 1));
 #endif
         decipher(d, d + 1);
-#if Q_BYTE_ORDER == Q_BIG_ENDIAN
+#if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
         shuffle(*d);
         shuffle(*(d + 1));
 #endif
