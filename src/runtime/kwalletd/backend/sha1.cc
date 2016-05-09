@@ -22,7 +22,9 @@
 
 #include <config-kwalletbackend.h>
 
-#include <QtCore/qglobal.h> // for Q_BYTE_ORDER and friends
+// DO NOT INCLUDE THIS. IT BREAKS KWALLET.
+// We need to live with -Wundef until someone really figures out the problem.
+//#include <QtCore/qglobal.h> // for Q_BYTE_ORDER and friends
 
 #include <sys/types.h>
 #ifdef HAVE_SYS_BITYPES_H
