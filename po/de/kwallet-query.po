@@ -1,0 +1,127 @@
+# Burkhard Lück <lueck@hube-lueck.de>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-02-25 07:46+0000\n"
+"PO-Revision-Date: 2015-06-24 21:45+0200\n"
+"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Burkhard Lück"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lueck@hube-lueck.de"
+
+#: main.cpp:38 main.cpp:40
+msgid "KWallet query interface"
+msgstr "Abfrageschnittstelle für KWallet"
+
+#: main.cpp:42
+msgid "(c) 2015, The KDE Developers"
+msgstr "(c) 2015, die KDE-Entwickler"
+
+#: main.cpp:46
+msgid "verbose output"
+msgstr "Ausführliche Ausgaben"
+
+#: main.cpp:47
+msgid "list password entries"
+msgstr "Passworteinträge auflisten"
+
+#: main.cpp:48
+msgid "reads the secrets from the given <entry>"
+msgstr "Liest die Anmeldungsdaten des angegebenen <Eintrags>"
+
+#: main.cpp:48 main.cpp:49
+msgid "Entry"
+msgstr "Eintrag"
+
+#: main.cpp:49
+msgid ""
+"write secrets to the given <entry>. The values are read from the standard "
+"input. IMPORTANT: previous wallet entry value will be overwritten!"
+msgstr ""
+"Schreibt die Anmeldungsdaten in den angegebenen <Eintrag>. Die Werte werden "
+"von der Standardeingabe eingelesen. Beachten Sie, dass vorhandene Werte für "
+"den Eintrag überschrieben werden."
+
+#: main.cpp:50
+msgid "specify the folder in the wallet <folder>"
+msgstr "Gibt den Ordner <Ordner> in der Passwortspeicherdatei an"
+
+#: main.cpp:50
+msgid "Folder"
+msgstr "Ordner"
+
+#: main.cpp:53
+msgid "wallet"
+msgstr "Passwortspeicher"
+
+#: main.cpp:53
+msgid "The wallet to query"
+msgstr "Der abzufragende Passwortspeicher"
+
+#: main.cpp:63
+msgid "Missing argument"
+msgstr "Fehlendes Argument"
+
+#: main.cpp:67
+msgid "Too many arguments given"
+msgstr "Zu viele Argumente angegeben"
+
+#: main.cpp:74
+msgid "Only one mode (list, read or write) can be set. Aborting"
+msgstr ""
+"Es kann nur ein Modus (Anzeigen, Lesen oder Schreiben) angegeben werden. "
+"Abbruch"
+
+#: main.cpp:80
+msgid "Please specify the mode (list or read)."
+msgstr "Bitte geben Sie den Modus an (lesen oder schreiben)."
+
+#: querydriver.cpp:60
+#, kde-format
+msgid "Wallet %1 not found"
+msgstr "Passwortspeicher %1 nicht gefunden"
+
+#: querydriver.cpp:80
+#, kde-format
+msgid "Failed to open wallet %1. Aborting"
+msgstr ""
+"Fehler beim Öffnen des Passwortspeichers %1. Die Aktion wird abgebrochen"
+
+#: querydriver.cpp:113 querydriver.cpp:127
+#, kde-format
+msgid "The folder %1 does not exist!"
+msgstr "Der Ordner %1 existiert nicht"
+
+#: querydriver.cpp:136
+#, kde-format
+msgid "Failed to read entry %1 value from the %2 wallet."
+msgstr ""
+"Der Wert des Eintrags %1 aus dem Passwortspeicher %2 kann nicht gelesen "
+"werden"
+
+#: querydriver.cpp:146 querydriver.cpp:160
+#, kde-format
+msgid "Failed to read entry %1 value from the %2 wallet"
+msgstr ""
+"Der Wert des Eintrags %1 aus dem Passwortspeicher %2 kann nicht gelesen "
+"werden"
+
+#: querydriver.cpp:184 querydriver.cpp:198
+#, kde-format
+msgid "Failed to write entry %1 value to %2 wallet"
+msgstr ""
+"Der Wert des Eintrags %1 kann nicht in den Passwortspeicher %2 geschrieben "
+"werden"
