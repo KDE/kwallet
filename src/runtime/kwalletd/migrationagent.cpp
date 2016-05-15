@@ -139,6 +139,8 @@ bool MigrationAgent::isMigrationWizardOk()
         }
     } else {
         if (performMigration(0, true)) {
+            ok = true;
+        } else {
             qDebug() << "Migration failed.";
         }
     }
