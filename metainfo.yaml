@@ -11,3 +11,7 @@ libraries:
  - qmake: KWallet
    cmake: "KF5::Wallet"
 cmakename: KF5Wallet
+
+public_lib: true
+group: Frameworks
+subgroup: Tier 3
