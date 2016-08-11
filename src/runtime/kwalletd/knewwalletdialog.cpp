@@ -153,7 +153,7 @@ void KNewWalletDialogGpg::initializePage()
     _ctx->endKeyListing();
 
     if (keys.size() == 0) {
-        KMessageBox::error(this, i18n("Seems that your system has no keys suitable for encryption. Please set-up at least an encryption key, then try again."));
+        KMessageBox::error(this, i18n("Seems that your system has no keys suitable for encryption. Please set-up at least one encryption key, then try again."));
         emit completeChanged();
         return;
     }
