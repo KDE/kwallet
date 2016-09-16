@@ -147,7 +147,7 @@ Name[zh_TW]=kwalletd
 [Event/needsPassword]
 Name=Needs password
 Name[ar]=يحتاج كلمة السر
-Name[ast]=Necesita contraseña
+Name[ast]=Precisa contraseña
 Name[bg]=Нужна е парола
 Name[bn]=পাসওয়ার্ড প্রয়োজন
 Name[bs]=Zahtjeva lozinku
