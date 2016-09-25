@@ -4,7 +4,6 @@
 # These are converted to docbook format using the a2x
 # tool that commes with the asciidoc package
 #
-FIND_PACKAGE(KF5 ${KF5_VERSION} REQUIRED DocTools)
 
 set(m kwallet-query)
 kdoctools_create_manpage(man-${m}.1.docbook 1 INSTALL_DESTINATION ${KDE_INSTALL_MANDIR})
