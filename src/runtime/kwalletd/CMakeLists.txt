@@ -14,13 +14,21 @@ find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
 
 ########### find needed packages ######
 find_package(Gpgmepp) # provided by GpgME
+set(GPGMEPP_LIBS Gpgmepp)
 
-if (Gpgmepp_FOUND)
+if (NOT Gpgmepp_FOUND)
+    find_package(Gpgme)  # Called by KF5Gpgmepp, but since we call some gpgme
+                         # functions ourselves we need to link against it directly.
+    find_package(KF5Gpgmepp) # provided by KF5Gpgmepp
+    set(GPGMEPP_LIBS KF5::Gpgmepp)
+endif(NOT Gpgmepp_FOUND)
+
+if (Gpgmepp_FOUND OR KF5Gpgmepp_FOUND)
     message("GPG support enabled")
     add_definitions(-DHAVE_QGPGME)
     add_definitions(-DBOOST_NO_EXCEPTIONS)
     include_directories(${GPGME_INCLUDES})
-endif(Gpgmepp_FOUND)
+endif(Gpgmepp_FOUND OR KF5Gpgmepp_FOUND)
 
 
 ########### build backends #########
@@ -65,7 +73,7 @@ ki18n_wrap_ui(kwalletd_SRCS
    migrationwizard2.ui
 )
 
-if (Gpgmepp_FOUND)
+if (Gpgmepp_FOUND OR KF5Gpgmepp_FOUND)
     set(kwalletd_SRCS
         ${kwalletd_SRCS}
         knewwalletdialog.cpp
@@ -76,7 +84,7 @@ if (Gpgmepp_FOUND)
         knewwalletdialogintro.ui
         knewwalletdialoggpg.ui
     )
-endif(Gpgmepp_FOUND)
+endif(Gpgmepp_FOUND OR KF5Gpgmepp_FOUND)
 
 find_file(kwallet_xml org.kde.KWallet.xml HINTS ${CMAKE_CURRENT_SOURCE_DIR}/../../api/KWallet)
 
@@ -110,10 +118,10 @@ target_link_libraries(kwalletd5
     KF5::WidgetsAddons
     KF5::WindowSystem
     KF5::Notifications)
-if (Gpgmepp_FOUND)
-    target_link_libraries(kwalletd5 Gpgmepp)
+if (Gpgmepp_FOUND OR KF5Gpgmepp_FOUND)
+    target_link_libraries(kwalletd5 ${GPGMEPP_LIBS})
     kde_target_enable_exceptions(kwalletd5 PRIVATE)
-endif(Gpgmepp_FOUND)
+endif(Gpgmepp_FOUND OR KF5Gpgmepp_FOUND)
 
 install(TARGETS kwalletd5  ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
