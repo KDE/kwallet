@@ -363,14 +363,16 @@ bool Wallet::isOpen(const QString &name)
         }
     } else {
 #endif
-        QDBusReply<bool> r = walletLauncher()->getInterface().isOpen(name);
+        if (walletLauncher()->m_walletEnabled) {
+            QDBusReply<bool> r = walletLauncher()->getInterface().isOpen(name);
 
-        if (!r.isValid()) {
-            qDebug() << "Invalid DBus reply: " << r.error();
-            return false;
-        } else {
-            return r;
-        }
+            if (!r.isValid()) {
+                qDebug() << "Invalid DBus reply: " << r.error();
+                return false;
+            } else {
+                return r;
+            }
+        } else return false;
 #if HAVE_KSECRETSSERVICE
     }
 #endif
