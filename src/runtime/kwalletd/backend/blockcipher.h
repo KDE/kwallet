@@ -20,9 +20,11 @@
 #ifndef BLOCKCIPHER_H
 #define BLOCKCIPHER_H
 
+#include "kwalletbackend5_export.h"
+
 /* @internal
  */
-class BlockCipher
+class KWALLETBACKEND5_EXPORT BlockCipher
 {
 public:
     BlockCipher();
