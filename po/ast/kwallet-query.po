@@ -1,0 +1,124 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# enolp <enolp@softastur.org>, 2015, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-02-25 07:46+0000\n"
+"PO-Revision-Date: 2016-02-04 20:07+0100\n"
+"Last-Translator: enolp <enolp@sofastur.org>\n"
+"Language-Team: Asturian <>\n"
+"Language: ast_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Softastur"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "alministradores@softastur.org"
+
+#: main.cpp:38 main.cpp:40
+msgid "KWallet query interface"
+msgstr "Interfaz de solicitú de KWallet"
+
+#: main.cpp:42
+msgid "(c) 2015, The KDE Developers"
+msgstr "(c) 2015, Los desendolcadores de KDE"
+
+#: main.cpp:46
+msgid "verbose output"
+msgstr "salida detallada"
+
+#: main.cpp:47
+msgid "list password entries"
+msgstr "llista les entraes de contraseñes"
+
+#: main.cpp:48
+msgid "reads the secrets from the given <entry>"
+msgstr "llee los secretos de la <entrada> dada"
+
+#: main.cpp:48 main.cpp:49
+msgid "Entry"
+msgstr "Entrada"
+
+#: main.cpp:49
+msgid ""
+"write secrets to the given <entry>. The values are read from the standard "
+"input. IMPORTANT: previous wallet entry value will be overwritten!"
+msgstr ""
+"escribe los secretos a la <entrada>. Los valores lleense dende la entrada "
+"estándar. IMPORTANTE: ¡sobrescribiráse'l valor de la entrada de la cartera "
+"anterior!"
+
+#: main.cpp:50
+msgid "specify the folder in the wallet <folder>"
+msgstr "especifica la carpeta na <carpeta> de la cartera"
+
+#: main.cpp:50
+msgid "Folder"
+msgstr "Carpeta"
+
+#: main.cpp:53
+msgid "wallet"
+msgstr "cartera"
+
+#: main.cpp:53
+msgid "The wallet to query"
+msgstr "La cartera a consultar"
+
+#: main.cpp:63
+msgid "Missing argument"
+msgstr "Falta l'argumentu"
+
+#: main.cpp:67
+msgid "Too many arguments given"
+msgstr "Diéronse milenta argumentos"
+
+#: main.cpp:74
+msgid "Only one mode (list, read or write) can be set. Aborting"
+msgstr "Namái pue afitase un mou (llistáu, llectura, escritura). Albortando"
+
+#: main.cpp:80
+msgid "Please specify the mode (list or read)."
+msgstr "Especifica'l mou (llistáu o llectura), por favor."
+
+#: querydriver.cpp:60
+#, kde-format
+msgid "Wallet %1 not found"
+msgstr "Nun s'alcontró la cartera %1"
+
+#: querydriver.cpp:80
+#, kde-format
+msgid "Failed to open wallet %1. Aborting"
+msgstr "Fallu al abrir la cartera %1. Albortando"
+
+#: querydriver.cpp:113 querydriver.cpp:127
+#, kde-format
+msgid "The folder %1 does not exist!"
+msgstr "¡Nun esiste la carpeta %1!"
+
+#: querydriver.cpp:136
+#, kde-format
+msgid "Failed to read entry %1 value from the %2 wallet."
+msgstr "Fallu al lleer el valor de la entrada %1 de la cartera %2."
+
+#: querydriver.cpp:146 querydriver.cpp:160
+#, kde-format
+msgid "Failed to read entry %1 value from the %2 wallet"
+msgstr "Fallu al lleer el valor de la entrada %1 de la cartera %2"
+
+#: querydriver.cpp:184 querydriver.cpp:198
+#, kde-format
+msgid "Failed to write entry %1 value to %2 wallet"
+msgstr "Fallu al escribir el valor de la entrada %1 na cartera %2"
+
+#~ msgid "kwallet-query"
+#~ msgstr "kwallet-query"

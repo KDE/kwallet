@@ -1,0 +1,794 @@
+# Finnish messages for kwalletd.
+# Copyright © 2010 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kdebase package.
+# Tommi Nieminen <translator@legisign.org>, 2009, 2010, 2011.
+# Jorma Karvonen <karvonen.jorma@gmail.com>, 2010.
+# Lasse Liehu <lliehu@kolumbus.fi>, 2011, 2013, 2014, 2015, 2016.
+#
+# KDE Finnish translation sprint participants:
+# Author: Lliehu
+msgid ""
+msgstr ""
+"Project-Id-Version: kwalletd\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-09-26 07:01+0000\n"
+"PO-Revision-Date: 2016-10-15 23:10+0200\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:22:15+0000\n"
+"X-Generator: Lokalize 2.0\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tommi Nieminen, Jorma Karvonen, Lasse Liehu"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "translator@legisign.org,karvonen.jorma@gmail.com,lasse.liehu@gmail.com"
+
+#: backend/backendpersisthandler.cpp:513
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+"<qt>OpenPGP:n alustaminen epäonnistui tallennettaessa lompakkoa <b>%1</b>. "
+"Virhekoodi on <b>%2</b>. Korjaa järjestelmän asennus ja yritä uudelleen.</qt>"
+
+#: backend/backendpersisthandler.cpp:521
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt>OpenPGP:n alustaminen epäonnistui tallennettaessa lompakkoa <b>%1</b>. "
+"Korjaa järjestelmän asennus ja yritä uudelleen.</qt>"
+
+#: backend/backendpersisthandler.cpp:572
+#, kde-format
+msgid ""
+"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+"again. This error may occur if you are not using a full trust GPG key. "
+"Please ensure you have the secret key for the key you are using.</qt>"
+msgstr ""
+"<qt>Salaaminen epäonnistui tallennettaessa lompakkoa <b>%1</b>. Virhekoodi "
+"on <b>%2 (%3)</b>. Korjaa järjestelmän asennus ja yritä uudelleen. Tämä "
+"virhe voi tapahtua, jos et käytä täysin luotettua GPG-avainta. Varmista, "
+"että sinulla on käyttämäsi avaimen salainen avain.</qt>"
+
+#: backend/backendpersisthandler.cpp:584
+#, kde-format
+msgid ""
+"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
+"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt>Tiedoston käsittely epäonnistui tallennettaessa lompakkoa<b>%1</b>. "
+"Virhe oli <b>%2</b>. Korjaa järjestelmän asennus ja yritä uudelleen.</qt>"
+
+#: backend/backendpersisthandler.cpp:602
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+"<qt>OpenPGP:n alustaminen epäonnistui avattaessa lompakkoa <b>%1</b>. "
+"Virhekoodi on <b>%2</b>. Korjaa järjestelmän asennus ja yritä uudelleen.</qt>"
+
+#: backend/backendpersisthandler.cpp:620
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt>OpenPGP:n alustaminen epäonnistui avattaessa lompakkoa <b>%1</b>. Korjaa "
+"järjestelmän asennus ja yritä uudelleen.</qt>"
+
+#: backend/backendpersisthandler.cpp:630
+msgid "Retry"
+msgstr "Yritä uudelleen"
+
+#: backend/backendpersisthandler.cpp:632
+#, kde-format
+msgid ""
+"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+"you're using a SmartCard, please ensure it's inserted then try again."
+"<br><br>GPG error was <b>%2</b></qt>"
+msgstr ""
+"<qt>Lompakon <b>%1</b> salauksen purkaminen käyttäen GPG:tä epäonnistui. Jos "
+"käytät SmartCardia (sirukorttia), tarkista, että se on syötettynä ja yritä "
+"uudelleen.<br><br>GPG-virhe oli <b>%2</b></qt>"
+
+#: backend/backendpersisthandler.cpp:633
+msgid "kwalletd GPG backend"
+msgstr "kwalletd:n GPG-taustajärjestelmä"
+
+#: backend/backendpersisthandler.cpp:677
+#, kde-format
+msgid ""
+"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
+"system.</qt>"
+msgstr ""
+"<qt>Lompakon<b>%1</b> avaaminen epäonnistui. Lompakko on salattu käyttäen "
+"GPG-avaintunnistetta <b>%2</b>, mutta kyseistä avainta ei löydy "
+"järjestelmästä.</qt>"
+
+#: backend/kwalletbackend.cc:264
+msgid "Already open."
+msgstr "On jo auki."
+
+#: backend/kwalletbackend.cc:266
+msgid "Error opening file."
+msgstr "Virhe tiedostoa avattaessa."
+
+#: backend/kwalletbackend.cc:268
+msgid "Not a wallet file."
+msgstr "Ei ole lompakkotiedosto."
+
+#: backend/kwalletbackend.cc:270
+msgid "Unsupported file format revision."
+msgstr "Ei-tuettu tiedostomuotoversio."
+
+#: backend/kwalletbackend.cc:274
+msgid "Unknown encryption scheme."
+msgstr "Tuntematon salausjärjestelmä."
+
+#: backend/kwalletbackend.cc:276
+msgid "Corrupt file?"
+msgstr "Vioittunut tiedosto?"
+
+#: backend/kwalletbackend.cc:278
+msgid "Error validating wallet integrity. Possibly corrupted."
+msgstr "Virhe varmennettaessa lompakon eheyttä: se saattaa olla vioittunut."
+
+#: backend/kwalletbackend.cc:282
+msgid "Read error - possibly incorrect password."
+msgstr "Lukuvirhe – mahdollisesti väärä salasana."
+
+#: backend/kwalletbackend.cc:284
+msgid "Decryption error."
+msgstr "Virhe salausta purettaessa"
+
+#: backend/kwalletbackend.cc:460
+#, kde-format
+msgid ""
+"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
+msgstr ""
+"Lompakon <b>%1</b> synkronointi levylle epäonnistui. Virhekoodit ovat:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Ole hyvä ja tee asiasta vikailmoitus bugs.kde.org-sivustolle "
+"käyttäen näitä tietoja"
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
+#: kbetterthankdialogbase.ui:50
+msgid "Allow &Once"
+msgstr "Salli &kerran"
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowAlways)
+#: kbetterthankdialogbase.ui:60
+msgid "Allow &Always"
+msgstr "Salli &aina"
+
+#. i18n: ectx: property (text), widget (QPushButton, _deny)
+#: kbetterthankdialogbase.ui:67
+msgid "&Deny"
+msgstr "&Torju"
+
+#. i18n: ectx: property (text), widget (QPushButton, _denyForever)
+#: kbetterthankdialogbase.ui:74
+msgid "Deny &Forever"
+msgstr "Torju &pysyvästi"
+
+#: knewwalletdialog.cpp:65
+#, kde-format
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
+"to store sensitive data in a secure fashion. Please choose the new wallet's "
+"type below or click cancel to deny the application's request.</qt>"
+msgstr ""
+"<qt>KDE pyytää luoda uuden lompakon nimeltä ”<b>%1</b>”. Sitä käytetään "
+"tallentamaan arkaluonteinen tieto turvallisesti. Valitse uuden lompakon "
+"tyyppi alta tai torju sovelluksen pyyntö painamalla Peru.</qt>"
+
+#: knewwalletdialog.cpp:67
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
+"Please choose the new wallet's type below or click cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+"<qt>”<b>%1</b>” pyytää luoda uuden lompakon nimeltä ”<b>%2</b>. Sitä "
+"käytetään tallentamaan arkaluonteinen tieto turvallisesti. Valitse uuden "
+"lompakon tyyppi alta tai torju sovelluksen pyyntö painamalla Peru.</qt>"
+
+#: knewwalletdialog.cpp:129 knewwalletdialog.cpp:135 kwalletwizard.cpp:163
+#: kwalletwizard.cpp:167
+msgid ""
+"The QGpgME library failed to initialize for the OpenPGP protocol. Please "
+"check your system's configuration then try again."
+msgstr ""
+"QGpgME-kirjaston alustaminen OpenPGP-yhteyskäytännölle epäonnistui. Tarkista "
+"järjestelmän asennus ja yritä uudelleen."
+
+#: knewwalletdialog.cpp:156
+msgid ""
+"Seems that your system has no keys suitable for encryption. Please set-up at "
+"least one encryption key, then try again."
+msgstr ""
+"Näyttäisi, että järjestelmässä ei ole salaukseen sopivia avaimia. Luo "
+"vähintään yksi salausavain ja yritä sitten uudelleen."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: knewwalletdialoggpg.ui:17
+msgid "Please select the signing key from the list below:"
+msgstr "Valitse allekirjoitusavain alla olevasta luettelosta:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: knewwalletdialoggpg.ui:24
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"list shows only \"ultimate-level\" trusted keys</p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Huom:</span> tämä "
+"lista näyttää vain tason ”ultimate-level” luotetut avaimet</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:59
+msgid "Name"
+msgstr "Nimi"
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:64
+msgid "E-Mail"
+msgstr "Sähköposti"
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:69
+msgid "Key-ID"
+msgstr "Avaintunniste"
+
+#. i18n: ectx: property (text), widget (KTitleWidget, title)
+#. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
+#: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
+#: migrationwizard1.ui:17 migrationwizard2.ui:17
+msgid "The KDE Wallet System"
+msgstr "KDE-lompakkojärjestelmä"
+
+#. i18n: ectx: property (text), widget (QLabel, labelIntro)
+#: knewwalletdialogintro.ui:30
+#, no-c-format, kde-format
+msgid ""
+"<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
+"span>' has requested to open the KDE wallet. This is used to store sensitive "
+"data in a secure fashion. Please choose the new wallet's type below or click "
+"cancel to deny the application's request.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>”<span style=\" font-weight:600;\">%1</span>” pyytää "
+"avata KDE:n lompakon. Sitä käytetään tallentamaan arkaluonteinen tieto "
+"turvallisesti. Valitse uuden lompakon tyyppi alta tai torju sovelluksen "
+"pyyntö painamalla Peru.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
+#. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
+#: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
+msgid "Classic, blowfish encrypted file"
+msgstr "Perinteinen, Blowfish-salattu tiedosto"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
+#. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
+#: knewwalletdialogintro.ui:73 kwalletwizardpagepasswordgpg.ui:55
+msgid "Use GPG encryption, for better protection"
+msgstr "Käytä GPG-salausta (turvallisempi)"
+
+#: kwalletd.cpp:614
+#, kde-format
+msgid ""
+"<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
+"password for this wallet below.</qt>"
+msgstr "<qt>KDE pyytää avata lompakon ”<b>%1</b>”. Syötä sen salasana.</qt>"
+
+#: kwalletd.cpp:621
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+"b>'. Please enter the password for this wallet below.</qt>"
+msgstr ""
+"<qt>”<b>%1</b>” pyytää avata lompakon ”<b>%2</b>”. Syötä sen salasana.</qt>"
+
+#. i18n( "&Open" ), "wallet-open"));
+#: kwalletd.cpp:632 kwalletd.cpp:776 kwalletd.cpp:894 kwalletd.cpp:1023
+#: kwalletd.cpp:1050 kwalletd.cpp:1064 kwalletd.cpp:1073 kwalletd.cpp:1620
+#: main.cpp:177 main.cpp:182 main.cpp:184
+msgid "KDE Wallet Service"
+msgstr "KDE:n lompakkopalvelu"
+
+#: kwalletd.cpp:648
+#, kde-format
+msgid "An application has requested to open a wallet (%1)."
+msgstr "Sovellus pyytää avata lompakon (%1)."
+
+#: kwalletd.cpp:655
+msgctxt ""
+"Text of a button for switching to the (unnamed) application requesting a "
+"password"
+msgid "Switch there"
+msgstr "Vaihda sovellukseen"
+
+#: kwalletd.cpp:659
+#, kde-format
+msgid "<b>%1</b> has requested to open a wallet (%2)."
+msgstr "<b>%1</b> pyytää avata lompakon (%2)."
+
+#: kwalletd.cpp:667
+#, kde-format
+msgctxt ""
+"Text of a button for switching to the application requesting a password"
+msgid "Switch to %1"
+msgstr "Vaihda sovellukseen %1|/|Vaihda $[illat %1]"
+
+#: kwalletd.cpp:681 kwalletd.cpp:789
+#, kde-format
+msgid ""
+"<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
+"%2: %3)</qt>"
+msgstr ""
+"<qt>Virhe avattaessa lompakkoa ”<b>%1</b>”. Yritä uudelleen.<br /> "
+"(Virhekoodi %2: %3)</qt>"
+
+#: kwalletd.cpp:741
+msgid ""
+"KDE has requested to open the wallet. This is used to store sensitive data "
+"in a secure fashion. Please enter a password to use with this wallet or "
+"click cancel to deny the application's request."
+msgstr ""
+"KDE pyytää avata lompakon, jota käytetään tallentamaan arkaluonteinen tieto "
+"turvallisesti. Syötä sen salasana tai torju sovelluksen pyyntö painamalla "
+"Peru."
+
+#: kwalletd.cpp:749
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
+"is used to store sensitive data in a secure fashion. Please enter a password "
+"to use with this wallet or click cancel to deny the application's request.</"
+"qt>"
+msgstr ""
+"<qt>”<b>%1</b>” pyytää avata KDE:n lompakon, jota käytetään tallentamaan "
+"arkaluonteinen tieto turvallisesti. Syötä sen salasana tai torju sovelluksen "
+"pyyntö painamalla Peru.</qt>"
+
+#: kwalletd.cpp:761
+#, kde-format
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
+"choose a password for this wallet, or cancel to deny the application's "
+"request.</qt>"
+msgstr ""
+"<qt>KDE pyytää avata lompakon nimeltä ”<b>%1</b>”. Syötä lompakon salasana "
+"tai torju sovelluksen pyyntö painamalla Peru.</qt>"
+
+#: kwalletd.cpp:769
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+"<qt>”<b>%1</b>” pyytää saada luoda uuden lompakon nimeltä ”<b>%2</b>”. Syötä "
+"lompakolle salasana tai torju sovelluksen pyyntö painamalla Peru.</qt>"
+
+#: kwalletd.cpp:896
+#, kde-format
+msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
+msgstr "<qt>KDE pyytää saada käyttää avointa lompakkoa ”<b>%1</b>”.</qt>"
+
+#: kwalletd.cpp:902
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
+"%2</b>'.</qt>"
+msgstr ""
+"<qt>”<b>%1</b>” pyytää saada käyttää avointa lompakkoa ”<b>%2</b>”.</qt>"
+
+#: kwalletd.cpp:1021
+msgid ""
+"Unable to open wallet. The wallet must be opened in order to change the "
+"password."
+msgstr ""
+"Lompakkoa ei onnistuttu avaamaan. Lompakko on avattava, jotta salasanaa voi "
+"vaihtaa."
+
+#: kwalletd.cpp:1038
+#, kde-format
+msgid ""
+"<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
+"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
+"associated to that key.</qt>"
+msgstr ""
+"<qt>Lompakko <b>%1</b> on salattu käyttäen GPG-avainta <b>%2</b>. Käytä "
+"<b>GPG</b>-työkaluja kuten <b>kleopatra</b> muuttaaksesi avaimen "
+"salalausetta.</qt>"
+
+#: kwalletd.cpp:1047
+#, kde-format
+msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
+msgstr "<qt>Valitse uusi salasana lompakolle ”<b>%1</b>”.</qt>"
+
+#: kwalletd.cpp:1062
+msgid "Error re-encrypting the wallet. Password was not changed."
+msgstr "Lompakkoa salattaessa tapahtui virhe: salasanaa ei vaihdettu."
+
+#: kwalletd.cpp:1071
+msgid "Error reopening the wallet. Data may be lost."
+msgstr "Virhe avattaessa lompakkoa uudelleen: tietoa saattaa olla menetetty."
+
+#: kwalletd.cpp:1618
+msgid ""
+"There have been repeated failed attempts to gain access to a wallet. An "
+"application may be misbehaving."
+msgstr ""
+"Lompakkoa on toistuvasti yritetty käyttää siinä epäonnistuen. Sovellus "
+"saattaa käyttäytyä virheellisesti."
+
+#: kwalletwizard.cpp:53
+msgid "KWallet"
+msgstr "KWallet"
+
+#: kwalletwizard.cpp:282
+msgid "<qt>Password is empty.  <b>(WARNING: Insecure)</b></qt>"
+msgstr "<qt>Salasana on tyhjä. <b>(VAROITUS: Turvatonta)</b></qt>"
+
+#: kwalletwizard.cpp:284
+msgid "Passwords match."
+msgstr "Salasanat täsmäävät."
+
+#: kwalletwizard.cpp:287
+msgid "Passwords do not match."
+msgstr "Salasanat eivät täsmää."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: kwalletwizardpageexplanation.ui:17
+msgid ""
+"<html><head/><body><p>The KDE Wallet system stores your data in a <span "
+"style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
+"The data is only written in the encrypted form of your choice - blowfish "
+"algorithm with your password as the key or using a GPG encryption key. When "
+"a wallet is opened, the wallet manager application will launch and display "
+"an icon in the system tray. You can use this application to manage all of "
+"your wallets. It even permits you to drag wallets and wallet contents, "
+"allowing you to easily copy a wallet to a remote system.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>KDE:n lompakkojärjestelmä tallentaa tietosi <span "
+"style=\" font-style:italic;\">lompakkotiedostoon</span> paikallisella "
+"kiintolevyllä. Tieto kirjoitetaan salattuna valitsemallasi tavalla: joko "
+"Blowfish-algoritmilla käyttäen salasanaasi avaimena tai käyttäen GPG-"
+"salausavainta. Kun lompakko on auki, lompakonhallintasovellus käynnistyy ja "
+"näyttää ilmoitusalueella kuvakkeen. Voit hallita kaikkia lompakkojasi tällä "
+"sovelluksella. Voit myös vetää hiirellä lompakkoja ja lompakkojen sisältöjä, "
+"joten lompakon kopiointi toiselle koneelle on helppoa.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: kwalletwizardpagegpgkey.ui:24
+msgid ""
+"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when decrypting is "
+"needed or your wallet will not be accessible. For example, if you choose a "
+"SmartCard-based encryption key, the GPG system will prompt you to enter it "
+"and its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">NOTE:</span> this list contains only \"ultimate-level\" "
+"trusted keys.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>GPG:hen perustuva lompakko käyttää GPG-salausta "
+"salatakseen tiedot turvallisesti levylle. Avaimen täytyy olla käytettävissä, "
+"kun salauksen purkua tarvitaan tai muutoin lompakon sisältöön ei pääse "
+"käsiksi. Jos esimerkiksi valitset SmartCard-pohjaisen salausavaimen, GPG-"
+"järjestelmä pyytää antamaan sen ja sen PIN-koodin lompakkoa avattaessa. "
+"<span style=\" font-weight:600;\">Huom:</span> tämä lista sisältää vain "
+"tason ”ultimate-level” luotetut avaimet.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kwalletwizardpagegpgkey.ui:42
+msgid "Select encryption GPG key:"
+msgstr "Valitse GPG-salausavain:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: kwalletwizardpagegpgkey.ui:81
+msgid ""
+"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
+"such <b>encrypting key</b> to securely store passwords or other sensitive "
+"data on disk. If you still want to setup a GPG-based wallet, then cancel "
+"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
+"Otherwise, you may still click back, then choose a classic, blowfish "
+"encrypted file format on the previous page."
+msgstr ""
+"Yhtään <b>GPG-salausavainta</b> ei löytynyt. KDE-lompakko tarvitsee "
+"<b>salausavaimen</b> tallentaakseen salasanat ja muut arkaluontoiset tiedot "
+"levylle. Jos haluat edelleen käyttää GPG:hen perustuvaa lompakkoa, poistu "
+"tästä opastetusta toiminnosta, luo uusi <b>GPG-salausavain</b> ja yritä "
+"sitten uudelleen. Muutoin voit edelleen palata ja valita perinteisen, "
+"Blowfish-salatun tiedostomuodon edelliseltä sivulta."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: kwalletwizardpageintro.ui:30
+msgid ""
+"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
+"passwords and other personal information on disk in an encrypted file, "
+"preventing others from viewing the information.  This wizard will tell you "
+"about KWallet and help you configure it for the first time."
+msgstr ""
+"Tervetuloa KWalletiin, KDE:n lompakkojärjestelmään. KWallet antaa sinun "
+"tallentaa salasanasi ja muut yksityiset tiedot levylle salattuun tiedostoon, "
+"mikä estää muita pääsemästä niihin käsiksi. Tämä opastettu toiminto kertoo "
+"sinulle KWalletista ja auttaa määrittämään sen ensi kertaa varten."
+
+#. i18n: ectx: property (text), widget (QRadioButton, _basic)
+#: kwalletwizardpageintro.ui:69
+msgid "&Basic setup (recommended)"
+msgstr "&Perusasennus (suositeltu)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _advanced)
+#: kwalletwizardpageintro.ui:79
+msgid "&Advanced setup"
+msgstr "&Edistynyt asennus"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: kwalletwizardpageoptions.ui:16
+msgid ""
+"The KDE Wallet system allows you to control the level of security of your "
+"personal data.  Some of these settings do impact usability.  While the "
+"default settings are generally acceptable for most users, you may wish to "
+"change some of them.  You may further tune these settings from the KWallet "
+"control module."
+msgstr ""
+"KDE:n lompakkojärjestelmä sallii sinun valvoa yksityistietojesi turvatasoa. "
+"Jotkin asetuksista vaikuttavat käytettävyyteen. Oletusarvot sopivat "
+"useimmille käyttäjille, mutta saatat haluta muuttaa joitakin niistä. "
+"KWalletin hallinnasta asetuksia voi säätää tarkemmin."
+
+#. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
+#: kwalletwizardpageoptions.ui:48
+msgid "Automatically close idle wallets"
+msgstr "Sulje automaattisesti joutilaana olevat lompakot"
+
+#. i18n: ectx: property (text), widget (QCheckBox, _networkWallet)
+#: kwalletwizardpageoptions.ui:55
+msgid "Store network passwords and local passwords in separate wallet files"
+msgstr "Tallenna verkon ja paikalliset salasanat eri lompakkotiedostoihin"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kwalletwizardpagepassword.ui:16
+msgid ""
+"Various applications may attempt to use the KDE wallet to store passwords or "
+"other information such as web form data and cookies.  If you would like "
+"these applications to use the wallet, you must enable it now and choose a "
+"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
+"and will allow anyone who knows it to obtain all the information contained "
+"in the wallet."
+msgstr ""
+"Eri sovellukset voivat käyttää KDE:n lompakkoa tallentamaan salasanoja tai "
+"muuta tietoa, kuten web-lomakkeiden dataa tai evästeitä. Jos haluat näiden "
+"sovellusten käyttävän lompakkoa, salli se nyt ja valitse salasana. "
+"Valitsemaasi salasanaa <i>ei voi</i> selvittää, jos se katoaa. Lisäksi "
+"kaikki sen tietävät pääsevät käsiksi kaikkeen lompakkoon tallennettuun "
+"tietoon."
+
+#. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
+#: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
+msgid "Yes, I wish to use the KDE wallet to store my personal information."
+msgstr "Kyllä, haluan käyttää KDE:n lompakkoa yksityistietojeni tallentamiseen"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: kwalletwizardpagepassword.ui:88 kwalletwizardpagepasswordgpg.ui:106
+msgid "Enter a new password:"
+msgstr "Anna uusi salasana:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: kwalletwizardpagepassword.ui:104 kwalletwizardpagepasswordgpg.ui:122
+msgid "Verify password:"
+msgstr "Vahvista salasana:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kwalletwizardpagepasswordgpg.ui:17
+msgid ""
+"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
+"to store passwords or other information such as web form data and cookies. "
+"If you would like these applications to use the wallet, you must enable it "
+"now and choose method for its encryption.</p><p>GPG method is more secure, "
+"but you must have configured at least one encrypting key on your system.</"
+"p><p>If you choose the classic format, be warned that the password you "
+"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
+"is lost, and will allow anyone who knows it to obtain all the information "
+"contained in the wallet.</p></body></html>"
+msgstr ""
+"<html><head/><body> <p>Eri sovellukset voivat käyttää KDE:n lompakkoa "
+"tallentamaan salasanoja tai muuta tietoa, kuten web-lomakkeiden dataa tai "
+"evästeitä. Jos haluat näiden sovellusten käyttävän lompakkoa, salli se nyt "
+"ja valitse sen salaustapa.</p><p>GPG-tapa on turvallisempi, mutta "
+"järjestelmässäsi tarvitsee olla käytössä vähintään yksi salausavain.</"
+"p><p>Jos valitset perinteisen tavan, huomaa, että valitsemaasi salasanaa "
+"<i>ei voi</i> selvittää, jos se katoaa. Lisäksi kaikki sen tietävät pääsevät "
+"käsiksi kaikkeen lompakkoon tallennettuun tietoon.</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
+#: kwalletwizardpagepasswordgpg.ui:46
+msgid "What kind of encryption do you wish?"
+msgstr "Millainen salaus saisi olla?"
+
+#: main.cpp:181
+msgid "kwalletd"
+msgstr "kwalletd"
+
+#: main.cpp:186
+msgid "(C) 2002-2013, The KDE Developers"
+msgstr "© 2002–2013 KDE:n kehittäjät"
+
+#: main.cpp:187
+msgid "Valentin Rusu"
+msgstr "Valentin Rusu"
+
+#: main.cpp:187
+msgid "Maintainer, GPG backend support"
+msgstr "Ylläpitäjä, GPG-taustajärjestelmätuki"
+
+#: main.cpp:188
+msgid "Michael Leupold"
+msgstr "Michael Leupold"
+
+#: main.cpp:188
+msgid "Former Maintainer"
+msgstr "Aiempi ylläpitäjä"
+
+#: main.cpp:189
+msgid "George Staikos"
+msgstr "George Staikos"
+
+#: main.cpp:189
+msgid "Former maintainer"
+msgstr "Aiempi ylläpitäjä"
+
+#: main.cpp:190
+msgid "Thiago Maceira"
+msgstr "Thiago Maceira"
+
+#: main.cpp:190
+msgid "D-Bus Interface"
+msgstr "D-Bus-liittymä"
+
+#: migrationagent.cpp:177 migrationagent.cpp:191
+msgid "Cannot read old wallet list. Aborting."
+msgstr "Vanhojen lompakoiden luettelon lukeminen epäonnistui. Keskeytetään."
+
+#: migrationagent.cpp:187
+msgid "KDE Wallet Migration Agent"
+msgstr "KDE:n lompakon siirtoagentti"
+
+#: migrationagent.cpp:194
+#, kde-format
+msgid "Migrating wallet: %1"
+msgstr "Siirretään lompakkoa: %1"
+
+#: migrationagent.cpp:195
+#, kde-format
+msgid "* Creating KF5 wallet: %1"
+msgstr "* Luodaan KF5-lompakkoa: %1"
+
+#: migrationagent.cpp:207
+msgid "ERROR when attempting new wallet creation. Aborting."
+msgstr "VIRHE yritettäessä luoda uutta lompakkoa. Keskeytetään."
+
+#: migrationagent.cpp:213
+#, kde-format
+msgid "Cannot open KDE4 wallet named: %1"
+msgstr "KDE4-lompakon nimeltä %1 avaaminen epäonnistui"
+
+#: migrationagent.cpp:214
+#, kde-format
+msgid "* Opened KDE4 wallet: %1"
+msgstr "* Avattiin KDE4-lompakko: %1"
+
+#: migrationagent.cpp:218
+msgid "Cannot retrieve folder list. Aborting."
+msgstr "Kansioluettelon hakeminen epäonnistui. Keskeytetään."
+
+#: migrationagent.cpp:221
+#, kde-format
+msgid "* Migrating folder %1"
+msgstr "* Siirretään kansiota %1"
+
+#: migrationagent.cpp:225
+#, kde-format
+msgid "Cannot retrieve folder %1 entries. Aborting."
+msgstr "Kansion %1 tietueiden hakeminen epäonnistui. Keskeytetään."
+
+#: migrationagent.cpp:231
+#, kde-format
+msgid "Cannot retrieve key %1 info. Aborting."
+msgstr "Avaimen %1 metatietojen hakeminen epäonnistui. Keskeytetään."
+
+#: migrationagent.cpp:235
+#, kde-format
+msgid "* SKIPPING entry %1 in folder %2 as it seems already migrated"
+msgstr "* OHITETAAN tietue %1 kansiossa %2, koska se on näemmä jo siirretty"
+
+#: migrationagent.cpp:239
+#, kde-format
+msgid "Cannot retrieve key %1 data. Aborting."
+msgstr "Avaimen %1 tietojen hakeminen epäonnistui. Keskeytetään."
+
+#: migrationagent.cpp:241
+#, kde-format
+msgid "Cannot write entry %1 in the new wallet. Aborting."
+msgstr ""
+"Tietueen %1 kirjoittaminen uuteen lompakkoon epäonnistui. Keskeytetään."
+
+#: migrationagent.cpp:252
+msgid "DONE migrating wallet\n"
+msgstr "Lompakon siirtäminen VALMIS\n"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: migrationwizard1.ui:29
+msgid ""
+"Congratulations! The system detected that you're running the latest version "
+"of the KWallet, using KDE Frameworks 5.\n"
+"\n"
+"It seems that you also have KDE4 wallet(s) on your system.\n"
+"\n"
+"Would you like them to be migrated to this new KWallet version? The "
+"operation will only take one minute to be performed.\n"
+msgstr ""
+"Onnittelut! Järjestelmä havaitsi, että käytät KWalletin uusinta versiota, "
+"joka käyttää KDE Frameworks 5:tä.\n"
+"\n"
+"Sinulla näyttää olevan myös yksi tai useampi KDE4-lompakko.\n"
+"\n"
+"Haluaisitko, että ne siirretään KWalletin uuteen versioon? Siirtämisessä "
+"kestää vain minuutti.\n"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionYes)
+#: migrationwizard1.ui:59
+msgid "&Yes, migrate my wallets now."
+msgstr "&Kyllä, siirrä lompakkoni nyt."
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionNo)
+#: migrationwizard1.ui:70
+msgid ""
+"No, I'd rather do this upon ne&xt session start,\n"
+"and I'll cancel this wizard for now."
+msgstr ""
+"Ei &nyt. Kysy uudelleen, kun kirjaudun seuraavan kerran.\n"
+"Perun siirron toistaiseksi."
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionNotInterested)
+#: migrationwizard1.ui:77
+msgid "No, and p&lease do not prompt me again."
+msgstr "&En äläkä kysy uudelleen."
+
+#~ msgctxt "Text of a button to ignore the open-wallet notification"
+#~ msgid "Ignore"
+#~ msgstr "Jätä huomiotta"
+
+#~ msgid "&Open"
+#~ msgstr "&Avaa"
+
+#~ msgid "C&reate"
+#~ msgstr "L&uo"
+
+#~ msgid ""
+#~ "(C) 2002-2008 George Staikos, Michael Leupold, Thiago Maceira, Valentin "
+#~ "Rusu"
+#~ msgstr ""
+#~ "© 2002–2008 George Staikos, Michael Leupold, Thiago Maceira, Valentin Rusu"
+
+#~ msgid "Maintainer"
+#~ msgstr "Ylläpitäjä"
