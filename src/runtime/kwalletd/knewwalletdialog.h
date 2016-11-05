@@ -23,7 +23,6 @@
 
 #include "ui_knewwalletdialogintro.h"
 #include "ui_knewwalletdialoggpg.h"
-#include <boost/shared_ptr.hpp>
 
 namespace GpgME
 {

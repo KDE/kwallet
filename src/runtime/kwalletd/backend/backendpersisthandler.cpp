@@ -26,7 +26,6 @@
 #include <KMessageBox>
 #include <klocalizedstring.h>
 #ifdef HAVE_QGPGME
-#include <boost/shared_ptr.hpp>
 #include <gpgme.h>
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
@@ -54,14 +53,6 @@
 #define KWALLET_HASH_SHA1       0
 #define KWALLET_HASH_MD5        1 // unsupported
 #define KWALLET_HASH_PBKDF2_SHA512 2 // used when using kwallet with pam or since 4.13 version
-
-// this defines the required throw_exception function in the namespace boost
-namespace boost {
-  void throw_exception(std::exception const &e) {
-     qDebug() << "boost::throw_exception called: " << e.what();
-     // FIXME: how to notify the user in this case?
-  }
-}
 
 namespace KWallet
 {
@@ -515,7 +506,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
         return -5;
     }
 
-    boost::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
+    std::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (0 == ctx) {
         qDebug() << "Cannot setup OpenPGP context!";
         KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"), wb->_name.toHtmlEscaped());
@@ -615,7 +606,7 @@ int GpgPersistHandler::read(Backend *wb, QFile &sf, WId w)
     }
 
 retry_label:
-    boost::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
+    std::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (0 == ctx) {
         KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to open the wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped()));
         qDebug() << "Cannot setup OpenPGP context!";

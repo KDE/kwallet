@@ -63,15 +63,6 @@
 
 #include "kwalletadaptor.h"
 
-// this defines the required throw_exception function in the namespace boost
-namespace boost {
-void throw_exception(std::exception const& e)
-{
-    qDebug() << "boost::throw_exception called: " << e.what();
-    // FIXME: how to notify the user in this case?
-}
-}
-
 class KWalletTransaction {
 
 public:
@@ -706,7 +697,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
             KWallet::BackendCipherType newWalletType
                 = KWallet::BACKEND_CIPHER_UNKNOWN;
 
-            boost::shared_ptr<KWallet::KNewWalletDialog> newWalletDlg(
+            std::shared_ptr<KWallet::KNewWalletDialog> newWalletDlg(
                 new KWallet::KNewWalletDialog(
                     appid, wallet, QWidget::find(w)));
             GpgME::Key gpgKey;

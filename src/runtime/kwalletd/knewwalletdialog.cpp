@@ -130,7 +130,7 @@ void KNewWalletDialogGpg::initializePage()
         emit completeChanged();
         return;
     }
-    boost::shared_ptr< GpgME::Context >   _ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
+    std::shared_ptr< GpgME::Context >   _ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (0 == _ctx) {
         KMessageBox::error(this, i18n("The QGpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
         emit completeChanged();
