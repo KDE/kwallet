@@ -34,9 +34,7 @@ public:
             connect(_ui._optionNo, SIGNAL(toggled(bool)), wizard, SLOT(page1Updated()));
             connect(_ui._optionNotInterested, SIGNAL(toggled(bool)), wizard, SLOT(page1Updated()));
             connect(_ui._optionYes, SIGNAL(toggled(bool)), wizard, SLOT(page1Updated()));
-            connect(_ui._optionNo, &QRadioButton::toggled, this, [this](bool t) {
-                emit this->completeChanged();
-            });
+            connect(_ui._optionNo, &QRadioButton::toggled, this, &QWizardPage::completeChanged);
         }
 
     virtual bool isComplete() const {
