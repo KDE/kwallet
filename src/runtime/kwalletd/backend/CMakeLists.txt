@@ -6,7 +6,7 @@ include(GenerateExportHeader)
 check_include_files(stdint.h HAVE_STDINT_H)
 check_include_files(sys/bitypes.h HAVE_SYS_BITYPES_H)
 if (Gpgmepp_FOUND OR KF5Gpgmepp_FOUND)
-    add_definitions(-DHAVE_QGPGME)
+    add_definitions(-DHAVE_GPGMEPP)
     add_definitions(-DBOOST_NO_EXCEPTIONS)
 endif(Gpgmepp_FOUND OR KF5Gpgmepp_FOUND)
 

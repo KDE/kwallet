@@ -25,7 +25,7 @@ endif(NOT Gpgmepp_FOUND)
 
 if (Gpgmepp_FOUND OR KF5Gpgmepp_FOUND)
     message("GPG support enabled")
-    add_definitions(-DHAVE_QGPGME)
+    add_definitions(-DHAVE_GPGMEPP)
     add_definitions(-DBOOST_NO_EXCEPTIONS)
     include_directories(${GPGME_INCLUDES})
 endif(Gpgmepp_FOUND OR KF5Gpgmepp_FOUND)

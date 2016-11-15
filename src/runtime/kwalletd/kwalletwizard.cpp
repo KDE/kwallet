@@ -21,7 +21,7 @@
 #include "ui_kwalletwizardpageintro.h"
 #include "ui_kwalletwizardpageoptions.h"
 #include "ui_kwalletwizardpagepassword.h"
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
 #include "ui_kwalletwizardpagepasswordgpg.h"
 #include "ui_kwalletwizardpagegpgkey.h"
 #endif
@@ -31,7 +31,7 @@
 #include <QButtonGroup>
 #include <QDebug>
 
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
 #include <QComboBox>
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
@@ -84,7 +84,7 @@ public:
         registerField(QStringLiteral("useWallet"), ui._useWallet);
         registerField(QStringLiteral("pass1"), ui._pass1);
         registerField(QStringLiteral("pass2"), ui._pass2);
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
         registerField(QStringLiteral("useGPG"), ui._radioGpg);
         registerField(QStringLiteral("useBlowfish"), ui._radioBlowfish);
         connect(ui._radioBlowfish, SIGNAL(toggled(bool)), parent, SLOT(passwordPageUpdate()));
@@ -98,11 +98,11 @@ public:
 
     virtual int nextId() const
     {
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
         int nextId = -1;
         if (field(QStringLiteral("useWallet")).toBool()) {
             if (field(QStringLiteral("useBlowfish")).toBool()) {
-                nextId = static_cast<KWalletWizard *>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId; // same as non QGPGME case
+                nextId = static_cast<KWalletWizard *>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId; // same as non GPGMEPP case
             } else {
                 nextId = KWalletWizard::PageGpgKeyId;
             }
@@ -120,14 +120,14 @@ public:
     }
 
 private:
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
     Ui::KWalletWizardPagePasswordGpg ui;
 #else
     Ui::KWalletWizardPagePassword ui;
 #endif
 };
 
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
 typedef std::vector< GpgME::Key > KeysVector;
 Q_DECLARE_METATYPE(GpgME::Key)
 
@@ -257,7 +257,7 @@ KWalletWizard::KWalletWizard(QWidget *parent)
     setPage(PageIntroId, m_pageIntro);
     m_pagePasswd = new PagePassword(this);
     setPage(PagePasswordId, m_pagePasswd);
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
     m_pageGpgKey = new PageGpgKey(this);
     setPage(PageGpgKeyId, m_pageGpgKey);
 #endif
@@ -271,7 +271,7 @@ void KWalletWizard::passwordPageUpdate()
 {
     bool complete = true;
     if (field(QStringLiteral("useWallet")).toBool()) {
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
         if (field(QStringLiteral("useBlowfish")).toBool()) {
             m_pagePasswd->setFinalPage(wizardType() == Basic);
             button(NextButton)->setVisible(wizardType() != Basic);
@@ -286,7 +286,7 @@ void KWalletWizard::passwordPageUpdate()
                 m_pagePasswd->setMatchLabelText(i18n("Passwords do not match."));
                 complete = false;
             }
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
         } else {
             m_pagePasswd->setFinalPage(false);
             button(NextButton)->setEnabled(true);
@@ -316,7 +316,7 @@ void KWalletWizard::initializePage(int id)
     }
 }
 
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
 GpgME::Key KWalletWizard::gpgKey() const
 {
     return m_pageGpgKey->gpgKey();

@@ -28,9 +28,9 @@
 #include "backendpersisthandler.h"
 #include "kwalletbackend5_export.h"
 
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
 #include <gpgme++/key.h>
-#endif // HAVE_QGPGME
+#endif // HAVE_GPGMEPP
 
 #define PBKDF2_SHA512_KEYSIZE 56
 #define PBKDF2_SHA512_SALTSIZE 56
@@ -80,7 +80,7 @@ public:
     // If opening succeeds, the password's hash will be remembered.
     // If opening fails, the password's hash will be cleared.
     int open(const QByteArray &password, WId w = 0);
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
     int open(const GpgME::Key &key);
 #endif
 
@@ -180,7 +180,7 @@ public:
     {
         return _cipherType;
     }
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
     const GpgME::Key &gpgKey() const;
 #endif
 
@@ -205,7 +205,7 @@ private:
     QByteArray _passhash;   // password hash used for saving the wallet
     QByteArray _newPassHash; //Modern hash using KWALLET_HASH_PBKDF2_SHA512
     BackendCipherType _cipherType; // the kind of encryption used for this wallet
-#ifdef HAVE_QGPGME
+#ifdef HAVE_GPGMEPP
     GpgME::Key      _gpgKey;
 #endif
     friend class BlowfishPersistHandler;
