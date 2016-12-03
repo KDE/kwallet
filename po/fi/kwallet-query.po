@@ -1,0 +1,142 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Tommi Nieminen <translator@legisign.org>, 2015.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-11-19 20:12+0100\n"
+"PO-Revision-Date: 2015-06-16 18:38+0200\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tommi Nieminen"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "translator@legisign.org"
+
+#: main.cpp:38 main.cpp:40
+#, kde-format
+msgid "KWallet query interface"
+msgstr "KDE:n lompakon kyselykäyttöliittymä"
+
+#: main.cpp:42
+#, kde-format
+msgid "(c) 2015, The KDE Developers"
+msgstr "© 2015 KDE:n kehittäjät"
+
+#: main.cpp:46
+#, kde-format
+msgid "verbose output"
+msgstr "yksityiskohtainen tuloste"
+
+#: main.cpp:47
+#, kde-format
+msgid "list password entries"
+msgstr "luettele salasanatietueet"
+
+#: main.cpp:48
+#, kde-format
+msgid "reads the secrets from the given <entry>"
+msgstr "lukee annetun <tietueen> salaisuudet"
+
+#: main.cpp:48 main.cpp:49
+#, kde-format
+msgid "Entry"
+msgstr "Tietue"
+
+#: main.cpp:49
+#, kde-format
+msgid ""
+"write secrets to the given <entry>. The values are read from the standard "
+"input. IMPORTANT: previous wallet entry value will be overwritten!"
+msgstr ""
+"kirjoittaa annetun <tietueen> salaisuudet. Arvot luetaan vakiosyötteestä. "
+"TÄRKEÄÄ: lompakon tietueen aiempi arvo korvataan!"
+
+#: main.cpp:50
+#, kde-format
+msgid "specify the folder in the wallet <folder>"
+msgstr "valitse kansio lompakossa <folder>"
+
+#: main.cpp:50
+#, kde-format
+msgid "Folder"
+msgstr "Kansio"
+
+#: main.cpp:53
+#, kde-format
+msgid "wallet"
+msgstr "lompakko"
+
+#: main.cpp:53
+#, kde-format
+msgid "The wallet to query"
+msgstr "Lompakko, josta kysellään"
+
+#: main.cpp:63
+#, kde-format
+msgid "Missing argument"
+msgstr "Puuttuva parametri"
+
+#: main.cpp:67
+#, kde-format
+msgid "Too many arguments given"
+msgstr "Annettu liikaa parametreja"
+
+#: main.cpp:74
+#, kde-format
+msgid "Only one mode (list, read or write) can be set. Aborting"
+msgstr ""
+"Vain yksi tila (luettelu, luku tai kirjoitus) voidaan asettaa. Keskeytetään"
+
+#: main.cpp:80
+#, kde-format
+msgid "Please specify the mode (list or read)."
+msgstr "Valitse tila (luettelu tai luku)."
+
+#: querydriver.cpp:60
+#, kde-format
+msgid "Wallet %1 not found"
+msgstr "Lompakkoa %1 ei löytynyt"
+
+#: querydriver.cpp:80
+#, kde-format
+msgid "Failed to open wallet %1. Aborting"
+msgstr "Lompakon %1 avaus epäonnistui. Keskeytetään"
+
+#: querydriver.cpp:113 querydriver.cpp:127
+#, kde-format
+msgid "The folder %1 does not exist!"
+msgstr "Kansiota %1 ei ole olemassa!"
+
+#: querydriver.cpp:136
+#, kde-format
+msgid "Failed to read entry %1 value from the %2 wallet."
+msgstr "Tietueen %1 arvon luku lompakosta %2 epäonnistui."
+
+#: querydriver.cpp:146 querydriver.cpp:160
+#, kde-format
+msgid "Failed to read entry %1 value from the %2 wallet"
+msgstr "Tietueen %1 arvon luku lompakosta %2 epäonnistui"
+
+#: querydriver.cpp:184 querydriver.cpp:198
+#, kde-format
+msgid "Failed to write entry %1 value to %2 wallet"
+msgstr "Tietueen %1 arvon kirjoitus lompakkoon %2 epäonnistui"
+
+#~ msgid "kwallet-query"
+#~ msgstr "kwallet-query"
