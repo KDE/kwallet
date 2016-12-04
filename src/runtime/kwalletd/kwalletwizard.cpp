@@ -159,11 +159,11 @@ public:
         GpgME::Error err = GpgME::checkEngine(GpgME::OpenPGP);
         if (err) {
             qDebug() << "OpenPGP not supported on your system!";
-            KMessageBox::error(this, i18n("The QGpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
+            KMessageBox::error(this, i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
         } else {
             std::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
             if (0 == ctx) {
-                KMessageBox::error(this, i18n("The QGpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
+                KMessageBox::error(this, i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
             } else {
 
                 ctx->setKeyListMode(GPGME_KEYLIST_MODE_LOCAL);
