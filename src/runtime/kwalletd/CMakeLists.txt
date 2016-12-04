@@ -13,7 +13,7 @@ find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
 
 ########### find needed packages ######
-find_package(Gpgmepp) # provided by GpgME
+find_package(Gpgmepp 1.7.0) # provided by GpgME
 
 if (Gpgmepp_FOUND)
     message("GPG support enabled")
