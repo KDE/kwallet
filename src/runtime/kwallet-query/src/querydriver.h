@@ -45,7 +45,7 @@ public:
     void setEntryFolder(const QString& entryFolder) { this->entryFolder = entryFolder; }
 
 private:
-    virtual void timerEvent(QTimerEvent* event);
+    void timerEvent(QTimerEvent* event) Q_DECL_OVERRIDE;
     void readEntries();
     void readValue();
     void readMapValue();
