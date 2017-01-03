@@ -15,9 +15,9 @@ remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Wallet")
 
-include(ECMPackageConfigHelpers)
+include(CMakePackageConfigHelpers)
 
-ecm_configure_package_config_file(
+configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/KF5WalletConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfig.cmake"
   PATH_VARS KDE_INSTALL_DBUSINTERFACEDIR
