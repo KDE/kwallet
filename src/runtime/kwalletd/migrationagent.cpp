@@ -38,7 +38,7 @@
 
 MigrationAgent::MigrationAgent(KWalletD* kd, const char *hash) :
   _kf5_daemon(kd)
-  , _kde4_daemon(0)
+  , _kde4_daemon(nullptr)
   , _pam_hash(hash)
 {
   QTimer::singleShot(100, this, SLOT(migrateWallets()));

@@ -67,7 +67,7 @@ static char *waitForHash()
         readBytes = read(pipefd, buf + totalRead, PBKDF2_SHA512_KEYSIZE - totalRead);
         if (readBytes == -1 || attempts > 5) {
             free(buf);
-            return NULL;
+            return nullptr;
         }
         totalRead += readBytes;
         ++attempts;
@@ -114,42 +114,42 @@ static int waitForEnvironment()
 char* checkPamModule(int argc, char **argv)
 {
     printf("kwalletd5: Checking for pam module\n");
-    char *hash = NULL;
+    char *hash = nullptr;
     int x = 1;
     for (; x < argc; ++x) {
         if (strcmp(argv[x], "--pam-login") != 0) {
             continue;
         }
         printf("kwalletd5: Got pam-login param\n");
-        argv[x] = NULL;
+        argv[x] = nullptr;
         x++;
         //We need at least 2 extra arguments after --pam-login
         if (x + 1 > argc) {
             printf("kwalletd5: Invalid arguments (less than needed)\n");
-            return NULL;
+            return nullptr;
         }
 
         //first socket for the hash, comes from a pipe
         pipefd = atoi(argv[x]);
-        argv[x] = NULL;
+        argv[x] = nullptr;
         x++;
         //second socket for environment, comes from a localsocket
         socketfd = atoi(argv[x]);
-        argv[x] = NULL;
+        argv[x] = nullptr;
         break;
     }
 
     if (!pipefd || !socketfd) {
         printf("Lacking a socket, pipe: %d, env:%d\n", pipefd, socketfd);
-        return NULL;
+        return nullptr;
     }
 
     hash = waitForHash();
 
-    if (hash == NULL || waitForEnvironment() == -1) {
+    if (hash == nullptr || waitForEnvironment() == -1) {
         printf("kwalletd5: Hash or environment not received\n");
         free(hash);
-        return NULL;
+        return nullptr;
     }
 
     return hash;
@@ -162,7 +162,7 @@ extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
 int main(int argc, char **argv)
 #endif
 {
-    char *hash = NULL;
+    char *hash = nullptr;
 #ifndef Q_OS_WIN
     if (getenv("PAM_KWALLET5_LOGIN")) {
         hash = checkPamModule(argc, argv);

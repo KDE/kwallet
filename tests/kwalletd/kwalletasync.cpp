@@ -29,7 +29,7 @@ void KWalletAsyncTest::openWallet()
 
     // we have no wallet: ask for one.
     KWallet::Wallet *wallet = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), 0, KWallet::Wallet::Asynchronous);
-    QVERIFY(wallet != 0);
+    QVERIFY(wallet != nullptr);
 
     WalletReceiver r;
     QVERIFY(r.connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool))));

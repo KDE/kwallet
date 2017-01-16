@@ -29,7 +29,7 @@ void KWalletBothTest::openWallet()
 
     // we have no wallet: ask for one.
     KWallet::Wallet *wallet = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), 0, KWallet::Wallet::Asynchronous);
-    QVERIFY(wallet != 0);
+    QVERIFY(wallet != nullptr);
 
     WalletReceiver r;
     r.connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool)));
@@ -37,9 +37,9 @@ void KWalletBothTest::openWallet()
     _out << "About to ask for wallet sync" << endl;
 
     wallet = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), 0, KWallet::Wallet::Synchronous);
-    QVERIFY(wallet != 0);
+    QVERIFY(wallet != nullptr);
 
-    _out << "Got sync wallet: " << (wallet != 0) << endl;
+    _out << "Got sync wallet: " << (wallet != nullptr) << endl;
     _out << "About to start 30 second event loop" << endl;
 
     QTimer::singleShot(30000, qApp, SLOT(quit()));

@@ -66,7 +66,7 @@ void KWalletMany::openWallet()
         _out << "About to ask for wallet async" << endl;
         Wallet *wallet;
         wallet = Wallet::openWallet(Wallet::NetworkWallet(), 0, Wallet::Asynchronous);
-        QVERIFY(wallet != 0);
+        QVERIFY(wallet != nullptr);
         connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool)));
         _wallets.append(wallet);
     }

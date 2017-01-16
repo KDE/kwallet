@@ -27,7 +27,7 @@ class KBetterThanKDialog : public QDialog, private Ui_KBetterThanKDialogBase
     Q_OBJECT
 
 public:
-    KBetterThanKDialog(QWidget *parent = 0);
+    KBetterThanKDialog(QWidget *parent = nullptr);
 
     void init();
     void setLabel(const QString &label);

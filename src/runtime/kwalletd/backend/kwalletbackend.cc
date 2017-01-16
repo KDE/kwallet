@@ -68,7 +68,7 @@ class Backend::BackendPrivate
 // }
 
 Backend::Backend(const QString &name, bool isPath)
-    : d(0),
+    : d(nullptr),
       _name(name),
       _useNewHash(false),
       _ref(0),
@@ -373,7 +373,7 @@ int Backend::openInternal(WId w)
     }
 
     BackendPersistHandler *phandler = BackendPersistHandler::getPersistHandler(magicBuf);
-    if (0 == phandler) {
+    if (nullptr == phandler) {
         return -41; // unknown cipher or hash
     }
     int result = phandler->read(this, db, w);
@@ -449,7 +449,7 @@ int Backend::sync(WId w)
     }
 
     BackendPersistHandler *phandler = BackendPersistHandler::getPersistHandler(_cipherType);
-    if (0 == phandler) {
+    if (nullptr == phandler) {
         return -4; // write error
     }
     int rc = phandler->write(this, sf, version, w);
@@ -513,7 +513,7 @@ QStringList Backend::entryList() const
 
 Entry *Backend::readEntry(const QString &key)
 {
-    Entry *rc = 0L;
+    Entry *rc = nullptr;
 
     if (_open && hasEntry(key)) {
         rc = _entries[_folder][key];

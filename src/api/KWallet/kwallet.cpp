@@ -230,7 +230,7 @@ void Wallet::WalletPrivate::createDefaultFolders()
 static const char s_kwalletdServiceName[] = "org.kde.kwalletd5";
 
 Wallet::Wallet(int handle, const QString &name)
-    : QObject(0L), d(new WalletPrivate(this, handle, name))
+    : QObject(nullptr), d(new WalletPrivate(this, handle, name))
 {
     if (walletLauncher()->m_useKSecretsService) {
         // see openWallet for initialization code; this constructor does not have any code
@@ -436,7 +436,7 @@ Wallet *Wallet::openWallet(const QString &name, WId w, OpenType ot)
 
     if (!walletLauncher()->m_walletEnabled) {
         qDebug() << "User disabled the wallet system so returning 0 here.";
-        return 0;
+        return nullptr;
     }
 
 #if HAVE_KSECRETSSERVICE
@@ -481,13 +481,13 @@ Wallet *Wallet::openWallet(const QString &name, WId w, OpenType ot)
             r = interface.openPathAsync(name, (qlonglong)w, appid(), true);
         } else {
             delete wallet;
-            return 0;
+            return nullptr;
         }
         // error communicating with the daemon (maybe not running)
         if (!r.isValid()) {
             qDebug() << "Invalid DBus reply: " << r.error();
             delete wallet;
-            return 0;
+            return nullptr;
         }
         wallet->d->transactionId = r.value();
 
@@ -495,7 +495,7 @@ Wallet *Wallet::openWallet(const QString &name, WId w, OpenType ot)
             // check for an immediate error
             if (wallet->d->transactionId < 0) {
                 delete wallet;
-                wallet = 0;
+                wallet = nullptr;
             } else {
                 wallet->d->handle = r.value();
             }
@@ -1609,7 +1609,7 @@ void Wallet::virtual_hook(int, void *)
 }
 
 KWalletDLauncher::KWalletDLauncher()
-    : m_wallet_deamon(0)
+    : m_wallet_deamon(nullptr)
     , m_cgroup(KSharedConfig::openConfig(QStringLiteral("kwalletrc")
     , KConfig::NoGlobals)->group("Wallet"))
     , m_walletEnabled(false)
@@ -1639,7 +1639,7 @@ KWalletDLauncher::~KWalletDLauncher()
 org::kde::KWallet &KWalletDLauncher::getInterface()
 {
 //    Q_ASSERT(!m_useKSecretsService);
-    Q_ASSERT(m_wallet_deamon != 0);
+    Q_ASSERT(m_wallet_deamon != nullptr);
 
     // check if kwalletd is already running
     QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();

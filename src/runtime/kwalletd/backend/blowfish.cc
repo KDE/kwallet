@@ -38,7 +38,7 @@
 BlowFish::BlowFish()
 {
     _blksz = 8;
-    _key = 0L;
+    _key = nullptr;
     _init = false;
 }
 
@@ -102,7 +102,7 @@ bool BlowFish::init()
 BlowFish::~BlowFish()
 {
     delete[](unsigned char *)_key;
-    _key = 0L;
+    _key = nullptr;
 }
 
 int BlowFish::keyLen() const

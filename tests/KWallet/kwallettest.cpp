@@ -47,10 +47,10 @@ void KWalletTest::testWallet()
 
     // open
     Wallet *wallet = Wallet::openWallet(testWallet, 0, Wallet::Synchronous);
-    if (wallet == 0) {
+    if (wallet == nullptr) {
         qDebug() << "Couldn't open the wallet. Maybe the wallet daemon is not running?";
     }
-    QVERIFY2(wallet != 0, "openWallet failed!");
+    QVERIFY2(wallet != nullptr, "openWallet failed!");
     QVERIFY2(Wallet::isOpen(testWallet), "opwnWallet succeeded but the wallet !isOpen");
 
     // create folder
@@ -84,7 +84,7 @@ void KWalletTest::testWallet()
 
     // open
     wallet = Wallet::openWallet(testWallet, 0, Wallet::Synchronous);
-    QVERIFY2(wallet != 0, "openWallet failed");
+    QVERIFY2(wallet != nullptr, "openWallet failed");
     QVERIFY2(Wallet::isOpen(testWallet), "openWallet succeeded but the wallet !isOpen (2)");
 
     // set folder

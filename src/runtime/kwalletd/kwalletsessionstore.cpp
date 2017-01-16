@@ -118,11 +118,11 @@ int KWalletSessionStore::removeAllSessions(const QString &appid, int handle)
         Q_ASSERT(*it);
         if ((*it)->m_handle == handle) {
             delete *it;
-            *it = 0;
+            *it = nullptr;
         }
     }
 
-    int removed = m_sessions[appid].removeAll(0);
+    int removed = m_sessions[appid].removeAll(nullptr);
     if (m_sessions[appid].isEmpty()) {
         m_sessions.remove(appid);
     }
@@ -142,12 +142,12 @@ int KWalletSessionStore::removeAllSessions(int handle)
             Q_ASSERT(*it);
             if ((*it)->m_handle == handle) {
                 delete *it;
-                *it = 0;
+                *it = nullptr;
                 numrem++;
             }
         }
         // remove all zeroed sessions
-        m_sessions[appid].removeAll(0);
+        m_sessions[appid].removeAll(nullptr);
         if (m_sessions[appid].isEmpty()) {
             appremove.append(appid);
         }

@@ -235,7 +235,7 @@ int SHA1::process(const void *block, int len)
         for (; len && _count < 64; --len, ++cnt) {
             _buf[_count++] = *_block++;
         }
-        process(0, 0);       // flush the buffer if necessary
+        process(nullptr, 0);       // flush the buffer if necessary
         if (!len) {
             return cnt;
         }
@@ -266,7 +266,7 @@ const unsigned char *SHA1::hash()
         return (unsigned char *)_buf;
     }
 
-    process(0, 0);
+    process(nullptr, 0);
 
     msb = 0;
     t = _nblocks;
@@ -300,7 +300,7 @@ const unsigned char *SHA1::hash()
         while (_count < 64) {
             _buf[_count++] = 0;
         }
-        process(0, 0);
+        process(nullptr, 0);
         memset(_buf, 0, 56);
     }
 

@@ -26,9 +26,9 @@ void KWalletSyncTest::openWallet()
     _out << "About to ask for wallet sync" << endl;
 
     KWallet::Wallet *w = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), 0, KWallet::Wallet::Synchronous);
-    QVERIFY(w != 0);
+    QVERIFY(w != nullptr);
 
-    _out << "Got sync wallet: " << (w != 0) << endl;
+    _out << "Got sync wallet: " << (w != nullptr) << endl;
 }
 
 QTEST_GUILESS_MAIN(KWalletSyncTest)

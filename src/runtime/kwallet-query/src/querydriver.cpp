@@ -35,7 +35,7 @@
 
 QueryDriver::QueryDriver(int &argc, char* argv[]) :
     QApplication(argc, argv)
-    , theWallet(0)
+    , theWallet(nullptr)
     , verbose(false)
     , entryFolder(QStringLiteral("Passwords"))
 {

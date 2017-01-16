@@ -69,8 +69,8 @@ public:
     bool            _migrationCompleted;
 };
 
-MigrationPage1 *page1 = NULL;
-MigrationPage2 *page2 = NULL;
+MigrationPage1 *page1 = nullptr;
+MigrationPage2 *page2 = nullptr;
 
 MigrationWizard::MigrationWizard(MigrationAgent *agent)
     : _agent(agent)

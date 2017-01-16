@@ -157,7 +157,7 @@ BackendPersistHandler *BackendPersistHandler::getPersistHandler(BackendCipherTyp
 #endif // HAVE_GPGMEPP
     default:
         Q_ASSERT(0);
-        return 0;
+        return nullptr;
     }
 }
 
@@ -177,7 +177,7 @@ BackendPersistHandler *BackendPersistHandler::getPersistHandler(char magicBuf[12
         return  new GpgPersistHandler;
     }
 #endif // HAVE_GPGMEPP
-    return 0;    // unknown cipher or hash
+    return nullptr;    // unknown cipher or hash
 }
 
 int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WId)

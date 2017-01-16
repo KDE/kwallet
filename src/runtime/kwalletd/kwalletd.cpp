@@ -104,17 +104,17 @@ private:
 int KWalletTransaction::nextTransactionId = 0;
 
 KWalletD::KWalletD()
-    : QObject(0)
+    : QObject(nullptr)
     , _failed(0)
     , _syncTime(5000)
-    , _curtrans(0)
+    , _curtrans(nullptr)
     , _useGpg(false)
 {
 #ifdef HAVE_GPGMEPP
     _useGpg = true;
 #endif
 
-    srand(time(0));
+    srand(time(nullptr));
     _showingFailureNotify = false;
     _closeIdle = false;
     _idleTime = 0;
@@ -201,7 +201,7 @@ QPair<int, KWallet::Backend*> KWalletD::findWallet(
             return qMakePair(it.key(), it.value());
         }
     }
-    return qMakePair(-1, static_cast<KWallet::Backend*>(0));
+    return qMakePair(-1, static_cast<KWallet::Backend*>(nullptr));
 }
 
 bool KWalletD::_processing = false;
@@ -292,7 +292,7 @@ void KWalletD::processTransactions()
         }
 
         delete _curtrans;
-        _curtrans = 0;
+        _curtrans = nullptr;
     }
 
     _processing = false;
@@ -1134,7 +1134,7 @@ int KWalletD::close(int handle, bool force, const QString& appid)
 bool KWalletD::isOpen(const QString& wallet)
 {
     const QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
-    return walletInfo.second != 0;
+    return walletInfo.second != nullptr;
 }
 
 bool KWalletD::isOpen(int handle)
@@ -1145,15 +1145,15 @@ bool KWalletD::isOpen(int handle)
 
     KWallet::Backend* rc = _wallets.value(handle);
 
-    if (rc == 0 && ++_failed > 5) {
+    if (rc == nullptr && ++_failed > 5) {
         _failed = 0;
         QTimer::singleShot(0, this, SLOT(notifyFailures()));
     }
-    else if (rc != 0) {
+    else if (rc != nullptr) {
         _failed = 0;
     }
 
-    return rc != 0;
+    return rc != nullptr;
 }
 
 QStringList KWalletD::wallets() const
@@ -1537,7 +1537,7 @@ void KWalletD::slotServiceOwnerChanged(
     // with several appids, we can't stop if we found one.
     QString service(oldOwner);
     QList<KWalletAppHandlePair> sessremove(_sessions.findSessions(service));
-    KWallet::Backend* b = 0;
+    KWallet::Backend* b = nullptr;
 
     // check all sessions for wallets to close
     Q_FOREACH (const KWalletAppHandlePair& s, sessremove) {
@@ -1559,10 +1559,10 @@ void KWalletD::slotServiceOwnerChanged(
         if ((*tit)->tType == KWalletTransaction::Open
             && (*tit)->service == oldOwner) {
             delete (*tit);
-            *tit = 0;
+            *tit = nullptr;
         }
     }
-    _transactions.removeAll(0);
+    _transactions.removeAll(nullptr);
 
     // if there's currently an open-transaction being handled,
     // mark it as cancelled.
@@ -1577,7 +1577,7 @@ void KWalletD::slotServiceOwnerChanged(
 KWallet::Backend* KWalletD::getWallet(const QString& appid, int handle)
 {
     if (handle == 0) {
-        return 0L;
+        return nullptr;
     }
 
     KWallet::Backend* w = _wallets.value(handle);
@@ -1598,14 +1598,14 @@ KWallet::Backend* KWalletD::getWallet(const QString& appid, int handle)
         QTimer::singleShot(0, this, SLOT(notifyFailures()));
     }
 
-    return 0L;
+    return nullptr;
 }
 
 void KWalletD::notifyFailures()
 {
     if (!_showingFailureNotify) {
         _showingFailureNotify = true;
-        KMessageBox::information(0,
+        KMessageBox::information(nullptr,
             i18n("There have been repeated failed attempts to gain access to "
                  "a wallet. An application may be misbehaving."),
             i18n("KDE Wallet Service"));
@@ -1872,7 +1872,7 @@ int KWalletD::pamOpen(
         return -1;
     }
 
-    KWallet::Backend* b = 0;
+    KWallet::Backend* b = nullptr;
     // If the wallet we want to open does not exists. create it and set pam
     // hash
     if (!wallets().contains(wallet)) {
