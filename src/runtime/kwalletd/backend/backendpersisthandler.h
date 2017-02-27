@@ -48,7 +48,7 @@ public:
      * This is a factory method used to get an instance of the backend suitable
      * for reading/writing using the given cipher type
      *
-     * @param cypherType indication of the backend that should be returned
+     * @param cipherType indication of the backend that should be returned
      * @return a pointer to an instance of the requested handler type. No need to delete this pointer, it's lifetime is taken care of by this factory
      */
     static BackendPersistHandler *getPersistHandler(BackendCipherType cipherType);
