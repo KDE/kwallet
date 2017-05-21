@@ -11,28 +11,6 @@ remove_definitions(-DQT_NO_CAST_TO_ASCII)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
-
-# create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Wallet")
-
-include(CMakePackageConfigHelpers)
-
-configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/KF5WalletConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfig.cmake"
-  PATH_VARS KDE_INSTALL_DBUSINTERFACEDIR
-  INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
-)
-
-install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
-  DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-  COMPONENT Devel
-)
-
-install(EXPORT KF5WalletTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5WalletTargets.cmake NAMESPACE KF5:: )
-
 install(FILES
    ${CMAKE_CURRENT_BINARY_DIR}/kwallet_version.h
   DESTINATION ${KF5_INCLUDE_INSTALL_DIR} COMPONENT Devel
@@ -100,6 +78,60 @@ install(FILES
   ${KWallet_HEADERS}
   DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KWallet COMPONENT Devel
 )
+
+if(BUILD_QCH)
+    ecm_add_qch(
+        KF5Wallet_QCH
+        NAME KWallet
+        BASE_NAME KF5Wallet
+        VERSION ${KF5_VERSION}
+        ORG_DOMAIN org.kde
+        SOURCES # using only public headers, to cover only public API
+            ${KWallet_HEADERS}
+        LINK_QCHS
+            Qt5Gui_QCH
+        BLANK_MACROS
+            KWALLET_EXPORT
+            KWALLET_DEPRECATED
+            KWALLET_DEPRECATED_EXPORT
+        TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
+        QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
+        COMPONENT Devel
+    )
+endif()
+
+
+# create a Config.cmake and a ConfigVersion.cmake file and install them
+set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Wallet")
+
+if (BUILD_QCH)
+    ecm_install_qch_export(
+        TARGETS KF5Wallet_QCH
+        FILE KF5WalletQchTargets.cmake
+        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+        COMPONENT Devel
+    )
+    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF5WalletQchTargets.cmake\")")
+endif()
+
+include(CMakePackageConfigHelpers)
+
+configure_package_config_file(
+  "${CMAKE_CURRENT_SOURCE_DIR}/KF5WalletConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfig.cmake"
+  PATH_VARS KDE_INSTALL_DBUSINTERFACEDIR
+  INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
+)
+
+install(FILES
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
+  DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+  COMPONENT Devel
+)
+
+install(EXPORT KF5WalletTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5WalletTargets.cmake NAMESPACE KF5:: )
+
 
 include(ECMGeneratePriFile)
 ecm_generate_pri_file(BASE_NAME KWallet LIB_NAME KF5Wallet DEPS "widgets" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KF5_INCLUDE_INSTALL_DIR}/KWallet)
