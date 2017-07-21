@@ -488,25 +488,25 @@ Q_SIGNALS:
 private Q_SLOTS:
     /**
      *  @internal
-     *  DBUS slot for signals emitted by the wallet service.
+     *  D-Bus slot for signals emitted by the wallet service.
      */
     void slotWalletClosed(int handle);
 
     /**
      *  @internal
-     *  DBUS slot for signals emitted by the wallet service.
+     *  D-Bus slot for signals emitted by the wallet service.
      */
     void slotFolderUpdated(const QString &wallet, const QString &folder);
 
     /**
      *  @internal
-     *  DBUS slot for signals emitted by the wallet service.
+     *  D-Bus slot for signals emitted by the wallet service.
      */
     void slotFolderListUpdated(const QString &wallet);
 
     /**
      *  @internal
-     *  DBUS slot for signals emitted by the wallet service.
+     *  D-Bus slot for signals emitted by the wallet service.
      */
     void slotApplicationDisconnected(const QString &wallet, const QString &application);
 
@@ -520,7 +520,7 @@ private Q_SLOTS:
 
     /**
      *  @internal
-     *  DBUS error slot.
+     *  D-Bus error slot.
      */
     void emitWalletAsyncOpenError();
 
