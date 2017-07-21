@@ -39,7 +39,7 @@ class KNewWalletDialog : public QWizard
 {
     Q_OBJECT
 public:
-    KNewWalletDialog(const QString &appName, const QString &walletName, QWidget *parent = 0);
+    KNewWalletDialog(const QString &appName, const QString &walletName, QWidget *parent = nullptr);
 
     bool isBlowfish() const;
     int gpgId() const
@@ -58,7 +58,7 @@ class KNewWalletDialogIntro : public QWizardPage
 {
     Q_OBJECT
 public:
-    KNewWalletDialogIntro(const QString &appName, const QString &walletName, QWidget *parent = 0);
+    KNewWalletDialogIntro(const QString &appName, const QString &walletName, QWidget *parent = nullptr);
     bool isBlowfish() const;
     int nextId() const Q_DECL_OVERRIDE;
 protected Q_SLOTS:
@@ -71,7 +71,7 @@ class KNewWalletDialogGpg : public QWizardPage
 {
     Q_OBJECT
 public:
-    KNewWalletDialogGpg(const QString &appName, const QString &walletName, QWidget *parent = 0);
+    KNewWalletDialogGpg(const QString &appName, const QString &walletName, QWidget *parent = nullptr);
     void initializePage() Q_DECL_OVERRIDE;
     bool isComplete() const Q_DECL_OVERRIDE;
     virtual bool validateCurrentPage();
