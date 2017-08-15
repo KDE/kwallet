@@ -132,7 +132,7 @@ const QString Wallet::FormDataFolder()
     return QStringLiteral("Form Data");
 }
 
-class Wallet::WalletPrivate
+class Q_DECL_HIDDEN Wallet::WalletPrivate
 {
 public:
     WalletPrivate(Wallet *wallet, int h, const QString &n)
