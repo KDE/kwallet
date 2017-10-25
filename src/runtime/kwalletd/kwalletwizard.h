@@ -45,7 +45,7 @@ public:
     static const int PageOptionsId = 3;
     static const int PageExplanationId = 4;
 
-    KWalletWizard(QWidget *parent = nullptr);
+    explicit KWalletWizard(QWidget *parent = nullptr);
 
     WizardType wizardType() const;
 

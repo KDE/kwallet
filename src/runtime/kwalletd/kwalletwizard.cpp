@@ -44,7 +44,7 @@
 class PageIntro : public QWizardPage
 {
 public:
-    PageIntro(QWidget *parent)
+    explicit PageIntro(QWidget *parent)
         : QWizardPage(parent)
     {
         ui.setupUi(this);
@@ -75,7 +75,7 @@ private:
 class PagePassword : public QWizardPage
 {
 public:
-    PagePassword(QWidget *parent)
+    explicit PagePassword(QWidget *parent)
         : QWizardPage(parent)
     {
 
@@ -146,7 +146,7 @@ struct AddKeyToCombo {
 class PageGpgKey : public QWizardPage
 {
 public:
-    PageGpgKey(QWidget *parent)
+    explicit PageGpgKey(QWidget *parent)
         : QWizardPage(parent)
         , userHasGpgKeys(false)
     {
@@ -221,7 +221,7 @@ private:
 class PageOptions : public QWizardPage
 {
 public:
-    PageOptions(QWidget *parent)
+    explicit PageOptions(QWidget *parent)
         : QWizardPage(parent)
     {
         ui.setupUi(this);
