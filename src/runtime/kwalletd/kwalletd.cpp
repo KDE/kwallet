@@ -22,6 +22,7 @@
 */
 
 #include "kwalletd.h"
+#include "kwalletd_debug.h"
 
 #include "kbetterthankdialog.h"
 #include "kwalletwizard.h"
@@ -57,7 +58,6 @@
 #include <QtCore/QTimer>
 #include <QtCore/QEventLoop>
 #include <QtGui/QIcon>
-#include <QDebug>
 
 #include <assert.h>
 
@@ -180,14 +180,14 @@ void KWalletD::connectToScreenSaver()
     screensaver = new QDBusInterface("org.freedesktop.ScreenSaver",
         "/ScreenSaver", "org.freedesktop.ScreenSaver");
     if (!screensaver->isValid()) {
-        qDebug() << "Service org.freedesktop.ScreenSaver not found. Retrying in 10 seconds...";
+        qCDebug(KWALLETD_LOG) << "Service org.freedesktop.ScreenSaver not found. Retrying in 10 seconds...";
         // keep attempting every 10 seconds
         QTimer::singleShot(10000, this, SLOT(connectToScreenSaver()));
     }
     else {
         connect(screensaver, SIGNAL(ActiveChanged(bool)),
             SLOT(screenSaverChanged(bool)));
-        qDebug() << "connected to screen saver service.";
+        qCDebug(KWALLETD_LOG) << "connected to screen saver service.";
     }
 }
 #endif
@@ -380,7 +380,7 @@ int KWalletD::openAsync(const QString& wallet, qlonglong wId,
     xact->tType = KWalletTransaction::Open;
     xact->isPath = false;
     if (handleSession) {
-        qDebug() << "openAsync for " << message().service();
+        qCDebug(KWALLETD_LOG) << "openAsync for " << message().service();
         _serviceWatcher.setConnection(connection());
         _serviceWatcher.addWatchedService(message().service());
         xact->service = message().service();
@@ -408,7 +408,7 @@ int KWalletD::openPathAsync(const QString& path, qlonglong wId,
     xact->tType = KWalletTransaction::Open;
     xact->isPath = true;
     if (handleSession) {
-        qDebug() << "openPathAsync " << message().service();
+        qCDebug(KWALLETD_LOG) << "openPathAsync " << message().service();
         _serviceWatcher.setConnection(connection());
         _serviceWatcher.addWatchedService(message().service());
         xact->service = message().service();
@@ -579,7 +579,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
     int rc = walletInfo.first;
     if (rc == -1) {
         if (_wallets.count() > 20) {
-            qDebug() << "Too many wallets open.";
+            qCDebug(KWALLETD_LOG) << "Too many wallets open.";
             return -1;
         }
 
@@ -1538,7 +1538,7 @@ void KWalletD::slotServiceOwnerChanged(
     const QString& name, const QString& oldOwner, const QString& newOwner)
 {
     Q_UNUSED(name);
-    qDebug() << "slotServiceOwnerChanged " << name << ", " << oldOwner << ", "
+    qCDebug(KWALLETD_LOG) << "slotServiceOwnerChanged " << name << ", " << oldOwner << ", "
              << newOwner;
 
     if (!newOwner.isEmpty()) {
@@ -1581,7 +1581,7 @@ void KWalletD::slotServiceOwnerChanged(
     // mark it as cancelled.
     if (_curtrans && _curtrans->tType == KWalletTransaction::Open
         && _curtrans->service == oldOwner) {
-        qDebug() << "Cancelling current transaction!";
+        qCDebug(KWALLETD_LOG) << "Cancelling current transaction!";
         _curtrans->cancelled = true;
     }
     _serviceWatcher.removeWatchedService(oldOwner);

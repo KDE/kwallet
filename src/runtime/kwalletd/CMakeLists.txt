@@ -23,6 +23,7 @@ if (Gpgmepp_FOUND)
 endif(Gpgmepp_FOUND)
 
 
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ########### build backends #########
 add_subdirectory(backend)
 
@@ -54,6 +55,7 @@ set(kwalletd_SRCS
    migrationagent.cpp
    migrationwizard.cpp
 )
+ecm_qt_declare_logging_category(kwalletd_SRCS HEADER kwalletd_debug.h IDENTIFIER KWALLETD_LOG CATEGORY_NAME kf5.kwallet.kwalletd)
 
 ki18n_wrap_ui(kwalletd_SRCS
    kbetterthankdialogbase.ui

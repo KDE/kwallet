@@ -21,6 +21,7 @@ include(KDECMakeSettings)
 
 include(ECMAddQch)
 include(ECMSetupVersion)
+include(ECMQtDeclareLoggingCategory)
 
 option(BUILD_KWALLETD "Build the kwallet daemon" ON)
 option(BUILD_KWALLET_QUERY "Build kwallet-query tool" ON)
@@ -43,5 +44,8 @@ add_subdirectory(tests)
 if (KF5DocTools_FOUND)
     add_subdirectory(docs)
 endif()
+
+# contains list of debug categories, for kdebugsettings
+install(FILES kwallet.categories DESTINATION ${KDE_INSTALL_CONFDIR})
 
 feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)

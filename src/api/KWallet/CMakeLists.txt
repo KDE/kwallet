@@ -37,6 +37,8 @@ else()
     qt5_add_dbus_interface( kwallet_SRCS ${kwallet_xml} kwallet_interface )
 endif()
 
+ecm_qt_declare_logging_category(kwallet_SRCS HEADER kwallet_api_debug.h IDENTIFIER KWALLET_API_LOG CATEGORY_NAME kf5.kwallet.api)
+
 add_library(KF5Wallet ${kwallet_SRCS})
 generate_export_header(KF5Wallet BASE_NAME KWallet)
 add_library(KF5::Wallet ALIAS KF5Wallet)

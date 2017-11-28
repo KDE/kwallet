@@ -21,6 +21,7 @@
 */
 
 #include "migrationagent.h"
+#include "kwalletd_debug.h"
 #include "migrationwizard.h"
 #include "kwalletd.h"
 
@@ -43,7 +44,7 @@ MigrationAgent::MigrationAgent(KWalletD* kd, const char *hash) :
 {
   connect(this, &MigrationAgent::migrationFinished, _kf5_daemon, &KWalletD::registerKWalletd4Service);
   if (isAlreadyMigrated()) {
-    qDebug() << "old wallets were already migrated";
+    qCDebug(KWALLETD_LOG) << "old wallets were already migrated";
     emit migrationFinished();
   } else {
     QTimer::singleShot(100, this, SLOT(migrateWallets()));
@@ -60,25 +61,25 @@ void MigrationAgent::migrateWallets()
   // if yes, then start the migration wizard
   // if the migration wizard returns without error
   // create "alreadyMigrated=true" setting
-  qDebug() << "Migration agent starting...";
+  qCDebug(KWALLETD_LOG) << "Migration agent starting...";
   if (connectOldDaemon()) {
     if (!isEmptyOldWallet()) {
       if (isMigrationWizardOk()) {
         setAlreadyMigrated();
         emit migrationFinished();
       } else {
-        qDebug() << "Migration wizard returned an error or has been canceled. The migration agent will resume upon next daemon start";
+        qCDebug(KWALLETD_LOG) << "Migration wizard returned an error or has been canceled. The migration agent will resume upon next daemon start";
       }
     } else {
-      qDebug() << "Old wallet is empty. No need to migrate.";
+      qCDebug(KWALLETD_LOG) << "Old wallet is empty. No need to migrate.";
       setAlreadyMigrated();
       emit migrationFinished();
     }
   } else {
-    qDebug() << "KDE4 kwalletd not present, stopping migration agent";
+    qCDebug(KWALLETD_LOG) << "KDE4 kwalletd not present, stopping migration agent";
     emit migrationFinished();
   }
-  qDebug() << "Migration agent stop.";
+  qCDebug(KWALLETD_LOG) << "Migration agent stop.";
 }
 
 bool MigrationAgent::isAlreadyMigrated()
@@ -103,17 +104,17 @@ bool MigrationAgent::connectOldDaemon()
     // the provided .service file assumes /usr/bin
     QDBusConnectionInterface *bus = QDBusConnection::sessionBus().interface();
     if (!bus->isServiceRegistered(QStringLiteral(SERVICE_KWALLETD4))) {
-        qDebug() << "kwalletd not started. Attempting start...";
+        qCDebug(KWALLETD_LOG) << "kwalletd not started. Attempting start...";
         QDBusReply<void> reply = bus->startService(SERVICE_KWALLETD4);
         if (!reply.isValid()) {
-            qDebug() << "Couldn't start kwalletd: " << reply.error();
+            qCDebug(KWALLETD_LOG) << "Couldn't start kwalletd: " << reply.error();
             return false;
         }
         if (!bus->isServiceRegistered(QStringLiteral(SERVICE_KWALLETD4))) {
-            qDebug() << "The kwalletd service is still not registered after start attemtp. Aborting migration";
+            qCDebug(KWALLETD_LOG) << "The kwalletd service is still not registered after start attemtp. Aborting migration";
             return false;
         } else {
-            qDebug() << "The kwalletd service has been registered";
+            qCDebug(KWALLETD_LOG) << "The kwalletd service has been registered";
         }
     }
 
@@ -146,7 +147,7 @@ bool MigrationAgent::isMigrationWizardOk()
         if (performMigration(0, true)) {
             ok = true;
         } else {
-            qDebug() << "Migration failed.";
+            qCDebug(KWALLETD_LOG) << "Migration failed.";
         }
     }
 

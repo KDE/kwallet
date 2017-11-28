@@ -18,8 +18,8 @@
   * Boston, MA 02110-1301, USA.
   */
 
+#include "kwalletd_debug.h"
 #include <QApplication>
-#include <QDebug>
 #include <QtCore/QString>
 #include <QSessionManager>
 #include <KLocalizedString>
@@ -210,11 +210,11 @@ int main(int argc, char **argv)
 
     // check if kwallet is disabled
     if (!isWalletEnabled()) {
-        qDebug() << "kwalletd is disabled!";
+        qCDebug(KWALLETD_LOG) << "kwalletd is disabled!";
         return (0);
     }
 
-    qDebug() << "kwalletd5 started";
+    qCDebug(KWALLETD_LOG) << "kwalletd5 started";
 
 #ifndef Q_OS_WIN
     if (hash) {
@@ -223,7 +223,7 @@ int main(int argc, char **argv)
         if (wallet < 0) {
             qWarning() << "Wallet failed to get opened by PAM, error code is" << wallet;
         } else {
-            qDebug() << "Wallet opened by PAM";
+            qCDebug(KWALLETD_LOG) << "Wallet opened by PAM";
         }
         free(hash);
     }
