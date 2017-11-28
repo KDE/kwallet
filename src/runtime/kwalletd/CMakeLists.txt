@@ -33,9 +33,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backend)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../api/KWallet)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../api/KWallet)
 
-add_definitions(-DKDE_DEFAULT_DEBUG_AREA=285)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
-remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
 # migration agent need exceptions enabled
 kde_enable_exceptions()

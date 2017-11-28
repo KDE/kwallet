@@ -7,10 +7,6 @@ ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLET
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
                         SOVERSION 5)
 
-remove_definitions(-DQT_NO_CAST_TO_ASCII)
-remove_definitions(-DQT_NO_CAST_FROM_ASCII)
-remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
-
 install(FILES
    ${CMAKE_CURRENT_BINARY_DIR}/kwallet_version.h
   DESTINATION ${KF5_INCLUDE_INSTALL_DIR} COMPONENT Devel

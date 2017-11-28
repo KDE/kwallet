@@ -1647,7 +1647,7 @@ org::kde::KWallet &KWalletDLauncher::getInterface()
         // not running! check if it is enabled.
         if (m_walletEnabled) {
             // wallet is enabled! try launching it
-            QDBusReply<void> reply = bus->startService(s_kwalletdServiceName);
+            QDBusReply<void> reply = bus->startService(QString::fromLatin1(s_kwalletdServiceName));
             if (!reply.isValid()) {
                 qCritical() << "Couldn't start kwalletd: " << reply.error();
             }
