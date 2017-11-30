@@ -40,6 +40,8 @@ set(kwalletbackend_LIB_SRCS
    kwalletbackend.cc
    backendpersisthandler.cpp
 )
+ecm_qt_declare_logging_category(kwalletbackend_LIB_SRCS HEADER kwalletbackend_debug.h IDENTIFIER KWALLETBACKEND_LOG CATEGORY_NAME kf5.kwallet.kwalletbackend)
+
 
 add_library(kwalletbackend5 SHARED ${kwalletbackend_LIB_SRCS})
 generate_export_header(kwalletbackend5)

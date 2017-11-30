@@ -17,6 +17,8 @@
   * Boston, MA 02110-1301, USA.
   */
 
+#include "kwalletbackend_debug.h"
+
 #include <QIODevice>
 #include <QFile>
 #include <QtCore/QCryptographicHash>
@@ -167,7 +169,7 @@ BackendPersistHandler *BackendPersistHandler::getPersistHandler(char magicBuf[12
             (magicBuf[3] == KWALLET_HASH_SHA1 || magicBuf[3] == KWALLET_HASH_PBKDF2_SHA512)) {
         bool useECBforReading = magicBuf[2] == KWALLET_CIPHER_BLOWFISH_ECB;
         if (useECBforReading) {
-            qDebug() << "this wallet uses ECB encryption. It'll be converted to CBC on next save.";
+            qCDebug(KWALLETBACKEND_LOG) << "this wallet uses ECB encryption. It'll be converted to CBC on next save.";
         }
         return new BlowfishPersistHandler(useECBforReading);
     }
@@ -185,7 +187,7 @@ int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &versio
     assert(wb->_cipherType == BACKEND_CIPHER_BLOWFISH);
 
     if (_useECBforReading) {
-        qDebug() << "This wallet used ECB and is now saved using CBC";
+        qCDebug(KWALLETBACKEND_LOG) << "This wallet used ECB and is now saved using CBC";
         _useECBforReading = false;
     }
 
@@ -315,7 +317,7 @@ int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &versio
         return -4; // write error
     }
     if (!sf.commit()) {
-        qDebug() << "WARNING: wallet sync to disk failed! QSaveFile status was " << sf.errorString();
+        qCDebug(KWALLETBACKEND_LOG) << "WARNING: wallet sync to disk failed! QSaveFile status was " << sf.errorString();
         wholeFile.fill(0);
         return -4; // write error
     }
@@ -400,7 +402,7 @@ int BlowfishPersistHandler::read(Backend *wb, QFile &db, WId)
     t++;
 
     if (fsize < 0 || fsize > long(encrypted.size()) - blksz - 4) {
-        qDebug() << "fsize: " << fsize << " encrypted.size(): " << encrypted.size() << " blksz: " << blksz;
+        qCDebug(KWALLETBACKEND_LOG) << "fsize: " << fsize << " encrypted.size(): " << encrypted.size() << " blksz: " << blksz;
         encrypted.fill(0);
         return -9;         // file structure error.
     }
@@ -482,7 +484,7 @@ GpgME::Error initGpgME()
         GpgME::initializeLibrary();
         err = GpgME::checkEngine(GpgME::OpenPGP);
         if (err) {
-            qDebug() << "OpenPGP not supported!";
+            qCDebug(KWALLETBACKEND_LOG) << "OpenPGP not supported!";
         }
         alreadyInitialized = true;
     }
@@ -500,7 +502,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
 
     GpgME::Error err = initGpgME();
     if (err) {
-        qDebug() << "initGpgME returned " << err.code();
+        qCDebug(KWALLETBACKEND_LOG) << "initGpgME returned " << err.code();
         KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped(), err.code()));
         sf.cancelWriting();
         return -5;
@@ -508,7 +510,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
 
     std::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (0 == ctx) {
-        qDebug() << "Cannot setup OpenPGP context!";
+        qCDebug(KWALLETBACKEND_LOG) << "Cannot setup OpenPGP context!";
         KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"), wb->_name.toHtmlEscaped());
         return -6;
     }
@@ -562,7 +564,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
         int gpgerr = res.error().code();
         KMessageBox::errorWId(w, i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2 (%3)</b>. Please fix your system configuration, then try again. This error may occur if you are not using a full trust GPG key. Please ensure you have the secret key for the key you are using.</qt>",
                                       wb->_name.toHtmlEscaped(), gpgerr, gpgme_strerror(gpgerr)));
-        qDebug() << "GpgME encryption error: " << res.error().code();
+        qCDebug(KWALLETBACKEND_LOG) << "GpgME encryption error: " << res.error().code();
         sf.cancelWriting();
         return -7;
     }
@@ -579,7 +581,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     }
 
     if (!sf.commit()) {
-        qDebug() << "WARNING: wallet sync to disk failed! QSaveFile status was " << sf.errorString();
+        qCDebug(KWALLETBACKEND_LOG) << "WARNING: wallet sync to disk failed! QSaveFile status was " << sf.errorString();
         return -4; // write error
     }
 
@@ -609,7 +611,7 @@ retry_label:
     std::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (0 == ctx) {
         KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to open the wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped()));
-        qDebug() << "Cannot setup OpenPGP context!";
+        qCDebug(KWALLETBACKEND_LOG) << "Cannot setup OpenPGP context!";
         return -1;
     }
 
@@ -617,7 +619,7 @@ retry_label:
     encryptedData.seek(0, SEEK_SET);
     GpgME::DecryptionResult res = ctx->decrypt(encryptedData, decryptedData);
     if (res.error()) {
-        qDebug() << "Error decrypting message: " << res.error().asString() << ", code " << res.error().code() << ", source " << res.error().source();
+        qCDebug(KWALLETBACKEND_LOG) << "Error decrypting message: " << res.error().asString() << ", code " << res.error().code() << ", source " << res.error().source();
         KGuiItem btnRetry(i18n("Retry"));
         // FIXME the logic here should be a little more elaborate; a dialog box should be used with "retry", "cancel", but also "troubleshoot" with options to show card status and to kill scdaemon
         int userChoice = KMessageBox::warningYesNoWId(w, i18n("<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If you're using a SmartCard, please ensure it's inserted then try again.<br><br>GPG error was <b>%2</b></qt>", wb->_name.toHtmlEscaped(), res.error().asString()),
@@ -647,7 +649,7 @@ retry_label:
     // locate the GPG key having the ID found inside the file. This will be needed later, when writing changes to disk.
     QDataStream fileStream(&sf);
     fileStream.unsetDevice();
-    qDebug() << "This wallet was encrypted using GPG key with ID " << keyID;
+    qCDebug(KWALLETBACKEND_LOG) << "This wallet was encrypted using GPG key with ID " << keyID;
 
     ctx->setKeyListMode(GPGME_KEYLIST_MODE_LOCAL);
     std::vector< GpgME::Key > keys;
@@ -658,7 +660,7 @@ retry_label:
             break;
         }
         if (keyID == k.keyID()) {
-            qDebug() << "The key was found.";
+            qCDebug(KWALLETBACKEND_LOG) << "The key was found.";
             wb->_gpgKey = k;
             break;
         }

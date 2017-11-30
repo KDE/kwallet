@@ -18,8 +18,8 @@
 */
 
 #include "cbc.h"
+#include "kwalletbackend_debug.h"
 #include <string.h>
-#include <QDebug>
 
 CipherBlockChain::CipherBlockChain(BlockCipher *cipher, bool useECBforReading) :
     _cipher(cipher)
@@ -93,7 +93,7 @@ int CipherBlockChain::encrypt(void *block, int len)
         initRegister();
 
         if ((len % _len) >0) {
-            qDebug() << "Block length given encrypt (" << len << ") is not a multiple of " << _len;
+            qCDebug(KWALLETBACKEND_LOG) << "Block length given encrypt (" << len << ") is not a multiple of " << _len;
             return -1;
         }
 
@@ -163,7 +163,7 @@ int CipherBlockChain::decryptECB(void *block, int len) {
 int CipherBlockChain::decrypt(void *block, int len)
 {
     if (_useECBforReading) {
-        qDebug() << "decrypting using ECB!";
+        qCDebug(KWALLETBACKEND_LOG) << "decrypting using ECB!";
         return decryptECB(block, len);
     }
 
@@ -175,7 +175,7 @@ int CipherBlockChain::decrypt(void *block, int len)
         initRegister();
 
         if ((len % _len) >0) {
-            qDebug() << "Block length given for decrypt (" << len << ") is not a multiple of " << _len;
+            qCDebug(KWALLETBACKEND_LOG) << "Block length given for decrypt (" << len << ") is not a multiple of " << _len;
             return -1;
         }
 

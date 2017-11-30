@@ -19,6 +19,7 @@
  */
 
 #include "kwalletbackend.h"
+#include "kwalletbackend_debug.h"
 
 #include <stdlib.h>
 
@@ -30,7 +31,6 @@
 #include <KNotification>
 #include <KLocalizedString>
 
-#include <QDebug>
 #include <QtCore/QDir>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
@@ -109,7 +109,7 @@ QString Backend::getSaveLocation()
         }
     }
 
-    // qDebug() << "Using saveLocation " + writeLocation;
+    // qCDebug(KWALLETBACKEND_LOG) << "Using saveLocation " + writeLocation;
     return writeLocation;
 }
 
@@ -242,7 +242,7 @@ static int password2hash(const QByteArray &password, QByteArray &hash)
 int Backend::deref()
 {
     if (--_ref < 0) {
-        qDebug() << "refCount negative!";
+        qCDebug(KWALLETBACKEND_LOG) << "refCount negative!";
         _ref = 0;
     }
     return _ref;
@@ -365,10 +365,10 @@ int Backend::openInternal(WId w)
 
     //0 has been the MINOR version until 4.13, from that point we use it to upgrade the hash
     if (magicBuf[1] == 1) {
-        qDebug() << "Wallet new enough, using new hash";
+        qCDebug(KWALLETBACKEND_LOG) << "Wallet new enough, using new hash";
         swapToNewHash();
     } else if (magicBuf[1] != 0) {
-        qDebug() << "Wallet is old, sad panda :(";
+        qCDebug(KWALLETBACKEND_LOG) << "Wallet is old, sad panda :(";
         return -4;  // unknown version
     }
 
@@ -385,7 +385,7 @@ void Backend::swapToNewHash()
 {
     //Runtime error happened and we can't use the new hash
     if (!_useNewHash) {
-        qDebug() << "Runtime error on the new hash";
+        qCDebug(KWALLETBACKEND_LOG) << "Runtime error on the new hash";
         return;
     }
     _passhash.fill(0);//Making sure the old passhash is not around in memory
@@ -710,7 +710,7 @@ void Backend::setPassword(const QByteArray &password)
     }
 
     if (!salt.isEmpty() && password2PBKDF2_SHA512(password, _newPassHash,  salt) == 0) {
-        qDebug() << "Setting useNewHash to true";
+        qCDebug(KWALLETBACKEND_LOG) << "Setting useNewHash to true";
         _useNewHash = true;
     }
 }
