@@ -154,14 +154,14 @@ KWalletD::KWalletD()
 void KWalletD::registerKWalletd4Service()
 {
     auto bus = QDBusConnection::sessionBus().interface();
-    auto reply = bus->registerService(QLatin1String("org.kde.kwalletd"), QDBusConnectionInterface::QueueService);
+    auto reply = bus->registerService(QStringLiteral("org.kde.kwalletd"), QDBusConnectionInterface::QueueService);
     if (reply.isValid() && (reply.value() == QDBusConnectionInterface::ServiceQueued)) {
       QDBusInterface _kde_kwalletd4(QStringLiteral("org.kde.kwalletd"), QStringLiteral("/MainApplication"), QStringLiteral("org.kde.KApplication"));
       if (_kde_kwalletd4.isValid()) {
     auto qreply = _kde_kwalletd4.call(QStringLiteral("quit"));
       }
     }
-    QDBusConnection::sessionBus().registerObject(QLatin1String("/modules/kwalletd"), this);
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kwalletd"), this);
 }
 
 KWalletD::~KWalletD()

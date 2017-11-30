@@ -118,7 +118,7 @@ bool MigrationAgent::connectOldDaemon()
         }
     }
 
-    _kde4_daemon = new org::kde::KWallet(QLatin1String(SERVICE_KWALLETD4), QStringLiteral("/modules/kwalletd"), QDBusConnection::sessionBus());
+    _kde4_daemon = new org::kde::KWallet(QStringLiteral(SERVICE_KWALLETD4), QStringLiteral("/modules/kwalletd"), QDBusConnection::sessionBus());
     return _kde4_daemon->isValid();
 }
 
