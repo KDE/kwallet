@@ -83,9 +83,7 @@ set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.KWallet.xml)
 qt5_add_dbus_adaptor( kwalletd_SRCS ${kwallet_xml} kwalletd.h KWalletD )
 
 # this is needed for the migration agent
-qt5_add_dbus_interface(kwalletd_SRCS
-    ../../api/KWallet/org.kde.KWallet.xml kwallet4_interface
-)
+qt5_add_dbus_interface(kwalletd_SRCS ${kwallet_xml} kwallet4_interface)
 
 if(WIN32)
     configure_file(org.kde.kwalletd5.service.win.in
