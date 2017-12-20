@@ -87,8 +87,14 @@ qt5_add_dbus_interface(kwalletd_SRCS
     ../../api/KWallet/org.kde.KWallet.xml kwallet4_interface
 )
 
-configure_file(org.kde.kwalletd5.service.in
-               ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
+if(WIN32)
+    configure_file(org.kde.kwalletd5.service.win.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
+else()
+    configure_file(org.kde.kwalletd5.service.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
+endif()
+
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
         DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/org.kde.kwalletd.service
