@@ -1,0 +1,139 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Weng Xuetian <wengxt@gmail.cm>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeorg\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-11-19 20:12+0100\n"
+"PO-Revision-Date: 2018-02-01 07:11-0500\n"
+"Last-Translator: guoyunhebrave <guoyunhebrave@gmail.com>\n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf5-trunk/messages/frameworks/kwallet-query.pot\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "KDE 中国"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-china@kde.org"
+
+#: main.cpp:38 main.cpp:40
+#, kde-format
+msgid "KWallet query interface"
+msgstr "KWallet 查询界面"
+
+#: main.cpp:42
+#, kde-format
+msgid "(c) 2015, The KDE Developers"
+msgstr "(c) 2015，KDE 开发者"
+
+#: main.cpp:46
+#, kde-format
+msgid "verbose output"
+msgstr "详细输出"
+
+#: main.cpp:47
+#, kde-format
+msgid "list password entries"
+msgstr "列出密码项"
+
+#: main.cpp:48
+#, kde-format
+msgid "reads the secrets from the given <entry>"
+msgstr "从指定<entry>读取密码"
+
+#: main.cpp:48 main.cpp:49
+#, kde-format
+msgid "Entry"
+msgstr "条目"
+
+#: main.cpp:49
+#, kde-format
+msgid ""
+"write secrets to the given <entry>. The values are read from the standard "
+"input. IMPORTANT: previous wallet entry value will be overwritten!"
+msgstr ""
+"向指定<entry>写入密码。值将从标准输入读取。重要：之前钱包项目的值将被覆盖！"
+
+#: main.cpp:50
+#, kde-format
+msgid "specify the folder in the wallet <folder>"
+msgstr "指定钱包中的文件夹 <文件夹>"
+
+#: main.cpp:50
+#, kde-format
+msgid "Folder"
+msgstr "文件夹"
+
+#: main.cpp:53
+#, kde-format
+msgid "wallet"
+msgstr "钱包"
+
+#: main.cpp:53
+#, kde-format
+msgid "The wallet to query"
+msgstr "要查询的钱包"
+
+#: main.cpp:63
+#, kde-format
+msgid "Missing argument"
+msgstr "缺少参数"
+
+#: main.cpp:67
+#, kde-format
+msgid "Too many arguments given"
+msgstr "参数过多"
+
+#: main.cpp:74
+#, kde-format
+msgid "Only one mode (list, read or write) can be set. Aborting"
+msgstr "只能指定一个模式 (列出，读取或写入)。正在中止"
+
+#: main.cpp:80
+#, kde-format
+msgid "Please specify the mode (list or read)."
+msgstr "请指定模式 (列出或读取)。"
+
+#: querydriver.cpp:60
+#, kde-format
+msgid "Wallet %1 not found"
+msgstr "钱包 %1 未找到"
+
+#: querydriver.cpp:80
+#, kde-format
+msgid "Failed to open wallet %1. Aborting"
+msgstr "打开钱包 %1 失败。正在中止"
+
+#: querydriver.cpp:113 querydriver.cpp:127
+#, kde-format
+msgid "The folder %1 does not exist!"
+msgstr "文件夹 %1> 不存在！"
+
+#: querydriver.cpp:136
+#, kde-format
+msgid "Failed to read entry %1 value from the %2 wallet."
+msgstr "从钱包 %2 读取项目 %1 的值失败。"
+
+#: querydriver.cpp:146 querydriver.cpp:160
+#, kde-format
+msgid "Failed to read entry %1 value from the %2 wallet"
+msgstr "从钱包 %2 读取项目 %1 的值失败"
+
+#: querydriver.cpp:184 querydriver.cpp:198
+#, kde-format
+msgid "Failed to write entry %1 value to %2 wallet"
+msgstr "向钱包 %2 写入 %1 的值失败"
