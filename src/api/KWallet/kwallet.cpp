@@ -25,9 +25,9 @@
 #include "kwallet_api_debug.h"
 
 #include <QApplication>
-#include <QtCore/QPointer>
+#include <QPointer>
 #include <QWidget>
-#include <QtDBus/QDBusConnection>
+#include <QDBusConnection>
 
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>

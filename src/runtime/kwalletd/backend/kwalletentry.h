@@ -21,8 +21,8 @@
 #ifndef _KWALLETENTRY_H
 #define _KWALLETENTRY_H
 
-#include <QtCore/QString>
-#include <QtCore/QDataStream>
+#include <QString>
+#include <QDataStream>
 
 #include <kwallet.h>
 

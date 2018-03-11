@@ -21,9 +21,9 @@
 #ifndef _KWALLETBACKEND_H
 #define _KWALLETBACKEND_H
 
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QMap>
+#include <QString>
+#include <QStringList>
+#include <QMap>
 #include "kwalletentry.h"
 #include "backendpersisthandler.h"
 #include "kwalletbackend5_export.h"

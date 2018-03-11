@@ -52,12 +52,12 @@
 #endif
 
 #include <QApplication>
-#include <QtCore/QDir>
+#include <QDir>
 #include <QString>
-#include <QtCore/QRegExp>
-#include <QtCore/QTimer>
-#include <QtCore/QEventLoop>
-#include <QtGui/QIcon>
+#include <QRegExp>
+#include <QTimer>
+#include <QEventLoop>
+#include <QIcon>
 
 #include <assert.h>
 

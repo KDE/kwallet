@@ -22,7 +22,7 @@
 #ifndef _MIGRATIONWIZARD_H_
 #define _MIGRATIONWIZARD_H_
 
-#include <QtWidgets/QWizard>
+#include <QWizard>
 
 class MigrationAgent;
 

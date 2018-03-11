@@ -20,7 +20,7 @@
 
 #include "kwalletd_debug.h"
 #include <QApplication>
-#include <QtCore/QString>
+#include <QString>
 #include <QSessionManager>
 #include <KLocalizedString>
 #include <KAboutData>

@@ -25,7 +25,7 @@
 #include <kconfiggroup.h>
 
 #include <QApplication>
-#include <QtCore/QPointer>
+#include <QPointer>
 #include <QWidget>
 #include <QDebug>
 

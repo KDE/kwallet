@@ -23,15 +23,15 @@
 #ifndef _KWALLETD_H_
 #define _KWALLETD_H_
 
-#include <QtCore/QString>
+#include <QString>
 #include <QImage>
-#include <QtCore/QHash>
+#include <QHash>
 #include "kwalletbackend.h"
-#include <QtCore/QPointer>
+#include <QPointer>
 #include <time.h>
 #include <stdlib.h>
-#include <QtDBus/QtDBus>
-#include <QtDBus/QDBusServiceWatcher>
+#include <QtDBus>
+#include <QDBusServiceWatcher>
 
 #include "ktimeout.h"
 #include "kwalletsessionstore.h"

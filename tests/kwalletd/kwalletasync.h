@@ -21,8 +21,8 @@
 #ifndef KWALLETASYNC_H
 #define KWALLETASYNC_H
 
-#include <QtCore/QObject>
-#include <QtTest/QtTest>
+#include <QObject>
+#include <QtTest>
 
 class KWalletAsyncTest : public QObject
 {

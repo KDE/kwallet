@@ -1,14 +1,14 @@
-#include <QtCore/QTextStream>
-#include <QtCore/QTimer>
-#include <QtCore/QMap>
-#include <QtWidgets/QApplication>
-#include <QtTest/QTest>
+#include <QTextStream>
+#include <QTimer>
+#include <QMap>
+#include <QApplication>
+#include <QTest>
 
 #include <kaboutdata.h>
 #include <kwallet.h>
-#include <QtDBus/QDBusConnectionInterface>
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusReply>
+#include <QDBusConnectionInterface>
+#include <QDBusConnection>
+#include <QDBusReply>
 #include <KLocalizedString>
 
 #include "kwalletboth.h"

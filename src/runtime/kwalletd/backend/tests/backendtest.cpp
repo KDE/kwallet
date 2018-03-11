@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include <QtWidgets/QApplication>
-#include <QtCore/QString>
+#include <QApplication>
+#include <QString>
 
 #include "kwalletbackend.h"
 

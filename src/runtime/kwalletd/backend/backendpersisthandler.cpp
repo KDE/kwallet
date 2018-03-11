@@ -21,7 +21,7 @@
 
 #include <QIODevice>
 #include <QFile>
-#include <QtCore/QCryptographicHash>
+#include <QCryptographicHash>
 #include <assert.h>
 #include <QSaveFile>
 #include <QDebug>

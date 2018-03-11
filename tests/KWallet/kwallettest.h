@@ -21,8 +21,8 @@
 #ifndef KWALLETTEST_H
 #define KWALLETTEST_H
 
-#include <QtCore/QObject>
-#include <QtTest/QtTest>
+#include <QObject>
+#include <QtTest>
 
 class KWalletTest : public QObject
 {

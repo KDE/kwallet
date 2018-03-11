@@ -22,7 +22,7 @@
 #define KWALLETCBC_H
 
 #include <QObject>
-#include <QtTest/QtTest>
+#include <QtTest>
 
 class KWalletCBCTest : public QObject
 {

@@ -24,8 +24,8 @@
 #include <QTimer>
 #include <QThread>
 #include <KAboutData>
-#include <QtWidgets/QApplication>
-#include <QtTest/QTest>
+#include <QApplication>
+#include <QTest>
 #include <KLocalizedString>
 #include <kwallet.h>
 

@@ -1,7 +1,7 @@
 #ifndef KWALLETTEST_H
 #define KWALLETTEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 namespace KWallet
 {

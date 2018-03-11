@@ -22,7 +22,7 @@
 
 #include <QtTest>
 #include <QWidget>
-#include <QtCore/qglobal.h>
+#include <qglobal.h>
 
 #include <kwallet.h>
 

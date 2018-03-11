@@ -21,8 +21,8 @@
 #ifndef KWALLETPATH_H
 #define KWALLETPATH_H
 
-#include <QtCore/QObject>
-#include <QtTest/QtTest>
+#include <QObject>
+#include <QtTest>
 
 class KWalletPathTest : public QObject
 {

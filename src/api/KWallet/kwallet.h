@@ -21,8 +21,8 @@
 #ifndef _KWALLET_H
 #define _KWALLET_H
 
-#include <QtCore/QStringList>
-#include <QtCore/QObject>
+#include <QStringList>
+#include <QObject>
 #include <qwindowdefs.h> // krazy:exclude=includes (for WId)
 
 #include <kwallet_export.h>

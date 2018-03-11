@@ -16,7 +16,7 @@
 */
 
 #include "kbetterthankdialog.h"
-#include <QtGui/QIcon>
+#include <QIcon>
 #include <KIconLoader>
 
 KBetterThanKDialog::KBetterThanKDialog(QWidget *parent)

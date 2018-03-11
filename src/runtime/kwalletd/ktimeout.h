@@ -22,8 +22,8 @@
 #ifndef _KTIMEOUT_H_
 #define _KTIMEOUT_H_
 
-#include <QtCore/QHash>
-#include <QtCore/QObject>
+#include <QHash>
+#include <QObject>
 
 // @internal
 class KTimeout : public QObject
