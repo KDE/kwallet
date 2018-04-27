@@ -48,10 +48,10 @@ public:
     }
     GpgME::Key gpgKey() const;
 private:
-    KNewWalletDialogIntro   *_intro;
-    int                     _introId;
-    KNewWalletDialogGpg     *_gpg;
-    int                     _gpgId;
+    KNewWalletDialogIntro   *_intro = nullptr;
+    int                     _introId = 0;
+    KNewWalletDialogGpg     *_gpg = nullptr;
+    int                     _gpgId = 0;
 };
 
 class KNewWalletDialogIntro : public QWizardPage

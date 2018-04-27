@@ -36,7 +36,7 @@ public:
         Write
     };
     QueryDriver(int &argc, char* argv[]);
-    ~QueryDriver();
+    ~QueryDriver() Q_DECL_OVERRIDE;
 
     void setWalletName(const QString& walletName);
     void setMode(Mode mode);

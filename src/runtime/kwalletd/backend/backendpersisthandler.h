@@ -62,7 +62,7 @@ class BlowfishPersistHandler : public BackendPersistHandler
 {
 public:
     explicit BlowfishPersistHandler(bool useECBforReading =false) : _useECBforReading(useECBforReading) {}
-    virtual ~BlowfishPersistHandler() {}
+    ~BlowfishPersistHandler() Q_DECL_OVERRIDE {}
 
     int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) Q_DECL_OVERRIDE;
     int read(Backend *wb, QFile &sf, WId w) Q_DECL_OVERRIDE;
@@ -75,7 +75,7 @@ class GpgPersistHandler : public BackendPersistHandler
 {
 public:
     GpgPersistHandler() {}
-    virtual ~GpgPersistHandler() {}
+    ~GpgPersistHandler() Q_DECL_OVERRIDE {}
 
     int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) Q_DECL_OVERRIDE;
     int read(Backend *wb, QFile &sf, WId w) Q_DECL_OVERRIDE;

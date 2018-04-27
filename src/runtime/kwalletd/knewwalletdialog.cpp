@@ -37,7 +37,7 @@ namespace KWallet
 {
 
 KNewWalletDialog::KNewWalletDialog(const QString &appName, const QString &walletName, QWidget *parent):
-    QWizard(parent), _intro(0), _introId(0), _gpg(0), _gpgId(0)
+    QWizard(parent)
 {
     setOption(HaveFinishButtonOnEarlyPages);
     _intro = new KNewWalletDialogIntro(appName, walletName, this);
@@ -131,7 +131,7 @@ void KNewWalletDialogGpg::initializePage()
         return;
     }
     std::shared_ptr< GpgME::Context >   _ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
-    if (0 == _ctx) {
+    if (!_ctx) {
         KMessageBox::error(this, i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
         emit completeChanged();
         return;
@@ -139,7 +139,6 @@ void KNewWalletDialogGpg::initializePage()
     _ctx->setKeyListMode(GpgME::Local);
 
     std::vector< GpgME::Key > keys;
-    int row = 0;
     err = _ctx->startKeyListing();
     while (!err) {
         GpgME::Key k = _ctx->nextKey(err);

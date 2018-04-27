@@ -29,7 +29,7 @@ class MigrationAgent;
 class MigrationWizard : public QWizard {
     Q_OBJECT
 public:
-    MigrationWizard(MigrationAgent *agent);
+    explicit MigrationWizard(MigrationAgent *agent);
     ~MigrationWizard();
 
     MigrationAgent *agent() const { return _agent; }

@@ -31,7 +31,7 @@ class KTimeout : public QObject
     Q_OBJECT
 public:
     explicit KTimeout(QObject *parent = nullptr);
-    ~KTimeout();
+    ~KTimeout() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void timedOut(int id);
