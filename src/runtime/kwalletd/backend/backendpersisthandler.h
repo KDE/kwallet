@@ -62,10 +62,10 @@ class BlowfishPersistHandler : public BackendPersistHandler
 {
 public:
     explicit BlowfishPersistHandler(bool useECBforReading =false) : _useECBforReading(useECBforReading) {}
-    ~BlowfishPersistHandler() Q_DECL_OVERRIDE {}
+    ~BlowfishPersistHandler() override {}
 
-    int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) Q_DECL_OVERRIDE;
-    int read(Backend *wb, QFile &sf, WId w) Q_DECL_OVERRIDE;
+    int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) override;
+    int read(Backend *wb, QFile &sf, WId w) override;
 private:
     bool _useECBforReading;
 };
@@ -75,10 +75,10 @@ class GpgPersistHandler : public BackendPersistHandler
 {
 public:
     GpgPersistHandler() {}
-    ~GpgPersistHandler() Q_DECL_OVERRIDE {}
+    ~GpgPersistHandler() override {}
 
-    int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) Q_DECL_OVERRIDE;
-    int read(Backend *wb, QFile &sf, WId w) Q_DECL_OVERRIDE;
+    int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) override;
+    int read(Backend *wb, QFile &sf, WId w) override;
 };
 #endif // HAVE_GPGMEPP
 

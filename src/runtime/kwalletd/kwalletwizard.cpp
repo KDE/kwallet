@@ -96,7 +96,7 @@ public:
         ui._useWallet->setChecked(true);
     }
 
-    int nextId() const Q_DECL_OVERRIDE
+    int nextId() const override
     {
 #ifdef HAVE_GPGMEPP
         int nextId = -1;
@@ -192,12 +192,12 @@ public:
         emit completeChanged();
     }
 
-    int nextId() const Q_DECL_OVERRIDE
+    int nextId() const override
     {
         return static_cast<KWalletWizard *>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId;
     }
 
-    bool isComplete() const Q_DECL_OVERRIDE
+    bool isComplete() const override
     {
         return userHasGpgKeys;
     }

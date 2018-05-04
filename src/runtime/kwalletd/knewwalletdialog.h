@@ -60,7 +60,7 @@ class KNewWalletDialogIntro : public QWizardPage
 public:
     KNewWalletDialogIntro(const QString &appName, const QString &walletName, QWidget *parent = nullptr);
     bool isBlowfish() const;
-    int nextId() const Q_DECL_OVERRIDE;
+    int nextId() const override;
 protected Q_SLOTS:
     void onBlowfishToggled(bool);
 private:
@@ -72,8 +72,8 @@ class KNewWalletDialogGpg : public QWizardPage
     Q_OBJECT
 public:
     KNewWalletDialogGpg(const QString &appName, const QString &walletName, QWidget *parent = nullptr);
-    void initializePage() Q_DECL_OVERRIDE;
-    bool isComplete() const Q_DECL_OVERRIDE;
+    void initializePage() override;
+    bool isComplete() const override;
     virtual bool validateCurrentPage();
 protected Q_SLOTS:
     void onItemSelectionChanged();

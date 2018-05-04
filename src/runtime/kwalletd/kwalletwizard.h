@@ -54,7 +54,7 @@ public:
 #endif // HAVE_GPGMEPP
 
 protected:
-    void initializePage(int id) Q_DECL_OVERRIDE;
+    void initializePage(int id) override;
 
 protected Q_SLOTS:
     void passwordPageUpdate();

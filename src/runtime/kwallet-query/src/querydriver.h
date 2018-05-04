@@ -36,7 +36,7 @@ public:
         Write
     };
     QueryDriver(int &argc, char* argv[]);
-    ~QueryDriver() Q_DECL_OVERRIDE;
+    ~QueryDriver() override;
 
     void setWalletName(const QString& walletName);
     void setMode(Mode mode);
@@ -45,7 +45,7 @@ public:
     void setEntryFolder(const QString& entryFolder) { this->entryFolder = entryFolder; }
 
 private:
-    void timerEvent(QTimerEvent* event) Q_DECL_OVERRIDE;
+    void timerEvent(QTimerEvent* event) override;
     void readEntries();
     void readValue();
     void readMapValue();

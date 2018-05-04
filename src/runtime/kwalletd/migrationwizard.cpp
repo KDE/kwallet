@@ -37,7 +37,7 @@ public:
             connect(_ui._optionNo, &QRadioButton::toggled, this, &QWizardPage::completeChanged);
         }
 
-    bool isComplete() const Q_DECL_OVERRIDE {
+    bool isComplete() const override {
         return !_ui._optionNo->isChecked();
     }
 
@@ -54,13 +54,13 @@ public:
             _ui.setupUi(this);
         }
 
-    void initializePage() Q_DECL_OVERRIDE {
+    void initializePage() override {
         connect(_agent, SIGNAL(progressMessage(QString)), _ui._report, SLOT(append(QString)));
         _migrationCompleted = _agent->performMigration(winId(), false);
         emit completeChanged();
     }
 
-    bool isComplete() const Q_DECL_OVERRIDE {
+    bool isComplete() const override {
         return _migrationCompleted;
     }
 

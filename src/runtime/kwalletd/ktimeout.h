@@ -31,7 +31,7 @@ class KTimeout : public QObject
     Q_OBJECT
 public:
     explicit KTimeout(QObject *parent = nullptr);
-    ~KTimeout() Q_DECL_OVERRIDE;
+    ~KTimeout() override;
 
 Q_SIGNALS:
     void timedOut(int id);
@@ -43,7 +43,7 @@ public Q_SLOTS:
     void clear();
 
 protected:
-    void timerEvent(QTimerEvent *) Q_DECL_OVERRIDE;
+    void timerEvent(QTimerEvent *) override;
 
 private:
     QHash<int /*id*/, int /*timerId*/> _timers;
