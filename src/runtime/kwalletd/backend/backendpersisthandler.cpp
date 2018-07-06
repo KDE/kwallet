@@ -609,7 +609,7 @@ int GpgPersistHandler::read(Backend *wb, QFile &sf, WId w)
 
 retry_label:
     std::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
-    if (0 == ctx) {
+    if (nullptr == ctx) {
         KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to open the wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped()));
         qCDebug(KWALLETBACKEND_LOG) << "Cannot setup OpenPGP context!";
         return -1;
