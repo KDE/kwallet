@@ -80,7 +80,7 @@ public:
     /**
      *  Destroy a KWallet object.  Closes the wallet.
      */
-    virtual ~Wallet();
+    ~Wallet() override;
 
     /**
      *  List all the wallets available.

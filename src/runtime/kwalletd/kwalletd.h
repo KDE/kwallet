@@ -49,7 +49,7 @@ class KWalletD : public QObject, protected QDBusContext
 
 public:
     KWalletD();
-    virtual ~KWalletD();
+    ~KWalletD() override;
 
 public Q_SLOTS:
     // Is the wallet enabled?  If not, all open() calls fail.

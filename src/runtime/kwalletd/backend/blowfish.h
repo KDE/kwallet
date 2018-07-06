@@ -39,19 +39,19 @@ class KWALLETBACKEND5_EXPORT BlowFish : public BlockCipher
 {
 public:
     BlowFish();
-    virtual ~BlowFish();
+    ~BlowFish() override;
 
-    virtual bool setKey(void *key, int bitlength);
+    bool setKey(void *key, int bitlength) override;
 
-    virtual int keyLen() const;
+    int keyLen() const override;
 
-    virtual bool variableKeyLen() const;
+    bool variableKeyLen() const override;
 
-    virtual bool readyToGo() const;
+    bool readyToGo() const override;
 
-    virtual int encrypt(void *block, int len);
+    int encrypt(void *block, int len) override;
 
-    virtual int decrypt(void *block, int len);
+    int decrypt(void *block, int len) override;
 
 private:
     uint32_t _S[4][256];

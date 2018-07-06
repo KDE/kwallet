@@ -39,7 +39,7 @@ class KWalletMany : public QObject
 
 public:
     KWalletMany();
-    ~KWalletMany();
+    ~KWalletMany() override;
 
 public Q_SLOTS:
     void walletOpened(bool open);
