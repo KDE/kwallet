@@ -1,3 +1,5 @@
+#include "kwalletpath.h"
+
 #include <QTextStream>
 #include <QTimer>
 #include <QTest>
@@ -9,8 +11,6 @@
 #include <QDBusConnection>
 #include <QDBusReply>
 #include <KLocalizedString>
-
-#include "kwalletpath.h"
 
 static QTextStream _out(stdout, QIODevice::WriteOnly);
 

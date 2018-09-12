@@ -1,3 +1,5 @@
+#include "kwalletasync.h"
+
 #include <QTextStream>
 #include <QApplication>
 #include <QTimer>
@@ -11,7 +13,6 @@
 #include <QDBusReply>
 #include <KLocalizedString>
 
-#include "kwalletasync.h"
 #include "kwallettest.h"
 
 static QTextStream _out(stdout, QIODevice::WriteOnly);

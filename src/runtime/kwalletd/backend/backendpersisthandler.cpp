@@ -17,6 +17,7 @@
   * Boston, MA 02110-1301, USA.
   */
 
+#include "backendpersisthandler.h"
 #include "kwalletbackend_debug.h"
 
 #include <QIODevice>
@@ -36,7 +37,6 @@
 #include <gpgme++/encryptionresult.h>
 #include <gpgme++/decryptionresult.h>
 #endif
-#include "backendpersisthandler.h"
 #include "kwalletbackend.h"
 #include "blowfish.h"
 #include "sha1.h"

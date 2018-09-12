@@ -21,7 +21,7 @@
  */
 
 #include "kwallet.h"
-#include "config-kwallet.h"
+#include <config-kwallet.h>
 #include "kwallet_api_debug.h"
 
 #include <QApplication>

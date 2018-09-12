@@ -31,12 +31,12 @@
 #include <KNotification>
 #include <KLocalizedString>
 
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
-#include <QtCore/QSaveFile>
-#include <QtCore/QRegExp>
-#include <QtCore/QCryptographicHash>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QSaveFile>
+#include <QRegExp>
+#include <QCryptographicHash>
 #include <QStandardPaths>
 
 #include "blowfish.h"

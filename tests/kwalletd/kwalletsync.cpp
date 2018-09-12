@@ -1,3 +1,5 @@
+#include "kwalletsync.h"
+
 #include <QTextStream>
 #include <QApplication>
 #include <QTimer>
@@ -9,8 +11,6 @@
 #include <QDBusConnection>
 #include <QDBusReply>
 #include <KLocalizedString>
-
-#include "kwalletsync.h"
 
 static QTextStream _out(stdout, QIODevice::WriteOnly);
 

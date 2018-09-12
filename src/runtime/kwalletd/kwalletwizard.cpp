@@ -36,7 +36,6 @@
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <QDebug>
 #include <kmessagebox.h>
 #include <gpgme.h>
 #endif

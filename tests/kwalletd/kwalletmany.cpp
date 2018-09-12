@@ -20,6 +20,8 @@
 
 */
 
+#include "kwalletmany.h"
+
 #include <QTextStream>
 #include <QTimer>
 #include <QThread>
@@ -28,8 +30,6 @@
 #include <QTest>
 #include <KLocalizedString>
 #include <kwallet.h>
-
-#include "kwalletmany.h"
 
 #define NUMWALLETS 10
 
