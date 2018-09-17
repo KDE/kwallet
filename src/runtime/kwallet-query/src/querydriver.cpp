@@ -99,12 +99,12 @@ void QueryDriver::walletOpened(bool success) {
 void QueryDriver::readEntries() {
     theWallet = Wallet::openWallet(walletName, 0);
     if (entryFolder.isEmpty()) {
-      auto fl = theWallet->folderList();
-      for (auto f: fl) {
+      const auto fl = theWallet->folderList();
+      for (auto& f: fl) {
           std::cout << f.toUtf8().constData() << std::endl;
           Q_ASSERT(theWallet->setFolder(f));
-          auto el = theWallet->entryList();
-          for (auto e: el) {
+          const auto el = theWallet->entryList();
+          for (auto& e: el) {
               std::cout << "\t" << e.toUtf8().constData() << std::endl;
           }
       }
@@ -113,8 +113,8 @@ void QueryDriver::readEntries() {
         std::cout << i18n("The folder %1 does not exist!", entryFolder).toUtf8().constData() << std::endl;
         exit(4);
       }
-      auto el = theWallet->entryList();
-      for (auto e: el) {
+      const auto el = theWallet->entryList();
+      for (auto& e: el) {
           std::cout << e.toUtf8().constData() << std::endl;
       }
     }
@@ -147,7 +147,7 @@ void QueryDriver::readMapValue() {
         exit(4);
     }
     QJsonObject json;
-    for (auto e : map.keys()) {
+    for (auto& e : map.keys()) {
         json.insert(e, QJsonValue::fromVariant(QVariant(map.value(e))));
     }
     std::cout << QJsonDocument(json).toJson().constData() << std::endl;
@@ -160,8 +160,8 @@ void QueryDriver::readPasswordValue() {
         std::cout << i18n("Failed to read entry %1 value from the %2 wallet", entryName, walletName).toUtf8().constData() << std::endl;
         exit(4);
     }
-    QStringList el = entryValue.split(QStringLiteral("\n"), QString::SkipEmptyParts);
-    for (auto e : el) {
+    const QStringList el = entryValue.split(QStringLiteral("\n"), QString::SkipEmptyParts);
+    for (auto& e : el) {
         std::cout << e.toUtf8().constData() << std::endl;
     }
 }
@@ -189,7 +189,7 @@ void QueryDriver::writeValue() {
         if (!json.isNull()) {
             QJsonObject values = json.object();
             QMap<QString, QString> map;
-            for (auto e : values.keys()) {
+            for (auto& e : values.keys()) {
                 map.insert(e, values.value(e).toString());
             }
             if (verbose) qDebug() << "about to write" << map;
