@@ -102,7 +102,7 @@ struct AddKeyToList {
         GpgME::UserID uid = k.userID(0);
         QString name(uid.name());
         if (uid.comment()) {
-            name = QStringLiteral("%1 (%2)").arg(name).arg(uid.comment());
+            name = QStringLiteral("%1 (%2)").arg(name, uid.comment());
         }
         _list->setItem(_row, 0, new QTableWidgetItem(name));
         _list->setItem(_row, 1, new QTableWidgetItem(uid.email()));

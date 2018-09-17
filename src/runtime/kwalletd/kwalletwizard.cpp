@@ -135,7 +135,7 @@ struct AddKeyToCombo {
     AddKeyToCombo(QComboBox *list) : _list(list) {}
     void operator()(const GpgME::Key &k)
     {
-        QString text = QStringLiteral("%1 (%2)").arg(k.shortKeyID()).arg(k.userID(0).email());
+        QString text = QStringLiteral("%1 (%2)").arg(k.shortKeyID(), k.userID(0).email());
         QVariant varKey;
         varKey.setValue(k);
         _list->addItem(text, varKey);
