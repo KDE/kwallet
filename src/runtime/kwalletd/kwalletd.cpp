@@ -681,12 +681,13 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
                             password = kpd->password();
                             int rc = b->open(password.toUtf8());
                             if (!b->isOpen()) {
+                                const auto errorStr = KWallet::Backend::openRCToString(rc);
+                                qCWarning(KWALLETD_LOG) << "Failed to open wallet" << wallet << errorStr;
                                 kpd->setPrompt(i18n(
                                     "<qt>Error opening the wallet "
                                     "'<b>%1</b>'. Please try again.<br "
                                     "/>(Error code %2: %3)</qt>",
-                                    wallet.toHtmlEscaped(), rc,
-                                    KWallet::Backend::openRCToString(rc)));
+                                    wallet.toHtmlEscaped(), rc, errorStr));
                                 kpd->setPassword(QLatin1String(""));
                             }
                         }
