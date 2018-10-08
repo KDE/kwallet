@@ -1,0 +1,771 @@
+# translation of kwalletd.po to Punjabi
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Amanpreet Singh <aalam@users.sf.net>, 2008.
+# A S Alam <aalam@users.sf.net>, 2009, 2010, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kwalletd\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2018-09-30 03:44+0200\n"
+"PO-Revision-Date: 2014-11-06 17:44-0600\n"
+"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aalam@users.sf.net"
+
+#: backend/backendpersisthandler.cpp:506
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:514
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:565
+#, kde-format
+msgid ""
+"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+"again. This error may occur if you are not using a full trust GPG key. "
+"Please ensure you have the secret key for the key you are using.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:577
+#, kde-format
+msgid ""
+"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
+"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:595
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:613
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:623
+#, kde-format
+msgid "Retry"
+msgstr "ਮੁੜ-ਕੋਸ਼ਿਸ਼"
+
+#: backend/backendpersisthandler.cpp:625
+#, kde-format
+msgid ""
+"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+"you're using a SmartCard, please ensure it's inserted then try again."
+"<br><br>GPG error was <b>%2</b></qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:626
+#, kde-format
+msgid "kwalletd GPG backend"
+msgstr "kwalletd GPG ਬੈਕਐਂਡ"
+
+#: backend/backendpersisthandler.cpp:670
+#, kde-format
+msgid ""
+"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
+"system.</qt>"
+msgstr ""
+
+#: backend/kwalletbackend.cc:264
+#, kde-format
+msgid "Already open."
+msgstr "ਪਹਿਲਾਂ ਹੀ ਖੁੱਲ੍ਹਾ ਹੈ।"
+
+#: backend/kwalletbackend.cc:266
+#, kde-format
+msgid "Error opening file."
+msgstr "ਫਾਈਲ ਖੋਲ੍ਹਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ।"
+
+#: backend/kwalletbackend.cc:268
+#, kde-format
+msgid "Not a wallet file."
+msgstr "ਇੱਕ ਵਾਲਿਟ ਫਾਈਲ ਨਹੀਂ ਹੈ।"
+
+#: backend/kwalletbackend.cc:270
+#, kde-format
+msgid "Unsupported file format revision."
+msgstr "ਗ਼ੈਰ-ਸਹਾਇਕ ਫਾਈਲ ਫਾਰਮੈਟ ਰੀਵਿਜ਼ਨ ਹੈ।"
+
+#: backend/kwalletbackend.cc:274
+#, kde-format
+msgid "Unknown encryption scheme."
+msgstr "ਅਣਜਾਣ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਕੀਮ ਹੈ।"
+
+#: backend/kwalletbackend.cc:276
+#, kde-format
+msgid "Corrupt file?"
+msgstr "ਫਾਈਲ ਨਿਕਾਰਾ ਹੈ?"
+
+#: backend/kwalletbackend.cc:278
+#, kde-format
+msgid "Error validating wallet integrity. Possibly corrupted."
+msgstr "ਵਾਲਿਟ ਐਂਟੀਗਰੇਟੀ ਵੈਧਤਾ ਲਈ ਗਲਤੀ। ਨਿਕਾਰਾ ਹੋਣਾ ਸੰਭਵ ਹੈ।"
+
+#: backend/kwalletbackend.cc:282
+#, kde-format
+msgid "Read error - possibly incorrect password."
+msgstr "ਪੜ੍ਹਨ ਗਲਤੀ - ਸੰਭਵ ਤੌਰ ਉੱਤੇ ਗਲਤ ਪਾਸਵਰਡ ਹੈ।"
+
+#: backend/kwalletbackend.cc:284
+#, kde-format
+msgid "Decryption error."
+msgstr "ਡਿ-ਕ੍ਰਿਪਸ਼ਨ ਗਲਤੀ ਹੈ।"
+
+#: backend/kwalletbackend.cc:460
+#, kde-format
+msgid ""
+"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
+#: kbetterthankdialogbase.ui:50
+#, kde-format
+msgid "Allow &Once"
+msgstr "ਇਕੇਰਾਂ ਮਨਜ਼ੂਰ(&O)"
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowAlways)
+#: kbetterthankdialogbase.ui:60
+#, kde-format
+msgid "Allow &Always"
+msgstr "ਹਮੇਸ਼ਾ ਮਨਜ਼ੂਰ(&A)"
+
+#. i18n: ectx: property (text), widget (QPushButton, _deny)
+#: kbetterthankdialogbase.ui:67
+#, kde-format
+msgid "&Deny"
+msgstr "ਪਾਬੰਦੀ(&D)"
+
+#. i18n: ectx: property (text), widget (QPushButton, _denyForever)
+#: kbetterthankdialogbase.ui:74
+#, kde-format
+msgid "Deny &Forever"
+msgstr "ਹਮੇਸ਼ਾਂ ਵਾਸਤੇ ਪਾਬੰਦੀ(&F)"
+
+#: knewwalletdialog.cpp:65
+#, kde-format
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
+"to store sensitive data in a secure fashion. Please choose the new wallet's "
+"type below or click cancel to deny the application's request.</qt>"
+msgstr ""
+"<qt>KDE ਨੇ '<b>%1</b>' ਨਾਂ ਦਾ ਨਵਾਂ ਵਾਲਿਟ ਬਣਾਉਣ ਦੀ ਬੇਨਤੀ ਕੀਤੀ ਹੈ। ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ "
+"ਢੰਗ ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਿਟ ਦੀ ਕਿਸਮ ਹੇਠਾਂ ਤੋਂ ਚੁਣੋ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ "
+"ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ ਕਰੋ।</qt>"
+
+#: knewwalletdialog.cpp:67
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
+"Please choose the new wallet's type below or click cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>'  ਨੇ '<b>%2</b>' ਨਾਂ ਦਾ ਨਵਾਂ ਵਾਲਿਟ ਬਣਾਉਣ ਦੀ ਬੇਨਤੀ ਕੀਤੀ ਹੈ। "
+"ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਿਟ ਦੀ ਕਿਸਮ ਹੇਠਾਂ ਤੋਂ "
+"ਚੁਣੋ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ ਕਰੋ।</qt>"
+
+#: knewwalletdialog.cpp:129 knewwalletdialog.cpp:135 kwalletwizard.cpp:161
+#: kwalletwizard.cpp:165
+#, kde-format
+msgid ""
+"The GpgME library failed to initialize for the OpenPGP protocol. Please "
+"check your system's configuration then try again."
+msgstr ""
+
+#: knewwalletdialog.cpp:155
+#, fuzzy, kde-format
+#| msgid ""
+#| "Seems that your system has no keys suitable for encryption. Please set-up "
+#| "at least an encryption key, then try again."
+msgid ""
+"Seems that your system has no keys suitable for encryption. Please set-up at "
+"least one encryption key, then try again."
+msgstr ""
+"ਜਾਪਦਾ ਹੈ ਕਿ ਤੁਹਾਡੇ ਸਿਸਟਮ ਕੋਲ ਇੰਕ੍ਰਿਪਸ਼ਨ ਲਈ ਢੁੱਕਵੀਂ ਕੁੰਜੀ ਨਹੀਂ। ਕਿਰਪਾ ਕਰਕੇ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ "
+"ਕੁੰਜੀ ਸੈੱਟਅੱਪ ਕਰਕੇ ਫੇਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜੀ।"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: knewwalletdialoggpg.ui:17
+#, kde-format
+msgid "Please select the signing key from the list below:"
+msgstr "ਸੂਚੀ ਵਿੱਚੋਂ ਸਾਈਨ ਕੁੰਜੀ ਚੁਣੋ ਜੀ:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: knewwalletdialoggpg.ui:24
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"list shows only \"ultimate-level\" trusted keys</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:59
+#, kde-format
+msgid "Name"
+msgstr "ਨਾਂ"
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:64
+#, kde-format
+msgid "E-Mail"
+msgstr "ਈ-ਮੇਲ"
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:69
+#, kde-format
+msgid "Key-ID"
+msgstr "Key-ID"
+
+#. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
+#. i18n: ectx: property (text), widget (KTitleWidget, title)
+#: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
+#: migrationwizard1.ui:17 migrationwizard2.ui:17
+#, kde-format
+msgid "The KDE Wallet System"
+msgstr "KDE ਵਾਲਿਟ ਸਿਸਟਮ"
+
+#. i18n: ectx: property (text), widget (QLabel, labelIntro)
+#: knewwalletdialogintro.ui:30
+#, no-c-format, kde-format
+msgid ""
+"<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
+"span>' has requested to open the KDE wallet. This is used to store sensitive "
+"data in a secure fashion. Please choose the new wallet's type below or click "
+"cancel to deny the application's request.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>ਐਪਲੀਕੇਸ਼ਨ '<span style=\" font-weight:600;\">%1</span>' "
+"ਨੇ KDE ਵਾਲਿਟ ਖੋਲ੍ਹਣ ਦੀ ਬੇਨਤੀ ਕੀਤੀ ਹੈ। ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ "
+"ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਿਟ ਦੀ ਕਿਸਮ ਹੇਠਾਂ ਤੋਂ ਚੁਣੋ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ "
+"ਕਰੋ।</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
+#. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
+#: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
+#, kde-format
+msgid "Classic, blowfish encrypted file"
+msgstr "ਕਲਾਸਿਕ, ਬਲੋਅਫਿਸ਼ ਇੰਕ੍ਰਿਪਟ ਕੀਤੀ ਫਾਈਲ"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
+#. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
+#: knewwalletdialogintro.ui:73 kwalletwizardpagepasswordgpg.ui:55
+#, kde-format
+msgid "Use GPG encryption, for better protection"
+msgstr "ਵਧੀਆ ਸੁਰੱਖਿਆ ਲਈ, GPG ਇਕ੍ਰਿਪਸ਼ਨ ਵਰਤੋਂ"
+
+#: kwalletd.cpp:618
+#, kde-format
+msgid ""
+"<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
+"password for this wallet below.</qt>"
+msgstr ""
+"<qt>KDE ਵਾਲਿਟ '<b>%1</b>' ਖੋਲ੍ਹਣ ਲਈ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਵਾਲਿਟ ਲਈ ਪਾਸਵਰਡ ਲਈ ਹੇਠਾਂ ਦਿਓ "
+"ਜੀ।</qt>"
+
+#: kwalletd.cpp:625
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+"b>'. Please enter the password for this wallet below.</qt>"
+msgstr ""
+"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>' ਨੇ ਵਾਲਿਟ '<b>%2</b>' ਖੋਲ੍ਹਣ ਲਈ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਵਾਲਿਟ ਲਈ "
+"ਹੇਠਾਂ ਪਾਸਵਰਡ ਦਿਓ ਜੀ।</qt>"
+
+#. i18n( "&Open" ), "wallet-open"));
+#: kwalletd.cpp:636 kwalletd.cpp:781 kwalletd.cpp:899 kwalletd.cpp:1028
+#: kwalletd.cpp:1055 kwalletd.cpp:1069 kwalletd.cpp:1078 kwalletd.cpp:1625
+#: main.cpp:177 main.cpp:182 main.cpp:184
+#, kde-format
+msgid "KDE Wallet Service"
+msgstr "KDE ਵਾਲਿਟ ਸਰਵਿਸ"
+
+#: kwalletd.cpp:652
+#, kde-format
+msgid "An application has requested to open a wallet (%1)."
+msgstr "ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਵਾਲਿਟ (%1) ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।"
+
+#: kwalletd.cpp:659
+#, kde-format
+msgctxt ""
+"Text of a button for switching to the (unnamed) application requesting a "
+"password"
+msgid "Switch there"
+msgstr "ਉੱਥੇ ਬਦਲੋ"
+
+#: kwalletd.cpp:663
+#, kde-format
+msgid "<b>%1</b> has requested to open a wallet (%2)."
+msgstr "<b>%1</b> ਨੇ ਵਾਲਿਟ (%2) ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।"
+
+#: kwalletd.cpp:671
+#, kde-format
+msgctxt ""
+"Text of a button for switching to the application requesting a password"
+msgid "Switch to %1"
+msgstr "%1 ਲਈ ਬਦਲੋ"
+
+#: kwalletd.cpp:687 kwalletd.cpp:794
+#, kde-format
+msgid ""
+"<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
+"%2: %3)</qt>"
+msgstr ""
+"<qt>ਵਾਲਿਟ '<b>%1</b>' ਖੋਲ੍ਹਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ। ਮੁੜ ਟਰਾਈ ਕਰੋ ਜੀ।<br />(ਗਲਤੀ ਕੋਡ %2: "
+"%3)</qt>"
+
+#: kwalletd.cpp:746
+#, kde-format
+msgid ""
+"KDE has requested to open the wallet. This is used to store sensitive data "
+"in a secure fashion. Please enter a password to use with this wallet or "
+"click cancel to deny the application's request."
+msgstr ""
+"KDE ਨੇ ਵਾਲਿਟ ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ "
+"ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਿਟ ਨਾਲ ਵਰਤਣ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਦਿਓ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ "
+"ਕਰੋ ਕਲਿੱਕ ਕਰੋ।"
+
+#: kwalletd.cpp:754
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
+"is used to store sensitive data in a secure fashion. Please enter a password "
+"to use with this wallet or click cancel to deny the application's request.</"
+"qt>"
+msgstr ""
+"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>' ਨੇ KDEਵਾਲਿਟ ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ "
+"ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਿਟ ਨਾਲ ਵਰਤਣ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਦਿਓ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ "
+"ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ ਕਰੋ।</qt>"
+
+#: kwalletd.cpp:766
+#, kde-format
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
+"choose a password for this wallet, or cancel to deny the application's "
+"request.</qt>"
+msgstr ""
+"<qt>KDE ਨੇ ਇੱਕ ਨਵਾਂ ਵਾਲਿਟ '<b>%1</b>' ਨਾਂ ਨਾਲ ਬਣਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਵਾਲਿਟ ਲਈ ਇੱਕ "
+"ਪਾਸਵਰਡ ਚੁਣੋ ਜੀ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ।</qt>"
+
+#: kwalletd.cpp:774
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>' ਨੇ ਇੱਕ ਨਵਾਂ ਵਾਲਿਟ '<b>%2</b>' ਨਾਂ ਨਾਲ ਬਣਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ "
+"ਹੈ। ਇਸ ਵਾਲਿਟ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਚੁਣੋ ਜੀ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ।</qt>"
+
+#: kwalletd.cpp:901
+#, kde-format
+msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
+msgstr "<qt>KDE ਨੇ ਖੁੱਲ੍ਹੇ ਵਾਲਿਟ '<b>%1</b>' ਵਰਤਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।</qt>"
+
+#: kwalletd.cpp:907
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
+"%2</b>'.</qt>"
+msgstr ""
+"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>'  ਨੇ ਖੁੱਲ੍ਹੇ ਵਾਲਿਟ '<b>%2</b>' ਵਰਤਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।</qt>"
+
+#: kwalletd.cpp:1026
+#, kde-format
+msgid ""
+"Unable to open wallet. The wallet must be opened in order to change the "
+"password."
+msgstr "ਵਾਲਿਟ ਖੋਲ੍ਹਣ ਲਈ ਅਸਮੱਰਥ ਹੈ। ਪਾਸਵਰਡ ਬਦਲਣ ਲਈ ਵਾਲਿਟ ਨੂੰ ਖੋਲ੍ਹਣ ਲਾਜ਼ਮੀ ਹੈ।"
+
+#: kwalletd.cpp:1043
+#, kde-format
+msgid ""
+"<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
+"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
+"associated to that key.</qt>"
+msgstr ""
+
+#: kwalletd.cpp:1052
+#, kde-format
+msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
+msgstr "<qt>ਵਾਲਿਟ '<b>%1</b>' ਲਈ ਨਵਾਂ ਪਾਸਵਰਡ ਚੁਣੋ ਜੀ।</qt>"
+
+#: kwalletd.cpp:1067
+#, kde-format
+msgid "Error re-encrypting the wallet. Password was not changed."
+msgstr "ਵਾਲਿਟ ਲਈ ਮੁੜ-ਇੰਕ੍ਰਿਪਸ਼ਨ ਕਰਨ ਲਈ ਗਲਤੀ। ਪਾਸਵਰਡ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
+
+#: kwalletd.cpp:1076
+#, kde-format
+msgid "Error reopening the wallet. Data may be lost."
+msgstr "ਵਾਲਿਟ ਨੂੰ ਮੁੜ-ਖੋਲ੍ਹਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ। ਡਾਟਾ ਖਰਾਬ ਹੋ ਸਕਦਾ ਹੈ।"
+
+#: kwalletd.cpp:1623
+#, kde-format
+msgid ""
+"There have been repeated failed attempts to gain access to a wallet. An "
+"application may be misbehaving."
+msgstr ""
+"ਵਾਲਿਟ ਵਰਤੋਂ ਲਈ ਲਗਾਤਾਰ ਕੋਸ਼ਿਸ਼ਾਂ ਫੇਲ੍ਹ ਹੋ ਰਹੀਆਂ ਹਨ। ਐਪਲੀਕੇਸ਼ਨ ਸ਼ਾਇਦ ਠੀਕ ਢੰਗ ਨਾਲ ਕੰਮ ਨਹੀਂ ਕਰਦੀ"
+
+#: kwalletwizard.cpp:51
+#, kde-format
+msgid "KWallet"
+msgstr "ਕੇਵਾਲਿਟ"
+
+#: kwalletwizard.cpp:280
+#, kde-format
+msgid "<qt>Password is empty.  <b>(WARNING: Insecure)</b></qt>"
+msgstr "<qt>ਪਾਸਵਰਡ ਖਾਲੀ ਹੈ। <b>(ਚੇਤਾਵਨੀ: ਅਸੁਰੱਖਿਅਤ)</b></qt>"
+
+#: kwalletwizard.cpp:282
+#, kde-format
+msgid "Passwords match."
+msgstr "ਪਾਸਵਰਡ ਮਿਲਦਾ ਹੈ।"
+
+#: kwalletwizard.cpp:285
+#, kde-format
+msgid "Passwords do not match."
+msgstr "ਪਾਸਵਰਡ ਮਿਲਦਾ ਨਹੀਂ ਹੈ।"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: kwalletwizardpageexplanation.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>The KDE Wallet system stores your data in a <span "
+"style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
+"The data is only written in the encrypted form of your choice - blowfish "
+"algorithm with your password as the key or using a GPG encryption key. When "
+"a wallet is opened, the wallet manager application will launch and display "
+"an icon in the system tray. You can use this application to manage all of "
+"your wallets. It even permits you to drag wallets and wallet contents, "
+"allowing you to easily copy a wallet to a remote system.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: kwalletwizardpagegpgkey.ui:24
+#, kde-format
+msgid ""
+"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when decrypting is "
+"needed or your wallet will not be accessible. For example, if you choose a "
+"SmartCard-based encryption key, the GPG system will prompt you to enter it "
+"and its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">NOTE:</span> this list contains only \"ultimate-level\" "
+"trusted keys.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kwalletwizardpagegpgkey.ui:42
+#, kde-format
+msgid "Select encryption GPG key:"
+msgstr "ਇੰਕ੍ਰਿਪਸ਼ਨ GPG ਕੁੰਜੀ ਚੁਣੋ:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: kwalletwizardpagegpgkey.ui:81
+#, kde-format
+msgid ""
+"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
+"such <b>encrypting key</b> to securely store passwords or other sensitive "
+"data on disk. If you still want to setup a GPG-based wallet, then cancel "
+"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
+"Otherwise, you may still click back, then choose a classic, blowfish "
+"encrypted file format on the previous page."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: kwalletwizardpageintro.ui:30
+#, kde-format
+msgid ""
+"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
+"passwords and other personal information on disk in an encrypted file, "
+"preventing others from viewing the information.  This wizard will tell you "
+"about KWallet and help you configure it for the first time."
+msgstr ""
+"ਕੇ-ਵਾਲਿਟ, KDE ਵਾਲਿਟ ਸਿਸਟਮ, ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ। ਕੇਵਾਲਿਟ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਅਤੇ ਹੋਰ ਨਿੱਜੀ "
+"ਜਾਣਕਾਰੀ ਨੂੰ ਡਿਸਕ ਉੱਤੇ ਇੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਫਾਈਲ ਵਿੱਚ ਸੰਭਾਲਣ ਲਈ ਸਹਾਇਕ ਹੈ, ਜਿਸ ਨੂੰ ਕਿ ਹੋਰਾਂ ਨੂੰ "
+"ਜਾਣਕਾਰੀ ਵੇਖਣ ਤੋਂ ਰੋਕਿਆ ਜਾ ਸਕਦਾ ਹੈ। ਇਹ ਸਹਾਇਕ ਤੁਹਾਨੂੰ ਕੇ-ਵਾਲਿਟ ਬਾਰੇ ਦੱਸੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਪਹਿਲੀਂ "
+"ਵਾਰ ਇਸ ਦੀ ਸੰਰਚਨਾ ਕਰਨ ਲਈ ਮੱਦਦ ਕਰੇਗਾ।"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _basic)
+#: kwalletwizardpageintro.ui:69
+#, kde-format
+msgid "&Basic setup (recommended)"
+msgstr "ਸਧਾਰਨ ਸੈਟਅੱਪ (ਸਿਫਾਰਸ਼ੀ)(&B)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _advanced)
+#: kwalletwizardpageintro.ui:79
+#, kde-format
+msgid "&Advanced setup"
+msgstr "ਮਾਹਰ ਸੈਟਅੱਪ(&A)"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: kwalletwizardpageoptions.ui:16
+#, kde-format
+msgid ""
+"The KDE Wallet system allows you to control the level of security of your "
+"personal data.  Some of these settings do impact usability.  While the "
+"default settings are generally acceptable for most users, you may wish to "
+"change some of them.  You may further tune these settings from the KWallet "
+"control module."
+msgstr ""
+"KDE ਵਾਲਿਟ ਸਿਸਟਮ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਨਿੱਜੀ ਡਾਟੇ ਦੀ ਸੁਰੱਖਿਆ ਦਾ ਲੈਵਲ ਕੰਟਰੋਲ ਕਰਨ ਲਈ ਮੱਦਦਗਾਰ ਹੈ। "
+"ਇਹਨਾਂ 'ਚ ਕੁਝ ਸੈਟਿੰਗ ਵਰਤੋਂਯੋਗਤਾ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੀਆਂ ਹਨ। ਜਦੋਂ ਕੁ ਡਿਫਾਲਟ ਸੈਟਿੰਗ ਬਹੁਤੇ ਯੂਜ਼ਰ ਲਈ ਠੀਕ "
+"ਹਨ, ਪਰ ਤੁਸੀਂ ਉਹਨਾਂ 'ਚੋਂ ਕੁਝ ਬਦਲਣਾ ਚਾਹੁੰਦੇ ਹੋ ਸਕਦੇ ਹੋ। ਤੁਸੀਂ ਇਹ ਸੈਟਿੰਗ ਨੂੰ ਆਪਣੇ ਢੰਗ ਨਾਲ ਵਰਤਣ ਲਈ "
+"ਕੇਵਾਲਿਟ ਕੰਟਰੋਲ ਮੋਡੀਊਲ ਨੂੰ ਵਰਤ ਸਕਦੇ ਹੋ।"
+
+#. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
+#: kwalletwizardpageoptions.ui:48
+#, kde-format
+msgid "Automatically close idle wallets"
+msgstr "ਜਦੋਂ ਵਾਲਿਟ ਵੇਹਲੇ ਹੋਣ ਤਾਂ ਆਟੋਮੈਟਿਕ ਬੰਦ ਕਰੋ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, _networkWallet)
+#: kwalletwizardpageoptions.ui:55
+#, kde-format
+msgid "Store network passwords and local passwords in separate wallet files"
+msgstr "ਨੈੱਟਵਰਕ ਪਾਸਵਰਡਾਂ ਅਤੇ ਲੋਕਲ ਪਾਸਵਰਡਾਂ ਨੂੰ ਵੱਖ ਵੱਖ ਵਾਲਿਟ ਫਾਈਲਾਂ ਵਿੱਚ ਸੰਭਾਲੋ"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kwalletwizardpagepassword.ui:16
+#, kde-format
+msgid ""
+"Various applications may attempt to use the KDE wallet to store passwords or "
+"other information such as web form data and cookies.  If you would like "
+"these applications to use the wallet, you must enable it now and choose a "
+"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
+"and will allow anyone who knows it to obtain all the information contained "
+"in the wallet."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
+#: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
+#, kde-format
+msgid "Yes, I wish to use the KDE wallet to store my personal information."
+msgstr "ਹਾਂ, ਮੈਂ ਕੇ-ਵਾਲਿਟ ਨੂੰ ਆਪਣੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਣਾ ਚਾਹੁੰਦਾ ਹਾਂ।"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: kwalletwizardpagepassword.ui:88 kwalletwizardpagepasswordgpg.ui:106
+#, kde-format
+msgid "Enter a new password:"
+msgstr "ਇੱਕ ਨਵਾਂ ਪਾਸਵਰਡ ਦਿਓ:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: kwalletwizardpagepassword.ui:104 kwalletwizardpagepasswordgpg.ui:122
+#, kde-format
+msgid "Verify password:"
+msgstr "ਪਾਸਵਰਡ ਪੁਸ਼ਟੀ:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kwalletwizardpagepasswordgpg.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
+"to store passwords or other information such as web form data and cookies. "
+"If you would like these applications to use the wallet, you must enable it "
+"now and choose method for its encryption.</p><p>GPG method is more secure, "
+"but you must have configured at least one encrypting key on your system.</"
+"p><p>If you choose the classic format, be warned that the password you "
+"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
+"is lost, and will allow anyone who knows it to obtain all the information "
+"contained in the wallet.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
+#: kwalletwizardpagepasswordgpg.ui:46
+#, kde-format
+msgid "What kind of encryption do you wish?"
+msgstr "ਤੁਸੀਂ ਕਿਸ ਕਿਸਮ ਦੀ ਇੰਕ੍ਰਿਪਸ਼ਨ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#: main.cpp:181
+#, kde-format
+msgid "kwalletd"
+msgstr "kwalletd"
+
+#: main.cpp:186
+#, kde-format
+msgid "(C) 2002-2013, The KDE Developers"
+msgstr "(C) 2002-2013, The KDE Developers"
+
+#: main.cpp:187
+#, kde-format
+msgid "Valentin Rusu"
+msgstr ""
+
+#: main.cpp:187
+#, kde-format
+msgid "Maintainer, GPG backend support"
+msgstr ""
+
+#: main.cpp:188
+#, kde-format
+msgid "Michael Leupold"
+msgstr "ਮਾਈਕਲ ਲਿਉਪੋਲਡ"
+
+#: main.cpp:188
+#, kde-format
+msgid "Former Maintainer"
+msgstr "ਪੁਰਾਣਾ ਪਰਬੰਧਕ"
+
+#: main.cpp:189
+#, kde-format
+msgid "George Staikos"
+msgstr "ਜਾਰਜ ਸਟਾਈਕੋਸ"
+
+#: main.cpp:189
+#, kde-format
+msgid "Former maintainer"
+msgstr "ਪੁਰਾਣਾ ਪਰਬੰਧਕ"
+
+#: main.cpp:190
+#, kde-format
+msgid "Thiago Maceira"
+msgstr "ਥਾਈਗੋ ਮੈਕੀਇਰਾ"
+
+#: main.cpp:190
+#, kde-format
+msgid "D-Bus Interface"
+msgstr "D-Bus ਇੰਟਰਫੇਸ"
+
+#: migrationagent.cpp:183 migrationagent.cpp:197
+#, kde-format
+msgid "Cannot read old wallet list. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:193
+#, kde-format
+msgid "KDE Wallet Migration Agent"
+msgstr "KDE ਵਾਲਿਟ ਮਾਈਗਰੇਸ਼ਨ ਏਜੰਟ"
+
+#: migrationagent.cpp:200
+#, kde-format
+msgid "Migrating wallet: %1"
+msgstr ""
+
+#: migrationagent.cpp:201
+#, kde-format
+msgid "* Creating KF5 wallet: %1"
+msgstr ""
+
+#: migrationagent.cpp:213
+#, kde-format
+msgid "ERROR when attempting new wallet creation. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:219
+#, kde-format
+msgid "Cannot open KDE4 wallet named: %1"
+msgstr ""
+
+#: migrationagent.cpp:220
+#, kde-format
+msgid "* Opened KDE4 wallet: %1"
+msgstr ""
+
+#: migrationagent.cpp:224
+#, kde-format
+msgid "Cannot retrieve folder list. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:227
+#, kde-format
+msgid "* Migrating folder %1"
+msgstr ""
+
+#: migrationagent.cpp:231
+#, kde-format
+msgid "Cannot retrieve folder %1 entries. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:237
+#, kde-format
+msgid "Cannot retrieve key %1 info. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:241
+#, kde-format
+msgid "* SKIPPING entry %1 in folder %2 as it seems already migrated"
+msgstr ""
+
+#: migrationagent.cpp:245
+#, kde-format
+msgid "Cannot retrieve key %1 data. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:247
+#, kde-format
+msgid "Cannot write entry %1 in the new wallet. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:258
+#, kde-format
+msgid "DONE migrating wallet\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: migrationwizard1.ui:29
+#, kde-format
+msgid ""
+"Congratulations! The system detected that you're running the latest version "
+"of the KWallet, using KDE Frameworks 5.\n"
+"\n"
+"It seems that you also have KDE4 wallet(s) on your system.\n"
+"\n"
+"Would you like them to be migrated to this new KWallet version? The "
+"operation will only take one minute to be performed.\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionYes)
+#: migrationwizard1.ui:59
+#, kde-format
+msgid "&Yes, migrate my wallets now."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionNo)
+#: migrationwizard1.ui:70
+#, kde-format
+msgid ""
+"No, I'd rather do this upon ne&xt session start,\n"
+"and I'll cancel this wizard for now."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionNotInterested)
+#: migrationwizard1.ui:77
+#, kde-format
+msgid "No, and p&lease do not prompt me again."
+msgstr ""

@@ -1,0 +1,836 @@
+# Lithuanian translations for kwalletd package.
+# This file is distributed under the same license as the kwalletd package.
+# Andrius Štikonas <andrius@stikonas.eu>, 2009.
+# Donatas Glodenis <dgvirtual@akl.lt>, 2009.
+# Tomas Straupis <tomasstraupis@gmail.com>, 2009, 2010.
+# Liudas Ališauskas <liudas@aksioma.lt>, 2014.
+# Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: kwalletd\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2018-09-30 03:44+0200\n"
+"PO-Revision-Date: 2015-12-29 18:41+0200\n"
+"Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
+"Language-Team: lt <kde-i18n-lt@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andrius Štikonas"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "andrius@stikonas.eu"
+
+#: backend/backendpersisthandler.cpp:506
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:514
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:565
+#, kde-format
+msgid ""
+"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+"again. This error may occur if you are not using a full trust GPG key. "
+"Please ensure you have the secret key for the key you are using.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:577
+#, kde-format
+msgid ""
+"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
+"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:595
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:613
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:623
+#, kde-format
+msgid "Retry"
+msgstr "Bandyti vėl"
+
+#: backend/backendpersisthandler.cpp:625
+#, kde-format
+msgid ""
+"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+"you're using a SmartCard, please ensure it's inserted then try again."
+"<br><br>GPG error was <b>%2</b></qt>"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:626
+#, kde-format
+msgid "kwalletd GPG backend"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:670
+#, kde-format
+msgid ""
+"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
+"system.</qt>"
+msgstr ""
+
+#: backend/kwalletbackend.cc:264
+#, kde-format
+msgid "Already open."
+msgstr "Jau atverta."
+
+#: backend/kwalletbackend.cc:266
+#, kde-format
+msgid "Error opening file."
+msgstr "Klaida, atveriant failą."
+
+#: backend/kwalletbackend.cc:268
+#, kde-format
+msgid "Not a wallet file."
+msgstr "Ne slaptažodinės failas."
+
+#: backend/kwalletbackend.cc:270
+#, kde-format
+msgid "Unsupported file format revision."
+msgstr "Nepalaikoma failo formato versija."
+
+#: backend/kwalletbackend.cc:274
+#, kde-format
+msgid "Unknown encryption scheme."
+msgstr "Nežinoma šifravimo schema."
+
+#: backend/kwalletbackend.cc:276
+#, kde-format
+msgid "Corrupt file?"
+msgstr "Sugadintas failas?"
+
+#: backend/kwalletbackend.cc:278
+#, kde-format
+msgid "Error validating wallet integrity. Possibly corrupted."
+msgstr "Klaida tikrinant slaptažodinės integralumą. Ji gali būti sugadinta."
+
+#: backend/kwalletbackend.cc:282
+#, kde-format
+msgid "Read error - possibly incorrect password."
+msgstr "Skaitymo klaida: galimai neteisingas slaptažodis."
+
+#: backend/kwalletbackend.cc:284
+#, kde-format
+msgid "Decryption error."
+msgstr "Dešifravimo klaida."
+
+#: backend/kwalletbackend.cc:460
+#, kde-format
+msgid ""
+"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
+#: kbetterthankdialogbase.ui:50
+#, kde-format
+msgid "Allow &Once"
+msgstr "Leisti &dabar"
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowAlways)
+#: kbetterthankdialogbase.ui:60
+#, kde-format
+msgid "Allow &Always"
+msgstr "&Visada leisti"
+
+#. i18n: ectx: property (text), widget (QPushButton, _deny)
+#: kbetterthankdialogbase.ui:67
+#, kde-format
+msgid "&Deny"
+msgstr "&Neleisti"
+
+#. i18n: ectx: property (text), widget (QPushButton, _denyForever)
+#: kbetterthankdialogbase.ui:74
+#, kde-format
+msgid "Deny &Forever"
+msgstr "Visada ne&leisti"
+
+#: knewwalletdialog.cpp:65
+#, fuzzy, kde-format
+#| msgid ""
+#| "KDE has requested to open the wallet. This is used to store sensitive "
+#| "data in a secure fashion. Please enter a password to use with this wallet "
+#| "or click cancel to deny the application's request."
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
+"to store sensitive data in a secure fashion. Please choose the new wallet's "
+"type below or click cancel to deny the application's request.</qt>"
+msgstr ""
+"KDE prašo atverti slaptažodinę. Slaptažodinė yra naudojama saugiam jautrios "
+"informacijos įrašymui. Prašome įrašyti slaptažodinės slaptažodį, arba "
+"paspausti mygtuką „atšaukti“ ir taip neleisti programai pasiekti "
+"slaptažodinės."
+
+#: knewwalletdialog.cpp:67
+#, fuzzy, kde-format
+#| msgid ""
+#| "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#| "This is used to store sensitive data in a secure fashion. Please enter a "
+#| "password to use with this wallet or click cancel to deny the "
+#| "application's request.</qt>"
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
+"Please choose the new wallet's type below or click cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+"<qt>Programa „<b>%1</b>“ Prašo atverti KDE slaptažodinę. Slaptažodinė yra "
+"naudojama saugiam jautrios informacijos įrašymui. Prašome įrašyti "
+"slaptažodinės slaptažodį, arba paspausti mygtuką „atšaukti“ ir taip neleisti "
+"programai pasiekti slaptažodinės.</qt>"
+
+#: knewwalletdialog.cpp:129 knewwalletdialog.cpp:135 kwalletwizard.cpp:161
+#: kwalletwizard.cpp:165
+#, kde-format
+msgid ""
+"The GpgME library failed to initialize for the OpenPGP protocol. Please "
+"check your system's configuration then try again."
+msgstr ""
+
+#: knewwalletdialog.cpp:155
+#, kde-format
+msgid ""
+"Seems that your system has no keys suitable for encryption. Please set-up at "
+"least one encryption key, then try again."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: knewwalletdialoggpg.ui:17
+#, kde-format
+msgid "Please select the signing key from the list below:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: knewwalletdialoggpg.ui:24
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"list shows only \"ultimate-level\" trusted keys</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:59
+#, kde-format
+msgid "Name"
+msgstr "Pavadinimas"
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:64
+#, kde-format
+msgid "E-Mail"
+msgstr "El. paštas"
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:69
+#, kde-format
+msgid "Key-ID"
+msgstr "Rakto ID"
+
+#. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
+#. i18n: ectx: property (text), widget (KTitleWidget, title)
+#: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
+#: migrationwizard1.ui:17 migrationwizard2.ui:17
+#, kde-format
+msgid "The KDE Wallet System"
+msgstr "KDE piniginės sistema"
+
+#. i18n: ectx: property (text), widget (QLabel, labelIntro)
+#: knewwalletdialogintro.ui:30
+#, fuzzy, no-c-format, kde-format
+#| msgid ""
+#| "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#| "This is used to store sensitive data in a secure fashion. Please enter a "
+#| "password to use with this wallet or click cancel to deny the "
+#| "application's request.</qt>"
+msgid ""
+"<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
+"span>' has requested to open the KDE wallet. This is used to store sensitive "
+"data in a secure fashion. Please choose the new wallet's type below or click "
+"cancel to deny the application's request.</p></body></html>"
+msgstr ""
+"<qt>Programa „<b>%1</b>“ Prašo atverti KDE slaptažodinę. Slaptažodinė yra "
+"naudojama saugiam jautrios informacijos įrašymui. Prašome įrašyti "
+"slaptažodinės slaptažodį, arba paspausti mygtuką „atšaukti“ ir taip neleisti "
+"programai pasiekti slaptažodinės.</qt>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
+#. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
+#: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
+#, kde-format
+msgid "Classic, blowfish encrypted file"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
+#. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
+#: knewwalletdialogintro.ui:73 kwalletwizardpagepasswordgpg.ui:55
+#, kde-format
+msgid "Use GPG encryption, for better protection"
+msgstr ""
+
+#: kwalletd.cpp:618
+#, kde-format
+msgid ""
+"<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
+"password for this wallet below.</qt>"
+msgstr ""
+"<qt>KDE prašo atverti slaptažodinę „<b>%1</b>“. Prašome žemiau įrašyti šios "
+"slaptažodinės slaptažodį.</qt>"
+
+#: kwalletd.cpp:625
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+"b>'. Please enter the password for this wallet below.</qt>"
+msgstr ""
+"<qt>Programa „<b>%1</b>“ prašo atverti slaptažodinę „<b>%2</b>“. Prašome "
+"žemiau įrašyti šios slaptažodinės slaptažodį.</qt>"
+
+#. i18n( "&Open" ), "wallet-open"));
+#: kwalletd.cpp:636 kwalletd.cpp:781 kwalletd.cpp:899 kwalletd.cpp:1028
+#: kwalletd.cpp:1055 kwalletd.cpp:1069 kwalletd.cpp:1078 kwalletd.cpp:1625
+#: main.cpp:177 main.cpp:182 main.cpp:184
+#, kde-format
+msgid "KDE Wallet Service"
+msgstr "KDE slaptažodžių tarnyba"
+
+#: kwalletd.cpp:652
+#, fuzzy, kde-format
+#| msgid "<b>KDE</b> has requested to open a wallet (%1)."
+msgid "An application has requested to open a wallet (%1)."
+msgstr "<b>KDE</b> prašo priėjimo prie slaptažodinės (%1)."
+
+#: kwalletd.cpp:659
+#, kde-format
+msgctxt ""
+"Text of a button for switching to the (unnamed) application requesting a "
+"password"
+msgid "Switch there"
+msgstr "Persijungti ten"
+
+#: kwalletd.cpp:663
+#, kde-format
+msgid "<b>%1</b> has requested to open a wallet (%2)."
+msgstr "Programa <b>%1</b> prašo priėjimo prie slaptažodinės (%2)."
+
+#: kwalletd.cpp:671
+#, kde-format
+msgctxt ""
+"Text of a button for switching to the application requesting a password"
+msgid "Switch to %1"
+msgstr "Persijungti į %1"
+
+#: kwalletd.cpp:687 kwalletd.cpp:794
+#, kde-format
+msgid ""
+"<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
+"%2: %3)</qt>"
+msgstr ""
+"<qt>Klaida atveriant slaptažodinę „<b>%1</b>“. Prašome pamėginti iš naujo."
+"<br />Klaidos kodas %2: %3)</qt>"
+
+#: kwalletd.cpp:746
+#, kde-format
+msgid ""
+"KDE has requested to open the wallet. This is used to store sensitive data "
+"in a secure fashion. Please enter a password to use with this wallet or "
+"click cancel to deny the application's request."
+msgstr ""
+"KDE prašo atverti slaptažodinę. Slaptažodinė yra naudojama saugiam jautrios "
+"informacijos įrašymui. Prašome įrašyti slaptažodinės slaptažodį, arba "
+"paspausti mygtuką „atšaukti“ ir taip neleisti programai pasiekti "
+"slaptažodinės."
+
+#: kwalletd.cpp:754
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
+"is used to store sensitive data in a secure fashion. Please enter a password "
+"to use with this wallet or click cancel to deny the application's request.</"
+"qt>"
+msgstr ""
+"<qt>Programa „<b>%1</b>“ Prašo atverti KDE slaptažodinę. Slaptažodinė yra "
+"naudojama saugiam jautrios informacijos įrašymui. Prašome įrašyti "
+"slaptažodinės slaptažodį, arba paspausti mygtuką „atšaukti“ ir taip neleisti "
+"programai pasiekti slaptažodinės.</qt>"
+
+#: kwalletd.cpp:766
+#, kde-format
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
+"choose a password for this wallet, or cancel to deny the application's "
+"request.</qt>"
+msgstr ""
+"<qt>KDE prašo sukurti naują slaptažodinę „<b>%1</b>“. Prašome pasirinkti "
+"slaptažodį šiai slaptažodinei, arba paspausti mygtuką „atšaukti“ jei norite "
+"atmesti programos prašymą.</qt>"
+
+#: kwalletd.cpp:774
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+"<qt>Programa „<b>%1</b>“ prašo sukurti naują slaptažodinę, pavadintą „<b>%2</"
+"b>“. Prašome pasirinkti slaptažodį šiai slaptažodinei, arba  paspausti "
+"mygtuką „atšaukti“ ir tokiu būdu neleisti sukurti slaptažodinės.</qt>"
+
+#: kwalletd.cpp:901
+#, kde-format
+msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
+msgstr "<qt>KDE prašo priėjimo prie atvertos slaptažodinės „<b>%1</b>“.</qt>"
+
+#: kwalletd.cpp:907
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
+"%2</b>'.</qt>"
+msgstr ""
+"<qt>Programa „<b>%1</b>“ prašo priėjimo prie atvertos slaptažodinės „<b>%2</"
+"b>“.</qt>"
+
+#: kwalletd.cpp:1026
+#, kde-format
+msgid ""
+"Unable to open wallet. The wallet must be opened in order to change the "
+"password."
+msgstr ""
+"Nepavyksta atverti slaptažodinės. Norint pakeisti slaptažodį slaptažodinė "
+"turi būti atverta."
+
+#: kwalletd.cpp:1043
+#, kde-format
+msgid ""
+"<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
+"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
+"associated to that key.</qt>"
+msgstr ""
+
+#: kwalletd.cpp:1052
+#, kde-format
+msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
+msgstr ""
+"<qt>Prašome pasirinkti naują slaptažodį slaptažodinei „<b>%1</b>“.</qt>"
+
+#: kwalletd.cpp:1067
+#, kde-format
+msgid "Error re-encrypting the wallet. Password was not changed."
+msgstr ""
+"Iš naujo užšifruojant slaptažodinę įvyko klaida. Slaptažodis nepakeistas."
+
+#: kwalletd.cpp:1076
+#, kde-format
+msgid "Error reopening the wallet. Data may be lost."
+msgstr ""
+"Iš naujo atveriant slaptažodinę įvyko klaida. Gali būti prarasti duomenys."
+
+#: kwalletd.cpp:1623
+#, kde-format
+msgid ""
+"There have been repeated failed attempts to gain access to a wallet. An "
+"application may be misbehaving."
+msgstr ""
+"Keletą kartų iš eilės nepavyko prisijungti prie slaptažodinės. Gali būti, "
+"kad programa veikia blogai."
+
+#: kwalletwizard.cpp:51
+#, kde-format
+msgid "KWallet"
+msgstr "KWallet"
+
+#: kwalletwizard.cpp:280
+#, kde-format
+msgid "<qt>Password is empty.  <b>(WARNING: Insecure)</b></qt>"
+msgstr "<qt>Slaptažodis tuščias.  <b>(DĖMESIO: Nesaugu)</b></qt>"
+
+#: kwalletwizard.cpp:282
+#, kde-format
+msgid "Passwords match."
+msgstr "Slaptažodžiai sutampa."
+
+#: kwalletwizard.cpp:285
+#, kde-format
+msgid "Passwords do not match."
+msgstr "Slaptažodžiai nesutampa."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: kwalletwizardpageexplanation.ui:17
+#, fuzzy, kde-format
+#| msgid ""
+#| "The KDE Wallet system stores your data in a <i>wallet</i> file on your "
+#| "local hard disk.  The data is only written in encrypted form, presently "
+#| "using the blowfish algorithm with your password as the key.  When a "
+#| "wallet is opened, the wallet manager application will launch and display "
+#| "an icon in the system tray.  You can use this application to manage your "
+#| "wallets.  It even permits you to drag wallets and wallet contents, "
+#| "allowing you to easily copy a wallet to a remote system."
+msgid ""
+"<html><head/><body><p>The KDE Wallet system stores your data in a <span "
+"style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
+"The data is only written in the encrypted form of your choice - blowfish "
+"algorithm with your password as the key or using a GPG encryption key. When "
+"a wallet is opened, the wallet manager application will launch and display "
+"an icon in the system tray. You can use this application to manage all of "
+"your wallets. It even permits you to drag wallets and wallet contents, "
+"allowing you to easily copy a wallet to a remote system.</p></body></html>"
+msgstr ""
+"KDE Wallet sistema saugo Jūsų duomenis <i>slaptažodinėje</i>, faile, "
+"esančiame Jūsų kietajame diske.  Duomenys įrašomi užšifruota forma, šiuo "
+"metu šifravimui naudojamas blowfish algoritmas. Raktas į duomenis – Jūsų "
+"slaptažodis. Atvėrus slaptažodinę, slaptažodinių tvarkymo programa startuos "
+"ir rodys ženklelį sistemos dėkle. Šią programą galite naudoti savo "
+"slaptažodinių tvarkymui.  Ji leidžia net ir tokius veiksmus, kaip "
+"slaptažodinių ir slaptažodinių turinio nutempimą į nutolusią sistemą."
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: kwalletwizardpagegpgkey.ui:24
+#, kde-format
+msgid ""
+"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when decrypting is "
+"needed or your wallet will not be accessible. For example, if you choose a "
+"SmartCard-based encryption key, the GPG system will prompt you to enter it "
+"and its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">NOTE:</span> this list contains only \"ultimate-level\" "
+"trusted keys.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kwalletwizardpagegpgkey.ui:42
+#, kde-format
+msgid "Select encryption GPG key:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: kwalletwizardpagegpgkey.ui:81
+#, kde-format
+msgid ""
+"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
+"such <b>encrypting key</b> to securely store passwords or other sensitive "
+"data on disk. If you still want to setup a GPG-based wallet, then cancel "
+"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
+"Otherwise, you may still click back, then choose a classic, blowfish "
+"encrypted file format on the previous page."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: kwalletwizardpageintro.ui:30
+#, kde-format
+msgid ""
+"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
+"passwords and other personal information on disk in an encrypted file, "
+"preventing others from viewing the information.  This wizard will tell you "
+"about KWallet and help you configure it for the first time."
+msgstr ""
+"Jus sveikina KWallet, KDE slaptažodinių sistema.  KWallet suteikia galimybę "
+"laikyti visus slaptažodžius ir kitą asmeninę informaciją diske viename "
+"šifruotame faile taip, kad kiti asmenys negalėtų jos peržiūrėti. Šis "
+"vediklis padės Jums teisingai konfigūruoti KWallet."
+
+#. i18n: ectx: property (text), widget (QRadioButton, _basic)
+#: kwalletwizardpageintro.ui:69
+#, kde-format
+msgid "&Basic setup (recommended)"
+msgstr "&Paprastas konfigūravimas (rekomenduojamas)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _advanced)
+#: kwalletwizardpageintro.ui:79
+#, kde-format
+msgid "&Advanced setup"
+msgstr "&Sudėtingesnis konfigūravimas"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: kwalletwizardpageoptions.ui:16
+#, kde-format
+msgid ""
+"The KDE Wallet system allows you to control the level of security of your "
+"personal data.  Some of these settings do impact usability.  While the "
+"default settings are generally acceptable for most users, you may wish to "
+"change some of them.  You may further tune these settings from the KWallet "
+"control module."
+msgstr ""
+"KDE slaptažodinių sistema leidžia kontroliuoti Jūsų asmeninių duomenų "
+"saugumo laipsnį. Kai kurie iš šių nuostatų taip pat turi įtakos naudojimo "
+"paprastumui.  Numatytosios nuostatos turėtų būti priimtini daugeliui "
+"naudotojų, tačiau kai kuriuos galima pakeisti pagal savo poreikius. Šias "
+"nuostatas vėliau galėsite pakeisti valdymo centro KWallet modulyje."
+
+#. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
+#: kwalletwizardpageoptions.ui:48
+#, kde-format
+msgid "Automatically close idle wallets"
+msgstr "Automatiškai užverti nenaudojamas slaptažodines"
+
+#. i18n: ectx: property (text), widget (QCheckBox, _networkWallet)
+#: kwalletwizardpageoptions.ui:55
+#, kde-format
+msgid "Store network passwords and local passwords in separate wallet files"
+msgstr ""
+"Saugoti tinklo slaptažodžius ir vietinius slaptažodžius skirtinguose "
+"slaptažodinių failuose"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kwalletwizardpagepassword.ui:16
+#, kde-format
+msgid ""
+"Various applications may attempt to use the KDE wallet to store passwords or "
+"other information such as web form data and cookies.  If you would like "
+"these applications to use the wallet, you must enable it now and choose a "
+"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
+"and will allow anyone who knows it to obtain all the information contained "
+"in the wallet."
+msgstr ""
+"Various applications may attempt to use the KDE wallet to store passwords or "
+"other information such as web form data and cookies.  If you would like "
+"these applications to use the wallet, you must enable it now and choose a "
+"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
+"and will allow anyone who knows it to obtain all the information contained "
+"in the wallet."
+
+#. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
+#: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
+#, kde-format
+msgid "Yes, I wish to use the KDE wallet to store my personal information."
+msgstr ""
+"Taip, aš noriu naudoti KDE slaptažodines mano asmeninės informacijos "
+"saugojimui."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: kwalletwizardpagepassword.ui:88 kwalletwizardpagepasswordgpg.ui:106
+#, kde-format
+msgid "Enter a new password:"
+msgstr "Įveskite naują slaptažodį:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: kwalletwizardpagepassword.ui:104 kwalletwizardpagepasswordgpg.ui:122
+#, kde-format
+msgid "Verify password:"
+msgstr "Patikrinti slaptažodį:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kwalletwizardpagepasswordgpg.ui:17
+#, fuzzy, kde-format
+#| msgid ""
+#| "Various applications may attempt to use the KDE wallet to store passwords "
+#| "or other information such as web form data and cookies.  If you would "
+#| "like these applications to use the wallet, you must enable it now and "
+#| "choose a password.  The password you choose <i>cannot</i> be recovered if "
+#| "it is lost, and will allow anyone who knows it to obtain all the "
+#| "information contained in the wallet."
+msgid ""
+"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
+"to store passwords or other information such as web form data and cookies. "
+"If you would like these applications to use the wallet, you must enable it "
+"now and choose method for its encryption.</p><p>GPG method is more secure, "
+"but you must have configured at least one encrypting key on your system.</"
+"p><p>If you choose the classic format, be warned that the password you "
+"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
+"is lost, and will allow anyone who knows it to obtain all the information "
+"contained in the wallet.</p></body></html>"
+msgstr ""
+"Various applications may attempt to use the KDE wallet to store passwords or "
+"other information such as web form data and cookies.  If you would like "
+"these applications to use the wallet, you must enable it now and choose a "
+"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
+"and will allow anyone who knows it to obtain all the information contained "
+"in the wallet."
+
+#. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
+#: kwalletwizardpagepasswordgpg.ui:46
+#, kde-format
+msgid "What kind of encryption do you wish?"
+msgstr ""
+
+#: main.cpp:181
+#, kde-format
+msgid "kwalletd"
+msgstr "kwalletd"
+
+#: main.cpp:186
+#, kde-format
+msgid "(C) 2002-2013, The KDE Developers"
+msgstr "(C) 2002-2013, KDE programuotojai"
+
+#: main.cpp:187
+#, kde-format
+msgid "Valentin Rusu"
+msgstr "Valentin Rusu"
+
+#: main.cpp:187
+#, kde-format
+msgid "Maintainer, GPG backend support"
+msgstr ""
+
+#: main.cpp:188
+#, kde-format
+msgid "Michael Leupold"
+msgstr "Michael Leupold"
+
+#: main.cpp:188
+#, kde-format
+msgid "Former Maintainer"
+msgstr "Ankstesnysis prižiūrėtojas"
+
+#: main.cpp:189
+#, kde-format
+msgid "George Staikos"
+msgstr "George Staikos"
+
+#: main.cpp:189
+#, kde-format
+msgid "Former maintainer"
+msgstr "Ankstesnis prižiūrėtojas"
+
+#: main.cpp:190
+#, kde-format
+msgid "Thiago Maceira"
+msgstr "Thiago Maceira"
+
+#: main.cpp:190
+#, kde-format
+msgid "D-Bus Interface"
+msgstr "D-Bus sąsaja"
+
+#: migrationagent.cpp:183 migrationagent.cpp:197
+#, kde-format
+msgid "Cannot read old wallet list. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:193
+#, fuzzy, kde-format
+#| msgid "KDE Wallet Service"
+msgid "KDE Wallet Migration Agent"
+msgstr "KDE slaptažodžių tarnyba"
+
+#: migrationagent.cpp:200
+#, kde-format
+msgid "Migrating wallet: %1"
+msgstr ""
+
+#: migrationagent.cpp:201
+#, kde-format
+msgid "* Creating KF5 wallet: %1"
+msgstr ""
+
+#: migrationagent.cpp:213
+#, kde-format
+msgid "ERROR when attempting new wallet creation. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:219
+#, kde-format
+msgid "Cannot open KDE4 wallet named: %1"
+msgstr ""
+
+#: migrationagent.cpp:220
+#, kde-format
+msgid "* Opened KDE4 wallet: %1"
+msgstr ""
+
+#: migrationagent.cpp:224
+#, kde-format
+msgid "Cannot retrieve folder list. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:227
+#, kde-format
+msgid "* Migrating folder %1"
+msgstr ""
+
+#: migrationagent.cpp:231
+#, kde-format
+msgid "Cannot retrieve folder %1 entries. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:237
+#, kde-format
+msgid "Cannot retrieve key %1 info. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:241
+#, kde-format
+msgid "* SKIPPING entry %1 in folder %2 as it seems already migrated"
+msgstr ""
+
+#: migrationagent.cpp:245
+#, kde-format
+msgid "Cannot retrieve key %1 data. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:247
+#, kde-format
+msgid "Cannot write entry %1 in the new wallet. Aborting."
+msgstr ""
+
+#: migrationagent.cpp:258
+#, kde-format
+msgid "DONE migrating wallet\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: migrationwizard1.ui:29
+#, kde-format
+msgid ""
+"Congratulations! The system detected that you're running the latest version "
+"of the KWallet, using KDE Frameworks 5.\n"
+"\n"
+"It seems that you also have KDE4 wallet(s) on your system.\n"
+"\n"
+"Would you like them to be migrated to this new KWallet version? The "
+"operation will only take one minute to be performed.\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionYes)
+#: migrationwizard1.ui:59
+#, kde-format
+msgid "&Yes, migrate my wallets now."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionNo)
+#: migrationwizard1.ui:70
+#, kde-format
+msgid ""
+"No, I'd rather do this upon ne&xt session start,\n"
+"and I'll cancel this wizard for now."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, _optionNotInterested)
+#: migrationwizard1.ui:77
+#, kde-format
+msgid "No, and p&lease do not prompt me again."
+msgstr ""
