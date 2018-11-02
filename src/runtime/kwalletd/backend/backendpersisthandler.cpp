@@ -652,7 +652,6 @@ retry_label:
     qCDebug(KWALLETBACKEND_LOG) << "This wallet was encrypted using GPG key with ID " << keyID;
 
     ctx->setKeyListMode(GPGME_KEYLIST_MODE_LOCAL);
-    std::vector< GpgME::Key > keys;
     err = ctx->startKeyListing();
     while (!err) {
         GpgME::Key k = ctx->nextKey(err);
