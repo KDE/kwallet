@@ -147,8 +147,8 @@ KWalletD::KWalletD()
 
     _serviceWatcher.setWatchMode(QDBusServiceWatcher::WatchForOwnerChange);
     connect(&_serviceWatcher,
-        SIGNAL(serviceOwnerChanged(QString, QString, QString)), this,
-        SLOT(slotServiceOwnerChanged(QString, QString, QString)));
+        SIGNAL(serviceOwnerChanged(QString,QString,QString)), this,
+        SLOT(slotServiceOwnerChanged(QString,QString,QString)));
 }
 
 void KWalletD::registerKWalletd4Service()
