@@ -54,6 +54,8 @@ class KWalletDLauncher
 public:
     KWalletDLauncher();
     ~KWalletDLauncher();
+    KWalletDLauncher(const KWalletDLauncher &) = delete;
+    KWalletDLauncher& operator=(const KWalletDLauncher &) = delete;
     org::kde::KWallet &getInterface();
 
     // this static variable is used below to switch between old KWallet

@@ -36,6 +36,9 @@ public:
     KWalletSessionStore();
     ~KWalletSessionStore();
 
+    KWalletSessionStore(const KWalletSessionStore &) = delete;
+    KWalletSessionStore& operator=(const KWalletSessionStore &) = delete;
+
     // add a new session
     void addSession(const QString &appid, const QString &service, int handle);
     // check if the application has a session using that handle
