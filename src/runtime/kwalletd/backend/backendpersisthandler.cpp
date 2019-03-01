@@ -648,7 +648,7 @@ retry_label:
 
     // locate the GPG key having the ID found inside the file. This will be needed later, when writing changes to disk.
     QDataStream fileStream(&sf);
-    fileStream.unsetDevice();
+    fileStream.setDevice(nullptr);
     qCDebug(KWALLETBACKEND_LOG) << "This wallet was encrypted using GPG key with ID " << keyID;
 
     ctx->setKeyListMode(GPGME_KEYLIST_MODE_LOCAL);
