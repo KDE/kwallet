@@ -34,7 +34,7 @@ KTimeout::~KTimeout()
 
 void KTimeout::clear()
 {
-    foreach (int timerId, _timers) {
+    for (int timerId : qAsConst(_timers)) {
         killTimer(timerId);
     }
     _timers.clear();

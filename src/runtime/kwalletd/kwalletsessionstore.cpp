@@ -34,7 +34,7 @@ KWalletSessionStore::KWalletSessionStore()
 
 KWalletSessionStore::~KWalletSessionStore()
 {
-    Q_FOREACH (const QList<Session *> &l, m_sessions) {
+    for (const QList<Session *> &l : qAsConst(m_sessions)) {
         qDeleteAll(l);
     }
 }
@@ -70,9 +70,10 @@ bool KWalletSessionStore::hasSession(const QString &appid, int handle) const
 QList<KWalletAppHandlePair> KWalletSessionStore::findSessions(const QString &service) const
 {
     QList<KWalletAppHandlePair> rc;
-    QList<QString> sessionKeys(m_sessions.keys());
-    Q_FOREACH (const QString &appid, sessionKeys) {
-        Q_FOREACH (const Session *sess, m_sessions[appid]) {
+    const QList<QString> sessionKeys(m_sessions.keys());
+    for (const QString &appid : sessionKeys) {
+        const auto lst = m_sessions[appid];
+        for (const Session *sess : lst) {
             Q_ASSERT(sess);
             if (sess->m_service == service) {
                 rc.append(qMakePair(appid, sess->m_handle));
@@ -134,8 +135,8 @@ int KWalletSessionStore::removeAllSessions(int handle)
 {
     QList<QString> appremove;
     int numrem = 0;
-    QList<QString> sessionKeys(m_sessions.keys());
-    Q_FOREACH (const QString &appid, sessionKeys) {
+    const QList<QString> sessionKeys(m_sessions.keys());
+    for (const QString &appid : sessionKeys) {
         QList<Session *>::iterator it;
         QList<Session *>::iterator end = m_sessions[appid].end();
         for (it = m_sessions[appid].begin(); it != end; ++it) {
@@ -154,7 +155,7 @@ int KWalletSessionStore::removeAllSessions(int handle)
     }
 
     // now remove all applications without sessions
-    Q_FOREACH (const QString &appid, appremove) {
+    for (const QString &appid : qAsConst(appremove)) {
         m_sessions.remove(appid);
     }
 
@@ -164,7 +165,8 @@ int KWalletSessionStore::removeAllSessions(int handle)
 QStringList KWalletSessionStore::getApplications(int handle) const
 {
     QStringList rc;
-    Q_FOREACH (const QString &appid, m_sessions.uniqueKeys()) {
+    const auto lst = m_sessions.uniqueKeys();
+    for (const QString &appid : lst) {
         if (hasSession(appid, handle)) {
             rc.append(appid);
         }

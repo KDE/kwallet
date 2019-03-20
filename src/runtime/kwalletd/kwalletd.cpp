@@ -1178,7 +1178,8 @@ QStringList KWalletD::wallets() const
 
     dir.setFilter(QDir::Files | QDir::Hidden);
 
-    foreach (const QFileInfo& fi, dir.entryInfoList()) {
+    const auto list = dir.entryInfoList();
+    for (const QFileInfo& fi : list) {
         QString fn = fi.fileName();
         if (fn.endsWith(QLatin1String(".kwl"))) {
             fn.truncate(fn.length() - 4);
@@ -1309,7 +1310,8 @@ QVariantMap KWalletD::readMapList(int handle, const QString& folder,
     if ((b = getWallet(appid, handle))) {
         b->setFolder(folder);
         QVariantMap rc;
-        foreach (KWallet::Entry* entry, b->readEntryList(key)) {
+        const auto lst = b->readEntryList(key);
+        for (KWallet::Entry* entry : lst) {
             if (entry->type() == KWallet::Wallet::Map) {
                 rc.insert(entry->key(), entry->map());
             }
@@ -1344,7 +1346,8 @@ QVariantMap KWalletD::readEntryList(int handle, const QString& folder,
     if ((b = getWallet(appid, handle))) {
         b->setFolder(folder);
         QVariantMap rc;
-        foreach (KWallet::Entry* entry, b->readEntryList(key)) {
+        const auto lst = b->readEntryList(key);
+        for (KWallet::Entry* entry : lst) {
             rc.insert(entry->key(), entry->value());
         }
         return rc;
@@ -1390,7 +1393,8 @@ QVariantMap KWalletD::readPasswordList(int handle, const QString& folder,
     if ((b = getWallet(appid, handle))) {
         b->setFolder(folder);
         QVariantMap rc;
-        foreach (KWallet::Entry* entry, b->readEntryList(key)) {
+        const auto lst = b->readEntryList(key);
+        for (KWallet::Entry* entry : lst) {
             if (entry->type() == KWallet::Wallet::Password) {
                 rc.insert(entry->key(), entry->password());
             }
@@ -1550,11 +1554,11 @@ void KWalletD::slotServiceOwnerChanged(
     // all sessions. As an application can basically open wallets
     // with several appids, we can't stop if we found one.
     QString service(oldOwner);
-    QList<KWalletAppHandlePair> sessremove(_sessions.findSessions(service));
+    const QList<KWalletAppHandlePair> sessremove(_sessions.findSessions(service));
     KWallet::Backend* b = nullptr;
 
     // check all sessions for wallets to close
-    Q_FOREACH (const KWalletAppHandlePair& s, sessremove) {
+    for (const KWalletAppHandlePair& s : sessremove) {
         b = getWallet(s.first, s.second);
         if (b) {
             b->deref();
@@ -1563,7 +1567,7 @@ void KWalletD::slotServiceOwnerChanged(
     }
 
     // remove all the sessions in case they aren't gone yet
-    Q_FOREACH (const KWalletAppHandlePair& s, sessremove) {
+    for (const KWalletAppHandlePair& s : sessremove) {
         _sessions.removeSession(s.first, service, s.second);
     }
 
@@ -1688,7 +1692,8 @@ void KWalletD::emitFolderUpdated(const QString& wallet, const QString& folder)
 void KWalletD::emitWalletListDirty()
 {
     const QStringList walletsInDisk = wallets();
-    foreach (auto i, _wallets.values()) {
+    const auto lst = _wallets.values();
+    for (auto i : lst) {
         if (!walletsInDisk.contains(i->walletName())) {
             internalClose(i, _wallets.key(i), true, false);
         }

@@ -179,7 +179,8 @@ public:
         KSecretsService::SearchCollectionItemsJob *searchItemsJob = secretsCollection->searchItems(attrs);
         if (searchItemsJob->exec()) {
             QRegExp re(key, Qt::CaseSensitive, QRegExp::Wildcard);
-            foreach (KSecretsService::SearchCollectionItemsJob::Item item, searchItemsJob->items()) {
+            const auto list = searchItemsJob->items();
+            for (KSecretsService::SearchCollectionItemsJob::Item item : list) {
                 KSecretsService::ReadItemPropertyJob *readLabelJob = item->label();
                 if (readLabelJob->exec()) {
                     QString label = readLabelJob->propertyValue().toString();
@@ -718,8 +719,8 @@ QStringList Wallet::folderList()
         KSecretsService::SearchCollectionItemsJob *searchJob = d->secretsCollection->searchItems(attrs);
 
         if (searchJob->exec()) {
-            KSecretsService::ReadCollectionItemsJob::ItemList itemList = searchJob->items();
-            foreach (const KSecretsService::ReadCollectionItemsJob::Item &item, itemList) {
+            const KSecretsService::ReadCollectionItemsJob::ItemList itemList = searchJob->items();
+            for (const KSecretsService::ReadCollectionItemsJob::Item &item : itemList) {
                 KSecretsService::ReadItemPropertyJob *readAttrsJob = item->attributes();
                 if (readAttrsJob->exec()) {
                     KSecretsService::StringStringMap attrs = readAttrsJob->propertyValue().value<KSecretsService::StringStringMap>();
@@ -762,7 +763,8 @@ QStringList Wallet::entryList()
         attrs[KSS_ATTR_ENTRYFOLDER] = d->folder;
         KSecretsService::SearchCollectionItemsJob *readItemsJob = d->secretsCollection->searchItems(attrs);
         if (readItemsJob->exec()) {
-            foreach (KSecretsService::SearchCollectionItemsJob::Item item, readItemsJob->items()) {
+            const auto list = readItemsJob->items();
+            for (KSecretsService::SearchCollectionItemsJob::Item item : list) {
                 KSecretsService::ReadItemPropertyJob *readLabelJob = item->label();
                 if (readLabelJob->exec()) {
                     result.append(readLabelJob->propertyValue().toString());
@@ -894,10 +896,10 @@ bool Wallet::removeFolder(const QString &f)
         attrs[KSS_ATTR_ENTRYFOLDER] = f;
         KSecretsService::SearchCollectionItemsJob *searchJob = d->secretsCollection->searchItems(attrs);
         if (searchJob->exec()) {
-            KSecretsService::SearchCollectionItemsJob::ItemList itemList = searchJob->items();
+            const KSecretsService::SearchCollectionItemsJob::ItemList itemList = searchJob->items();
             if (!itemList.isEmpty()) {
                 result = true;
-                foreach (const KSecretsService::SearchCollectionItemsJob::Item &item, itemList) {
+                for (const KSecretsService::SearchCollectionItemsJob::Item &item : itemList) {
                     KSecretsService::SecretItemDeleteJob *deleteJob = item->deleteItem();
                     if (!deleteJob->exec()) {
                         qCDebug(KWALLET_API_LOG) << "Cannot delete item : " << deleteJob->errorString();
