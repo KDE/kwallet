@@ -35,9 +35,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../api/KWallet)
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
-# migration agent need exceptions enabled
-kde_enable_exceptions()
-
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLETD
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kwalletd_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
@@ -50,8 +47,6 @@ set(kwalletd_SRCS
    kwalletwizard.cpp
    ktimeout.cpp
    kwalletsessionstore.cpp
-   migrationagent.cpp
-   migrationwizard.cpp
 )
 ecm_qt_declare_logging_category(kwalletd_SRCS HEADER kwalletd_debug.h IDENTIFIER KWALLETD_LOG CATEGORY_NAME kf5.kwallet.kwalletd)
 
@@ -61,8 +56,6 @@ ki18n_wrap_ui(kwalletd_SRCS
    kwalletwizardpageintro.ui
    kwalletwizardpageoptions.ui
    kwalletwizardpagepassword.ui
-   migrationwizard1.ui
-   migrationwizard2.ui
 )
 
 if (Gpgmepp_FOUND)
@@ -81,9 +74,6 @@ endif(Gpgmepp_FOUND)
 set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.KWallet.xml)
 
 qt5_add_dbus_adaptor( kwalletd_SRCS ${kwallet_xml} kwalletd.h KWalletD )
-
-# this is needed for the migration agent
-qt5_add_dbus_interface(kwalletd_SRCS ${kwallet_xml} kwallet4_interface)
 
 if(WIN32)
     configure_file(org.kde.kwalletd5.service.win.in

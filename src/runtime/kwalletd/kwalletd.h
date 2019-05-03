@@ -188,7 +188,6 @@ private Q_SLOTS:
 #endif
 
 private:
-    friend class MigrationAgent;
     // Internal - open a wallet
     int internalOpen(const QString &appid, const QString &wallet, bool isPath, WId w,
                      bool modal, const QString &service);

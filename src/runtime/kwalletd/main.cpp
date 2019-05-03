@@ -33,7 +33,6 @@
 #include "backend/kwalletbackend.h" //For the hash size
 #include "kwalletd.h"
 #include "kwalletd_version.h"
-#include "migrationagent.h"
 
 #ifndef Q_OS_WIN
 #include <sys/types.h>
@@ -191,9 +190,6 @@ int main(int argc, char **argv)
 
     KDBusService dbusUniqueInstance(KDBusService::Unique);
 
-    KWalletD walletd;
-    MigrationAgent migrationAgent(&walletd, hash);
-
     // NOTE: the command should be parsed only after KDBusService instantiation
     QCommandLineParser cmdParser;
     aboutdata.setupCommandLine(&cmdParser);
@@ -218,6 +214,7 @@ int main(int argc, char **argv)
 
 #ifndef Q_OS_WIN
     if (hash) {
+        KWalletD walletd;
         QByteArray passHash(hash, PBKDF2_SHA512_KEYSIZE);
         int wallet = walletd.pamOpen(KWallet::Wallet::LocalWallet(), passHash, 0);
         if (wallet < 0) {
