@@ -85,8 +85,6 @@ endif()
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
         DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/org.kde.kwalletd.service
-        DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
 
 add_executable( kwalletd5 ${kwalletd_SRCS} )
 
