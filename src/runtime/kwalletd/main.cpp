@@ -210,11 +210,11 @@ int main(int argc, char **argv)
         return (0);
     }
 
+    KWalletD walletd;
     qCDebug(KWALLETD_LOG) << "kwalletd5 started";
 
 #ifndef Q_OS_WIN
     if (hash) {
-        KWalletD walletd;
         QByteArray passHash(hash, PBKDF2_SHA512_KEYSIZE);
         int wallet = walletd.pamOpen(KWallet::Wallet::LocalWallet(), passHash, 0);
         if (wallet < 0) {
