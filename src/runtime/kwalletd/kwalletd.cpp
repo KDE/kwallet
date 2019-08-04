@@ -838,7 +838,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
         emit walletOpened(wallet);
         if (_wallets.count() == 1 && _launchManager) {
             KToolInvocation::startServiceByDesktopName(
-                QStringLiteral("kwalletmanager-kwalletd"));
+                QStringLiteral("kwalletmanager5-kwalletd"));
         }
     }
     else {
@@ -1925,7 +1925,7 @@ int KWalletD::pamOpen(
     emit walletOpened(wallet);
 
     if (_wallets.count() == 1 && _launchManager) {
-        KToolInvocation::startServiceByDesktopName(QStringLiteral("kwalletmanager-kwalletd"));
+        KToolInvocation::startServiceByDesktopName(QStringLiteral("kwalletmanager5-kwalletd"));
     }
 
     return handle;
