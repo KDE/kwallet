@@ -25,7 +25,6 @@
 #include <QCryptographicHash>
 #include <assert.h>
 #include <QSaveFile>
-#include <QDebug>
 #include <KMessageBox>
 #include <klocalizedstring.h>
 #ifdef HAVE_GPGMEPP

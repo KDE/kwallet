@@ -22,7 +22,6 @@
 #define KWALLETCBC_H
 
 #include <QObject>
-#include <QtTest>
 
 class KWalletCBCTest : public QObject
 {

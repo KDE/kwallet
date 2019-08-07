@@ -25,8 +25,6 @@
 
 #include <QObject>
 #include <QList>
-#include <QEventLoop>
-#include <QWaitCondition>
 
 namespace KWallet
 {

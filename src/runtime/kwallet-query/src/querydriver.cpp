@@ -23,12 +23,11 @@
 
 #include <iostream>
 
-#include <QByteArray>
 #include <QDebug>
-#include <QDesktopWidget>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTimer>
+#include <QDesktopWidget>
 
 #include <KLocalizedString>
 

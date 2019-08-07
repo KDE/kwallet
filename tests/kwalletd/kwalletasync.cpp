@@ -6,12 +6,9 @@
 #include <QTest>
 
 #include <kaboutdata.h>
-#include <QDebug>
 #include <kwallet.h>
 #include <QDBusConnectionInterface>
 #include <QDBusConnection>
-#include <QDBusReply>
-#include <KLocalizedString>
 
 #include "kwallettest.h"
 

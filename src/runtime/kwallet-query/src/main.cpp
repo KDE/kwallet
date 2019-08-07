@@ -22,8 +22,6 @@
 #include <iostream>
 #include <QCommandLineParser>
 #include <QStringList>
-#include <QTimer>
-#include <QDebug>
 
 #include <KAboutData>
 #include <KLocalizedString>

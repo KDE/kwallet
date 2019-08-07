@@ -56,8 +56,6 @@
 #include <QString>
 #include <QRegExp>
 #include <QTimer>
-#include <QEventLoop>
-#include <QIcon>
 
 #include <assert.h>
 

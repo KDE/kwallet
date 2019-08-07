@@ -22,7 +22,6 @@
 #define _KWALLETENTRY_H
 
 #include <QString>
-#include <QDataStream>
 
 #include <kwallet.h>
 

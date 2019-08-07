@@ -23,6 +23,7 @@
 
 #include <backend/cbc.h>
 #include <backend/blowfish.h>
+#include <QTest>
 
 void KWalletCBCTest::encryptDecryptOneBlock() {
     BlockCipher *bf;

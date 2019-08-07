@@ -21,7 +21,6 @@
 #include "kwallettest.h"
 
 #include <QtTest>
-#include <QWidget>
 #include <qglobal.h>
 
 #include <kwallet.h>

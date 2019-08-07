@@ -21,7 +21,7 @@
 */
 
 #include "ktimeout.h"
-#include <QEvent>
+#include <QTimerEvent>
 
 KTimeout::KTimeout(QObject *parent)
     : QObject(parent)

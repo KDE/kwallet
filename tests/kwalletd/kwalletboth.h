@@ -22,7 +22,6 @@
 #define KWALLETBOTH_H
 
 #include <QObject>
-#include <QtTest>
 
 class KWalletBothTest : public QObject
 {

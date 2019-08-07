@@ -22,7 +22,6 @@
 #define KWALLETPATH_H
 
 #include <QObject>
-#include <QtTest>
 
 class KWalletPathTest : public QObject
 {

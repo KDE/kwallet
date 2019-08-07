@@ -21,12 +21,10 @@
 
 #include "dialog.h"
 
-#include <QLayout>
 #include <QLabel>
 #include <QPushButton>
 #include <QMap>
 #include <QVBoxLayout>
-#include <QSpacerItem>
 #include <KWallet>
 
 Dialog::Dialog(QWidget *parent) :

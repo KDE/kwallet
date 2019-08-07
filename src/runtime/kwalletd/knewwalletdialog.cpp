@@ -20,9 +20,6 @@
 #include "knewwalletdialog.h"
 #include "kwalletd_debug.h"
 #include <klocalizedstring.h>
-#include <QLabel>
-#include <QTextDocument>
-#include <QTimer>
 #include <QTableWidget>
 #include <QTableWidgetItem>
 #include <gpgme.h>

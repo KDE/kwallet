@@ -21,6 +21,7 @@
 #include "kwalletentry.h"
 
 using namespace KWallet;
+#include <QDataStream>
 
 Entry::Entry()
 {

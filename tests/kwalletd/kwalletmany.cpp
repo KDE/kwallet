@@ -23,12 +23,9 @@
 #include "kwalletmany.h"
 
 #include <QTextStream>
-#include <QTimer>
 #include <QThread>
-#include <KAboutData>
 #include <QApplication>
 #include <QTest>
-#include <KLocalizedString>
 #include <kwallet.h>
 
 #define NUMWALLETS 10
