@@ -422,8 +422,9 @@ void KWalletD::setupDialog(
     QWidget* dialog, WId wId, const QString& appid, bool modal)
 {
     if (wId != 0) {
-        KWindowSystem::setMainWindow(
-            dialog, wId); // correct, set dialog parent
+        // correct, set dialog parent
+        dialog->setAttribute(Qt::WA_NativeWindow, true);
+        KWindowSystem::setMainWindow(dialog->windowHandle(), wId);
     }
     else {
         if (appid.isEmpty()) {
