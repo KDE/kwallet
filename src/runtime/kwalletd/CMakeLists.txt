@@ -6,7 +6,6 @@ find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5ConfigWidgets ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5DBusAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5IconThemes ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Notifications ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
@@ -96,7 +95,6 @@ target_link_libraries(kwalletd5
     KF5::CoreAddons
     KF5::ConfigCore
     KF5::ConfigWidgets
-    KF5::IconThemes
     KF5::Service
     KF5::DBusAddons
     KF5::WidgetsAddons

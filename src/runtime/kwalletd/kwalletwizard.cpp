@@ -27,9 +27,9 @@
 #endif
 
 #include <KLocalizedString>
-#include <KIconLoader>
 #include <QButtonGroup>
 #include <QDebug>
+#include <QIcon>
 
 #ifdef HAVE_GPGMEPP
 #include <QComboBox>
@@ -49,12 +49,7 @@ public:
         ui.setupUi(this);
 
         ui.ktitlewidget->setText("<h1>" + i18n("KWallet") + "</h1>");
-
-        int iconSize = 3 * fontMetrics().height();
-        // round to multiple of 16
-        iconSize = (iconSize + 8) & ~15;
-        QPixmap pix = KIconLoader::global()->loadIcon(QStringLiteral("kwalletmanager"), KIconLoader::Dialog, iconSize);
-        ui.ktitlewidget->setPixmap(pix);
+        ui.ktitlewidget->setIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
 
         bg = new QButtonGroup(this);
         bg->setExclusive(true);

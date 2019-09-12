@@ -46,13 +46,13 @@
 #include <KColorScheme>
 #include <KNotification>
 #include <KLocalizedString>
-#include <KIconLoader>
 #ifdef HAVE_GPGMEPP
 #include <gpgme++/key.h>
 #endif
 
 #include <QApplication>
 #include <QDir>
+#include <QIcon>
 #include <QString>
 #include <QRegExp>
 #include <QTimer>
@@ -633,9 +633,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
                     //              kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(
                     //              i18n( "&Open" ), "wallet-open"));
                     kpd->setWindowTitle(i18n("KDE Wallet Service"));
-                    kpd->setPixmap(
-                        KIconLoader::global()->loadIcon(QStringLiteral("kwalletmanager"),
-                            KIconLoader::Desktop, KIconLoader::SizeHuge));
+                    kpd->setIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
                     if (w != KWindowSystem::activeWindow() && w != 0L) {
                         // If the dialog is modal to a minimized window it
                         // might not be visible
@@ -780,9 +778,7 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
                 kpd->setWindowTitle(i18n("KDE Wallet Service"));
                 // KF5 FIXME what should we use now instead of this:
                 //              kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
-                kpd->setPixmap(
-                    KIconLoader::global()->loadIcon(QStringLiteral("kwalletmanager"),
-                        KIconLoader::Desktop, KIconLoader::SizeHuge));
+                kpd->setIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
                 while (!b->isOpen()) {
                     setupDialog(kpd, w, appid, modal);
                     if (kpd->exec() == QDialog::Accepted) {

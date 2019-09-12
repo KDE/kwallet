@@ -10,7 +10,6 @@ find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Test)
 find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5ConfigWidgets ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5IconThemes ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(Gpgmepp) # provided by GpgME
 
@@ -42,7 +41,6 @@ target_link_libraries(kwalletwizardtest
     Qt5::Test
     KF5::CoreAddons
     KF5::I18n
-    KF5::IconThemes
     KF5::WidgetsAddons)
 if (Gpgmepp_FOUND)
     target_link_libraries(kwalletwizardtest Gpgmepp)
