@@ -169,6 +169,7 @@ int main(int argc, char **argv)
 #endif
 
     QApplication app(argc, argv);
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     // this kwalletd5 program should be able to start with KDE4's kwalletd
     // using kwalletd name would prevent KDBusService unique instance to initialize
     // so we setApplicationName("kwalletd5")
