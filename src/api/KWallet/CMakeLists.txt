@@ -88,6 +88,8 @@ if(BUILD_QCH)
             ${KWallet_HEADERS}
         LINK_QCHS
             Qt5Gui_QCH
+        INCLUDE_DIRS
+            ${CMAKE_CURRENT_BINARY_DIR}
         BLANK_MACROS
             KWALLET_EXPORT
             KWALLET_DEPRECATED
