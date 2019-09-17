@@ -571,7 +571,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     char buffer[4096];
     ssize_t bytes = 0;
     encryptedData.seek(0, SEEK_SET);
-    while (bytes = encryptedData.read(buffer, sizeof(buffer) / sizeof(buffer[0]))) {
+    while ((bytes = encryptedData.read(buffer, sizeof(buffer) / sizeof(buffer[0]))) > 0) {
         if (sf.write(buffer, bytes) != bytes) {
             KMessageBox::errorWId(w, i18n("<qt>File handling error while attempting to save the wallet <b>%1</b>. Error was <b>%2</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped(), sf.errorString()));
             sf.cancelWriting();
