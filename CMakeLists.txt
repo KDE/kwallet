@@ -34,6 +34,7 @@ find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5DocTools ${KF5_DEP_VERSION})
 
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
 add_definitions(-DQT_NO_FOREACH)
 add_definitions(-DTRANSLATION_DOMAIN=\"kwalletd5\")
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
