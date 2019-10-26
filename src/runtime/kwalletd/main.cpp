@@ -20,6 +20,7 @@
 
 #include "kwalletd_debug.h"
 #include <QApplication>
+#include <QIcon>
 #include <QString>
 #include <QSessionManager>
 #include <KLocalizedString>
@@ -177,6 +178,7 @@ int main(int argc, char **argv)
     app.setApplicationDisplayName(i18n("KDE Wallet Service"));
     app.setOrganizationDomain(QStringLiteral("kde.org"));
     app.setApplicationVersion(KWALLETD_VERSION_STRING);
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
 
     KAboutData aboutdata(I18N_NOOP("kwalletd"),
                          i18n("KDE Wallet Service"),
@@ -195,8 +197,6 @@ int main(int argc, char **argv)
     QCommandLineParser cmdParser;
     aboutdata.setupCommandLine(&cmdParser);
     cmdParser.process(app);
-
-    aboutdata.setProgramIconName(QStringLiteral("kwalletmanager"));
 
     app.setQuitOnLastWindowClosed(false);
     auto disableSessionManagement = [](QSessionManager &sm) {
