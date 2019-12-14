@@ -18,7 +18,7 @@
 
 #include "backend/blowfish.h"
 
-#include <QtTest>
+#include <QTest>
 #include <QObject>
 #include <QByteArray>
 

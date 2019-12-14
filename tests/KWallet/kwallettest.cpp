@@ -20,7 +20,7 @@
 */
 #include "kwallettest.h"
 
-#include <QtTest>
+#include <QTest>
 #include <qglobal.h>
 
 #include <kwallet.h>
