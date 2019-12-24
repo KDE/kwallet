@@ -215,6 +215,8 @@ QPair<int, KWallet::Backend*> KWalletD::findWallet(
     return qMakePair(-1, static_cast<KWallet::Backend*>(nullptr));
 }
 
+const QRegularExpression walletRegex(
+            QStringLiteral("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_\\s]+$"));
 bool KWalletD::_processing = false;
 
 void KWalletD::processTransactions()
@@ -331,8 +333,7 @@ int KWalletD::open(const QString& wallet, qlonglong wId, const QString& appid)
         return -1;
     }
 
-    if (!QRegExp(QString::fromLatin1("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
-                 "\\+\\_\\s]+$")).exactMatch(wallet)) {
+    if (!walletRegex.match(wallet).hasMatch()) {
         return -1;
     }
 
@@ -363,8 +364,7 @@ int KWalletD::openAsync(const QString& wallet, qlonglong wId,
         return -1;
     }
 
-    if (!QRegExp(QString::fromLatin1("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
-                 "\\+\\_\\s]+$")).exactMatch(wallet)) {
+    if (!walletRegex.match(wallet).hasMatch()) {
         return -1;
     }
 
@@ -1871,8 +1871,7 @@ int KWalletD::pamOpen(
         return -1;
     }
 
-    if (!QRegExp(QString::fromLatin1("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\."
-                 "\\+\\_\\s]+$")).exactMatch(wallet)) {
+    if (!walletRegex.match(wallet).hasMatch()) {
         return -1;
     }
 

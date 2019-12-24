@@ -176,13 +176,16 @@ public:
         attrs[KSS_ATTR_ENTRYFOLDER] = folder;
         KSecretsService::SearchCollectionItemsJob *searchItemsJob = secretsCollection->searchItems(attrs);
         if (searchItemsJob->exec()) {
-            QRegExp re(key, Qt::CaseSensitive, QRegExp::Wildcard);
+            const QRegularExpression re(QRegularExpression::anchoredPattern(
+                                          QRegularExpression::wildcardToRegularExpression(key)));
             const auto list = searchItemsJob->items();
+            QRegularExpressionMatch match;
             for (KSecretsService::SearchCollectionItemsJob::Item item : list) {
                 KSecretsService::ReadItemPropertyJob *readLabelJob = item->label();
                 if (readLabelJob->exec()) {
                     QString label = readLabelJob->propertyValue().toString();
-                    if (re.exactMatch(label)) {
+                    match = re.match(label);
+                    if (match.hasMatch()) {
                         if (verb(this, label, item.data())) {
                             rc = 0; // one successful iteration already produced results, so success return
                         }

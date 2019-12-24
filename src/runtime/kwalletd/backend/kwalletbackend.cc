@@ -35,7 +35,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QSaveFile>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QCryptographicHash>
 #include <QStandardPaths>
 
@@ -530,11 +530,14 @@ QList<Entry *> Backend::readEntryList(const QString &key)
         return rc;
     }
 
-    QRegExp re(key, Qt::CaseSensitive, QRegExp::Wildcard);
+    QRegularExpression re(QRegularExpression::anchoredPattern(
+                           QRegularExpression::wildcardToRegularExpression(key)));
 
     const EntryMap &map = _entries[_folder];
+    QRegularExpressionMatch match;
     for (EntryMap::ConstIterator i = map.begin(); i != map.end(); ++i) {
-        if (re.exactMatch(i.key())) {
+        match = re.match(i.key());
+        if (match.hasMatch()) {
             rc.append(i.value());
         }
     }
