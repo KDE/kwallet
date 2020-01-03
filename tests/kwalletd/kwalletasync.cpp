@@ -23,7 +23,7 @@ void KWalletAsyncTest::init()
 
 void KWalletAsyncTest::openWallet()
 {
-    _out << "About to ask for wallet async" << endl;
+    _out << "About to ask for wallet async\n";
 
     // we have no wallet: ask for one.
     KWallet::Wallet *wallet = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), 0, KWallet::Wallet::Asynchronous);
@@ -32,22 +32,25 @@ void KWalletAsyncTest::openWallet()
     WalletReceiver r;
     QVERIFY(r.connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool))));
 
-    _out << "About to start 30 second event loop" << endl;
+    _out << "About to start 30 second event loop\n";
 
     QTimer::singleShot(30000, qApp, SLOT(quit()));
     int ret = qApp->exec();
 
     if (ret == 0) {
-        _out << "Timed out!" << endl;
+        _out << "Timed out!\n";
     } else {
-        _out << "Success!" << endl;
+        _out << "Success!\n";
     }
+    _out.flush();
+
     QVERIFY2(ret == 1, "Timeout when waiting for wallet open");
 }
 
 void WalletReceiver::walletOpened(bool got)
 {
-    _out << "Got async wallet: " << got << endl;
+    _out << "Got async wallet: " << got << '\n';
+    _out.flush();
     qApp->exit(1);
 }
 

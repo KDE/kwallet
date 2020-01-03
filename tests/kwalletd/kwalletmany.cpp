@@ -51,7 +51,8 @@ void KWalletMany::init()
 
 void KWalletMany::walletOpened(bool open)
 {
-    _out << "Got async wallet: " << (open) << endl;
+    _out << "Got async wallet: " << (open) << '\n';
+    _out.flush();
     --_pending;
 }
 
@@ -60,13 +61,14 @@ void KWalletMany::openWallet()
     // open plenty of wallets in synchronous and asynchronous mode
     for (int i = 0; i < NUMWALLETS; ++i) {
         // request asynchronous wallet
-        _out << "About to ask for wallet async" << endl;
+        _out << "About to ask for wallet async" << '\n';
         Wallet *wallet;
         wallet = Wallet::openWallet(Wallet::NetworkWallet(), 0, Wallet::Asynchronous);
         QVERIFY(wallet != nullptr);
         connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool)));
         _wallets.append(wallet);
     }
+    _out.flush();
 
     // wait for 30s to receive the wallet opened replies from kwalletd
     QTRY_VERIFY_WITH_TIMEOUT(_pending == 0, 30000);
