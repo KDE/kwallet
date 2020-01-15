@@ -530,8 +530,7 @@ QList<Entry *> Backend::readEntryList(const QString &key)
         return rc;
     }
 
-    QRegularExpression re(QRegularExpression::anchoredPattern(
-                           QRegularExpression::wildcardToRegularExpression(key)));
+    QRegularExpression re(QRegularExpression::wildcardToRegularExpression(key));
 
     const EntryMap &map = _entries[_folder];
     QRegularExpressionMatch match;

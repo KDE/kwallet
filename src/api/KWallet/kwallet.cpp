@@ -176,8 +176,7 @@ public:
         attrs[KSS_ATTR_ENTRYFOLDER] = folder;
         KSecretsService::SearchCollectionItemsJob *searchItemsJob = secretsCollection->searchItems(attrs);
         if (searchItemsJob->exec()) {
-            const QRegularExpression re(QRegularExpression::anchoredPattern(
-                                          QRegularExpression::wildcardToRegularExpression(key)));
+            const QRegularExpression re(QRegularExpression::wildcardToRegularExpression(key));
             const auto list = searchItemsJob->items();
             QRegularExpressionMatch match;
             for (KSecretsService::SearchCollectionItemsJob::Item item : list) {
