@@ -51,7 +51,4 @@ if (KF5DocTools_FOUND)
     add_subdirectory(docs)
 endif()
 
-# contains list of debug categories, for kdebugsettings
-install(FILES kwallet.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-
 feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
