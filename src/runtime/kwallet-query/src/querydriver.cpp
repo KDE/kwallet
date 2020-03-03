@@ -158,7 +158,11 @@ void QueryDriver::readPasswordValue() {
         std::cout << i18n("Failed to read entry %1 value from the %2 wallet", entryName, walletName).toUtf8().constData() << std::endl;
         exit(4);
     }
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QStringList el = entryValue.split(QStringLiteral("\n"), QString::SkipEmptyParts);
+#else
+    const QStringList el = entryValue.split(QStringLiteral("\n"), Qt::SkipEmptyParts);
+#endif
     for (auto& e : el) {
         std::cout << e.toUtf8().constData() << std::endl;
     }
