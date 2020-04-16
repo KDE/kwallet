@@ -26,6 +26,7 @@
 
 #include <QApplication>
 #include <QDBusConnection>
+#include <QRegularExpression>
 
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>
@@ -176,13 +177,19 @@ public:
         attrs[KSS_ATTR_ENTRYFOLDER] = folder;
         KSecretsService::SearchCollectionItemsJob *searchItemsJob = secretsCollection->searchItems(attrs);
         if (searchItemsJob->exec()) {
-            const QRegExp re(key, Qt::CaseSensitive, QRegExp::Wildcard);
+            // HACK: QRegularExpression::wildcardToRegularExpression() mainly handles file pattern
+            // globbing (e.g. "*.txt") which means it doesn't allow "/" in the file name (which is
+            // technically correct); we have to subvert it because the keys in kwallet are in the
+            // form e.g. "foo.com/<User name>" which does have a "/" in it
+            const QString pattern = QRegularExpression::wildcardToRegularExpression(key).replace(
+                                                         QLatin1String("[^/]"), QLatin1String("."));
+            const QRegularExpression re(pattern);
             const auto list = searchItemsJob->items();
             for (KSecretsService::SearchCollectionItemsJob::Item item : list) {
                 KSecretsService::ReadItemPropertyJob *readLabelJob = item->label();
                 if (readLabelJob->exec()) {
                     QString label = readLabelJob->propertyValue().toString();
-                    if (re.exactMatch(label)) {
+                    if (re.match(label).hasMatch()) {
                         if (verb(this, label, item.data())) {
                             rc = 0; // one successful iteration already produced results, so success return
                         }

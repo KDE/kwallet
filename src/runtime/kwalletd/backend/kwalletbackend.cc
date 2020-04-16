@@ -37,6 +37,7 @@
 #include <QSaveFile>
 #include <QRegExp>
 #include <QCryptographicHash>
+#include <QRegularExpression>
 #include <QStandardPaths>
 
 #include "blowfish.h"
@@ -530,11 +531,14 @@ QList<Entry *> Backend::readEntryList(const QString &key)
         return rc;
     }
 
-    const QRegExp re(key, Qt::CaseSensitive, QRegExp::Wildcard);
+    // HACK: see Wallet::WalletPrivate::forEachItemThatMatches()
+    const QString pattern = QRegularExpression::wildcardToRegularExpression(key).replace(
+                                                         QLatin1String("[^/]"), QLatin1String("."));
+    const QRegularExpression re(pattern);
 
     const EntryMap &map = _entries[_folder];
     for (EntryMap::ConstIterator i = map.begin(); i != map.end(); ++i) {
-        if (re.exactMatch(i.key())) {
+        if (re.match(i.key()).hasMatch()) {
             rc.append(i.value());
         }
     }
