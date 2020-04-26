@@ -34,6 +34,9 @@
 // DO NOT INCLUDE THIS. IT BREAKS KWALLET.
 // We need to live with -Wundef until someone really figures out the problem.
 //#include <QtCore/qglobal.h> // for Q_BYTE_ORDER and friends
+// Workaround for -Wundef
+#define Q_BIG_ENDIAN 1
+#define Q_BYTE_ORDER Q_BIG_ENDIAN
 
 BlowFish::BlowFish()
 {
