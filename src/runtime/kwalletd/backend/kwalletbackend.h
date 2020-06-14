@@ -129,9 +129,16 @@ public:
     // Look up an entry.  Returns null if it doesn't exist.
     Entry *readEntry(const QString &key);
 
+#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
     // Look up a list of entries.  Supports wildcards.
-    // You delete the list
+    // You delete the list.
+    // Deprecated since 5.72, use entriesList()
     QList<Entry *> readEntryList(const QString &key);
+#endif
+
+    // Get a list of all the entries in the current folder.
+    // @since 5.72
+    QList<Entry *> entriesList() const;
 
     // Store an entry.
     void writeEntry(Entry *e);

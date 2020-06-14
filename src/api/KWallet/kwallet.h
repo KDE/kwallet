@@ -327,6 +327,7 @@ public:
      */
     virtual int readPassword(const QString &key, QString &value);
 
+#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
     /**
      *  Read the entries matching @p key from the current folder.
      *  The entry format is unknown except that it is either a
@@ -337,9 +338,13 @@ public:
      *  @param value A buffer to fill with the value.  The key in
      *               the map is the entry key.
      *  @return Returns 0 on success, non-zero on error.
+     *
+     *  @deprecated Since 5.72, use entriesList()
      */
     int readEntryList(const QString &key, QMap<QString, QByteArray> &value);
+#endif
 
+#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
     /**
      *  Read the map entry @p key from the current folder.
      *  @param key The key of the entry to read.  Wildcards
@@ -349,9 +354,13 @@ public:
      *  @return Returns 0 on success, non-zero on error.  Will
      *          return an error if the key was not originally
      *          written as a map.
+     *
+     *  @deprecated Since 5.72, use mapList()
      */
     int readMapList(const QString &key, QMap<QString, QMap<QString, QString> > &value);
+#endif
 
+#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
     /**
      *  Read the password entry @p key from the current folder.
      *  @param key The key of the entry to read.  Wildcards
@@ -361,8 +370,53 @@ public:
      *  @return Returns 0 on success, non-zero on error.  Will
      *          return an error if the key was not originally
      *          written as a password.
+     *
+     *  @deprecated Since 5.72, use passwordList()
      */
     int readPasswordList(const QString &key, QMap<QString, QString> &value);
+#endif
+
+    /**
+     *  Get a list of all the entries in the current folder. The entry
+     *  format is unknown except that it is either a QByteArray or a
+     *  QDataStream, which effectively means that it could be anything.
+     *
+     *  @param ok if not nullptr, the object this parameter points to will be set
+     *            to true to indicate success or false otherwise
+     *  @return a map of key/value pairs where the key in the map is the entry key
+     *
+     *  @since 5.72
+     */
+    QMap<QString, QByteArray> entriesList(bool *ok) const;
+
+    /**
+     *  Get a list of all the maps in the current folder.
+     *
+     *  @param ok if not nullptr, the object this parameter points to will be set
+     *            to true to indicate success or false otherwise. Note that if any
+     *            of the keys was not originally written as a map, the object will
+     *            be set to false
+     *
+     *  @return a map of key/value pairs where the key in the map is the entry key
+     *
+     *  @since 5.72
+     */
+    QMap<QString, QMap<QString, QString>> mapList(bool *ok) const;
+
+    /**
+     *  Get a list of all the passwords in the current folder, which can
+     *  be used to populate a list view in a password manager.
+     *
+     *  @param ok if not nullptr, the object this parameter points to will be
+     *            set to true to indicate success or false otherwise. Note that
+     *            the object will be set to false if any of the keys was not
+     *            originally written as a password
+     *
+     *  @return a map of key/value pairs, where the key in the map is the entry key
+     *
+     *  @since 5.72
+     */
+    QMap<QString, QString> passwordList(bool *ok) const;
 
     /**
      *  Write @p key = @p value as a binary entry to the current

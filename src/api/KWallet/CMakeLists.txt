@@ -42,7 +42,15 @@ ecm_qt_declare_logging_category(kwallet_SRCS
 )
 
 add_library(KF5Wallet ${kwallet_SRCS})
-generate_export_header(KF5Wallet BASE_NAME KWallet)
+ecm_generate_export_header(KF5Wallet
+    BASE_NAME KWallet
+    GROUP_BASE_NAME KF
+    VERSION ${KF5_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS 5.72
+    EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
+)
+
 add_library(KF5::Wallet ALIAS KF5Wallet)
 
 target_include_directories(KF5Wallet INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KWallet>")

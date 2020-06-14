@@ -115,9 +115,25 @@ public Q_SLOTS:
     QByteArray readEntry(int handle, const QString &folder, const QString &key, const QString &appid);
     QByteArray readMap(int handle, const QString &folder, const QString &key, const QString &appid);
     QString readPassword(int handle, const QString &folder, const QString &key, const QString &appid);
+
+#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
+    // use entriesList()
     QVariantMap readEntryList(int handle, const QString &folder, const QString &key, const QString &appid);
+#endif
+
+#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
+    // use mapList()
     QVariantMap readMapList(int handle, const QString &folder, const QString &key, const QString &appid);
+#endif
+
+#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
+    // use passwordList()
     QVariantMap readPasswordList(int handle, const QString &folder, const QString &key, const QString &appid);
+#endif
+
+    QVariantMap entriesList(int handle, const QString &folder, const QString &appid);
+    QVariantMap mapList(int handle, const QString &folder, const QString &appid);
+    QVariantMap passwordList(int handle, const QString &folder, const QString &appid);
 
     // Rename an entry.  rc=0 on success.
     int renameEntry(int handle, const QString &folder, const QString &oldName, const QString &newName, const QString &appid);

@@ -523,6 +523,7 @@ Entry *Backend::readEntry(const QString &key)
     return rc;
 }
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
 QList<Entry *> Backend::readEntryList(const QString &key)
 {
     QList<Entry *> rc;
@@ -544,6 +545,18 @@ QList<Entry *> Backend::readEntryList(const QString &key)
     }
     return rc;
 }
+#endif
+
+QList<Entry *> Backend::entriesList() const
+{
+    if (!_open) {
+        return QList<Entry *>();
+    }
+    const EntryMap &map = _entries[_folder];
+
+    return map.values();
+}
+
 
 bool Backend::createFolder(const QString &f)
 {

@@ -169,6 +169,7 @@ public:
     template <typename T> int readEntry(const QString &key, T &value) const;
     bool readSecret(const QString &key, KSecretsService::Secret &value) const;
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
     template <typename V>
     int forEachItemThatMatches(const QString &key, V verb)
     {
@@ -176,6 +177,7 @@ public:
         KSecretsService::StringStringMap attrs;
         attrs[KSS_ATTR_ENTRYFOLDER] = folder;
         KSecretsService::SearchCollectionItemsJob *searchItemsJob = secretsCollection->searchItems(attrs);
+        // TODO: Make this, and similar jobs, async
         if (searchItemsJob->exec()) {
             // HACK: QRegularExpression::wildcardToRegularExpression() mainly handles file pattern
             // globbing (e.g. "*.txt") which means it doesn't allow "/" in the file name (which is
@@ -193,6 +195,32 @@ public:
                         if (verb(this, label, item.data())) {
                             rc = 0; // one successful iteration already produced results, so success return
                         }
+                    }
+                } else {
+                    qCDebug(KWALLET_API_LOG) << "Cannot execute ReadItemPropertyJob " << readLabelJob->errorString();
+                }
+            }
+        } else {
+            qCDebug(KWALLET_API_LOG) << "Cannot execute KSecretsService::SearchCollectionItemsJob " << searchItemsJob->errorString();
+        }
+        return rc;
+    }
+#endif
+
+    template <typename V> int checkItems(V verb)
+    {
+        int rc = -1;
+        KSecretsService::StringStringMap attrs;
+        attrs[KSS_ATTR_ENTRYFOLDER] = folder;
+        KSecretsService::SearchCollectionItemsJob *searchItemsJob = secretsCollection->searchItems(attrs);
+        if (searchItemsJob->exec()) {
+            const auto list = searchItemsJob->items();
+            for (KSecretsService::SearchCollectionItemsJob::Item item : list) {
+                KSecretsService::ReadItemPropertyJob *readLabelJob = item->label();
+                if (readLabelJob->exec()) {
+                    const QString label = readLabelJob->propertyValue().toString();
+                    if (verb(this, label, item.data())) {
+                        rc = 0; // one successful iteration already produced results, so success return
                     }
                 } else {
                     qCDebug(KWALLET_API_LOG) << "Cannot execute ReadItemPropertyJob " << readLabelJob->errorString();
@@ -1046,6 +1074,7 @@ struct Wallet::WalletPrivate::InsertIntoEntryList {
 };
 #endif
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
 int Wallet::readEntryList(const QString &key, QMap<QString, QByteArray> &value)
 {
 
@@ -1077,6 +1106,47 @@ int Wallet::readEntryList(const QString &key, QMap<QString, QByteArray> &value)
 
     return rc;
 }
+#endif
+
+QMap<QString, QByteArray> Wallet::entriesList(bool *ok) const
+{
+    QMap<QString, QByteArray> entries;
+
+#if HAVE_KSECRETSSERVICE
+    if (walletLauncher()->m_useKSecretsService) {
+        const int ret = d->checkItems(WalletPrivate::InsertIntoEntryList(entries));
+        if (ok) {
+            *ok = ret == 0;
+        }
+    } else {
+#endif
+        registerTypes();
+
+        if (d->handle == -1) {
+            if (ok) {
+                *ok = false;
+            }
+            return entries;
+        }
+
+        QDBusReply<QVariantMap> reply = walletLauncher()->getInterface().entriesList(d->handle, d->folder, appid());
+        if (reply.isValid()) {
+            if (ok) {
+                *ok = true;
+            }
+            // convert <QString, QVariant> to <QString, QByteArray>
+            const QVariantMap val = reply.value();
+            for (QVariantMap::const_iterator it = val.begin(); it != val.end(); ++it) {
+                entries.insert(it.key(), it.value().toByteArray());
+            }
+        }
+#if HAVE_KSECRETSSERVICE
+    }
+#endif
+
+    return entries;
+}
+
 
 int Wallet::renameEntry(const QString &oldName, const QString &newName)
 {
@@ -1164,6 +1234,7 @@ struct Wallet::WalletPrivate::InsertIntoMapList {
 };
 #endif
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
 int Wallet::readMapList(const QString &key, QMap<QString, QMap<QString, QString> > &value)
 {
     int rc = -1;
@@ -1199,6 +1270,51 @@ int Wallet::readMapList(const QString &key, QMap<QString, QMap<QString, QString>
 #endif
 
     return rc;
+}
+#endif
+
+QMap<QString, QMap<QString, QString>> Wallet::mapList(bool *ok) const
+{
+    QMap<QString, QMap<QString, QString>> list;
+
+#if HAVE_KSECRETSSERVICE
+    if (walletLauncher()->m_useKSecretsService) {
+        const int ret = d->checkItems(WalletPrivate::InsertIntoMapList(list));
+        if (ok) {
+            *ok = ret == 0;
+        }
+    } else {
+#endif
+        registerTypes();
+
+        if (d->handle == -1) {
+            if (ok) {
+                *ok = false;
+            }
+            return list;
+        }
+
+        QDBusReply<QVariantMap> reply = walletLauncher()->getInterface().mapList(d->handle, d->folder, appid());
+        if (reply.isValid()) {
+            if (ok) {
+                *ok = true;
+            }
+            const QVariantMap val = reply.value();
+            for (QVariantMap::const_iterator it = val.begin(); it != val.end(); ++it) {
+                QByteArray mapData = it.value().toByteArray();
+                if (!mapData.isEmpty()) {
+                    QDataStream ds(&mapData, QIODevice::ReadOnly);
+                    QMap<QString, QString> v;
+                    ds >> v;
+                    list.insert(it.key(), v);
+                }
+            }
+        }
+#if HAVE_KSECRETSSERVICE
+    }
+#endif
+
+    return list;
 }
 
 int Wallet::readPassword(const QString &key, QString &value)
@@ -1243,6 +1359,7 @@ struct Wallet::WalletPrivate::InsertIntoPasswordList {
 };
 #endif
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
 int Wallet::readPasswordList(const QString &key, QMap<QString, QString> &value)
 {
     int rc = -1;
@@ -1271,6 +1388,44 @@ int Wallet::readPasswordList(const QString &key, QMap<QString, QString> &value)
 #endif
 
     return rc;
+}
+#endif
+
+QMap<QString, QString> Wallet::passwordList(bool *ok) const
+{
+    QMap<QString, QString> passList;
+
+#if HAVE_KSECRETSSERVICE
+    if (walletLauncher()->m_useKSecretsService) {
+        const int ret = d->checkItems(WalletPrivate::InsertIntoPasswordList(passList));
+        if (ok) {
+            *ok = ret == 0;
+    } else {
+#endif
+        registerTypes();
+
+        if (d->handle == -1) {
+            if (ok) {
+                *ok = false;
+            }
+            return passList;
+        }
+
+        QDBusReply<QVariantMap> reply = walletLauncher()->getInterface().passwordList(d->handle, d->folder, appid());
+        if (reply.isValid()) {
+            if (ok) {
+                *ok = true;
+            }
+            const QVariantMap val = reply.value();
+            for (QVariantMap::const_iterator it = val.begin(); it != val.end(); ++it) {
+                passList.insert(it.key(), it.value().toString());
+            }
+        }
+#if HAVE_KSECRETSSERVICE
+    }
+#endif
+
+    return passList;
 }
 
 int Wallet::writeEntry(const QString &key, const QByteArray &value, EntryType entryType)

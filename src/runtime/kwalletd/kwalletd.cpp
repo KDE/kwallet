@@ -1297,6 +1297,7 @@ QByteArray KWalletD::readMap(int handle, const QString& folder,
     return QByteArray();
 }
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
 QVariantMap KWalletD::readMapList(int handle, const QString& folder,
     const QString& key, const QString& appid)
 {
@@ -1316,6 +1317,25 @@ QVariantMap KWalletD::readMapList(int handle, const QString& folder,
 
     return QVariantMap();
 }
+#endif
+
+QVariantMap KWalletD::mapList(int handle, const QString &folder, const QString &appid)
+{
+    QVariantMap rc;
+
+    KWallet::Backend *backend = getWallet(appid, handle);
+    if (backend) {
+        backend->setFolder(folder);
+        const QList<KWallet::Entry *> lst = backend->entriesList();
+        for (KWallet::Entry *entry : lst) {
+            if (entry->type() == KWallet::Wallet::Map) {
+                rc.insert(entry->key(), entry->map());
+            }
+        }
+    }
+
+    return rc;
+}
 
 QByteArray KWalletD::readEntry(int handle, const QString& folder,
     const QString& key, const QString& appid)
@@ -1333,6 +1353,7 @@ QByteArray KWalletD::readEntry(int handle, const QString& folder,
     return QByteArray();
 }
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
 QVariantMap KWalletD::readEntryList(int handle, const QString& folder,
     const QString& key, const QString& appid)
 {
@@ -1349,6 +1370,24 @@ QVariantMap KWalletD::readEntryList(int handle, const QString& folder,
     }
 
     return QVariantMap();
+}
+#endif
+
+QVariantMap KWalletD::entriesList(int handle, const QString &folder, const QString &appid)
+{
+
+    QVariantMap rc;
+
+    KWallet::Backend *backend = getWallet(appid, handle);
+    if (backend) {
+        backend->setFolder(folder);
+        const QList<KWallet::Entry *> lst = backend->entriesList();
+        for (KWallet::Entry *entry : lst) {
+            rc.insert(entry->key(), entry->value());
+        }
+    }
+
+    return rc;
 }
 
 QStringList KWalletD::entryList(
@@ -1380,6 +1419,7 @@ QString KWalletD::readPassword(int handle, const QString& folder,
     return QString();
 }
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
 QVariantMap KWalletD::readPasswordList(int handle, const QString& folder,
     const QString& key, const QString& appid)
 {
@@ -1398,6 +1438,25 @@ QVariantMap KWalletD::readPasswordList(int handle, const QString& folder,
     }
 
     return QVariantMap();
+}
+#endif
+
+QVariantMap KWalletD::passwordList(int handle, const QString &folder, const QString &appid)
+{
+    QVariantMap rc;
+
+    KWallet::Backend *backend = getWallet(appid, handle);
+    if (backend) {
+        backend->setFolder(folder);
+        const QList<KWallet::Entry *> lst = backend->entriesList();
+        for (KWallet::Entry *entry : lst) {
+            if (entry->type() == KWallet::Wallet::Password) {
+                rc.insert(entry->key(), entry->password());
+            }
+        }
+    }
+
+    return rc;
 }
 
 int KWalletD::writeMap(int handle, const QString& folder, const QString& key,

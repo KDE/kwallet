@@ -20,6 +20,7 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 
 include(ECMAddQch)
+include(ECMGenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
 
