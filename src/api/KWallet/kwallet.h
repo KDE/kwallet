@@ -339,8 +339,9 @@ public:
      *               the map is the entry key.
      *  @return Returns 0 on success, non-zero on error.
      *
-     *  @deprecated Since 5.72, use entriesList()
+     *  @deprecated Since 5.72, use entriesList(bool *)
      */
+    KWALLET_DEPRECATED_VERSION(5, 72, "Use entriesList(bool *)")
     int readEntryList(const QString &key, QMap<QString, QByteArray> &value);
 #endif
 
@@ -355,8 +356,9 @@ public:
      *          return an error if the key was not originally
      *          written as a map.
      *
-     *  @deprecated Since 5.72, use mapList()
+     *  @deprecated Since 5.72, use mapList(bool *)
      */
+    KWALLET_DEPRECATED_VERSION(5, 72, "Use mapList(bool *)")
     int readMapList(const QString &key, QMap<QString, QMap<QString, QString> > &value);
 #endif
 
@@ -371,8 +373,9 @@ public:
      *          return an error if the key was not originally
      *          written as a password.
      *
-     *  @deprecated Since 5.72, use passwordList()
+     *  @deprecated Since 5.72, use passwordList(bool *)
      */
+    KWALLET_DEPRECATED_VERSION(5, 72, "Use passwordList(bool *)")
     int readPasswordList(const QString &key, QMap<QString, QString> &value);
 #endif
 
