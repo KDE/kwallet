@@ -116,17 +116,17 @@ public Q_SLOTS:
     QByteArray readMap(int handle, const QString &folder, const QString &key, const QString &appid);
     QString readPassword(int handle, const QString &folder, const QString &key, const QString &appid);
 
-#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
     // use entriesList()
     QVariantMap readEntryList(int handle, const QString &folder, const QString &key, const QString &appid);
 #endif
 
-#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
     // use mapList()
     QVariantMap readMapList(int handle, const QString &folder, const QString &key, const QString &appid);
 #endif
 
-#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
     // use passwordList()
     QVariantMap readPasswordList(int handle, const QString &folder, const QString &key, const QString &appid);
 #endif

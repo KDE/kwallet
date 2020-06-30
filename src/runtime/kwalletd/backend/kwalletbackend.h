@@ -129,7 +129,7 @@ public:
     // Look up an entry.  Returns null if it doesn't exist.
     Entry *readEntry(const QString &key);
 
-#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
+#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
     // Look up a list of entries.  Supports wildcards.
     // You delete the list.
     // Deprecated since 5.72, use entriesList()
