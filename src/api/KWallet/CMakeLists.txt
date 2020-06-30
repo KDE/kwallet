@@ -29,7 +29,13 @@ if (MAC_USE_OSXKEYCHAIN)
     set(kwallet_SRCS kwallet_mac.cpp)
 else()
     set(kwallet_SRCS kwallet.cpp)
-    set(kwallet_xml org.kde.KWallet.xml)
+    if (NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
+        EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.72.0)
+        set(kwallet_xml org.kde.KWallet.xml)
+    else()
+        # copy of org.kde.KWallet.xml, but with all deprecated API removed
+        set(kwallet_xml org.kde.KWallet.nodeprecated.xml)
+    endif()
     qt5_add_dbus_interface( kwallet_SRCS ${kwallet_xml} kwallet_interface )
 endif()
 
