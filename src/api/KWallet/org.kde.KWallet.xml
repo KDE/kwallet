@@ -161,6 +161,7 @@
       <arg name="folder" type="s" direction="in"/>
       <arg name="key" type="s" direction="in"/>
       <arg name="appid" type="s" direction="in"/>
+      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
     </method>
     <method name="entriesList">
       <arg type="a{sv}" direction="out"/>
@@ -176,6 +177,7 @@
       <arg name="folder" type="s" direction="in"/>
       <arg name="key" type="s" direction="in"/>
       <arg name="appid" type="s" direction="in"/>
+      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
     </method>
     <method name="mapList">
       <arg type="a{sv}" direction="out"/>
@@ -191,6 +193,7 @@
       <arg name="folder" type="s" direction="in"/>
       <arg name="key" type="s" direction="in"/>
       <arg name="appid" type="s" direction="in"/>
+      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
     </method>
     <method name="passwordList">
       <arg type="a{sv}" direction="out"/>

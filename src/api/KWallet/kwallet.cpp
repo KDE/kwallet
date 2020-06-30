@@ -1091,7 +1091,11 @@ int Wallet::readEntryList(const QString &key, QMap<QString, QByteArray> &value)
             return rc;
         }
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
         QDBusReply<QVariantMap> r = walletLauncher()->getInterface().readEntryList(d->handle, d->folder, key, appid());
+QT_WARNING_POP
         if (r.isValid()) {
             rc = 0;
             // convert <QString, QVariant> to <QString, QByteArray>
@@ -1170,7 +1174,11 @@ int Wallet::renameEntry(const QString &oldName, const QString &newName)
             return rc;
         }
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
         QDBusReply<int> r = walletLauncher()->getInterface().renameEntry(d->handle, d->folder, oldName, newName, appid());
+QT_WARNING_POP
         if (r.isValid()) {
             rc = r;
         }
@@ -1250,8 +1258,12 @@ int Wallet::readMapList(const QString &key, QMap<QString, QMap<QString, QString>
             return rc;
         }
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
         QDBusReply<QVariantMap> r =
             walletLauncher()->getInterface().readMapList(d->handle, d->folder, key, appid());
+QT_WARNING_POP
         if (r.isValid()) {
             rc = 0;
             const QVariantMap val = r.value();
@@ -1375,7 +1387,11 @@ int Wallet::readPasswordList(const QString &key, QMap<QString, QString> &value)
             return rc;
         }
 
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_CLANG("-Wdeprecated-declarations")
+QT_WARNING_DISABLE_GCC("-Wdeprecated-declarations")
         QDBusReply<QVariantMap> r = walletLauncher()->getInterface().readPasswordList(d->handle, d->folder, key, appid());
+QT_WARNING_POP
         if (r.isValid()) {
             rc = 0;
             const QVariantMap val = r.value();
