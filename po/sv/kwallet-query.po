@@ -1,0 +1,137 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-04 03:03+0100\n"
+"PO-Revision-Date: 2015-06-15 19:32+0200\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stefan Asserhäll"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "stefan.asserhall@bredband.net"
+
+#: main.cpp:36 main.cpp:38
+#, kde-format
+msgid "KWallet query interface"
+msgstr "Frågegränssnitt för plånboken"
+
+#: main.cpp:40
+#, kde-format
+msgid "(c) 2015, The KDE Developers"
+msgstr "© 2015, KDE-utvecklarna"
+
+#: main.cpp:44
+#, kde-format
+msgid "verbose output"
+msgstr "detaljerad utmatning"
+
+#: main.cpp:45
+#, kde-format
+msgid "list password entries"
+msgstr "lista lösenordsposter"
+
+#: main.cpp:46
+#, kde-format
+msgid "reads the secrets from the given <entry>"
+msgstr "Läser hemlig information från angiven <post>"
+
+#: main.cpp:46 main.cpp:47
+#, kde-format
+msgid "Entry"
+msgstr "Post"
+
+#: main.cpp:47
+#, kde-format
+msgid ""
+"write secrets to the given <entry>. The values are read from the standard "
+"input. IMPORTANT: previous wallet entry value will be overwritten!"
+msgstr ""
+"Skriv hemlig information i angiven <post>. Informationen läses från "
+"standardinmatningen. Viktigt: Tidigare värde i plånbokens post skrivs över."
+
+#: main.cpp:48
+#, kde-format
+msgid "specify the folder in the wallet <folder>"
+msgstr "ange katalogen <katalog> i plånboken"
+
+#: main.cpp:48
+#, kde-format
+msgid "Folder"
+msgstr "Katalog"
+
+#: main.cpp:51
+#, kde-format
+msgid "wallet"
+msgstr "Plånbok"
+
+#: main.cpp:51
+#, kde-format
+msgid "The wallet to query"
+msgstr "Plånbok att använda"
+
+#: main.cpp:61
+#, kde-format
+msgid "Missing argument"
+msgstr "Saknar argument"
+
+#: main.cpp:65
+#, kde-format
+msgid "Too many arguments given"
+msgstr "För många argument angivna"
+
+#: main.cpp:72
+#, kde-format
+msgid "Only one mode (list, read or write) can be set. Aborting"
+msgstr "Bara en metod (lista, läsa eller skriva) kan anges. Avbryter."
+
+#: main.cpp:78
+#, kde-format
+msgid "Please specify the mode (list or read)."
+msgstr "Ange metod (lista eller läsa)."
+
+#: querydriver.cpp:59
+#, kde-format
+msgid "Wallet %1 not found"
+msgstr "Plånboken %1 hittades inte"
+
+#: querydriver.cpp:78
+#, kde-format
+msgid "Failed to open wallet %1. Aborting"
+msgstr "Misslyckades öppna plånboken %1. Avbryter."
+
+#: querydriver.cpp:111 querydriver.cpp:125
+#, kde-format
+msgid "The folder %1 does not exist!"
+msgstr "Katalogen %1 finns inte."
+
+#: querydriver.cpp:134
+#, kde-format
+msgid "Failed to read entry %1 value from the %2 wallet."
+msgstr "Misslyckades läsa värde för post %1 från plånbok %2."
+
+#: querydriver.cpp:144 querydriver.cpp:158
+#, kde-format
+msgid "Failed to read entry %1 value from the %2 wallet"
+msgstr "Misslyckades läsa värde för post %1 från plånbok %2"
+
+#: querydriver.cpp:186 querydriver.cpp:200
+#, kde-format
+msgid "Failed to write entry %1 value to %2 wallet"
+msgstr "Misslyckades skriva värde för post %1 till plånbok %2"
