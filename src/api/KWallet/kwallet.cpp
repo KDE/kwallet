@@ -28,8 +28,8 @@
 #include <QDBusConnection>
 #include <QRegularExpression>
 
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KConfigGroup>
+#include <KSharedConfig>
 #include <kwindowsystem.h>
 
 #if HAVE_KSECRETSSERVICE

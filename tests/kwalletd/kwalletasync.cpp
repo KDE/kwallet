@@ -5,7 +5,7 @@
 #include <QTimer>
 #include <QTest>
 
-#include <kaboutdata.h>
+#include <KAboutData>
 #include <kwallet.h>
 #include <QDBusConnectionInterface>
 #include <QDBusConnection>

@@ -26,7 +26,7 @@
 #include <assert.h>
 #include <QSaveFile>
 #include <KMessageBox>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #ifdef HAVE_GPGMEPP
 #include <gpgme.h>
 #include <gpgme++/context.h>

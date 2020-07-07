@@ -36,7 +36,7 @@
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <gpgme.h>
 #endif
 

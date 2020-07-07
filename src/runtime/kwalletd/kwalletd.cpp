@@ -31,18 +31,18 @@
 #include "knewwalletdialog.h"
 #endif
 
-#include <ktoolinvocation.h>
-#include <kconfig.h>
-#include <ksharedconfig.h>
-#include <kconfiggroup.h>
-#include <kdirwatch.h>
-#include <kmessagebox.h>
-#include <kpassworddialog.h>
-#include <knewpassworddialog.h>
+#include <KToolInvocation>
+#include <KConfig>
+#include <KSharedConfig>
+#include <KConfigGroup>
+#include <KDirWatch>
+#include <KMessageBox>
+#include <KPasswordDialog>
+#include <KNewPasswordDialog>
 #include <kwalletentry.h>
 #include <kwindowsystem.h>
-#include <kpluginfactory.h>
-#include <kpluginloader.h>
+#include <KPluginFactory>
+#include <KPluginLoader>
 #include <KColorScheme>
 #include <KNotification>
 #include <KLocalizedString>

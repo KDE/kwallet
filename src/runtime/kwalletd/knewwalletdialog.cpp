@@ -19,14 +19,14 @@
 
 #include "knewwalletdialog.h"
 #include "kwalletd_debug.h"
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <QTableWidget>
 #include <QTableWidgetItem>
 #include <gpgme.h>
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <kmessagebox.h>
+#include <KMessageBox>
 
 Q_DECLARE_METATYPE(GpgME::Key)
 
