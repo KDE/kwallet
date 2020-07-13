@@ -50,7 +50,8 @@ set(kwalletd_SRCS
 ecm_qt_declare_logging_category(kwalletd_SRCS
     HEADER kwalletd_debug.h
     IDENTIFIER KWALLETD_LOG
-    CATEGORY_NAME kf5.kwallet.kwalletd
+    CATEGORY_NAME kf.wallet.kwalletd
+    OLD_CATEGORY_NAMES kf5.kwallet.kwalletd
     DESCRIPTION "kwalletd"
     EXPORT KWALLET
 )

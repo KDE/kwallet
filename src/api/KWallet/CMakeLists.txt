@@ -42,7 +42,8 @@ endif()
 ecm_qt_declare_logging_category(kwallet_SRCS
     HEADER kwallet_api_debug.h
     IDENTIFIER KWALLET_API_LOG
-    CATEGORY_NAME kf5.kwallet.api
+    CATEGORY_NAME kf.wallet.api
+    OLD_CATEGORY_NAMES kf5.kwallet.api
     DESCRIPTION "kwallet api"
     EXPORT KWALLET
 )

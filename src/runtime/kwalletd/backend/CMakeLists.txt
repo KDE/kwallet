@@ -43,7 +43,8 @@ set(kwalletbackend_LIB_SRCS
 ecm_qt_declare_logging_category(kwalletbackend_LIB_SRCS
     HEADER kwalletbackend_debug.h
     IDENTIFIER KWALLETBACKEND_LOG
-    CATEGORY_NAME kf5.kwallet.kwalletbackend
+    CATEGORY_NAME kf.wallet.backend
+    OLD_CATEGORY_NAMES kf5.kwallet.kwalletbackend
     DESCRIPTION "kwalletbackend"
     EXPORT KWALLET
 )
