@@ -1,6 +1,6 @@
 [Global]
 IconName=kwalletmanager
-Comment=Wallet
+Comment=KDE Wallet
 Comment[ar]=المحفظة
 Comment[az]=Cüzdan
 Comment[bg]=Портфейл
@@ -70,7 +70,7 @@ Comment[wa]=Poite-manoye
 Comment[x-test]=xxWalletxx
 Comment[zh_CN]=钱包
 Comment[zh_TW]=錢包
-Name=kwalletd
+Name=KDE Wallet
 Name[ar]=kwalletd
 Name[ast]=kwalletd
 Name[az]=kwalletd
@@ -146,7 +146,7 @@ Name[zh_CN]=kwalletd
 Name[zh_TW]=kwalletd
 
 [Event/needsPassword]
-Name=Needs password
+Name=Needs Password
 Name[ar]=يحتاج كلمة السر
 Name[ast]=Precísase una contraseña
 Name[az]=Şifrə tələb olunur
