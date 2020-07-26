@@ -1,14 +1,18 @@
 [Global]
 IconName=kwalletmanager
 Comment=KDE Wallet
+Comment[az]=KDE Cüzdanı
 Comment[ca]=Cartera del KDE
+Comment[es]=Cartera de KDE
 Comment[nl]=KDE Portefeuillebeheer
 Comment[pt]=Carteira do KDE
 Comment[sv]=KDE-plånbok
 Comment[uk]=Торбинка KDE
 Comment[x-test]=xxKDE Walletxx
 Name=KDE Wallet
+Name[az]=KDE Cüzdanı
 Name[ca]=Cartera del KDE
+Name[es]=Cartera de KDE
 Name[nl]=KDE Portefeuillebeheer
 Name[pt]=Carteira do KDE
 Name[sv]=KDE-plånbok
@@ -18,6 +22,7 @@ Name[x-test]=xxKDE Walletxx
 [Event/needsPassword]
 Name=Needs Password
 Name[ca]=Cal una contrasenya
+Name[es]=Necesita contraseña
 Name[nl]=Wachtwoord nodig
 Name[pt]=Necessita de Senha
 Name[sv]=Kräver lösenord
