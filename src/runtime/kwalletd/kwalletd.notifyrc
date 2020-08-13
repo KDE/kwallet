@@ -13,6 +13,7 @@ Comment[pt_BR]=Carteira do KDE
 Comment[sv]=KDE-plånbok
 Comment[uk]=Торбинка KDE
 Comment[x-test]=xxKDE Walletxx
+Comment[zh_CN]=KDE 钱包
 Name=KDE Wallet
 Name[az]=KDE Cüzdanı
 Name[ca]=Cartera del KDE
@@ -27,6 +28,7 @@ Name[pt_BR]=Carteira do KDE
 Name[sv]=KDE-plånbok
 Name[uk]=Торбинка KDE
 Name[x-test]=xxKDE Walletxx
+Name[zh_CN]=KDE 钱包
 
 [Event/needsPassword]
 Name=Needs Password
@@ -41,6 +43,7 @@ Name[pt_BR]=Necessita senha
 Name[sv]=Kräver lösenord
 Name[uk]=Потрібен пароль
 Name[x-test]=xxNeeds Passwordxx
+Name[zh_CN]=需要密码
 Comment=The KDE Wallet Daemon requests a password
 Comment[ar]=«عفريت محفظة كدي» يطلب كلمة سر
 Comment[ast]=El degorriu de KDE Wallet solicita una contraseña
