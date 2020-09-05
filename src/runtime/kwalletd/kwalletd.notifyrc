@@ -3,6 +3,7 @@ IconName=kwalletmanager
 Comment=KDE Wallet
 Comment[az]=KDE Cüzdanı
 Comment[ca]=Cartera del KDE
+Comment[cs]=Úschovna KDE
 Comment[da]=KDE tegnebog
 Comment[de]=KDE-Passwortspeicher
 Comment[el]=Πορτοφόλι του KDE
@@ -45,6 +46,7 @@ Name[zh_CN]=KDE 钱包
 [Event/needsPassword]
 Name=Needs Password
 Name[ca]=Cal una contrasenya
+Name[cs]=Je třeba heslo
 Name[da]=Kræver adgangskode
 Name[de]=Passwort erforderlich
 Name[el]=Απαιτείται κωδικός πρόσβασης
