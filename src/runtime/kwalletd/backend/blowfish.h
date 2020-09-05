@@ -42,13 +42,13 @@ public:
     int decrypt(void *block, int len) override;
 
 private:
-    uint32_t _S[4][256];
-    uint32_t _P[18];
+    uint32_t m_S[4][256];
+    uint32_t m_P[18];
 
-    void *_key;
-    int _keylen;  // in bits
+    void *m_key;
+    int m_keylen;  // in bits
 
-    bool _init;
+    bool m_initialized;
 
     bool init();
     uint32_t F(uint32_t x);

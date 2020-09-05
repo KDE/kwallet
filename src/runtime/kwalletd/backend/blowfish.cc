@@ -29,18 +29,18 @@
 BlowFish::BlowFish()
 {
     _blksz = 8;
-    _key = nullptr;
-    _init = false;
+    m_key = nullptr;
+    m_initialized = false;
 }
 
 bool BlowFish::init()
 {
     // Initialize the sboxes
     for (int i = 0; i < 256; i++) {
-        _S[0][i] = ks0[i];
-        _S[1][i] = ks1[i];
-        _S[2][i] = ks2[i];
-        _S[3][i] = ks3[i];
+        m_S[0][i] = ks0[i];
+        m_S[1][i] = ks1[i];
+        m_S[2][i] = ks2[i];
+        m_S[3][i] = ks3[i];
     }
 
     uint32_t datal = 0;
@@ -52,25 +52,25 @@ bool BlowFish::init()
     for (int i = 0; i < 18; i++) {
         data = 0;
         for (int k = 0; k < 4; ++k) {
-            data = (data << 8) | ((unsigned char *)_key)[j++];
-            if (j >= _keylen / 8) {
+            data = (data << 8) | ((unsigned char *)m_key)[j++];
+            if (j >= m_keylen / 8) {
                 j = 0;
             }
         }
-        _P[i] = P[i] ^ data;
+        m_P[i] = P[i] ^ data;
     }
 
     for (int i = 0; i < 18; i += 2) {
         encipher(&datal, &datar);
-        _P[i] = datal;
-        _P[i + 1] = datar;
+        m_P[i] = datal;
+        m_P[i + 1] = datar;
     }
 
     for (int j = 0; j < 4; j++) {
         for (int i = 0; i < 256; i += 2) {
             encipher(&datal, &datar);
-            _S[j][i] = datal;
-            _S[j][i + 1] = datar;
+            m_S[j][i] = datal;
+            m_S[j][i + 1] = datar;
         }
     }
 
@@ -78,22 +78,22 @@ bool BlowFish::init()
     //     check to see if the key is weak and return error if so
     for (int i = 0; i < 255; i++) {
         for (int j = i + 1; j < 256; j++) {
-            if ((_S[0][i] == _S[0][j]) || (_S[1][i] == _S[1][j]) ||
-                    (_S[2][i] == _S[2][j]) || (_S[3][i] == _S[3][j])) {
+            if ((m_S[0][i] == m_S[0][j]) || (m_S[1][i] == m_S[1][j]) ||
+                    (m_S[2][i] == m_S[2][j]) || (m_S[3][i] == m_S[3][j])) {
                 return false;
             }
         }
     }
 
-    _init = true;
+    m_initialized = true;
 
     return true;
 }
 
 BlowFish::~BlowFish()
 {
-    delete[](unsigned char *)_key;
-    _key = nullptr;
+    delete[](unsigned char *)m_key;
+    m_key = nullptr;
 }
 
 int BlowFish::keyLen() const
@@ -108,7 +108,7 @@ bool BlowFish::variableKeyLen() const
 
 bool BlowFish::readyToGo() const
 {
-    return _init;
+    return m_initialized;
 }
 
 bool BlowFish::setKey(void *key, int bitlength)
@@ -117,11 +117,11 @@ bool BlowFish::setKey(void *key, int bitlength)
         return false;
     }
 
-    delete[](unsigned char *)_key;
+    delete[](unsigned char *)m_key;
 
-    _key = new unsigned char[bitlength / 8];
-    memcpy(_key, key, bitlength / 8);
-    _keylen = bitlength;
+    m_key = new unsigned char[bitlength / 8];
+    memcpy(m_key, key, bitlength / 8);
+    m_keylen = bitlength;
 
     return init();
 }
@@ -140,7 +140,7 @@ int BlowFish::encrypt(void *block, int len)
 {
     uint32_t *d = (uint32_t *)block;
 
-    if (!_init || len % _blksz != 0) {
+    if (!m_initialized || len % _blksz != 0) {
         return -1;
     }
 
@@ -164,7 +164,7 @@ int BlowFish::decrypt(void *block, int len)
 {
     uint32_t *d = (uint32_t *)block;
 
-    if (!_init || len % _blksz != 0) {
+    if (!m_initialized || len % _blksz != 0) {
         return -1;
     }
 
@@ -197,9 +197,9 @@ uint32_t BlowFish::F(uint32_t x)
     x >>= 8;
     a = x & 0x000000ff;
 
-    y = _S[0][a] + _S[1][b];
-    y ^= _S[2][c];
-    y += _S[3][d];
+    y = m_S[0][a] + m_S[1][b];
+    y ^= m_S[2][c];
+    y += m_S[3][d];
 
     return y;
 }
@@ -209,7 +209,7 @@ void BlowFish::encipher(uint32_t *xl, uint32_t *xr)
     uint32_t Xl = *xl, Xr = *xr, temp;
 
     for (int i = 0; i < 16; ++i) {
-        Xl ^= _P[i];
+        Xl ^= m_P[i];
         Xr ^= F(Xl);
         // Exchange
         temp = Xl; Xl = Xr; Xr = temp;
@@ -218,8 +218,8 @@ void BlowFish::encipher(uint32_t *xl, uint32_t *xr)
     // Exchange
     temp = Xl; Xl = Xr; Xr = temp;
 
-    Xr ^= _P[16];
-    Xl ^= _P[17];
+    Xr ^= m_P[16];
+    Xl ^= m_P[17];
 
     *xl = Xl;
     *xr = Xr;
@@ -230,7 +230,7 @@ void BlowFish::decipher(uint32_t *xl, uint32_t *xr)
     uint32_t Xl = *xl, Xr = *xr, temp;
 
     for (int i = 17; i > 1; --i) {
-        Xl ^= _P[i];
+        Xl ^= m_P[i];
         Xr ^= F(Xl);
         // Exchange
         temp = Xl; Xl = Xr; Xr = temp;
@@ -239,8 +239,8 @@ void BlowFish::decipher(uint32_t *xl, uint32_t *xr)
     // Exchange
     temp = Xl; Xl = Xr; Xr = temp;
 
-    Xr ^= _P[1];
-    Xl ^= _P[0];
+    Xr ^= m_P[1];
+    Xl ^= m_P[0];
 
     *xl = Xl;
     *xr = Xr;
