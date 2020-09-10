@@ -626,8 +626,9 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
                         // Notify the user about
                         // the request to open the wallet.
                         KNotification* notification = new KNotification(
-                            QStringLiteral("needsPassword"), kpd, KNotification::Persistent
+                            QStringLiteral("needsPassword"), KNotification::Persistent
                                 | KNotification::CloseWhenWidgetActivated);
+                        notification->setWidget(kpd);
                         QStringList actions;
                         if (appid.isEmpty()) {
                             notification->setText(
