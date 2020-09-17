@@ -20,8 +20,6 @@
 
 QueryDriver::QueryDriver(int &argc, char* argv[]) :
     QApplication(argc, argv)
-    , theWallet(nullptr)
-    , verbose(false)
     , entryFolder(QStringLiteral("Passwords"))
 {
     QTimerEvent *timerEvent = new QTimerEvent(100);

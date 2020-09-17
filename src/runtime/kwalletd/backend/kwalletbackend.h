@@ -184,12 +184,12 @@ private:
     Q_DISABLE_COPY(Backend)
     class BackendPrivate;
     BackendPrivate *const d;
-    QString _name;
+    const QString _name;
     QString _path;
     bool _open;
-    bool _useNewHash;
+    bool _useNewHash = false;
     QString _folder;
-    int _ref;
+    int _ref = 0;
     // Map Folder->Entries
     typedef QMap< QString, Entry * > EntryMap;
     typedef QMap< QString, EntryMap > FolderMap;

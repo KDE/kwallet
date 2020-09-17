@@ -58,8 +58,6 @@ class Backend::BackendPrivate
 Backend::Backend(const QString &name, bool isPath)
     : d(nullptr),
       _name(name),
-      _useNewHash(false),
-      _ref(0),
       _cipherType(KWallet::BACKEND_CIPHER_UNKNOWN)
 {
 //  initKWalletDir();

@@ -43,9 +43,9 @@ private Q_SLOTS:
 
 public:
     QString walletName;
-    Wallet* theWallet;
+    Wallet* theWallet = nullptr;
     Mode mode;
-    bool verbose;
+    bool verbose = false;
     QString entryName;
     QString entryFolder;
 };

@@ -50,9 +50,7 @@ class KWalletTransaction {
 
 public:
     explicit KWalletTransaction(QDBusConnection conn)
-        : tType(Unknown)
-        , cancelled(false)
-        , tId(nextTransactionId)
+        : tId(nextTransactionId)
         , res(-1)
         , connection(conn)
     {
@@ -67,12 +65,12 @@ public:
     ~KWalletTransaction() {}
 
     enum Type { Unknown, Open, ChangePassword, OpenFail, CloseCancelled };
-    Type tType;
+    Type tType = Unknown;
     QString appid;
     qlonglong wId;
     QString wallet;
     QString service;
-    bool cancelled; // set true if the client dies before open
+    bool cancelled = false; // set true if the client dies before open
     bool modal;
     bool isPath;
     int tId; // transaction id
