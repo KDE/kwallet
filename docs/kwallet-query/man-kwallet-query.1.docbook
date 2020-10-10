@@ -28,7 +28,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
   </refmeta>
   <refnamediv>
     <refname>kwallet-query</refname>
-    <refpurpose>KDE Wallet command-line manipulation tool</refpurpose>
+    <refpurpose>&kde; Wallet command-line manipulation tool</refpurpose>
   </refnamediv>
   <refsynopsisdiv id="_synopsis">
     <simpara>
@@ -39,7 +39,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
   </refsynopsisdiv>
   <refsect1 id="_description">
     <title>DESCRIPTION</title>
-    <simpara>kwallet-query comes in handy when shell scripts need to read or update the KDE Wallet. It works by manipulating the entries displayed in the <emphasis role="strong">KDE Wallet Manager</emphasis> utility. It&#8217;s only parameter is the <emphasis>wallet</emphasis>name the tool should read or update. The operation mode is specified by the options.</simpara>
+    <simpara>kwallet-query comes in handy when shell scripts need to read or update the &kde; Wallet. It works by manipulating the entries displayed in the <emphasis role="strong">&kde; Wallet Manager</emphasis> utility. It&#8217;s only parameter is the <emphasis>wallet</emphasis>name the tool should read or update. The operation mode is specified by the options.</simpara>
   </refsect1>
   <refsect1 id="_options">
     <title>OPTIONS</title>
@@ -49,7 +49,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
           <emphasis role="strong">-h,--help</emphasis>
         </term>
         <listitem>
-          <simpara>Display a short help message</simpara>
+          <simpara>Display a short help message.</simpara>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -57,7 +57,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
           <emphasis role="strong">-l,--list-entries</emphasis>
         </term>
         <listitem>
-          <simpara>List password entries. These are the folder names displayed in the <emphasis role="strong">KDE Wallet Manager</emphasis> utility. If the <emphasis role="strong">-f</emphasis> option is given, this will only display the subfolders of the specified folder.</simpara>
+          <simpara>List password entries. These are the folder names displayed in the <emphasis role="strong">&kde; Wallet Manager</emphasis> utility. If the <emphasis role="strong">-f</emphasis> option is given, this will only display the subfolders of the specified folder.</simpara>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -66,7 +66,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
           <emphasis>Entry</emphasis>
         </term>
         <listitem>
-          <simpara>Read the contents of the given <emphasis>Entry</emphasis> from the <emphasis role="strong">Folder</emphasis>section of the <emphasis>wallet</emphasis> and output it on the standard output. Maps are exported as JSON object.</simpara>
+          <simpara>Read the contents of the given <emphasis>Entry</emphasis> from the <emphasis role="strong">Folder</emphasis>section of the <emphasis>wallet</emphasis> and output it on the standard output. Maps are exported as &JSON; object.</simpara>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -75,7 +75,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
           <emphasis>Entry</emphasis>
         </term>
         <listitem>
-          <simpara>Write secrets to the given <emphasis>Entry</emphasis> under the <emphasis role="strong">Folder</emphasis> section of the given <emphasis>wallet</emphasis>. The secrets are read from the standard input. Maps take in input a well-formed JSON object.  <emphasis role="strong">IMPORTANT</emphasis> previous wallet entry value will be overwritten by this option, so be careful when using it!</simpara>
+          <simpara>Write secrets to the given <emphasis>Entry</emphasis> under the <emphasis role="strong">Folder</emphasis> section of the given <emphasis>wallet</emphasis>. The secrets are read from the standard input. Maps take in input a well-formed &JSON; object. <emphasis role="strong">IMPORTANT</emphasis> previous wallet entry value will be overwritten by this option, so be careful when using it!</simpara>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -106,7 +106,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
           <emphasis role="strong">0</emphasis>
         </term>
         <listitem>
-          <simpara>Success</simpara>
+          <simpara>Success.</simpara>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -115,7 +115,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
         </term>
         <listitem>
           <simpara>The wallet
-          <emphasis>wallet</emphasis> was not found</simpara>
+          <emphasis>wallet</emphasis> was not found.</simpara>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -126,7 +126,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
           <simpara>The wallet
           <emphasis>wallet</emphasis> could not be opened. For example, that
           would be an indication of a bad password entry or some other
-          problem with the KDE Wallet system</simpara>
+          problem with the &kde; Wallet system.</simpara>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -150,19 +150,19 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
   </refsect1>
   <refsect1 id="_bugs">
     <title>BUGS</title>
-    <simpara>Please report all bugs on the KDE bug reporting website:
+    <simpara>Please report all bugs on the &kde; bug reporting website:
     bugs.kde.org. Be sure to select kwallet-query when submitting your
     bug-report.</simpara>
   </refsect1>
   <refsect1 id="_author">
     <title>AUTHOR</title>
     <simpara>kwallet-query was originally written by Valentin Rusu and is
-    part of KDE.</simpara>
+    part of &kde;.</simpara>
   </refsect1>
   <refsect1 id="_copying">
     <title>COPYING</title>
     <simpara>Copyright (C) 2015 Valentin Rusu. Free use of this software is
-    granted under the terms of the GNU General Public License
+    granted under the terms of the &GNU; General Public License
     (GPL).</simpara>
   </refsect1>
 </refentry>
