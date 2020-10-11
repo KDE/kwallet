@@ -39,7 +39,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
   </refsynopsisdiv>
   <refsect1 id="_description">
     <title>DESCRIPTION</title>
-    <simpara>kwallet-query comes in handy when shell scripts need to read or update the &kde; Wallet. It works by manipulating the entries displayed in the <emphasis role="strong">&kde; Wallet Manager</emphasis> utility. It&#8217;s only parameter is the <emphasis>wallet</emphasis>name the tool should read or update. The operation mode is specified by the options.</simpara>
+    <simpara><command>kwallet-query</command> comes in handy when shell scripts need to read or update the &kde; Wallet. It works by manipulating the entries displayed in the <emphasis role="strong">&kde; Wallet Manager</emphasis> utility. It&#8217;s only parameter is the <emphasis>wallet</emphasis>name the tool should read or update. The operation mode is specified by the options.</simpara>
   </refsect1>
   <refsect1 id="_options">
     <title>OPTIONS</title>
@@ -151,12 +151,12 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
   <refsect1 id="_bugs">
     <title>BUGS</title>
     <simpara>Please report all bugs on the &kde; bug reporting website:
-    bugs.kde.org. Be sure to select kwallet-query when submitting your
+    bugs.kde.org. Be sure to select <quote>kwallet-query</quote> when submitting your
     bug-report.</simpara>
   </refsect1>
   <refsect1 id="_author">
     <title>AUTHOR</title>
-    <simpara>kwallet-query was originally written by Valentin Rusu and is
+    <simpara><command>kwallet-query</command> was originally written by Valentin Rusu and is
     part of &kde;.</simpara>
   </refsect1>
   <refsect1 id="_copying">
