@@ -38,7 +38,6 @@
 #include <QApplication>
 #include <QDir>
 #include <QIcon>
-#include <QString>
 #include <QRegExp>
 #include <QTimer>
 

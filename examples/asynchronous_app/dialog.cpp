@@ -9,7 +9,6 @@
 
 #include "dialog.h"
 
-#include <QLabel>
 #include <QPushButton>
 #include <QMap>
 #include <QVBoxLayout>
