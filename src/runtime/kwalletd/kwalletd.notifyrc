@@ -1,6 +1,7 @@
 [Global]
 IconName=kwalletmanager
 Comment=KDE Wallet
+Comment[ast]=KDE Wallet
 Comment[az]=KDE Cüzdanı
 Comment[ca]=Cartera del KDE
 Comment[cs]=Úschovna KDE
@@ -25,6 +26,7 @@ Comment[uk]=Торбинка KDE
 Comment[x-test]=xxKDE Walletxx
 Comment[zh_CN]=KDE 钱包
 Name=KDE Wallet
+Name[ast]=KDE Wallet
 Name[az]=KDE Cüzdanı
 Name[ca]=Cartera del KDE
 Name[cs]=Úschovna KDE
@@ -51,6 +53,7 @@ Name[zh_CN]=KDE 钱包
 
 [Event/needsPassword]
 Name=Needs Password
+Name[ast]=Precisa la contraseña
 Name[ca]=Cal una contrasenya
 Name[cs]=Je třeba heslo
 Name[da]=Kræver adgangskode
