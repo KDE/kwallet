@@ -22,7 +22,6 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QSaveFile>
-#include <QRegExp>
 #include <QCryptographicHash>
 #include <QRegularExpression>
 #include <QStandardPaths>

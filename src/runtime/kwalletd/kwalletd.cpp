@@ -38,7 +38,6 @@
 #include <QApplication>
 #include <QDir>
 #include <QIcon>
-#include <QRegExp>
 #include <QTimer>
 
 #include <assert.h>
