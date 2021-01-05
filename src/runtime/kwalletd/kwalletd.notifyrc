@@ -56,6 +56,7 @@ Name[zh_CN]=KDE 钱包
 [Event/needsPassword]
 Name=Needs Password
 Name[ast]=Precisa la contraseña
+Name[az]=Şifrə tələb olunur
 Name[ca]=Cal una contrasenya
 Name[cs]=Je třeba heslo
 Name[da]=Kræver adgangskode
