@@ -22,6 +22,7 @@
 #include "backend/kwalletbackend.h" //For the hash size
 #include "kwalletd.h"
 #include "kwalletd_version.h"
+#include "kwalletfreedesktopservice.h"
 
 #ifndef Q_OS_WIN
 #include <sys/socket.h>
@@ -194,6 +195,10 @@ int main(int argc, char **argv)
     // check if kwallet is disabled
     if (!isWalletEnabled()) {
         qCDebug(KWALLETD_LOG) << "kwalletd is disabled!";
+
+        /* Do not keep dbus-daemon waiting for the org.freedesktop.secrets if kwallet is disabled */
+        KWalletFreedesktopService(nullptr);
+
         return (0);
     }
 

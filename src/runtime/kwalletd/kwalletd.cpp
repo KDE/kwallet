@@ -10,6 +10,11 @@
 #include "kwalletd_debug.h"
 
 #include "kbetterthankdialog.h"
+#include "kwalletfreedesktopcollection.h"
+#include "kwalletfreedesktopitem.h"
+#include "kwalletfreedesktopprompt.h"
+#include "kwalletfreedesktopservice.h"
+#include "kwalletfreedesktopsession.h"
 #include "kwalletwizard.h"
 
 #ifdef HAVE_GPGMEPP
@@ -78,6 +83,11 @@ public:
         }
     }
 
+    static int getTransactionId()
+    {
+        return nextTransactionId;
+    }
+
     ~KWalletTransaction()
     {
     }
@@ -126,10 +136,17 @@ KWalletD::KWalletD()
     connect(&_closeTimers, &KTimeout::timedOut, this, &KWalletD::timedOutClose);
     connect(&_syncTimers, &KTimeout::timedOut, this, &KWalletD::timedOutSync);
 
-    (void)new KWalletAdaptor(this);
-    // register services
-    QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kwalletd5"));
-    QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kwalletd5"), this);
+    KConfig kwalletrc(QStringLiteral("kwalletrc"));
+    KConfigGroup cfgWallet(&kwalletrc, "Wallet");
+    KConfigGroup cfgSecrets(&kwalletrc, "org.freedesktop.secrets");
+
+    if (cfgWallet.readEntry<bool>("apiEnabled", true)) {
+        (void)new KWalletAdaptor(this);
+
+        // register services
+        QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kwalletd5"));
+        QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kwalletd5"), this);
+    }
 
 #ifdef Q_WS_X11
     screensaver = 0;
@@ -148,6 +165,13 @@ KWalletD::KWalletD()
 
     _serviceWatcher.setWatchMode(QDBusServiceWatcher::WatchForOwnerChange);
     connect(&_serviceWatcher, &QDBusServiceWatcher::serviceOwnerChanged, this, &KWalletD::slotServiceOwnerChanged);
+
+    if (cfgSecrets.readEntry<bool>("apiEnabled", true)) {
+        _fdoService.reset(new KWalletFreedesktopService(this));
+    } else {
+        /* Do not keep dbus-daemon waiting for the org.freedesktop.secrets by registering the dummy-service */
+        KWalletFreedesktopService(nullptr);
+    }
 }
 
 void KWalletD::registerKWalletd4Service()
@@ -171,6 +195,16 @@ KWalletD::~KWalletD()
 #endif
     closeAllWallets();
     qDeleteAll(_transactions);
+}
+
+QString KWalletD::encodeWalletName(const QString &name)
+{
+    return KWallet::Backend::encodeWalletName(name);
+}
+
+QString KWalletD::decodeWalletName(const QString &mangledName)
+{
+    return KWallet::Backend::decodeWalletName(mangledName);
 }
 
 #ifdef Q_WS_X11
@@ -212,7 +246,6 @@ QPair<int, KWallet::Backend *> KWalletD::findWallet(const QString &walletName) c
     return qMakePair(-1, static_cast<KWallet::Backend *>(nullptr));
 }
 
-static const QRegularExpression walletRegex(QStringLiteral("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_\\s]+$"));
 bool KWalletD::_processing = false;
 
 void KWalletD::processTransactions()
@@ -318,10 +351,6 @@ int KWalletD::open(const QString &wallet, qlonglong wId, const QString &appid)
         return -1;
     }
 
-    if (!walletRegex.match(wallet).hasMatch()) {
-        return -1;
-    }
-
     KWalletTransaction *xact = new KWalletTransaction(connection());
     _transactions.append(xact);
 
@@ -342,17 +371,23 @@ int KWalletD::open(const QString &wallet, qlonglong wId, const QString &appid)
     return 0;
 }
 
-int KWalletD::openAsync(const QString &wallet, qlonglong wId, const QString &appid, bool handleSession)
+int KWalletD::nextTransactionId() const
+{
+    return KWalletTransaction::getTransactionId();
+}
+
+int KWalletD::openAsync(const QString &wallet,
+                        qlonglong wId,
+                        const QString &appid,
+                        bool handleSession,
+                        const QDBusConnection &connection,
+                        const QDBusMessage &message)
 {
     if (!_enabled) { // guard
         return -1;
     }
 
-    if (!walletRegex.match(wallet).hasMatch()) {
-        return -1;
-    }
-
-    KWalletTransaction *xact = new KWalletTransaction(connection());
+    KWalletTransaction *xact = new KWalletTransaction(connection);
     _transactions.append(xact);
 
     xact->appid = appid;
@@ -362,15 +397,20 @@ int KWalletD::openAsync(const QString &wallet, qlonglong wId, const QString &app
     xact->tType = KWalletTransaction::Open;
     xact->isPath = false;
     if (handleSession) {
-        qCDebug(KWALLETD_LOG) << "openAsync for " << message().service();
-        _serviceWatcher.setConnection(connection());
-        _serviceWatcher.addWatchedService(message().service());
-        xact->service = message().service();
+        qCDebug(KWALLETD_LOG) << "openAsync for " << message.service();
+        _serviceWatcher.setConnection(connection);
+        _serviceWatcher.addWatchedService(message.service());
+        xact->service = message.service();
     }
     QTimer::singleShot(0, this, SLOT(processTransactions()));
     checkActiveDialog();
     // opening is in progress. return the transaction number
     return xact->tId;
+}
+
+int KWalletD::openAsync(const QString &wallet, qlonglong wId, const QString &appid, bool handleSession)
+{
+    return openAsync(wallet, wId, appid, handleSession, connection(), message());
 }
 
 int KWalletD::openPathAsync(const QString &path, qlonglong wId, const QString &appid, bool handleSession)
@@ -856,8 +896,8 @@ bool KWalletD::isAuthorizedApp(const QString &appid, const QString &wallet, WId 
 int KWalletD::deleteWallet(const QString &wallet)
 {
     int result = -1;
-    QString path = KWallet::Backend::getSaveLocation() + "/" + wallet + ".kwl";
-    QString pathSalt = KWallet::Backend::getSaveLocation() + "/" + wallet + ".salt";
+    QString path = KWallet::Backend::getSaveLocation() + "/" + encodeWalletName(wallet) + ".kwl";
+    QString pathSalt = KWallet::Backend::getSaveLocation() + "/" + encodeWalletName(wallet) + ".salt";
 
     if (QFile::exists(path)) {
         const QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
@@ -1010,14 +1050,14 @@ int KWalletD::internalClose(KWallet::Backend *const w, const int handle, const b
     return -1;
 }
 
-int KWalletD::close(int handle, bool force, const QString &appid)
+int KWalletD::close(int handle, bool force, const QString &appid, const QDBusMessage &message)
 {
     KWallet::Backend *w = _wallets.value(handle);
 
     if (w) {
         if (_sessions.hasSession(appid, handle)) {
             // remove one handle for the application
-            bool removed = _sessions.removeSession(appid, message().service(), handle);
+            bool removed = _sessions.removeSession(appid, message.service(), handle);
             // alternatively try sessionless
             if (removed || _sessions.removeSession(appid, QLatin1String(""), handle)) {
                 w->deref();
@@ -1027,6 +1067,11 @@ int KWalletD::close(int handle, bool force, const QString &appid)
         return 1; // not closed, handle unknown
     }
     return -1; // not open to begin with, or other error
+}
+
+int KWalletD::close(int handle, bool force, const QString &appid)
+{
+    return close(handle, force, appid, message());
 }
 
 bool KWalletD::isOpen(const QString &wallet)
@@ -1067,7 +1112,7 @@ QStringList KWalletD::wallets() const
         if (fn.endsWith(QLatin1String(".kwl"))) {
             fn.truncate(fn.length() - 4);
         }
-        rc += fn;
+        rc += decodeWalletName(fn);
     }
     return rc;
 }
@@ -1347,6 +1392,27 @@ int KWalletD::writeMap(int handle, const QString &folder, const QString &key, co
         b->writeEntry(&e);
         initiateSync(handle);
         emitFolderUpdated(b->walletName(), folder);
+        emitEntryUpdated(b->walletName(), folder, key);
+        return 0;
+    }
+
+    return -1;
+}
+
+int KWalletD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, const QString &appid)
+{
+    KWallet::Backend *b;
+
+    if ((b = getWallet(appid, handle))) {
+        b->setFolder(folder);
+        KWallet::Entry e;
+        e.setKey(key);
+        e.setValue(value);
+        e.setType(KWallet::Wallet::Stream);
+        b->writeEntry(&e);
+        initiateSync(handle);
+        emitFolderUpdated(b->walletName(), folder);
+        emitEntryUpdated(b->walletName(), folder, key);
         return 0;
     }
 
@@ -1372,25 +1438,6 @@ int KWalletD::writeEntry(int handle, const QString &folder, const QString &key, 
     return -1;
 }
 
-int KWalletD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, const QString &appid)
-{
-    KWallet::Backend *b;
-
-    if ((b = getWallet(appid, handle))) {
-        b->setFolder(folder);
-        KWallet::Entry e;
-        e.setKey(key);
-        e.setValue(value);
-        e.setType(KWallet::Wallet::Stream);
-        b->writeEntry(&e);
-        initiateSync(handle);
-        emitFolderUpdated(b->walletName(), folder);
-        return 0;
-    }
-
-    return -1;
-}
-
 int KWalletD::writePassword(int handle, const QString &folder, const QString &key, const QString &value, const QString &appid)
 {
     KWallet::Backend *b;
@@ -1404,6 +1451,7 @@ int KWalletD::writePassword(int handle, const QString &folder, const QString &ke
         b->writeEntry(&e);
         initiateSync(handle);
         emitFolderUpdated(b->walletName(), folder);
+        emitEntryUpdated(b->walletName(), folder, key);
         return 0;
     }
 
@@ -1454,6 +1502,7 @@ int KWalletD::removeEntry(int handle, const QString &folder, const QString &key,
         bool rc = b->removeEntry(key);
         initiateSync(handle);
         emitFolderUpdated(b->walletName(), folder);
+        emitEntryDeleted(b->walletName(), folder, key);
         return rc ? 0 : -3;
     }
 
@@ -1567,10 +1616,17 @@ int KWalletD::renameEntry(int handle, const QString &folder, const QString &oldN
         int rc = b->renameEntry(oldName, newName);
         initiateSync(handle);
         emitFolderUpdated(b->walletName(), folder);
+        emitEntryRenamed(b->walletName(), folder, oldName, newName);
         return rc;
     }
 
     return -1;
+}
+
+int KWalletD::renameWallet(const QString &oldName, const QString &newName)
+{
+    const QPair<int, KWallet::Backend *> walletInfo = findWallet(oldName);
+    return walletInfo.second->renameWallet(newName);
 }
 
 QStringList KWalletD::users(const QString &wallet) const
@@ -1603,6 +1659,21 @@ bool KWalletD::disconnectApplication(const QString &wallet, const QString &appli
 void KWalletD::emitFolderUpdated(const QString &wallet, const QString &folder)
 {
     Q_EMIT folderUpdated(wallet, folder);
+}
+
+void KWalletD::emitEntryUpdated(const QString &wallet, const QString &folder, const QString &key)
+{
+    Q_EMIT entryUpdated(wallet, folder, key);
+}
+
+void KWalletD::emitEntryRenamed(const QString &wallet, const QString &folder, const QString &oldName, const QString &newName)
+{
+    Q_EMIT entryRenamed(wallet, folder, oldName, newName);
+}
+
+void KWalletD::emitEntryDeleted(const QString &wallet, const QString &folder, const QString &key)
+{
+    Q_EMIT entryDeleted(wallet, folder, key);
 }
 
 void KWalletD::emitWalletListDirty()
@@ -1796,10 +1867,6 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
         return -1;
     }
 
-    if (!walletRegex.match(wallet).hasMatch()) {
-        return -1;
-    }
-
     // check if the wallet is already open
     QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
     int rc = walletInfo.first;
@@ -1847,4 +1914,5 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
 
     return handle;
 }
+
 // vim: tw=220:ts=4

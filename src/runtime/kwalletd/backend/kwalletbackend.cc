@@ -45,6 +45,22 @@ using namespace KWallet;
 
 #define KWMAGIC "KWALLET\n\r\0\r\n"
 
+static const QByteArray walletAllowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789^&'@{}[],$=!-#()%.+_\r\n\t\f\v ";
+
+/* The encoding works if the name contains at least one unsupported character.
+ * Names that were allowed prior to the Secret Service API patch remain intact.
+ */
+QString Backend::encodeWalletName(const QString &name) {
+    /* Use a semicolon as "percent" because it does not conflict with already allowed characters for wallet names
+     * and is allowed for file names
+     */
+    return QString::fromUtf8(name.toUtf8().toPercentEncoding(walletAllowedChars, {}, ';'));
+}
+
+QString Backend::decodeWalletName(const QString &encodedName) {
+    return QString::fromUtf8(QByteArray::fromPercentEncoding(encodedName.toUtf8(), ';'));
+}
+
 class Backend::BackendPrivate
 {
 };
@@ -63,7 +79,7 @@ Backend::Backend(const QString &name, bool isPath)
     if (isPath) {
         _path = name;
     } else {
-        _path = getSaveLocation() + QDir::separator() + _name + ".kwl";
+        _path = getSaveLocation() + '/' + encodeWalletName(_name) + ".kwl";
     }
 
     _open = false;
@@ -236,7 +252,7 @@ int Backend::deref()
 bool Backend::exists(const QString &wallet)
 {
     QString saveLocation = getSaveLocation();
-    QString path = saveLocation + '/' + wallet + QLatin1String(".kwl");
+    QString path = saveLocation + '/' + encodeWalletName(wallet) + QLatin1String(".kwl");
     // Note: 60 bytes is presently the minimum size of a wallet file.
     //       Anything smaller is junk.
     return QFile::exists(path) && QFileInfo(path).size() >= 60;
@@ -449,7 +465,7 @@ int Backend::sync(WId w)
     return rc;
 }
 
-int Backend::close(bool save)
+int Backend::closeInternal(bool save)
 {
     // save if requested
     if (save) {
@@ -466,12 +482,20 @@ int Backend::close(bool save)
         }
     }
     _entries.clear();
+    _open = false;
+
+    return 0;
+}
+
+int Backend::close(bool save)
+{
+    int rc = closeInternal(save);
+    if (rc)
+        return rc;
 
     // empty the password hash
     _passhash.fill(0);
     _newPassHash.fill(0);
-
-    _open = false;
 
     return 0;
 }
@@ -479,6 +503,45 @@ int Backend::close(bool save)
 const QString &Backend::walletName() const
 {
     return _name;
+}
+
+int Backend::renameWallet(const QString &newName, bool isPath)
+{
+    QString newPath;
+    const auto saveLocation = getSaveLocation();
+
+    if (isPath) {
+        newPath = newName;
+    } else {
+        newPath = saveLocation + QChar::fromLatin1('/') + encodeWalletName(newName) + QStringLiteral(".kwl");
+    }
+
+    if (newPath == _path) {
+        return 0;
+    }
+
+    if (QFile::exists(newPath)) {
+        return -EEXIST;
+    }
+
+    int rc = closeInternal(true);
+    if (rc) {
+        return rc;
+    }
+
+    QFile::rename(_path, newPath);
+    QFile::rename(saveLocation + QChar::fromLatin1('/') + encodeWalletName(_name) + QStringLiteral(".salt"),
+                  saveLocation + QChar::fromLatin1('/') + encodeWalletName(newName) + QStringLiteral(".salt"));
+
+    _name = newName;
+    _path = newPath;
+
+    rc = openInternal();
+    if (rc) {
+        return rc;
+    }
+
+    return 0;
 }
 
 bool Backend::isOpen() const
@@ -700,7 +763,7 @@ void Backend::setPassword(const QByteArray &password)
     password2hash(password, _passhash);
 
     QByteArray salt;
-    QFile saltFile(getSaveLocation() + QDir::separator() + _name + ".salt");
+    QFile saltFile(getSaveLocation() + '/' + encodeWalletName(_name) + ".salt");
     if (!saltFile.exists() || saltFile.size() == 0) {
         salt = createAndSaveSalt(saltFile.fileName());
     } else {

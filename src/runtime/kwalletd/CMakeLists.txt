@@ -1,5 +1,10 @@
 project(kwalletd5)
 
+include(CheckSymbolExists)
+
+check_symbol_exists(explicit_bzero "string.h" KWALLETD_HAVE_EXPLICIT_BZERO)
+check_symbol_exists(RtlSecureZeroMemory "windows.h" KWALLETD_HAVE_RTLSECUREZEROMEMORY)
+
 find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
 
 find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
@@ -21,10 +26,12 @@ if (Gpgmepp_FOUND)
     include_directories(${GPGME_INCLUDES})
 endif(Gpgmepp_FOUND)
 
+find_package(Qca-qt${QT_MAJOR_VERSION} REQUIRED 2.3.1)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ########### build backends #########
 add_subdirectory(backend)
+add_subdirectory(autotests)
 
 ########### kwalletd ###############
 
@@ -48,6 +55,12 @@ target_sources(kwalletd5 PRIVATE
    kwalletwizard.cpp
    ktimeout.cpp
    kwalletsessionstore.cpp
+   kwalletfreedesktopservice.cpp
+   kwalletfreedesktopsession.cpp
+   kwalletfreedesktopcollection.cpp
+   kwalletfreedesktopitem.cpp
+   kwalletfreedesktopprompt.cpp
+   kwalletfreedesktopattributes.cpp
 )
 ecm_qt_declare_logging_category(kwalletd5
     HEADER kwalletd_debug.h
@@ -85,9 +98,24 @@ else()
     # copy of org.kde.KWallet.xml, but with all deprecated API removed
     set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.KWallet.nodeprecated.xml)
 endif()
+set(fdo_service_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Service.xml)
+set(fdo_session_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Session.xml)
+set(fdo_collection_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Collection.xml)
+set(fdo_item_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Item.xml)
+set(fdo_prompt_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Prompt.xml)
 
 set(kwalletd_dbus_SRCS)
 qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${kwallet_xml} kwalletd.h KWalletD kwalletadaptor KWalletAdaptor)
+qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_service_xml} kwalletfreedesktopservice.h KWalletFreedesktopService
+    kwalletfreedesktopserviceadaptor KWalletFreedesktopServiceAdaptor)
+qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_session_xml} kwalletfreedesktopsession.h KWalletFreedesktopSession
+    kwalletfreedesktopsessionadaptor KWalletFreedesktopSessionAdaptor)
+qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_collection_xml} kwalletfreedesktopcollection.h KWalletFreedesktopCollection
+    kwalletfreedesktopcollectionadaptor KWalletFreedesktopCollectionAdaptor)
+qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_item_xml} kwalletfreedesktopitem.h KWalletFreedesktopItem
+    kwalletfreedesktopitemadaptor KWalletFreedesktopItemAdaptor)
+qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_prompt_xml} kwalletfreedesktopprompt.h KWalletFreedesktopPrompt
+    kwalletfreedesktoppromptadaptor KWalletFreedesktopPromptAdaptor)
 target_sources(kwalletd5 PRIVATE
     ${kwalletd_dbus_SRCS}
 )
@@ -115,7 +143,8 @@ target_link_libraries(kwalletd5
     KF5::DBusAddons
     KF5::WidgetsAddons
     KF5::WindowSystem
-    KF5::Notifications)
+    KF5::Notifications
+    ${Qca_LIBRARY})
 if (Gpgmepp_FOUND)
     target_link_libraries(kwalletd5 Gpgmepp)
     kde_target_enable_exceptions(kwalletd5 PRIVATE)

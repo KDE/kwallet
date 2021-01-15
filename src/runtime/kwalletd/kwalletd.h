@@ -27,6 +27,7 @@ class KTimeout;
 // @Private
 class KWalletTransaction;
 class KWalletSessionStore;
+class KWalletFreedesktopService;
 
 class KWalletD : public QObject, protected QDBusContext
 {
@@ -36,7 +37,17 @@ public:
     KWalletD();
     ~KWalletD() override;
 
+    static QString encodeWalletName(const QString &name);
+    static QString decodeWalletName(const QString &mangledName);
+
+    int nextTransactionId() const;
+    int
+    openAsync(const QString &wallet, qlonglong wId, const QString &appid, bool handleSession, const QDBusConnection &connection, const QDBusMessage &message);
+    // Close and lock the wallet
+    // Accepts "message" for working from other QDBusContexts
+    int close(int handle, bool force, const QString &appid, const QDBusMessage &message);
 public Q_SLOTS:
+
     // Is the wallet enabled?  If not, all open() calls fail.
     bool isEnabled() const;
 
@@ -121,6 +132,8 @@ public Q_SLOTS:
 
     // Rename an entry.  rc=0 on success.
     int renameEntry(int handle, const QString &folder, const QString &oldName, const QString &newName, const QString &appid);
+    // Rename the wallet
+    int renameWallet(const QString &oldName, const QString &newName);
 
     // Write an entry.  rc=0 on success.
     int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType, const QString &appid);
@@ -176,6 +189,9 @@ Q_SIGNALS:
     void allWalletsClosed();
     void folderListUpdated(const QString &wallet);
     void folderUpdated(const QString &, const QString &);
+    void entryUpdated(const QString &, const QString &, const QString &);
+    void entryRenamed(const QString &, const QString &, const QString &, const QString &);
+    void entryDeleted(const QString &, const QString &, const QString &);
     void applicationDisconnected(const QString &wallet, const QString &application);
 
 private Q_SLOTS:
@@ -205,6 +221,9 @@ private:
     // Emit signals about closing wallets
     void doCloseSignals(int, const QString &);
     void emitFolderUpdated(const QString &, const QString &);
+    void emitEntryUpdated(const QString &, const QString &, const QString &);
+    void emitEntryRenamed(const QString &, const QString &, const QString &, const QString &);
+    void emitEntryDeleted(const QString &, const QString &, const QString &);
     // Implicitly allow access for this application
     bool implicitAllow(const QString &wallet, const QString &app);
     bool implicitDeny(const QString &wallet, const QString &app);
@@ -245,6 +264,8 @@ private:
     // sessions
     KWalletSessionStore _sessions;
     QDBusServiceWatcher _serviceWatcher;
+
+    std::unique_ptr<KWalletFreedesktopService> _fdoService;
 
     bool _useGpg;
 };

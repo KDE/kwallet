@@ -18,12 +18,14 @@ find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5Notifications ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
 
 find_package(LibGcrypt 1.5.0 REQUIRED)
 set_package_properties(LibGcrypt PROPERTIES
                        TYPE REQUIRED
                        PURPOSE "kwalletd needs libgcrypt to perform PBKDF2-SHA512 hashing"
                       )
+find_package(Qca-qt${QT_MAJOR_VERSION} REQUIRED 2.3.1)
 
 add_library(kwalletbackend5 SHARED)
 
@@ -56,7 +58,7 @@ generate_export_header(kwalletbackend5)
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 5)
 
-target_link_libraries(kwalletbackend5 Qt${QT_MAJOR_VERSION}::Widgets KF5::WidgetsAddons KF5::CoreAddons KF5::Notifications KF5::I18n ${LIBGCRYPT_LIBRARIES})
+target_link_libraries(kwalletbackend5 Qt${QT_MAJOR_VERSION}::Widgets KF5::WidgetsAddons KF5::CoreAddons KF5::Notifications KF5::I18n ${LIBGCRYPT_LIBRARIES} ${Qca_LIBRARY})
 if(Gpgmepp_FOUND)
    target_link_libraries(kwalletbackend5 Gpgmepp)
 endif(Gpgmepp_FOUND)

@@ -99,6 +99,9 @@ public:
     // Returns the current wallet name.
     const QString &walletName() const;
 
+    // Rename the wallet
+    int renameWallet(const QString &newName, bool isPath = false);
+
     // The list of folders.
     QStringList folderList() const;
 
@@ -189,12 +192,14 @@ public:
 #endif
 
     static QString getSaveLocation();
+    static QString encodeWalletName(const QString &name);
+    static QString decodeWalletName(const QString &encodedName);
 
 private:
     Q_DISABLE_COPY(Backend)
     class BackendPrivate;
     BackendPrivate *const d;
-    const QString _name;
+    QString _name;
     QString _path;
     bool _open;
     bool _useNewHash = false;
@@ -209,6 +214,7 @@ private:
     QByteArray _passhash; // password hash used for saving the wallet
     QByteArray _newPassHash; // Modern hash using KWALLET_HASH_PBKDF2_SHA512
     BackendCipherType _cipherType; // the kind of encryption used for this wallet
+
 #ifdef HAVE_GPGMEPP
     GpgME::Key _gpgKey;
 #endif
@@ -218,6 +224,7 @@ private:
     // open the wallet with the password already set. This is
     // called internally by both open and openPreHashed.
     int openInternal(WId w = 0);
+    int closeInternal(bool save);
     void swapToNewHash();
     QByteArray createAndSaveSalt(const QString &path) const;
 };
