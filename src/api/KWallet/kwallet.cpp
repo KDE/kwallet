@@ -565,7 +565,7 @@ void Wallet::slotCollectionDeleted()
 {
     d->folder.clear();
     d->name.clear();
-    emit walletClosed();
+    Q_EMIT walletClosed();
 }
 
 bool Wallet::disconnectApplication(const QString &wallet, const QString &app)
@@ -722,7 +722,7 @@ void Wallet::slotWalletClosed(int handle)
             d->handle = -1;
             d->folder.clear();
             d->name.clear();
-            emit walletClosed();
+            Q_EMIT walletClosed();
         }
 #if HAVE_KSECRETSSERVICE
     }
@@ -1644,7 +1644,7 @@ void Wallet::slotFolderUpdated(const QString &wallet, const QString &folder)
     } else {
 #endif
         if (d->name == wallet) {
-            emit folderUpdated(folder);
+            Q_EMIT folderUpdated(folder);
         }
 #if HAVE_KSECRETSSERVICE
     }
@@ -1660,7 +1660,7 @@ void Wallet::slotFolderListUpdated(const QString &wallet)
     } else {
 #endif
         if (d->name == wallet) {
-            emit folderListUpdated();
+            Q_EMIT folderListUpdated();
         }
 #if HAVE_KSECRETSSERVICE
     }
@@ -1702,7 +1702,7 @@ void Wallet::walletAsyncOpened(int tId, int handle)
         disconnect(this, SLOT(walletAsyncOpened(int,int)));
 
         d->handle = handle;
-        emit walletOpened(handle > 0);
+        Q_EMIT walletOpened(handle > 0);
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -1710,12 +1710,12 @@ void Wallet::walletAsyncOpened(int tId, int handle)
 
 void Wallet::emitWalletAsyncOpenError()
 {
-    emit walletOpened(false);
+    Q_EMIT walletOpened(false);
 }
 
 void Wallet::emitWalletOpened()
 {
-    emit walletOpened(true);
+    Q_EMIT walletOpened(true);
 }
 
 bool Wallet::folderDoesNotExist(const QString &wallet, const QString &folder)

@@ -173,7 +173,7 @@ public:
             ui.stackedWidget->setCurrentWidget(ui._pageNoKeys);
             setFinalPage(true);
         }
-        emit completeChanged();
+        Q_EMIT completeChanged();
     }
 
     int nextId() const override

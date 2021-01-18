@@ -251,13 +251,13 @@ void KWalletD::processTransactions()
 
             // emit the AsyncOpened signal as a reply
             _curtrans->res = res;
-            emit walletAsyncOpened(_curtrans->tId, res);
+            Q_EMIT walletAsyncOpened(_curtrans->tId, res);
             break;
 
         case KWalletTransaction::OpenFail:
             // emit the AsyncOpened signal with an invalid handle
             _curtrans->res = -1;
-            emit walletAsyncOpened(_curtrans->tId, -1);
+            Q_EMIT walletAsyncOpened(_curtrans->tId, -1);
             break;
 
         case KWalletTransaction::ChangePassword:
@@ -810,9 +810,9 @@ int KWalletD::internalOpen(const QString& appid, const QString& wallet,
             _closeTimers.addTimer(rc, _idleTime);
         }
         if (brandNew) {
-            emit walletCreated(wallet);
+            Q_EMIT walletCreated(wallet);
         }
-        emit walletOpened(wallet);
+        Q_EMIT walletOpened(wallet);
         if (_wallets.count() == 1 && _launchManager) {
             KToolInvocation::startServiceByDesktopName(
                 QStringLiteral("kwalletmanager5-kwalletd"));
@@ -937,7 +937,7 @@ int KWalletD::deleteWallet(const QString& wallet)
         const QPair<int, KWallet::Backend*> walletInfo = findWallet(wallet);
         internalClose(walletInfo.second, walletInfo.first, true);
         QFile::remove(path);
-        emit walletDeleted(wallet);
+        Q_EMIT walletDeleted(wallet);
         // also delete access control entries
         KConfigGroup cfgAllow
             = KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Auto Allow");
@@ -1241,7 +1241,7 @@ bool KWalletD::removeFolder(
     if ((b = getWallet(appid, handle))) {
         bool rc = b->removeFolder(f);
         initiateSync(handle);
-        emit folderListUpdated(b->walletName());
+        Q_EMIT folderListUpdated(b->walletName());
         return rc;
     }
 
@@ -1256,7 +1256,7 @@ bool KWalletD::createFolder(
     if ((b = getWallet(appid, handle))) {
         bool rc = b->createFolder(f);
         initiateSync(handle);
-        emit folderListUpdated(b->walletName());
+        Q_EMIT folderListUpdated(b->walletName());
         return rc;
     }
 
@@ -1669,10 +1669,10 @@ void KWalletD::notifyFailures()
 
 void KWalletD::doCloseSignals(int handle, const QString& wallet)
 {
-    emit walletClosed(handle);
-    emit walletClosed(wallet);
+    Q_EMIT walletClosed(handle);
+    Q_EMIT walletClosed(wallet);
     if (_wallets.isEmpty()) {
-        emit allWalletsClosed();
+        Q_EMIT allWalletsClosed();
     }
 }
 
@@ -1713,7 +1713,7 @@ bool KWalletD::disconnectApplication(
         }
         internalClose(backend, handle, false);
 
-        emit applicationDisconnected(wallet, application);
+        Q_EMIT applicationDisconnected(wallet, application);
         return true;
     }
 
@@ -1722,7 +1722,7 @@ bool KWalletD::disconnectApplication(
 
 void KWalletD::emitFolderUpdated(const QString& wallet, const QString& folder)
 {
-    emit folderUpdated(wallet, folder);
+    Q_EMIT folderUpdated(wallet, folder);
 }
 
 void KWalletD::emitWalletListDirty()
@@ -1734,7 +1734,7 @@ void KWalletD::emitWalletListDirty()
             internalClose(i, _wallets.key(i), true, false);
         }
     }
-    emit walletListDirty();
+    Q_EMIT walletListDirty();
 }
 
 void KWalletD::reconfigure()
@@ -1957,7 +1957,7 @@ int KWalletD::pamOpen(
     else if (_closeIdle) {
         _closeTimers.addTimer(handle, _idleTime);
     }
-    emit walletOpened(wallet);
+    Q_EMIT walletOpened(wallet);
 
     if (_wallets.count() == 1 && _launchManager) {
         KToolInvocation::startServiceByDesktopName(QStringLiteral("kwalletmanager5-kwalletd"));

@@ -56,7 +56,7 @@ void KTimeout::timerEvent(QTimerEvent *ev)
     QHash<int, int>::const_iterator it = _timers.constBegin();
     for (; it != _timers.constEnd(); ++it) {
         if (it.value() == ev->timerId()) {
-            emit timedOut(it.key());
+            Q_EMIT timedOut(it.key());
             return;
         }
     }

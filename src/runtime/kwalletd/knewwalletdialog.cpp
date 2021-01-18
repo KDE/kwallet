@@ -112,13 +112,13 @@ void KNewWalletDialogGpg::initializePage()
     if (err) {
         qCDebug(KWALLETD_LOG) << "OpenPGP not supported on your system!";
         KMessageBox::error(this, i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
-        emit completeChanged();
+        Q_EMIT completeChanged();
         return;
     }
     std::shared_ptr< GpgME::Context >   _ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (!_ctx) {
         KMessageBox::error(this, i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
-        emit completeChanged();
+        Q_EMIT completeChanged();
         return;
     }
     _ctx->setKeyListMode(GpgME::Local);
@@ -138,7 +138,7 @@ void KNewWalletDialogGpg::initializePage()
 
     if (keys.size() == 0) {
         KMessageBox::error(this, i18n("Seems that your system has no keys suitable for encryption. Please set-up at least one encryption key, then try again."));
-        emit completeChanged();
+        Q_EMIT completeChanged();
         return;
     }
 
@@ -155,7 +155,7 @@ void KNewWalletDialogGpg::onItemSelectionChanged()
     _complete = _ui.listCertificates->currentRow() >= 0;
     QVariant varKey = _ui.listCertificates->item(_ui.listCertificates->currentRow(), 0)->data(Qt::UserRole);
     setField(QStringLiteral("key"), varKey);
-    emit completeChanged();
+    Q_EMIT completeChanged();
 }
 
 bool KNewWalletDialogGpg::isComplete() const
