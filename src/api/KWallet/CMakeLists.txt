@@ -2,7 +2,7 @@
 include(GenerateExportHeader)
 include(ECMGenerateHeaders)
 
-ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLET
+ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLET
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kwallet_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
                         SOVERSION 5)
@@ -52,7 +52,7 @@ add_library(KF5Wallet ${kwallet_SRCS})
 ecm_generate_export_header(KF5Wallet
     BASE_NAME KWallet
     GROUP_BASE_NAME KF
-    VERSION ${KF5_VERSION}
+    VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
     DEPRECATION_VERSIONS 5.72
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
@@ -103,7 +103,7 @@ if(BUILD_QCH)
         KF5Wallet_QCH
         NAME KWallet
         BASE_NAME KF5Wallet
-        VERSION ${KF5_VERSION}
+        VERSION ${KF_VERSION}
         ORG_DOMAIN org.kde
         SOURCES # using only public headers, to cover only public API
             ${KWallet_HEADERS}

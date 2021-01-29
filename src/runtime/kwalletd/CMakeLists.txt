@@ -2,14 +2,14 @@ project(kwalletd5)
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
 
-find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5ConfigWidgets ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5DBusAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Notifications ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Service ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5DBusAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5Notifications ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5Service ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5WindowSystem ${KF_DEP_VERSION} REQUIRED)
 
 ########### find needed packages ######
 find_package(Gpgmepp 1.7.0) # provided by GpgME
@@ -34,7 +34,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../api/KWallet)
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
-ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLETD
+ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETD
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kwalletd_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
                         SOVERSION 5)

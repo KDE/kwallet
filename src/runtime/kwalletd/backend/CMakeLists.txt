@@ -14,10 +14,10 @@ configure_file (config-kwalletbackend.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config
 
 ########### kwalletbackend ###############
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
-find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Notifications ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5Notifications ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 
 find_package(LibGcrypt 1.5.0 REQUIRED)
 set_package_properties(LibGcrypt PROPERTIES
@@ -53,7 +53,7 @@ ecm_qt_declare_logging_category(kwalletbackend_LIB_SRCS
 add_library(kwalletbackend5 SHARED ${kwalletbackend_LIB_SRCS})
 generate_export_header(kwalletbackend5)
 
-ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 5)
+ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 5)
 
 target_link_libraries(kwalletbackend5 Qt5::Widgets KF5::WidgetsAddons KF5::CoreAddons KF5::Notifications KF5::I18n ${LIBGCRYPT_LIBRARIES})
 if(Gpgmepp_FOUND)
