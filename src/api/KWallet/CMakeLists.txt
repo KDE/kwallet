@@ -9,7 +9,7 @@ ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KWALLET
 
 install(FILES
    ${CMAKE_CURRENT_BINARY_DIR}/kwallet_version.h
-  DESTINATION ${KF5_INCLUDE_INSTALL_DIR} COMPONENT Devel
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5} COMPONENT Devel
 )
 
 set(HAVE_KSECRETSSERVICE 0)
@@ -60,7 +60,7 @@ ecm_generate_export_header(KF5Wallet
 
 add_library(KF5::Wallet ALIAS KF5Wallet)
 
-target_include_directories(KF5Wallet INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KWallet>")
+target_include_directories(KF5Wallet INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KWallet>")
 
 target_link_libraries(KF5Wallet PUBLIC  Qt5::Gui
                                 PRIVATE Qt5::DBus
@@ -95,7 +95,7 @@ install(TARGETS KF5Wallet EXPORT KF5WalletTargets ${KF5_INSTALL_TARGETS_DEFAULT_
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kwallet_export.h
   ${KWallet_HEADERS}
-  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KWallet COMPONENT Devel
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KWallet COMPONENT Devel
 )
 
 if(BUILD_QCH)
@@ -157,5 +157,5 @@ install(EXPORT KF5WalletTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF
 
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KWallet LIB_NAME KF5Wallet DEPS "widgets" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KF5_INCLUDE_INSTALL_DIR}/KWallet)
+ecm_generate_pri_file(BASE_NAME KWallet LIB_NAME KF5Wallet DEPS "widgets" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KWallet)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

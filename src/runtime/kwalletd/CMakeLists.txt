@@ -96,7 +96,7 @@ else()
 endif()
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
-        DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
+        DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
 
 add_executable( kwalletd5 ${kwalletd_SRCS} )
 
@@ -122,6 +122,6 @@ install(TARGETS kwalletd5  ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( FILES kwalletd5.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
-install( FILES kwalletd.notifyrc DESTINATION  ${KNOTIFYRC_INSTALL_DIR} )
+install( FILES kwalletd5.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
+install( FILES kwalletd.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFY5RCDIR} )
 
