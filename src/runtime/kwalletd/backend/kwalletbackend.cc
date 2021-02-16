@@ -442,7 +442,7 @@ int Backend::sync(WId w)
         // Oops! wallet file sync filed! Display a notification about that
         // TODO: change kwalletd status flags, when status flags will be implemented
         KNotification *notification = new KNotification(QStringLiteral("syncFailed"));
-        notification->setText(i18n("Failed to sync wallet <b>%1</b> to disk. Error codes are:\nRC <b>%2</b>\nSF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org").arg(_name).arg(rc).arg(sf.errorString()));
+        notification->setText(i18n("Failed to sync wallet <b>%1</b> to disk. Error codes are:\nRC <b>%2</b>\nSF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org", _name, rc, sf.errorString()));
         notification->sendEvent();
     }
     delete phandler;
