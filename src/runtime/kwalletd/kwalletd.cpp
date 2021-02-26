@@ -62,7 +62,13 @@ public:
 
     ~KWalletTransaction() {}
 
-    enum Type { Unknown, Open, ChangePassword, OpenFail, CloseCancelled };
+    enum Type {
+        Unknown,
+        Open,
+        ChangePassword,
+        OpenFail,
+        CloseCancelled,
+    };
     Type tType = Unknown;
     QString appid;
     qlonglong wId;

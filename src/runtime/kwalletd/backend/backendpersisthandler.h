@@ -23,7 +23,7 @@ enum BackendCipherType {
     BACKEND_CIPHER_UNKNOWN,  /// this is used by freshly allocated wallets
     BACKEND_CIPHER_BLOWFISH, /// use the legacy blowfish cipher type
 #ifdef HAVE_GPGMEPP
-    BACKEND_CIPHER_GPG       /// use GPG backend to encrypt wallet contents
+    BACKEND_CIPHER_GPG,      /// use GPG backend to encrypt wallet contents
 #endif // HAVE_GPGMEPP
 };
 

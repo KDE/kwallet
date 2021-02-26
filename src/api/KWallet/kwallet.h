@@ -63,7 +63,13 @@ protected:
     Wallet(const Wallet &);
 
 public:
-    enum EntryType { Unknown = 0, Password, Stream, Map, Unused = 0xffff };
+    enum EntryType {
+        Unknown = 0,
+        Password,
+        Stream,
+        Map,
+        Unused = 0xffff,
+    };
 
     /**
      *  Destroy a KWallet object.  Closes the wallet.
@@ -118,7 +124,12 @@ public:
      */
     static bool disconnectApplication(const QString &wallet, const QString &app);
 
-    enum OpenType { Synchronous = 0, Asynchronous, Path, OpenTypeUnused = 0xff };
+    enum OpenType {
+        Synchronous = 0,
+        Asynchronous,
+        Path,
+        OpenTypeUnused = 0xff,
+    };
 
     /**
      *  Open the wallet @p name.  The user will be prompted to
