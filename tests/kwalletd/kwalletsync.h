@@ -15,11 +15,9 @@ class KWalletSyncTest : public QObject
     Q_OBJECT
 
 public:
-
 private Q_SLOTS:
     void init();
     void openWallet();
-
 };
 
 #endif // KWALLETSYNC_H

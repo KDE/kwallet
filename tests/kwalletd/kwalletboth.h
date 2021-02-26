@@ -15,11 +15,9 @@ class KWalletBothTest : public QObject
     Q_OBJECT
 
 public:
-
 private Q_SLOTS:
     void init();
     void openWallet();
-
 };
 
 #endif // KWALLETBOTH_H

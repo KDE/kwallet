@@ -16,23 +16,27 @@ class QFile;
 class QSaveFile;
 namespace KWallet
 {
-
 class Backend;
 
 enum BackendCipherType {
-    BACKEND_CIPHER_UNKNOWN,  /// this is used by freshly allocated wallets
+    BACKEND_CIPHER_UNKNOWN, /// this is used by freshly allocated wallets
     BACKEND_CIPHER_BLOWFISH, /// use the legacy blowfish cipher type
 #ifdef HAVE_GPGMEPP
-    BACKEND_CIPHER_GPG,      /// use GPG backend to encrypt wallet contents
+    BACKEND_CIPHER_GPG, /// use GPG backend to encrypt wallet contents
 #endif // HAVE_GPGMEPP
 };
 
 class BackendPersistHandler
 {
 protected:
-    BackendPersistHandler() {}
+    BackendPersistHandler()
+    {
+    }
+
 public:
-    virtual ~BackendPersistHandler() {}
+    virtual ~BackendPersistHandler()
+    {
+    }
     /**
      * This is a factory method used to get an instance of the backend suitable
      * for reading/writing using the given cipher type
@@ -50,11 +54,17 @@ public:
 class BlowfishPersistHandler : public BackendPersistHandler
 {
 public:
-    explicit BlowfishPersistHandler(bool useECBforReading =false) : _useECBforReading(useECBforReading) {}
-    ~BlowfishPersistHandler() override {}
+    explicit BlowfishPersistHandler(bool useECBforReading = false)
+        : _useECBforReading(useECBforReading)
+    {
+    }
+    ~BlowfishPersistHandler() override
+    {
+    }
 
     int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) override;
     int read(Backend *wb, QFile &sf, WId w) override;
+
 private:
     bool _useECBforReading;
 };
@@ -63,8 +73,12 @@ private:
 class GpgPersistHandler : public BackendPersistHandler
 {
 public:
-    GpgPersistHandler() {}
-    ~GpgPersistHandler() override {}
+    GpgPersistHandler()
+    {
+    }
+    ~GpgPersistHandler() override
+    {
+    }
 
     int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) override;
     int read(Backend *wb, QFile &sf, WId w) override;

@@ -13,25 +13,31 @@
 
 using namespace KWallet;
 
-class QueryDriver : public QApplication {
+class QueryDriver : public QApplication
+{
     Q_OBJECT
 public:
-    enum Mode {
-        List,
-        Read,
-        Write
-    };
-    QueryDriver(int &argc, char* argv[]);
+    enum Mode { List, Read, Write };
+    QueryDriver(int &argc, char *argv[]);
     ~QueryDriver() override;
 
-    void setWalletName(const QString& walletName);
+    void setWalletName(const QString &walletName);
     void setMode(Mode mode);
-    void setVerbose() { verbose = true; }
-    void setEntryName(const QString& entryName) { this->entryName = entryName; }
-    void setEntryFolder(const QString& entryFolder) { this->entryFolder = entryFolder; }
+    void setVerbose()
+    {
+        verbose = true;
+    }
+    void setEntryName(const QString &entryName)
+    {
+        this->entryName = entryName;
+    }
+    void setEntryFolder(const QString &entryFolder)
+    {
+        this->entryFolder = entryFolder;
+    }
 
 private:
-    void timerEvent(QTimerEvent* event) override;
+    void timerEvent(QTimerEvent *event) override;
     void readEntries();
     void readValue();
     void readMapValue();
@@ -43,10 +49,9 @@ private Q_SLOTS:
 
 public:
     QString walletName;
-    Wallet* theWallet = nullptr;
+    Wallet *theWallet = nullptr;
     Mode mode;
     bool verbose = false;
     QString entryName;
     QString entryFolder;
 };
-

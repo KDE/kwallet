@@ -8,12 +8,12 @@
 #ifndef _KWALLETBACKEND_H
 #define _KWALLETBACKEND_H
 
-#include <QString>
-#include <QStringList>
-#include <QMap>
-#include "kwalletentry.h"
 #include "backendpersisthandler.h"
 #include "kwalletbackend5_export.h"
+#include "kwalletentry.h"
+#include <QMap>
+#include <QString>
+#include <QStringList>
 
 #ifdef HAVE_GPGMEPP
 #include <gpgme++/key.h>
@@ -25,17 +25,27 @@
 
 namespace KWallet
 {
-
 /**
  * @internal
  */
 class MD5Digest : public QByteArray
 {
 public:
-    MD5Digest() : QByteArray(16, 0) {}
-    MD5Digest(const char *data) : QByteArray(data, 16) {}
-    MD5Digest(const QByteArray &digest) : QByteArray(digest) {}
-    virtual ~MD5Digest() {}
+    MD5Digest()
+        : QByteArray(16, 0)
+    {
+    }
+    MD5Digest(const char *data)
+        : QByteArray(data, 16)
+    {
+    }
+    MD5Digest(const QByteArray &digest)
+        : QByteArray(digest)
+    {
+    }
+    virtual ~MD5Digest()
+    {
+    }
 
     int operator<(const MD5Digest &r) const
     {
@@ -191,16 +201,16 @@ private:
     QString _folder;
     int _ref = 0;
     // Map Folder->Entries
-    typedef QMap< QString, Entry * > EntryMap;
-    typedef QMap< QString, EntryMap > FolderMap;
+    typedef QMap<QString, Entry *> EntryMap;
+    typedef QMap<QString, EntryMap> FolderMap;
     FolderMap _entries;
-    typedef QMap<MD5Digest, QList<MD5Digest> > HashMap;
+    typedef QMap<MD5Digest, QList<MD5Digest>> HashMap;
     HashMap _hashes;
-    QByteArray _passhash;   // password hash used for saving the wallet
-    QByteArray _newPassHash; //Modern hash using KWALLET_HASH_PBKDF2_SHA512
+    QByteArray _passhash; // password hash used for saving the wallet
+    QByteArray _newPassHash; // Modern hash using KWALLET_HASH_PBKDF2_SHA512
     BackendCipherType _cipherType; // the kind of encryption used for this wallet
 #ifdef HAVE_GPGMEPP
-    GpgME::Key      _gpgKey;
+    GpgME::Key _gpgKey;
 #endif
     friend class BlowfishPersistHandler;
     friend class GpgPersistHandler;
@@ -210,10 +220,8 @@ private:
     int openInternal(WId w = 0);
     void swapToNewHash();
     QByteArray createAndSaveSalt(const QString &path) const;
-
 };
 
 }
 
 #endif
-

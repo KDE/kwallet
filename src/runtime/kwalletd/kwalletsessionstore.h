@@ -8,10 +8,10 @@
 #ifndef _KWALLETSESSIONSTORE_H_
 #define _KWALLETSESSIONSTORE_H_
 
+#include <QHash>
+#include <QList>
 #include <QPair>
 #include <QString>
-#include <QList>
-#include <QHash>
 #include <QStringList>
 
 typedef QPair<QString, int> KWalletAppHandlePair;
@@ -23,7 +23,7 @@ public:
     ~KWalletSessionStore();
 
     KWalletSessionStore(const KWalletSessionStore &) = delete;
-    KWalletSessionStore& operator=(const KWalletSessionStore &) = delete;
+    KWalletSessionStore &operator=(const KWalletSessionStore &) = delete;
 
     // add a new session
     void addSession(const QString &appid, const QString &service, int handle);
@@ -42,7 +42,7 @@ public:
 
 private:
     class Session;
-    QHash< QString, QList<Session *> > m_sessions; // appid => session
+    QHash<QString, QList<Session *>> m_sessions; // appid => session
 };
 
 #endif // _KWALLETSESSIONSTORE_H_

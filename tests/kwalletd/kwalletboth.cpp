@@ -1,15 +1,15 @@
 #include "kwalletboth.h"
 
+#include <QApplication>
+#include <QMap>
+#include <QTest>
 #include <QTextStream>
 #include <QTimer>
-#include <QMap>
-#include <QApplication>
-#include <QTest>
 
 #include <KAboutData>
-#include <kwallet.h>
-#include <QDBusConnectionInterface>
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <kwallet.h>
 
 #include "kwallettest.h"
 
@@ -62,7 +62,7 @@ void KWalletBothTest::openWallet()
     _out << "readPasswordList returned " << p.keys().count() << " entries\n";
 #endif
 
-    QMap<QString, QMap<QString, QString> > q;
+    QMap<QString, QMap<QString, QString>> q;
     q = wallet->mapList(&success);
     _out << "mapList returned: " << success << '\n';
     _out << "mapList returned " << q.keys().count() << " entries\n";
@@ -98,4 +98,3 @@ void WalletReceiver::walletOpened(bool got)
 }
 
 QTEST_GUILESS_MAIN(KWalletBothTest)
-

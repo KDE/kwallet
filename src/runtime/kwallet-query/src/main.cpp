@@ -5,25 +5,25 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include <iostream>
 #include <QCommandLineParser>
 #include <QStringList>
+#include <iostream>
 
 #include <KAboutData>
 #include <KLocalizedString>
 
 #include "querydriver.h"
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[])
+{
     KLocalizedString::setApplicationDomain("kwallet-query");
 
-    KAboutData aboutData(
-            QStringLiteral("kwallet-query"),
-            i18n("KWallet query interface"),
-            QStringLiteral("0.1"),
-            i18n("KWallet query interface"),
-            KAboutLicense::GPL,
-            i18n("(c) 2015, The KDE Developers"));
+    KAboutData aboutData(QStringLiteral("kwallet-query"),
+                         i18n("KWallet query interface"),
+                         QStringLiteral("0.1"),
+                         i18n("KWallet query interface"),
+                         KAboutLicense::GPL,
+                         i18n("(c) 2015, The KDE Developers"));
 
     QueryDriver app(argc, argv);
     QCommandLineParser cmdParser;
@@ -49,20 +49,16 @@ int main(int argc, char* argv[]) {
         std::cout << i18n("Missing argument").toStdString() << std::endl;
         return 1;
     }
-    if (args.count() >1) {
+    if (args.count() > 1) {
         std::cout << i18n("Too many arguments given").toStdString() << std::endl;
         return 1;
     }
     app.setWalletName(args.first());
-    if (cmdParser.isSet(listOption) &&
-        cmdParser.isSet(readOption) &&
-        cmdParser.isSet(writeOption)) {
+    if (cmdParser.isSet(listOption) && cmdParser.isSet(readOption) && cmdParser.isSet(writeOption)) {
         std::cout << i18n("Only one mode (list, read or write) can be set. Aborting").toStdString() << std::endl;
         return 1;
     }
-    if (!cmdParser.isSet(listOption) &&
-        !cmdParser.isSet(readOption) &&
-        !cmdParser.isSet(writeOption)) {
+    if (!cmdParser.isSet(listOption) && !cmdParser.isSet(readOption) && !cmdParser.isSet(writeOption)) {
         std::cout << i18n("Please specify the mode (list or read).").toStdString() << std::endl;
         return 1;
     }
@@ -86,4 +82,3 @@ int main(int argc, char* argv[]) {
 
     return app.exec();
 }
-

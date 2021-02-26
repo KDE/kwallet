@@ -1,7 +1,7 @@
+#include "sha1.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "sha1.h"
 
 int main()
 {
@@ -10,8 +10,7 @@ int main()
     unsigned long et[] = {0x11223344};
     int rc;
 
-    printf("%d:  0x11 == %d and 0x44 == %d\n", ((unsigned char *)et)[0],
-           0x11, 0x44);
+    printf("%d:  0x11 == %d and 0x44 == %d\n", ((unsigned char *)et)[0], 0x11, 0x44);
     sha1 = new SHA1();
 
     if (!sha1->readyToGo()) {
@@ -44,4 +43,3 @@ int main()
 
     delete sha1;
 }
-

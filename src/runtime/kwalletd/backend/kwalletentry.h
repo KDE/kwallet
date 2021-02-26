@@ -16,7 +16,6 @@
 
 namespace KWallet
 {
-
 /* @internal
  */
 class KWALLETBACKEND5_EXPORT Entry
@@ -51,4 +50,3 @@ private:
 }
 
 #endif
-

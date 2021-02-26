@@ -15,11 +15,9 @@ class KWalletAsyncTest : public QObject
     Q_OBJECT
 
 public:
-
 private Q_SLOTS:
     void init();
     void openWallet();
-
 };
 
 #endif // KWALLETASYNC_H

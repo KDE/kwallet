@@ -8,62 +8,58 @@
 #include "backendpersisthandler.h"
 #include "kwalletbackend_debug.h"
 
-#include <QIODevice>
-#include <QFile>
-#include <QCryptographicHash>
-#include <assert.h>
-#include <QSaveFile>
-#include <KMessageBox>
 #include <KLocalizedString>
+#include <KMessageBox>
+#include <QCryptographicHash>
+#include <QFile>
+#include <QIODevice>
+#include <QSaveFile>
+#include <assert.h>
 #ifdef HAVE_GPGMEPP
-#include <gpgme.h>
 #include <gpgme++/context.h>
+#include <gpgme++/data.h>
+#include <gpgme++/decryptionresult.h>
+#include <gpgme++/encryptionresult.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <gpgme++/data.h>
-#include <gpgme++/encryptionresult.h>
-#include <gpgme++/decryptionresult.h>
+#include <gpgme.h>
 #endif
-#include "kwalletbackend.h"
 #include "blowfish.h"
-#include "sha1.h"
 #include "cbc.h"
+#include "kwalletbackend.h"
+#include "sha1.h"
 
 #ifdef Q_OS_WIN
-#include <windows.h>
 #include <wincrypt.h>
+#include <windows.h>
 #endif
 
 #define KWALLET_CIPHER_BLOWFISH_ECB 0 // this was the old KWALLET_CIPHER_BLOWFISH_CBC
-#define KWALLET_CIPHER_3DES_CBC     1 // unsupported
-#define KWALLET_CIPHER_GPG          2
+#define KWALLET_CIPHER_3DES_CBC 1 // unsupported
+#define KWALLET_CIPHER_GPG 2
 #define KWALLET_CIPHER_BLOWFISH_CBC 3
 
-#define KWALLET_HASH_SHA1       0
-#define KWALLET_HASH_MD5        1 // unsupported
+#define KWALLET_HASH_SHA1 0
+#define KWALLET_HASH_MD5 1 // unsupported
 #define KWALLET_HASH_PBKDF2_SHA512 2 // used when using kwallet with pam or since 4.13 version
 
 namespace KWallet
 {
-
 typedef char Digest[16];
 
 static int getRandomBlock(QByteArray &randBlock)
 {
-
-#ifdef Q_OS_WIN //krazy:exclude=cpp
+#ifdef Q_OS_WIN // krazy:exclude=cpp
 
     // Use windows crypto API to get randomness on win32
     // HACK: this should be done using qca
     HCRYPTPROV hProv;
 
-    if (!CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_FULL,
-                             CRYPT_VERIFYCONTEXT | CRYPT_SILENT)) {
-        return -1;    // couldn't get random data
+    if (!CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_FULL, CRYPT_VERIFYCONTEXT | CRYPT_SILENT)) {
+        return -1; // couldn't get random data
     }
 
-    if (!CryptGenRandom(hProv, static_cast<DWORD>(randBlock.size()),
-                        (BYTE *)randBlock.data())) {
+    if (!CryptGenRandom(hProv, static_cast<DWORD>(randBlock.size()), (BYTE *)randBlock.data())) {
         return -3; // read error
     }
 
@@ -81,7 +77,7 @@ static int getRandomBlock(QByteArray &randBlock)
             int rc = devrand.read(randBlock.data(), randBlock.size());
 
             if (rc != randBlock.size()) {
-                return -3;      // not enough data read
+                return -3; // not enough data read
             }
 
             return 0;
@@ -100,13 +96,13 @@ static int getRandomBlock(QByteArray &randBlock)
                 int rc2 = devrand.read(randBlock.data() + rc, randBlock.size());
 
                 if (rc2 < 0) {
-                    return -3;  // read error
+                    return -3; // read error
                 }
 
                 rc += rc2;
                 cnt++;
                 if (cnt > randBlock.size()) {
-                    return -4;  // reading forever?!
+                    return -4; // reading forever?!
                 }
             } while (rc < randBlock.size());
 
@@ -122,7 +118,7 @@ static int getRandomBlock(QByteArray &randBlock)
             if (devrand.open(QIODevice::ReadOnly)) {
                 int rc = devrand.read(randBlock.data(), randBlock.size());
                 if (rc != randBlock.size()) {
-                    return -3;      // not enough data read
+                    return -3; // not enough data read
                 }
                 return 0;
             }
@@ -152,8 +148,8 @@ BackendPersistHandler *BackendPersistHandler::getPersistHandler(BackendCipherTyp
 
 BackendPersistHandler *BackendPersistHandler::getPersistHandler(char magicBuf[12])
 {
-    if ((magicBuf[2] == KWALLET_CIPHER_BLOWFISH_ECB || magicBuf[2] == KWALLET_CIPHER_BLOWFISH_CBC) &&
-            (magicBuf[3] == KWALLET_HASH_SHA1 || magicBuf[3] == KWALLET_HASH_PBKDF2_SHA512)) {
+    if ((magicBuf[2] == KWALLET_CIPHER_BLOWFISH_ECB || magicBuf[2] == KWALLET_CIPHER_BLOWFISH_CBC)
+        && (magicBuf[3] == KWALLET_HASH_SHA1 || magicBuf[3] == KWALLET_HASH_PBKDF2_SHA512)) {
         bool useECBforReading = magicBuf[2] == KWALLET_CIPHER_BLOWFISH_ECB;
         if (useECBforReading) {
             qCDebug(KWALLETBACKEND_LOG) << "this wallet uses ECB encryption. It'll be converted to CBC on next save.";
@@ -161,12 +157,11 @@ BackendPersistHandler *BackendPersistHandler::getPersistHandler(char magicBuf[12
         return new BlowfishPersistHandler(useECBforReading);
     }
 #ifdef HAVE_GPGMEPP
-    if (magicBuf[2] == KWALLET_CIPHER_GPG &&
-            magicBuf[3] == 0) {
-        return  new GpgPersistHandler;
+    if (magicBuf[2] == KWALLET_CIPHER_GPG && magicBuf[3] == 0) {
+        return new GpgPersistHandler;
     }
 #endif // HAVE_GPGMEPP
-    return nullptr;    // unknown cipher or hash
+    return nullptr; // unknown cipher or hash
 }
 
 int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WId)
@@ -182,7 +177,7 @@ int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &versio
     if (!wb->_useNewHash) {
         version[3] = KWALLET_HASH_SHA1;
     } else {
-        version[3] = KWALLET_HASH_PBKDF2_SHA512;//Since 4.13 we always use PBKDF2_SHA512
+        version[3] = KWALLET_HASH_PBKDF2_SHA512; // Since 4.13 we always use PBKDF2_SHA512
     }
 
     if (sf.write(version) != 4) {
@@ -240,10 +235,9 @@ int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &versio
     // prepend and append the random data
     QByteArray wholeFile;
     long blksz = bf.blockSize();
-    long newsize = decrypted.size() +
-                   blksz            +    // encrypted block
-                   4                +    // file size
-                   20;      // size of the SHA hash
+    long newsize = decrypted.size() + blksz + // encrypted block
+        4 + // file size
+        20; // size of the SHA hash
 
     int delta = (blksz - (newsize % blksz));
     newsize += delta;
@@ -255,7 +249,7 @@ int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &versio
         sha.reset();
         decrypted.fill(0);
         sf.cancelWriting();
-        return -3;      // Fatal error: can't get random
+        return -3; // Fatal error: can't get random
     }
 
     for (int i = 0; i < blksz; i++) {
@@ -293,7 +287,7 @@ int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &versio
     if (rc < 0) {
         wholeFile.fill(0);
         sf.cancelWriting();
-        return -2;  // encrypt error
+        return -2; // encrypt error
     }
 
     // write the file
@@ -329,7 +323,7 @@ int BlowfishPersistHandler::read(Backend *wb, QFile &db, WId)
     for (size_t i = 0; i < n; ++i) {
         Digest d, d2; // judgment day
         MD5Digest ba;
-        QMap<MD5Digest, QList<MD5Digest> >::iterator it;
+        QMap<MD5Digest, QList<MD5Digest>>::iterator it;
         quint32 fsz;
         if (hds.atEnd()) {
             return -43;
@@ -353,7 +347,7 @@ int BlowfishPersistHandler::read(Backend *wb, QFile &db, WId)
     CipherBlockChain bf(&_bf, _useECBforReading);
     int blksz = bf.blockSize();
     if ((encrypted.size() % blksz) != 0) {
-        return -5;     // invalid file structure
+        return -5; // invalid file structure
     }
 
     bf.setKey((void *)wb->_passhash.data(), wb->_passhash.size() * 8);
@@ -368,13 +362,13 @@ int BlowfishPersistHandler::read(Backend *wb, QFile &db, WId)
     if (rc < 0) {
         wb->_passhash.fill(0);
         encrypted.fill(0);
-        return -6;  // decrypt error
+        return -6; // decrypt error
     }
 
     const char *t = encrypted.data();
 
     // strip the leading data
-    t += blksz;    // one block of random data
+    t += blksz; // one block of random data
 
     // strip the file size off
     long fsize = 0;
@@ -383,7 +377,7 @@ int BlowfishPersistHandler::read(Backend *wb, QFile &db, WId)
     t++;
     fsize |= (long(*t) << 16) & 0x00ff0000;
     t++;
-    fsize |= (long(*t) <<  8) & 0x0000ff00;
+    fsize |= (long(*t) << 8) & 0x0000ff00;
     t++;
     fsize |= long(*t) & 0x000000ff;
     t++;
@@ -391,7 +385,7 @@ int BlowfishPersistHandler::read(Backend *wb, QFile &db, WId)
     if (fsize < 0 || fsize > long(encrypted.size()) - blksz - 4) {
         qCDebug(KWALLETBACKEND_LOG) << "fsize: " << fsize << " encrypted.size(): " << encrypted.size() << " blksz: " << blksz;
         encrypted.fill(0);
-        return -9;         // file structure error.
+        return -9; // file structure error.
     }
 
     // compute the hash ourself
@@ -405,7 +399,7 @@ int BlowfishPersistHandler::read(Backend *wb, QFile &db, WId)
         if (testhash[i] != encrypted[sz - 20 + i]) {
             encrypted.fill(0);
             sha.reset();
-            return -8;         // hash error.
+            return -8; // hash error.
         }
     }
 
@@ -490,15 +484,22 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     GpgME::Error err = initGpgME();
     if (err) {
         qCDebug(KWALLETBACKEND_LOG) << "initGpgME returned " << err.code();
-        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped(), err.code()));
+        KMessageBox::errorWId(w,
+                              i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Error code is <b>%2</b>. "
+                                   "Please fix your system configuration, then try again.</qt>",
+                                   wb->_name.toHtmlEscaped(),
+                                   err.code()));
         sf.cancelWriting();
         return -5;
     }
 
-    std::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
+    std::shared_ptr<GpgME::Context> ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (!ctx) {
         qCDebug(KWALLETBACKEND_LOG) << "Cannot setup OpenPGP context!";
-        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"), wb->_name.toHtmlEscaped());
+        KMessageBox::errorWId(w,
+                              i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Please fix your system "
+                                   "configuration, then try again.</qt>"),
+                              wb->_name.toHtmlEscaped());
         return -6;
     }
 
@@ -544,13 +545,18 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
 
     GpgME::Data decryptedData(dataBuffer.data(), dataBuffer.size(), false);
     GpgME::Data encryptedData;
-    std::vector< GpgME::Key > keys;
+    std::vector<GpgME::Key> keys;
     keys.push_back(wb->_gpgKey);
     GpgME::EncryptionResult res = ctx->encrypt(keys, decryptedData, encryptedData, GpgME::Context::None);
     if (res.error()) {
         int gpgerr = res.error().code();
-        KMessageBox::errorWId(w, i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2 (%3)</b>. Please fix your system configuration, then try again. This error may occur if you are not using a full trust GPG key. Please ensure you have the secret key for the key you are using.</qt>",
-                                      wb->_name.toHtmlEscaped(), gpgerr, gpgme_strerror(gpgerr)));
+        KMessageBox::errorWId(w,
+                              i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2 (%3)</b>. Please fix your system "
+                                   "configuration, then try again. This error may occur if you are not using a full trust GPG key. Please ensure you have the "
+                                   "secret key for the key you are using.</qt>",
+                                   wb->_name.toHtmlEscaped(),
+                                   gpgerr,
+                                   gpgme_strerror(gpgerr)));
         qCDebug(KWALLETBACKEND_LOG) << "GpgME encryption error: " << res.error().code();
         sf.cancelWriting();
         return -7;
@@ -561,7 +567,11 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     encryptedData.seek(0, SEEK_SET);
     while ((bytes = encryptedData.read(buffer, sizeof(buffer) / sizeof(buffer[0]))) > 0) {
         if (sf.write(buffer, bytes) != bytes) {
-            KMessageBox::errorWId(w, i18n("<qt>File handling error while attempting to save the wallet <b>%1</b>. Error was <b>%2</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped(), sf.errorString()));
+            KMessageBox::errorWId(w,
+                                  i18n("<qt>File handling error while attempting to save the wallet <b>%1</b>. Error was <b>%2</b>. Please fix your system "
+                                       "configuration, then try again.</qt>",
+                                       wb->_name.toHtmlEscaped(),
+                                       sf.errorString()));
             sf.cancelWriting();
             return -4; // write error
         }
@@ -579,7 +589,11 @@ int GpgPersistHandler::read(Backend *wb, QFile &sf, WId w)
 {
     GpgME::Error err = initGpgME();
     if (err) {
-        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to open the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped(), err.code()));
+        KMessageBox::errorWId(w,
+                              i18n("<qt>Error when attempting to initialize OpenPGP while attempting to open the wallet <b>%1</b>. Error code is <b>%2</b>. "
+                                   "Please fix your system configuration, then try again.</qt>",
+                                   wb->_name.toHtmlEscaped(),
+                                   err.code()));
         return -1;
     }
 
@@ -595,9 +609,12 @@ int GpgPersistHandler::read(Backend *wb, QFile &sf, WId w)
     }
 
 retry_label:
-    std::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
+    std::shared_ptr<GpgME::Context> ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (nullptr == ctx) {
-        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to initialize OpenPGP while attempting to open the wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>", wb->_name.toHtmlEscaped()));
+        KMessageBox::errorWId(w,
+                              i18n("<qt>Error when attempting to initialize OpenPGP while attempting to open the wallet <b>%1</b>. Please fix your system "
+                                   "configuration, then try again.</qt>",
+                                   wb->_name.toHtmlEscaped()));
         qCDebug(KWALLETBACKEND_LOG) << "Cannot setup OpenPGP context!";
         return -1;
     }
@@ -606,11 +623,19 @@ retry_label:
     encryptedData.seek(0, SEEK_SET);
     GpgME::DecryptionResult res = ctx->decrypt(encryptedData, decryptedData);
     if (res.error()) {
-        qCDebug(KWALLETBACKEND_LOG) << "Error decrypting message: " << res.error().asString() << ", code " << res.error().code() << ", source " << res.error().source();
+        qCDebug(KWALLETBACKEND_LOG) << "Error decrypting message: " << res.error().asString() << ", code " << res.error().code() << ", source "
+                                    << res.error().source();
         KGuiItem btnRetry(i18n("Retry"));
-        // FIXME the logic here should be a little more elaborate; a dialog box should be used with "retry", "cancel", but also "troubleshoot" with options to show card status and to kill scdaemon
-        int userChoice = KMessageBox::warningYesNoWId(w, i18n("<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If you're using a SmartCard, please ensure it's inserted then try again.<br><br>GPG error was <b>%2</b></qt>", wb->_name.toHtmlEscaped(), res.error().asString()),
-                         i18n("kwalletd GPG backend"), btnRetry, KStandardGuiItem::cancel());
+        // FIXME the logic here should be a little more elaborate; a dialog box should be used with "retry", "cancel", but also "troubleshoot" with options to
+        // show card status and to kill scdaemon
+        int userChoice = KMessageBox::warningYesNoWId(w,
+                                                      i18n("<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If you're using a SmartCard, "
+                                                           "please ensure it's inserted then try again.<br><br>GPG error was <b>%2</b></qt>",
+                                                           wb->_name.toHtmlEscaped(),
+                                                           res.error().asString()),
+                                                      i18n("kwalletd GPG backend"),
+                                                      btnRetry,
+                                                      KStandardGuiItem::cancel());
         if (userChoice == KMessageBox::Yes) {
             decryptedData.seek(0, SEEK_SET);
             goto retry_label;
@@ -653,7 +678,11 @@ retry_label:
     }
     ctx->endKeyListing();
     if (wb->_gpgKey.isNull()) {
-        KMessageBox::errorWId(w, i18n("<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was encrypted using the GPG Key ID <b>%2</b> but this key was not found on your system.</qt>", wb->_name.toHtmlEscaped(), keyID));
+        KMessageBox::errorWId(w,
+                              i18n("<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was encrypted using the GPG Key ID <b>%2</b> but this "
+                                   "key was not found on your system.</qt>",
+                                   wb->_name.toHtmlEscaped(),
+                                   keyID));
         return -1;
     }
 
@@ -675,7 +704,7 @@ retry_label:
         hashStream >> folderSize;
 
         MD5Digest ba = MD5Digest(reinterpret_cast<char *>(d));
-        QMap<MD5Digest, QList<MD5Digest> >::iterator it = wb->_hashes.insert(ba, QList<MD5Digest>());
+        QMap<MD5Digest, QList<MD5Digest>>::iterator it = wb->_hashes.insert(ba, QList<MD5Digest>());
         while (folderSize--) {
             Digest d2;
             hashStream.readRawData(d2, 16);

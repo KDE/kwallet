@@ -22,7 +22,7 @@
 class CipherBlockChain : public BlockCipher
 {
 public:
-    CipherBlockChain(BlockCipher *cipher, bool useECBforReading =false);
+    CipherBlockChain(BlockCipher *cipher, bool useECBforReading = false);
     ~CipherBlockChain() override;
 
     bool setKey(void *key, int bitlength) override;

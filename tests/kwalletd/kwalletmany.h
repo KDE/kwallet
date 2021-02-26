@@ -8,8 +8,8 @@
 #ifndef KWALLETMANY_H
 #define KWALLETMANY_H
 
-#include <QObject>
 #include <QList>
+#include <QObject>
 
 namespace KWallet
 {

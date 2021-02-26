@@ -46,7 +46,7 @@ private:
     uint32_t m_P[18];
 
     void *m_key;
-    int m_keylen;  // in bits
+    int m_keylen; // in bits
 
     bool m_initialized;
 
@@ -57,4 +57,3 @@ private:
 };
 
 #endif
-

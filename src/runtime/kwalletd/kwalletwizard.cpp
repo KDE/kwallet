@@ -12,8 +12,8 @@
 #include "ui_kwalletwizardpageoptions.h"
 #include "ui_kwalletwizardpagepassword.h"
 #ifdef HAVE_GPGMEPP
-#include "ui_kwalletwizardpagepasswordgpg.h"
 #include "ui_kwalletwizardpagegpgkey.h"
+#include "ui_kwalletwizardpagepasswordgpg.h"
 #endif
 
 #include <KLocalizedString>
@@ -22,11 +22,11 @@
 #include <QIcon>
 
 #ifdef HAVE_GPGMEPP
+#include <KMessageBox>
 #include <QComboBox>
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <KMessageBox>
 #include <gpgme.h>
 #endif
 
@@ -62,7 +62,6 @@ public:
     explicit PagePassword(QWidget *parent)
         : QWizardPage(parent)
     {
-
         ui.setupUi(this);
 
         registerField(QStringLiteral("useWallet"), ui._useWallet);
@@ -86,7 +85,9 @@ public:
         int nextId = -1;
         if (field(QStringLiteral("useWallet")).toBool()) {
             if (field(QStringLiteral("useBlowfish")).toBool()) {
-                nextId = static_cast<KWalletWizard *>(wizard())->wizardType() == KWalletWizard::Basic ? -1 : KWalletWizard::PageOptionsId; // same as non GPGMEPP case
+                nextId = static_cast<KWalletWizard *>(wizard())->wizardType() == KWalletWizard::Basic
+                    ? -1
+                    : KWalletWizard::PageOptionsId; // same as non GPGMEPP case
             } else {
                 nextId = KWalletWizard::PageGpgKeyId;
             }
@@ -112,12 +113,15 @@ private:
 };
 
 #ifdef HAVE_GPGMEPP
-typedef std::vector< GpgME::Key > KeysVector;
+typedef std::vector<GpgME::Key> KeysVector;
 Q_DECLARE_METATYPE(GpgME::Key)
 
 struct AddKeyToCombo {
     QComboBox *_list;
-    AddKeyToCombo(QComboBox *list) : _list(list) {}
+    AddKeyToCombo(QComboBox *list)
+        : _list(list)
+    {
+    }
     void operator()(const GpgME::Key &k)
     {
         QString text = QStringLiteral("%1 (%2)").arg(k.shortKeyID(), k.userID(0).email());
@@ -143,13 +147,16 @@ public:
         GpgME::Error err = GpgME::checkEngine(GpgME::OpenPGP);
         if (err) {
             qDebug() << "OpenPGP not supported on your system!";
-            KMessageBox::error(this, i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
+            KMessageBox::error(
+                this,
+                i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
         } else {
-            std::shared_ptr< GpgME::Context > ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
+            std::shared_ptr<GpgME::Context> ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
             if (nullptr == ctx) {
-                KMessageBox::error(this, i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
+                KMessageBox::error(
+                    this,
+                    i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
             } else {
-
                 ctx->setKeyListMode(GPGME_KEYLIST_MODE_LOCAL);
                 err = ctx->startKeyListing();
                 while (!err) {
@@ -194,8 +201,9 @@ public:
     GpgME::Key gpgKey() const
     {
         QVariant varKey = ui._gpgKey->itemData(field(QStringLiteral("gpgKey")).toInt());
-        return varKey.value< GpgME::Key >();
+        return varKey.value<GpgME::Key>();
     }
+
 private:
     Ui::KWalletWizardPageGpgKey ui;
     bool userHasGpgKeys;

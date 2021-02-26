@@ -9,19 +9,19 @@
 */
 
 #include "kwallet.h"
-#include <KSharedConfig>
 #include <KConfigGroup>
+#include <KSharedConfig>
 
 #include <QApplication>
+#include <QDebug>
 #include <QPointer>
 #include <QWidget>
-#include <QDebug>
 
 #include <Carbon/Carbon.h>
-#include <Security/Security.h>
 #include <Security/SecKeychain.h>
+#include <Security/Security.h>
 
-//TODO: OSX_KEYCHAIN_PORT_DISABLED is never defined, all the enclosing code should be removed
+// TODO: OSX_KEYCHAIN_PORT_DISABLED is never defined, all the enclosing code should be removed
 
 using namespace KWallet;
 
@@ -34,9 +34,12 @@ Q_DECLARE_METATYPE(StringByteArrayMap)
 
 namespace
 {
-template <typename T>
+template<typename T>
 struct CFReleaser {
-    explicit CFReleaser(const T &r) : ref(r) {}
+    explicit CFReleaser(const T &r)
+        : ref(r)
+    {
+    }
     ~CFReleaser()
     {
         CFRelease(ref);
@@ -47,7 +50,7 @@ struct CFReleaser {
 
 static QString asQString(CFStringRef sr)
 {
-    return QString::fromLatin1(CFStringGetCStringPtr(sr, NULL));     //TODO Latin1 correct?
+    return QString::fromLatin1(CFStringGetCStringPtr(sr, NULL)); // TODO Latin1 correct?
 }
 
 static QString errorString(OSStatus s)
@@ -75,15 +78,16 @@ static OSStatus removeEntryImplementation(const QString &walletName, const QStri
     const QByteArray accountName(key.toUtf8());
     SecKeychainItemRef itemRef;
     QString errMsg;
-    OSStatus result = SecKeychainFindGenericPassword(NULL, serviceName.size(), serviceName.constData(), accountName.size(), accountName.constData(), NULL, NULL, &itemRef);
+    OSStatus result =
+        SecKeychainFindGenericPassword(NULL, serviceName.size(), serviceName.constData(), accountName.size(), accountName.constData(), NULL, NULL, &itemRef);
     if (isError(result, &errMsg)) {
-        qWarning() << "Could not retrieve password:"  << qPrintable(errMsg);
+        qWarning() << "Could not retrieve password:" << qPrintable(errMsg);
         return result;
     }
     const CFReleaser<SecKeychainItemRef> itemReleaser(itemRef);
     result = SecKeychainItemDelete(itemRef);
     if (isError(result, &errMsg)) {
-        qWarning() << "Could not delete password:"  << qPrintable(errMsg);
+        qWarning() << "Could not delete password:" << qPrintable(errMsg);
         return result;
     }
     return result;
@@ -133,7 +137,8 @@ class Wallet::WalletPrivate
 public:
     explicit WalletPrivate(const QString &n)
         : name(n)
-    {}
+    {
+    }
 
     // needed for compilation reasons
     void walletServiceUnregistered()
@@ -145,7 +150,8 @@ public:
 };
 
 Wallet::Wallet(int handle, const QString &name)
-    : QObject(0L), d(new WalletPrivate(name))
+    : QObject(0L)
+    , d(new WalletPrivate(name))
 {
     Q_UNUSED(handle);
 }
@@ -176,7 +182,7 @@ void Wallet::changePassword(const QString &name, WId w)
 
 bool Wallet::isEnabled()
 {
-    //PENDING(frank) check
+    // PENDING(frank) check
     return true;
 }
 
@@ -360,7 +366,7 @@ bool Wallet::createFolder(const QString &f)
         return r;
     }
 
-    return true;                // folder already exists
+    return true; // folder already exists
 #else
     return true;
 #endif
@@ -405,7 +411,7 @@ bool Wallet::removeFolder(const QString &f)
         setFolder(QString());
     }
 
-    return r;                   // default is false
+    return r; // default is false
 #else
     return true;
 #endif
@@ -423,8 +429,16 @@ int Wallet::readEntry(const QString &key, QByteArray &value)
     UInt32 passwordSize = 0;
     void *passwordData = 0;
     QString errMsg;
-    if (isError(SecKeychainFindGenericPassword(NULL, serviceName.size(), serviceName.constData(), accountName.size(), accountName.constData(), &passwordSize, &passwordData, NULL), &errMsg)) {
-        qWarning() << "Could not retrieve password:"  << qPrintable(errMsg);
+    if (isError(SecKeychainFindGenericPassword(NULL,
+                                               serviceName.size(),
+                                               serviceName.constData(),
+                                               accountName.size(),
+                                               accountName.constData(),
+                                               &passwordSize,
+                                               &passwordData,
+                                               NULL),
+                &errMsg)) {
+        qWarning() << "Could not retrieve password:" << qPrintable(errMsg);
         return -1;
     }
 
@@ -494,7 +508,7 @@ int Wallet::readMap(const QString &key, QMap<QString, QString> &value)
     return 0;
 }
 
-int Wallet::readMapList(const QString &key, QMap<QString, QMap<QString, QString> > &value)
+int Wallet::readMapList(const QString &key, QMap<QString, QMap<QString, QString>> &value)
 {
 #ifdef OSX_KEYCHAIN_PORT_DISABLED
     registerTypes();
@@ -505,8 +519,7 @@ int Wallet::readMapList(const QString &key, QMap<QString, QMap<QString, QString>
         return rc;
     }
 
-    QDBusReply<QVariantMap> r =
-        walletLauncher->getInterface().readMapList(d->handle, d->folder, key, appid());
+    QDBusReply<QVariantMap> r = walletLauncher->getInterface().readMapList(d->handle, d->folder, key, appid());
     if (r.isValid()) {
         rc = 0;
         const QVariantMap val = r.value();
@@ -547,7 +560,14 @@ static OSStatus writeEntryImplementation(const QString &walletName, const QStrin
     const QByteArray serviceName(walletName.toUtf8());
     const QByteArray accountName(key.toUtf8());
     QString errMsg;
-    OSStatus err = SecKeychainAddGenericPassword(NULL, serviceName.size(), serviceName.constData(), accountName.size(), accountName.constData(), value.size(), value.constData(), NULL);
+    OSStatus err = SecKeychainAddGenericPassword(NULL,
+                                                 serviceName.size(),
+                                                 serviceName.constData(),
+                                                 accountName.size(),
+                                                 accountName.constData(),
+                                                 value.size(),
+                                                 value.constData(),
+                                                 NULL);
     if (err == errSecDuplicateItem) {
         err = removeEntryImplementation(walletName, key);
         if (isError(err, &errMsg)) {
@@ -561,7 +581,6 @@ static OSStatus writeEntryImplementation(const QString &walletName, const QStrin
     }
     // qDebug() << "Successfully written out key:" << key;
     return err;
-
 }
 
 int Wallet::writeEntry(const QString &key, const QByteArray &password, EntryType entryType)
@@ -592,7 +611,9 @@ bool Wallet::hasEntry(const QString &key)
 {
     const QByteArray serviceName(walletName().toUtf8());
     const QByteArray accountName(key.toUtf8());
-    return !isError(SecKeychainFindGenericPassword(NULL, serviceName.size(), serviceName.constData(), accountName.size(), accountName.constData(), NULL, NULL, NULL), 0);
+    return !isError(
+        SecKeychainFindGenericPassword(NULL, serviceName.size(), serviceName.constData(), accountName.size(), accountName.constData(), NULL, NULL, NULL),
+        0);
 }
 
 int Wallet::removeEntry(const QString &key)
@@ -637,9 +658,7 @@ void Wallet::slotFolderListUpdated(const QString &wallet)
 void Wallet::slotApplicationDisconnected(const QString &wallet, const QString &application)
 {
 #ifdef OSX_KEYCHAIN_PORT_DISABLED
-    if (d->handle >= 0
-            && d->name == wallet
-            && application == appid()) {
+    if (d->handle >= 0 && d->name == wallet && application == appid()) {
         slotWalletClosed(d->handle);
     }
 #endif
@@ -654,7 +673,7 @@ void Wallet::walletAsyncOpened(int tId, int handle)
     }
 
     // disconnect the async signal
-    disconnect(this, SLOT(walletAsyncOpened(int,int)));
+    disconnect(this, SLOT(walletAsyncOpened(int, int)));
 
     d->handle = handle;
     Q_EMIT walletOpened(handle > 0);
@@ -704,6 +723,5 @@ void Wallet::slotCollectionDeleted()
 
 void Wallet::virtual_hook(int, void *)
 {
-    //BASE::virtual_hook( id, data );
+    // BASE::virtual_hook( id, data );
 }
-

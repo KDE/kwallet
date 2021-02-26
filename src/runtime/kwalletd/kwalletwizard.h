@@ -21,11 +21,7 @@ class KWalletWizard : public QWizard
 {
     Q_OBJECT
 public:
-
-    enum WizardType {
-        Basic,
-        Advanced
-    };
+    enum WizardType { Basic, Advanced };
 
     static const int PageIntroId = 0;
     static const int PagePasswordId = 1;

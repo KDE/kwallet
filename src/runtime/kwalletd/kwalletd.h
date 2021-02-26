@@ -9,14 +9,14 @@
 #ifndef _KWALLETD_H_
 #define _KWALLETD_H_
 
-#include <QString>
-#include <QHash>
 #include "kwalletbackend.h"
-#include <QPointer>
-#include <time.h>
-#include <stdlib.h>
-#include <QtDBus>
 #include <QDBusServiceWatcher>
+#include <QHash>
+#include <QPointer>
+#include <QString>
+#include <QtDBus>
+#include <stdlib.h>
+#include <time.h>
 
 #include "ktimeout.h"
 #include "kwalletsessionstore.h"
@@ -47,12 +47,10 @@ public Q_SLOTS:
     int openPath(const QString &path, qlonglong wId, const QString &appid);
 
     // Open the wallet asynchronously
-    int openAsync(const QString &wallet, qlonglong wId, const QString &appid,
-                  bool handleSession);
+    int openAsync(const QString &wallet, qlonglong wId, const QString &appid, bool handleSession);
 
     // Open and unlock the wallet with this path asynchronously
-    int openPathAsync(const QString &path, qlonglong wId, const QString &appid,
-                      bool handleSession);
+    int openPathAsync(const QString &path, qlonglong wId, const QString &appid, bool handleSession);
 
     // Close and lock the wallet
     // If force = true, will close it for all users.  Behave.  This
@@ -175,8 +173,7 @@ Q_SIGNALS:
     void applicationDisconnected(const QString &wallet, const QString &application);
 
 private Q_SLOTS:
-    void slotServiceOwnerChanged(const QString &name, const QString &oldOwner,
-                                 const QString &newOwner);
+    void slotServiceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
     void emitWalletListDirty();
     void timedOutClose(int handle);
     void timedOutSync(int handle);
@@ -190,10 +187,9 @@ private Q_SLOTS:
 
 private:
     // Internal - open a wallet
-    int internalOpen(const QString &appid, const QString &wallet, bool isPath, WId w,
-                     bool modal, const QString &service);
+    int internalOpen(const QString &appid, const QString &wallet, bool isPath, WId w, bool modal, const QString &service);
     // Internal - close this wallet.
-    int internalClose(KWallet::Backend * const w, const int handle, const bool force, const bool saveBeforeClose = true);
+    int internalClose(KWallet::Backend *const w, const int handle, const bool force, const bool saveBeforeClose = true);
 
     bool isAuthorizedApp(const QString &appid, const QString &wallet, WId w);
     // This also validates the handle.  May return NULL.
@@ -208,10 +204,8 @@ private:
     bool implicitDeny(const QString &wallet, const QString &app);
 
     void doTransactionChangePassword(const QString &appid, const QString &wallet, qlonglong wId);
-    void doTransactionOpenCancelled(const QString &appid, const QString &wallet,
-                                    const QString &service);
-    int doTransactionOpen(const QString &appid, const QString &wallet, bool isPath,
-                          qlonglong wId, bool modal, const QString &service);
+    void doTransactionOpenCancelled(const QString &appid, const QString &wallet, const QString &service);
+    int doTransactionOpen(const QString &appid, const QString &wallet, bool isPath, qlonglong wId, bool modal, const QString &service);
     void initiateSync(int handle);
 
     void setupDialog(QWidget *dialog, WId wId, const QString &appid, bool modal);
@@ -236,7 +230,7 @@ private:
 
     KWalletTransaction *_curtrans; // current transaction
     QList<KWalletTransaction *> _transactions;
-    QPointer< QWidget > activeDialog;
+    QPointer<QWidget> activeDialog;
 
 #ifdef Q_WS_X11
     QDBusInterface *screensaver;

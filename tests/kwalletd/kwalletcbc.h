@@ -14,7 +14,6 @@ class KWalletCBCTest : public QObject
 {
     Q_OBJECT
 public:
-
 private Q_SLOTS:
     void encryptDecryptOneBlock();
     void encryptDecryptMultiblock();

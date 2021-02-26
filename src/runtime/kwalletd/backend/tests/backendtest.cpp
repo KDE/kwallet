@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <QApplication>
 #include <QString>
@@ -42,4 +42,3 @@ int main(int argc, char **argv)
 
     return 0;
 }
-

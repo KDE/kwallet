@@ -25,10 +25,8 @@ void KWalletTest::testWallet()
 {
     QString testWallet = QStringLiteral("kdewallet");
     QString testFolder = QStringLiteral("wallettestfolder");
-    QString testKeys[] = { QStringLiteral("testKey"), QStringLiteral("account-302948"), QStringLiteral("\\"), QStringLiteral("/abc"),
-                           QStringLiteral("a@b.c")
-                         };
-    QByteArray testValues[] = { "test", "@(!§\"%&", "", ".test", "\\" };
+    QString testKeys[] = {QStringLiteral("testKey"), QStringLiteral("account-302948"), QStringLiteral("\\"), QStringLiteral("/abc"), QStringLiteral("a@b.c")};
+    QByteArray testValues[] = {"test", "@(!§\"%&", "", ".test", "\\"};
     int numTests = 5;
 
     // open
@@ -103,4 +101,3 @@ void KWalletTest::testWallet()
 }
 
 QTEST_GUILESS_MAIN(KWalletTest)
-

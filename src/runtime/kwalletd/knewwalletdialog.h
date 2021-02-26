@@ -10,8 +10,8 @@
 
 #include <QWizard>
 
-#include "ui_knewwalletdialogintro.h"
 #include "ui_knewwalletdialoggpg.h"
+#include "ui_knewwalletdialogintro.h"
 
 namespace GpgME
 {
@@ -20,7 +20,6 @@ class Key;
 
 namespace KWallet
 {
-
 class KNewWalletDialogIntro;
 class KNewWalletDialogGpg;
 
@@ -36,11 +35,12 @@ public:
         return _gpgId;
     }
     GpgME::Key gpgKey() const;
+
 private:
-    KNewWalletDialogIntro   *_intro = nullptr;
-    int                     _introId = 0;
-    KNewWalletDialogGpg     *_gpg = nullptr;
-    int                     _gpgId = 0;
+    KNewWalletDialogIntro *_intro = nullptr;
+    int _introId = 0;
+    KNewWalletDialogGpg *_gpg = nullptr;
+    int _gpgId = 0;
 };
 
 class KNewWalletDialogIntro : public QWizardPage
@@ -52,6 +52,7 @@ public:
     int nextId() const override;
 protected Q_SLOTS:
     void onBlowfishToggled(bool);
+
 private:
     Ui_KNewWalletDialogIntro _ui;
 };
@@ -66,10 +67,11 @@ public:
     virtual bool validateCurrentPage();
 protected Q_SLOTS:
     void onItemSelectionChanged();
+
 private:
-    bool                    _alreadyInitialized;
-    Ui_KNewWalletDialogGpg  _ui;
-    bool                    _complete;
+    bool _alreadyInitialized;
+    Ui_KNewWalletDialogGpg _ui;
+    bool _complete;
 };
 
 } // namespace

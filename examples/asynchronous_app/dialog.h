@@ -14,13 +14,14 @@
 #include <QLabel>
 #include <QLineEdit>
 
-namespace KWallet {
-    class Wallet;
+namespace KWallet
+{
+class Wallet;
 }
 
 class Dialog : public QDialog
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     Dialog(QWidget *parent = nullptr);
 

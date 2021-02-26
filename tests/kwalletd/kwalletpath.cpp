@@ -1,12 +1,12 @@
 #include "kwalletpath.h"
 
-#include <QTextStream>
 #include <QTest>
+#include <QTextStream>
 
 #include <KAboutData>
-#include <kwallet.h>
-#include <QDBusConnectionInterface>
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <kwallet.h>
 
 static QTextStream _out(stdout, QIODevice::WriteOnly);
 

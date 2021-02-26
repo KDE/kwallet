@@ -58,7 +58,7 @@ public:
 
 protected:
     int _blksz;
-    int _keylen;   // in bits
+    int _keylen; // in bits
 };
 
 #endif // BLOCKCIPHER_H

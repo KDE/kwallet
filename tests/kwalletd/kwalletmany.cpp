@@ -7,10 +7,10 @@
 
 #include "kwalletmany.h"
 
-#include <QTextStream>
-#include <QThread>
 #include <QApplication>
 #include <QTest>
+#include <QTextStream>
+#include <QThread>
 #include <kwallet.h>
 
 #define NUMWALLETS 10
@@ -19,7 +19,9 @@ using namespace KWallet;
 
 static QTextStream _out(stdout, QIODevice::WriteOnly);
 
-KWalletMany::KWalletMany() : QObject(), _pending(10)
+KWalletMany::KWalletMany()
+    : QObject()
+    , _pending(10)
 {
 }
 

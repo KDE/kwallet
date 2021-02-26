@@ -1,12 +1,12 @@
 #include "kwalletsync.h"
 
-#include <QTextStream>
 #include <QTest>
+#include <QTextStream>
 
 #include <KAboutData>
-#include <kwallet.h>
-#include <QDBusConnectionInterface>
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <kwallet.h>
 
 static QTextStream _out(stdout, QIODevice::WriteOnly);
 
@@ -29,4 +29,3 @@ void KWalletSyncTest::openWallet()
 }
 
 QTEST_GUILESS_MAIN(KWalletSyncTest)
-

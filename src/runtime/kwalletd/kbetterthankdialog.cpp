@@ -65,4 +65,3 @@ void KBetterThanKDialog::denyForeverClicked()
 {
     done(3);
 }
-

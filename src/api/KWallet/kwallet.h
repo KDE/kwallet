@@ -9,8 +9,8 @@
 #ifndef _KWALLET_H
 #define _KWALLET_H
 
-#include <QStringList>
 #include <QObject>
+#include <QStringList>
 #include <qwindowdefs.h> // krazy:exclude=includes (for WId)
 
 #include <kwallet_export.h>
@@ -35,7 +35,6 @@
 
 namespace KWallet
 {
-
 /**
  * KDE Wallet
  *
@@ -358,7 +357,7 @@ public:
      *  @deprecated Since 5.72, use mapList(bool *)
      */
     KWALLET_DEPRECATED_VERSION(5, 72, "Use mapList(bool *)")
-    int readMapList(const QString &key, QMap<QString, QMap<QString, QString> > &value);
+    int readMapList(const QString &key, QMap<QString, QMap<QString, QString>> &value);
 #endif
 
 #if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
@@ -502,8 +501,7 @@ public:
      *  @return Returns true if the key does NOT exist in the
      *  wallet, or the folder or wallet does not exist.
      */
-    static bool keyDoesNotExist(const QString &wallet, const QString &folder,
-                                const QString &key);
+    static bool keyDoesNotExist(const QString &wallet, const QString &folder, const QString &key);
 
     /**
      * Determine if the KWallet API is using the KSecretsService infrastructure
@@ -612,4 +610,3 @@ protected:
 }
 
 #endif //_KWALLET_H
-

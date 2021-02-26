@@ -8,21 +8,20 @@
 #include "knewwalletdialog.h"
 #include "kwalletd_debug.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QTableWidget>
 #include <QTableWidgetItem>
-#include <gpgme.h>
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <KMessageBox>
+#include <gpgme.h>
 
 Q_DECLARE_METATYPE(GpgME::Key)
 
 namespace KWallet
 {
-
-KNewWalletDialog::KNewWalletDialog(const QString &appName, const QString &walletName, QWidget *parent):
-    QWizard(parent)
+KNewWalletDialog::KNewWalletDialog(const QString &appName, const QString &walletName, QWidget *parent)
+    : QWizard(parent)
 {
     setOption(HaveFinishButtonOnEarlyPages);
     _intro = new KNewWalletDialogIntro(appName, walletName, this);
@@ -40,16 +39,24 @@ bool KNewWalletDialog::isBlowfish() const
 GpgME::Key KNewWalletDialog::gpgKey() const
 {
     QVariant varKey = field(QStringLiteral("key"));
-    return varKey.value< GpgME::Key >();
+    return varKey.value<GpgME::Key>();
 }
 
-KNewWalletDialogIntro::KNewWalletDialogIntro(const QString &appName, const QString &walletName, QWidget *parent): QWizardPage(parent)
+KNewWalletDialogIntro::KNewWalletDialogIntro(const QString &appName, const QString &walletName, QWidget *parent)
+    : QWizardPage(parent)
 {
     _ui.setupUi(this);
     if (appName.isEmpty()) {
-        _ui.labelIntro->setText(i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used to store sensitive data in a secure fashion. Please choose the new wallet's type below or click cancel to deny the application's request.</qt>", walletName.toHtmlEscaped()));
+        _ui.labelIntro->setText(
+            i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used to store sensitive data in a secure fashion. Please choose the "
+                 "new wallet's type below or click cancel to deny the application's request.</qt>",
+                 walletName.toHtmlEscaped()));
     } else {
-        _ui.labelIntro->setText(i18n("<qt>The application '<b>%1</b>' has requested to create a new wallet named '<b>%2</b>'. This is used to store sensitive data in a secure fashion. Please choose the new wallet's type below or click cancel to deny the application's request.</qt>", appName.toHtmlEscaped(), walletName.toHtmlEscaped()));
+        _ui.labelIntro->setText(
+            i18n("<qt>The application '<b>%1</b>' has requested to create a new wallet named '<b>%2</b>'. This is used to store sensitive data in a secure "
+                 "fashion. Please choose the new wallet's type below or click cancel to deny the application's request.</qt>",
+                 appName.toHtmlEscaped(),
+                 walletName.toHtmlEscaped()));
     }
 }
 
@@ -68,12 +75,14 @@ int KNewWalletDialogIntro::nextId() const
     if (isBlowfish()) {
         return -1;
     } else {
-        return qobject_cast< const KNewWalletDialog * >(wizard())->gpgId();
+        return qobject_cast<const KNewWalletDialog *>(wizard())->gpgId();
     }
 }
 
-KNewWalletDialogGpg::KNewWalletDialogGpg(const QString &appName, const QString &walletName, QWidget *parent):
-    QWizardPage(parent), _alreadyInitialized(false), _complete(false)
+KNewWalletDialogGpg::KNewWalletDialogGpg(const QString &appName, const QString &walletName, QWidget *parent)
+    : QWizardPage(parent)
+    , _alreadyInitialized(false)
+    , _complete(false)
 {
     _ui.setupUi(this);
 }
@@ -81,7 +90,11 @@ KNewWalletDialogGpg::KNewWalletDialogGpg(const QString &appName, const QString &
 struct AddKeyToList {
     QTableWidget *_list;
     int _row;
-    AddKeyToList(QTableWidget *list) : _list(list), _row(0) {}
+    AddKeyToList(QTableWidget *list)
+        : _list(list)
+        , _row(0)
+    {
+    }
     void operator()(const GpgME::Key &k)
     {
         GpgME::UserID uid = k.userID(0);
@@ -111,19 +124,21 @@ void KNewWalletDialogGpg::initializePage()
     GpgME::Error err = GpgME::checkEngine(GpgME::OpenPGP);
     if (err) {
         qCDebug(KWALLETD_LOG) << "OpenPGP not supported on your system!";
-        KMessageBox::error(this, i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
+        KMessageBox::error(this,
+                           i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
         Q_EMIT completeChanged();
         return;
     }
-    std::shared_ptr< GpgME::Context >   _ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
+    std::shared_ptr<GpgME::Context> _ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (!_ctx) {
-        KMessageBox::error(this, i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
+        KMessageBox::error(this,
+                           i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
         Q_EMIT completeChanged();
         return;
     }
     _ctx->setKeyListMode(GpgME::Local);
 
-    std::vector< GpgME::Key > keys;
+    std::vector<GpgME::Key> keys;
     err = _ctx->startKeyListing();
     while (!err) {
         GpgME::Key k = _ctx->nextKey(err);
@@ -137,7 +152,8 @@ void KNewWalletDialogGpg::initializePage()
     _ctx->endKeyListing();
 
     if (keys.size() == 0) {
-        KMessageBox::error(this, i18n("Seems that your system has no keys suitable for encryption. Please set-up at least one encryption key, then try again."));
+        KMessageBox::error(this,
+                           i18n("Seems that your system has no keys suitable for encryption. Please set-up at least one encryption key, then try again."));
         Q_EMIT completeChanged();
         return;
     }

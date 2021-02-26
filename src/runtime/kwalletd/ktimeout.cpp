@@ -61,5 +61,3 @@ void KTimeout::timerEvent(QTimerEvent *ev)
         }
     }
 }
-
-

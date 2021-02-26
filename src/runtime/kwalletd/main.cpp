@@ -7,15 +7,15 @@
 */
 
 #include "kwalletd_debug.h"
-#include <QApplication>
-#include <QIcon>
-#include <QString>
-#include <QSessionManager>
-#include <KLocalizedString>
 #include <KAboutData>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KDBusService>
+#include <KLocalizedString>
+#include <QApplication>
+#include <QIcon>
+#include <QSessionManager>
+#include <QString>
 
 #include <stdio.h>
 
@@ -24,8 +24,8 @@
 #include "kwalletd_version.h"
 
 #ifndef Q_OS_WIN
-#include <sys/types.h>
 #include <sys/socket.h>
+#include <sys/types.h>
 #include <sys/un.h>
 #include <unistd.h>
 
@@ -42,16 +42,16 @@ static bool isWalletEnabled()
 }
 
 #ifndef Q_OS_WIN
-//Waits until the PAM_MODULE sends the hash
+// Waits until the PAM_MODULE sends the hash
 static char *waitForHash()
 {
     printf("kwalletd5: Waiting for hash on %d-\n", pipefd);
     int totalRead = 0;
     int readBytes = 0;
     int attempts = 0;
-    char *buf = (char*)malloc(sizeof(char) * PBKDF2_SHA512_KEYSIZE);
+    char *buf = (char *)malloc(sizeof(char) * PBKDF2_SHA512_KEYSIZE);
     memset(buf, '\0', PBKDF2_SHA512_KEYSIZE);
-    while(totalRead != PBKDF2_SHA512_KEYSIZE) {
+    while (totalRead != PBKDF2_SHA512_KEYSIZE) {
         readBytes = read(pipefd, buf + totalRead, PBKDF2_SHA512_KEYSIZE - totalRead);
         if (readBytes == -1 || attempts > 5) {
             free(buf);
@@ -65,7 +65,7 @@ static char *waitForHash()
     return buf;
 }
 
-//Waits until startkde sends the environment variables
+// Waits until startkde sends the environment variables
 static int waitForEnvironment()
 {
     printf("kwalletd5: waitingForEnvironment on: %d\n", socketfd);
@@ -83,7 +83,7 @@ static int waitForEnvironment()
 
     int chop = 0;
     FILE *s3 = fdopen(dup(s2), "r");
-    while(!feof(s3)) {
+    while (!feof(s3)) {
         if (fgets(str, BSIZE, s3)) {
             chop = strlen(str) - 1;
             if (str[chop] == '\n') {
@@ -99,7 +99,7 @@ static int waitForEnvironment()
     return 1;
 }
 
-char* checkPamModule(int argc, char **argv)
+char *checkPamModule(int argc, char **argv)
 {
     printf("kwalletd5: Checking for pam module\n");
     char *hash = nullptr;
@@ -111,17 +111,17 @@ char* checkPamModule(int argc, char **argv)
         printf("kwalletd5: Got pam-login param\n");
         argv[x] = nullptr;
         x++;
-        //We need at least 2 extra arguments after --pam-login
+        // We need at least 2 extra arguments after --pam-login
         if (x + 1 > argc) {
             printf("kwalletd5: Invalid arguments (less than needed)\n");
             return nullptr;
         }
 
-        //first socket for the hash, comes from a pipe
+        // first socket for the hash, comes from a pipe
         pipefd = atoi(argv[x]);
         argv[x] = nullptr;
         x++;
-        //second socket for environment, comes from a localsocket
+        // second socket for environment, comes from a localsocket
         socketfd = atoi(argv[x]);
         argv[x] = nullptr;
         break;

@@ -7,11 +7,12 @@
 
 #include "kwalletcbc.h"
 
-#include <backend/cbc.h>
-#include <backend/blowfish.h>
 #include <QTest>
+#include <backend/blowfish.h>
+#include <backend/cbc.h>
 
-void KWalletCBCTest::encryptDecryptOneBlock() {
+void KWalletCBCTest::encryptDecryptOneBlock()
+{
     BlockCipher *bf;
     char data[] = "OneBlock";
     char key[] = "testkey";
@@ -32,7 +33,8 @@ void KWalletCBCTest::encryptDecryptOneBlock() {
     delete bf;
 }
 
-void KWalletCBCTest::encryptDecryptMultiblock() {
+void KWalletCBCTest::encryptDecryptMultiblock()
+{
     BlockCipher *bf;
     char data[] = "This is a test.";
     char key[] = "testkey";
@@ -54,4 +56,3 @@ void KWalletCBCTest::encryptDecryptMultiblock() {
 }
 
 QTEST_GUILESS_MAIN(KWalletCBCTest)
-

@@ -1,14 +1,14 @@
 #include "kwalletasync.h"
 
-#include <QTextStream>
 #include <QApplication>
-#include <QTimer>
 #include <QTest>
+#include <QTextStream>
+#include <QTimer>
 
 #include <KAboutData>
-#include <kwallet.h>
-#include <QDBusConnectionInterface>
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <kwallet.h>
 
 #include "kwallettest.h"
 
