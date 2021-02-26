@@ -125,7 +125,7 @@ bool BlowFish::setKey(void *key, int bitlength)
 
     return init();
 }
-
+// clang-format off
 #if Q_BYTE_ORDER == Q_BIG_ENDIAN
 #define shuffle(x) do {             \
         uint32_t r = x;             \
@@ -135,6 +135,7 @@ bool BlowFish::setKey(void *key, int bitlength)
         x |= (r & 0x000000ff) << 24;    \
     } while (0)
 #endif
+// clang-format on
 
 int BlowFish::encrypt(void *block, int len)
 {

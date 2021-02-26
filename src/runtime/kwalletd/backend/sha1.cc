@@ -29,6 +29,7 @@
 
 #include <string.h>
 
+// clang-format off
 // FIXME: this can be optimized to one instruction on most cpus.
 #define rol(x,y) ((x << y) | (x >> (32-y)))
 
@@ -51,6 +52,7 @@
                                            +  m;                 \
     b  = rol(b, 30);        \
 } while(0)
+// clang-format on
 
 SHA1::SHA1()
 {
@@ -309,13 +311,14 @@ const unsigned char *SHA1::hash()
     transform(_buf);
 
     p = _buf;
-
+// clang-format off
 #if Q_BYTE_ORDER == Q_BIG_ENDIAN
 #define X(a) do { *(uint32_t *)p = _h##a; p += 4; } while (0)
 #else
 #define X(a) do { *p++ = _h##a >> 24;  *p++ = _h##a >> 16;             \
         *p++ = _h##a >>  8;  *p++ = _h##a;        } while (0)
 #endif
+// clang-format on
 
     X(0);
     X(1);

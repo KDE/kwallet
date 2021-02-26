@@ -27,11 +27,13 @@ int main(int argc, char* argv[]) {
 
     QueryDriver app(argc, argv);
     QCommandLineParser cmdParser;
+    // clang-format off
     QCommandLineOption verboseOption(QStringList() << QStringLiteral("v") << QStringLiteral("verbose"), i18n("verbose output"));
     QCommandLineOption listOption(QStringList() << QStringLiteral("l") << QStringLiteral("list-entries"), i18n("list password entries"));
     QCommandLineOption readOption(QStringList() << QStringLiteral("r") << QStringLiteral("read-password"), i18n("reads the secrets from the given <entry>"), i18n("Entry"));
     QCommandLineOption writeOption(QStringList() << QStringLiteral("w") << QStringLiteral("write-password"), i18n("write secrets to the given <entry>. The values are read from the standard input. IMPORTANT: previous wallet entry value will be overwritten!"), i18n("Entry"));
     QCommandLineOption folderOption(QStringList() << QStringLiteral("f") << QStringLiteral("folder"), i18n("specify the folder in the wallet <folder>"), i18n("Folder"));
+    // clang-format on
 
     cmdParser.addHelpOption();
     cmdParser.addPositionalArgument(I18N_NOOP("wallet"), i18n("The wallet to query"));
