@@ -30,8 +30,9 @@
 #include "sha1.h"
 
 #ifdef Q_OS_WIN
+#include <windows.h> // Must be included before wincrypt.h
+
 #include <wincrypt.h>
-#include <windows.h>
 #endif
 
 #define KWALLET_CIPHER_BLOWFISH_ECB 0 // this was the old KWALLET_CIPHER_BLOWFISH_CBC
