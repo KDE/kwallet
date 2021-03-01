@@ -9,6 +9,7 @@
 
 using namespace KWallet;
 #include <QDataStream>
+#include <QIODevice>
 
 Entry::Entry()
 {
