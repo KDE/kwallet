@@ -194,7 +194,7 @@ QPair<int, KWallet::Backend *> KWalletD::findWallet(const QString &walletName) c
     return qMakePair(-1, static_cast<KWallet::Backend *>(nullptr));
 }
 
-const QRegularExpression walletRegex(QStringLiteral("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_\\s]+$"));
+static const QRegularExpression walletRegex(QStringLiteral("^[\\w\\^\\&\\'\\@\\{\\}\\[\\]\\,\\$\\=\\!\\-\\#\\(\\)\\%\\.\\+\\_\\s]+$"));
 bool KWalletD::_processing = false;
 
 void KWalletD::processTransactions()
