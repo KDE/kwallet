@@ -1532,6 +1532,8 @@ void KWalletD::notifyFailures()
 void KWalletD::doCloseSignals(int handle, const QString &wallet)
 {
     Q_EMIT walletClosed(handle);
+    Q_EMIT walletClosedId(handle);
+
     Q_EMIT walletClosed(wallet);
     if (_wallets.isEmpty()) {
         Q_EMIT allWalletsClosed();

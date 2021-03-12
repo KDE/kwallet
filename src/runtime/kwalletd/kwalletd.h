@@ -165,8 +165,14 @@ Q_SIGNALS:
     void walletCreated(const QString &wallet);
     void walletOpened(const QString &wallet);
     void walletDeleted(const QString &wallet);
-    void walletClosed(const QString &wallet);
-    void walletClosed(int handle);
+    void walletClosed(const QString &wallet); // clazy:exclude=overloaded-signal
+
+    // TODO KF6 remove this signal, replaced by walletClosedId(int)
+    void walletClosed(int handle); // clazy:exclude=overloaded-signal
+
+    // since 5.81
+    void walletClosedId(int handle);
+
     void allWalletsClosed();
     void folderListUpdated(const QString &wallet);
     void folderUpdated(const QString &, const QString &);

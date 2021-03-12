@@ -269,7 +269,7 @@ Wallet::Wallet(int handle, const QString &name)
                                                                this);
         connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(walletServiceUnregistered()));
         // clang-format off
-        connect(&walletLauncher()->getInterface(), SIGNAL(walletClosed(int)), SLOT(slotWalletClosed(int)));
+        connect(&walletLauncher()->getInterface(), &OrgKdeKWalletInterface::walletClosedId, this, &KWallet::Wallet::slotWalletClosed);
         connect(&walletLauncher()->getInterface(), SIGNAL(folderListUpdated(QString)), SLOT(slotFolderListUpdated(QString)));
         connect(&walletLauncher()->getInterface(), SIGNAL(folderUpdated(QString,QString)), SLOT(slotFolderUpdated(QString,QString)));
         connect(&walletLauncher()->getInterface(), SIGNAL(applicationDisconnected(QString,QString)), SLOT(slotApplicationDisconnected(QString,QString)));

@@ -19,7 +19,12 @@
     <signal name="walletClosed">
       <arg name="wallet" type="s" direction="out"/>
     </signal>
+    <!-- Deprecated, use walletClosedId -->
     <signal name="walletClosed">
+      <arg name="handle" type="i" direction="out"/>
+      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
+    </signal>
+    <signal name="walletClosedId">
       <arg name="handle" type="i" direction="out"/>
     </signal>
     <signal name="allWalletsClosed">

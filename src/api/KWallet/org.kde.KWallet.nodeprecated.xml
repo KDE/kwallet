@@ -19,7 +19,7 @@
     <signal name="walletClosed">
       <arg name="wallet" type="s" direction="out"/>
     </signal>
-    <signal name="walletClosed">
+    <signal name="walletClosedId">
       <arg name="handle" type="i" direction="out"/>
     </signal>
     <signal name="allWalletsClosed">
