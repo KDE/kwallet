@@ -151,7 +151,7 @@ int KWalletSessionStore::removeAllSessions(int handle)
 QStringList KWalletSessionStore::getApplications(int handle) const
 {
     QStringList rc;
-    const auto lst = m_sessions.uniqueKeys();
+    const auto lst = m_sessions.keys();
     for (const QString &appid : lst) {
         if (hasSession(appid, handle)) {
             rc.append(appid);
