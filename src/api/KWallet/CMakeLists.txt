@@ -79,7 +79,7 @@ else()
     install(FILES ${kwallet_xml} DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf5_org.kde.KWallet.xml)
 endif()
 
-set_target_properties(KF5Wallet PROPERTIES VERSION   ${KWALLET_VERSION_STRING}
+set_target_properties(KF5Wallet PROPERTIES VERSION   ${KWALLET_VERSION}
                                          SOVERSION ${KWALLET_SOVERSION}
                                          EXPORT_NAME Wallet
 )
