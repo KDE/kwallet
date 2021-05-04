@@ -30,7 +30,7 @@ void KWalletAsyncTest::openWallet()
     QVERIFY(wallet != nullptr);
 
     WalletReceiver r;
-    QVERIFY(r.connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool))));
+    QVERIFY(connect(wallet, &KWallet::Wallet::walletOpened, &r, &WalletReceiver::walletOpened));
 
     _out << "About to start 30 second event loop\n";
 

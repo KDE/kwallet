@@ -59,7 +59,7 @@ private:
 class PagePassword : public QWizardPage
 {
 public:
-    explicit PagePassword(QWidget *parent)
+    explicit PagePassword(KWalletWizard *parent)
         : QWizardPage(parent)
     {
         ui.setupUi(this);
@@ -70,12 +70,12 @@ public:
 #ifdef HAVE_GPGMEPP
         registerField(QStringLiteral("useGPG"), ui._radioGpg);
         registerField(QStringLiteral("useBlowfish"), ui._radioBlowfish);
-        connect(ui._radioBlowfish, SIGNAL(toggled(bool)), parent, SLOT(passwordPageUpdate()));
+        connect(ui._radioBlowfish, &QRadioButton::toggled, parent, &KWalletWizard::passwordPageUpdate);
 #endif
 
-        connect(ui._useWallet, SIGNAL(clicked()), parent, SLOT(passwordPageUpdate()));
-        connect(ui._pass1, SIGNAL(textChanged(QString)), parent, SLOT(passwordPageUpdate()));
-        connect(ui._pass2, SIGNAL(textChanged(QString)), parent, SLOT(passwordPageUpdate()));
+        connect(ui._useWallet, &QCheckBox::clicked, parent, &KWalletWizard::passwordPageUpdate);
+        connect(ui._pass1, &QLineEdit::textChanged, parent, &KWalletWizard::passwordPageUpdate);
+        connect(ui._pass2, &QLineEdit::textChanged, parent, &KWalletWizard::passwordPageUpdate);
         ui._useWallet->setChecked(true);
     }
 

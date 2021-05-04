@@ -105,8 +105,8 @@ KWalletD::KWalletD()
     _showingFailureNotify = false;
     _closeIdle = false;
     _idleTime = 0;
-    connect(&_closeTimers, SIGNAL(timedOut(int)), this, SLOT(timedOutClose(int)));
-    connect(&_syncTimers, SIGNAL(timedOut(int)), this, SLOT(timedOutSync(int)));
+    connect(&_closeTimers, &KTimeout::timedOut, this, &KWalletD::timedOutClose);
+    connect(&_syncTimers, &KTimeout::timedOut, this, &KWalletD::timedOutSync);
 
     (void)new KWalletAdaptor(this);
     // register services
@@ -125,11 +125,11 @@ KWalletD::KWalletD()
     _dw->addDir(KWallet::Backend::getSaveLocation());
 
     _dw->startScan(true);
-    connect(_dw, SIGNAL(dirty(QString)), this, SLOT(emitWalletListDirty()));
+    connect(_dw, &KDirWatch::dirty, this, &KWalletD::emitWalletListDirty);
     connect(_dw, &KDirWatch::deleted, this, &KWalletD::emitWalletListDirty);
 
     _serviceWatcher.setWatchMode(QDBusServiceWatcher::WatchForOwnerChange);
-    connect(&_serviceWatcher, SIGNAL(serviceOwnerChanged(QString, QString, QString)), this, SLOT(slotServiceOwnerChanged(QString, QString, QString)));
+    connect(&_serviceWatcher, &QDBusServiceWatcher::serviceOwnerChanged, this, &KWalletD::slotServiceOwnerChanged);
 }
 
 void KWalletD::registerKWalletd4Service()
@@ -604,7 +604,7 @@ int KWalletD::internalOpen(const QString &appid, const QString &wallet, bool isP
                                 i18nc("Text of a button for switching to the application requesting a password", "Switch to %1", appid.toHtmlEscaped()));
                         }
                         notification->setActions(actions);
-                        connect(notification, SIGNAL(action1Activated()), this, SLOT(activatePasswordDialog()));
+                        connect(notification, &KNotification::action1Activated, this, &KWalletD::activatePasswordDialog);
                         notification->sendEvent();
                     }
                     while (!b->isOpen()) {

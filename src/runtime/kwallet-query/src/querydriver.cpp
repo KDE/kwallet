@@ -49,7 +49,7 @@ void QueryDriver::timerEvent(QTimerEvent *event)
             qDebug() << "standby opening wallet " << walletName;
 
         theWallet = Wallet::openWallet(walletName, 0, Wallet::Asynchronous);
-        connect(theWallet, SIGNAL(walletOpened(bool)), this, SLOT(walletOpened(bool)));
+        connect(theWallet, &KWallet::Wallet::walletOpened, this, &QueryDriver::walletOpened);
     }
 }
 

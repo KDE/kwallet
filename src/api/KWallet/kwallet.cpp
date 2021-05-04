@@ -267,13 +267,14 @@ Wallet::Wallet(int handle, const QString &name)
                                                                QDBusConnection::sessionBus(),
                                                                QDBusServiceWatcher::WatchForUnregistration,
                                                                this);
-        connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(walletServiceUnregistered()));
-        // clang-format off
-        connect(&walletLauncher()->getInterface(), &OrgKdeKWalletInterface::walletClosedId, this, &KWallet::Wallet::slotWalletClosed);
-        connect(&walletLauncher()->getInterface(), SIGNAL(folderListUpdated(QString)), SLOT(slotFolderListUpdated(QString)));
-        connect(&walletLauncher()->getInterface(), SIGNAL(folderUpdated(QString,QString)), SLOT(slotFolderUpdated(QString,QString)));
-        connect(&walletLauncher()->getInterface(), SIGNAL(applicationDisconnected(QString,QString)), SLOT(slotApplicationDisconnected(QString,QString)));
-        // clang-format on
+        connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, [this]() {
+            d->walletServiceUnregistered();
+        });
+
+        connect(&walletLauncher()->getInterface(), &org::kde::KWallet::walletClosedId, this, &KWallet::Wallet::slotWalletClosed);
+        connect(&walletLauncher()->getInterface(), &org::kde::KWallet::folderListUpdated, this, &KWallet::Wallet::slotFolderListUpdated);
+        connect(&walletLauncher()->getInterface(), &org::kde::KWallet::folderUpdated, this, &KWallet::Wallet::slotFolderUpdated);
+        connect(&walletLauncher()->getInterface(), &org::kde::KWallet::applicationDisconnected, this, &KWallet::Wallet::slotApplicationDisconnected);
 
         // Verify that the wallet is still open
         if (d->handle != -1) {
@@ -491,7 +492,7 @@ Wallet *Wallet::openWallet(const QString &name, WId w, OpenType ot)
 
         // connect the daemon's opened signal to the slot filtering the
         // signals we need
-        connect(&walletLauncher()->getInterface(), SIGNAL(walletAsyncOpened(int, int)), wallet, SLOT(walletAsyncOpened(int, int)));
+        connect(&walletLauncher()->getInterface(), &org::kde::KWallet::walletAsyncOpened, wallet, &KWallet::Wallet::walletAsyncOpened);
 
         // Make sure the password prompt window will be visible and activated
         KWindowSystem::allowExternalProcessWindowActivation();

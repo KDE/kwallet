@@ -52,7 +52,7 @@ void KWalletMany::openWallet()
         Wallet *wallet;
         wallet = Wallet::openWallet(Wallet::NetworkWallet(), 0, Wallet::Asynchronous);
         QVERIFY(wallet != nullptr);
-        connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool)));
+        connect(wallet, &KWallet::Wallet::walletOpened, this, &KWalletMany::walletOpened);
         _wallets.append(wallet);
     }
     _out.flush();

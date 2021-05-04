@@ -12,10 +12,10 @@ KBetterThanKDialog::KBetterThanKDialog(QWidget *parent)
     : QDialog(parent)
 {
     setupUi(this);
-    connect(_allowOnce, SIGNAL(clicked()), this, SLOT(allowOnceClicked()));
-    connect(_allowAlways, SIGNAL(clicked()), this, SLOT(allowAlwaysClicked()));
-    connect(_deny, SIGNAL(clicked()), this, SLOT(denyClicked()));
-    connect(_denyForever, SIGNAL(clicked()), this, SLOT(denyForeverClicked()));
+    connect(_allowOnce, &QPushButton::clicked, this, &KBetterThanKDialog::allowOnceClicked);
+    connect(_allowAlways, &QPushButton::clicked, this, &KBetterThanKDialog::allowAlwaysClicked);
+    connect(_deny, &QPushButton::clicked, this, &KBetterThanKDialog::denyClicked);
+    connect(_denyForever, &QPushButton::clicked, this, &KBetterThanKDialog::denyForeverClicked);
 
     init();
 }

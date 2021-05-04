@@ -43,6 +43,7 @@ protected:
     void initializePage(int id) override;
 
 protected Q_SLOTS:
+    friend class PagePassword;
     void passwordPageUpdate();
 
 private:

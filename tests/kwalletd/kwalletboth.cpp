@@ -31,7 +31,7 @@ void KWalletBothTest::openWallet()
     QVERIFY(wallet != nullptr);
 
     WalletReceiver r;
-    r.connect(wallet, SIGNAL(walletOpened(bool)), SLOT(walletOpened(bool)));
+    connect(wallet, &KWallet::Wallet::walletOpened, &r, &WalletReceiver::walletOpened);
 
     _out << "About to ask for wallet sync\n";
 
