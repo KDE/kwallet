@@ -36,7 +36,7 @@ else()
         # copy of org.kde.KWallet.xml, but with all deprecated API removed
         set(kwallet_xml org.kde.KWallet.nodeprecated.xml)
     endif()
-    qt5_add_dbus_interface( kwallet_SRCS ${kwallet_xml} kwallet_interface )
+    qt_add_dbus_interface( kwallet_SRCS ${kwallet_xml} kwallet_interface )
 endif()
 
 ecm_qt_declare_logging_category(kwallet_SRCS

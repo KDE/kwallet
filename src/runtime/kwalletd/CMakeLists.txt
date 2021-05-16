@@ -85,7 +85,7 @@ else()
     set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.KWallet.nodeprecated.xml)
 endif()
 
-qt5_add_dbus_adaptor( kwalletd_SRCS ${kwallet_xml} kwalletd.h KWalletD kwalletadaptor KWalletAdaptor)
+qt_add_dbus_adaptor( kwalletd_SRCS ${kwallet_xml} kwalletd.h KWalletD kwalletadaptor KWalletAdaptor)
 
 if(WIN32)
     configure_file(org.kde.kwalletd5.service.win.in

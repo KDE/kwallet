@@ -20,7 +20,7 @@ set(kwalletwizardtest_SRCS
    kwalletwizardtest.cpp
    ../../src/runtime/kwalletd/kwalletwizard.cpp
 )
-qt5_wrap_ui(kwalletwizardtest_SRCS
+qt_wrap_ui(kwalletwizardtest_SRCS
    ../../src/runtime/kwalletd/kbetterthankdialogbase.ui
    ../../src/runtime/kwalletd/kwalletwizardpageexplanation.ui
    ../../src/runtime/kwalletd/kwalletwizardpageintro.ui
@@ -30,7 +30,7 @@ qt5_wrap_ui(kwalletwizardtest_SRCS
 )
 
 if (Gpgmepp_FOUND)
-    qt5_wrap_ui(kwalletwizardtest_SRCS
+    qt_wrap_ui(kwalletwizardtest_SRCS
         ../../src/runtime/kwalletd/kwalletwizardpagepasswordgpg.ui)
 endif(Gpgmepp_FOUND)
 
