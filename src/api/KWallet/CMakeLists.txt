@@ -24,11 +24,16 @@ else()
     set(MAC_USE_OSXKEYCHAIN FALSE)
 endif()
 
+add_library(KF5Wallet)
+add_library(KF5::Wallet ALIAS KF5Wallet)
+
 if (MAC_USE_OSXKEYCHAIN)
     FIND_LIBRARY(SECURITY_LIBRARY Security)
-    set(kwallet_SRCS kwallet_mac.cpp)
+    target_sources(KF5Wallet PRIVATE
+        kwallet_mac.cpp
+    )
 else()
-    set(kwallet_SRCS kwallet.cpp)
+    set(kwallet_dbus_SRCS)
     if (NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
         EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.72.0)
         set(kwallet_xml org.kde.KWallet.xml)
@@ -36,10 +41,14 @@ else()
         # copy of org.kde.KWallet.xml, but with all deprecated API removed
         set(kwallet_xml org.kde.KWallet.nodeprecated.xml)
     endif()
-    qt_add_dbus_interface( kwallet_SRCS ${kwallet_xml} kwallet_interface )
+    qt_add_dbus_interface(kwallet_dbus_SRCS ${kwallet_xml} kwallet_interface)
+    target_sources(KF5Wallet PRIVATE
+        kwallet.cpp
+        ${kwallet_dbus_SRCS}
+    )
 endif()
 
-ecm_qt_declare_logging_category(kwallet_SRCS
+ecm_qt_declare_logging_category(KF5Wallet
     HEADER kwallet_api_debug.h
     IDENTIFIER KWALLET_API_LOG
     CATEGORY_NAME kf.wallet.api
@@ -48,7 +57,6 @@ ecm_qt_declare_logging_category(kwallet_SRCS
     EXPORT KWALLET
 )
 
-add_library(KF5Wallet ${kwallet_SRCS})
 ecm_generate_export_header(KF5Wallet
     BASE_NAME KWallet
     GROUP_BASE_NAME KF
@@ -57,8 +65,6 @@ ecm_generate_export_header(KF5Wallet
     DEPRECATION_VERSIONS 5.72
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
-
-add_library(KF5::Wallet ALIAS KF5Wallet)
 
 target_include_directories(KF5Wallet INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KWallet>")
 

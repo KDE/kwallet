@@ -25,13 +25,15 @@ set_package_properties(LibGcrypt PROPERTIES
                        PURPOSE "kwalletd needs libgcrypt to perform PBKDF2-SHA512 hashing"
                       )
 
+add_library(kwalletbackend5 SHARED)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../api/KWallet)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../../api/KWallet)
 include_directories(${LIBGCRYPT_INCLUDE_DIRS})
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
-set(kwalletbackend_LIB_SRCS
+target_sources(kwalletbackend5 PRIVATE
    blockcipher.cc
    blowfish.cc
    cbc.cc
@@ -40,7 +42,7 @@ set(kwalletbackend_LIB_SRCS
    kwalletbackend.cc
    backendpersisthandler.cpp
 )
-ecm_qt_declare_logging_category(kwalletbackend_LIB_SRCS
+ecm_qt_declare_logging_category(kwalletbackend5
     HEADER kwalletbackend_debug.h
     IDENTIFIER KWALLETBACKEND_LOG
     CATEGORY_NAME kf.wallet.backend
@@ -50,7 +52,6 @@ ecm_qt_declare_logging_category(kwalletbackend_LIB_SRCS
 )
 
 
-add_library(kwalletbackend5 SHARED ${kwalletbackend_LIB_SRCS})
 generate_export_header(kwalletbackend5)
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 5)

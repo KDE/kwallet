@@ -16,11 +16,9 @@ find_package(Gpgmepp) # provided by GpgME
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
-set(kwalletwizardtest_SRCS
-   kwalletwizardtest.cpp
-   ../../src/runtime/kwalletd/kwalletwizard.cpp
-)
-qt_wrap_ui(kwalletwizardtest_SRCS
+add_executable(kwalletwizardtest)
+set(kwalletwizardtest_ui_SRCS)
+qt_wrap_ui(kwalletwizardtest_ui_SRCS
    ../../src/runtime/kwalletd/kbetterthankdialogbase.ui
    ../../src/runtime/kwalletd/kwalletwizardpageexplanation.ui
    ../../src/runtime/kwalletd/kwalletwizardpageintro.ui
@@ -30,11 +28,15 @@ qt_wrap_ui(kwalletwizardtest_SRCS
 )
 
 if (Gpgmepp_FOUND)
-    qt_wrap_ui(kwalletwizardtest_SRCS
+    qt_wrap_ui(kwalletwizardtest_ui_SRCS
         ../../src/runtime/kwalletd/kwalletwizardpagepasswordgpg.ui)
 endif(Gpgmepp_FOUND)
 
-add_executable(kwalletwizardtest ${kwalletwizardtest_SRCS})
+target_sources(kwalletwizardtest PRIVATE
+   kwalletwizardtest.cpp
+   ../../src/runtime/kwalletd/kwalletwizard.cpp
+   ${kwalletwizardtest_ui_SRCS}
+)
 ecm_mark_as_test(kwalletwizardtest)
 target_link_libraries(kwalletwizardtest
     KF5Wallet
@@ -46,8 +48,7 @@ if (Gpgmepp_FOUND)
     target_link_libraries(kwalletwizardtest Gpgmepp)
 endif(Gpgmepp_FOUND)
 
-set(kwallettestlib_SRCS kwallettest.cpp)
-add_library(kwallettestlib STATIC ${kwallettestlib_SRCS})
+add_library(kwallettestlib STATIC kwallettest.cpp)
 target_link_libraries(kwallettestlib KF5Wallet Qt5::Widgets)
 
 macro(kwalletd_tests)

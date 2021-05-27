@@ -28,6 +28,8 @@ add_subdirectory(backend)
 
 ########### kwalletd ###############
 
+add_executable(kwalletd5)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backend)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../api/KWallet)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../api/KWallet)
@@ -39,7 +41,7 @@ ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETD
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
                         SOVERSION 5)
 
-set(kwalletd_SRCS
+target_sources(kwalletd5 PRIVATE
    main.cpp
    kbetterthankdialog.cpp
    kwalletd.cpp
@@ -47,7 +49,7 @@ set(kwalletd_SRCS
    ktimeout.cpp
    kwalletsessionstore.cpp
 )
-ecm_qt_declare_logging_category(kwalletd_SRCS
+ecm_qt_declare_logging_category(kwalletd5
     HEADER kwalletd_debug.h
     IDENTIFIER KWALLETD_LOG
     CATEGORY_NAME kf.wallet.kwalletd
@@ -56,7 +58,7 @@ ecm_qt_declare_logging_category(kwalletd_SRCS
     EXPORT KWALLET
 )
 
-ki18n_wrap_ui(kwalletd_SRCS
+ki18n_wrap_ui(kwalletd5
    kbetterthankdialogbase.ui
    kwalletwizardpageexplanation.ui
    kwalletwizardpageintro.ui
@@ -65,11 +67,10 @@ ki18n_wrap_ui(kwalletd_SRCS
 )
 
 if (Gpgmepp_FOUND)
-    set(kwalletd_SRCS
-        ${kwalletd_SRCS}
+    target_sources(kwalletd5 PRIVATE
         knewwalletdialog.cpp
     )
-    ki18n_wrap_ui(kwalletd_SRCS
+    ki18n_wrap_ui(kwalletd5
         kwalletwizardpagepasswordgpg.ui
         kwalletwizardpagegpgkey.ui
         knewwalletdialogintro.ui
@@ -85,7 +86,11 @@ else()
     set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.KWallet.nodeprecated.xml)
 endif()
 
-qt_add_dbus_adaptor( kwalletd_SRCS ${kwallet_xml} kwalletd.h KWalletD kwalletadaptor KWalletAdaptor)
+set(kwalletd_dbus_SRCS)
+qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${kwallet_xml} kwalletd.h KWalletD kwalletadaptor KWalletAdaptor)
+target_sources(kwalletd5 PRIVATE
+    ${kwalletd_dbus_SRCS}
+)
 
 if(WIN32)
     configure_file(org.kde.kwalletd5.service.win.in
@@ -97,8 +102,6 @@ endif()
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
         DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
-
-add_executable( kwalletd5 ${kwalletd_SRCS} )
 
 target_link_libraries(kwalletd5
     kwalletbackend5
