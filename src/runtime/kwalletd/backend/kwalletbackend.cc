@@ -108,7 +108,7 @@ void Backend::setCipherType(BackendCipherType ct)
 static int password2PBKDF2_SHA512(const QByteArray &password, QByteArray &hash, const QByteArray &salt)
 {
     if (!gcry_check_version("1.5.0")) {
-        printf("libcrypt version is too old \n");
+        qCWarning(KWALLETBACKEND_LOG) << "libcrypt version is too old";
         return GPG_ERR_USER_2;
     }
 
@@ -117,7 +117,7 @@ static int password2PBKDF2_SHA512(const QByteArray &password, QByteArray &hash, 
     if (!gcry_secmem_init) {
         error = gcry_control(GCRYCTL_INIT_SECMEM, 32768, 0);
         if (error != 0) {
-            qWarning() << "Can't get secure memory:" << error;
+            qCWarning(KWALLETBACKEND_LOG) << "Can't get secure memory:" << error;
             return error;
         }
         gcry_secmem_init = true;

@@ -45,7 +45,7 @@ static bool isWalletEnabled()
 // Waits until the PAM_MODULE sends the hash
 static char *waitForHash()
 {
-    printf("kwalletd5: Waiting for hash on %d-\n", pipefd);
+    qCDebug(KWALLETD_LOG) << "kwalletd5: Waiting for hash on" << pipefd;
     int totalRead = 0;
     int readBytes = 0;
     int attempts = 0;
@@ -68,16 +68,16 @@ static char *waitForHash()
 // Waits until startkde sends the environment variables
 static int waitForEnvironment()
 {
-    printf("kwalletd5: waitingForEnvironment on: %d\n", socketfd);
+    qCDebug(KWALLETD_LOG) << "kwalletd5: waitingForEnvironment on:" << socketfd;
 
     int s2;
     struct sockaddr_un remote;
     socklen_t t = sizeof(remote);
     if ((s2 = accept(socketfd, (struct sockaddr *)&remote, &t)) == -1) {
-        fprintf(stdout, "kwalletd5: Couldn't accept incoming connection\n");
+        qCWarning(KWALLETD_LOG) << "kwalletd5: Couldn't accept incoming connection";
         return -1;
     }
-    printf("kwalletd5: client connected\n");
+    qCDebug(KWALLETD_LOG) << "kwalletd5: client connected";
 
     char str[BSIZE] = {'\0'};
 
@@ -94,26 +94,26 @@ static int waitForEnvironment()
     }
     fclose(s3);
 
-    printf("kwalletd5: client disconnected\n");
+    qCDebug(KWALLETD_LOG) << "kwalletd5: client disconnected";
     close(socketfd);
     return 1;
 }
 
 char *checkPamModule(int argc, char **argv)
 {
-    printf("kwalletd5: Checking for pam module\n");
+    qCDebug(KWALLETD_LOG) << "kwalletd5: Checking for pam module";
     char *hash = nullptr;
     int x = 1;
     for (; x < argc; ++x) {
         if (strcmp(argv[x], "--pam-login") != 0) {
             continue;
         }
-        printf("kwalletd5: Got pam-login param\n");
+        qCDebug(KWALLETD_LOG) << "kwalletd5: Got pam-login param";
         argv[x] = nullptr;
         x++;
         // We need at least 2 extra arguments after --pam-login
         if (x + 1 > argc) {
-            printf("kwalletd5: Invalid arguments (less than needed)\n");
+            qCWarning(KWALLETD_LOG) << "kwalletd5: Invalid arguments (less than needed)";
             return nullptr;
         }
 
@@ -128,14 +128,14 @@ char *checkPamModule(int argc, char **argv)
     }
 
     if (!pipefd || !socketfd) {
-        printf("Lacking a socket, pipe: %d, env:%d\n", pipefd, socketfd);
+        qCWarning(KWALLETD_LOG) << "Lacking a socket, pipe:" << pipefd << "env:" << socketfd;
         return nullptr;
     }
 
     hash = waitForHash();
 
     if (hash == nullptr || waitForEnvironment() == -1) {
-        printf("kwalletd5: Hash or environment not received\n");
+        qCWarning(KWALLETD_LOG) << "kwalletd5: Hash or environment not received";
         free(hash);
         return nullptr;
     }
@@ -207,7 +207,7 @@ int main(int argc, char **argv)
         QByteArray passHash(hash, PBKDF2_SHA512_KEYSIZE);
         int wallet = walletd.pamOpen(KWallet::Wallet::LocalWallet(), passHash, 0);
         if (wallet < 0) {
-            qWarning() << "Wallet failed to get opened by PAM, error code is" << wallet;
+            qCWarning(KWALLETD_LOG) << "Wallet failed to get opened by PAM, error code is" << wallet;
         } else {
             qCDebug(KWALLETD_LOG) << "Wallet opened by PAM";
         }
