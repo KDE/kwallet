@@ -95,63 +95,72 @@ static OSStatus removeEntryImplementation(const QString &walletName, const QStri
 
 const QString Wallet::LocalWallet()
 {
-    KConfigGroup cfg(KSharedConfig::openConfig("kwalletrc")->group("Wallet"));
+    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Wallet"));
     if (!cfg.readEntry("Use One Wallet", true)) {
         QString tmp = cfg.readEntry("Local Wallet", "localwallet");
         if (tmp.isEmpty()) {
-            return "localwallet";
+            return QStringLiteral("localwallet");
         }
         return tmp;
     }
 
     QString tmp = cfg.readEntry("Default Wallet", "kdewallet");
     if (tmp.isEmpty()) {
-        return "kdewallet";
+        return QStringLiteral("kdewallet");
     }
     return tmp;
 }
 
 const QString Wallet::NetworkWallet()
 {
-    KConfigGroup cfg(KSharedConfig::openConfig("kwalletrc")->group("Wallet"));
+    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Wallet"));
 
     QString tmp = cfg.readEntry("Default Wallet", "kdewallet");
     if (tmp.isEmpty()) {
-        return "kdewallet";
+        return QStringLiteral("kdewallet");
     }
     return tmp;
 }
 
 const QString Wallet::PasswordFolder()
 {
-    return "Passwords";
+    return QStringLiteral("Passwords");
 }
 
 const QString Wallet::FormDataFolder()
 {
-    return "Form Data";
+    return QStringLiteral("Form Data");
 }
 
-class Wallet::WalletPrivate
+class Q_DECL_HIDDEN Wallet::WalletPrivate
 {
 public:
-    explicit WalletPrivate(const QString &n)
-        : name(n)
+    WalletPrivate(Wallet *wallet, int h, const QString &n)
+        : q(wallet)
+        , name(n)
+        , handle(h)
     {
     }
 
-    // needed for compilation reasons
-    void walletServiceUnregistered()
-    {
-    }
+    void walletServiceUnregistered();
 
+    Wallet *q;
     QString name;
     QString folder;
+    int handle;
+    int transactionId;
 };
+
+void Wallet::WalletPrivate::walletServiceUnregistered()
+{
+    if (handle >= 0) {
+        q->slotWalletClosed(handle);
+    }
+}
 
 Wallet::Wallet(int handle, const QString &name)
     : QObject(0L)
-    , d(new WalletPrivate(name))
+    , d(new WalletPrivate(this, handle, name))
 {
     Q_UNUSED(handle);
 }
@@ -725,3 +734,5 @@ void Wallet::virtual_hook(int, void *)
 {
     // BASE::virtual_hook( id, data );
 }
+
+#include "moc_kwallet.cpp"
