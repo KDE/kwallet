@@ -28,7 +28,8 @@ add_library(KF5Wallet)
 add_library(KF5::Wallet ALIAS KF5Wallet)
 
 if (MAC_USE_OSXKEYCHAIN)
-    FIND_LIBRARY(SECURITY_LIBRARY Security)
+    find_library(COREFOUNDATION_LIBRARY CoreFoundation)
+    find_library(SECURITY_LIBRARY Security)
     target_sources(KF5Wallet PRIVATE
         kwallet_mac.cpp
     )
@@ -77,7 +78,8 @@ target_link_libraries(KF5Wallet PUBLIC  Qt5::Gui
 
 if(MAC_USE_OSXKEYCHAIN)
    target_link_libraries(KF5Wallet PRIVATE ${CARBON_LIBRARY}
-                                              ${SECURITY_LIBRARY})
+                                           ${SECURITY_LIBRARY}
+                                           ${COREFOUNDATION_LIBRARY})
 elseif(APPLE)
     target_link_libraries(KF5Wallet PRIVATE ${CARBON_LIBRARY})
 else()
