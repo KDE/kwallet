@@ -14,7 +14,6 @@
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <gpgme.h>
 
 Q_DECLARE_METATYPE(GpgME::Key)
 

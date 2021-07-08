@@ -27,7 +27,6 @@
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <gpgme.h>
 #endif
 
 class PageIntro : public QWizardPage
@@ -157,7 +156,7 @@ public:
                     this,
                     i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
             } else {
-                ctx->setKeyListMode(GPGME_KEYLIST_MODE_LOCAL);
+                ctx->setKeyListMode(GpgME::KeyListMode::Local);
                 err = ctx->startKeyListing();
                 while (!err) {
                     GpgME::Key k = ctx->nextKey(err);

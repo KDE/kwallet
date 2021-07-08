@@ -22,7 +22,6 @@
 #include <gpgme++/encryptionresult.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
-#include <gpgme.h>
 #endif
 #include "blowfish.h"
 #include "cbc.h"
@@ -548,17 +547,17 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     GpgME::Data encryptedData;
     std::vector<GpgME::Key> keys;
     keys.push_back(wb->_gpgKey);
-    GpgME::EncryptionResult res = ctx->encrypt(keys, decryptedData, encryptedData, GpgME::Context::None);
+    const GpgME::EncryptionResult res = ctx->encrypt(keys, decryptedData, encryptedData, GpgME::Context::None);
     if (res.error()) {
-        int gpgerr = res.error().code();
+        const int gpgerr = res.error().code();
         KMessageBox::errorWId(w,
                               i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2 (%3)</b>. Please fix your system "
                                    "configuration, then try again. This error may occur if you are not using a full trust GPG key. Please ensure you have the "
                                    "secret key for the key you are using.</qt>",
                                    wb->_name.toHtmlEscaped(),
                                    gpgerr,
-                                   gpgme_strerror(gpgerr)));
-        qCDebug(KWALLETBACKEND_LOG) << "GpgME encryption error: " << res.error().code();
+                                   res.error().asString()));
+        qCDebug(KWALLETBACKEND_LOG) << "GpgME encryption error: " << gpgerr;
         sf.cancelWriting();
         return -7;
     }
@@ -664,7 +663,7 @@ retry_label:
     fileStream.setDevice(nullptr);
     qCDebug(KWALLETBACKEND_LOG) << "This wallet was encrypted using GPG key with ID " << keyID;
 
-    ctx->setKeyListMode(GPGME_KEYLIST_MODE_LOCAL);
+    ctx->setKeyListMode(GpgME::KeyListMode::Local);
     err = ctx->startKeyListing();
     while (!err) {
         GpgME::Key k = ctx->nextKey(err);
