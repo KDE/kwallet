@@ -357,7 +357,7 @@ int KWalletD::openAsync(const QString &wallet, qlonglong wId, const QString &app
 
 int KWalletD::openPathAsync(const QString &path, qlonglong wId, const QString &appid, bool handleSession)
 {
-    if (!_enabled) { // gaurd
+    if (!_enabled) { // guard
         return -1;
     }
 

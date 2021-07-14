@@ -832,7 +832,7 @@ bool Wallet::hasFolder(const QString &f)
     if (walletLauncher()->m_useKSecretsService) {
         // FIXME: well, this is not the best implementation, but it's done quickly :)
         // the best way would be to searchItems with the attribute label having the value f
-        // doing that would reduce DBus traffic. But KWallet API wille not last.
+        // doing that would reduce DBus traffic. But KWallet API will not last.
         QStringList folders = folderList();
         return folders.contains(f);
     } else {

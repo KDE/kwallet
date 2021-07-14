@@ -567,7 +567,7 @@ private Q_SLOTS:
     /**
      *  @internal
      *  Callback for kwalletd
-     *  @param tId identifer for the open transaction
+     *  @param tId identifier for the open transaction
      *  @param handle the wallet's handle
      */
     void walletAsyncOpened(int tId, int handle);
