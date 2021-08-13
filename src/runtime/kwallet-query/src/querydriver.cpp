@@ -37,16 +37,18 @@ QueryDriver::~QueryDriver()
 void QueryDriver::timerEvent(QTimerEvent *event)
 {
     QApplication::timerEvent(event);
-    if (verbose)
+    if (verbose) {
         qDebug() << "timer event";
+    }
 
     auto wl = Wallet::walletList();
     if (wl.indexOf(walletName) == -1) {
         std::cout << i18n("Wallet %1 not found", walletName).toUtf8().constData() << std::endl;
         exit(1);
     } else {
-        if (verbose)
+        if (verbose) {
             qDebug() << "standby opening wallet " << walletName;
+        }
 
         theWallet = Wallet::openWallet(walletName, 0, Wallet::Asynchronous);
         connect(theWallet, &KWallet::Wallet::walletOpened, this, &QueryDriver::walletOpened);
@@ -112,8 +114,9 @@ void QueryDriver::readEntries()
 
 void QueryDriver::readValue()
 {
-    if (verbose)
+    if (verbose) {
         qDebug() << "reading" << entryName << "from" << entryFolder << "from" << walletName;
+    }
     if (!theWallet->setFolder(entryFolder)) {
         std::cout << i18n("The folder %1 does not exist!", entryFolder).toUtf8().constData() << std::endl;
         exit(4);
@@ -161,22 +164,26 @@ void QueryDriver::readPasswordValue()
 
 void QueryDriver::writeValue()
 {
-    if (verbose)
+    if (verbose) {
         qDebug() << "writing" << entryName << "to" << entryFolder << "to" << walletName;
+    }
     theWallet->setFolder(entryFolder);
 
     QString passwordContents;
     for (std::string line; std::getline(std::cin, line);) {
-        if (!passwordContents.isEmpty())
+        if (!passwordContents.isEmpty()) {
             passwordContents += '\n';
+        }
         passwordContents += QString::fromStdString(line);
-        if (!std::cin)
+        if (!std::cin) {
             break;
+        }
     }
     Wallet::EntryType kind = theWallet->entryType(entryName);
     if (kind == Wallet::Password) {
-        if (verbose)
+        if (verbose) {
             qDebug() << "about to write" << passwordContents;
+        }
         int rc = theWallet->writePassword(entryName, passwordContents);
         if (rc != 0) {
             std::cout << i18n("Failed to write entry %1 value to %2 wallet", entryName, walletName).toUtf8().constData() << std::endl;
@@ -190,8 +197,9 @@ void QueryDriver::writeValue()
             for (auto &e : values.keys()) {
                 map.insert(e, values.value(e).toString());
             }
-            if (verbose)
+            if (verbose) {
                 qDebug() << "about to write" << map;
+            }
             int rc = theWallet->writeMap(entryName, map);
             if (rc != 0) {
                 std::cout << i18n("Failed to write entry %1 value to %2 wallet", entryName, walletName).toUtf8().constData() << std::endl;

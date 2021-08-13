@@ -187,7 +187,10 @@ int BlowFish::decrypt(void *block, int len)
 
 uint32_t BlowFish::F(uint32_t x)
 {
-    unsigned short a, b, c, d;
+    unsigned short a;
+    unsigned short b;
+    unsigned short c;
+    unsigned short d;
     uint32_t y;
 
     d = x & 0x000000ff;
@@ -207,7 +210,9 @@ uint32_t BlowFish::F(uint32_t x)
 
 void BlowFish::encipher(uint32_t *xl, uint32_t *xr)
 {
-    uint32_t Xl = *xl, Xr = *xr, temp;
+    uint32_t Xl = *xl;
+    uint32_t Xr = *xr;
+    uint32_t temp;
 
     for (int i = 0; i < 16; ++i) {
         Xl ^= m_P[i];
@@ -228,7 +233,9 @@ void BlowFish::encipher(uint32_t *xl, uint32_t *xr)
 
 void BlowFish::decipher(uint32_t *xl, uint32_t *xr)
 {
-    uint32_t Xl = *xl, Xr = *xr, temp;
+    uint32_t Xl = *xl;
+    uint32_t Xr = *xr;
+    uint32_t temp;
 
     for (int i = 17; i > 1; --i) {
         Xl ^= m_P[i];

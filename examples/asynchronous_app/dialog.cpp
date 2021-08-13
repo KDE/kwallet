@@ -55,8 +55,9 @@ void Dialog::walletOpened(bool ok)
         && m_wallet->setFolder(KWallet::Wallet::FormDataFolder())) {
         m_launchButton->setDisabled(false);
         m_statusLabel->setText(QStringLiteral("Idle."));
-    } else
+    } else {
         m_statusLabel->setText(QStringLiteral("Error opening wallet!"));
+    }
 }
 
 void Dialog::doSave()

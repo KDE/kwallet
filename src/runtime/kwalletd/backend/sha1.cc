@@ -88,7 +88,12 @@ SHA1::~SHA1()
 
 void SHA1::transform(void *data)
 {
-    unsigned int a, b, c, d, e, tm;
+    unsigned int a;
+    unsigned int b;
+    unsigned int c;
+    unsigned int d;
+    unsigned int e;
+    unsigned int tm;
     unsigned int x[16];
     unsigned char *_data = (unsigned char *)data;
 
@@ -254,7 +259,9 @@ int SHA1::process(const void *block, int len)
 
 const unsigned char *SHA1::hash()
 {
-    unsigned int t, msb, lsb;
+    unsigned int t;
+    unsigned int msb;
+    unsigned int lsb;
     unsigned char *p;
 
     if (!_init) {

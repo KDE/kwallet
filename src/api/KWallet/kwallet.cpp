@@ -403,8 +403,9 @@ bool Wallet::isOpen(const QString &name)
             } else {
                 return r;
             }
-        } else
+        } else {
             return false;
+        }
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -427,8 +428,9 @@ int Wallet::closeWallet(const QString &name, bool force)
             } else {
                 return r;
             }
-        } else
+        } else {
             return -1;
+        }
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -455,8 +457,9 @@ int Wallet::deleteWallet(const QString &name)
             } else {
                 return r;
             }
-        } else
+        } else {
             return -1;
+        }
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -594,8 +597,9 @@ bool Wallet::disconnectApplication(const QString &wallet, const QString &app)
             } else {
                 return r;
             }
-        } else
+        } else {
             return -1;
+        }
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -617,8 +621,9 @@ QStringList Wallet::users(const QString &name)
             } else {
                 return r;
             }
-        } else
+        } else {
             return QStringList();
+        }
 #if HAVE_KSECRETSSERVICE
     }
 #endif
@@ -1754,8 +1759,9 @@ QMap<QString, QString> Wallet::passwordList(bool *ok) const
                 } else {
                     return r;
                 }
-            } else
+            } else {
                 return false;
+            }
 #if HAVE_KSECRETSSERVICE
         }
 #endif
@@ -1781,8 +1787,9 @@ QMap<QString, QString> Wallet::passwordList(bool *ok) const
                 } else {
                     return r;
                 }
-            } else
+            } else {
                 return false;
+            }
 #if HAVE_KSECRETSSERVICE
         }
 #endif

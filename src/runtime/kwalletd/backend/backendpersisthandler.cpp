@@ -321,7 +321,8 @@ int BlowfishPersistHandler::read(Backend *wb, QFile &db, WId)
     }
 
     for (size_t i = 0; i < n; ++i) {
-        Digest d, d2; // judgment day
+        Digest d;
+        Digest d2; // judgment day
         MD5Digest ba;
         QMap<MD5Digest, QList<MD5Digest>>::iterator it;
         quint32 fsz;

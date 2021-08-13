@@ -573,7 +573,8 @@ int Backend::renameEntry(const QString &oldName, const QString &newName)
 
         HashMap::iterator i = _hashes.find(MD5Digest(folderMd5.result()));
         if (i != _hashes.end()) {
-            QCryptographicHash oldMd5(QCryptographicHash::Md5), newMd5(QCryptographicHash::Md5);
+            QCryptographicHash oldMd5(QCryptographicHash::Md5);
+            QCryptographicHash newMd5(QCryptographicHash::Md5);
             oldMd5.addData(oldName.toUtf8());
             newMd5.addData(newName.toUtf8());
             i.value().removeAll(MD5Digest(oldMd5.result()));
