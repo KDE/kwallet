@@ -26,7 +26,6 @@
 #include <KNotification>
 #include <KPasswordDialog>
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KSharedConfig>
 #include <KToolInvocation>
 #include <kwalletentry.h>
