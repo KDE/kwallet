@@ -19,7 +19,7 @@ KTimeout::~KTimeout()
 
 void KTimeout::clear()
 {
-    for (int timerId : qAsConst(_timers)) {
+    for (int timerId : std::as_const(_timers)) {
         killTimer(timerId);
     }
     _timers.clear();

@@ -20,7 +20,7 @@ KWalletSessionStore::KWalletSessionStore()
 
 KWalletSessionStore::~KWalletSessionStore()
 {
-    for (const QList<Session *> &l : qAsConst(m_sessions)) {
+    for (const QList<Session *> &l : std::as_const(m_sessions)) {
         qDeleteAll(l);
     }
 }
@@ -141,7 +141,7 @@ int KWalletSessionStore::removeAllSessions(int handle)
     }
 
     // now remove all applications without sessions
-    for (const QString &appid : qAsConst(appremove)) {
+    for (const QString &appid : std::as_const(appremove)) {
         m_sessions.remove(appid);
     }
 
