@@ -11,6 +11,7 @@ Dependencies:
     'frameworks/kservice' : '@same'
     'frameworks/kwindowsystem' : '@same'
     'frameworks/kwidgetsaddons' : '@same'
+    'frameworks/kauth': '@same'
     'third-party/gpgme' : '@same'
 
 Options:
