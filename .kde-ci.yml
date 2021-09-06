@@ -12,6 +12,7 @@ Dependencies:
     'frameworks/kwindowsystem' : '@same'
     'frameworks/kwidgetsaddons' : '@same'
     'frameworks/kauth': '@same'
+    'frameworks/kcodecs': '@same'
     'third-party/gpgme' : '@same'
 
 Options:
