@@ -168,7 +168,7 @@ int main(int argc, char **argv)
     app.setApplicationVersion(KWALLETD_VERSION_STRING);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
 
-    KAboutData aboutdata(I18N_NOOP("kwalletd"),
+    KAboutData aboutdata("kwalletd",
                          i18n("KDE Wallet Service"),
                          KWALLETD_VERSION_STRING,
                          i18n("KDE Wallet Service"),

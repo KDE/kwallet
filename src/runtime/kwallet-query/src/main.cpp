@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     // clang-format on
 
     cmdParser.addHelpOption();
-    cmdParser.addPositionalArgument(I18N_NOOP("wallet"), i18n("The wallet to query"));
+    cmdParser.addPositionalArgument("wallet", i18n("The wallet to query"));
     cmdParser.addOption(listOption);
     cmdParser.addOption(readOption);
     cmdParser.addOption(writeOption);
