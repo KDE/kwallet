@@ -27,7 +27,6 @@
 #include <KPasswordDialog>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <KToolInvocation>
 #include <kwalletentry.h>
 #include <kwindowsystem.h>
 #ifdef HAVE_GPGMEPP
@@ -42,6 +41,26 @@
 #include <assert.h>
 
 #include "kwalletadaptor.h"
+
+#include <kservice_export.h>
+#include <kservice_version.h>
+
+#if KSERVICE_BUILD_DEPRECATED_SINCE(5, 0)
+#include <KToolInvocation>
+#else
+#if KSERVICE_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#error "KToolInvocation usage here should be ported to ApplicationLauncherJob which will be moved to KService in KF6"
+#endif
+#endif
+static void startManagerForKwalletd()
+{
+#if KSERVICE_BUILD_DEPRECATED_SINCE(5, 0)
+    KToolInvocation::startServiceByDesktopName(QStringLiteral("kwalletmanager5-kwalletd"));
+#else
+    // Port to ApplicatoinLauncherJob once it's been moved to KService in KF6
+    // QProcess::startDetached(QStringLiteral("kwalletmanager5"), QStringList{QStringLiteral("--kwalletd")});
+#endif
+}
 
 class KWalletTransaction
 {
@@ -739,7 +758,7 @@ int KWalletD::internalOpen(const QString &appid, const QString &wallet, bool isP
         }
         Q_EMIT walletOpened(wallet);
         if (_wallets.count() == 1 && _launchManager) {
-            KToolInvocation::startServiceByDesktopName(QStringLiteral("kwalletmanager5-kwalletd"));
+            startManagerForKwalletd();
         }
     } else {
         // prematurely add a reference so that the wallet does not close while
@@ -1823,7 +1842,7 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
     Q_EMIT walletOpened(wallet);
 
     if (_wallets.count() == 1 && _launchManager) {
-        KToolInvocation::startServiceByDesktopName(QStringLiteral("kwalletmanager5-kwalletd"));
+        startManagerForKwalletd();
     }
 
     return handle;
