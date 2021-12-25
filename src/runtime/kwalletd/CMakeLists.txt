@@ -127,4 +127,5 @@ install(TARGETS kwalletd5  ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install( FILES kwalletd5.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 install( FILES kwalletd5.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFY5RCDIR} )
+install( FILES org.kde.kwalletd5.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
 

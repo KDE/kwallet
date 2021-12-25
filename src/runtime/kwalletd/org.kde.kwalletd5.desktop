@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: None
+# SPDX-License-Identifier: CC0-1.0
+
+[Desktop Entry]
+Type=Application
+Exec=kwalletd5
+Name=KDE Wallet Service
+NoDisplay=true
+Icon=kwalletmanager
