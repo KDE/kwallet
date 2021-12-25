@@ -159,16 +159,12 @@ int main(int argc, char **argv)
 
     QApplication app(argc, argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
+
     // this kwalletd5 program should be able to start with KDE4's kwalletd
     // using kwalletd name would prevent KDBusService unique instance to initialize
     // so we setApplicationName("kwalletd5")
-    app.setApplicationName(QStringLiteral("kwalletd5"));
-    app.setApplicationDisplayName(i18n("KDE Wallet Service"));
-    app.setOrganizationDomain(QStringLiteral("kde.org"));
-    app.setApplicationVersion(KWALLETD_VERSION_STRING);
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
-
-    KAboutData aboutdata("kwalletd",
+    KAboutData aboutdata("kwalletd5",
                          i18n("KDE Wallet Service"),
                          KWALLETD_VERSION_STRING,
                          i18n("KDE Wallet Service"),
@@ -178,6 +174,8 @@ int main(int argc, char **argv)
     aboutdata.addAuthor(i18n("Michael Leupold"), i18n("Former Maintainer"), QStringLiteral("lemma@confuego.org"));
     aboutdata.addAuthor(i18n("George Staikos"), i18n("Former maintainer"), QStringLiteral("staikos@kde.org"));
     aboutdata.addAuthor(i18n("Thiago Maceira"), i18n("D-Bus Interface"), QStringLiteral("thiago@kde.org"));
+
+    KAboutData::setApplicationData(aboutdata);
 
     KDBusService dbusUniqueInstance(KDBusService::Unique);
 
