@@ -5,5 +5,9 @@
 Type=Application
 Exec=kwalletd5
 Name=KDE Wallet Service
+Name[ca]=Servei de carteres de KDE
+Name[nl]=KDE Portefeuilleservice
+Name[uk]=Служба торбинок KDE
+Name[x-test]=xxKDE Wallet Servicexx
 NoDisplay=true
 Icon=kwalletmanager
