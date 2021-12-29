@@ -112,10 +112,6 @@ KWalletD::KWalletD()
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kwalletd5"));
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kwalletd5"), this);
 
-#ifdef Q_WS_X11
-    screensaver = 0;
-#endif
-
     reconfigure();
     //  KGlobal::dirs()->addResourceType("kwallet", 0, "share/apps/kwallet");
     _dw = new KDirWatch(this);
@@ -146,28 +142,9 @@ void KWalletD::registerKWalletd4Service()
 
 KWalletD::~KWalletD()
 {
-#ifdef Q_WS_X11
-    delete screensaver;
-    screensaver = 0;
-#endif
     closeAllWallets();
     qDeleteAll(_transactions);
 }
-
-#ifdef Q_WS_X11
-void KWalletD::connectToScreenSaver()
-{
-    screensaver = new QDBusInterface("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver");
-    if (!screensaver->isValid()) {
-        qCDebug(KWALLETD_LOG) << "Service org.freedesktop.ScreenSaver not found. Retrying in 10 seconds...";
-        // keep attempting every 10 seconds
-        QTimer::singleShot(10000, this, SLOT(connectToScreenSaver()));
-    } else {
-        connect(screensaver, SIGNAL(ActiveChanged(bool)), SLOT(screenSaverChanged(bool)));
-        qCDebug(KWALLETD_LOG) << "connected to screen saver service.";
-    }
-}
-#endif
 
 int KWalletD::generateHandle()
 {
@@ -1612,21 +1589,7 @@ void KWalletD::reconfigure()
     int timeSave = _idleTime;
     // in minutes!
     _idleTime = walletGroup.readEntry("Idle Timeout", 10) * 60 * 1000;
-#ifdef Q_WS_X11
-    if (walletGroup.readEntry("Close on Screensaver", false)) {
-        // BUG 254273 : if kwalletd starts before the screen saver, then the
-        // connection fails and kwalletd never receives it's notifications
-        // To fix this, we use a timer and perform periodic connection
-        // attempts until connection succeeds
-        QTimer::singleShot(0, this, SLOT(connectToScreenSaver()));
-    } else {
-        if (screensaver && screensaver->isValid()) {
-            screensaver->disconnect(SIGNAL(ActiveChanged(bool)), this, SLOT(screenSaverChanged(bool)));
-            delete screensaver;
-            screensaver = 0;
-        }
-    }
-#endif
+
     // Handle idle changes
     if (_closeIdle) {
         if (_idleTime != timeSave) { // Timer length changed
@@ -1757,13 +1720,6 @@ QString KWalletD::networkWallet()
 QString KWalletD::localWallet()
 {
     return KWallet::Wallet::LocalWallet();
-}
-
-void KWalletD::screenSaverChanged(bool s)
-{
-    if (s) {
-        closeAllWallets();
-    }
 }
 
 void KWalletD::activatePasswordDialog()
