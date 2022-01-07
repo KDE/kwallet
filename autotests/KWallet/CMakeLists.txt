@@ -1,7 +1,7 @@
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 remove_definitions(-DQT_NO_CAST_TO_ASCII)
 
-find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Test)
+find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Test)
 
 include(ECMMarkAsTest)
 
@@ -11,7 +11,7 @@ macro(KWALLET_TESTS)
         add_test(NAME itemviews-${_testname} COMMAND ${_testname})
         ecm_mark_as_test(${_testname})
         add_test(${_testname} ${_testname})
-        target_link_libraries(${_testname} Qt5::Test KF5::Wallet)
+        target_link_libraries(${_testname} Qt${QT_MAJOR_VERSION}::Test KF5::Wallet)
     endforeach(_testname)
 endmacro()
 

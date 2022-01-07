@@ -1,6 +1,6 @@
 project(kwalletd5)
 
-find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
+find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
 
 find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
@@ -106,7 +106,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
 target_link_libraries(kwalletd5
     kwalletbackend5
     KF5Wallet
-    Qt5::Widgets
+    Qt${QT_MAJOR_VERSION}::Widgets
     KF5::I18n
     KF5::CoreAddons
     KF5::ConfigCore
@@ -125,7 +125,7 @@ install(TARGETS kwalletd5  ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( FILES kwalletd5.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
-install( FILES kwalletd5.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFY5RCDIR} )
+install( FILES kwalletd5.desktop  DESTINATION  ${KDE_INSTALL_KSERVICESDIR} )
+install( FILES kwalletd5.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
 install( FILES org.kde.kwalletd5.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
 
