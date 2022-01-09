@@ -21,5 +21,6 @@ Name[sl]=Storitev KDE listnice
 Name[sv]=KDE:s plånbokstjänst
 Name[uk]=Служба торбинок KDE
 Name[x-test]=xxKDE Wallet Servicexx
+Name[zh_CN]=KDE 钱包服务
 NoDisplay=true
 Icon=kwalletmanager
