@@ -262,8 +262,8 @@ EntryLocation KWalletFreedesktopCollection::makeUniqueEntryLocation(const QStrin
 {
     QString dir, name;
 
-    const int slashPos = label.lastIndexOf(QChar::fromLatin1('/'));
-    if (slashPos == -1) {
+    const int slashPos = label.indexOf(QChar::fromLatin1('/'));
+    if (slashPos == -1 || slashPos == label.size() - 1) {
         dir = QStringLiteral(FDO_SECRETS_DEFAULT_DIR);
         name = label;
     } else {

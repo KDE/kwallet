@@ -88,7 +88,7 @@ static QString entryLocationToStr(const EntryLocation &entryLocation)
 
 static EntryLocation splitToEntryLocation(const QString &entryLocation)
 {
-    const int slashPos = entryLocation.lastIndexOf(QChar::fromLatin1('/'));
+    const int slashPos = entryLocation.indexOf(QChar::fromLatin1('/'));
     if (slashPos == -1) {
         qCWarning(KWALLETD_LOG) << "Entry location '" << entryLocation << "' has no slash '/'";
         return {};

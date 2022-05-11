@@ -73,8 +73,8 @@ EntryLocation EntryLocation::fromUniqueLabel(const FdoUniqueLabel &uniqLabel)
     QString dir;
     QString name = uniqLabel.label;
 
-    const int slashPos = uniqLabel.label.lastIndexOf(QChar::fromLatin1('/'));
-    if (slashPos == -1) {
+    const int slashPos = uniqLabel.label.indexOf(QChar::fromLatin1('/'));
+    if (slashPos == -1 || slashPos == uniqLabel.label.size() - 1) {
         dir = QStringLiteral(FDO_SECRETS_DEFAULT_DIR);
     } else {
         dir = uniqLabel.label.left(slashPos);

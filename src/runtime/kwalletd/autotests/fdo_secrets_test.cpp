@@ -48,6 +48,11 @@ void FdoSecretsTest::collectionStaticFunctions()
         {{"Passwords", "password__"}, {"Passwords/password__", -1}},
         {{"Passwords__3_", "password__200_"}, {"Passwords__3_/password", 200}},
         {{"", "password"}, {"/password", -1}},
+        {{"", "/"}, {"//", -1}},
+        {{FDO_SECRETS_DEFAULT_DIR, "/"}, {"/", -1}},
+        {{FDO_SECRETS_DEFAULT_DIR, "/__2_"}, {"/", 2}},
+        {{"https:", "/foobar.org/"}, {"https://foobar.org/", -1}},
+        {{"https:", "/foobar.org/__80_"}, {"https://foobar.org/", 80}},
     };
 
     runTestset(
