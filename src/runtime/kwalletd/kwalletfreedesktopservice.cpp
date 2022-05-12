@@ -7,6 +7,7 @@
 #include "kwalletfreedesktopservice.h"
 
 #include "kwalletd.h"
+#include "kwalletd_debug.h"
 #include "kwalletfreedesktopcollection.h"
 #include "kwalletfreedesktopitem.h"
 #include "kwalletfreedesktopprompt.h"
@@ -510,7 +511,11 @@ void KWalletFreedesktopService::entryRenamed(const QString &walletName, const QS
 
     auto *item = collection->findItemByEntryLocation(oldLocation);
     if (!item) {
-        item = collection->findItemByEntryLocation(newLocation);
+        /* Warn if label not found and not yet renamed */
+        if (!collection->findItemByEntryLocation(newLocation)) {
+            qCWarning(KWALLETD_LOG) << "Cannot rename secret service label:" << FdoUniqueLabel::fromEntryLocation(oldLocation).label;
+        }
+        return;
     }
 
     if (item) {
