@@ -10,11 +10,11 @@
 
 #include <config-kwalletbackend.h>
 
-#ifdef HAVE_STDINT_H
+#if HAVE_STDINT_H
 #include <stdint.h>
 #endif
 #include <sys/types.h>
-#ifdef HAVE_SYS_BITYPES_H
+#if HAVE_SYS_BITYPES_H
 #include <sys/bitypes.h> /* For uintXX_t on Tru64 */
 #endif
 

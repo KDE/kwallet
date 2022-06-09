@@ -20,10 +20,10 @@
 #define Q_BYTE_ORDER Q_BIG_ENDIAN
 
 #include <sys/types.h>
-#ifdef HAVE_SYS_BITYPES_H
+#if HAVE_SYS_BITYPES_H
 #include <sys/bitypes.h> /* For uintXX_t on Tru64 */
 #endif
-#ifdef HAVE_STDINT_H
+#if HAVE_STDINT_H
 #include <stdint.h>
 #endif
 

@@ -1,3 +1,3 @@
-#cmakedefine HAVE_STDINT_H 1
+#cmakedefine01 HAVE_STDINT_H
 
-#cmakedefine HAVE_SYS_BITYPES_H 1
+#cmakedefine01 HAVE_SYS_BITYPES_H
