@@ -61,7 +61,7 @@ class KNewWalletDialogGpg : public QWizardPage
 {
     Q_OBJECT
 public:
-    KNewWalletDialogGpg(const QString &appName, const QString &walletName, QWidget *parent = nullptr);
+    explicit KNewWalletDialogGpg(QWidget *parent = nullptr);
     void initializePage() override;
     bool isComplete() const override;
     virtual bool validateCurrentPage();
@@ -69,9 +69,9 @@ protected Q_SLOTS:
     void onItemSelectionChanged();
 
 private:
-    bool _alreadyInitialized;
+    bool _alreadyInitialized = false;
     Ui_KNewWalletDialogGpg _ui;
-    bool _complete;
+    bool _complete = false;
 };
 
 } // namespace

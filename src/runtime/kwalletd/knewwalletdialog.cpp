@@ -26,7 +26,7 @@ KNewWalletDialog::KNewWalletDialog(const QString &appName, const QString &wallet
     _intro = new KNewWalletDialogIntro(appName, walletName, this);
     _introId = addPage(_intro);
 
-    _gpg = new KNewWalletDialogGpg(appName, walletName, this);
+    _gpg = new KNewWalletDialogGpg(this);
     _gpgId = addPage(_gpg);
 }
 
@@ -78,10 +78,8 @@ int KNewWalletDialogIntro::nextId() const
     }
 }
 
-KNewWalletDialogGpg::KNewWalletDialogGpg(const QString &appName, const QString &walletName, QWidget *parent)
+KNewWalletDialogGpg::KNewWalletDialogGpg(QWidget *parent)
     : QWizardPage(parent)
-    , _alreadyInitialized(false)
-    , _complete(false)
 {
     _ui.setupUi(this);
 }
