@@ -35,7 +35,7 @@ Comment[tr]=KDE Cüzdan
 Comment[uk]=Торбинка KDE
 Comment[vi]=Ví KDE
 Comment[x-test]=xxKDE Walletxx
-Comment[zh_CN]=KDE 钱包
+Comment[zh_CN]=KDE 密码库
 Name=KDE Wallet
 Name[ar]=محفظة كدي
 Name[ast]=KDE Wallet
@@ -71,7 +71,7 @@ Name[tr]=KDE Cüzdan
 Name[uk]=Торбинка KDE
 Name[vi]=Ví KDE
 Name[x-test]=xxKDE Walletxx
-Name[zh_CN]=KDE 钱包
+Name[zh_CN]=KDE 密码库
 
 [Event/needsPassword]
 Name=Needs Password
@@ -182,7 +182,7 @@ Comment[uk]=Фонова служба торбинок KDE надіслала з
 Comment[vi]=Trình nền ví KDE yêu cầu một mật khẩu
 Comment[wa]=Li démon poite-manoye di KDE dimande on scret
 Comment[x-test]=xxThe KDE Wallet Daemon requests a passwordxx
-Comment[zh_CN]=KDE 钱包守护程序请求密码
+Comment[zh_CN]=KDE 密码库守护程序请求密码
 Comment[zh_TW]=KDE 錢包守護程式需要密碼
 Action=Popup
 
@@ -289,6 +289,6 @@ Comment[tr]=KDE Cüzdan Sistemi diske bir cüzdan dosyası eşitlerken başarıs
 Comment[uk]=Система торбинок KDE не змогла синхронізувати дані файла торбинок з диском
 Comment[vi]=Hệ thống ví KDE thất bại trong việc đồng bộ hoá một tệp ví vào đĩa
 Comment[x-test]=xxKDE Wallet System failed to sync a wallet file to diskxx
-Comment[zh_CN]=KDE 钱包系统无法将钱包文件写入磁盘
+Comment[zh_CN]=KDE 密码库系统无法将密码库文件同步到磁盘
 Comment[zh_TW]=KDE 錢包系統在將錢包檔同步到磁碟時失敗
 Action=Popup
