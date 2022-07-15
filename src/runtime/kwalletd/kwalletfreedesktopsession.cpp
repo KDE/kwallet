@@ -6,7 +6,6 @@
 */
 #include "kwalletfreedesktopsession.h"
 
-#include "kwalletfreedesktopservice.h"
 #include "kwalletfreedesktopsessionadaptor.h"
 #include <QDBusConnection>
 

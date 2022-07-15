@@ -10,7 +10,6 @@
 #include "kwalletd_debug.h"
 #include "kwalletfreedesktopcollection.h"
 #include "kwalletfreedesktopitemadaptor.h"
-#include "kwalletfreedesktopservice.h"
 
 KWalletFreedesktopItem::KWalletFreedesktopItem(KWalletFreedesktopCollection *collection, FdoUniqueLabel uniqLabel, QDBusObjectPath path)
     : m_collection(collection)

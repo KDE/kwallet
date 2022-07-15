@@ -9,7 +9,6 @@
 #include "kwalletd.h"
 #include "kwalletfreedesktopcollection.h"
 #include "kwalletfreedesktoppromptadaptor.h"
-#include "kwalletfreedesktopservice.h"
 
 KWalletFreedesktopPrompt::KWalletFreedesktopPrompt(KWalletFreedesktopService *service, QDBusObjectPath objectPath, PromptType type, QString responseBusName)
     : QObject(nullptr)

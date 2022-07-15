@@ -15,7 +15,6 @@
 #include "kwalletfreedesktopsession.h"
 #include <KConfigGroup>
 #include <QWidget>
-#include <QtCrypto>
 #include <string.h>
 
 #ifdef Q_OS_WIN
