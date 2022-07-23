@@ -960,7 +960,7 @@ void KWalletD::doTransactionChangePassword(const QString &appid, const QString &
     if (!w) {
         handle = doTransactionOpen(appid, wallet, false, wId, false, QLatin1String(""));
         if (-1 == handle) {
-            KMessageBox::sorryWId((WId)wId,
+            KMessageBox::errorWId((WId)wId,
                                   i18n("Unable to open wallet. The wallet must be opened in order to change the password."),
                                   i18n("KDE Wallet Service"));
             return;
@@ -996,12 +996,12 @@ void KWalletD::doTransactionChangePassword(const QString &appid, const QString &
                 w->setPassword(p.toUtf8());
                 int rc = w->close(true);
                 if (rc < 0) {
-                    KMessageBox::sorryWId((WId)wId, i18n("Error re-encrypting the wallet. Password was not changed."), i18n("KDE Wallet Service"));
+                    KMessageBox::errorWId((WId)wId, i18n("Error re-encrypting the wallet. Password was not changed."), i18n("KDE Wallet Service"));
                     reclose = true;
                 } else {
                     rc = w->open(p.toUtf8());
                     if (rc < 0) {
-                        KMessageBox::sorryWId((WId)wId, i18n("Error reopening the wallet. Data may be lost."), i18n("KDE Wallet Service"));
+                        KMessageBox::errorWId((WId)wId, i18n("Error reopening the wallet. Data may be lost."), i18n("KDE Wallet Service"));
                         reclose = true;
                     }
                 }
