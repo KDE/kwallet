@@ -605,7 +605,7 @@ int GpgPersistHandler::read(Backend *wb, QFile &sf, WId w)
     GpgME::Data encryptedData;
     char buffer[4096];
     ssize_t bytes = 0;
-    while (bytes = sf.read(buffer, sizeof(buffer) / sizeof(buffer[0]))) {
+    while ((bytes = sf.read(buffer, sizeof(buffer) / sizeof(buffer[0])))) {
         encryptedData.write(buffer, bytes);
     }
 
@@ -646,7 +646,7 @@ retry_label:
 
     decryptedData.seek(0, SEEK_SET);
     QByteArray dataBuffer;
-    while (bytes = decryptedData.read(buffer, sizeof(buffer) / sizeof(buffer[0]))) {
+    while ((bytes = decryptedData.read(buffer, sizeof(buffer) / sizeof(buffer[0])))) {
         dataBuffer.append(buffer, bytes);
     }
 
