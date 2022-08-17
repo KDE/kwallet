@@ -31,6 +31,7 @@
 #include "cbc.h"
 
 #include <assert.h>
+#include <cerrno>
 
 // quick fix to get random numbers on win32
 #ifdef Q_OS_WIN //krazy:exclude=cpp
