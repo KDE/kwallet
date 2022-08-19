@@ -168,9 +168,6 @@ KWalletD::KWalletD()
 
     if (cfgSecrets.readEntry<bool>("apiEnabled", true)) {
         _fdoService.reset(new KWalletFreedesktopService(this));
-    } else {
-        /* Do not keep dbus-daemon waiting for the org.freedesktop.secrets by registering the dummy-service */
-        KWalletFreedesktopService(nullptr);
     }
 }
 
