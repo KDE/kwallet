@@ -5,5 +5,7 @@
 # tool that commes with the asciidoc package
 #
 
-set(m kwallet-query)
-kdoctools_create_manpage(man-${m}.1.docbook 1 INSTALL_DESTINATION ${KDE_INSTALL_MANDIR})
+if(BUILD_KWALLET_QUERY)
+    set(m kwallet-query)
+    kdoctools_create_manpage(man-${m}.1.docbook 1 INSTALL_DESTINATION ${KDE_INSTALL_MANDIR})
+endif()
