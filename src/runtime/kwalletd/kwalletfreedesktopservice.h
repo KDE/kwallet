@@ -32,12 +32,8 @@ class FreedesktopSecret
 public:
     FreedesktopSecret() = default;
 
-    FreedesktopSecret(QDBusObjectPath iSession,
-                      const QCA::SecureArray &iValue,
-                      QString iMimeType,
-                      const QCA::SecureArray &iParameters = QCA::InitializationVector(FDO_SECRETS_CIPHER_KEY_SIZE))
+    FreedesktopSecret(QDBusObjectPath iSession, const QCA::SecureArray &iValue, QString iMimeType)
         : session(std::move(iSession))
-        , parameters(iParameters)
         , value(iValue)
         , mimeType(std::move(iMimeType))
     {
@@ -106,6 +102,7 @@ Q_DECLARE_METATYPE(StrStrMap)
 Q_DECLARE_METATYPE(QCA::SecureArray)
 
 class KWalletFreedesktopSession;
+class KWalletFreedesktopSessionAlgorithm;
 class KWalletFreedesktopCollection;
 class KWalletFreedesktopPrompt;
 class KWalletFreedesktopItem;
@@ -175,7 +172,9 @@ private Q_SLOTS:
     */
 
 private:
-    QString createSession(const QByteArray &clientKey);
+    std::unique_ptr<KWalletFreedesktopSessionAlgorithm> createSessionAlgorithmPlain() const;
+    std::unique_ptr<KWalletFreedesktopSessionAlgorithm> createSessionAlgorithmDhAes(const QByteArray &clientKey) const;
+    QString createSession(std::unique_ptr<KWalletFreedesktopSessionAlgorithm> algorithm);
     QString defaultWalletName(KConfigGroup &cfg);
 
 private:

@@ -260,25 +260,31 @@ QList<QDBusObjectPath> KWalletFreedesktopService::Lock(const QList<QDBusObjectPa
 
 QDBusVariant KWalletFreedesktopService::OpenSession(const QString &algorithm, const QDBusVariant &input, QDBusObjectPath &result)
 {
-    if (algorithm != QStringLiteral("dh-ietf1024-sha256-aes128-cbc-pkcs7")) {
-        sendErrorReply(QDBusError::ErrorType::InvalidArgs,
-                       QStringLiteral("Algorithm ") + algorithm + QStringLiteral(" is not supported. (only dh-ietf1024-sha256-aes128-cbc-pkcs7 is supported)"));
-        return {};
-    }
+    std::unique_ptr<KWalletFreedesktopSessionAlgorithm> sessionAlgorithm;
+    if (algorithm == QStringLiteral("plain")) {
+        sessionAlgorithm = createSessionAlgorithmPlain();
+    } else if (algorithm == QStringLiteral("dh-ietf1024-sha256-aes128-cbc-pkcs7")) {
+        if (!input.variant().canConvert<QByteArray>()) {
+            sendErrorReply(QDBusError::ErrorType::InvalidArgs, QStringLiteral("Second input argument must be a byte array."));
+            return {};
+        }
 
-    if (!input.variant().canConvert<QByteArray>()) {
-        sendErrorReply(QDBusError::ErrorType::InvalidArgs, QStringLiteral("Second input argument must be a byte array."));
-        return {};
-    }
-
-    const auto sessionPath = createSession(input.variant().toByteArray());
-    result.setPath(sessionPath);
-
-    if (sessionPath != QStringLiteral("/")) {
-        return QDBusVariant(QVariant(m_sessions[sessionPath]->publicKey().toDH().y().toArray().toByteArray()));
+        sessionAlgorithm = createSessionAlgorithmDhAes(input.variant().toByteArray());
     } else {
-        return QDBusVariant(QVariant(QByteArray()));
+        sendErrorReply(QDBusError::ErrorType::NotSupported,
+                       QStringLiteral("Algorithm ") + algorithm
+                           + QStringLiteral(" is not supported. (only plain and dh-ietf1024-sha256-aes128-cbc-pkcs7 are supported)"));
+        return {};
     }
+
+    if (!sessionAlgorithm) {
+        // Creation of session algorithm failed, createSessionAlgorithm...() method should have sent an error reply.
+        return {};
+    }
+
+    const QString sessionPath = createSession(std::move(sessionAlgorithm));
+    result.setPath(sessionPath);
+    return QDBusVariant(QVariant(m_sessions[sessionPath]->negotiationOutput()));
 }
 
 QDBusObjectPath KWalletFreedesktopService::ReadAlias(const QString &name)
@@ -399,18 +405,23 @@ QList<QDBusObjectPath> KWalletFreedesktopService::Unlock(const QList<QDBusObject
     return result;
 }
 
-QString KWalletFreedesktopService::createSession(const QByteArray &clientKey)
+std::unique_ptr<KWalletFreedesktopSessionAlgorithm> KWalletFreedesktopService::createSessionAlgorithmPlain() const
+{
+    return std::make_unique<KWalletFreedesktopSessionAlgorithmPlain>();
+}
+
+std::unique_ptr<KWalletFreedesktopSessionAlgorithm> KWalletFreedesktopService::createSessionAlgorithmDhAes(const QByteArray &clientKey) const
 {
     if (clientKey.size() < FDO_DH_PUBLIC_KEY_SIZE) {
         sendErrorReply(QDBusError::ErrorType::InvalidArgs, QStringLiteral("Client public key size is invalid"));
-        return QStringLiteral("/");
+        return nullptr;
     }
 
     QCA::KeyGenerator keygen;
     const auto dlGroup = QCA::DLGroup(keygen.createDLGroup(QCA::IETF_1024));
     if (dlGroup.isNull()) {
         sendErrorReply(QDBusError::ErrorType::InvalidArgs, QStringLiteral("createDLGroup failed: maybe libqca-ossl is missing"));
-        return QStringLiteral("/");
+        return nullptr;
     }
 
     auto privateKey = QCA::PrivateKey(keygen.createDH(dlGroup));
@@ -418,9 +429,14 @@ QString KWalletFreedesktopService::createSession(const QByteArray &clientKey)
     const auto clientPublicKey = QCA::DHPublicKey(dlGroup, QCA::BigInteger(QCA::SecureArray(clientKey)));
     const auto commonSecret = privateKey.deriveKey(clientPublicKey);
     const auto symmetricKey = QCA::HKDF().makeKey(commonSecret, {}, {}, FDO_SECRETS_CIPHER_KEY_SIZE);
-    const QString sessionPath = QStringLiteral(FDO_SECRETS_SESSION_PATH) + QString::number(++m_session_counter);
 
-    auto session = std::make_unique<KWalletFreedesktopSession>(this, publicKey, symmetricKey, sessionPath, connection(), message());
+    return std::make_unique<KWalletFreedesktopSessionAlgorithmDhAes>(publicKey, symmetricKey);
+}
+
+QString KWalletFreedesktopService::createSession(std::unique_ptr<KWalletFreedesktopSessionAlgorithm> algorithm)
+{
+    const QString sessionPath = QStringLiteral(FDO_SECRETS_SESSION_PATH) + QString::number(++m_session_counter);
+    auto session = std::make_unique<KWalletFreedesktopSession>(this, std::move(algorithm), sessionPath, connection(), message());
     m_sessions[sessionPath] = std::move(session);
     return sessionPath;
 }
@@ -548,12 +564,7 @@ bool KWalletFreedesktopService::desecret(const QDBusMessage &message, Freedeskto
 
     if (foundSession != m_sessions.end()) {
         const KWalletFreedesktopSession &session = *foundSession->second;
-        auto decrypted = session.decrypt(message, secret.value, secret.parameters);
-
-        if (decrypted.ok) {
-            secret.value = std::move(decrypted.bytes);
-            return true;
-        }
+        return session.decrypt(message, secret);
     }
 
     return false;
@@ -565,12 +576,7 @@ bool KWalletFreedesktopService::ensecret(const QDBusMessage &message, Freedeskto
 
     if (foundSession != m_sessions.end()) {
         const KWalletFreedesktopSession &session = *foundSession->second;
-        auto encrypted = session.encrypt(message, secret.value, secret.parameters);
-
-        if (encrypted.ok) {
-            secret.value = std::move(encrypted.bytes);
-            return true;
-        }
+        return session.encrypt(message, secret);
     }
 
     return false;

@@ -10,14 +10,12 @@
 #include <QDBusConnection>
 
 KWalletFreedesktopSession::KWalletFreedesktopSession(KWalletFreedesktopService *service,
-                                                     const QCA::PublicKey &publicKey,
-                                                     QCA::SymmetricKey symmetricKey,
+                                                     std::unique_ptr<KWalletFreedesktopSessionAlgorithm> algorithm,
                                                      QString sessionPath,
                                                      const QDBusConnection &connection,
                                                      const QDBusMessage &message)
     : m_service(service)
-    , m_publicKey(publicKey)
-    , m_symmetricKey(std::move(symmetricKey))
+    , m_algorithm(std::move(algorithm))
     , m_sessionPath(std::move(sessionPath))
     , m_serviceBusName(message.service())
 {
@@ -44,38 +42,27 @@ void KWalletFreedesktopSession::Close()
     }
 }
 
-CipherResult KWalletFreedesktopSession::encrypt(const QDBusMessage &message, const QCA::SecureArray &bytes, const QCA::SecureArray &initVector) const
+QByteArray KWalletFreedesktopSession::negotiationOutput() const
 {
-    if (message.service() != m_serviceBusName) {
-        return {false, QByteArray()};
-    }
-
-    auto cipher =
-        QCA::Cipher(QStringLiteral("aes128"), QCA::Cipher::CBC, QCA::Cipher::PKCS7, QCA::Encode, m_symmetricKey, QCA::InitializationVector(initVector));
-    QCA::SecureArray result;
-    result.append(cipher.update(QCA::MemoryRegion(bytes)));
-    if (cipher.ok()) {
-        result.append(cipher.final());
-    }
-
-    return {cipher.ok(), std::move(result)};
+    return m_algorithm->negotiationOutput();
 }
 
-CipherResult KWalletFreedesktopSession::decrypt(const QDBusMessage &message, const QCA::SecureArray &bytes, const QCA::SecureArray &initVector) const
+bool KWalletFreedesktopSession::encrypt(const QDBusMessage &message, FreedesktopSecret &secret) const
 {
     if (message.service() != m_serviceBusName) {
-        return {false, QByteArray()};
+        return false;
     }
 
-    auto cipher =
-        QCA::Cipher(QStringLiteral("aes128"), QCA::Cipher::CBC, QCA::Cipher::PKCS7, QCA::Decode, m_symmetricKey, QCA::InitializationVector(initVector));
-    QCA::SecureArray result;
-    result.append(cipher.update(QCA::MemoryRegion(bytes)));
-    if (cipher.ok()) {
-        result.append(cipher.final());
+    return m_algorithm->encrypt(secret);
+}
+
+bool KWalletFreedesktopSession::decrypt(const QDBusMessage &message, FreedesktopSecret &secret) const
+{
+    if (message.service() != m_serviceBusName) {
+        return false;
     }
 
-    return {cipher.ok(), std::move(result)};
+    return m_algorithm->decrypt(secret);
 }
 
 KWalletFreedesktopService *KWalletFreedesktopSession::fdoService() const
@@ -91,4 +78,64 @@ KWalletD *KWalletFreedesktopSession::backend() const
 QDBusObjectPath KWalletFreedesktopSession::fdoObjectPath() const
 {
     return QDBusObjectPath(m_sessionPath);
+}
+
+QByteArray KWalletFreedesktopSessionAlgorithmPlain::negotiationOutput() const
+{
+    return QByteArray();
+}
+
+bool KWalletFreedesktopSessionAlgorithmPlain::encrypt(FreedesktopSecret &secret) const
+{
+    secret.parameters = QByteArray();
+    return true;
+}
+
+bool KWalletFreedesktopSessionAlgorithmPlain::decrypt(FreedesktopSecret &) const
+{
+    return true;
+}
+
+KWalletFreedesktopSessionAlgorithmDhAes::KWalletFreedesktopSessionAlgorithmDhAes(const QCA::PublicKey &publicKey, QCA::SymmetricKey symmetricKey)
+    : m_publicKey(publicKey)
+    , m_symmetricKey(std::move(symmetricKey))
+{
+}
+
+QByteArray KWalletFreedesktopSessionAlgorithmDhAes::negotiationOutput() const
+{
+    return m_publicKey.toDH().y().toArray().toByteArray();
+}
+
+bool KWalletFreedesktopSessionAlgorithmDhAes::encrypt(FreedesktopSecret &secret) const
+{
+    auto initVector = QCA::InitializationVector(FDO_SECRETS_CIPHER_KEY_SIZE);
+    auto cipher = QCA::Cipher(QStringLiteral("aes128"), QCA::Cipher::CBC, QCA::Cipher::PKCS7, QCA::Encode, m_symmetricKey, initVector);
+    QCA::SecureArray result;
+    result.append(cipher.update(QCA::MemoryRegion(secret.value)));
+    if (cipher.ok()) {
+        result.append(cipher.final());
+        if (cipher.ok()) {
+            secret.value = std::move(result);
+            secret.parameters = initVector;
+            return true;
+        }
+    }
+    return false;
+}
+
+bool KWalletFreedesktopSessionAlgorithmDhAes::decrypt(FreedesktopSecret &secret) const
+{
+    auto cipher =
+        QCA::Cipher(QStringLiteral("aes128"), QCA::Cipher::CBC, QCA::Cipher::PKCS7, QCA::Decode, m_symmetricKey, QCA::InitializationVector(secret.parameters));
+    QCA::SecureArray result;
+    result.append(cipher.update(QCA::MemoryRegion(secret.value)));
+    if (cipher.ok()) {
+        result.append(cipher.final());
+        if (cipher.ok()) {
+            secret.value = std::move(result);
+            return true;
+        }
+    }
+    return false;
 }

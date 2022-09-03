@@ -17,9 +17,13 @@
 
 class KWalletD;
 
-struct CipherResult {
-    bool ok;
-    QCA::SecureArray bytes;
+class KWalletFreedesktopSessionAlgorithm
+{
+public:
+    virtual ~KWalletFreedesktopSessionAlgorithm() = default;
+    virtual QByteArray negotiationOutput() const = 0;
+    virtual bool encrypt(FreedesktopSecret &secret) const = 0;
+    virtual bool decrypt(FreedesktopSecret &secret) const = 0;
 };
 
 class KWalletFreedesktopSession : public QObject, protected QDBusContext
@@ -28,8 +32,7 @@ class KWalletFreedesktopSession : public QObject, protected QDBusContext
 
 public:
     KWalletFreedesktopSession(class KWalletFreedesktopService *parent,
-                              const QCA::PublicKey &publicKey,
-                              QCA::SymmetricKey symmetricKey,
+                              std::unique_ptr<KWalletFreedesktopSessionAlgorithm> algorithm,
                               QString sessionPath,
                               const QDBusConnection &connection,
                               const QDBusMessage &message);
@@ -44,20 +47,16 @@ public:
     KWalletD *backend() const;
     QDBusObjectPath fdoObjectPath() const;
 
-    const QCA::PublicKey &publicKey() const
-    {
-        return m_publicKey;
-    }
-    CipherResult encrypt(const QDBusMessage &message, const QCA::SecureArray &bytes, const QCA::SecureArray &initVector) const;
-    CipherResult decrypt(const QDBusMessage &message, const QCA::SecureArray &bytes, const QCA::SecureArray &initVector) const;
+    QByteArray negotiationOutput() const;
+    bool encrypt(const QDBusMessage &message, FreedesktopSecret &secret) const;
+    bool decrypt(const QDBusMessage &message, FreedesktopSecret &secret) const;
 
 private Q_SLOTS:
     void slotServiceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
 
 private:
     class KWalletFreedesktopService *m_service;
-    QCA::PublicKey m_publicKey;
-    QCA::SymmetricKey m_symmetricKey;
+    std::unique_ptr<KWalletFreedesktopSessionAlgorithm> m_algorithm;
     QString m_sessionPath;
     QString m_serviceBusName;
     QDBusServiceWatcher m_serviceWatcher;
@@ -67,6 +66,28 @@ private:
     /* org.freedesktop.Secret.Session methods */
 public Q_SLOTS:
     void Close();
+};
+
+class KWalletFreedesktopSessionAlgorithmPlain : public KWalletFreedesktopSessionAlgorithm
+{
+public:
+    QByteArray negotiationOutput() const override;
+    bool encrypt(FreedesktopSecret &secret) const override;
+    bool decrypt(FreedesktopSecret &secret) const override;
+};
+
+class KWalletFreedesktopSessionAlgorithmDhAes : public KWalletFreedesktopSessionAlgorithm
+{
+public:
+    KWalletFreedesktopSessionAlgorithmDhAes(const QCA::PublicKey &publicKey, QCA::SymmetricKey symmetricKey);
+
+    QByteArray negotiationOutput() const override;
+    bool encrypt(FreedesktopSecret &secret) const override;
+    bool decrypt(FreedesktopSecret &secret) const override;
+
+private:
+    QCA::PublicKey m_publicKey;
+    QCA::SymmetricKey m_symmetricKey;
 };
 
 #endif
