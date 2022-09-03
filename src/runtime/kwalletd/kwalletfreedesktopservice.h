@@ -33,13 +33,13 @@ public:
     FreedesktopSecret() = default;
 
     FreedesktopSecret(QDBusObjectPath iSession,
-                      const QCA::SecureArray &iNote,
+                      const QCA::SecureArray &iValue,
                       QString iMimeType,
-                      const QCA::SecureArray &iInitVector = QCA::InitializationVector(FDO_SECRETS_CIPHER_KEY_SIZE))
+                      const QCA::SecureArray &iParameters = QCA::InitializationVector(FDO_SECRETS_CIPHER_KEY_SIZE))
         : session(std::move(iSession))
-        , note(iNote)
+        , parameters(iParameters)
+        , value(iValue)
         , mimeType(std::move(iMimeType))
-        , initVector(iInitVector)
     {
     }
 
@@ -47,9 +47,9 @@ public:
     friend const QDBusArgument &operator>>(const QDBusArgument &arg, FreedesktopSecret &secret);
 
     QDBusObjectPath session;
-    QCA::SecureArray note;
+    QCA::SecureArray parameters;
+    QCA::SecureArray value;
     QString mimeType;
-    QCA::SecureArray initVector;
 };
 
 struct PropertiesMap {

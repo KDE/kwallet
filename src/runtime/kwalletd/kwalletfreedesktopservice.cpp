@@ -548,10 +548,10 @@ bool KWalletFreedesktopService::desecret(const QDBusMessage &message, Freedeskto
 
     if (foundSession != m_sessions.end()) {
         const KWalletFreedesktopSession &session = *foundSession->second;
-        auto decrypted = session.decrypt(message, secret.note, secret.initVector);
+        auto decrypted = session.decrypt(message, secret.value, secret.parameters);
 
         if (decrypted.ok) {
-            secret.note = std::move(decrypted.bytes);
+            secret.value = std::move(decrypted.bytes);
             return true;
         }
     }
@@ -565,10 +565,10 @@ bool KWalletFreedesktopService::ensecret(const QDBusMessage &message, Freedeskto
 
     if (foundSession != m_sessions.end()) {
         const KWalletFreedesktopSession &session = *foundSession->second;
-        auto encrypted = session.encrypt(message, secret.note, secret.initVector);
+        auto encrypted = session.encrypt(message, secret.value, secret.parameters);
 
         if (encrypted.ok) {
-            secret.note = std::move(encrypted.bytes);
+            secret.value = std::move(encrypted.bytes);
             return true;
         }
     }
@@ -586,8 +586,8 @@ QDBusArgument &operator<<(QDBusArgument &arg, const FreedesktopSecret &secret)
 {
     arg.beginStructure();
     arg << secret.session;
-    arg << secret.initVector;
-    arg << secret.note;
+    arg << secret.parameters;
+    arg << secret.value;
     arg << secret.mimeType;
     arg.endStructure();
     return arg;
@@ -597,8 +597,8 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, FreedesktopSecret &sec
 {
     arg.beginStructure();
     arg >> secret.session;
-    arg >> secret.initVector;
-    arg >> secret.note;
+    arg >> secret.parameters;
+    arg >> secret.value;
     arg >> secret.mimeType;
     arg.endStructure();
     return arg;

@@ -279,12 +279,12 @@ void FdoSecretsTest::items()
     /* Check secrets */
     auto secret1 = item1->GetSecret(sessionPath);
     service->desecret(message, secret1);
-    QCOMPARE(secret1.note.toByteArray(), "It's a password");
+    QCOMPARE(secret1.value.toByteArray(), "It's a password");
     // QCOMPARE(secret1.mimeType, "text/plain");
 
     auto secret2 = item2->GetSecret(sessionPath);
     service->desecret(message, secret2);
-    QByteArray secretBytes = secret2.note.toByteArray();
+    QByteArray secretBytes = secret2.value.toByteArray();
     QDataStream ds{secretBytes};
     QByteArray a;
     QString b;
@@ -296,7 +296,7 @@ void FdoSecretsTest::items()
 
     auto secret3 = item3->GetSecret(sessionPath);
     service->desecret(message, secret3);
-    auto bytes3 = secret3.note.toByteArray();
+    auto bytes3 = secret3.value.toByteArray();
     QDataStream ds2(bytes3);
     StrStrMap map3;
     ds2 >> map3;
@@ -308,16 +308,16 @@ void FdoSecretsTest::items()
     QCOMPARE(item3->attributes()["Attrib2"], "value2");
 
     /* Set new secrets */
-    secret1.note = QByteArray("It's a new password");
+    secret1.value = QByteArray("It's a new password");
     secret1.mimeType = "text/plain";
     service->ensecret(message, secret1);
     item1->SetSecret(secret1);
     secret1 = item1->GetSecret(sessionPath);
     service->desecret(message, secret1);
-    QCOMPARE(secret1.note.toByteArray(), "It's a new password");
+    QCOMPARE(secret1.value.toByteArray(), "It's a new password");
     QCOMPARE(secret1.mimeType, "text/plain");
 
-    secret2.note = QByteArray("It's a new secret");
+    secret2.value = QByteArray("It's a new secret");
     secret2.mimeType = "application/octet-stream";
     service->ensecret(message, secret2);
     item2->SetSecret(secret2);
@@ -327,7 +327,7 @@ void FdoSecretsTest::items()
 
     secret2 = item2->GetSecret(sessionPath);
     service->desecret(message, secret2);
-    QCOMPARE(secret2.note.toByteArray(), "It's a new secret");
+    QCOMPARE(secret2.value.toByteArray(), "It's a new secret");
     QCOMPARE(item2->attributes()["newAttrib"], ")))");
 
     /* Search items */
@@ -413,16 +413,16 @@ void FdoSecretsTest::session()
     QVERIFY(service->ensecret(message, secret));
 
     /* Try to decrypt by hand with symmetricKey */
-    auto cipher = QCA::Cipher("aes128", QCA::Cipher::CBC, QCA::Cipher::PKCS7, QCA::Decode, symmetricKey, secret.initVector);
+    auto cipher = QCA::Cipher("aes128", QCA::Cipher::CBC, QCA::Cipher::PKCS7, QCA::Decode, symmetricKey, secret.parameters);
     QCA::SecureArray result;
-    result.append(cipher.update(QCA::MemoryRegion(secret.note.toByteArray())));
+    result.append(cipher.update(QCA::MemoryRegion(secret.value.toByteArray())));
     result.append(cipher.final());
 
     QCOMPARE(QString::fromUtf8(result.toByteArray()), "It's a secret");
 
     /* Try to decrypt by session */
     QVERIFY(service->desecret(message, secret));
-    QCOMPARE(secret.note.toByteArray(), QByteArray("It's a secret"));
+    QCOMPARE(secret.value.toByteArray(), QByteArray("It's a secret"));
 }
 
 void FdoSecretsTest::attributes()
