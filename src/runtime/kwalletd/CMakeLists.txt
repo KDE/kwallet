@@ -150,7 +150,7 @@ if (Gpgmepp_FOUND)
     kde_target_enable_exceptions(kwalletd5 PRIVATE)
 endif(Gpgmepp_FOUND)
 
-install(TARGETS kwalletd5  ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kwalletd5  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 

@@ -72,6 +72,6 @@ set_target_properties(kwalletbackend5 PROPERTIES
     VERSION   ${KWALLETBACKEND_VERSION}
     SOVERSION ${KWALLETBACKEND_SOVERSION}
 )
-install(TARGETS kwalletbackend5 ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kwalletbackend5 ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_subdirectory(tests)

@@ -101,7 +101,7 @@ ecm_generate_headers(KWallet_HEADERS
   REQUIRED_HEADERS KWallet_HEADERS
 )
 
-install(TARGETS KF5Wallet EXPORT KF5WalletTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF5Wallet EXPORT KF5WalletTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kwallet_export.h
   ${KWallet_HEADERS}
