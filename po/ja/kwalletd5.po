@@ -716,8 +716,3 @@ msgstr "Thiago Maceira"
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "D-Bus インターフェース"
-
-#, fuzzy
-#~| msgid "KWallet"
-#~ msgid "kwalletd"
-#~ msgstr "KWallet"
