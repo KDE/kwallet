@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-30 00:42+0000\n"
+"POT-Creation-Date: 2022-10-16 00:43+0000\n"
 "PO-Revision-Date: 2022-03-26 13:27+0100\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Retry"
 msgstr "Torna a intentar-ho"
 
-#: backend/backendpersisthandler.cpp:633
+#: backend/backendpersisthandler.cpp:634
 #, kde-format
 msgid ""
 "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
@@ -114,12 +114,12 @@ msgstr ""
 "esteu usant una targeta intel·ligent, comproveu que estigui inserida i "
 "torneu-ho a provar. <br><br>L'error de GPG ha estat <b>%2</b></qt>"
 
-#: backend/backendpersisthandler.cpp:637
+#: backend/backendpersisthandler.cpp:638
 #, kde-format
 msgid "kwalletd GPG backend"
 msgstr "Dorsal GPG del kwalletd"
 
-#: backend/backendpersisthandler.cpp:683
+#: backend/backendpersisthandler.cpp:684
 #, kde-format
 msgid ""
 "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
