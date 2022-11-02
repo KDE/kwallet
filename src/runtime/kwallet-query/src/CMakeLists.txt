@@ -15,4 +15,5 @@ TARGET_LINK_LIBRARIES(kwallet-query
     Qt${QT_MAJOR_VERSION}::Widgets
 )
 
+ecm_mark_nongui_executable(kwallet-query)
 install( TARGETS kwallet-query DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
