@@ -130,7 +130,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 >cartera</emphasis
 > indicada. Els secrets es lligen des de l'entrada estàndard. Els mapes prenen en l'entrada un objecte &JSON; ben format. <emphasis role="strong"
 >IMPORTANT</emphasis
->: el valor de l'entrada a la cartera anterior serà sobreescrit per esta opció, de manera que aneu amb compte en utilitzar-la!</simpara>
+>: el valor de l'entrada en la cartera anterior serà sobreescrit per esta opció, de manera que aneu amb compte en utilitzar-la!</simpara>
         </listitem>
       </varlistentry>
       <varlistentry>
