@@ -34,6 +34,14 @@
 #include <KSharedConfig>
 #include <kwalletentry.h>
 #include <kwindowsystem.h>
+
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+#define HAVE_X11 1
+#include <KX11Extras>
+#else
+#define HAVE_X11 0
+#endif
+
 #ifdef HAVE_GPGMEPP
 #include <gpgme++/key.h>
 #endif
@@ -488,8 +496,14 @@ void KWalletD::checkActiveDialog()
 
     WId window = activeDialog->winId();
     KWindowSystem::setState(window, NET::KeepAbove);
-    KWindowSystem::setOnAllDesktops(window, true);
-    KWindowSystem::forceActiveWindow(window);
+
+#if HAVE_X11
+    if (KWindowSystem::isPlatformX11()) {
+        KX11Extras::setOnAllDesktops(window, true);
+        KX11Extras::forceActiveWindow(window);
+    }
+#endif
+
     KWindowSystem::raiseWindow(window);
 }
 
@@ -640,7 +654,9 @@ int KWalletD::internalOpen(const QString &appid, const QString &wallet, bool isP
                     //              i18n( "&Open" ), "wallet-open"));
                     kpd->setWindowTitle(i18n("KDE Wallet Service"));
                     kpd->setIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
-                    if (w != KWindowSystem::activeWindow() && w != 0L) {
+
+#if HAVE_X11
+                    if (KWindowSystem::isPlatformX11() && w != KX11Extras::activeWindow() && w != 0L) {
                         // If the dialog is modal to a minimized window it
                         // might not be visible
                         // (but still blocking the calling application).
@@ -662,6 +678,8 @@ int KWalletD::internalOpen(const QString &appid, const QString &wallet, bool isP
                         connect(notification, &KNotification::action1Activated, this, &KWalletD::activatePasswordDialog);
                         notification->sendEvent();
                     }
+#endif
+
                     while (!b->isOpen()) {
                         setupDialog(kpd, w, appid, modal);
                         if (kpd->exec() == QDialog::Accepted) {
