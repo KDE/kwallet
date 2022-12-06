@@ -154,8 +154,10 @@ ecm_mark_nongui_executable(kwalletd5)
 install(TARGETS kwalletd5  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.102.0)
+    install( FILES kwalletd5.desktop  DESTINATION  ${KDE_INSTALL_KSERVICESDIR} )
+endif()
 
-install( FILES kwalletd5.desktop  DESTINATION  ${KDE_INSTALL_KSERVICESDIR} )
 install( FILES kwalletd5.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
 install( FILES org.kde.kwalletd5.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
 
