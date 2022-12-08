@@ -662,7 +662,7 @@ msgstr ""
 "web i galetes. Si voleu que estes aplicacions utilitzen la cartera, heu "
 "d'habilitar-lo ara i triar una contrasenya. La contrasenya que trieu <i>no "
 "pot</i> recuperar-se si es perd, i permetrà obtindre tota la informació "
-"continguda a la cartera a qualsevol que la conega."
+"continguda en la cartera a qualsevol que la conega."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
@@ -706,7 +706,7 @@ msgstr ""
 "configurat com a mínim una clau d'encriptació en el sistema</p><p>Si trieu "
 "el format clàssic, recordeu que la contrasenya que trieu <span style=\" font-"
 "style:italic;\">no podrà</span> recuperar-se si es perd, i permetrà obtindre "
-"tota la informació continguda a la cartera a qualsevol que la conega.</p></"
+"tota la informació continguda en la cartera a qualsevol que la conega.</p></"
 "body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)

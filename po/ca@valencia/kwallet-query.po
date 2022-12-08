@@ -70,12 +70,12 @@ msgid ""
 msgstr ""
 "Escriu els secrets en l'<entrada> indicada. Els valors es lligen des de "
 "l'entrada estàndard. IMPORTANT: Se sobreescriurà el valor previ de l'entrada "
-"a la cartera!"
+"en la cartera!"
 
 #: main.cpp:35
 #, kde-format
 msgid "specify the folder in the wallet <folder>"
-msgstr "Indiqueu la carpeta a la cartera <carpeta>"
+msgstr "Indiqueu la carpeta en la cartera <carpeta>"
 
 #: main.cpp:35
 #, kde-format
