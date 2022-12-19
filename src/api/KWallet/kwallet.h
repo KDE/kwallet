@@ -155,7 +155,7 @@ public:
     /**
      *  List the applications that are using the wallet @p wallet.
      *  @param wallet The wallet to query.
-     *  @return Returns a list of all DCOP application IDs using
+     *  @return Returns a list of all D-Bus application IDs using
      *          the wallet.
      */
     static QStringList users(const QString &wallet);
