@@ -495,7 +495,7 @@ void KWalletD::checkActiveDialog()
     activeDialog->show();
 
     WId window = activeDialog->winId();
-    KWindowSystem::setState(window, NET::KeepAbove);
+    activeDialog->setWindowFlag(Qt::WindowStaysOnTopHint);
 
 #if HAVE_X11
     if (KWindowSystem::isPlatformX11()) {
