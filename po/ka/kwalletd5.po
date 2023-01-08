@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:43+0000\n"
-"PO-Revision-Date: 2022-09-13 08:06+0200\n"
+"PO-Revision-Date: 2023-01-07 07:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -213,7 +213,7 @@ msgstr ""
 #: knewwalletdialoggpg.ui:17
 #, kde-format
 msgid "Please select the signing key from the list below:"
-msgstr ""
+msgstr "აირჩიეთ ხელმოწერის გასაღები ქვედა სიიდან:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: knewwalletdialoggpg.ui:24
@@ -566,7 +566,7 @@ msgstr ""
 #: kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
 msgid "What kind of encryption do you wish?"
-msgstr ""
+msgstr "რომელი ტიპის დაშიფვრა გნებავთ?"
 
 #: main.cpp:173
 #, kde-format
@@ -581,7 +581,7 @@ msgstr "ვალენტინ რუსუ"
 #: main.cpp:174
 #, kde-format
 msgid "Maintainer, GPG backend support"
-msgstr ""
+msgstr "წამყვანი პროგრამისტი, GPG უკანაბოლოს მხარდაჭერა"
 
 #: main.cpp:175
 #, kde-format
