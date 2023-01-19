@@ -4,13 +4,13 @@
 # Serdar Soytetir <tulliana@gmail.com>, 2008, 2009, 2013.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2015, 2017.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:43+0000\n"
-"PO-Revision-Date: 2022-11-01 12:58+0300\n"
+"PO-Revision-Date: 2023-01-18 22:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -519,7 +519,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>KDE Cüzdan sistemi, verilerinizi yerel sabit "
 "diskinizdeki <span style=\" font-style:italic;\">cüzdanlarda</span> tutar. "
-"Veriler sadece seçtiğiniz şifrelenmiş bir şekilde, blowfish algoritmasında "
+"Veriler yalnızca seçtiğiniz şifrelenmiş bir şekilde, blowfish algoritmasında "
 "parolanız anahtar olarak kullanılarak veya GPG şifreleme anahtarı "
 "kullanılarak depolanır. Bir cüzdan açıldığı zaman cüzdan yöneticisi sistem "
 "panelinde bir simge görüntüler. Bu uygulamayı, cüzdanlarınıza erişmek için "
@@ -609,11 +609,11 @@ msgid ""
 "change some of them.  You may further tune these settings from the KWallet "
 "control module."
 msgstr ""
-"KDE Cüzdan sistemi, kişisel verilerinizin güvenlik seviyesini kontrol "
-"etmenizi de sağlar. Bu ayarlardan bazıları sistemin kullanışlığına etki "
-"edebilir. Öntanımlı ayarlar pek çok kullanıcı için kabul edilebilir bir "
-"ortam sağlar. Tüm bu ayarları istendiği anda KWallet kontrol modülünden "
-"değiştirmek mümkündür."
+"KDE Cüzdan sistemi, kişisel verilerinizin güvenlik düzeyini kontrol etmenizi "
+"de sağlar. Bu ayarlardan bazıları sistemin kullanışlığına etki edebilir. "
+"Öntanımlı ayarlar pek çok kullanıcı için kabul edilebilir bir ortam sağlar. "
+"Tüm bu ayarları istendiği anda KWallet kontrol modülünden değiştirmek "
+"mümkündür."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: kwalletwizardpageoptions.ui:48
