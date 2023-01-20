@@ -12,8 +12,8 @@ deprecated: false
 release: true
 libraries:
  - qmake: KWallet
-   cmake: "KF5::Wallet"
-cmakename: KF5Wallet
+   cmake: "KF6::Wallet"
+cmakename: KF6Wallet
 
 public_lib: true
 group: Frameworks

@@ -11,7 +11,7 @@ macro(KWALLET_TESTS)
         add_test(NAME itemviews-${_testname} COMMAND ${_testname})
         ecm_mark_as_test(${_testname})
         add_test(${_testname} ${_testname})
-        target_link_libraries(${_testname} Qt${QT_MAJOR_VERSION}::Test KF5::Wallet)
+        target_link_libraries(${_testname} Qt${QT_MAJOR_VERSION}::Test KF6::Wallet)
     endforeach(_testname)
 endmacro()
 

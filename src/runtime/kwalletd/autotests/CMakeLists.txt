@@ -1,7 +1,7 @@
 set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
 
 find_package(Qt${QT_MAJOR_VERSION}Test REQUIRED)
-find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF6Config ${KF6_DEP_VERSION} REQUIRED)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
@@ -68,11 +68,11 @@ ecm_add_test(
     kwalletfreedesktoppromptadaptor.cpp
     TEST_NAME fdo_secrets_test
     LINK_LIBRARIES
-        KF5Wallet
+        KF6Wallet
         kwalletbackend5
         Qt${QT_MAJOR_VERSION}::Widgets
         Qt${QT_MAJOR_VERSION}::Test
-        KF5::DBusAddons
-        KF5::ConfigCore
+        KF6::DBusAddons
+        KF6::ConfigCore
         ${Qca_LIBRARY}
 )

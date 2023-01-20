@@ -9,9 +9,9 @@ target_sources(kwallet-query PRIVATE
 
 
 TARGET_LINK_LIBRARIES(kwallet-query
-    KF5Wallet
-    KF5::CoreAddons
-    KF5::I18n
+    KF6Wallet
+    KF6::CoreAddons
+    KF6::I18n
     Qt${QT_MAJOR_VERSION}::Widgets
 )
 

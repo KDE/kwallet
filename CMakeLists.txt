@@ -34,11 +34,11 @@ option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, 
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
-find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5WindowSystem ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5DocTools ${KF_DEP_VERSION})
+find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6DocTools ${KF_DEP_VERSION})
 
 ecm_set_disabled_deprecation_versions(
     QT 5.15.2
@@ -54,7 +54,7 @@ if (BUILD_TESTING)
     add_subdirectory(tests)
     add_subdirectory(examples)
 endif()
-if (KF5DocTools_FOUND)
+if (KF6DocTools_FOUND)
     add_subdirectory(docs)
 endif()
 

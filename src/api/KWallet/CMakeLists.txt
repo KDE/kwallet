@@ -4,7 +4,7 @@ include(ECMGenerateHeaders)
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLET
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kwallet_version.h"
-                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
+                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF6WalletConfigVersion.cmake"
                         SOVERSION 5)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kwallet_version.h
@@ -23,13 +23,13 @@ else()
     set(MAC_USE_OSXKEYCHAIN FALSE)
 endif()
 
-add_library(KF5Wallet)
-add_library(KF5::Wallet ALIAS KF5Wallet)
+add_library(KF6Wallet)
+add_library(KF6::Wallet ALIAS KF6Wallet)
 
 if (MAC_USE_OSXKEYCHAIN)
     find_library(COREFOUNDATION_LIBRARY CoreFoundation)
     find_library(SECURITY_LIBRARY Security)
-    target_sources(KF5Wallet PRIVATE
+    target_sources(KF6Wallet PRIVATE
         kwallet_mac.cpp
     )
 else()
@@ -42,13 +42,13 @@ else()
         set(kwallet_xml org.kde.KWallet.nodeprecated.xml)
     endif()
     qt_add_dbus_interface(kwallet_dbus_SRCS ${kwallet_xml} kwallet_interface)
-    target_sources(KF5Wallet PRIVATE
+    target_sources(KF6Wallet PRIVATE
         kwallet.cpp
         ${kwallet_dbus_SRCS}
     )
 endif()
 
-ecm_qt_declare_logging_category(KF5Wallet
+ecm_qt_declare_logging_category(KF6Wallet
     HEADER kwallet_api_debug.h
     IDENTIFIER KWALLET_API_LOG
     CATEGORY_NAME kf.wallet.api
@@ -57,7 +57,7 @@ ecm_qt_declare_logging_category(KF5Wallet
     EXPORT KWALLET
 )
 
-ecm_generate_export_header(KF5Wallet
+ecm_generate_export_header(KF6Wallet
     BASE_NAME KWallet
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
@@ -66,30 +66,30 @@ ecm_generate_export_header(KF5Wallet
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 
-target_include_directories(KF5Wallet INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KWallet>")
+target_include_directories(KF6Wallet INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KWallet>")
 
-target_link_libraries(KF5Wallet
+target_link_libraries(KF6Wallet
     PUBLIC
         Qt${QT_MAJOR_VERSION}::Gui
     PRIVATE
         Qt${QT_MAJOR_VERSION}::DBus
         Qt${QT_MAJOR_VERSION}::Widgets
-        KF5::WindowSystem # KWindowSystem::allowExternalProcessWindowActivation
-        KF5::ConfigCore   # used to store the wallet to be used
+        KF6::WindowSystem # KWindowSystem::allowExternalProcessWindowActivation
+        KF6::ConfigCore   # used to store the wallet to be used
 )
 
 if(MAC_USE_OSXKEYCHAIN)
-   target_link_libraries(KF5Wallet PRIVATE ${CARBON_LIBRARY}
+   target_link_libraries(KF6Wallet PRIVATE ${CARBON_LIBRARY}
                                            ${SECURITY_LIBRARY}
                                            ${COREFOUNDATION_LIBRARY})
 elseif(APPLE)
-    target_link_libraries(KF5Wallet PRIVATE ${CARBON_LIBRARY})
+    target_link_libraries(KF6Wallet PRIVATE ${CARBON_LIBRARY})
 else()
-    target_link_libraries(KF5Wallet PRIVATE Qt${QT_MAJOR_VERSION}::DBus)
+    target_link_libraries(KF6Wallet PRIVATE Qt${QT_MAJOR_VERSION}::DBus)
     install(FILES ${kwallet_xml} DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf5_org.kde.KWallet.xml)
 endif()
 
-set_target_properties(KF5Wallet PROPERTIES VERSION   ${KWALLET_VERSION}
+set_target_properties(KF6Wallet PROPERTIES VERSION   ${KWALLET_VERSION}
                                          SOVERSION ${KWALLET_SOVERSION}
                                          EXPORT_NAME Wallet
 )
@@ -101,7 +101,7 @@ ecm_generate_headers(KWallet_HEADERS
   REQUIRED_HEADERS KWallet_HEADERS
 )
 
-install(TARGETS KF5Wallet EXPORT KF5WalletTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF6Wallet EXPORT KF6WalletTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kwallet_export.h
   ${KWallet_HEADERS}
@@ -110,9 +110,9 @@ install(FILES
 
 if(BUILD_QCH)
     ecm_add_qch(
-        KF5Wallet_QCH
+        KF6Wallet_QCH
         NAME KWallet
-        BASE_NAME KF5Wallet
+        BASE_NAME KF6Wallet
         VERSION ${KF_VERSION}
         ORG_DOMAIN org.kde
         SOURCES # using only public headers, to cover only public API
@@ -134,38 +134,38 @@ endif()
 
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Wallet")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6Wallet")
 
 if (BUILD_QCH)
     ecm_install_qch_export(
-        TARGETS KF5Wallet_QCH
-        FILE KF5WalletQchTargets.cmake
+        TARGETS KF6Wallet_QCH
+        FILE KF6WalletQchTargets.cmake
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel
     )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF5WalletQchTargets.cmake\")")
+    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF6WalletQchTargets.cmake\")")
 endif()
 
 include(CMakePackageConfigHelpers)
 
 configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/KF5WalletConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfig.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/KF6WalletConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6WalletConfig.cmake"
   PATH_VARS KDE_INSTALL_DBUSINTERFACEDIR
   PATH_VARS KDE_INSTALL_BINDIR
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
 )
 
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6WalletConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6WalletConfigVersion.cmake"
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
   COMPONENT Devel
 )
 
-install(EXPORT KF5WalletTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5WalletTargets.cmake NAMESPACE KF5:: )
+install(EXPORT KF6WalletTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF6WalletTargets.cmake NAMESPACE KF6:: )
 
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KWallet LIB_NAME KF5Wallet DEPS "widgets" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KWallet)
+ecm_generate_pri_file(BASE_NAME KWallet LIB_NAME KF6Wallet DEPS "widgets" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KWallet)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

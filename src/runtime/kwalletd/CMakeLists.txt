@@ -7,14 +7,14 @@ check_symbol_exists(RtlSecureZeroMemory "windows.h" KWALLETD_HAVE_RTLSECUREZEROM
 
 find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
 
-find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5DBusAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5Notifications ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5Service ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5WindowSystem ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Notifications ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Service ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
 
 ########### find needed packages ######
 find_package(Gpgmepp 1.7.0) # provided by GpgME
@@ -45,7 +45,7 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETD
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kwalletd_version.h"
-                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5WalletConfigVersion.cmake"
+                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF6WalletConfigVersion.cmake"
                         SOVERSION 5)
 
 target_sources(kwalletd5 PRIVATE
@@ -133,17 +133,17 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
 
 target_link_libraries(kwalletd5
     kwalletbackend5
-    KF5Wallet
+    KF6Wallet
     Qt${QT_MAJOR_VERSION}::Widgets
-    KF5::I18n
-    KF5::CoreAddons
-    KF5::ConfigCore
-    KF5::ConfigWidgets
-    KF5::Service
-    KF5::DBusAddons
-    KF5::WidgetsAddons
-    KF5::WindowSystem
-    KF5::Notifications
+    KF6::I18n
+    KF6::CoreAddons
+    KF6::ConfigCore
+    KF6::ConfigWidgets
+    KF6::Service
+    KF6::DBusAddons
+    KF6::WidgetsAddons
+    KF6::WindowSystem
+    KF6::Notifications
     ${Qca_LIBRARY})
 if (Gpgmepp_FOUND)
     target_link_libraries(kwalletd5 Gpgmepp)

@@ -14,11 +14,11 @@ configure_file (config-kwalletbackend.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config
 
 ########### kwalletbackend ###############
 find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
-find_package(KF5CoreAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5Notifications ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Notifications ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
 
 find_package(LibGcrypt 1.5.0 REQUIRED)
 set_package_properties(LibGcrypt PROPERTIES
@@ -58,7 +58,7 @@ generate_export_header(kwalletbackend5)
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 5)
 
-target_link_libraries(kwalletbackend5 Qt${QT_MAJOR_VERSION}::Widgets KF5::WidgetsAddons KF5::CoreAddons KF5::Notifications KF5::I18n ${LIBGCRYPT_LIBRARIES} ${Qca_LIBRARY})
+target_link_libraries(kwalletbackend5 Qt${QT_MAJOR_VERSION}::Widgets KF6::WidgetsAddons KF6::CoreAddons KF6::Notifications KF6::I18n ${LIBGCRYPT_LIBRARIES} ${Qca_LIBRARY})
 if(Gpgmepp_FOUND)
    target_link_libraries(kwalletbackend5 Gpgmepp)
 endif(Gpgmepp_FOUND)
