@@ -55,35 +55,16 @@ void KWalletBothTest::openWallet()
     p = wallet->passwordList(&success);
     _out << "passwordList returned: " << success << '\n';
     _out << "passwordList returned " << p.keys().count() << " entries\n";
-#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
-    p = {};
-    ret = wallet->readPasswordList(QStringLiteral("*"), p);
-    _out << "readPasswordList returned: " << ret << '\n';
-    _out << "readPasswordList returned " << p.keys().count() << " entries\n";
-#endif
 
     QMap<QString, QMap<QString, QString>> q;
     q = wallet->mapList(&success);
     _out << "mapList returned: " << success << '\n';
     _out << "mapList returned " << q.keys().count() << " entries\n";
-#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
-    q = {};
-    ret = wallet->readMapList(QStringLiteral("*"), q);
-    _out << "readMapList returned: " << ret << '\n';
-    _out << "readMapList returned " << q.keys().count() << " entries\n";
-
-#endif
 
     QMap<QString, QByteArray> s;
     s = wallet->entriesList(&success);
     _out << "entryList returned: " << success << '\n';
     _out << "entryList returned " << s.keys().count() << " entries\n";
-#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
-    s = {};
-    ret = wallet->readEntryList(QStringLiteral("*"), s);
-    _out << "readEntryList returned: " << ret << '\n';
-    _out << "readEntryList returned " << s.keys().count() << " entries\n";
-#endif
 
     _out.flush();
 

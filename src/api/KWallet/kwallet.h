@@ -325,58 +325,6 @@ public:
      */
     virtual int readPassword(const QString &key, QString &value);
 
-#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
-    /**
-     *  Read the entries matching @p key from the current folder.
-     *  The entry format is unknown except that it is either a
-     *  QByteArray or a QDataStream, which effectively means that
-     *  it is anything.
-     *  @param key The key of the entry to read.  Wildcards
-     *             are supported.
-     *  @param value A buffer to fill with the value.  The key in
-     *               the map is the entry key.
-     *  @return Returns 0 on success, non-zero on error.
-     *
-     *  @deprecated Since 5.72, use entriesList(bool *)
-     */
-    KWALLET_DEPRECATED_VERSION(5, 72, "Use entriesList(bool *)")
-    int readEntryList(const QString &key, QMap<QString, QByteArray> &value);
-#endif
-
-#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
-    /**
-     *  Read the map entry @p key from the current folder.
-     *  @param key The key of the entry to read.  Wildcards
-     *             are supported.
-     *  @param value A buffer to fill with the value.  The key in
-     *               the map is the entry key.
-     *  @return Returns 0 on success, non-zero on error.  Will
-     *          return an error if the key was not originally
-     *          written as a map.
-     *
-     *  @deprecated Since 5.72, use mapList(bool *)
-     */
-    KWALLET_DEPRECATED_VERSION(5, 72, "Use mapList(bool *)")
-    int readMapList(const QString &key, QMap<QString, QMap<QString, QString>> &value);
-#endif
-
-#if KWALLET_ENABLE_DEPRECATED_SINCE(5, 72)
-    /**
-     *  Read the password entry @p key from the current folder.
-     *  @param key The key of the entry to read.  Wildcards
-     *             are supported.
-     *  @param value A buffer to fill with the value.  The key in
-     *               the map is the entry key.
-     *  @return Returns 0 on success, non-zero on error.  Will
-     *          return an error if the key was not originally
-     *          written as a password.
-     *
-     *  @deprecated Since 5.72, use passwordList(bool *)
-     */
-    KWALLET_DEPRECATED_VERSION(5, 72, "Use passwordList(bool *)")
-    int readPasswordList(const QString &key, QMap<QString, QString> &value);
-#endif
-
     /**
      *  Get a list of all the entries in the current folder. The entry
      *  format is unknown except that it is either a QByteArray or a
