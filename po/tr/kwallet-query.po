@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kwallet-query\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-12-09 00:40+0000\n"
-"PO-Revision-Date: 2023-01-18 22:29+0300\n"
+"PO-Revision-Date: 2023-01-21 15:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -30,12 +30,12 @@ msgstr "kaanozdincer@gmail.com"
 #: main.cpp:22 main.cpp:24
 #, kde-format
 msgid "KWallet query interface"
-msgstr "KWallet sorgu arayüzü"
+msgstr "K Cüzdan sorgu arayüzü"
 
 #: main.cpp:26
 #, kde-format
 msgid "(c) 2015, The KDE Developers"
-msgstr "(c) 2015, The KDE Geliştiricileri"
+msgstr "(c) 2015, KDE Geliştiricileri"
 
 #: main.cpp:31
 #, kde-format

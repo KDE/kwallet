@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:43+0000\n"
-"PO-Revision-Date: 2023-01-18 22:32+0300\n"
+"PO-Revision-Date: 2023-01-21 15:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -487,7 +487,7 @@ msgstr ""
 #: kwalletwizard.cpp:40
 #, kde-format
 msgid "KWallet"
-msgstr "KWallet"
+msgstr "K Cüzdan"
 
 #: kwalletwizard.cpp:272
 #, kde-format
@@ -582,10 +582,10 @@ msgid ""
 "preventing others from viewing the information.  This wizard will tell you "
 "about KWallet and help you configure it for the first time."
 msgstr ""
-"KDE Cüzdan Sistemine hoş geldiniz. KWallet, hassas ve güvenli olması gereken "
-"tüm bilgilerinizin disk üzerinde şifrelenmiş bir şekilde tutulmasına olanak "
-"verir. Bu süre içinde başkası, size ait bu bilgilere erişemez. Bu sihirbaz "
-"KWallet hakkında bilgi verecek ve sizin için yapılandıracaktır."
+"KDE Cüzdan Sistemine hoş geldiniz. K Cüzdan, hassas ve güvenli olması "
+"gereken tüm bilgilerinizin disk üzerinde şifrelenmiş bir şekilde tutulmasına "
+"olanak verir. Bu süre içinde başkası, size ait bu bilgilere erişemez. Bu "
+"sihirbaz K Cüzdan hakkında bilgi verecek ve sizin için yapılandıracaktır."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: kwalletwizardpageintro.ui:69
