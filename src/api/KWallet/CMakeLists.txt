@@ -118,7 +118,7 @@ if(BUILD_QCH)
         SOURCES # using only public headers, to cover only public API
             ${KWallet_HEADERS}
         LINK_QCHS
-            Qt5Gui_QCH
+            Qt6Gui_QCH
         INCLUDE_DIRS
             ${CMAKE_CURRENT_BINARY_DIR}
         BLANK_MACROS
