@@ -64,20 +64,20 @@ void TestBlowfish::testBlowfishCipher()
         QByteArray cleartext = readBinaryData(cleartexts[i]);
         QByteArray ciphertext = readBinaryData(ciphertexts[i]);
 
-        bf.setKey(key.data(), 8 * key.count());
+        bf.setKey(key.data(), 8 * key.size());
         QVERIFY(bf.readyToGo());
 
         // Verify encrypted cleartext == ciphertext
         QByteArray temp = cleartext;
-        QCOMPARE(bf.encrypt(temp.data(), temp.count()), temp.count());
+        QCOMPARE(bf.encrypt(temp.data(), temp.size()), temp.size());
         QVERIFY(temp == ciphertext);
 
-        bf.setKey(key.data(), 8 * key.count());
+        bf.setKey(key.data(), 8 * key.size());
         QVERIFY(bf.readyToGo());
 
         // Verify decryption of ciphertext w/ same key yield cleartext
         temp = ciphertext;
-        QCOMPARE(bf.decrypt(temp.data(), temp.count()), temp.count());
+        QCOMPARE(bf.decrypt(temp.data(), temp.size()), temp.size());
         QVERIFY(temp == cleartext);
     }
 }

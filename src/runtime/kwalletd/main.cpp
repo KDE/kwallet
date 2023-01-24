@@ -159,7 +159,6 @@ int main(int argc, char **argv)
 #endif
 
     QApplication app(argc, argv);
-    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
 
     // this kwalletd5 program should be able to start with KDE4's kwalletd

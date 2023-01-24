@@ -41,9 +41,8 @@ find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6DocTools ${KF_DEP_VERSION})
 
 ecm_set_disabled_deprecation_versions(
-    QT 5.15.2
-    KF 5.95
-    KSERVICE 5.81 # KToolInvocation::startServiceByDesktopName
+    QT 6.4
+    KF 5.102
 )
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kwalletd5\")
