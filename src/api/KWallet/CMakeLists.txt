@@ -70,10 +70,10 @@ target_include_directories(KF6Wallet INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTAL
 
 target_link_libraries(KF6Wallet
     PUBLIC
-        Qt${QT_MAJOR_VERSION}::Gui
+        Qt6::Gui
     PRIVATE
-        Qt${QT_MAJOR_VERSION}::DBus
-        Qt${QT_MAJOR_VERSION}::Widgets
+        Qt6::DBus
+        Qt6::Widgets
         KF6::WindowSystem # KWindowSystem::allowExternalProcessWindowActivation
         KF6::ConfigCore   # used to store the wallet to be used
 )
@@ -85,7 +85,7 @@ if(MAC_USE_OSXKEYCHAIN)
 elseif(APPLE)
     target_link_libraries(KF6Wallet PRIVATE ${CARBON_LIBRARY})
 else()
-    target_link_libraries(KF6Wallet PRIVATE Qt${QT_MAJOR_VERSION}::DBus)
+    target_link_libraries(KF6Wallet PRIVATE Qt6::DBus)
     install(FILES ${kwallet_xml} DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf5_org.kde.KWallet.xml)
 endif()
 

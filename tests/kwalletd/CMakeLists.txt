@@ -6,7 +6,7 @@ include_directories( ${CMAKE_CURRENT_BINARY_DIR}/../../src/runtime/kwalletd/back
 
 include(ECMMarkAsTest)
 
-find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Test)
+find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Test)
 find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
@@ -40,7 +40,7 @@ target_sources(kwalletwizardtest PRIVATE
 ecm_mark_as_test(kwalletwizardtest)
 target_link_libraries(kwalletwizardtest
     KF6Wallet
-    Qt${QT_MAJOR_VERSION}::Test
+    Qt6::Test
     KF6::CoreAddons
     KF6::I18n
     KF6::WidgetsAddons)
@@ -49,7 +49,7 @@ if (Gpgmepp_FOUND)
 endif(Gpgmepp_FOUND)
 
 add_library(kwallettestlib STATIC kwallettest.cpp)
-target_link_libraries(kwallettestlib KF6Wallet Qt${QT_MAJOR_VERSION}::Widgets)
+target_link_libraries(kwallettestlib KF6Wallet Qt6::Widgets)
 
 macro(kwalletd_tests)
   foreach(_testname ${ARGN})
@@ -59,8 +59,8 @@ macro(kwalletd_tests)
         kwallettestlib
         kwalletbackend5
         KF6Wallet
-        Qt${QT_MAJOR_VERSION}::DBus
-        Qt${QT_MAJOR_VERSION}::Test
+        Qt6::DBus
+        Qt6::Test
         KF6::CoreAddons
         KF6::I18n)
   endforeach(_testname)

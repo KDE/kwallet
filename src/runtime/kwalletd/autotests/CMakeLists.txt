@@ -1,6 +1,6 @@
 set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
 
-find_package(Qt${QT_MAJOR_VERSION}Test REQUIRED)
+find_package(Qt6Test REQUIRED)
 find_package(KF6Config ${KF6_DEP_VERSION} REQUIRED)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
@@ -70,8 +70,8 @@ ecm_add_test(
     LINK_LIBRARIES
         KF6Wallet
         kwalletbackend5
-        Qt${QT_MAJOR_VERSION}::Widgets
-        Qt${QT_MAJOR_VERSION}::Test
+        Qt6::Widgets
+        Qt6::Test
         KF6::DBusAddons
         KF6::ConfigCore
         ${Qca_LIBRARY}

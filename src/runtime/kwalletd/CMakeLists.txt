@@ -5,7 +5,7 @@ include(CheckSymbolExists)
 check_symbol_exists(explicit_bzero "string.h" KWALLETD_HAVE_EXPLICIT_BZERO)
 check_symbol_exists(RtlSecureZeroMemory "windows.h" KWALLETD_HAVE_RTLSECUREZEROMEMORY)
 
-find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
+find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
 
 find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
@@ -26,7 +26,7 @@ if (Gpgmepp_FOUND)
     include_directories(${GPGME_INCLUDES})
 endif(Gpgmepp_FOUND)
 
-find_package(Qca-qt${QT_MAJOR_VERSION} REQUIRED 2.3.1)
+find_package(Qca-qt6 REQUIRED 2.3.1)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ########### build backends #########
@@ -134,7 +134,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
 target_link_libraries(kwalletd5
     kwalletbackend5
     KF6Wallet
-    Qt${QT_MAJOR_VERSION}::Widgets
+    Qt6::Widgets
     KF6::I18n
     KF6::CoreAddons
     KF6::ConfigCore

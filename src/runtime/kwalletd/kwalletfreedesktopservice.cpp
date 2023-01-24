@@ -22,12 +22,6 @@
 #endif
 
 [[maybe_unused]] int DBUS_SECRET_SERVICE_META_TYPE_REGISTER = []() {
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    qRegisterMetaTypeStreamOperators<StrStrMap>("StrStrMap");
-    qRegisterMetaTypeStreamOperators<QMap<QString, QString>>("QMap<QString, QString>");
-    qRegisterMetaTypeStreamOperators<QCA::SecureArray>("QCA::SecureArray");
-#endif
-
     qDBusRegisterMetaType<StrStrMap>();
     qDBusRegisterMetaType<QMap<QString, QString>>();
     qDBusRegisterMetaType<FreedesktopSecret>();

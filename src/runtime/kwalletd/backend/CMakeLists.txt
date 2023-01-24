@@ -13,7 +13,7 @@ endif(Gpgmepp_FOUND)
 configure_file (config-kwalletbackend.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwalletbackend.h )
 
 ########### kwalletbackend ###############
-find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
+find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
 find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Notifications ${KF_DEP_VERSION} REQUIRED)
@@ -25,7 +25,7 @@ set_package_properties(LibGcrypt PROPERTIES
                        TYPE REQUIRED
                        PURPOSE "kwalletd needs libgcrypt to perform PBKDF2-SHA512 hashing"
                       )
-find_package(Qca-qt${QT_MAJOR_VERSION} REQUIRED 2.3.1)
+find_package(Qca-qt6 REQUIRED 2.3.1)
 
 add_library(kwalletbackend5 SHARED)
 
@@ -58,7 +58,7 @@ generate_export_header(kwalletbackend5)
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 5)
 
-target_link_libraries(kwalletbackend5 Qt${QT_MAJOR_VERSION}::Widgets KF6::WidgetsAddons KF6::CoreAddons KF6::Notifications KF6::I18n ${LIBGCRYPT_LIBRARIES} ${Qca_LIBRARY})
+target_link_libraries(kwalletbackend5 Qt6::Widgets KF6::WidgetsAddons KF6::CoreAddons KF6::Notifications KF6::I18n ${LIBGCRYPT_LIBRARIES} ${Qca_LIBRARY})
 if(Gpgmepp_FOUND)
    target_link_libraries(kwalletbackend5 Gpgmepp)
 endif(Gpgmepp_FOUND)
