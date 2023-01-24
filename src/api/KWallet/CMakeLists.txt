@@ -11,12 +11,6 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kwallet_version.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KWallet COMPONENT Devel
 )
 
-set(HAVE_KSECRETSSERVICE 0)
-configure_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/config-kwallet.h.cmake
-    ${CMAKE_CURRENT_BINARY_DIR}/config-kwallet.h
-)
-
 if(APPLE)
     option(MAC_USE_OSXKEYCHAIN "On OS X, use the keychain as backend for kwallet, instead of kwalletd.")
 else()
