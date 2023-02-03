@@ -32,7 +32,12 @@ option(BUILD_KWALLETD "Build the kwallet daemon" ON)
 option(BUILD_KWALLET_QUERY "Build kwallet-query tool" ON)
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
+
+if (TRUE) # TODO: port and remove remaining code in v5-time deprecated parts, then return to using 0
+set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 5.99.0 CACHE STRING "Control the range of deprecated API excluded from the build [default=5.99.0].")
+else() # normal
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
+endif()
 
 find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
