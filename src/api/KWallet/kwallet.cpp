@@ -17,7 +17,6 @@
 
 #include <KConfigGroup>
 #include <KSharedConfig>
-#include <kwindowsystem.h>
 
 #include "kwallet_interface.h"
 
@@ -178,8 +177,6 @@ void Wallet::changePassword(const QString &name, WId w)
         qCDebug(KWALLET_API_LOG) << "Pass a valid window to KWallet::Wallet::changePassword().";
     }
 
-    // Make sure the password prompt window will be visible and activated
-    KWindowSystem::allowExternalProcessWindowActivation();
     if (walletLauncher()->m_walletEnabled) {
         walletLauncher()->getInterface().changePassword(name, (qlonglong)w, appid());
     }
@@ -254,9 +251,6 @@ Wallet *Wallet::openWallet(const QString &name, WId w, OpenType ot)
     // connect the daemon's opened signal to the slot filtering the
     // signals we need
     connect(&walletLauncher()->getInterface(), &org::kde::KWallet::walletAsyncOpened, wallet, &KWallet::Wallet::walletAsyncOpened);
-
-    // Make sure the password prompt window will be visible and activated
-    KWindowSystem::allowExternalProcessWindowActivation();
 
     org::kde::KWallet &interface = walletLauncher->getInterface();
 
@@ -393,9 +387,6 @@ void Wallet::requestChangePassword(WId w)
     if (d->handle == -1) {
         return;
     }
-
-    // Make sure the password prompt window will be visible and activated
-    KWindowSystem::allowExternalProcessWindowActivation();
 
     walletLauncher()->getInterface().changePassword(d->name, (qlonglong)w, appid());
 }

@@ -68,7 +68,6 @@ target_link_libraries(KF6Wallet
     PRIVATE
         Qt6::DBus
         Qt6::Widgets
-        KF6::WindowSystem # KWindowSystem::allowExternalProcessWindowActivation
         KF6::ConfigCore   # used to store the wallet to be used
 )
 
