@@ -497,8 +497,6 @@ void KWalletD::checkActiveDialog()
         KX11Extras::forceActiveWindow(window);
     }
 #endif
-
-    KWindowSystem::raiseWindow(window);
 }
 
 int KWalletD::doTransactionOpen(const QString &appid, const QString &wallet, bool isPath, qlonglong wId, bool modal, const QString &service)
