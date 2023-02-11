@@ -5,7 +5,7 @@ include(ECMGenerateHeaders)
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLET
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kwallet_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF6WalletConfigVersion.cmake"
-                        SOVERSION 5)
+                        SOVERSION 6)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kwallet_version.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KWallet COMPONENT Devel
