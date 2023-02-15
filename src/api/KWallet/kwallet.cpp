@@ -321,7 +321,7 @@ bool Wallet::disconnectApplication(const QString &wallet, const QString &app)
             return r;
         }
     } else {
-        return -1;
+        return true;
     }
 }
 
