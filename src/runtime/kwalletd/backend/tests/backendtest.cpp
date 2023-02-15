@@ -16,7 +16,6 @@ int main(int argc, char **argv)
 
     QByteArray apass("apassword", 9);
     QByteArray bpass("bpassword", 9);
-    QByteArray cpass("cpassword", 9);
 
     printf("Passwords initialised.\n");
     be.setPassword(apass);

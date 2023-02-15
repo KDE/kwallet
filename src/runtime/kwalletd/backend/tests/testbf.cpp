@@ -8,7 +8,7 @@ int main()
 {
     BlockCipher *bf;
     char data[] = "This is a test.";
-    char expect[] = "\x3f\x3c\x2d\xae\x8c\x7\x84\xf2\xa7\x6d\x28\xbd\xd\xb\xb8\x79";
+    const char expect[] = "\x3f\x3c\x2d\xae\x8c\x7\x84\xf2\xa7\x6d\x28\xbd\xd\xb\xb8\x79";
     char key[] = "testkey";
     unsigned long et[] = {0x11223344};
 
