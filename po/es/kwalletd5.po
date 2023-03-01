@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:43+0000\n"
+"POT-Creation-Date: 2023-03-01 22:21+0000\n"
 "PO-Revision-Date: 2021-07-03 18:23+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -325,7 +325,7 @@ msgstr "Clásico, archivo cifrado con blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Usar cifrado GPG, para una mejor protección"
 
-#: kwalletd.cpp:640
+#: kwalletd.cpp:634
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -334,7 +334,7 @@ msgstr ""
 "<qt>KDE ha solicitado abrir la cartera «<b>%1</b>». Introduzca la contraseña "
 "de esta cartera más abajo.</qt>"
 
-#: kwalletd.cpp:644
+#: kwalletd.cpp:638
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -344,19 +344,19 @@ msgstr ""
 "Introduzca la contraseña de esta cartera más abajo.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:655 kwalletd.cpp:763 kwalletd.cpp:867 kwalletd.cpp:980
-#: kwalletd.cpp:1003 kwalletd.cpp:1014 kwalletd.cpp:1019 kwalletd.cpp:1609
-#: main.cpp:169 main.cpp:171
+#: kwalletd.cpp:649 kwalletd.cpp:757 kwalletd.cpp:861 kwalletd.cpp:974
+#: kwalletd.cpp:997 kwalletd.cpp:1008 kwalletd.cpp:1013 kwalletd.cpp:1603
+#: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Servicio de cartera de KDE"
 
-#: kwalletd.cpp:670
+#: kwalletd.cpp:664
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Una aplicación ha solicitado abrir una cartera (%1)."
 
-#: kwalletd.cpp:671
+#: kwalletd.cpp:665
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -364,19 +364,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Cambiar"
 
-#: kwalletd.cpp:673
+#: kwalletd.cpp:667
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> ha solicitado abrir una cartera (%2)."
 
-#: kwalletd.cpp:675
+#: kwalletd.cpp:669
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Cambiar a %1"
 
-#: kwalletd.cpp:691 kwalletd.cpp:773
+#: kwalletd.cpp:685 kwalletd.cpp:767
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -385,7 +385,7 @@ msgstr ""
 "<qt>Error al abrir la cartera «<b>%1</b>». Inténtelo de nuevo.<br />(Código "
 "de error %2: %3)</qt>"
 
-#: kwalletd.cpp:739
+#: kwalletd.cpp:733
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -397,7 +397,7 @@ msgstr ""
 "si desea abrirlo, o pulse «Cancelar» si desea denegar la petición de la "
 "aplicación."
 
-#: kwalletd.cpp:744
+#: kwalletd.cpp:738
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -410,7 +410,7 @@ msgstr ""
 "contraseña de esta cartera más abajo si desea abrirla, o cancele si desea "
 "denegar la petición de la aplicación.</qt>"
 
-#: kwalletd.cpp:752
+#: kwalletd.cpp:746
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -421,7 +421,7 @@ msgstr ""
 "una contraseña para esta cartera, o pulse «Cancelar» para denegar la "
 "solicitud de la aplicación.</qt>"
 
-#: kwalletd.cpp:757
+#: kwalletd.cpp:751
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -432,13 +432,13 @@ msgstr ""
 "denominada «<b>%2</b>». Escoja una contraseña para esta cartera, o cancele "
 "para denegar la solicitud de la aplicación.</qt>"
 
-#: kwalletd.cpp:869
+#: kwalletd.cpp:863
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>KDE ha solicitado acceder a la cartera «<b>%1</b>», ya abierta.</qt>"
 
-#: kwalletd.cpp:871
+#: kwalletd.cpp:865
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -447,7 +447,7 @@ msgstr ""
 "<qt>La aplicación «<b>%1</b>» ha solicitado acceder a la cartera «<b>%2</"
 "b>», ya abierta.</qt>"
 
-#: kwalletd.cpp:979
+#: kwalletd.cpp:973
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -456,7 +456,7 @@ msgstr ""
 "Imposible abrir cartera. La cartera debe abrirse para poder cambiar la "
 "contraseña."
 
-#: kwalletd.cpp:995
+#: kwalletd.cpp:989
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -467,22 +467,22 @@ msgstr ""
 "utilice las herramientas <b>GPG</b> (como <b>kleopatra</b>) para cambiar la "
 "contraseña larga asociada con esta clave.</qt>"
 
-#: kwalletd.cpp:1002
+#: kwalletd.cpp:996
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Escoja una nueva contraseña para la cartera «<b>%1</b>».</qt>"
 
-#: kwalletd.cpp:1014
+#: kwalletd.cpp:1008
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Error al cifrar de nuevo la cartera. La contraseña no cambió."
 
-#: kwalletd.cpp:1019
+#: kwalletd.cpp:1013
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Error al reabrir la cartera. Los datos pueden haberse perdido."
 
-#: kwalletd.cpp:1608
+#: kwalletd.cpp:1602
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -703,47 +703,47 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "¿Qué tipo de cifrado desea usar?"
 
-#: main.cpp:173
+#: main.cpp:172
 #, kde-format
 msgid "(C) 2002-2013, The KDE Developers"
 msgstr "© 2002-2013, los desarrolladores de KDE"
 
-#: main.cpp:174
+#: main.cpp:173
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:174
+#: main.cpp:173
 #, kde-format
 msgid "Maintainer, GPG backend support"
 msgstr "Encargado, implementación del motor GPG"
 
-#: main.cpp:175
+#: main.cpp:174
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:175
+#: main.cpp:174
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Encargado anterior"
 
-#: main.cpp:176
+#: main.cpp:175
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:176
+#: main.cpp:175
 #, kde-format
 msgid "Former maintainer"
 msgstr "Encargado anterior"
 
-#: main.cpp:177
+#: main.cpp:176
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:177
+#: main.cpp:176
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "Interfaz DBus"
