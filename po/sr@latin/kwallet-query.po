@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet-query\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-04 03:03+0100\n"
+"POT-Creation-Date: 2021-12-09 00:40+0000\n"
 "PO-Revision-Date: 2015-06-19 22:24+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -28,37 +28,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "caslav.ilic@gmx.net"
 
-#: main.cpp:36 main.cpp:38
+#: main.cpp:22 main.cpp:24
 #, kde-format
 msgid "KWallet query interface"
 msgstr "Sučelje za upite K‑novčaniku"
 
-#: main.cpp:40
+#: main.cpp:26
 #, kde-format
 msgid "(c) 2015, The KDE Developers"
 msgstr "© 2015, programeri KDE‑a"
 
-#: main.cpp:44
+#: main.cpp:31
 #, kde-format
 msgid "verbose output"
 msgstr "opširni izlaz"
 
-#: main.cpp:45
+#: main.cpp:32
 #, kde-format
 msgid "list password entries"
 msgstr "nabraja unose lozinki"
 
-#: main.cpp:46
+#: main.cpp:33
 #, kde-format
 msgid "reads the secrets from the given <entry>"
 msgstr "čita tajne za dati unos"
 
-#: main.cpp:46 main.cpp:47
+#: main.cpp:33 main.cpp:34
 #, kde-format
 msgid "Entry"
 msgstr "unos"
 
-#: main.cpp:47
+#: main.cpp:34
 #, kde-format
 msgid ""
 "write secrets to the given <entry>. The values are read from the standard "
@@ -67,72 +67,70 @@ msgstr ""
 "upisuje tajne u dati unos. Vrednosti se čitaju sa standardnog ulaza. VAŽNO: "
 "prethodna vrednost unosa u novčaniku biće prebrisana!"
 
-#: main.cpp:48
+#: main.cpp:35
 #, kde-format
 msgid "specify the folder in the wallet <folder>"
 msgstr "zadaje fasciklu u novčaniku"
 
-#: main.cpp:48
+#: main.cpp:35
 #, kde-format
 msgid "Folder"
 msgstr "fascikla"
 
-#: main.cpp:51
-#, kde-format
-msgid "wallet"
-msgstr "novčanik"
-
-#: main.cpp:51
+#: main.cpp:39
 #, kde-format
 msgid "The wallet to query"
 msgstr "novčanik za upit"
 
-#: main.cpp:61
+#: main.cpp:49
 #, kde-format
 msgid "Missing argument"
 msgstr "Nedostaje argument."
 
-#: main.cpp:65
+#: main.cpp:53
 #, kde-format
 msgid "Too many arguments given"
 msgstr "Dato je previše argumenata."
 
-#: main.cpp:72
+#: main.cpp:58
 #, kde-format
 msgid "Only one mode (list, read or write) can be set. Aborting"
 msgstr "Može se zadati samo jedan režim (list, read ili write). Obustavljam."
 
-#: main.cpp:78
+#: main.cpp:62
 #, kde-format
 msgid "Please specify the mode (list or read)."
 msgstr "Zadajte režim (list ili read)."
 
-#: querydriver.cpp:59
+#: querydriver.cpp:46
 #, kde-format
 msgid "Wallet %1 not found"
 msgstr "Novčanik %1 nije nađen."
 
-#: querydriver.cpp:78
+#: querydriver.cpp:70
 #, kde-format
 msgid "Failed to open wallet %1. Aborting"
 msgstr "Ne mogu da otvorim novčanik %1. Obustavljam."
 
-#: querydriver.cpp:111 querydriver.cpp:125
+#: querydriver.cpp:104 querydriver.cpp:121
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "Novčanik %1 ne postoji."
 
-#: querydriver.cpp:134
+#: querydriver.cpp:130
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet."
 msgstr "Ne mogu da pročitam vrednost unosa %1 u novčaniku %2."
 
-#: querydriver.cpp:144 querydriver.cpp:158
+#: querydriver.cpp:141 querydriver.cpp:156
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "Ne mogu da pročitam vrednost unosa %1 u novčaniku %2."
 
-#: querydriver.cpp:186 querydriver.cpp:200
+#: querydriver.cpp:189 querydriver.cpp:205
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Ne mogu da upišem vrednost unosa %1 u novčanik %2."
+
+#~ msgid "wallet"
+#~ msgstr "novčanik"

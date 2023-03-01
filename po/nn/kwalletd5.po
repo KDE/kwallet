@@ -79,9 +79,8 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
-"<qt>Feil ved forsøk på å klargjera OpenPGP ved forsøk på å opna lommeboka "
-"<b>%1</b>. Feilkoden er <b>%2</b>. Rett på systemoppsettet og forsøk igjen.</"
-"qt>"
+"<qt>Feil ved forsøk på å klargjera OpenPGP ved forsøk på å opna lommeboka <b>"
+"%1</b>. Feilkoden er <b>%2</b>. Rett på systemoppsettet og forsøk igjen.</qt>"
 
 #: backend/backendpersisthandler.cpp:616
 #, kde-format
@@ -89,8 +88,8 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to open the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"<qt>Feil ved forsøk på å klargjera OpenPGP ved forsøk på å opna lommeboka "
-"<b>%1</b>. Rett på systemoppsettet og forsøk igjen.</qt>"
+"<qt>Feil ved forsøk på å klargjera OpenPGP ved forsøk på å opna lommeboka <b>"
+"%1</b>. Rett på systemoppsettet og forsøk igjen.</qt>"
 
 #: backend/backendpersisthandler.cpp:629
 #, kde-format
@@ -224,8 +223,8 @@ msgid ""
 "Please choose the new wallet's type below or click cancel to deny the "
 "application's request.</qt>"
 msgstr ""
-"<qt>Programmet «<b>%1</b>» har bedt om å få laga ei ny lommebok med namn "
-"«<b>%2</b>». Denne vert brukt til å lagra følsomme data på ein trygg måte. "
+"<qt>Programmet «<b>%1</b>» har bedt om å få laga ei ny lommebok med namn «<b>"
+"%2</b>». Denne vert brukt til å lagra følsomme data på ein trygg måte. "
 "Oppgje eit passord for denne lommeboka, eller trykk «Avbryt» for å nekta "
 "programmet tilgang.</qt>"
 
@@ -428,11 +427,11 @@ msgstr "<qt>KDE har bedt om tilgang til den opne lommeboka «<b>%1</b>».</qt>"
 #: kwalletd.cpp:871
 #, kde-format
 msgid ""
-"<qt>The application '<b>%1</b>' has requested access to the open wallet "
-"'<b>%2</b>'.</qt>"
+"<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
+"%2</b>'.</qt>"
 msgstr ""
-"<qt>Programmet «<b>%1</b>» har bedt om tilgang til den opne lommeboka "
-"«<b>%2</b>».</qt>"
+"<qt>Programmet «<b>%1</b>» har bedt om tilgang til den opne lommeboka «<b>"
+"%2</b>».</qt>"
 
 #: kwalletd.cpp:979
 #, kde-format

@@ -224,9 +224,9 @@ msgid ""
 "Please choose the new wallet's type below or click cancel to deny the "
 "application's request.</qt>"
 msgstr ""
-"<qt>Programmet <b>«%1»</b> har bedt om å få lage en ny lommebok med navn "
-"«<b>%2</b>». Denne brukes til å lagre følsomme data på en trygg måte. Oppgi "
-"et passord for denne lommeboka eller trykk Avbryt for å avslå programmets "
+"<qt>Programmet <b>«%1»</b> har bedt om å få lage en ny lommebok med navn «<b>"
+"%2</b>». Denne brukes til å lagre følsomme data på en trygg måte. Oppgi et "
+"passord for denne lommeboka eller trykk Avbryt for å avslå programmets "
 "forespørsel.</qt>"
 
 #: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
@@ -423,11 +423,11 @@ msgstr "<qt>KDE har bedt om tilgang til den åpne lommeboka «<b>%1</b>».</qt>"
 #: kwalletd.cpp:871
 #, kde-format
 msgid ""
-"<qt>The application '<b>%1</b>' has requested access to the open wallet "
-"'<b>%2</b>'.</qt>"
+"<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
+"%2</b>'.</qt>"
 msgstr ""
-"<qt>Programmet «<b>%1</b>» har bedt om tilgang til den åpne lommeboka "
-"«<b>%2</b>».</qt>"
+"<qt>Programmet «<b>%1</b>» har bedt om tilgang til den åpne lommeboka «<b>"
+"%2</b>».</qt>"
 
 #: kwalletd.cpp:979
 #, kde-format
