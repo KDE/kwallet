@@ -209,9 +209,9 @@ msgid ""
 "to store sensitive data in a secure fashion. Please choose the new wallet's "
 "type below or click cancel to deny the application's request.</qt>"
 msgstr ""
-"<qt> طلبت كدي إنشاء محفظة جديدة باسم '<b>%1</b>'. يستخدم هذا لتخزين البيانات "
-"الحساسة بطريقة آمنة. الرجاء اختيار نوع المحفظة الجديدة أدناه أو النقر فوق "
-"\"ألغ\" لرفض طلب التطبيق. </qt>"
+"<qt> طلبت كِيدِي إنشاء محفظة جديدة باسم '<b>%1</b>'. يستخدم هذا لتخزين "
+"البيانات الحساسة بطريقة آمنة. الرجاء اختيار نوع المحفظة الجديدة أدناه أو "
+"النقر فوق \"ألغ\" لرفض طلب التطبيق. </qt>"
 
 #: knewwalletdialog.cpp:55
 #, kde-format
@@ -283,7 +283,7 @@ msgstr "معرف المفتاح"
 #: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
 #, kde-format
 msgid "The KDE Wallet System"
-msgstr "نظام حافظة كدي"
+msgstr "نظام حافظة كِيدِي"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: knewwalletdialogintro.ui:30
@@ -295,9 +295,10 @@ msgid ""
 "cancel to deny the application's request.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>طلب البرنامج  '<span style=\" font-weight:600;\">%1</"
-"span>' فتح حافظة كدي ، تستعمل الحافظة في تخزين البيانات الحساسة بطريقة أمنة. "
-"يستخدم هذا لتخزين البيانات الحساسة بطريقة آمنة. الرجاء اختيار نوع المحفظة "
-"الجديدة أدناه أو النقر فوق \"إلغاء\" لرفض طلب التطبيق.</p></body></html>"
+"span>' فتح حافظة كِيدِي ، تستعمل الحافظة في تخزين البيانات الحساسة بطريقة "
+"أمنة. يستخدم هذا لتخزين البيانات الحساسة بطريقة آمنة. الرجاء اختيار نوع "
+"المحفظة الجديدة أدناه أو النقر فوق \"إلغاء\" لرفض طلب التطبيق.</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
@@ -319,7 +320,7 @@ msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
 "password for this wallet below.</qt>"
 msgstr ""
-"<qt>طلبت كدي فتح الحافظة '<b>%1</b>'. الرجاء إدخالكلمة سرها في الأسفل.</qt>"
+"<qt>طلبت كِيدِي فتح الحافظة '<b>%1</b>'. الرجاء إدخالكلمة سرها في الأسفل.</qt>"
 
 #: kwalletd.cpp:638
 #, kde-format
@@ -336,7 +337,7 @@ msgstr ""
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
-msgstr "خدمة حافظة كدي"
+msgstr "خدمة حافظة كِيدِي"
 
 #: kwalletd.cpp:664
 #, kde-format
@@ -379,9 +380,9 @@ msgid ""
 "in a secure fashion. Please enter a password to use with this wallet or "
 "click cancel to deny the application's request."
 msgstr ""
-"طلبت كدي فتح الحافظة ، تستعمل الحافظة في تخزين البيانات الحساسة بطريقة أمنة. "
-"الرجاء إدخال كلمة السر لاستعمال هذه الحافظة ، أو النقر على ألغ لرفض طلب "
-"البرنامج."
+"طلبت كِيدِي فتح الحافظة ، تستعمل الحافظة في تخزين البيانات الحساسة بطريقة "
+"أمنة. الرجاء إدخال كلمة السر لاستعمال هذه الحافظة ، أو النقر على ألغ لرفض "
+"طلب البرنامج."
 
 #: kwalletd.cpp:738
 #, kde-format
@@ -391,7 +392,7 @@ msgid ""
 "to use with this wallet or click cancel to deny the application's request.</"
 "qt>"
 msgstr ""
-"<qt>طلب البرنامج  '<b>%1</b>' فتح الحافظة كدي ، تستعمل الحافظة في تخزين "
+"<qt>طلب البرنامج  '<b>%1</b>' فتح الحافظة كِيدِي ، تستعمل الحافظة في تخزين "
 "البيانات الحساسة بطريقة أمنة. الرجاء إدخال كلمة السر لاستعمال هذه الحافظة ، "
 "أو النقر على ألغ لرفض طلب البرنامج.</qt>"
 
@@ -402,7 +403,7 @@ msgid ""
 "choose a password for this wallet, or cancel to deny the application's "
 "request.</qt>"
 msgstr ""
-"<qt>طلبت كدي إنشاء حافظة جديدة باسم '<b>%1</b>'. الرجاءاختيار كلمة سر لهذه "
+"<qt>طلبت كِيدِي إنشاء حافظة جديدة باسم '<b>%1</b>'. الرجاءاختيار كلمة سر لهذه "
 "الحافظة أو النقر على ألغ لرفض طلب البرنامج.</qt>"
 
 #: kwalletd.cpp:751
@@ -418,7 +419,7 @@ msgstr ""
 #: kwalletd.cpp:863
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
-msgstr "<qt>طلبت كدي النفاذ إلى الحافظة المفتوحة '<b>%1</b>'.</qt>"
+msgstr "<qt>طلبت كِيدِي النفاذ إلى الحافظة المفتوحة '<b>%1</b>'.</qt>"
 
 #: kwalletd.cpp:865
 #, kde-format
@@ -504,7 +505,7 @@ msgid ""
 "your wallets. It even permits you to drag wallets and wallet contents, "
 "allowing you to easily copy a wallet to a remote system.</p></body></html>"
 msgstr ""
-"<html><head/><body> <p> يخزن نظام محفظة كدي بياناتك في ملف <span style = "
+"<html><head/><body> <p> يخزن نظام محفظة كِيدِي بياناتك في ملف <span style = "
 "\"font-style: italic;\"> محفظة </span> على القرص الثابت المحلي.تتم كتابة "
 "البيانات فقط بالشكل المشفر الذي تختاره - خوارزمية السمكة المنتفخة blowfish "
 "مع كلمة المرور الخاصة بك كمفتاح أو باستخدام مفتاح تشفير GPG. عند فتح "
@@ -550,7 +551,7 @@ msgid ""
 "Otherwise, you may still click back, then choose a classic, blowfish "
 "encrypted file format on the previous page."
 msgstr ""
-"تعذر تحديد موقع <b> مفتاح GPG واحد على الأقل </b>. تحتاج محفظة كدي إلى <b> "
+"تعذر تحديد موقع <b> مفتاح GPG واحد على الأقل </b>. تحتاج محفظة كِيدِي إلى <b> "
 "مفتاح التشفير </b> لتخزين كلمات المرور أو البيانات الحساسة الأخرى بأمان على "
 "القرص. إذا كنت لا تزال ترغب في إعداد محفظة قائمة على GPG ، فقم بإلغاء هذا "
 "المعالج ، وقم بإعداد <b> مفتاح تشفير GPG </b> ، ثم أعد محاولة هذا المساعد."
@@ -592,7 +593,7 @@ msgid ""
 "change some of them.  You may further tune these settings from the KWallet "
 "control module."
 msgstr ""
-"يسمح لك نظام حافظة كدي بالتحكم في مستوى أمن بياناتك الخاصة. بعض هذه "
+"يسمح لك نظام حافظة كِيدِي بالتحكم في مستوى أمن بياناتك الخاصة. بعض هذه "
 "الإعدادات ستؤثر على سهولة الاستخدام. بينما تعد الإعدادات المبدئية مقبولة "
 "بشكل عام لأغلب المستخدمين ، فقد ترغب في تغير بعضا منها. قد ترغب في تضبيط هذه "
 "الإعدادات بشكل أكثر من وحدة تحكم ك.والت"
@@ -620,17 +621,17 @@ msgid ""
 "and will allow anyone who knows it to obtain all the information contained "
 "in the wallet."
 msgstr ""
-"العديد من البرامج يمكن أن تحاول استعمال حافظة كدي لحفظ كلمات السر أو معلومات "
-"مثل بيانات استمارات الويب أو الكعك. إذا كنت ترغب بالسماح لهذه البرامج أن "
-"تستعمل الحافظة ، فيجب عليك تفعيل هذا الخيار الآن واختيار كلمة السر. كلمة "
-"السر التي تختارها <i>لا يمكن</i> استعادتها إذا فقدت ، وستسمح لأي شخص يعرفها "
-"أن يحصل على كل المعلومات التي تحويها هذه الحافظة."
+"العديد من البرامج يمكن أن تحاول استعمال حافظة كِيدِي لحفظ كلمات السر أو "
+"معلومات مثل بيانات استمارات الويب أو الكعك. إذا كنت ترغب بالسماح لهذه "
+"البرامج أن تستعمل الحافظة ، فيجب عليك تفعيل هذا الخيار الآن واختيار كلمة "
+"السر. كلمة السر التي تختارها <i>لا يمكن</i> استعادتها إذا فقدت ، وستسمح لأي "
+"شخص يعرفها أن يحصل على كل المعلومات التي تحويها هذه الحافظة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
 msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr "نعم ، أرغب في استخدام حافظة كدي لحفظ معلوماتي الشخصية"
+msgstr "نعم ، أرغب في استخدام حافظة كِيدِي لحفظ معلوماتي الشخصية"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: kwalletwizardpagepassword.ui:88 kwalletwizardpagepasswordgpg.ui:106
@@ -658,7 +659,7 @@ msgid ""
 "is lost, and will allow anyone who knows it to obtain all the information "
 "contained in the wallet.</p></body></html>"
 msgstr ""
-"<html><head/><body> <p> قد تحاول العديد من التطبيقات استخدام محفظة كدي "
+"<html><head/><body> <p> قد تحاول العديد من التطبيقات استخدام محفظة كِيدِي "
 "لتخزين كلمات المرور أو غيرها من المعلومات مثل بيانات نموذج الويب وملفات "
 "تعريف الارتباط.إذا كنت ترغب في استخدام هذه التطبيقات للمحفظة ، فيجب عليك "
 "تمكينها الآن واختيار طريقة لتشفيرها. </p> <p> طريقة GPG أكثر أمانًا ، ولكن "
@@ -677,7 +678,7 @@ msgstr "أي نوع من التشفير ترغب فيه؟"
 #: main.cpp:172
 #, kde-format
 msgid "(C) 2002-2013, The KDE Developers"
-msgstr "© ٢٠٠٢-٢٠١٣ لمطوري كدي"
+msgstr "© ٢٠٠٢-٢٠١٣ لمطوري كِيدِي"
 
 #: main.cpp:173
 #, kde-format
@@ -725,7 +726,7 @@ msgstr "واجهة DBus"
 #, fuzzy
 #~| msgid "KDE Wallet Service"
 #~ msgid "KDE Wallet Migration Agent"
-#~ msgstr "خدمة حافظة كدي"
+#~ msgstr "خدمة حافظة كِيدِي"
 
 #~ msgctxt "Text of a button to ignore the open-wallet notification"
 #~ msgid "Ignore"
