@@ -38,6 +38,7 @@ Comment[uk]=Торбинка KDE
 Comment[vi]=Ví KDE
 Comment[x-test]=xxKDE Walletxx
 Comment[zh_CN]=KDE 密码库
+Comment[zh_TW]=KDE 錢包
 Name=KDE Wallet
 Name[ar]=محفظة كِيدِي
 Name[az]=KDE Cüzdanı
@@ -76,6 +77,7 @@ Name[uk]=Торбинка KDE
 Name[vi]=Ví KDE
 Name[x-test]=xxKDE Walletxx
 Name[zh_CN]=KDE 密码库
+Name[zh_TW]=KDE 錢包
 
 [Event/needsPassword]
 Name=Needs Password
@@ -116,6 +118,7 @@ Name[uk]=Потрібен пароль
 Name[vi]=Cần mật khẩu
 Name[x-test]=xxNeeds Passwordxx
 Name[zh_CN]=需要密码
+Name[zh_TW]=需要密碼
 Comment=The KDE Wallet Daemon requests a password
 Comment[ar]=«عفريت محفظة كِيدِي» يطلب كلمة سر
 Comment[az]=KDE Cüzdan şifrə tələb edir
