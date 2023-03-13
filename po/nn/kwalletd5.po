@@ -1,13 +1,13 @@
 # Translation of kwalletd5 to Norwegian Nynorsk
 #
 # Eirik U. Birkeland <eirbir@gmail.com>, 2009, 2010.
-# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2017, 2018, 2020, 2022.
+# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2017, 2018, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-01 22:21+0000\n"
-"PO-Revision-Date: 2022-06-19 13:57+0200\n"
+"PO-Revision-Date: 2023-03-11 23:29+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -285,7 +285,7 @@ msgstr "Nøkkel-ID"
 #: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
 #, kde-format
 msgid "The KDE Wallet System"
-msgstr "Lommeboksystemet for KDE"
+msgstr "Lommeboksystemet frå KDE"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: knewwalletdialogintro.ui:30
