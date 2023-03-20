@@ -138,16 +138,3 @@ msgstr "Ha fallat en llegir el valor de l'entrada %1 des de la cartera %2"
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Ha fallat en escriure el valor de l'entrada %1 a la cartera %2"
-
-#~ msgid "wallet"
-#~ msgstr "Cartera"
-
-#~ msgid "kwallet-query"
-#~ msgstr "kwallet-query"
-
-#~| msgid "The folder %1 do not exist!"
-#~ msgid "The folder %1 doeos not exist!"
-#~ msgstr "La carpeta %1 no existeix!"
-
-#~ msgid "'Passwords' folder not found"
-#~ msgstr "No s'ha trobat la carpeta «Contrasenyes»"
