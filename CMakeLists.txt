@@ -50,7 +50,7 @@ ecm_set_disabled_deprecation_versions(
     KF 5.102
 )
 
-add_definitions(-DTRANSLATION_DOMAIN=\"kwalletd5\")
+add_definitions(-DTRANSLATION_DOMAIN=\"kwalletd6\")
 ki18n_install(po)
 add_subdirectory(src)
 if (BUILD_TESTING)
