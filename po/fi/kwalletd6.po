@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 22:21+0000\n"
+"POT-Creation-Date: 2023-03-22 02:44+0000\n"
 "PO-Revision-Date: 2021-07-05 19:49+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -317,14 +317,14 @@ msgstr "Perinteinen, Blowfish-salattu tiedosto"
 msgid "Use GPG encryption, for better protection"
 msgstr "Käytä GPG-salausta (turvallisempi)"
 
-#: kwalletd.cpp:634
+#: kwalletd.cpp:632
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
 "password for this wallet below.</qt>"
 msgstr "<qt>KDE pyytää avata lompakon ”<b>%1</b>”. Syötä sen salasana.</qt>"
 
-#: kwalletd.cpp:638
+#: kwalletd.cpp:636
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -333,19 +333,19 @@ msgstr ""
 "<qt>”<b>%1</b>” pyytää avata lompakon ”<b>%2</b>”. Syötä sen salasana.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:649 kwalletd.cpp:757 kwalletd.cpp:861 kwalletd.cpp:974
-#: kwalletd.cpp:997 kwalletd.cpp:1008 kwalletd.cpp:1013 kwalletd.cpp:1603
+#: kwalletd.cpp:647 kwalletd.cpp:755 kwalletd.cpp:859 kwalletd.cpp:972
+#: kwalletd.cpp:995 kwalletd.cpp:1006 kwalletd.cpp:1011 kwalletd.cpp:1601
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE:n lompakkopalvelu"
 
-#: kwalletd.cpp:664
+#: kwalletd.cpp:662
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Sovellus pyytää saada avata lompakon (%1)."
 
-#: kwalletd.cpp:665
+#: kwalletd.cpp:663
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -353,19 +353,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Vaihda sovellukseen"
 
-#: kwalletd.cpp:667
+#: kwalletd.cpp:665
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> pyytää saada avata lompakon (%2)."
 
-#: kwalletd.cpp:669
+#: kwalletd.cpp:667
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Vaihda sovellukseen %1|/|Vaihda $[illat %1]"
 
-#: kwalletd.cpp:685 kwalletd.cpp:767
+#: kwalletd.cpp:683 kwalletd.cpp:765
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -374,7 +374,7 @@ msgstr ""
 "<qt>Virhe avattaessa lompakkoa ”<b>%1</b>”. Yritä uudelleen.<br /> "
 "(Virhekoodi %2: %3)</qt>"
 
-#: kwalletd.cpp:733
+#: kwalletd.cpp:731
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -384,7 +384,7 @@ msgstr ""
 "KDE pyytää saada avata arkaluontoisen tiedon turvalliseen tallennukseen "
 "käytetyn lompakon. Syötä sen salasana tai torju pyyntö napsauttamalla ”Peru”."
 
-#: kwalletd.cpp:738
+#: kwalletd.cpp:736
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -396,7 +396,7 @@ msgstr ""
 "tallennukseen käytetyn KDE:n lompakon. Syötä sen salasana tai torju pyyntö "
 "napsauttamalla ”Peru”.</qt>"
 
-#: kwalletd.cpp:746
+#: kwalletd.cpp:744
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -406,7 +406,7 @@ msgstr ""
 "<qt>KDE pyytää saada avata lompakon nimeltä ”<b>%1</b>”. Syötä lompakon "
 "salasana tai torju sovelluksen pyyntö napsauttamalla ”Peru”.</qt>"
 
-#: kwalletd.cpp:751
+#: kwalletd.cpp:749
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -416,12 +416,12 @@ msgstr ""
 "<qt>”<b>%1</b>” pyytää saada luoda uuden lompakon nimeltä ”<b>%2</b>”. Anna "
 "lompakolle salasana tai torju sovelluksen pyyntö napsauttamalla ”Peru”.</qt>"
 
-#: kwalletd.cpp:863
+#: kwalletd.cpp:861
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE pyytää saada käyttää avointa lompakkoa ”<b>%1</b>”.</qt>"
 
-#: kwalletd.cpp:865
+#: kwalletd.cpp:863
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -429,7 +429,7 @@ msgid ""
 msgstr ""
 "<qt>”<b>%1</b>” pyytää saada käyttää avointa lompakkoa ”<b>%2</b>”.</qt>"
 
-#: kwalletd.cpp:973
+#: kwalletd.cpp:971
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -438,7 +438,7 @@ msgstr ""
 "Lompakon avaaminen epäonnistui. Jotta salasanan voi vaihtaa, lompakon on "
 "oltava auki."
 
-#: kwalletd.cpp:989
+#: kwalletd.cpp:987
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -448,22 +448,22 @@ msgstr ""
 "<qt>Lompakko <b>%1</b> on salattu GPG-avaimella <b>%2</b>. Vaihda avaimeen "
 "kytketty salasana <b>GPG</b>-työkalulla (kuten <b>kleopatra</b>).</qt>"
 
-#: kwalletd.cpp:996
+#: kwalletd.cpp:994
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Anna lompakolle ”<b>%1</b>” uusi salasana.</qt>"
 
-#: kwalletd.cpp:1008
+#: kwalletd.cpp:1006
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Lompakkoa salattaessa tapahtui virhe: salasanaa ei vaihdettu."
 
-#: kwalletd.cpp:1013
+#: kwalletd.cpp:1011
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Virhe avattaessa lompakkoa uudelleen: tietoa on voinut kadota."
 
-#: kwalletd.cpp:1602
+#: kwalletd.cpp:1600
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
