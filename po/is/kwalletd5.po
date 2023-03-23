@@ -629,7 +629,7 @@ msgstr ""
 "dulritunarlykil á kerfinu þínu.</p><p>Ef þú notar klassíska tegund veskis, "
 "þá skaltu athuga að <span style=\" font-style:italic;\">ekki</span> er hægt "
 "að endurheimta lykilorðið sem þú velur ef það tapast og hver sá sem veit það "
-"getur komist yfir allar upplýsingar í veskinu."
+"getur komist yfir allar upplýsingar í veskinu.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: kwalletwizardpagepasswordgpg.ui:46
