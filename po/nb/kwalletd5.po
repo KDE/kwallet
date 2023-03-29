@@ -1,4 +1,4 @@
-# Translation of kwalletd5 to Norwegian Bokmål
+# Translation of kwalletd6 to Norwegian Bokmål
 #
 # Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2008, 2009, 2013, 2014, 2015.
 msgid ""
