@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 02:44+0000\n"
-"PO-Revision-Date: 2023-01-07 07:27+0100\n"
+"PO-Revision-Date: 2023-03-28 06:49+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -324,6 +324,8 @@ msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
 "%2: %3)</qt>"
 msgstr ""
+"<qt>შეცდომა საფულის '<b>%1</b>' გახსნისას. თავიდან სცადეთ.<br />(შეცდომის "
+"კოდი %2: %3)</qt>"
 
 #: kwalletd.cpp:731
 #, kde-format
@@ -361,7 +363,7 @@ msgstr ""
 #: kwalletd.cpp:861
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
-msgstr ""
+msgstr "<qt>KDE ითხოვს წვდომას, გახსნას საფულე  '<b>%1</b>'.</qt>"
 
 #: kwalletd.cpp:863
 #, kde-format
@@ -369,6 +371,8 @@ msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
 "%2</b>'.</qt>"
 msgstr ""
+"<qt>აპლიკაცია '<b>%1</b>' ითხოვს წვდომას, რათა გახსნას საფულე '<b>%2</b>'.</"
+"qt>"
 
 #: kwalletd.cpp:971
 #, kde-format
@@ -376,6 +380,7 @@ msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr ""
+"საფულის გახსნის შეცდომა. პაროლის შესაცვლელად საფულის გახსნა აუცილებელია."
 
 #: kwalletd.cpp:987
 #, kde-format
@@ -515,7 +520,7 @@ msgstr "უქმე საფულეების ავტომატურ�
 #: kwalletwizardpageoptions.ui:55
 #, kde-format
 msgid "Store network passwords and local passwords in separate wallet files"
-msgstr ""
+msgstr "ქსელური და ლოკალური პაროლების ცალცალკე საფულეში შენახვა"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: kwalletwizardpagepassword.ui:16
@@ -534,6 +539,7 @@ msgstr ""
 #, kde-format
 msgid "Yes, I wish to use the KDE wallet to store my personal information."
 msgstr ""
+"დიახ, მე მინდა ჩემი პირადი ინფორმაციის შესანახად KDE-ის საფულის გამოყენება."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: kwalletwizardpagepassword.ui:88 kwalletwizardpagepasswordgpg.ui:106
