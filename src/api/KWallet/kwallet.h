@@ -492,25 +492,25 @@ private Q_SLOTS:
      *  @internal
      *  D-Bus slot for signals emitted by the wallet service.
      */
-    void slotWalletClosed(int handle);
+    KWALLET_NO_EXPORT void slotWalletClosed(int handle);
 
     /**
      *  @internal
      *  D-Bus slot for signals emitted by the wallet service.
      */
-    void slotFolderUpdated(const QString &wallet, const QString &folder);
+    KWALLET_NO_EXPORT void slotFolderUpdated(const QString &wallet, const QString &folder);
 
     /**
      *  @internal
      *  D-Bus slot for signals emitted by the wallet service.
      */
-    void slotFolderListUpdated(const QString &wallet);
+    KWALLET_NO_EXPORT void slotFolderListUpdated(const QString &wallet);
 
     /**
      *  @internal
      *  D-Bus slot for signals emitted by the wallet service.
      */
-    void slotApplicationDisconnected(const QString &wallet, const QString &application);
+    KWALLET_NO_EXPORT void slotApplicationDisconnected(const QString &wallet, const QString &application);
 
     /**
      *  @internal
@@ -518,30 +518,30 @@ private Q_SLOTS:
      *  @param tId identifier for the open transaction
      *  @param handle the wallet's handle
      */
-    void walletAsyncOpened(int tId, int handle);
+    KWALLET_NO_EXPORT void walletAsyncOpened(int tId, int handle);
 
     /**
      *  @internal
      *  D-Bus error slot.
      */
-    void emitWalletAsyncOpenError();
+    KWALLET_NO_EXPORT void emitWalletAsyncOpenError();
 
     /**
      *  @internal
      *  Emits wallet opening success.
      */
-    void emitWalletOpened();
+    KWALLET_NO_EXPORT void emitWalletOpened();
 
     /**
      * @internal
      * Receives status changed notifications from KSecretsService infrastructure
      */
-    void slotCollectionStatusChanged(int);
+    KWALLET_NO_EXPORT void slotCollectionStatusChanged(int);
     /**
      * @internal
      * Received delete notification from KSecretsService infrastructure
      */
-    void slotCollectionDeleted();
+    KWALLET_NO_EXPORT void slotCollectionDeleted();
 
 private:
     class WalletPrivate;
