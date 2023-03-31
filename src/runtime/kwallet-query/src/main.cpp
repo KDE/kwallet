@@ -16,7 +16,7 @@
 
 int main(int argc, char *argv[])
 {
-    KLocalizedString::setApplicationDomain("kwallet-query");
+    KLocalizedString::setApplicationDomain("kwallet6-query");
 
     KAboutData aboutData(QStringLiteral("kwallet-query"),
                          i18n("KWallet query interface"),
