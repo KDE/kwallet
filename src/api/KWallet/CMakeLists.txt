@@ -1,5 +1,4 @@
 
-include(GenerateExportHeader)
 include(ECMGenerateHeaders)
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLET
