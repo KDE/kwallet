@@ -27,7 +27,14 @@ set_package_properties(LibGcrypt PROPERTIES
                       )
 find_package(Qca-qt6 REQUIRED 2.3.1)
 
+ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 6)
+
 add_library(kwalletbackend5 SHARED)
+
+set_target_properties(kwalletbackend5 PROPERTIES
+    VERSION   ${KWALLETBACKEND_VERSION}
+    SOVERSION ${KWALLETBACKEND_SOVERSION}
+)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../api/KWallet)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../../api/KWallet)
@@ -56,8 +63,6 @@ ecm_qt_declare_logging_category(kwalletbackend5
 
 generate_export_header(kwalletbackend5)
 
-ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 6)
-
 target_link_libraries(kwalletbackend5 Qt6::Widgets KF6::WidgetsAddons KF6::CoreAddons KF6::Notifications KF6::I18n ${LIBGCRYPT_LIBRARIES} ${Qca_LIBRARY})
 if(Gpgmepp_FOUND)
    target_link_libraries(kwalletbackend5 Gpgmepp)
@@ -68,10 +73,6 @@ if(WIN32 AND NOT WINCE)
    target_link_libraries(kwalletbackend5 advapi32)
 endif(WIN32 AND NOT WINCE)
 
-set_target_properties(kwalletbackend5 PROPERTIES
-    VERSION   ${KWALLETBACKEND_VERSION}
-    SOVERSION ${KWALLETBACKEND_SOVERSION}
-)
 install(TARGETS kwalletbackend5 ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_subdirectory(tests)

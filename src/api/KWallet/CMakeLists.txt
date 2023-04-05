@@ -20,6 +20,12 @@ endif()
 add_library(KF6Wallet)
 add_library(KF6::Wallet ALIAS KF6Wallet)
 
+set_target_properties(KF6Wallet PROPERTIES
+    VERSION     ${KWALLET_VERSION}
+    SOVERSION   ${KWALLET_SOVERSION}
+    EXPORT_NAME Wallet
+)
+
 if (MAC_USE_OSXKEYCHAIN)
     find_library(COREFOUNDATION_LIBRARY CoreFoundation)
     find_library(SECURITY_LIBRARY Security)
@@ -81,11 +87,6 @@ else()
     target_link_libraries(KF6Wallet PRIVATE Qt6::DBus)
     install(FILES ${kwallet_xml} DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf5_org.kde.KWallet.xml)
 endif()
-
-set_target_properties(KF6Wallet PROPERTIES VERSION   ${KWALLET_VERSION}
-                                         SOVERSION ${KWALLET_SOVERSION}
-                                         EXPORT_NAME Wallet
-)
 
 ecm_generate_headers(KWallet_HEADERS
   HEADER_NAMES
