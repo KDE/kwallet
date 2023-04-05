@@ -39,8 +39,8 @@
 #include <wincrypt.h>
 #endif
 
-#define KWALLET_VERSION_MAJOR       0
-#define KWALLET_VERSION_MINOR       1
+#define KWALLETSTORAGE_VERSION_MAJOR       0
+#define KWALLETSTORAGE_VERSION_MINOR       1
 
 using namespace KWallet;
 
@@ -361,7 +361,7 @@ int Backend::openInternal(WId w)
     db.read(magicBuf, 4);
 
     // First byte is major version, second byte is minor version
-    if (magicBuf[0] != KWALLET_VERSION_MAJOR) {
+    if (magicBuf[0] != KWALLETSTORAGE_VERSION_MAJOR) {
         return -4;         // unknown version
     }
 
@@ -441,13 +441,13 @@ int Backend::sync(WId w)
 
     // Write the version number
     QByteArray version(4, 0);
-    version[0] = KWALLET_VERSION_MAJOR;
+    version[0] = KWALLETSTORAGE_VERSION_MAJOR;
     if (_useNewHash) {
-        version[1] = KWALLET_VERSION_MINOR;
+        version[1] = KWALLETSTORAGE_VERSION_MINOR;
         //Use the sync to update the hash to PBKDF2_SHA512
         swapToNewHash();
     } else {
-        version[1] = 0; //was KWALLET_VERSION_MINOR before the new hash
+        version[1] = 0; //was KWALLETSTORAGE_VERSION_MINOR before the new hash
     }
 
     BackendPersistHandler *phandler = BackendPersistHandler::getPersistHandler(_cipherType);
