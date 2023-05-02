@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 02:44+0000\n"
-"PO-Revision-Date: 2023-04-04 22:48+0100\n"
+"PO-Revision-Date: 2023-05-01 21:52+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: pology\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -37,6 +37,9 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>Eraro kiam oni provas pravalorigi OpenPGP dum oni provas konservi la "
+"monujon <b>%1</b>. Erarkodo estas <b>%2</b>. Bonvolu ripari vian sisteman "
+"agordon, poste provu denove.</qt>"
 
 #: backend/backendpersisthandler.cpp:501
 #, kde-format
@@ -44,6 +47,9 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to save the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>Eraro kiam oni provas pravalorigi OpenPGP dum oni provas konservi la "
+"monujon <b>%1</b>. Bonvolu ripari vian sisteman agordon, poste provu denove."
+"</qt>"
 
 #: backend/backendpersisthandler.cpp:555
 #, kde-format
@@ -53,6 +59,11 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
+"<qt>Eraro pri ĉifrado dum provado konservi la monujon <b>%1</b>. Erarkodo "
+"estas <b>%2 (%3)</b>. Bonvolu ripari vian sisteman agordon, kaj provu "
+"denove. Ĉi tiu eraro povas okazi se vi ne uzas plenan fidan GPG-ŝlosilon. "
+"Bonvolu certigi, ke vi havas la sekretan ŝlosilon por la ŝlosilo, kiun vi "
+"uzas.</qt>"
 
 #: backend/backendpersisthandler.cpp:572
 #, kde-format
@@ -60,6 +71,9 @@ msgid ""
 "<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>Eraro pri traktado de dosieroj dum provado konservi la monujon <b>%1</"
+"b>. Eraro estis <b>%2</b>. Bonvolu ripari vian sisteman agordon, poste provu "
+"denove.</qt>"
 
 #: backend/backendpersisthandler.cpp:594
 #, kde-format
@@ -68,6 +82,9 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>Eraro kiam oni provas pravalorigi OpenPGP dum oni provas malfermi la "
+"monujon <b>%1</b>. Erarkodo estas <b>%2</b>. Bonvolu ripari vian sisteman "
+"agordon, poste provu denove.</qt>"
 
 #: backend/backendpersisthandler.cpp:616
 #, kde-format
@@ -75,11 +92,14 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to open the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>Eraro kiam oni provas pravalorigi OpenPGP dum oni provas malfermi la "
+"monujon <b>%1</b>. Bonvolu ripari vian sisteman agordon, poste provu denove."
+"</qt>"
 
 #: backend/backendpersisthandler.cpp:629
 #, kde-format
 msgid "Retry"
-msgstr ""
+msgstr "Reprovi"
 
 #: backend/backendpersisthandler.cpp:634
 #, kde-format
@@ -88,11 +108,14 @@ msgid ""
 "you're using a SmartCard, please ensure it's inserted then try again."
 "<br><br>GPG error was <b>%2</b></qt>"
 msgstr ""
+"<qt>Eraro dum provo malĉifri la monujon <b>%1</b> uzante GPG. Se vi uzas "
+"SmartCard, bonvolu certigi ke ĝi estas enigita kaj provu denove.<br><br>GPG-"
+"eraro estis <b>%2</b></qt>"
 
 #: backend/backendpersisthandler.cpp:638
 #, kde-format
 msgid "kwalletd GPG backend"
-msgstr ""
+msgstr "kwalletd GPG backend"
 
 #: backend/backendpersisthandler.cpp:684
 #, kde-format
@@ -101,6 +124,9 @@ msgid ""
 "encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
 "system.</qt>"
 msgstr ""
+"<qt>Eraro dum provo malfermi la monujon <b>%1</b>. La monujo estis ĉifrita "
+"per la GPG-Ŝlosilo-ID <b>%2</b> sed ĉi tiu ŝlosilo ne estis trovita en via "
+"sistemo.</qt>"
 
 #: backend/kwalletbackend.cc:266
 #, kde-format
@@ -120,12 +146,12 @@ msgstr "Ne sekretejdosiero."
 #: backend/kwalletbackend.cc:272
 #, kde-format
 msgid "Unsupported file format revision."
-msgstr ""
+msgstr "Nesubtenata dosierformata revizio."
 
 #: backend/kwalletbackend.cc:276
 #, kde-format
 msgid "Unknown encryption scheme."
-msgstr ""
+msgstr "Nekonata ĉifrada skemo."
 
 #: backend/kwalletbackend.cc:278
 #, kde-format
@@ -135,7 +161,7 @@ msgstr "Ĉu difektita dosiero?"
 #: backend/kwalletbackend.cc:280
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr ""
+msgstr "Eraro validigante la integrecon de monujo. Eble koruptita."
 
 #: backend/kwalletbackend.cc:284
 #, kde-format
@@ -154,6 +180,10 @@ msgid ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
 msgstr ""
+"Malsukcesis sinkronigi monujon <b>%1</b> al disko. Erarkodoj estas:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Bonvolu prezenti raporton pri BUG uzante ĉi tiujn informojn al "
+"bugs.kde.org"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -186,6 +216,9 @@ msgid ""
 "to store sensitive data in a secure fashion. Please choose the new wallet's "
 "type below or click cancel to deny the application's request.</qt>"
 msgstr ""
+"<qt>KDE petis krei novan monujon nomitan '<b>%1</b>'. Ĉi tio estas uzata por "
+"konservi sentemajn datumojn en sekura modo. Bonvolu elekti la tipon de la "
+"nova monujo sube aŭ klaku nuligi por rifuzi la peton de la aplikaĵo.</qt>"
 
 #: knewwalletdialog.cpp:55
 #, kde-format
@@ -195,6 +228,10 @@ msgid ""
 "Please choose the new wallet's type below or click cancel to deny the "
 "application's request.</qt>"
 msgstr ""
+"<qt>La aplikaĵo '<b>%1</b>' petis krei novan monujon nomitan '<b>%2</b>'. Ĉi "
+"tio estas uzata por konservi sentemajn datumojn en sekura modo. Bonvolu "
+"elekti la tipon de la nova monujo sube aŭ klaku nuligi por rifuzi la peton "
+"de la aplikaĵo.</qt>"
 
 #: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
 #: kwalletwizard.cpp:157
@@ -203,6 +240,8 @@ msgid ""
 "The GpgME library failed to initialize for the OpenPGP protocol. Please "
 "check your system's configuration then try again."
 msgstr ""
+"La GpgME-biblioteko ne pravigis por la OpenPGP-protokolo. Bonvolu kontroli "
+"la agordon de via sistemo kaj provu denove."
 
 #: knewwalletdialog.cpp:153
 #, kde-format
@@ -210,12 +249,14 @@ msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
 "least one encryption key, then try again."
 msgstr ""
+"Ŝajnas, ke via sistemo ne havas ŝlosilojn taŭgajn por ĉifrado. Bonvolu "
+"agordi almenaŭ unu ĉifradŝlosilon, kaj provu denove."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: knewwalletdialoggpg.ui:17
 #, kde-format
 msgid "Please select the signing key from the list below:"
-msgstr ""
+msgstr "Bonvolu elekti la subskriban ŝlosilon el la suba listo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: knewwalletdialoggpg.ui:24
@@ -224,24 +265,26 @@ msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">NOTU:</span> ĉi tiu "
+"listo montras nur \"finnivelajn\" fidindajn ŝlosilojn</p><p> /korpo></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:59
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "Nomo"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:64
 #, kde-format
 msgid "E-Mail"
-msgstr ""
+msgstr "E-poŝto"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:69
 #, kde-format
 msgid "Key-ID"
-msgstr ""
+msgstr "Ŝlosil-ID"
 
 #. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
 #: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
@@ -258,20 +301,24 @@ msgid ""
 "data in a secure fashion. Please choose the new wallet's type below or click "
 "cancel to deny the application's request.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>La aplikaĵo '<span style=\" font-weight:600;\">%1</"
+"span>' petis malfermi la KDE-monujon. Ĉi tio estas uzata por konservi "
+"sentemajn datumojn en sekura modo. Bonvolu elekti la tipon de la nova monujo "
+"sube aŭ alklaku nuligi por rifuzi la peton de la aplikaĵo.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
 #, kde-format
 msgid "Classic, blowfish encrypted file"
-msgstr ""
+msgstr "Klasika, blowfish ĉifrita dosiero"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
 #: knewwalletdialogintro.ui:73 kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
 msgid "Use GPG encryption, for better protection"
-msgstr ""
+msgstr "Uzi GPG-ĉifradon, por pli bona protekto"
 
 #: kwalletd.cpp:632
 #, kde-format
@@ -279,6 +326,8 @@ msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
 "password for this wallet below.</qt>"
 msgstr ""
+"<qt>KDE petis malfermi la monujon '<b>%1</b>'. Bonvolu enigi la pasvorton "
+"por ĉi tiu monujo sube.</qt>"
 
 #: kwalletd.cpp:636
 #, kde-format
@@ -286,6 +335,8 @@ msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
 "b>'. Please enter the password for this wallet below.</qt>"
 msgstr ""
+"<qt>La aplikaĵo '<b>%1</b>' petis malfermi la monujon '<b>%2</b>'. Bonvolu "
+"enigi la pasvorton por ĉi tiu monujo sube.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
 #: kwalletd.cpp:647 kwalletd.cpp:755 kwalletd.cpp:859 kwalletd.cpp:972
@@ -298,7 +349,7 @@ msgstr "Servo de sekretejo de KDE"
 #: kwalletd.cpp:662
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
-msgstr ""
+msgstr "Apliko petis malfermi monujon (%1)."
 
 #: kwalletd.cpp:663
 #, kde-format
@@ -326,6 +377,8 @@ msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
 "%2: %3)</qt>"
 msgstr ""
+"<qt>Eraro dum malfermado de la monujo '<b>%1</b>'. Bonvolu provi denove.<br /"
+">(Erara kodo %2: %3)</qt>"
 
 #: kwalletd.cpp:731
 #, kde-format
@@ -334,6 +387,9 @@ msgid ""
 "in a secure fashion. Please enter a password to use with this wallet or "
 "click cancel to deny the application's request."
 msgstr ""
+"KDE petis malfermi la monujon. Ĉi tio estas uzata por konservi sentemajn "
+"datumojn en sekura modo. Bonvolu enigi pasvorton por uzi kun ĉi tiu monujo "
+"aŭ alklaku nuligi por rifuzi la peton de la aplikaĵo."
 
 #: kwalletd.cpp:736
 #, kde-format
@@ -343,6 +399,10 @@ msgid ""
 "to use with this wallet or click cancel to deny the application's request.</"
 "qt>"
 msgstr ""
+"<qt>La aplikaĵo '<b>%1</b>' petis malfermi la KDE-monujon. Ĉi tio estas "
+"uzata por konservi sentemajn datumojn en sekura modo. Bonvolu enigi "
+"pasvorton por uzi kun ĉi tiu monujo aŭ klaki nuligi por rifuzi la peton de "
+"la aplikaĵo.</qt>"
 
 #: kwalletd.cpp:744
 #, kde-format
@@ -351,6 +411,9 @@ msgid ""
 "choose a password for this wallet, or cancel to deny the application's "
 "request.</qt>"
 msgstr ""
+"<qt>KDE petis krei novan monujon nomitan '<b>%1</b>'. Bonvolu elekti "
+"pasvorton por ĉi tiu monujo, aŭ nuligi por rifuzi la peton de la aplikaĵo.</"
+"qt>"
 
 #: kwalletd.cpp:749
 #, kde-format
@@ -359,11 +422,14 @@ msgid ""
 "'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
 "application's request.</qt>"
 msgstr ""
+"<qt>La aplikaĵo '<b>%1</b>' petis krei novan monujon nomitan '<b>%2</b>'. "
+"Bonvolu elekti pasvorton por ĉi tiu monujo, aŭ nuligi por rifuzi la peton de "
+"la aplikaĵo.</qt>"
 
 #: kwalletd.cpp:861
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
-msgstr ""
+msgstr "<qt>KDE petis aliron al la malfermita monujo '<b>%1</b>'.</qt>"
 
 #: kwalletd.cpp:863
 #, kde-format
@@ -371,6 +437,8 @@ msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
 "%2</b>'.</qt>"
 msgstr ""
+"<qt>La aplikaĵo '<b>%1</b>' petis aliron al la malfermita monujo '<b>%2</b>'."
+"</qt>"
 
 #: kwalletd.cpp:971
 #, kde-format
@@ -378,6 +446,8 @@ msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr ""
+"Ne eblas malfermi monujon. La monujo devas esti malfermita por ŝanĝi la "
+"pasvorton."
 
 #: kwalletd.cpp:987
 #, kde-format
@@ -386,21 +456,24 @@ msgid ""
 "<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
 "associated to that key.</qt>"
 msgstr ""
+"<qt>La <b>%1</b> monujo estas ĉifrita per GPG-ŝlosilo <b>%2</b>. Bonvolu uzi "
+"<b>GPG</b>-iloj (kiel <b>kleopatra</b>) por ŝanĝi la pasfrazon asociitan al "
+"tiu ŝlosilo.</qt>"
 
 #: kwalletd.cpp:994
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
-msgstr ""
+msgstr "<qt>Bonvolu elekti novan pasvorton por la monujo '<b>%1</b>'.</qt>"
 
 #: kwalletd.cpp:1006
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
-msgstr ""
+msgstr "Eraro re-ĉifri la monujon. Pasvorto ne estis ŝanĝita."
 
 #: kwalletd.cpp:1011
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
-msgstr ""
+msgstr "Eraro remalfermante la monujon. Datumoj povas esti perditaj."
 
 #: kwalletd.cpp:1600
 #, kde-format
@@ -408,6 +481,8 @@ msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
 "application may be misbehaving."
 msgstr ""
+"Okazis ripetaj malsukcesaj provoj akiri aliron al monujo. Apliko eble "
+"miskondutas."
 
 #: kwalletwizard.cpp:40
 #, kde-format
@@ -442,6 +517,15 @@ msgid ""
 "your wallets. It even permits you to drag wallets and wallet contents, "
 "allowing you to easily copy a wallet to a remote system.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>La KDE Wallet-sistemo konservas viajn datumojn en "
+"<span style=\" font-style:italic;\">monujo</span> dosiero sur via loka "
+"malmola disko. La datumoj estas skribitaj nur en la ĉifrita formo de via "
+"elekto - blowfish-algoritmo kun via pasvorto kiel ŝlosilo aŭ uzante GPG-"
+"ĉifradŝlosilon. Kiam monujo estas malfermita, la aplikaĵo de administranto "
+"de monujo lanĉos kaj montros ikonon en la sistempleto. Vi povas uzi ĉi tiun "
+"aplikaĵon por administri ĉiujn viajn monujojn. Ĝi eĉ permesas vin treni "
+"monujojn kaj monujon enhavon, ebligante vin facile kopii monujon al fora "
+"sistemo.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: kwalletwizardpagegpgkey.ui:24
@@ -455,12 +539,19 @@ msgid ""
 "font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>La GPG-bazita monujo uzas GPG-ĉifradŝlosilon por "
+"sekure ĉifri datumojn sur disko. La ŝlosilo devas esti havebla kiam "
+"malĉifrido estas necesa aŭ via monujo ne estos alirebla. Ekzemple, se vi "
+"elektas ĉifradŝlosilon bazitan sur SmartCard, la GPG-sistemo petos vin enigi "
+"ĝin kaj ĝian rilatan PIN kiam vi provas malfermi la monujon. <span style=\" "
+"font-weight:600;\">NOTU:</span> ĉi tiu listo enhavas nur \"finnivelajn\" "
+"fidindajn ŝlosilojn.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kwalletwizardpagegpgkey.ui:42
 #, kde-format
 msgid "Select encryption GPG key:"
-msgstr ""
+msgstr "Elektu ĉifradan GPG-ŝlosilon:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: kwalletwizardpagegpgkey.ui:81
@@ -473,6 +564,12 @@ msgid ""
 "Otherwise, you may still click back, then choose a classic, blowfish "
 "encrypted file format on the previous page."
 msgstr ""
+"Ne eblas trovi almenaŭ unu <b>ĉifradan GPG-ŝlosilon</b>. KDE-Monujo bezonas "
+"tian <b>ĉifradan ŝlosilon</b> por sekure konservi pasvortojn aŭ aliajn "
+"sentemajn datumojn sur disko. Se vi ankoraŭ volas agordi GPG-bazitan "
+"monujon, tiam nuligi ĉi tiun asistanton, agordu <b>ĉifradan GPG-ŝlosilon</"
+"b>, tiam reprovu ĉi tiun asistanton. Alie, vi ankoraŭ povas alklaki reen, "
+"tiam elekti klasikan, blowfish ĉifritan dosierformaton sur la antaŭa paĝo."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: kwalletwizardpageintro.ui:30
@@ -483,6 +580,10 @@ msgid ""
 "preventing others from viewing the information.  This wizard will tell you "
 "about KWallet and help you configure it for the first time."
 msgstr ""
+"Bonvenon al KWallet, la KDE Monujo-Sistemo. KWallet permesas vin konservi "
+"viajn pasvortojn kaj aliajn personajn informojn sur disko en ĉifrita "
+"dosiero, malhelpante aliajn vidi la informojn. Ĉi tiu sorĉisto rakontos al "
+"vi pri KWallet kaj helpos vin agordi ĝin por la unua fojo."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: kwalletwizardpageintro.ui:69
@@ -506,6 +607,11 @@ msgid ""
 "change some of them.  You may further tune these settings from the KWallet "
 "control module."
 msgstr ""
+"La KDE Wallet-sistemo permesas vin kontroli la nivelon de sekureco de viaj "
+"personaj datumoj. Iuj el ĉi tiuj agordoj efikas al uzeblo. Kvankam la "
+"defaŭltaj agordoj estas ĝenerale akcepteblaj por la plej multaj uzantoj, vi "
+"eble volas ŝanĝi kelkajn el ili. Vi povas plu agordi ĉi tiujn agordojn de la "
+"KWallet-kontrolmodulo."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: kwalletwizardpageoptions.ui:48
@@ -572,27 +678,36 @@ msgid ""
 "is lost, and will allow anyone who knows it to obtain all the information "
 "contained in the wallet.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Diversaj aplikaĵoj povas provi uzi la KDE-monujon por "
+"konservi pasvortojn aŭ aliajn informojn kiel retformulardatenojn kaj "
+"kuketojn. Se vi ŝatus, ke ĉi tiuj aplikaĵoj uzu la monujon, vi devas enŝalti "
+"ĝin nun kaj elekti metodon por ĝia ĉifrado.</p><p>GPG-metodo estas pli "
+"sekura, sed vi devas esti agordinta almenaŭ unu ĉifradan ŝlosilon en via "
+"sistemo. </p><p>Se vi elektas la klasikan formaton, estu avertita, ke la "
+"pasvorto, kiun vi elektas, <span style=\" font-style:italic;\">ne povas</"
+"span> esti retrovita se ĝi estas perdita, kaj estos permesi al ĉiu, kiu "
+"konas ĝin, akiri ĉiujn informojn enhavitajn en la monujo.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
 msgid "What kind of encryption do you wish?"
-msgstr ""
+msgstr "Kiuspecan ĉifradon vi deziras?"
 
 #: main.cpp:172
 #, kde-format
 msgid "(C) 2002-2013, The KDE Developers"
-msgstr ""
+msgstr "(k) 2002-2013, La KDE-Programistoj"
 
 #: main.cpp:173
 #, kde-format
 msgid "Valentin Rusu"
-msgstr ""
+msgstr "Valentin Rusu"
 
 #: main.cpp:173
 #, kde-format
 msgid "Maintainer, GPG backend support"
-msgstr ""
+msgstr "Subtenestro de GPG-backend"
 
 #: main.cpp:174
 #, kde-format
@@ -602,7 +717,7 @@ msgstr "Michael LEUPOLD"
 #: main.cpp:174
 #, kde-format
 msgid "Former Maintainer"
-msgstr ""
+msgstr "Antaŭa Prizorganto"
 
 #: main.cpp:175
 #, kde-format
