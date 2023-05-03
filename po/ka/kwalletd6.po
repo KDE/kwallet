@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 02:44+0000\n"
-"PO-Revision-Date: 2023-04-12 06:01+0200\n"
+"PO-Revision-Date: 2023-05-02 06:20+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -55,6 +55,11 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
+"<qt>დაშიფვრის შეცდომა საფულის <b>%1</b> შენახვისას. შეცდომის კოდია <b>%2 "
+"(%3)</b>. ჩაასწორეთ თქვენი სისტემის კონფიგურაცია და თავიდან სცადეთ. ეს "
+"შეცდომა როგორც წესი მაშინ ხდება, თუ სრულიად სანდო GPG გასაღებს არ იყენებთ. "
+"დარწმუნდით, რომ გასაღებისთვის, რომელსაც იყენებთ, საიდუმლო გასაღები გაგაჩნიათ."
+"</qt>"
 
 #: backend/backendpersisthandler.cpp:572
 #, kde-format
@@ -62,6 +67,9 @@ msgid ""
 "<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"ფაილის დამუშავების შეცდომა საფულის (<b>%1</b>) შენახვის მცდელობისას. "
+"შეცდომაა <b>%2</b>. გაასწორეთ თქვენი სისტემის კონფიგურაცია და თავიდან სცადეთ."
+"</qt>"
 
 #: backend/backendpersisthandler.cpp:594
 #, kde-format
@@ -110,6 +118,8 @@ msgid ""
 "encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
 "system.</qt>"
 msgstr ""
+"<qt>შეცდომა საფულის (<b>%1</b>) გახსნისას. საფულე დაშიფრულია GPG გასაღებით "
+"ID-ით <b>%2</b>, მაგრამ ეს გასაღები თქვენს სისტემაში აღმოჩენილი არაა.</qt>"
 
 #: backend/kwalletbackend.cc:266
 #, kde-format
@@ -163,6 +173,9 @@ msgid ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
 msgstr ""
+"საფულის (<b>%1</b>) დისკთან სინქრონიზაციის შეცდომა. სეცდომის კოდია:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. შეავსეთ შეცდომის შესახებ ამ ინფორმაციით ვებგვერდზე bugs.kde.org"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -212,6 +225,8 @@ msgid ""
 "The GpgME library failed to initialize for the OpenPGP protocol. Please "
 "check your system's configuration then try again."
 msgstr ""
+"GpgME ბიბლიოთეკის შეცდომა OpenGPG პროტოკოლის ინიციალიზაციისას. შეამოწმეთ "
+"სისტემის კონფიგურაცია და თავიდან სცადეთ."
 
 #: knewwalletdialog.cpp:153
 #, kde-format
@@ -219,6 +234,8 @@ msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
 "least one encryption key, then try again."
 msgstr ""
+"როგორც ჩანს, თქვენს სისტემას დაშიფვრისთვის შესაფერისი გასაღებები არ გააჩნია. "
+"დააყენეთ ერთი დაშიფვრის გასაღები მაინც და თავიდან სცადეთ."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: knewwalletdialoggpg.ui:17
@@ -233,6 +250,9 @@ msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">შენიშვნა:</span> ეს "
+"სია მხოლოდ &quot;ultimate-level&quot; სანდო გასაღებებს შეიცავს</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:59
@@ -288,6 +308,8 @@ msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
 "password for this wallet below.</qt>"
 msgstr ""
+"<qt>KDE-მა საფულის '<b>%1</b>' გახსნა მოითხოვა. შეიყვანეთ ამ საფულის პაროლი."
+"</qt>"
 
 #: kwalletd.cpp:636
 #, kde-format
