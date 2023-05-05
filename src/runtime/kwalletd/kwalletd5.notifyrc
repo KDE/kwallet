@@ -2,6 +2,7 @@
 IconName=kwalletmanager
 Comment=KDE Wallet
 Comment[ar]=محفظة كِيدِي
+Comment[ast]=KDE Wallet
 Comment[az]=KDE Cüzdanı
 Comment[bg]=Портфейл на KDE
 Comment[ca]=Cartera de KDE
@@ -42,6 +43,7 @@ Comment[zh_CN]=KDE 密码库
 Comment[zh_TW]=KDE 錢包
 Name=KDE Wallet
 Name[ar]=محفظة كِيدِي
+Name[ast]=KDE Wallet
 Name[az]=KDE Cüzdanı
 Name[bg]=Портфейл на KDE
 Name[ca]=Cartera de KDE
