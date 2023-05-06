@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 02:44+0000\n"
-"PO-Revision-Date: 2023-05-02 06:20+0200\n"
+"PO-Revision-Date: 2023-05-05 05:23+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -208,6 +208,9 @@ msgid ""
 "to store sensitive data in a secure fashion. Please choose the new wallet's "
 "type below or click cancel to deny the application's request.</qt>"
 msgstr ""
+"<qt>KDE-მა ახალი საფულის, სახელად '<b>%1</b>' შექმნა მოითხოვა. ის "
+"მგრძნობიარე ინფორმაციის დაცული გზით შესანახად გამოიყენება. არჩიეთ ახალი "
+"საფულის ტიპი, ან, თუ არ გნებავთ ეს, გააუქმეთ მოთხოვნა.</qt>"
 
 #: knewwalletdialog.cpp:55
 #, kde-format
