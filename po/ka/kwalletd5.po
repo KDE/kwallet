@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:43+0000\n"
-"PO-Revision-Date: 2023-05-05 05:29+0200\n"
+"PO-Revision-Date: 2023-05-07 06:31+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -220,6 +220,10 @@ msgid ""
 "Please choose the new wallet's type below or click cancel to deny the "
 "application's request.</qt>"
 msgstr ""
+"<qt>აპლიკაციამ '<b>%1</b>' მოითხოვა ახალი საფულის შექმნა, სახელით '<b>%2</"
+"b>'. საფულე მგრძნობიარე ინფორმაციის დაცულად შესანახად გამოიყენება. აირჩიეთ "
+"ახალი საფულის ტიპი ან დააწკაპუნეთ გაუქმებაზე, რათა აპლიკაციის მოთხოვნა "
+"უარყოთ.</qt>"
 
 #: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
 #: kwalletwizard.cpp:157
@@ -290,6 +294,10 @@ msgid ""
 "data in a secure fashion. Please choose the new wallet's type below or click "
 "cancel to deny the application's request.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>აპლიკაციამ '<span style=\" font-weight:600;\">%1</"
+"span>' KDE-ის საფულის გახსნა მოითხოვა. ეს მგრძნობიარე მონაცემების უსაფრთხოდ "
+"შესანახად გამოიყენება. აირჩიეთ ახალი საფულის ტიპი ან დააწკაპუნეთ გაუქმებაზე, "
+"რათა აპლიკაციის მოთხოვნა უარყოთ.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
@@ -372,6 +380,9 @@ msgid ""
 "in a secure fashion. Please enter a password to use with this wallet or "
 "click cancel to deny the application's request."
 msgstr ""
+"KDE-მა საფულის გახსნა მოითხოვა. ეს მგრძნობიარე ინფორმაციის დაცულად შესანახად "
+"გამოიყენება. შეიყვანეთ საფულის პაროლი ან, აპლიკაციის მოთხოვნის უარყოფისთვის, "
+"გაუქმებაზე დააწკაპუნეთ."
 
 #: kwalletd.cpp:744
 #, kde-format
@@ -381,6 +392,9 @@ msgid ""
 "to use with this wallet or click cancel to deny the application's request.</"
 "qt>"
 msgstr ""
+"<qt>აპლიკაციამ '<b>%1</b>' KDE-ის საფულის გახსნა მოითხოვა. ეს მგრძნობიარე "
+"ინფორმაციის დაცულად შესანახად გამოიყენება. შეიყვანეთ ამ საფულის პაროლი, ან, "
+"აპლიკაციის მოთხოვნის უარყოფისთვის, გაუქმებაზე დააწკაპუნეთ.</qt>"
 
 #: kwalletd.cpp:752
 #, kde-format
@@ -399,6 +413,9 @@ msgid ""
 "'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
 "application's request.</qt>"
 msgstr ""
+"<qt>აპლიკაციამ '<b>%1</b>' ახალი საფულის, სახელად '<b>%2</b>' შექმნა "
+"მოითხოვა. შეიყვანეთ პაროლი ამ საფულისთვის, ან, აპლიკაციის მოთხოვნის "
+"უარყოფისთვის, გაუქმებაზე დააწკაპუნეთ.</qt>"
 
 #: kwalletd.cpp:869
 #, kde-format
@@ -429,6 +446,9 @@ msgid ""
 "<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
 "associated to that key.</qt>"
 msgstr ""
+"<qt>საფულე <b>%1</b>დაშიფრულია GPG გასაღებით <b>%2</b>. გასაღების საკვანძო "
+"ფრაზის შესაცვლელდ <b>GPG</b>-ის პროგრამები (მაგალითად <b>kleopatra</b>) "
+"გამოიყენეთ.</qt>"
 
 #: kwalletd.cpp:1002
 #, kde-format
