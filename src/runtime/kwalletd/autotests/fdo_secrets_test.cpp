@@ -174,8 +174,9 @@ void FdoSecretsTest::items()
             return KWallet::Wallet::Map;
         else if (key == "item3")
             return KWallet::Wallet::Stream;
-        else
-            QTEST_ASSERT(false);
+
+        QTEST_ASSERT(false);
+        return KWallet::Wallet::Unknown;
     });
 
     QString _secretHolder1 = "It's a password";
