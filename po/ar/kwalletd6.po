@@ -678,7 +678,7 @@ msgstr "أي نوع من التشفير ترغب فيه؟"
 #: main.cpp:172
 #, kde-format
 msgid "(C) 2002-2013, The KDE Developers"
-msgstr "© ٢٠٠٢-٢٠١٣ لمطوري كِيدِي"
+msgstr "© 2002-2013 لمطوري كِيدِي"
 
 #: main.cpp:173
 #, kde-format

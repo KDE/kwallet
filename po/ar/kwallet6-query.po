@@ -37,7 +37,7 @@ msgstr "واجهة «محفظتك» للاستعلامات"
 #: main.cpp:26
 #, kde-format
 msgid "(c) 2015, The KDE Developers"
-msgstr "© ٢٠١٥ لمطوري «كِيدِي»"
+msgstr "© 2015 لمطوري «كِيدِي»"
 
 #: main.cpp:31
 #, kde-format
