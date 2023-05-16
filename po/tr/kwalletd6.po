@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 02:44+0000\n"
-"PO-Revision-Date: 2023-03-27 17:14+0300\n"
+"PO-Revision-Date: 2023-05-15 22:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -625,7 +625,7 @@ msgstr "Uzun süre kullanılmayan cüzdanları kapat"
 #: kwalletwizardpageoptions.ui:55
 #, kde-format
 msgid "Store network passwords and local passwords in separate wallet files"
-msgstr "Ağ parolalarını ve yerel parolaları ayrı cüzdan dosyalarında sakla"
+msgstr "Ağ parolalarını ve yerel parolaları ayrı cüzdan dosyalarında depola"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: kwalletwizardpagepassword.ui:16
@@ -639,11 +639,11 @@ msgid ""
 "in the wallet."
 msgstr ""
 "Çeşitli uygulamalar, parolalarını ya da örneğin web formu verileri ya da "
-"çerezler gibi bilgilerini saklamak için KDE Cüzdan'ı kullanmaya teşebbüs "
+"çerezler gibi bilgilerini depolamak için KDE Cüzdan'ı kullanmaya teşebbüs "
 "edebilir. Eğer bu uygulamaların cüzdanı kullanmasını istiyorsanız, cüzdanı "
 "etkinleştirmeli ve bir parola belirlemelisiniz. Bu parola kaybedildiğinde "
-"<i>kurtarılabilir değildir</i>, parolayı bilen herkes cüzdan içerisinde "
-"saklı tüm bilgileri elde edebilir."
+"<i>kurtarılabilir değildir</i>, parolayı bilen herkes cüzdanda içerilen tüm "
+"bilgileri elde edebilir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
@@ -680,7 +680,7 @@ msgid ""
 "contained in the wallet.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Çeşitli uygulamalar, parolalarını veya web formu "
-"verileri veya çerez gibi bilgilerini saklamak için KDE Cüzdan'ı kullanmaya "
+"verileri veya çerez gibi bilgilerini depolamak için KDE Cüzdan'ı kullanmaya "
 "teşebbüs edebilir. Eğer bu uygulamaların cüzdanı kullanmasını istiyorsanız, "
 "cüzdanı etkinleştirmeli ve şifrelemesi için bir yöntem seçmelisiniz.</"
 "p><p>GPG yöntemi daha güvenli olmasının yanında, sisteminizde en az bir adet "
