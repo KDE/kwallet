@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 02:44+0000\n"
-"PO-Revision-Date: 2023-05-18 05:39+0200\n"
+"PO-Revision-Date: 2023-05-20 05:32+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -529,6 +529,12 @@ msgid ""
 "font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>GPG-ზე ბაზირებული საფულე დისკზე არსებული მონაცემების "
+"დასაშიფრად GPG გასაღებს იყენებს. საფულის გაშიფვრისას გასაღების აუცილებლად "
+"წვდომადი უნდა იყოს. მაგალითად, თუ აირჩევთ სმარტ ბარათით ავთენტიკაციას, თუ "
+"საფულის გხსნას ცდით, GPG სისტემა მოთხოვთ, ის და მასთან ასოცირებული PIN კოდი "
+"შეიყვანოთ. <span style=\" font-weight:600;\">შენიშნვა:</span> ეს სია მხოლოდ "
+"&quot;ბოლომდე სანდო&quot; გასაღებებს შეიცავს.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kwalletwizardpagegpgkey.ui:42
@@ -557,6 +563,10 @@ msgid ""
 "preventing others from viewing the information.  This wizard will tell you "
 "about KWallet and help you configure it for the first time."
 msgstr ""
+"მოგესალმებათ KWallet, KDE-ის საფულის სისტემა. KWallet საშუალებას გაძლევთ, "
+"პაროლები და სხვა პირადი ინფორმაცია დისკზე დაშიფრულ ფაილში შეინახოთ, რითიც "
+"სხვებს ამ ინფორმაციასთან წვდომა არ ჰქონდეთ. ოსტატი გეტყვით მეტს KWallet_ის "
+"შესახებ და დაგეხმარებათ, მოირგოთ ის."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: kwalletwizardpageintro.ui:69
