@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:43+0000\n"
-"PO-Revision-Date: 2023-05-16 05:36+0200\n"
+"PO-Revision-Date: 2023-05-23 05:32+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -529,6 +529,12 @@ msgid ""
 "font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>GPG-ზე ბაზირებული საფულე დისკზე არსებული მონაცემების "
+"დასაშიფრად GPG გასაღებს იყენებს. საფულის გაშიფვრისას გასაღების აუცილებლად "
+"წვდომადი უნდა იყოს. მაგალითად, თუ აირჩევთ სმარტ ბარათით ავთენტიკაციას, თუ "
+"საფულის გხსნას ცდით, GPG სისტემა მოთხოვთ, ის და მასთან ასოცირებული PIN კოდი "
+"შეიყვანოთ. <span style=\" font-weight:600;\">შენიშნვა:</span> ეს სია მხოლოდ "
+"&quot;ბოლომდე სანდო&quot; გასაღებებს შეიცავს.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kwalletwizardpagegpgkey.ui:42
@@ -547,6 +553,12 @@ msgid ""
 "Otherwise, you may still click back, then choose a classic, blowfish "
 "encrypted file format on the previous page."
 msgstr ""
+"შეუძლებელია სულ ცოტა ერთი <b>დაშიფვრის GPG გასაღების</b> პოვნა. KDE Wallet-ს "
+"ასეთი <b>დაშიფვრის გასაღები</b> პაროლებისა და სხვა მგრძნობიარე ინფორმაციის "
+"დისკზე უსაფრთხოდ შესანახად სჭირდება. თუ თქვენ მაინც გნებვთ GPG-ზე ბაზირებული "
+"საფულე, გააუქმეთ ეს ოსტატი, ააწყვეთ <b>დაშიფვრის GPG გასაღები</b>, შემდეგ კი "
+"ეს დამხმარე თავიდან გამოიძახეთ. ასევე შეგიძლიათ გადახვიდეთ წინა ეკრანზე და "
+"'კლასიკური' ან blowfish-ით დაშიფრული აირჩიოთ."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: kwalletwizardpageintro.ui:30
@@ -557,6 +569,10 @@ msgid ""
 "preventing others from viewing the information.  This wizard will tell you "
 "about KWallet and help you configure it for the first time."
 msgstr ""
+"მოგესალმებათ KWallet, KDE-ის საფულის სისტემა. KWallet საშუალებას გაძლევთ, "
+"პაროლები და სხვა პირადი ინფორმაცია დისკზე დაშიფრულ ფაილში შეინახოთ, რითიც "
+"სხვებს ამ ინფორმაციასთან წვდომა არ ჰქონდეთ. ოსტატი გეტყვით მეტს KWallet_ის "
+"შესახებ და დაგეხმარებათ, მოირგოთ ის."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: kwalletwizardpageintro.ui:69
@@ -580,6 +596,11 @@ msgid ""
 "change some of them.  You may further tune these settings from the KWallet "
 "control module."
 msgstr ""
+"KDE Wallet-ის სისტემა საშუალებას გაძლევთ აკონტროლოთ თქვენი კონფიდენციალური "
+"ინფორმაციის უსაფრთხოების დონე. ზოგიერთ პარამეტრს გავლენა გამოყენებადობაზეც "
+"შეუძლია. ნაგულისხმები პარამეტრები მისაღებია მომხმარებლების უმეტესობისთვის, "
+"მაგრამ თქვენ შეიძლება მათი შეცვლაც დაგჭირდეთ. ამ პარამეტრების დამატებითი "
+"მორგება KWallet-ის კონტროლის მოდულიდან შეგიძლიათ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: kwalletwizardpageoptions.ui:48
@@ -644,6 +665,15 @@ msgid ""
 "is lost, and will allow anyone who knows it to obtain all the information "
 "contained in the wallet.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>სხვადასხვა აპლიკაციებმა შეიძლება სცადონ KDE საფულის "
+"გამოყენება პაროლების ან სხვა ინფორმაციის შესანახად, როგორიცაა ვებ ფორმის "
+"მონაცემები და ქუქი-ფაილები. თუ გსურთ ამ აპლიკაციებმა გამოიყენონ საფულე, ახლა "
+"უნდა ჩართოთ იგი და აირჩიოთ მისი დაშიფვრის მეთოდი.</p><p>GPG მეთოდი უფრო "
+"უსაფრთხოა, მაგრამ თქვენ უნდა დააკონფიგურიროთ მინიმუმ ერთი დაშიფვრის გასაღები "
+"თქვენს სისტემაში.</p><p>თუ აირჩევთ კლასიკურ ფორმატს, გააფრთხილეთ, რომ თქვენს "
+"მიერ არჩეული პაროლი <span style=\" font-style:italic;\">არ შეიძლება</span> "
+"აღდგეს, თუ ის დაკარგულია და საშუალებას მისცემს ყველას, ვინც იცის, რომ მიიღოს "
+"საფულეში არსებული ყველა ინფორმაცია.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: kwalletwizardpagepasswordgpg.ui:46
