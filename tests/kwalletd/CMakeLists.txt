@@ -57,7 +57,7 @@ macro(kwalletd_tests)
     ecm_mark_as_test(${_testname})
     target_link_libraries(${_testname}
         kwallettestlib
-        kwalletbackend5
+        KF6WalletBackend
         KF6Wallet
         Qt6::DBus
         Qt6::Test

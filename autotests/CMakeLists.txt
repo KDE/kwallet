@@ -10,7 +10,7 @@ endif()
 if(BUILD_KWALLETD)
     ecm_add_tests(
         blowfishtest.cpp
-        LINK_LIBRARIES Qt6::Test kwalletbackend5
+        LINK_LIBRARIES Qt6::Test KF6WalletBackend
         )
 
     target_include_directories(blowfishtest PRIVATE ${CMAKE_SOURCE_DIR}/src/runtime/kwalletd

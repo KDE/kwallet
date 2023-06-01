@@ -132,7 +132,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
         DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
 
 target_link_libraries(kwalletd5
-    kwalletbackend5
+    KF6WalletBackend
     KF6Wallet
     Qt6::Widgets
     KF6::I18n

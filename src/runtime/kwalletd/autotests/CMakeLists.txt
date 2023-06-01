@@ -69,7 +69,7 @@ ecm_add_test(
     TEST_NAME fdo_secrets_test
     LINK_LIBRARIES
         KF6Wallet
-        kwalletbackend5
+        KF6WalletBackend
         Qt6::Widgets
         Qt6::Test
         KF6::DBusAddons

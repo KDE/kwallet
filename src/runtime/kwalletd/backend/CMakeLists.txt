@@ -29,9 +29,9 @@ find_package(Qca-qt6 REQUIRED 2.3.1)
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 6)
 
-add_library(kwalletbackend5 SHARED)
+add_library(KF6WalletBackend SHARED)
 
-set_target_properties(kwalletbackend5 PROPERTIES
+set_target_properties(KF6WalletBackend PROPERTIES
     VERSION   ${KWALLETBACKEND_VERSION}
     SOVERSION ${KWALLETBACKEND_SOVERSION}
 )
@@ -42,7 +42,7 @@ include_directories(${LIBGCRYPT_INCLUDE_DIRS})
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
-target_sources(kwalletbackend5 PRIVATE
+target_sources(KF6WalletBackend PRIVATE
    blockcipher.cc
    blowfish.cc
    cbc.cc
@@ -51,7 +51,7 @@ target_sources(kwalletbackend5 PRIVATE
    kwalletbackend.cc
    backendpersisthandler.cpp
 )
-ecm_qt_declare_logging_category(kwalletbackend5
+ecm_qt_declare_logging_category(KF6WalletBackend
     HEADER kwalletbackend_debug.h
     IDENTIFIER KWALLETBACKEND_LOG
     CATEGORY_NAME kf.wallet.backend
@@ -61,20 +61,28 @@ ecm_qt_declare_logging_category(kwalletbackend5
 )
 
 
-generate_export_header(kwalletbackend5
+generate_export_header(KF6WalletBackend
     BASE_NAME kwalletbackend
 )
 
-target_link_libraries(kwalletbackend5 Qt6::Widgets KF6::WidgetsAddons KF6::CoreAddons KF6::Notifications KF6::I18n ${LIBGCRYPT_LIBRARIES} ${Qca_LIBRARY})
+target_link_libraries(KF6WalletBackend
+    Qt6::Widgets
+    KF6::WidgetsAddons
+    KF6::CoreAddons
+    KF6::Notifications
+    KF6::I18n
+    ${LIBGCRYPT_LIBRARIES}
+    ${Qca_LIBRARY}
+)
 if(Gpgmepp_FOUND)
-   target_link_libraries(kwalletbackend5 Gpgmepp)
+   target_link_libraries(KF6WalletBackend Gpgmepp)
 endif(Gpgmepp_FOUND)
 
 # link with advapi32 on windows
 if(WIN32 AND NOT WINCE)
-   target_link_libraries(kwalletbackend5 advapi32)
+   target_link_libraries(KF6WalletBackend advapi32)
 endif(WIN32 AND NOT WINCE)
 
-install(TARGETS kwalletbackend5 ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF6WalletBackend ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_subdirectory(tests)
