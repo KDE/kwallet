@@ -19,11 +19,11 @@
 #endif
 
 #include "blockcipher.h"
-#include "kwalletbackend5_export.h"
+#include "kwalletbackend_export.h"
 
 /* @internal
  */
-class KWALLETBACKEND5_EXPORT BlowFish : public BlockCipher
+class KWALLETBACKEND_EXPORT BlowFish : public BlockCipher
 {
 public:
     BlowFish();

@@ -8,11 +8,11 @@
 #ifndef BLOCKCIPHER_H
 #define BLOCKCIPHER_H
 
-#include "kwalletbackend5_export.h"
+#include "kwalletbackend_export.h"
 
 /* @internal
  */
-class KWALLETBACKEND5_EXPORT BlockCipher
+class KWALLETBACKEND_EXPORT BlockCipher
 {
 public:
     BlockCipher();

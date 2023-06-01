@@ -61,7 +61,9 @@ ecm_qt_declare_logging_category(kwalletbackend5
 )
 
 
-generate_export_header(kwalletbackend5)
+generate_export_header(kwalletbackend5
+    BASE_NAME kwalletbackend
+)
 
 target_link_libraries(kwalletbackend5 Qt6::Widgets KF6::WidgetsAddons KF6::CoreAddons KF6::Notifications KF6::I18n ${LIBGCRYPT_LIBRARIES} ${Qca_LIBRARY})
 if(Gpgmepp_FOUND)

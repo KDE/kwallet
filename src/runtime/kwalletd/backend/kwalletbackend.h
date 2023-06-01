@@ -9,7 +9,7 @@
 #define _KWALLETBACKEND_H
 
 #include "backendpersisthandler.h"
-#include "kwalletbackend5_export.h"
+#include "kwalletbackend_export.h"
 #include "kwalletentry.h"
 #include <QMap>
 #include <QString>
@@ -67,7 +67,7 @@ public:
 
 /* @internal
  */
-class KWALLETBACKEND5_EXPORT Backend
+class KWALLETBACKEND_EXPORT Backend
 {
 public:
     explicit Backend(const QString &name = QStringLiteral("kdewallet"), bool isPath = false);
