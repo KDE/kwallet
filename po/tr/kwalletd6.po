@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 02:44+0000\n"
-"PO-Revision-Date: 2023-05-24 01:28+0300\n"
+"PO-Revision-Date: 2023-06-15 23:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -156,7 +156,7 @@ msgstr "Dosya bozuk mu?"
 #: backend/kwalletbackend.cc:280
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr "Cüzdan bütünlüğü doğrulanamadı. Olasılıkla cüzdan bozulmuş."
+msgstr "Cüzdan bütünlüğü doğrulanamadı. Büyük olasılıkla hasar görmüş."
 
 #: backend/kwalletbackend.cc:284
 #, kde-format
