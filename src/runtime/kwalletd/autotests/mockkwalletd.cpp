@@ -120,9 +120,6 @@ MOCK_FUNCTION(KWalletD, reconfigure, 0, );
 MOCK_FUNCTION(KWalletD, closeAllWallets, 0, );
 MOCK_FUNCTION(KWalletD, screenSaverChanged, 1, );
 
-void KWalletD::registerKWalletd4Service()
-{
-}
 void KWalletD::slotServiceOwnerChanged(const QString &, const QString &, const QString &)
 {
 }
