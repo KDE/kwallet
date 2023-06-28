@@ -146,7 +146,10 @@ KWalletD::KWalletD()
         (void)new KWalletAdaptor(this);
 
         // register services
-        QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kwalletd5"));
+        QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kwalletd6"));
+        QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kwalletd6"), this);
+        // register also with the KF5 names for backward compatibility
+        QDBusConnection::sessionBus().interface()->registerService(QStringLiteral("org.kde.kwalletd5"), QDBusConnectionInterface::QueueService);
         QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kwalletd5"), this);
     }
 
