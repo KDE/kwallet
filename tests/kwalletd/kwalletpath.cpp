@@ -34,3 +34,5 @@ void KWalletPathTest::openWallet()
 }
 
 QTEST_GUILESS_MAIN(KWalletPathTest)
+
+#include "moc_kwalletpath.cpp"

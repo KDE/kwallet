@@ -1913,3 +1913,5 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
 }
 
 // vim: tw=220:ts=4
+
+#include "moc_kwalletd.cpp"

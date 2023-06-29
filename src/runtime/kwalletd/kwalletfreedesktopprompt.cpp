@@ -129,3 +129,5 @@ void KWalletFreedesktopPrompt::appendProperties(const QString &label, const QDBu
 {
     m_propertiesList.push_back(CollectionProperties{label, objectPath, alias});
 }
+
+#include "moc_kwalletfreedesktopprompt.cpp"

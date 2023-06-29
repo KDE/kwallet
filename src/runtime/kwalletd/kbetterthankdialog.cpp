@@ -65,3 +65,5 @@ void KBetterThanKDialog::denyForeverClicked()
 {
     done(3);
 }
+
+#include "moc_kbetterthankdialog.cpp"

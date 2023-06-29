@@ -958,3 +958,5 @@ void explicit_zero_mem(void *data, size_t size)
     }
 #endif
 }
+
+#include "moc_kwalletfreedesktopservice.cpp"

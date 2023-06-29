@@ -84,3 +84,5 @@ void Dialog::doSave()
     }
     m_launchButton->setDisabled(false);
 }
+
+#include "moc_dialog.cpp"

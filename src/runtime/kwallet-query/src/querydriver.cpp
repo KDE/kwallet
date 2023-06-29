@@ -209,3 +209,5 @@ void QueryDriver::writeValue()
     }
     quit();
 }
+
+#include "moc_querydriver.cpp"

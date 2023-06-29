@@ -29,3 +29,5 @@ void KWalletSyncTest::openWallet()
 }
 
 QTEST_GUILESS_MAIN(KWalletSyncTest)
+
+#include "moc_kwalletsync.cpp"

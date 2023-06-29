@@ -67,3 +67,5 @@ void KWalletMany::openWallet()
 }
 
 QTEST_GUILESS_MAIN(KWalletMany)
+
+#include "moc_kwalletmany.cpp"

@@ -101,3 +101,5 @@ void KWalletTest::testWallet()
 }
 
 QTEST_GUILESS_MAIN(KWalletTest)
+
+#include "moc_kwallettest.cpp"
