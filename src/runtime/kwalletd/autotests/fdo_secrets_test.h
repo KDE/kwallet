@@ -4,6 +4,10 @@
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
+
+#ifndef FDOSECRETSTEST_H
+#define FDOSECRETSTEST_H
+
 #include "../kwalletd.h"
 #include "testhelpers.hpp"
 
@@ -26,3 +30,5 @@ private Q_SLOTS:
     void attributes();
     void walletNameEncodeDecode();
 };
+
+#endif
