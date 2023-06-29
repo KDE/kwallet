@@ -55,3 +55,5 @@ void WalletReceiver::walletOpened(bool got)
 }
 
 QTEST_GUILESS_MAIN(KWalletAsyncTest)
+
+#include "moc_kwalletasync.cpp"

@@ -313,3 +313,5 @@ GpgME::Key KWalletWizard::gpgKey() const
     return m_pageGpgKey->gpgKey();
 }
 #endif
+
+#include "moc_kwalletwizard.cpp"

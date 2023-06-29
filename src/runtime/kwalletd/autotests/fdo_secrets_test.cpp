@@ -6,6 +6,9 @@
 */
 #include "fdo_secrets_test.h"
 #include "mockkwalletd.cpp"
+// cannot be in mockkwalletd.cpp, as CMake's automoc does not look there
+#include "moc_ktimeout.cpp"
+#include "moc_kwalletd.cpp"
 #include "static_mock.hpp"
 
 void FdoSecretsTest::initTestCase()
@@ -489,3 +492,5 @@ void FdoSecretsTest::walletNameEncodeDecode()
 }
 
 QTEST_GUILESS_MAIN(FdoSecretsTest)
+
+#include "moc_fdo_secrets_test.cpp"

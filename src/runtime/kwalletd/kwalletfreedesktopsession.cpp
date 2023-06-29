@@ -139,3 +139,5 @@ bool KWalletFreedesktopSessionAlgorithmDhAes::decrypt(FreedesktopSecret &secret)
     }
     return false;
 }
+
+#include "moc_kwalletfreedesktopsession.cpp"

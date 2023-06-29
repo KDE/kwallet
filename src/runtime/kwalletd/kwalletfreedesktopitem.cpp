@@ -220,3 +220,5 @@ void KWalletFreedesktopItem::onPropertiesChanged(const QVariantMap &properties)
     msg.setArguments(args);
     QDBusConnection::sessionBus().send(msg);
 }
+
+#include "moc_kwalletfreedesktopitem.cpp"

@@ -414,3 +414,5 @@ const KWalletFreedesktopAttributes &KWalletFreedesktopCollection::itemAttributes
 {
     return m_itemAttribs;
 }
+
+#include "moc_kwalletfreedesktopcollection.cpp"

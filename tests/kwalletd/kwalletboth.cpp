@@ -98,3 +98,5 @@ void WalletReceiver::walletOpened(bool got)
 }
 
 QTEST_GUILESS_MAIN(KWalletBothTest)
+
+#include "moc_kwalletboth.cpp"

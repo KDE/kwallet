@@ -56,3 +56,5 @@ void KWalletCBCTest::encryptDecryptMultiblock()
 }
 
 QTEST_GUILESS_MAIN(KWalletCBCTest)
+
+#include "moc_kwalletcbc.cpp"
