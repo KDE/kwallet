@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-22 02:44+0000\n"
+"POT-Creation-Date: 2023-07-02 02:35+0000\n"
 "PO-Revision-Date: 2022-09-05 17:29+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -310,7 +310,7 @@ msgstr "Tệp mật mã hoá blowfish cổ điển"
 msgid "Use GPG encryption, for better protection"
 msgstr "Dùng mật mã hoá GPG cho tính bảo vệ tốt hơn"
 
-#: kwalletd.cpp:632
+#: kwalletd.cpp:622
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -319,7 +319,7 @@ msgstr ""
 "<qt>KDE yêu cầu mở ví '<b>%1</b>'. Vui lòng nhập mật khẩu cho ví này ở dưới."
 "</qt>"
 
-#: kwalletd.cpp:636
+#: kwalletd.cpp:626
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -329,19 +329,19 @@ msgstr ""
 "cho ví này ở dưới.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:647 kwalletd.cpp:755 kwalletd.cpp:859 kwalletd.cpp:972
-#: kwalletd.cpp:995 kwalletd.cpp:1006 kwalletd.cpp:1011 kwalletd.cpp:1601
+#: kwalletd.cpp:637 kwalletd.cpp:745 kwalletd.cpp:849 kwalletd.cpp:962
+#: kwalletd.cpp:985 kwalletd.cpp:996 kwalletd.cpp:1001 kwalletd.cpp:1591
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Dịch vụ Ví KDE"
 
-#: kwalletd.cpp:662
+#: kwalletd.cpp:652
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Một ứng dụng yêu cầu mở ví (%1)."
 
-#: kwalletd.cpp:663
+#: kwalletd.cpp:653
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -349,26 +349,26 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Chuyển sang đó"
 
-#: kwalletd.cpp:665
+#: kwalletd.cpp:655
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> yêu cầu mở ví (%2)."
 
-#: kwalletd.cpp:667
+#: kwalletd.cpp:657
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Chuyển sang %1"
 
-#: kwalletd.cpp:683 kwalletd.cpp:765
+#: kwalletd.cpp:673 kwalletd.cpp:755
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
 "%2: %3)</qt>"
 msgstr "<qt>Lỗi mở ví '<b>%1</b>'. Vui lòng thử lại.<br />(Mã lỗi %2: %3)</qt>"
 
-#: kwalletd.cpp:731
+#: kwalletd.cpp:721
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -379,7 +379,7 @@ msgstr ""
 "Vui lòng chọn kiểu của ví mới ở dưới hoặc bấm huỷ để từ chối yêu cầu của ứng "
 "dụng."
 
-#: kwalletd.cpp:736
+#: kwalletd.cpp:726
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -391,7 +391,7 @@ msgstr ""
 "cảm một cách an toàn. Vui lòng chọn kiểu của ví mới ở dưới hoặc bấm huỷ để "
 "từ chối yêu cầu của ứng dụng.</qt>"
 
-#: kwalletd.cpp:744
+#: kwalletd.cpp:734
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -401,7 +401,7 @@ msgstr ""
 "<qt>KDE yêu cầu tạo một ví mới tên là '<b>%1</b>'. Vui lòng chọn một mật "
 "khẩu cho ví này, hoặc huỷ để từ chối yêu cầu của ứng dụng.</qt>"
 
-#: kwalletd.cpp:749
+#: kwalletd.cpp:739
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -411,26 +411,26 @@ msgstr ""
 "<qt>Ứng dụng '<b>%1</b>' yêu cầu tạo một ví mới tên là '<b>%2</b>'. Vui lòng "
 "chọn một mật khẩu cho ví này, hoặc huỷ để từ chối yêu cầu của ứng dụng.</qt>"
 
-#: kwalletd.cpp:861
+#: kwalletd.cpp:851
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE yêu cầu truy cập đến ví mở '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:863
+#: kwalletd.cpp:853
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
 "%2</b>'.</qt>"
 msgstr "<qt>Ứng dụng '<b>%1</b>' yêu cầu truy cập đến ví mở '<b>%2</b>'.</qt>"
 
-#: kwalletd.cpp:971
+#: kwalletd.cpp:961
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "Không thể mở ví. Ví phải được mở để có thể thay đổi mật khẩu."
 
-#: kwalletd.cpp:987
+#: kwalletd.cpp:977
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -441,22 +441,22 @@ msgstr ""
 "công cụ <b>GPG</b> (chẳng hạn như <b>kleopatra</b>) để thay đổi mật tổ được "
 "liên kết với khoá đó.</qt>"
 
-#: kwalletd.cpp:994
+#: kwalletd.cpp:984
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Vui lòng chọn một mật khẩu mới cho ví '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:1006
+#: kwalletd.cpp:996
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Lỗi mật mã hoá lại ví. Chưa đổi mật khẩu."
 
-#: kwalletd.cpp:1011
+#: kwalletd.cpp:1001
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Lỗi mở lại ví. Có thể mất dữ liệu."
 
-#: kwalletd.cpp:1600
+#: kwalletd.cpp:1590
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

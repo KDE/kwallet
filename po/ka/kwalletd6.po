@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-22 02:44+0000\n"
+"POT-Creation-Date: 2023-07-02 02:35+0000\n"
 "PO-Revision-Date: 2023-05-22 05:37+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -313,7 +313,7 @@ msgstr "კლასიკური, blowfish-ით დაშიფრული
 msgid "Use GPG encryption, for better protection"
 msgstr "გამოიყენეთ GPG დაშიფვრა, უკეთესი დაცვისთვის"
 
-#: kwalletd.cpp:632
+#: kwalletd.cpp:622
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -322,7 +322,7 @@ msgstr ""
 "<qt>KDE-მა საფულის '<b>%1</b>' გახსნა მოითხოვა. შეიყვანეთ ამ საფულის პაროლი."
 "</qt>"
 
-#: kwalletd.cpp:636
+#: kwalletd.cpp:626
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -332,19 +332,19 @@ msgstr ""
 "საფულის პაროლი.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:647 kwalletd.cpp:755 kwalletd.cpp:859 kwalletd.cpp:972
-#: kwalletd.cpp:995 kwalletd.cpp:1006 kwalletd.cpp:1011 kwalletd.cpp:1601
+#: kwalletd.cpp:637 kwalletd.cpp:745 kwalletd.cpp:849 kwalletd.cpp:962
+#: kwalletd.cpp:985 kwalletd.cpp:996 kwalletd.cpp:1001 kwalletd.cpp:1591
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE საფულის სერვისი"
 
-#: kwalletd.cpp:662
+#: kwalletd.cpp:652
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "აპლიკაციამ მოითხოვა საფულის გახსნა (%1)."
 
-#: kwalletd.cpp:663
+#: kwalletd.cpp:653
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -352,19 +352,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "იქ გადართვა"
 
-#: kwalletd.cpp:665
+#: kwalletd.cpp:655
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1-მა</b> საფულის გახსნა მოითხოვა (%2)."
 
-#: kwalletd.cpp:667
+#: kwalletd.cpp:657
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "%1-ზე გადართვა"
 
-#: kwalletd.cpp:683 kwalletd.cpp:765
+#: kwalletd.cpp:673 kwalletd.cpp:755
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -373,7 +373,7 @@ msgstr ""
 "<qt>შეცდომა საფულის '<b>%1</b>' გახსნისას. თავიდან სცადეთ.<br />(შეცდომის "
 "კოდი %2: %3)</qt>"
 
-#: kwalletd.cpp:731
+#: kwalletd.cpp:721
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -384,7 +384,7 @@ msgstr ""
 "გამოიყენება. შეიყვანეთ საფულის პაროლი ან, აპლიკაციის მოთხოვნის უარყოფისთვის, "
 "გაუქმებაზე დააწკაპუნეთ."
 
-#: kwalletd.cpp:736
+#: kwalletd.cpp:726
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -396,7 +396,7 @@ msgstr ""
 "ინფორმაციის დაცულად შესანახად გამოიყენება. შეიყვანეთ ამ საფულის პაროლი, ან, "
 "აპლიკაციის მოთხოვნის უარყოფისთვის, გაუქმებაზე დააწკაპუნეთ.</qt>"
 
-#: kwalletd.cpp:744
+#: kwalletd.cpp:734
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -406,7 +406,7 @@ msgstr ""
 "<qt>KDE-მა მოითხოვა ახალი საფულის შექმნა სახელით '<b>%1</b>'. შეიყვანეთ "
 "პაროლი ამ საფულისთვის ან გააუქმეთ აპლიკაციის მოთხოვნა.</qt>"
 
-#: kwalletd.cpp:749
+#: kwalletd.cpp:739
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -417,12 +417,12 @@ msgstr ""
 "მოითხოვა. შეიყვანეთ პაროლი ამ საფულისთვის, ან, აპლიკაციის მოთხოვნის "
 "უარყოფისთვის, გაუქმებაზე დააწკაპუნეთ.</qt>"
 
-#: kwalletd.cpp:861
+#: kwalletd.cpp:851
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE ითხოვს წვდომას, გახსნას საფულე  '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:863
+#: kwalletd.cpp:853
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -431,7 +431,7 @@ msgstr ""
 "<qt>აპლიკაცია '<b>%1</b>' ითხოვს წვდომას, რათა გახსნას საფულე '<b>%2</b>'.</"
 "qt>"
 
-#: kwalletd.cpp:971
+#: kwalletd.cpp:961
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -439,7 +439,7 @@ msgid ""
 msgstr ""
 "საფულის გახსნის შეცდომა. პაროლის შესაცვლელად საფულის გახსნა აუცილებელია."
 
-#: kwalletd.cpp:987
+#: kwalletd.cpp:977
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -450,22 +450,22 @@ msgstr ""
 "ფრაზის შესაცვლელდ <b>GPG</b>-ის პროგრამები (მაგალითად <b>kleopatra</b>) "
 "გამოიყენეთ.</qt>"
 
-#: kwalletd.cpp:994
+#: kwalletd.cpp:984
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>შეიყვანეთ ახალი პაროლი საფულისთვის '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:1006
+#: kwalletd.cpp:996
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "საფულის ხელახალი დაშიფვრის შეცდომა. პაროლი არ შეცვლილა."
 
-#: kwalletd.cpp:1011
+#: kwalletd.cpp:1001
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "პაროლის ხელახლა გახსნის შეცდომა. მონაცემები შეიძლება დაიკარგოს."
 
-#: kwalletd.cpp:1600
+#: kwalletd.cpp:1590
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
