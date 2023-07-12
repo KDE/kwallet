@@ -85,7 +85,7 @@ elseif(APPLE)
     target_link_libraries(KF6Wallet PRIVATE ${CARBON_LIBRARY})
 else()
     target_link_libraries(KF6Wallet PRIVATE Qt6::DBus)
-    install(FILES ${kwallet_xml} DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf5_org.kde.KWallet.xml)
+    install(FILES ${kwallet_xml} DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf6_org.kde.KWallet.xml)
 endif()
 
 ecm_generate_headers(KWallet_HEADERS
