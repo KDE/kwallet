@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2008, 2009, 2014, 2015, 2016, 2017, 2020, 2021, 2022.
+# Shinjo Park <kde@peremen.name>, 2008, 2009, 2014, 2015, 2016, 2017, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:43+0000\n"
-"PO-Revision-Date: 2022-05-15 22:41+0200\n"
+"PO-Revision-Date: 2023-07-24 00:06+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -217,9 +217,9 @@ msgid ""
 "Please choose the new wallet's type below or click cancel to deny the "
 "application's request.</qt>"
 msgstr ""
-"<qt>프로그램 '<b>%1</b>'에서 지갑 '<b>%2</b>'을(를) 만들 것을 요청했습니다. "
-"민감한 개인 정보를 안전하게 지갑 속에 저장할 수 있습니다. 지갑을 사용하려면 "
-"아래에서 지갑 종류를 선택하거나 사용하지 않으려면 취소를 클릭하십시오.</qt>"
+"<qt>'<b>%1</b>' 앱에서 지갑 '<b>%2</b>'을(를) 만들 것을 요청했습니다. 민감한 "
+"개인 정보를 안전하게 지갑 속에 저장할 수 있습니다. 지갑을 사용하려면 아래에"
+"서 지갑 종류를 선택하거나 사용하지 않으려면 취소를 클릭하십시오.</qt>"
 
 #: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
 #: kwalletwizard.cpp:157
@@ -289,10 +289,10 @@ msgid ""
 "data in a secure fashion. Please choose the new wallet's type below or click "
 "cancel to deny the application's request.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>프로그램 '<span style=\" font-weight:600;\">%1</"
-"span>'에서 지갑을 여는 것을 요청했습니다. 민감한 개인 정보를 안전하게 지갑 속"
-"에 저장할 수 있습니다. 지갑을 사용하려면 아래에서 지갑 종류를 선택하거나 사용"
-"하지 않으려면 취소를 클릭하십시오.</p></body></html>"
+"<html><head/><body><p>앱 '<span style=\" font-weight:600;\">%1</span>'에서 지"
+"갑을 여는 것을 요청했습니다. 민감한 개인 정보를 안전하게 지갑 속에 저장할 수 "
+"있습니다. 지갑을 사용하려면 아래에서 지갑 종류를 선택하거나 사용하지 않으려"
+"면 취소를 클릭하십시오.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
@@ -323,8 +323,8 @@ msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
 "b>'. Please enter the password for this wallet below.</qt>"
 msgstr ""
-"<qt>프로그램 '<b>%1</b>'에서 지갑 '<b>%2</b>'을(를) 열려고 합니다. 지갑의 암"
-"호를 입력해 주십시오.</qt>"
+"<qt>'<b>%1</b>' 앱에서 지갑 '<b>%2</b>'을(를) 열려고 합니다. 지갑의 암호를 입"
+"력해 주십시오.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
 #: kwalletd.cpp:655 kwalletd.cpp:763 kwalletd.cpp:867 kwalletd.cpp:980
@@ -337,7 +337,7 @@ msgstr "KDE 지갑 서비스"
 #: kwalletd.cpp:670
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
-msgstr "프로그램에서 지갑을 여는 것을 요청했습니다(%1)."
+msgstr "앱에서 지갑을 여는 것을 요청했습니다(%1)."
 
 #: kwalletd.cpp:671
 #, kde-format
@@ -387,9 +387,9 @@ msgid ""
 "to use with this wallet or click cancel to deny the application's request.</"
 "qt>"
 msgstr ""
-"<qt>프로그램 '<b>%1</b>'에서 지갑을 여는 것을 요청했습니다. 민감한 개인 정보"
-"를 안전하게 지갑 속에 저장할 수 있습니다. 지갑을 사용하려면 이 지갑에 사용할 "
-"암호를 입력하십시오. 지갑을 사용하지 않으려면 취소를 클릭하십시오.</qt>"
+"<qt>'<b>%1</b>' 앱에서 지갑을 여는 것을 요청했습니다. 민감한 개인 정보를 안전"
+"하게 지갑 속에 저장할 수 있습니다. 지갑을 사용하려면 이 지갑에 사용할 암호를 "
+"입력하십시오. 지갑을 사용하지 않으려면 취소를 클릭하십시오.</qt>"
 
 #: kwalletd.cpp:752
 #, kde-format
@@ -408,9 +408,9 @@ msgid ""
 "'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
 "application's request.</qt>"
 msgstr ""
-"<qt>프로그램 '<b>%1</b>'에서 새로운 지갑 '<b>%2</b>'을(를) 만들 것을 요청했습"
-"니다. 지갑을 만들려면 새 지갑의 암호를 입력하거나, 만들지 않으려면 취소를 누"
-"르십시오.</qt>"
+"<qt>앱 '<b>%1</b>'에서 새로운 지갑 '<b>%2</b>'을(를) 만들 것을 요청했습니다. "
+"지갑을 만들려면 새 지갑의 암호를 입력하거나, 만들지 않으려면 취소를 누르십시"
+"오.</qt>"
 
 #: kwalletd.cpp:869
 #, kde-format
@@ -423,8 +423,7 @@ msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
 "%2</b>'.</qt>"
 msgstr ""
-"<qt>프로그램 '<b>%1</b>'에서 지갑 '<b>%2</b>'을(를) 여는 것을 요청했습니다.</"
-"qt>"
+"<qt>'<b>%1</b>' 앱에서 지갑 '<b>%2</b>'을(를) 여는 것을 요청했습니다.</qt>"
 
 #: kwalletd.cpp:979
 #, kde-format
@@ -465,8 +464,8 @@ msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
 "application may be misbehaving."
 msgstr ""
-"지갑에 접근하는 시도가 여러 번 실패했습니다. 프로그램이 잘못된 동작을 수행하"
-"고 있는 것 같습니다."
+"지갑에 접근하는 시도가 여러 번 실패했습니다. 앱이 잘못된 동작을 수행하고 있"
+"는 것 같습니다."
 
 #: kwalletwizard.cpp:40
 #, kde-format
@@ -505,9 +504,9 @@ msgstr ""
 "font-style:italic;\">지갑</span> 파일에 데이터를 저장합니다. 데이터는 암호화"
 "된 형태로만 디스크에 기록되며, 입력한 암호를 키로 사용하는 Blowfish 알고리즘 "
 "또는 GPG 키 기반 암호화를 사용합니다. 지갑이 열리면 지갑 관리자가 실행되고 시"
-"스템 트레이에 아이콘을 표시합니다. 이 프로그램을 사용하여 지갑을 관리할 수 있"
-"습니다. 지갑을 원격 시스템으로 복사하려면 드래그 앤 드롭을 사용할 수도 있습니"
-"다.</p></body></html>"
+"스템 트레이에 아이콘을 표시합니다. 이 앱을 사용하여 지갑을 관리할 수 있습니"
+"다. 지갑을 원격 시스템으로 복사하려면 드래그 앤 드롭을 사용할 수도 있습니다."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: kwalletwizardpagegpgkey.ui:24
@@ -615,10 +614,10 @@ msgid ""
 "and will allow anyone who knows it to obtain all the information contained "
 "in the wallet."
 msgstr ""
-"다양한 KDE 프로그램에서 암호, 웹 폼 데이터, 쿠키 같은 자료를 저장할 때 KDE 지"
-"갑 시스템을 사용합니다. 이러한 프로그램에서 지갑을 사용하도록 하려면, 지갑을 "
-"지금 활성화시키고 암호를 지정해야 합니다. 암호를 잊어버린 경우 다시 복구할 "
-"수 <i>없으며</i>, 아무도 지갑 속의 내용을 열어볼 수 없습니다."
+"다양한 KDE 앱에서 암호, 웹 폼 데이터, 쿠키 같은 자료를 저장할 때 KDE 지갑 시"
+"스템을 사용합니다. 이러한 앱에서 지갑을 사용하도록 하려면, 지갑을 지금 활성화"
+"시키고 암호를 지정해야 합니다. 암호를 잊어버린 경우 다시 복구할 수 <i>없으며"
+"</i>, 아무도 지갑 속의 내용을 열어볼 수 없습니다."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
@@ -652,13 +651,13 @@ msgid ""
 "is lost, and will allow anyone who knows it to obtain all the information "
 "contained in the wallet.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>다양한 프로그램에서 암호, 웹 폼 데이터, 쿠키 같은 자료"
-"를 저장할 때 KDE 지갑 시스템을 사용합니다. 이러한 프로그램에서 지갑을 사용하"
-"려면 지갑을 지금 활성화시키고 암호화 방식을 지정해야 합니다.</p> <p>GPG를 사"
-"용하면 더 안전하지만 암호화에 사용할 키를 하나 이상 설정해야 합니다.</p><p>고"
-"전 방식을 사용하는 경우 암호를 잊어버린 경우 다시 복구할 수 <span style=\" "
-"font-style:italic;\">없으며</span>, 암호를 알고 있는 모든 사람이 지갑에 저장"
-"된 기밀 데이터를 볼 수 있습니다.</p></body></html>"
+"<html><head/><body><p>다양한 앱에서 암호, 웹 폼 데이터, 쿠키 같은 자료를 저장"
+"할 때 KDE 지갑 시스템을 사용합니다. 이러한 앱에서 지갑을 사용하려면 지갑을 지"
+"금 활성화시키고 암호화 방식을 지정해야 합니다.</p> <p>GPG를 사용하면 더 안전"
+"하지만 암호화에 사용할 키를 하나 이상 설정해야 합니다.</p><p>고전 방식을 사용"
+"하는 경우 암호를 잊어버린 경우 다시 복구할 수 <span style=\" font-style:"
+"italic;\">없으며</span>, 암호를 알고 있는 모든 사람이 지갑에 저장된 기밀 데이"
+"터를 볼 수 있습니다.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: kwalletwizardpagepasswordgpg.ui:46
