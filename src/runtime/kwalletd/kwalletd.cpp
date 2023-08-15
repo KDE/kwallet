@@ -645,8 +645,8 @@ int KWalletD::internalOpen(const QString &appid, const QString &wallet, bool isP
                         // Notify the user about
                         // the request to open the wallet.
                         KNotification *notification =
-                            new KNotification(QStringLiteral("needsPassword"), KNotification::Persistent | KNotification::CloseWhenWidgetActivated);
-                        notification->setWidget(kpd);
+                            new KNotification(QStringLiteral("needsPassword"), KNotification::Persistent | KNotification::CloseWhenWindowActivated);
+                        notification->setWindow(kpd->windowHandle());
                         QStringList actions;
                         if (appid.isEmpty()) {
                             notification->setText(i18n("An application has requested to open a wallet (%1).", wallet.toHtmlEscaped()));
