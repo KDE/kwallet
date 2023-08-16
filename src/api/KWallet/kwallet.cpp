@@ -113,7 +113,7 @@ public:
     int transactionId;
 };
 
-static const char s_kwalletdServiceName[] = "org.kde.kwalletd5";
+static const char s_kwalletdServiceName[] = "org.kde.kwalletd6";
 
 Wallet::Wallet(int handle, const QString &name)
     : QObject(nullptr)
@@ -890,7 +890,7 @@ KWalletDLauncher::KWalletDLauncher()
         qCDebug(KWALLET_API_LOG) << "The wallet service was disabled by the user";
         return;
     }
-    m_wallet_deamon = new org::kde::KWallet(QString::fromLatin1(s_kwalletdServiceName), QStringLiteral("/modules/kwalletd5"), QDBusConnection::sessionBus());
+    m_wallet_deamon = new org::kde::KWallet(QString::fromLatin1(s_kwalletdServiceName), QStringLiteral("/modules/kwalletd6"), QDBusConnection::sessionBus());
 }
 
 KWalletDLauncher::~KWalletDLauncher()
