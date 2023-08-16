@@ -1,5 +1,3 @@
-project(kwalletd5)
-
 include(CheckSymbolExists)
 
 check_symbol_exists(explicit_bzero "string.h" KWALLETD_HAVE_EXPLICIT_BZERO)
@@ -35,7 +33,7 @@ add_subdirectory(autotests)
 
 ########### kwalletd ###############
 
-add_executable(kwalletd5)
+add_executable(kwalletd6)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backend)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../api/KWallet)
@@ -48,7 +46,7 @@ ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETD
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF6WalletConfigVersion.cmake"
                         SOVERSION 6)
 
-target_sources(kwalletd5 PRIVATE
+target_sources(kwalletd6 PRIVATE
    main.cpp
    kbetterthankdialog.cpp
    kwalletd.cpp
@@ -62,7 +60,7 @@ target_sources(kwalletd5 PRIVATE
    kwalletfreedesktopprompt.cpp
    kwalletfreedesktopattributes.cpp
 )
-ecm_qt_declare_logging_category(kwalletd5
+ecm_qt_declare_logging_category(kwalletd6
     HEADER kwalletd_debug.h
     IDENTIFIER KWALLETD_LOG
     CATEGORY_NAME kf.wallet.kwalletd
@@ -71,7 +69,7 @@ ecm_qt_declare_logging_category(kwalletd5
     EXPORT KWALLET
 )
 
-ki18n_wrap_ui(kwalletd5
+ki18n_wrap_ui(kwalletd6
    kbetterthankdialogbase.ui
    kwalletwizardpageexplanation.ui
    kwalletwizardpageintro.ui
@@ -80,10 +78,10 @@ ki18n_wrap_ui(kwalletd5
 )
 
 if (Gpgmepp_FOUND)
-    target_sources(kwalletd5 PRIVATE
+    target_sources(kwalletd6 PRIVATE
         knewwalletdialog.cpp
     )
-    ki18n_wrap_ui(kwalletd5
+    ki18n_wrap_ui(kwalletd6
         kwalletwizardpagepasswordgpg.ui
         kwalletwizardpagegpgkey.ui
         knewwalletdialogintro.ui
@@ -116,22 +114,30 @@ qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_item_xml} kwalletfreedesktopitem.h 
     kwalletfreedesktopitemadaptor KWalletFreedesktopItemAdaptor)
 qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_prompt_xml} kwalletfreedesktopprompt.h KWalletFreedesktopPrompt
     kwalletfreedesktoppromptadaptor KWalletFreedesktopPromptAdaptor)
-target_sources(kwalletd5 PRIVATE
+target_sources(kwalletd6 PRIVATE
     ${kwalletd_dbus_SRCS}
 )
 
 if(WIN32)
     configure_file(org.kde.kwalletd5.service.win.in
                    ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
+    configure_file(org.kde.kwalletd6.service.win.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd6.service)
 else()
     configure_file(org.kde.kwalletd5.service.in
                    ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
+    configure_file(org.kde.kwalletd6.service.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd6.service)
 endif()
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
-        DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
+install(
+    FILES
+        ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
+        ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd6.service
+    DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR}
+)
 
-target_link_libraries(kwalletd5
+target_link_libraries(kwalletd6
     KF6WalletBackend
     KF6Wallet
     Qt6::Widgets
@@ -146,14 +152,14 @@ target_link_libraries(kwalletd5
     KF6::Notifications
     ${Qca_LIBRARY})
 if (Gpgmepp_FOUND)
-    target_link_libraries(kwalletd5 Gpgmepp)
-    kde_target_enable_exceptions(kwalletd5 PRIVATE)
+    target_link_libraries(kwalletd6 Gpgmepp)
+    kde_target_enable_exceptions(kwalletd6 PRIVATE)
 endif(Gpgmepp_FOUND)
 
-ecm_mark_nongui_executable(kwalletd5)
-install(TARGETS kwalletd5  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+ecm_mark_nongui_executable(kwalletd6)
+install(TARGETS kwalletd6  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
-install( FILES kwalletd5.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
-install( FILES org.kde.kwalletd5.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
+install( FILES kwalletd6.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
+install( FILES org.kde.kwalletd6.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
 

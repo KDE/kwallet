@@ -3,7 +3,7 @@
 
 [Desktop Entry]
 Type=Application
-Exec=kwalletd5
+Exec=kwalletd6
 Name=KDE Wallet Service
 Name[ar]=خدمة حافظة كِيدِي
 Name[az]=KDE Cüzdanı Xidməti
