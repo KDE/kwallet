@@ -96,14 +96,7 @@ Backend::~Backend()
 
 QString Backend::getSaveLocation()
 {
-    QString writeLocation = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    if (writeLocation.right(1) == QLatin1String("5")) {
-      // HACK
-      // setApplicationName("kwalletd5") yields the path ~/.local/share/kwalletd5 for the location where to store wallets
-      // that is not desirable, as the 5 is present in the data folder's name
-      // this workaround getts the right ~/.local/share/kwalletd location
-      writeLocation = writeLocation.left(writeLocation.length() -1);
-    }
+    QString writeLocation = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kwalletd");
     QDir writeDir(writeLocation);
     if (!writeDir.exists()) {
         if (!writeDir.mkpath(writeLocation)) {
