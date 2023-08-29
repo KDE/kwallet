@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-02 02:35+0000\n"
+"POT-Creation-Date: 2023-08-29 01:55+0000\n"
 "PO-Revision-Date: 2023-02-03 13:42+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -122,52 +122,52 @@ msgstr ""
 "pomocí GPG klíče s ID <b>%2</b> ale tento klíč ve vašem systému nebyl "
 "nalezen.</qt>"
 
-#: backend/kwalletbackend.cc:266
+#: backend/kwalletbackend.cc:259
 #, kde-format
 msgid "Already open."
 msgstr "Již otevřen."
 
-#: backend/kwalletbackend.cc:268
+#: backend/kwalletbackend.cc:261
 #, kde-format
 msgid "Error opening file."
 msgstr "Chyba při otevírání souboru."
 
-#: backend/kwalletbackend.cc:270
+#: backend/kwalletbackend.cc:263
 #, kde-format
 msgid "Not a wallet file."
 msgstr "Toto není soubor úschovny."
 
-#: backend/kwalletbackend.cc:272
+#: backend/kwalletbackend.cc:265
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "Nepodporovaná revize formátu souborů."
 
-#: backend/kwalletbackend.cc:276
+#: backend/kwalletbackend.cc:269
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Neznámé šifrovací schéma."
 
-#: backend/kwalletbackend.cc:278
+#: backend/kwalletbackend.cc:271
 #, kde-format
 msgid "Corrupt file?"
 msgstr "Poškozený soubor?"
 
-#: backend/kwalletbackend.cc:280
+#: backend/kwalletbackend.cc:273
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "Chyba při kontrole neporušenosti úschovny; pravděpodobně je poškozená."
 
-#: backend/kwalletbackend.cc:284
+#: backend/kwalletbackend.cc:277
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "Chyba ve čtení - pravděpodobně chybné heslo."
 
-#: backend/kwalletbackend.cc:286
+#: backend/kwalletbackend.cc:279
 #, kde-format
 msgid "Decryption error."
 msgstr "Chyba v dešifrování."
 
-#: backend/kwalletbackend.cc:462
+#: backend/kwalletbackend.cc:455
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"

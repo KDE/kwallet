@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-02 02:35+0000\n"
+"POT-Creation-Date: 2023-08-29 01:55+0000\n"
 "PO-Revision-Date: 2009-01-03 06:23+0200\n"
 "Last-Translator: Omer Ensari <oensari@gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -100,52 +100,52 @@ msgid ""
 "system.</qt>"
 msgstr ""
 
-#: backend/kwalletbackend.cc:266
+#: backend/kwalletbackend.cc:259
 #, kde-format
 msgid "Already open."
 msgstr "Jixwe vekirî ye."
 
-#: backend/kwalletbackend.cc:268
+#: backend/kwalletbackend.cc:261
 #, kde-format
 msgid "Error opening file."
 msgstr "Di vekirina pelî de çewtî derket."
 
-#: backend/kwalletbackend.cc:270
+#: backend/kwalletbackend.cc:263
 #, kde-format
 msgid "Not a wallet file."
 msgstr "Pelekê wallet nîn e."
 
-#: backend/kwalletbackend.cc:272
+#: backend/kwalletbackend.cc:265
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "Revizyona cure yê pelê yê bê piştgirî ."
 
-#: backend/kwalletbackend.cc:276
+#: backend/kwalletbackend.cc:269
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Şemaya şîfre kirinê yê nenas."
 
-#: backend/kwalletbackend.cc:278
+#: backend/kwalletbackend.cc:271
 #, kde-format
 msgid "Corrupt file?"
 msgstr "Dibe ku pel xêrab be?"
 
-#: backend/kwalletbackend.cc:280
+#: backend/kwalletbackend.cc:273
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "Tevayî ya wallet nehat rastandin. Dibe ku xêrab bûye."
 
-#: backend/kwalletbackend.cc:284
+#: backend/kwalletbackend.cc:277
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "Çewtiya xwendinê - dibe ku sedem nasnava şaş be."
 
-#: backend/kwalletbackend.cc:286
+#: backend/kwalletbackend.cc:279
 #, kde-format
 msgid "Decryption error."
 msgstr ""
 
-#: backend/kwalletbackend.cc:462
+#: backend/kwalletbackend.cc:455
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"

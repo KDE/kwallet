@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-02 02:35+0000\n"
+"POT-Creation-Date: 2023-08-29 01:55+0000\n"
 "PO-Revision-Date: 2021-07-03 18:44+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -125,53 +125,53 @@ msgstr ""
 "is versleuteld met de GPG-sleutel ID <b>%2</b> maar deze sleutel is niet op "
 "uw systeem gevonden.</qt>"
 
-#: backend/kwalletbackend.cc:266
+#: backend/kwalletbackend.cc:259
 #, kde-format
 msgid "Already open."
 msgstr "Reeds geopend."
 
-#: backend/kwalletbackend.cc:268
+#: backend/kwalletbackend.cc:261
 #, kde-format
 msgid "Error opening file."
 msgstr "Fout bij het openen van het bestand."
 
-#: backend/kwalletbackend.cc:270
+#: backend/kwalletbackend.cc:263
 #, kde-format
 msgid "Not a wallet file."
 msgstr "Geen portefeuillebestand"
 
-#: backend/kwalletbackend.cc:272
+#: backend/kwalletbackend.cc:265
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "Revisie bestandsformaat wordt niet ondersteund."
 
-#: backend/kwalletbackend.cc:276
+#: backend/kwalletbackend.cc:269
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Onbekend versleutelingsschema."
 
-#: backend/kwalletbackend.cc:278
+#: backend/kwalletbackend.cc:271
 #, kde-format
 msgid "Corrupt file?"
 msgstr "Bestand corrupt?"
 
-#: backend/kwalletbackend.cc:280
+#: backend/kwalletbackend.cc:273
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr ""
 "Fout bij de integriteitscontrole van de portefeuille. Mogelijk corrupt."
 
-#: backend/kwalletbackend.cc:284
+#: backend/kwalletbackend.cc:277
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "Leesfout - mogelijk incorrect wachtwoord."
 
-#: backend/kwalletbackend.cc:286
+#: backend/kwalletbackend.cc:279
 #, kde-format
 msgid "Decryption error."
 msgstr "Ontcijferingsfout."
 
-#: backend/kwalletbackend.cc:462
+#: backend/kwalletbackend.cc:455
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"

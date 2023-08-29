@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-02 02:35+0000\n"
+"POT-Creation-Date: 2023-08-29 01:55+0000\n"
 "PO-Revision-Date: 2019-12-12 21:02+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -100,52 +100,52 @@ msgid ""
 "system.</qt>"
 msgstr ""
 
-#: backend/kwalletbackend.cc:266
+#: backend/kwalletbackend.cc:259
 #, kde-format
 msgid "Already open."
 msgstr "തുറന്നുകഴിഞ്ഞു."
 
-#: backend/kwalletbackend.cc:268
+#: backend/kwalletbackend.cc:261
 #, kde-format
 msgid "Error opening file."
 msgstr "ശേഖരം തുറക്കുന്നതില്‍ പിശക്."
 
-#: backend/kwalletbackend.cc:270
+#: backend/kwalletbackend.cc:263
 #, kde-format
 msgid "Not a wallet file."
 msgstr "ഒരു വാല്ലെറ്റ് ശേഖരമല്ല."
 
-#: backend/kwalletbackend.cc:272
+#: backend/kwalletbackend.cc:265
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "ശേഖരത്തിന്റെ ഫോര്‍മാറ്റ് പതിപ്പിനു് പിന്തുണയില്ല."
 
-#: backend/kwalletbackend.cc:276
+#: backend/kwalletbackend.cc:269
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "അറിയപ്പെടാത്ത സുരക്ഷാപ്രവര്‍നരീതി."
 
-#: backend/kwalletbackend.cc:278
+#: backend/kwalletbackend.cc:271
 #, kde-format
 msgid "Corrupt file?"
 msgstr "വികലമായ ശേഖരം?"
 
-#: backend/kwalletbackend.cc:280
+#: backend/kwalletbackend.cc:273
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "വാല്ലെറ്റിന്റെ സമഗ്രത വിലയിരുത്തിയത് പിശകാണ്. വികലമായിരിക്കാന്‍ സാദ്ധ്യ‌തയുണ്ട്."
 
-#: backend/kwalletbackend.cc:284
+#: backend/kwalletbackend.cc:277
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "വായന പിശക് - അടയാളവാക്ക് തെറ്റായിരിക്കാന്‍ സാദ്ധ്യ‌തയുണ്ട്."
 
-#: backend/kwalletbackend.cc:286
+#: backend/kwalletbackend.cc:279
 #, kde-format
 msgid "Decryption error."
 msgstr "സുരക്ഷാനിവൃത്തിയില്‍ പിശക്."
 
-#: backend/kwalletbackend.cc:462
+#: backend/kwalletbackend.cc:455
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
