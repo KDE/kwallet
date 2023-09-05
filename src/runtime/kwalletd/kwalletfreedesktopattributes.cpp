@@ -15,10 +15,7 @@
 
 KWalletFreedesktopAttributes::KWalletFreedesktopAttributes(const QString &walletName)
 {
-    QString writeLocation = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    if (!writeLocation.isEmpty() && writeLocation.back() == QChar::fromLatin1('5')) {
-        writeLocation.resize(writeLocation.size() - 1);
-    }
+    const QString writeLocation = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kwalletd");
     _path = writeLocation + QChar::fromLatin1('/') + KWalletD::encodeWalletName(walletName) + QStringLiteral("_attributes.json");
 
     read();
@@ -130,10 +127,7 @@ void KWalletFreedesktopAttributes::renameLabel(const EntryLocation &oldLocation,
 
 void KWalletFreedesktopAttributes::renameWallet(const QString &newName)
 {
-    QString writeLocation = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    if (!writeLocation.isEmpty() && writeLocation.back() == QChar::fromLatin1('5')) {
-        writeLocation.resize(writeLocation.size() - 1);
-    }
+    const QString writeLocation = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kwalletd");
     const QString newPath = writeLocation + QChar::fromLatin1('/') + newName + QStringLiteral("_attributes.json");
 
     QFile::rename(_path, newPath);
