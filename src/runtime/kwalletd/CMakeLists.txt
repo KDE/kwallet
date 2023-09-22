@@ -58,6 +58,8 @@ target_sources(kwalletd6 PRIVATE
    kwalletfreedesktopitem.cpp
    kwalletfreedesktopprompt.cpp
    kwalletfreedesktopattributes.cpp
+
+   kwalletportalsecrets.cpp
 )
 ecm_qt_declare_logging_category(kwalletd6
     HEADER kwalletd_debug.h
@@ -100,6 +102,7 @@ set(fdo_session_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.
 set(fdo_collection_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Collection.xml)
 set(fdo_item_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Item.xml)
 set(fdo_prompt_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Prompt.xml)
+set(fdo_portal_secret_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.impl.portal.Secret.xml)
 
 set(kwalletd_dbus_SRCS)
 qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${kwallet_xml} kwalletd.h KWalletD kwalletadaptor KWalletAdaptor)
@@ -113,6 +116,9 @@ qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_item_xml} kwalletfreedesktopitem.h 
     kwalletfreedesktopitemadaptor KWalletFreedesktopItemAdaptor)
 qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_prompt_xml} kwalletfreedesktopprompt.h KWalletFreedesktopPrompt
     kwalletfreedesktoppromptadaptor KWalletFreedesktopPromptAdaptor)
+qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_portal_secret_xml} kwalletportalsecrets.h KWalletPortalSecrets
+    kwalletportalsecretsadaptor KWalletPortalSecretsAdaptor)
+
 target_sources(kwalletd6 PRIVATE
     ${kwalletd_dbus_SRCS}
 )
@@ -160,4 +166,5 @@ install(TARGETS kwalletd6  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 ########### install files ###############
 install( FILES kwalletd6.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
 install( FILES org.kde.kwalletd6.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
+install( FILES kwallet.portal DESTINATION ${KDE_INSTALL_DATADIR}/xdg-desktop-portal/portals)
 

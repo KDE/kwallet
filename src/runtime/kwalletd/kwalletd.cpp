@@ -15,6 +15,7 @@
 #include "kwalletfreedesktopprompt.h"
 #include "kwalletfreedesktopservice.h"
 #include "kwalletfreedesktopsession.h"
+#include "kwalletportalsecrets.h"
 #include "kwalletwizard.h"
 
 #ifdef HAVE_GPGMEPP
@@ -148,6 +149,8 @@ KWalletD::KWalletD()
         // register also with the KF5 names for backward compatibility
         QDBusConnection::sessionBus().interface()->registerService(QStringLiteral("org.kde.kwalletd5"), QDBusConnectionInterface::QueueService);
         QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kwalletd5"), this);
+
+        new KWalletPortalSecrets(this);
     }
 
 #ifdef Q_WS_X11
