@@ -11,8 +11,7 @@ portingAid: false
 deprecated: false
 release: true
 libraries:
- - qmake: KWallet
-   cmake: "KF6::Wallet"
+ - cmake: "KF6::Wallet"
 cmakename: KF6Wallet
 
 public_lib: true
