@@ -2,6 +2,7 @@ Dependencies:
 - 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
   'require':
     'frameworks/extra-cmake-modules': '@same'
+    'frameworks/kcolorscheme' : '@same'
     'frameworks/kconfig' : '@same'
     'frameworks/kcoreaddons' : '@same'
     'frameworks/kdbusaddons' : '@same'

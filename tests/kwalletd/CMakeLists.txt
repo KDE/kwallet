@@ -9,7 +9,6 @@ include(ECMMarkAsTest)
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Test)
 find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(Gpgmepp) # provided by GpgME
 

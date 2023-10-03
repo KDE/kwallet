@@ -5,8 +5,8 @@ check_symbol_exists(RtlSecureZeroMemory "windows.h" KWALLETD_HAVE_RTLSECUREZEROM
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
 
+find_package(KF6ColorScheme ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6ConfigWidgets ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Notifications ${KF_DEP_VERSION} REQUIRED)
@@ -142,9 +142,9 @@ target_link_libraries(kwalletd6
     KF6Wallet
     Qt6::Widgets
     KF6::I18n
+    KF6::ColorScheme
     KF6::CoreAddons
     KF6::ConfigCore
-    KF6::ConfigWidgets
     KF6::Service
     KF6::DBusAddons
     KF6::WidgetsAddons
