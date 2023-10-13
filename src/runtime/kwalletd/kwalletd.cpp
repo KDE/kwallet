@@ -448,11 +448,16 @@ void KWalletD::setupDialog(QWidget *dialog, WId wId, const QString &appid, bool 
         // KF5 FIXME what should we use now instead of this:
         //         kapp->updateUserTimestamp();
     }
-    if (modal) {
-        KWindowSystem::setState(dialog->winId(), NET::Modal);
-    } else {
-        KWindowSystem::clearState(dialog->winId(), NET::Modal);
+
+#if HAVE_X11
+    if (KWindowSystem::isPlatformX11()) {
+        if (modal) {
+            KX11Extras::setState(dialog->winId(), NET::Modal);
+        } else {
+            KX11Extras::clearState(dialog->winId(), NET::Modal);
+        }
     }
+#endif
     activeDialog = dialog;
 }
 
@@ -478,11 +483,10 @@ void KWalletD::checkActiveDialog()
 
     activeDialog->show();
 
-    WId window = activeDialog->winId();
-    KWindowSystem::setState(window, NET::KeepAbove);
-
 #if HAVE_X11
     if (KWindowSystem::isPlatformX11()) {
+        WId window = activeDialog->winId();
+        KX11Extras::setState(window, NET::KeepAbove);
         KX11Extras::setOnAllDesktops(window, true);
         KX11Extras::forceActiveWindow(window);
     }
