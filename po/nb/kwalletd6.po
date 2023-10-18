@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 01:55+0000\n"
+"POT-Creation-Date: 2023-10-18 01:41+0000\n"
 "PO-Revision-Date: 2015-04-27 19:45+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -310,7 +310,7 @@ msgstr "Klassisk blowfish-kryptert fil"
 msgid "Use GPG encryption, for better protection"
 msgstr "Bruk GPG-kryptering som gir bedre beskyttelsse"
 
-#: kwalletd.cpp:622
+#: kwalletd.cpp:626
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -319,7 +319,7 @@ msgstr ""
 "<qt>KDE har bedt om å få åpne lommeboka «<b>%1</b>». Oppgi et passord for "
 "denne lommeboka nedenfor.</qt>"
 
-#: kwalletd.cpp:626
+#: kwalletd.cpp:630
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -329,19 +329,19 @@ msgstr ""
 "Oppgi et passord for denne lommeboka nedenfor.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:637 kwalletd.cpp:745 kwalletd.cpp:849 kwalletd.cpp:962
-#: kwalletd.cpp:985 kwalletd.cpp:996 kwalletd.cpp:1001 kwalletd.cpp:1591
+#: kwalletd.cpp:641 kwalletd.cpp:749 kwalletd.cpp:853 kwalletd.cpp:966
+#: kwalletd.cpp:989 kwalletd.cpp:1000 kwalletd.cpp:1005 kwalletd.cpp:1595
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE Lommebok-tjeneste"
 
-#: kwalletd.cpp:652
+#: kwalletd.cpp:656
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Et program har bedt om å få åpne en lommebok (%1)."
 
-#: kwalletd.cpp:653
+#: kwalletd.cpp:657
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -349,19 +349,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Bytt dit"
 
-#: kwalletd.cpp:655
+#: kwalletd.cpp:659
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> har bedt om å åpne en lommebok (%2)."
 
-#: kwalletd.cpp:657
+#: kwalletd.cpp:661
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Bytt til %1"
 
-#: kwalletd.cpp:673 kwalletd.cpp:755
+#: kwalletd.cpp:677 kwalletd.cpp:759
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -370,7 +370,7 @@ msgstr ""
 "<qt>Feil ved åpning av lommeboka «<b>%1</b>». Forsøk igjen. <br /"
 ">(Feilkode %2: %3)</qt>"
 
-#: kwalletd.cpp:721
+#: kwalletd.cpp:725
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -381,7 +381,7 @@ msgstr ""
 "på en trygg måte. Oppgi et passord for denne lommeboka eller trykk Avbryt "
 "for å nekte programmet tilgang."
 
-#: kwalletd.cpp:726
+#: kwalletd.cpp:730
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -393,7 +393,7 @@ msgstr ""
 "til å lagre følsomme data på en trygg måte. Oppgi et passord for denne "
 "lommeboka eller trykk Avbryt for å nekte programmet tilgang.</qt>"
 
-#: kwalletd.cpp:734
+#: kwalletd.cpp:738
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -404,7 +404,7 @@ msgstr ""
 "Velg et passord for denne lommeboka, eller avbryt for å nekte forespørselen."
 "</qt>"
 
-#: kwalletd.cpp:739
+#: kwalletd.cpp:743
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -415,12 +415,12 @@ msgstr ""
 "navnet «<b>%2</b>». Velg et passord for denne lommeboka, eller avbryt for å "
 "nekte forespørselen.</qt>"
 
-#: kwalletd.cpp:851
+#: kwalletd.cpp:855
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE har bedt om tilgang til den åpne lommeboka «<b>%1</b>».</qt>"
 
-#: kwalletd.cpp:853
+#: kwalletd.cpp:857
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -429,7 +429,7 @@ msgstr ""
 "<qt>Programmet «<b>%1</b>» har bedt om tilgang til den åpne lommeboka «<b>"
 "%2</b>».</qt>"
 
-#: kwalletd.cpp:961
+#: kwalletd.cpp:965
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -437,7 +437,7 @@ msgid ""
 msgstr ""
 "Kan ikke åpne lommeboka. Lommeboka må åpnes for å kunne endre passordet."
 
-#: kwalletd.cpp:977
+#: kwalletd.cpp:981
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -448,22 +448,22 @@ msgstr ""
 "b>-verktøy (slik som <b>kleopatra</b>) til å endre pass-setningen for den "
 "nøkkelen.</qt>"
 
-#: kwalletd.cpp:984
+#: kwalletd.cpp:988
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Velg nytt passord for lommeboka <b>«%1»</b>.</qt>"
 
-#: kwalletd.cpp:996
+#: kwalletd.cpp:1000
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Feil ved ny kryptering av lommeboka. Passordet ble ikke endret."
 
-#: kwalletd.cpp:1001
+#: kwalletd.cpp:1005
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Feil ved gjenåpning av lommeboka. Noen data kan være mistet."
 
-#: kwalletd.cpp:1590
+#: kwalletd.cpp:1594
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 01:55+0000\n"
+"POT-Creation-Date: 2023-10-18 01:41+0000\n"
 "PO-Revision-Date: 2021-08-06 13:38+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -322,7 +322,7 @@ msgstr "Klasikoa, blowfish bidez zifratutako fitxategia"
 msgid "Use GPG encryption, for better protection"
 msgstr "Erabili GPG zifratzea, babes hobea izateko"
 
-#: kwalletd.cpp:622
+#: kwalletd.cpp:626
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -331,7 +331,7 @@ msgstr ""
 "<qt>KDE-k '<b>%1</b>' zorroa irekitzeko eskaera egin du. Mesedez zorro "
 "honentzako pasahitza azpian sartu.</qt>"
 
-#: kwalletd.cpp:626
+#: kwalletd.cpp:630
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -341,19 +341,19 @@ msgstr ""
 "Mesedez zorro honentzako pasahitza azpian sartu.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:637 kwalletd.cpp:745 kwalletd.cpp:849 kwalletd.cpp:962
-#: kwalletd.cpp:985 kwalletd.cpp:996 kwalletd.cpp:1001 kwalletd.cpp:1591
+#: kwalletd.cpp:641 kwalletd.cpp:749 kwalletd.cpp:853 kwalletd.cpp:966
+#: kwalletd.cpp:989 kwalletd.cpp:1000 kwalletd.cpp:1005 kwalletd.cpp:1595
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE zorro zerbitzua"
 
-#: kwalletd.cpp:652
+#: kwalletd.cpp:656
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Aplikazio batek zorro bat irekitzea eskatu du (%1)."
 
-#: kwalletd.cpp:653
+#: kwalletd.cpp:657
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -361,19 +361,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Aldatu hartara"
 
-#: kwalletd.cpp:655
+#: kwalletd.cpp:659
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b>(e)k zorro bat irekitzea eskatu du (%2)."
 
-#: kwalletd.cpp:657
+#: kwalletd.cpp:661
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Aldatu %1-(e)rak"
 
-#: kwalletd.cpp:673 kwalletd.cpp:755
+#: kwalletd.cpp:677 kwalletd.cpp:759
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -382,7 +382,7 @@ msgstr ""
 "<qt>Errorea '<b>%1</b>' zorroa irekitzerakoan. Mesedez saiatu berriz.<br /"
 ">(Errorea kodea %2: %3)</qt>"
 
-#: kwalletd.cpp:721
+#: kwalletd.cpp:725
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -393,7 +393,7 @@ msgstr ""
 "era seguruan gordetzeko erabiltzen da hau. Sartu zorro honekin erabili "
 "beharreko pasahitza edo klik egin \"Utzi\" aplikazioaren eskaera ukatzeko."
 
-#: kwalletd.cpp:726
+#: kwalletd.cpp:730
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -406,7 +406,7 @@ msgstr ""
 "honekin erabili beharreko pasahitza edo klik egin \"Utzi\" aplikazioaren "
 "eskaera ukatzeko.</qt>"
 
-#: kwalletd.cpp:734
+#: kwalletd.cpp:738
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -417,7 +417,7 @@ msgstr ""
 "Mesedez hautatu zorro honentzako pasahitz bat, edo \"Utzi\" aplikazioaren "
 "eskaera ukatzeko.</qt>"
 
-#: kwalletd.cpp:739
+#: kwalletd.cpp:743
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -428,12 +428,12 @@ msgstr ""
 "eskaera egin du. Mesedez hautatu zorro honentzako pasahitz bat, edo \"Utzi\" "
 "aplikazioaren eskaera ukatzeko.</qt>"
 
-#: kwalletd.cpp:851
+#: kwalletd.cpp:855
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE-k irekita dagoen '<b>%1</b>' zorrora sarrera eskatu du.</qt>"
 
-#: kwalletd.cpp:853
+#: kwalletd.cpp:857
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -442,7 +442,7 @@ msgstr ""
 "<qt>'<b>%1</b>' aplikazioak irekita dagoen '<b>%2</b>' zorrora sarrera "
 "eskatu du.</qt>"
 
-#: kwalletd.cpp:961
+#: kwalletd.cpp:965
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -451,7 +451,7 @@ msgstr ""
 "Ezin da zorroa zabaldu. Zorroa zabaldu behar da pasahitza aldatu ahal "
 "izateko."
 
-#: kwalletd.cpp:977
+#: kwalletd.cpp:981
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -462,22 +462,22 @@ msgstr ""
 "<b>GPG</b> tresnak (<b>kleopatra</b> esaterako) gako harekin lotutako "
 "pasahitza aldatzeko.</qt>"
 
-#: kwalletd.cpp:984
+#: kwalletd.cpp:988
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Mesedez aukeratu '<b>%1</b>' zorroarentzako pasahitz berria.</qt>"
 
-#: kwalletd.cpp:996
+#: kwalletd.cpp:1000
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Errorea zorroa berzifratzerakoan. Pasahitza ez da aldatu."
 
-#: kwalletd.cpp:1001
+#: kwalletd.cpp:1005
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Errorea zorroa berriz zabaltzerakoan. Baliteke datuak galdu izana."
 
-#: kwalletd.cpp:1590
+#: kwalletd.cpp:1594
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 01:55+0000\n"
+"POT-Creation-Date: 2023-10-18 01:41+0000\n"
 "PO-Revision-Date: 2021-07-04 09:26+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -326,7 +326,7 @@ msgstr "Κλασσική διαμόρφωση, αρχείο κρυπτογραφ
 msgid "Use GPG encryption, for better protection"
 msgstr "Χρήση κρυπτογράφησης GPG, για μεγαλύτερη προστασία"
 
-#: kwalletd.cpp:622
+#: kwalletd.cpp:626
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -335,7 +335,7 @@ msgstr ""
 "<qt>Το KDE ζήτησε το άνοιγμα του πορτοφολιού '<b>%1</b>'. Παρακαλώ εισάγετε "
 "τον  κωδικό πρόσβασης για αυτό το πορτοφόλι.</qt>"
 
-#: kwalletd.cpp:626
+#: kwalletd.cpp:630
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -345,19 +345,19 @@ msgstr ""
 "Παρακαλώ εισάγετε τον κωδικό πρόσβασης για αυτό το πορτοφόλι.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:637 kwalletd.cpp:745 kwalletd.cpp:849 kwalletd.cpp:962
-#: kwalletd.cpp:985 kwalletd.cpp:996 kwalletd.cpp:1001 kwalletd.cpp:1591
+#: kwalletd.cpp:641 kwalletd.cpp:749 kwalletd.cpp:853 kwalletd.cpp:966
+#: kwalletd.cpp:989 kwalletd.cpp:1000 kwalletd.cpp:1005 kwalletd.cpp:1595
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Υπηρεσία πορτοφολιού του KDE"
 
-#: kwalletd.cpp:652
+#: kwalletd.cpp:656
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Μια εφαρμογή ζήτησε άδεια για να ανοίξει ένα πορτοφόλι (%1)."
 
-#: kwalletd.cpp:653
+#: kwalletd.cpp:657
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -365,19 +365,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Εναλλαγή εκεί"
 
-#: kwalletd.cpp:655
+#: kwalletd.cpp:659
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "Η εφαρμογή <b>%1</b> ζήτησε άδεια να ανοίξει ένα πορτοφόλι (%2)."
 
-#: kwalletd.cpp:657
+#: kwalletd.cpp:661
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Εναλλαγή σε %1"
 
-#: kwalletd.cpp:673 kwalletd.cpp:755
+#: kwalletd.cpp:677 kwalletd.cpp:759
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -386,7 +386,7 @@ msgstr ""
 "<qt>Σφάλμα ανοίγματος του πορτοφολιού '<b>%1</b>'. Παρακαλώ προσπαθήστε "
 "ξανά. <br />(Κωδικός σφάλματος %2:%3)</qt>"
 
-#: kwalletd.cpp:721
+#: kwalletd.cpp:725
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -398,7 +398,7 @@ msgstr ""
 "κωδικό πρόσβασης για χρήση με αυτό το πορτοφόλι ή πατήστε ακύρωση για να "
 "αρνηθείτε την αίτηση της εφαρμογής."
 
-#: kwalletd.cpp:726
+#: kwalletd.cpp:730
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -411,7 +411,7 @@ msgstr ""
 "τρόπο. Παρακαλώ δώστε έναν κωδικό πρόσβασης για χρήση με αυτό το πορτοφόλι ή "
 "πατήστε ακύρωση για να απορρίψετε την αίτηση της εφαρμογής.</qt>"
 
-#: kwalletd.cpp:734
+#: kwalletd.cpp:738
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -422,7 +422,7 @@ msgstr ""
 "Παρακαλώ επιλέξτε έναν κωδικό πρόσβασης για αυτό το πορτοφόλι, ή πατήστε "
 "ακύρωση για να απορρίψετε την αίτηση της εφαρμογής.</qt>"
 
-#: kwalletd.cpp:739
+#: kwalletd.cpp:743
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -433,13 +433,13 @@ msgstr ""
 "όνομα '<b>%2</b>'. Παρακαλώ επιλέξτε έναν κωδικό πρόσβασης για αυτό το "
 "πορτοφόλι, ή πατήστε ακύρωση για να αρνηθείτε την αίτηση της εφαρμογής.</qt>"
 
-#: kwalletd.cpp:851
+#: kwalletd.cpp:855
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>Το KDE ζήτησε άδεια πρόσβασης στο ανοικτό πορτοφόλι '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:853
+#: kwalletd.cpp:857
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -448,7 +448,7 @@ msgstr ""
 "<qt>Η εφαρμογή '<b>%1</b>' ζήτησε άδεια να ανοίξει το πορτοφόλι '<b>%2</b>'."
 "</qt>"
 
-#: kwalletd.cpp:961
+#: kwalletd.cpp:965
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -457,7 +457,7 @@ msgstr ""
 "Αδύνατο το άνοιγμα του πορτοφολιού. Το πορτοφόλι πρέπει να ανοιχτεί για να "
 "τροποποιηθεί ο κωδικός πρόσβασης."
 
-#: kwalletd.cpp:977
+#: kwalletd.cpp:981
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -468,27 +468,27 @@ msgstr ""
 "%2</b>. Παρακαλώ χρησιμοποιήστε εργαλεία <b>GPG</b> (όπως το <b>kleopatra</"
 "b>) για να αλλάξετε το συνθηματικό που σχετίζεται με αυτό το κλειδί.</qt>"
 
-#: kwalletd.cpp:984
+#: kwalletd.cpp:988
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>Παρακαλώ επιλέξτε έναν νέο κωδικό πρόσβασης για το πορτοφόλι '<b>%1</b>'."
 "</qt>"
 
-#: kwalletd.cpp:996
+#: kwalletd.cpp:1000
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
 "Σφάλμα επανακρυπτογράφησης του πορτοφολιού. Ο κωδικός πρόσβασης δεν "
 "τροποποιήθηκε."
 
-#: kwalletd.cpp:1001
+#: kwalletd.cpp:1005
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Σφάλμα ανοίγματος ξανά του πορτοφολιού. Δεδομένα μπορεί να έχουν χαθεί."
 
-#: kwalletd.cpp:1590
+#: kwalletd.cpp:1594
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
