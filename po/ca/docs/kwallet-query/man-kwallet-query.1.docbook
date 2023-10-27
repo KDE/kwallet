@@ -231,9 +231,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
     <title
 >ERRORS</title>
     <simpara
->Si us plau, informeu de tots els errors al lloc web per a informar dels errors al &kde;: bugs.kde.org (escriviu-hi en anglès). Assegureu-vos de seleccionar <quote
->kwallet-query</quote
-> quan presenteu el vostre informe d'error.</simpara>
+>Si us plau, informeu de tots els errors al lloc web per a informar dels errors al &kde;: bugs.kde.org (escriviu-hi en anglès). Assegureu-vos de seleccionar «kwallet-query» quan presenteu el vostre informe d'error.</simpara>
   </refsect1>
   <refsect1 id="_author">
     <title
