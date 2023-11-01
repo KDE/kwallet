@@ -10,7 +10,6 @@ find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Notifications ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6Service ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
 
@@ -145,7 +144,6 @@ target_link_libraries(kwalletd6
     KF6::ColorScheme
     KF6::CoreAddons
     KF6::ConfigCore
-    KF6::Service
     KF6::DBusAddons
     KF6::WidgetsAddons
     KF6::WindowSystem

@@ -55,18 +55,15 @@
 
 #include "kwalletadaptor.h"
 
-#include <kservice_export.h>
-#include <kservice_version.h>
-
-#if KSERVICE_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-#error "KToolInvocation usage here should be ported to ApplicationLauncherJob which will be moved to KService in KF6"
-#endif
 static void startManagerForKwalletd()
 {
-    // TODO KF6
-    // KToolInvocation::startServiceByDesktopName(QStringLiteral("kwalletmanager5-kwalletd"));
-    // Port to ApplicatoinLauncherJob once it's been moved to KService in KF6
-    // QProcess::startDetached(QStringLiteral("kwalletmanager5"), QStringList{QStringLiteral("--kwalletd")});
+    if (!QStandardPaths::findExecutable(QStringLiteral("kstart")).isEmpty()) {
+        QProcess::startDetached(QStringLiteral("kstart"), {QStringLiteral("kwalletmanager5"), QStringLiteral("--"), QStringLiteral("--kwalletd")});
+    } else if (!QStandardPaths::findExecutable(QStringLiteral("kstart5")).isEmpty()) {
+        QProcess::startDetached(QStringLiteral("kstart"), {QStringLiteral("kwalletmanager5"), QStringLiteral("--"), QStringLiteral("--kwalletd")});
+    } else {
+        QProcess::startDetached(QStringLiteral("kwalletmanager5"), QStringList{QStringLiteral("--kwalletd")});
+    }
 }
 
 class KWalletTransaction

@@ -9,7 +9,6 @@ Dependencies:
     'frameworks/kiconthemes' : '@same'
     'frameworks/ki18n' : '@same'
     'frameworks/knotifications' : '@same'
-    'frameworks/kservice' : '@same'
     'frameworks/kwindowsystem' : '@same'
     'frameworks/kwidgetsaddons' : '@same'
     'libraries/qca': '@latest'
