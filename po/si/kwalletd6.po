@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 01:41+0000\n"
+"POT-Creation-Date: 2023-11-04 16:51+0000\n"
 "PO-Revision-Date: 2009-12-19 12:46+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <danishka@gmail.com>\n"
@@ -311,8 +311,8 @@ msgstr ""
 "සඳහා මුරපදය ඇතුළත් කරන්න.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:641 kwalletd.cpp:749 kwalletd.cpp:853 kwalletd.cpp:966
-#: kwalletd.cpp:989 kwalletd.cpp:1000 kwalletd.cpp:1005 kwalletd.cpp:1595
+#: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
+#: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
@@ -344,7 +344,7 @@ msgctxt ""
 msgid "Switch to %1"
 msgstr "%1 වෙත මාරුවන්න"
 
-#: kwalletd.cpp:677 kwalletd.cpp:759
+#: kwalletd.cpp:678 kwalletd.cpp:760
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -353,7 +353,7 @@ msgstr ""
 "<qt> '<b>%1</b>' පසුම්බිය විවෘත කිරීමේ වරදක්. කරුණාකර නැවත උත්සාහ කරන්න.<br />(වැරදි "
 "කේතය %2: %3)</qt>"
 
-#: kwalletd.cpp:725
+#: kwalletd.cpp:726
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -363,7 +363,7 @@ msgstr ""
 "KDE විසින් පසුම්බිය විවෘත කිරීමට ඉල්ලා ඇත, මෙහි සංවේදී දත්ත ආරක්‍ෂිත ආකාරයකට ගබඩා වේ කරුණාකර "
 "මෙම පසුම්බියට අදාල මුරපදය ඇතුළත් කරන්න, හෝ යෙදුමේ ඉල්ලීම ඉවත දැමීමට අවලංගු කරන්න ක්ලික් කරන්න."
 
-#: kwalletd.cpp:730
+#: kwalletd.cpp:731
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -375,7 +375,7 @@ msgstr ""
 "ආකාරයකට ගබඩා වේ කරුණාකර මෙම පසුම්බියට අදාල මුරපදය ඇතුළත්  කරන්න, හෝ යෙදුමේ ඉල්ලීම ඉවත "
 "දැමීමට අවලංගු කරන්න ක්ලික් කරන්න..</qt>"
 
-#: kwalletd.cpp:738
+#: kwalletd.cpp:739
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -385,7 +385,7 @@ msgstr ""
 "<qt>KDE විසින් '<b>%1</b>' නමැති නව පසුම්බියක් නිර්මාණය කිරීමට ඉල්ලයි. කරුණාකර එම පසුම්බිය "
 "සඳහා මුරපදයක් ඇතුළත් කරන්න හෝ, අවලංගු කරන්න ක්ලික් කර යෙදුමේ ඉල්ලීම ඉවත දමන්න.</qt>"
 
-#: kwalletd.cpp:743
+#: kwalletd.cpp:744
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -396,12 +396,12 @@ msgstr ""
 "එම පසුම්බිය සඳහා මුරපදයක් ඇතුළත් කරන්න හෝ, අවලංගු කරන්න ක්ලික් කර යෙදුමේ ඉල්ලීම ඉවත දමන්න.</"
 "qt>"
 
-#: kwalletd.cpp:855
+#: kwalletd.cpp:856
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE විසින් විවෘත '<b>%1</b>' පසුම්බියට ඇතුළුවීමට අවසර පතයි.</qt>"
 
-#: kwalletd.cpp:857
+#: kwalletd.cpp:858
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -409,14 +409,14 @@ msgid ""
 msgstr ""
 "<qt> '<b>%1</b>' යෙදුම විසින් විවෘත '<b>%2</b>' පසුම්බියට ඇතුළුවීමට අවසර පතයි.</qt>"
 
-#: kwalletd.cpp:965
+#: kwalletd.cpp:966
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "පදුම්බිය විවෘත කිරීමේ වරදක්. මුරපදය වෙනස් කිරීමට පසුම්බිය නිසිපරිදි විවෘත විය යුතුයි."
 
-#: kwalletd.cpp:981
+#: kwalletd.cpp:982
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -424,22 +424,22 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: kwalletd.cpp:988
+#: kwalletd.cpp:989
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>කරුණාකර '<b>%1</b>' පසුම්බිය සඳහා නම මුරපදයක් ඇතුළත් කරන්න.</qt>"
 
-#: kwalletd.cpp:1000
+#: kwalletd.cpp:1001
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "පසුම්බිය නැවත-ගුප්තකේතනය කිරීමේ වරදක්, මුරපදය වෙනස් නොවිනි."
 
-#: kwalletd.cpp:1005
+#: kwalletd.cpp:1006
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "පසුම්බිය නැවත විවෘත කිරීමේ වරදක්, දත්ත නැති විය හැක"
 
-#: kwalletd.cpp:1594
+#: kwalletd.cpp:1595
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

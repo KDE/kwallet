@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 01:41+0000\n"
+"POT-Creation-Date: 2023-11-04 16:51+0000\n"
 "PO-Revision-Date: 2023-05-22 05:37+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -332,8 +332,8 @@ msgstr ""
 "საფულის პაროლი.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:641 kwalletd.cpp:749 kwalletd.cpp:853 kwalletd.cpp:966
-#: kwalletd.cpp:989 kwalletd.cpp:1000 kwalletd.cpp:1005 kwalletd.cpp:1595
+#: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
+#: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
@@ -364,7 +364,7 @@ msgctxt ""
 msgid "Switch to %1"
 msgstr "%1-ზე გადართვა"
 
-#: kwalletd.cpp:677 kwalletd.cpp:759
+#: kwalletd.cpp:678 kwalletd.cpp:760
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -373,7 +373,7 @@ msgstr ""
 "<qt>შეცდომა საფულის '<b>%1</b>' გახსნისას. თავიდან სცადეთ.<br />(შეცდომის "
 "კოდი %2: %3)</qt>"
 
-#: kwalletd.cpp:725
+#: kwalletd.cpp:726
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -384,7 +384,7 @@ msgstr ""
 "გამოიყენება. შეიყვანეთ საფულის პაროლი ან, აპლიკაციის მოთხოვნის უარყოფისთვის, "
 "გაუქმებაზე დააწკაპუნეთ."
 
-#: kwalletd.cpp:730
+#: kwalletd.cpp:731
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -396,7 +396,7 @@ msgstr ""
 "ინფორმაციის დაცულად შესანახად გამოიყენება. შეიყვანეთ ამ საფულის პაროლი, ან, "
 "აპლიკაციის მოთხოვნის უარყოფისთვის, გაუქმებაზე დააწკაპუნეთ.</qt>"
 
-#: kwalletd.cpp:738
+#: kwalletd.cpp:739
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -406,7 +406,7 @@ msgstr ""
 "<qt>KDE-მა მოითხოვა ახალი საფულის შექმნა სახელით '<b>%1</b>'. შეიყვანეთ "
 "პაროლი ამ საფულისთვის ან გააუქმეთ აპლიკაციის მოთხოვნა.</qt>"
 
-#: kwalletd.cpp:743
+#: kwalletd.cpp:744
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -417,12 +417,12 @@ msgstr ""
 "მოითხოვა. შეიყვანეთ პაროლი ამ საფულისთვის, ან, აპლიკაციის მოთხოვნის "
 "უარყოფისთვის, გაუქმებაზე დააწკაპუნეთ.</qt>"
 
-#: kwalletd.cpp:855
+#: kwalletd.cpp:856
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE ითხოვს წვდომას, გახსნას საფულე  '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:857
+#: kwalletd.cpp:858
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -431,7 +431,7 @@ msgstr ""
 "<qt>აპლიკაცია '<b>%1</b>' ითხოვს წვდომას, რათა გახსნას საფულე '<b>%2</b>'.</"
 "qt>"
 
-#: kwalletd.cpp:965
+#: kwalletd.cpp:966
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -439,7 +439,7 @@ msgid ""
 msgstr ""
 "საფულის გახსნის შეცდომა. პაროლის შესაცვლელად საფულის გახსნა აუცილებელია."
 
-#: kwalletd.cpp:981
+#: kwalletd.cpp:982
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -450,22 +450,22 @@ msgstr ""
 "ფრაზის შესაცვლელდ <b>GPG</b>-ის პროგრამები (მაგალითად <b>kleopatra</b>) "
 "გამოიყენეთ.</qt>"
 
-#: kwalletd.cpp:988
+#: kwalletd.cpp:989
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>შეიყვანეთ ახალი პაროლი საფულისთვის '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:1000
+#: kwalletd.cpp:1001
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "საფულის ხელახალი დაშიფვრის შეცდომა. პაროლი არ შეცვლილა."
 
-#: kwalletd.cpp:1005
+#: kwalletd.cpp:1006
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "პაროლის ხელახლა გახსნის შეცდომა. მონაცემები შეიძლება დაიკარგოს."
 
-#: kwalletd.cpp:1594
+#: kwalletd.cpp:1595
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

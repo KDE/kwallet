@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/kwalletd.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 01:41+0000\n"
+"POT-Creation-Date: 2023-11-04 16:51+0000\n"
 "PO-Revision-Date: 2009-01-20 10:11-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -314,8 +314,8 @@ msgstr ""
 "Iontráil focal faire an sparáin seo thíos.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:641 kwalletd.cpp:749 kwalletd.cpp:853 kwalletd.cpp:966
-#: kwalletd.cpp:989 kwalletd.cpp:1000 kwalletd.cpp:1005 kwalletd.cpp:1595
+#: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
+#: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
@@ -347,7 +347,7 @@ msgctxt ""
 msgid "Switch to %1"
 msgstr "Malartaigh go %1"
 
-#: kwalletd.cpp:677 kwalletd.cpp:759
+#: kwalletd.cpp:678 kwalletd.cpp:760
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -356,7 +356,7 @@ msgstr ""
 "<qt>Earráid agus sparán '<b>%1</b>' á oscailt. Bain triail eile as.<br /"
 ">(Cód earráide %2: %3)</qt>"
 
-#: kwalletd.cpp:725
+#: kwalletd.cpp:726
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -367,7 +367,7 @@ msgstr ""
 "íogaire a stóráil go slán. Iontráil focal faire a úsáidfear leis an sparán "
 "seo nó cliceáil Cealaigh chun iarratas an fheidhmchláir a dhiúltú."
 
-#: kwalletd.cpp:730
+#: kwalletd.cpp:731
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -380,7 +380,7 @@ msgstr ""
 "focal faire a úsáidfear leis an sparán seo nó cliceáil Cealaigh chun "
 "iarratas an fheidhmchláir a dhiúltú.</qt>"
 
-#: kwalletd.cpp:738
+#: kwalletd.cpp:739
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -391,7 +391,7 @@ msgstr ""
 "focal faire le haghaidh an sparáin seo, nó cealaigh chun iarratas an "
 "fheidhmchláir a dhiúltú.</qt>"
 
-#: kwalletd.cpp:743
+#: kwalletd.cpp:744
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -402,13 +402,13 @@ msgstr ""
 "'<b>%2</b>'. Roghnaigh focal faire le haghaidh an sparáin seo, nó cealaigh "
 "chun iarratas an fheidhmchláir a dhiúltú.</qt>"
 
-#: kwalletd.cpp:855
+#: kwalletd.cpp:856
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>Tá KDE ag iarraidh rochtain chun sparán '<b>%1</b>' a oscailt.</qt>"
 
-#: kwalletd.cpp:857
+#: kwalletd.cpp:858
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -417,7 +417,7 @@ msgstr ""
 "<qt>Tá feidhmchlár '<b>%1</b>' ag iarraidh rochtain chun sparán '<b>%2</b>' "
 "a oscailt.</qt>"
 
-#: kwalletd.cpp:965
+#: kwalletd.cpp:966
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -426,7 +426,7 @@ msgstr ""
 "Ní féidir an sparán a oscailt. Caithfear é a oscailt chun an focal faire a "
 "athrú."
 
-#: kwalletd.cpp:981
+#: kwalletd.cpp:982
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -434,24 +434,24 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: kwalletd.cpp:988
+#: kwalletd.cpp:989
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Roghnaigh focal faire nua le haghaidh sparán '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:1000
+#: kwalletd.cpp:1001
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
 "Tharla earráid agus an sparán á chriptiú arís. Níor athraíodh an focal faire."
 
-#: kwalletd.cpp:1005
+#: kwalletd.cpp:1006
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Tharla earráid agus an sparán á oscailt arís. Seans gur cailleadh sonraí."
 
-#: kwalletd.cpp:1594
+#: kwalletd.cpp:1595
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

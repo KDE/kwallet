@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 01:41+0000\n"
+"POT-Creation-Date: 2023-11-04 16:51+0000\n"
 "PO-Revision-Date: 2010-02-26 14:38+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -312,8 +312,8 @@ msgstr ""
 "โปรดป้อนรหัสผ่านสำหรับกระเป๋าคุมข้อมูลนี้ที่ด้านล่าง</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:641 kwalletd.cpp:749 kwalletd.cpp:853 kwalletd.cpp:966
-#: kwalletd.cpp:989 kwalletd.cpp:1000 kwalletd.cpp:1005 kwalletd.cpp:1595
+#: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
+#: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
@@ -345,7 +345,7 @@ msgctxt ""
 msgid "Switch to %1"
 msgstr "สลับไปยัง %1"
 
-#: kwalletd.cpp:677 kwalletd.cpp:759
+#: kwalletd.cpp:678 kwalletd.cpp:760
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -354,7 +354,7 @@ msgstr ""
 "<qt>เกิดข้อผิดพลาดในการเปิดกระเป๋าคุมข้อมูล '<b>%1</b>' โปรดลองใหม่อีกครั้ง<br /"
 ">(รหัสความผิดพลาด %2: %3)</qt>"
 
-#: kwalletd.cpp:725
+#: kwalletd.cpp:726
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -364,7 +364,7 @@ msgstr ""
 "KDE ได้ทำการร้องขอที่จะเปิดกระเป๋าคุมข้อมูล ซึ่งใช้สำหรับเก็บข้อมูลสำคัญไว้อย่างปลอดภัย "
 "โปรดป้อนรหัสผ่านเพื่อใช้งานกระเป๋าคุมข้อมูลนี้ หรือคลิกที่ ยกเลิก เพื่อปฏิเสธการร้องขอของโปรแกรม"
 
-#: kwalletd.cpp:730
+#: kwalletd.cpp:731
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -376,7 +376,7 @@ msgstr ""
 "ซึ่งใช้สำหรับเก็บข้อมูลที่มีความสำคัญไว้อย่างปลอดภัย โปรดป้อนรหัสผ่านเพื่อใช้งานกระเป๋าคุมข้อมูลนี้ "
 "หรือคลิกที่ ยกเลิก เพื่อปฏิเสธการร้องขอของโปรแกรม</qt>"
 
-#: kwalletd.cpp:738
+#: kwalletd.cpp:739
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -386,7 +386,7 @@ msgstr ""
 "<qt>KDE ได้ร้องขอให้มีการสร้างกระเป๋าคุมข้อมูลอันใหม่ ชื่อ '<b>%1</b>' "
 "โปรดเลือกรหัสอ่านสำหรับกระเป๋าคุมข้อมูลนี้ หรือคลิกยกเลิก เพื่อปฏิเสธการร้องขอของโปรแกรม</qt>"
 
-#: kwalletd.cpp:743
+#: kwalletd.cpp:744
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -396,19 +396,19 @@ msgstr ""
 "<qt>โปรแกรม '<b>%1</b>' ได้ร้องขอให้มีการสร้างกระเป๋าคุมข้อมูลตัวใหม่ ชื่อ '<b>%2</b>' "
 "โปรดเลือกรหัสผ่านสำหรับกระเป๋าคุมข้อมูลนี้ หรือคลิก ยกเลิกเพื่อปฏิเสธการร้องขอของโปรแกรม</qt>"
 
-#: kwalletd.cpp:855
+#: kwalletd.cpp:856
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE ได้ร้องขอใช้งานกระเป๋าคุมข้อมูล '<b>%1</b>'</qt>"
 
-#: kwalletd.cpp:857
+#: kwalletd.cpp:858
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
 "%2</b>'.</qt>"
 msgstr "<qt>โปรแกรม '<b>%1</b>' ได้ร้องขอใช้งานกระเป๋าคุมข้อมูล '<b>%2</b>'</qt>"
 
-#: kwalletd.cpp:965
+#: kwalletd.cpp:966
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -417,7 +417,7 @@ msgstr ""
 "ไม่สามารถเปิดใช้งานกระเป๋าคุมข้อมูลได้ โดยกระเป๋าคุมข้อมูล "
 "จะถูกเปิดใช้งานก็ต่อเมื่อมีคำสั่งให้ทำการเปลี่ยนรหัสผ่าน"
 
-#: kwalletd.cpp:981
+#: kwalletd.cpp:982
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -425,22 +425,22 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: kwalletd.cpp:988
+#: kwalletd.cpp:989
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>โปรดเลือกรหัสผ่านใหม่สำหรับใช้กับกระเป๋าคุมข้อมูล '<b>%1</b>'</qt>"
 
-#: kwalletd.cpp:1000
+#: kwalletd.cpp:1001
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "รหัสผ่านไม่เปลี่ยนแปลง เนื่องจากเกิดข้อผิดพลาดในการเข้ารหัสกระเป๋าคุมข้อมูลอีกครั้ง"
 
-#: kwalletd.cpp:1005
+#: kwalletd.cpp:1006
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "ข้อมูลอาจมีการสูญหาย เนื่องจากข้อผิดพลาดในการเปิดกระเป๋าคุมข้อมูลอีกครั้ง"
 
-#: kwalletd.cpp:1594
+#: kwalletd.cpp:1595
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
