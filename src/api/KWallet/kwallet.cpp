@@ -57,7 +57,7 @@ static void registerTypes()
 
 const QString Wallet::LocalWallet()
 {
-    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Wallet"));
+    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group(QStringLiteral("Wallet")));
     if (!cfg.readEntry("Use One Wallet", true)) {
         QString tmp = cfg.readEntry("Local Wallet", "localwallet");
         if (tmp.isEmpty()) {
@@ -75,7 +75,7 @@ const QString Wallet::LocalWallet()
 
 const QString Wallet::NetworkWallet()
 {
-    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Wallet"));
+    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group(QStringLiteral("Wallet")));
 
     QString tmp = cfg.readEntry("Default Wallet", "kdewallet");
     if (tmp.isEmpty()) {
@@ -882,7 +882,7 @@ void Wallet::virtual_hook(int, void *)
 
 KWalletDLauncher::KWalletDLauncher()
     : m_wallet_deamon(nullptr)
-    , m_cgroup(KSharedConfig::openConfig(QStringLiteral("kwalletrc"), KConfig::NoGlobals)->group("Wallet"))
+    , m_cgroup(KSharedConfig::openConfig(QStringLiteral("kwalletrc"), KConfig::NoGlobals)->group(QStringLiteral("Wallet")))
     , m_walletEnabled(false)
 {
     m_walletEnabled = m_cgroup.readEntry("Enabled", true);
