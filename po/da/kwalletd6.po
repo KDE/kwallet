@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:51+0000\n"
+"POT-Creation-Date: 2023-11-07 02:42+0000\n"
 "PO-Revision-Date: 2021-09-09 21:35+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -313,7 +313,7 @@ msgstr "Klassisk blowfish-krypteret fil"
 msgid "Use GPG encryption, for better protection"
 msgstr "Brug GPG-kryptering for større beskyttelse"
 
-#: kwalletd.cpp:626
+#: kwalletd.cpp:623
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -322,7 +322,7 @@ msgstr ""
 "<qt>KDE har anmodet om at åbne tegnebogen \"<b>%1</b>\". Indtast "
 "adgangskoden for denne tegnebog nedenfor.</qt>"
 
-#: kwalletd.cpp:630
+#: kwalletd.cpp:627
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -332,19 +332,19 @@ msgstr ""
 "\". Indtast adgangskoden for denne tegnebog nedenfor.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
-#: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
+#: kwalletd.cpp:638 kwalletd.cpp:747 kwalletd.cpp:851 kwalletd.cpp:964
+#: kwalletd.cpp:987 kwalletd.cpp:998 kwalletd.cpp:1003 kwalletd.cpp:1593
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE's tegnebogstjeneste"
 
-#: kwalletd.cpp:656
+#: kwalletd.cpp:653
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Et program har anmodet om at åbne en tegnebog (%1)."
 
-#: kwalletd.cpp:657
+#: kwalletd.cpp:654
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -352,19 +352,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Skift der"
 
-#: kwalletd.cpp:659
+#: kwalletd.cpp:656
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> har anmodet om at åbne en tegnebog (%2)."
 
-#: kwalletd.cpp:661
+#: kwalletd.cpp:658
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Skift til %1"
 
-#: kwalletd.cpp:678 kwalletd.cpp:760
+#: kwalletd.cpp:675 kwalletd.cpp:757
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -373,7 +373,7 @@ msgstr ""
 "<qt>Fejl under åbning af tegnebogen \"<b>%1</b>\". Prøv igen.<br />(Fejlkode "
 "%2: %3)</qt>"
 
-#: kwalletd.cpp:726
+#: kwalletd.cpp:723
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -384,7 +384,7 @@ msgstr ""
 "data på en sikker måde. Indtast en adgangskode der skal bruges til denne "
 "tegnebog eller tryk på Annullér for at afvise programmets anmodning."
 
-#: kwalletd.cpp:731
+#: kwalletd.cpp:728
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -397,7 +397,7 @@ msgstr ""
 "adgangskode der skal bruges til denne tegnebog eller tryk på Annullér for at "
 "afvise programmets anmodning.</qt>"
 
-#: kwalletd.cpp:739
+#: kwalletd.cpp:736
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -408,7 +408,7 @@ msgstr ""
 "en adgangskode til denne tegnebog eller annullér for at afvise programmets "
 "anmodning.</qt>"
 
-#: kwalletd.cpp:744
+#: kwalletd.cpp:741
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -419,13 +419,13 @@ msgstr ""
 "\"<b>%2</b>\". Vælg en adgangskode til denne tegnebog eller annullér for at "
 "afvise programmets anmodning.</qt>"
 
-#: kwalletd.cpp:856
+#: kwalletd.cpp:853
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>KDE har anmodet om adgang til den åbne tegnebog \"<b>%1</b>\".</qt>"
 
-#: kwalletd.cpp:858
+#: kwalletd.cpp:855
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -434,7 +434,7 @@ msgstr ""
 "<qt>Programmet \"<b>%1</b>\" har anmodet om adgang til den åbne tegnebog "
 "\"<b>%2</b>\".</qt>"
 
-#: kwalletd.cpp:966
+#: kwalletd.cpp:963
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -442,7 +442,7 @@ msgid ""
 msgstr ""
 "Kan ikke åbne tegnebog. Tegnebogen skal åbnes for at adgangskoden kan ændres."
 
-#: kwalletd.cpp:982
+#: kwalletd.cpp:979
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -453,22 +453,22 @@ msgstr ""
 "b>-værktøjer (såsom <b>kleopatra</b>) til at skifte adgangsfrasen der er "
 "knyttet til den nøgle.</qt>"
 
-#: kwalletd.cpp:989
+#: kwalletd.cpp:986
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Vælg en ny adgangskode for tegnebogen \"<b>%1</b>\".</qt>"
 
-#: kwalletd.cpp:1001
+#: kwalletd.cpp:998
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Fejl ved re-kryptering af tegnebogen. Adgangskoden blev ikke ændret."
 
-#: kwalletd.cpp:1006
+#: kwalletd.cpp:1003
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Fejl ved genåbning af tegnebogen. Data kan være gået tabt."
 
-#: kwalletd.cpp:1595
+#: kwalletd.cpp:1592
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
