@@ -544,7 +544,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     dataStream << hashes;
     dataStream << values;
 
-    GpgME::Data decryptedData(dataBuffer.data(), dataBuffer.size(), false);
+    GpgME::Data decryptedData(dataBuffer.data(), size_t(dataBuffer.size()), false);
     GpgME::Data encryptedData;
     std::vector<GpgME::Key> keys;
     keys.push_back(wb->_gpgKey);
