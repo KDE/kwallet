@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-12-14 01:34+0000\n"
 "PO-Revision-Date: 2011-01-04 20:47+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -648,9 +648,10 @@ msgid "Valentin Rusu"
 msgstr ""
 
 #: main.cpp:173
-#, kde-format
-msgid "Maintainer, GPG backend support"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Former maintainer"
+msgid "Former Maintainer, GPG backend support"
+msgstr "Penyenggara terdahulu"
 
 #: main.cpp:174
 #, kde-format

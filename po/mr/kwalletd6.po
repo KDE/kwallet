@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-12-14 01:34+0000\n"
 "PO-Revision-Date: 2013-03-23 14:42+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -669,9 +669,10 @@ msgid "Valentin Rusu"
 msgstr ""
 
 #: main.cpp:173
-#, kde-format
-msgid "Maintainer, GPG backend support"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Former maintainer"
+msgid "Former Maintainer, GPG backend support"
+msgstr "पूर्वीचा नियंत्रक"
 
 #: main.cpp:174
 #, kde-format

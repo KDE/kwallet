@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-12-14 01:34+0000\n"
 "PO-Revision-Date: 2023-05-22 05:37+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -692,8 +692,9 @@ msgid "Valentin Rusu"
 msgstr "ვალენტინ რუსუ"
 
 #: main.cpp:173
-#, kde-format
-msgid "Maintainer, GPG backend support"
+#, fuzzy, kde-format
+#| msgid "Maintainer, GPG backend support"
+msgid "Former Maintainer, GPG backend support"
 msgstr "წამყვანი პროგრამისტი, GPG უკანაბოლოს მხარდაჭერა"
 
 #: main.cpp:174

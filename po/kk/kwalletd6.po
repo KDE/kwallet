@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-12-14 01:34+0000\n"
 "PO-Revision-Date: 2013-09-30 00:36+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -726,7 +726,7 @@ msgstr "Valentin Rusu"
 #: main.cpp:173
 #, fuzzy, kde-format
 #| msgid "GPG backend support"
-msgid "Maintainer, GPG backend support"
+msgid "Former Maintainer, GPG backend support"
 msgstr "GPG тетігін қолдануы"
 
 #: main.cpp:174

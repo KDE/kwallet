@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-12-14 01:34+0000\n"
 "PO-Revision-Date: 2022-01-08 09:14+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -704,8 +704,9 @@ msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
 #: main.cpp:173
-#, kde-format
-msgid "Maintainer, GPG backend support"
+#, fuzzy, kde-format
+#| msgid "Maintainer, GPG backend support"
+msgid "Former Maintainer, GPG backend support"
 msgstr "Opiekun, obsługa silnika GPG"
 
 #: main.cpp:174

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-12-14 01:34+0000\n"
 "PO-Revision-Date: 2010-05-08 15:59-0700\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -682,9 +682,10 @@ msgid "Valentin Rusu"
 msgstr ""
 
 #: main.cpp:173
-#, kde-format
-msgid "Maintainer, GPG backend support"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Former maintainer"
+msgid "Former Maintainer, GPG backend support"
+msgstr "以前のメンテナ"
 
 #: main.cpp:174
 #, kde-format

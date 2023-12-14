@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-12-14 01:34+0000\n"
 "PO-Revision-Date: 2023-10-31 20:03+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -579,7 +579,7 @@ msgstr ""
 
 #: main.cpp:173
 #, kde-format
-msgid "Maintainer, GPG backend support"
+msgid "Former Maintainer, GPG backend support"
 msgstr ""
 
 #: main.cpp:174
