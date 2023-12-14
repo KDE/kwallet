@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the kdebase-runtime package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 #
+# SPDX-FileCopyrightText: 2023 Agron Selimaj <as9902613@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdebase-runtime\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2010-02-17 01:50+0000\n"
-"Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
-"Language-Team: Albanian <sq@li.org>\n"
+"PO-Revision-Date: 2023-12-13 17:23-0500\n"
+"Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
+"Language-Team: sq\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-04-22 15:58+0000\n"
-"X-Generator: Launchpad (build 12883)\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -27,7 +28,7 @@ msgstr "KDE Shqip, Launchpad Contributions: Vilson Gjeci"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-shqip@yahoogroups.com,vilsongjeci@gmail.com"
+msgstr "kde-i18n-sq@kde.org,vilsongjeci@gmail.com"
 
 #: backend/backendpersisthandler.cpp:489
 #, kde-format
@@ -109,17 +110,17 @@ msgstr "Është i hapur tashmë."
 #: backend/kwalletbackend.cc:268
 #, kde-format
 msgid "Error opening file."
-msgstr "Gabim në hapjen e skedarit."
+msgstr "Gabim në hapjen e skedës."
 
 #: backend/kwalletbackend.cc:270
 #, kde-format
 msgid "Not a wallet file."
-msgstr "Nuk është një skedar portofoli."
+msgstr "Nuk është një skedë portofoli."
 
 #: backend/kwalletbackend.cc:272
 #, kde-format
 msgid "Unsupported file format revision."
-msgstr "Ndryshim i pa suportuar i formatit të skedarit."
+msgstr "Ndryshim i pa suportuar i formatit të skedës."
 
 #: backend/kwalletbackend.cc:276
 #, kde-format
@@ -129,7 +130,7 @@ msgstr "Skemë e panjohur kriptimi."
 #: backend/kwalletbackend.cc:278
 #, kde-format
 msgid "Corrupt file?"
-msgstr "Skedar i dëmtuar?"
+msgstr "Skedë e dëmtuar?"
 
 #: backend/kwalletbackend.cc:280
 #, kde-format
@@ -318,7 +319,7 @@ msgstr ""
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
-msgstr "Ndërrojeni në %1"
+msgstr "Kaloni në %1"
 
 #: kwalletd.cpp:691 kwalletd.cpp:773
 #, kde-format
@@ -622,7 +623,7 @@ msgstr ""
 #: main.cpp:173
 #, kde-format
 msgid "(C) 2002-2013, The KDE Developers"
-msgstr ""
+msgstr "(C) 2002-2013, Programerët e KDE-së"
 
 #: main.cpp:174
 #, kde-format
@@ -640,8 +641,7 @@ msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
 #: main.cpp:175
-#, fuzzy, kde-format
-#| msgid "Former maintainer"
+#, kde-format
 msgid "Former Maintainer"
 msgstr "Ish mirëmbajtës"
 
