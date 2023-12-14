@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(KF_VERSION "5.113.0") # handled by release scripts
+set(KF_VERSION "5.114.0") # handled by release scripts
 set(KF_DEP_VERSION "5.113.0") # handled by release scripts
 project(KWallet VERSION ${KF_VERSION})
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
