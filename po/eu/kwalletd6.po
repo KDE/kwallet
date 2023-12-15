@@ -1,25 +1,24 @@
 # Translation for kwalletd5.po to Euskara/Basque (eu).
-# Copyright (C) 2009-2017, The Free Software Foundation, Inc.
-# Copyright (C) 2018-2021, This file is copyright:
+# Copyright (C) 2009-2023 This file is copyright:
 # This file is distributed under the same license as the kwallet package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2009, 2010, 2017, 2021.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2009, 2010, 2017, 2021, 2023.
 # marcos <marcos@euskalgnu.org>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-14 01:34+0000\n"
-"PO-Revision-Date: 2021-08-06 13:38+0200\n"
+"PO-Revision-Date: 2023-12-14 18:38+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.04.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -707,10 +706,9 @@ msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
 #: main.cpp:173
-#, fuzzy, kde-format
-#| msgid "Maintainer, GPG backend support"
+#, kde-format
 msgid "Former Maintainer, GPG backend support"
-msgstr "Mantentzailea, GPG bizkarraldekoaren euskarria"
+msgstr "Aurreko mantentzailea, GPG bizkarraldekoaren euskarria"
 
 #: main.cpp:174
 #, kde-format

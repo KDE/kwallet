@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-14 01:34+0000\n"
-"PO-Revision-Date: 2023-06-15 23:17+0300\n"
+"PO-Revision-Date: 2023-12-14 15:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 24.01.80\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -706,10 +706,9 @@ msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
 #: main.cpp:173
-#, fuzzy, kde-format
-#| msgid "Maintainer, GPG backend support"
+#, kde-format
 msgid "Former Maintainer, GPG backend support"
-msgstr "Projeyi yürüten, GPG arka uç desteği"
+msgstr "Önceki bakımcı, GPG arka uç desteği"
 
 #: main.cpp:174
 #, kde-format
@@ -719,7 +718,7 @@ msgstr "Michael Leupold"
 #: main.cpp:174
 #, kde-format
 msgid "Former Maintainer"
-msgstr "Önceki Geliştirici"
+msgstr "Önceki bakımcı"
 
 #: main.cpp:175
 #, kde-format
@@ -729,7 +728,7 @@ msgstr "George Staikos"
 #: main.cpp:175
 #, kde-format
 msgid "Former maintainer"
-msgstr "Önceki geliştirici"
+msgstr "Önceki bakımcı"
 
 #: main.cpp:176
 #, kde-format
@@ -739,4 +738,4 @@ msgstr "Thiago Maceira"
 #: main.cpp:176
 #, kde-format
 msgid "D-Bus Interface"
-msgstr "D-Bus Arayüzü"
+msgstr "D-Bus arayüzü"

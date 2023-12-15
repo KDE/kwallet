@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-14 01:34+0000\n"
-"PO-Revision-Date: 2023-10-02 09:18+0300\n"
+"PO-Revision-Date: 2023-12-14 08:16+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -17,17 +17,17 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Poedit-Language: Hebrew\n"
 "X-Poedit-Country: ISRAEL\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "אופיר קלינגר וצוות התרגום של KDE ישראל"
+msgstr "אופיר קלינגר,צוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "klinger.ofir@gmail.com, kde-l10n-he@kde.org"
+msgstr "klinger.ofir@gmail.com,kde-l10n-he@kde.org"
 
 #: backend/backendpersisthandler.cpp:489
 #, kde-format
@@ -676,10 +676,9 @@ msgid "Valentin Rusu"
 msgstr "ולנטין רוסו"
 
 #: main.cpp:173
-#, fuzzy, kde-format
-#| msgid "Maintainer, GPG backend support"
+#, kde-format
 msgid "Former Maintainer, GPG backend support"
-msgstr "מתחזק, תמיכה במנגנון GPG"
+msgstr "מתחזק לשעבר, תמיכה במנגנון GPG"
 
 #: main.cpp:174
 #, kde-format
