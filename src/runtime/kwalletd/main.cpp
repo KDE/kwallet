@@ -202,7 +202,7 @@ int main(int argc, char **argv)
     }
 
     KWalletD walletd;
-    qCDebug(KWALLETD_LOG) << "kwalletd5 started";
+    qCDebug(KWALLETD_LOG) << "kwalletd6 started";
 
 #ifndef Q_OS_WIN
     if (hash) {
