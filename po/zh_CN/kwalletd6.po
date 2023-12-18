@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-14 01:34+0000\n"
-"PO-Revision-Date: 2023-12-09 09:24\n"
+"PO-Revision-Date: 2023-12-17 11:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -543,7 +543,7 @@ msgstr ""
 #: kwalletwizardpageintro.ui:69
 #, kde-format
 msgid "&Basic setup (recommended)"
-msgstr "基本设置(推荐)(&B)"
+msgstr "基本设置 (推荐) (&B)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, _advanced)
 #: kwalletwizardpageintro.ui:79
@@ -649,10 +649,9 @@ msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
 #: main.cpp:173
-#, fuzzy, kde-format
-#| msgid "Maintainer, GPG backend support"
+#, kde-format
 msgid "Former Maintainer, GPG backend support"
-msgstr "维护者，GPG 后端程序支持"
+msgstr "前任维护者，GPG 后端程序支持"
 
 #: main.cpp:174
 #, kde-format
