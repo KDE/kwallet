@@ -189,7 +189,7 @@ msgstr ""
 "No s'ha pogut sincronitzar la cartera <b>%1</b> al disc. Els codis d'error "
 "són:\n"
 "RC <b>%2</b>\n"
-"SF <b>%3</b>. Empleneu un informe d'error a bugs.kde.org utilitzant esta "
+"SF <b>%3</b>. Empleneu un informe d'error en bugs.kde.org utilitzant esta "
 "informació"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
