@@ -4,7 +4,6 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2013, 2016.
 # Benjamin Weis <benjamin.weis@gmx.com>, 2013.
 # Frank Steinmetzger <Warp_7@gmx.de>, 2018.
-# Johannes Obermayr <johannesobermayr@gmx.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
