@@ -1882,6 +1882,8 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
         return -1;
     }
 
+    bool brandNew = false;
+
     // check if the wallet is already open
     QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
     int rc = walletInfo.first;
@@ -1898,6 +1900,7 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
     if (!wallets().contains(wallet)) {
         b = new KWallet::Backend(wallet);
         b->setCipherType(KWallet::BACKEND_CIPHER_BLOWFISH);
+        brandNew = true;
     } else {
         b = new KWallet::Backend(wallet);
     }
@@ -1920,6 +1923,9 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
         _closeTimers.addTimer(handle, sessionTimeout);
     } else if (_closeIdle) {
         _closeTimers.addTimer(handle, _idleTime);
+    }
+    if(brandNew) {
+        Q_EMIT walletCreated(wallet);
     }
     Q_EMIT walletOpened(wallet);
 
