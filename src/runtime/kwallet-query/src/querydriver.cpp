@@ -103,6 +103,7 @@ void QueryDriver::readEntries()
         if (!theWallet->setFolder(entryFolder)) {
             std::cout << i18n("The folder %1 does not exist!", entryFolder).toUtf8().constData() << std::endl;
             exit(4);
+            return;
         }
         const auto el = theWallet->entryList();
         for (auto &e : el) {
@@ -120,6 +121,7 @@ void QueryDriver::readValue()
     if (!theWallet->setFolder(entryFolder)) {
         std::cout << i18n("The folder %1 does not exist!", entryFolder).toUtf8().constData() << std::endl;
         exit(4);
+        return;
     }
     Wallet::EntryType kind = theWallet->entryType(entryName);
     if (kind == Wallet::Password) {
@@ -130,7 +132,6 @@ void QueryDriver::readValue()
         std::cout << i18n("Failed to read entry %1 value from the %2 wallet.", entryName, walletName).toUtf8().constData() << std::endl;
         exit(4);
     }
-    quit();
 }
 
 void QueryDriver::readMapValue()
@@ -140,12 +141,14 @@ void QueryDriver::readMapValue()
     if (rc != 0) {
         std::cout << i18n("Failed to read entry %1 value from the %2 wallet", entryName, walletName).toUtf8().constData() << std::endl;
         exit(4);
+        return;
     }
     QJsonObject json;
     for (auto &e : map.keys()) {
         json.insert(e, QJsonValue::fromVariant(QVariant(map.value(e))));
     }
     std::cout << QJsonDocument(json).toJson().constData() << std::endl;
+    quit();
 }
 
 void QueryDriver::readPasswordValue()
@@ -155,11 +158,13 @@ void QueryDriver::readPasswordValue()
     if (rc != 0) {
         std::cout << i18n("Failed to read entry %1 value from the %2 wallet", entryName, walletName).toUtf8().constData() << std::endl;
         exit(4);
+        return;
     }
     const QStringList el = entryValue.split(QStringLiteral("\n"), Qt::SkipEmptyParts);
     for (auto &e : el) {
         std::cout << e.toUtf8().constData() << std::endl;
     }
+    quit();
 }
 
 void QueryDriver::writeValue()
@@ -188,6 +193,7 @@ void QueryDriver::writeValue()
         if (rc != 0) {
             std::cout << i18n("Failed to write entry %1 value to %2 wallet", entryName, walletName).toUtf8().constData() << std::endl;
             exit(4);
+            return;
         }
     } else if (kind == Wallet::Map) {
         const QJsonDocument json = QJsonDocument::fromJson(passwordContents.toLatin1());
@@ -204,6 +210,7 @@ void QueryDriver::writeValue()
             if (rc != 0) {
                 std::cout << i18n("Failed to write entry %1 value to %2 wallet", entryName, walletName).toUtf8().constData() << std::endl;
                 exit(4);
+                return;
             }
         }
     }
