@@ -1908,7 +1908,7 @@ int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
     } else if (_closeIdle) {
         _closeTimers.addTimer(handle, _idleTime);
     }
-    if(brandNew) {
+    if (brandNew) {
         Q_EMIT walletCreated(wallet);
     }
     Q_EMIT walletOpened(wallet);
