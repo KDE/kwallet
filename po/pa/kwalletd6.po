@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-14 01:34+0000\n"
-"PO-Revision-Date: 2024-01-03 14:00-0600\n"
+"PO-Revision-Date: 2024-01-28 19:15-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -27,7 +27,7 @@ msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "alam.yellow@gmail.com"
+msgstr "aalam@punlinux.org"
 
 #: backend/backendpersisthandler.cpp:489
 #, kde-format
@@ -114,7 +114,7 @@ msgstr "ਫਾਇਲ ਖੋਲ੍ਹਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ।"
 #: backend/kwalletbackend.cc:263
 #, kde-format
 msgid "Not a wallet file."
-msgstr "ਇੱਕ ਵਾਲਿਟ ਫਾਇਲ ਨਹੀਂ ਹੈ।"
+msgstr "ਇੱਕ ਵਾਲਟ ਫਾਇਲ ਨਹੀਂ ਹੈ।"
 
 #: backend/kwalletbackend.cc:265
 #, kde-format
@@ -134,7 +134,7 @@ msgstr "ਫਾਇਲ ਨਿਕਾਰਾ ਹੈ?"
 #: backend/kwalletbackend.cc:273
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr "ਵਾਲਿਟ ਐਂਟੀਗਰੇਟੀ ਵੈਧਤਾ ਲਈ ਗਲਤੀ। ਨਿਕਾਰਾ ਹੋਣਾ ਸੰਭਵ ਹੈ।"
+msgstr "ਵਾਲਟ ਐਂਟੀਗਰੇਟੀ ਵੈਧਤਾ ਲਈ ਗਲਤੀ। ਨਿਕਾਰਾ ਹੋਣਾ ਸੰਭਵ ਹੈ।"
 
 #: backend/kwalletbackend.cc:277
 #, kde-format
@@ -185,9 +185,9 @@ msgid ""
 "to store sensitive data in a secure fashion. Please choose the new wallet's "
 "type below or click cancel to deny the application's request.</qt>"
 msgstr ""
-"<qt>KDE ਨੇ '<b>%1</b>' ਨਾਂ ਦਾ ਨਵਾਂ ਵਾਲਿਟ ਬਣਾਉਣ ਦੀ ਬੇਨਤੀ ਕੀਤੀ ਹੈ। ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ "
-"ਢੰਗ ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਿਟ ਦੀ ਕਿਸਮ ਹੇਠਾਂ ਤੋਂ ਚੁਣੋ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ "
-"ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ ਕਰੋ।</qt>"
+"<qt>KDE ਨੇ '<b>%1</b>' ਨਾਂ ਦਾ ਨਵਾਂ ਵਾਲਟ ਬਣਾਉਣ ਦੀ ਬੇਨਤੀ ਕੀਤੀ ਹੈ। ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ "
+"ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਟ ਦੀ ਕਿਸਮ ਹੇਠਾਂ ਤੋਂ ਚੁਣੋ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ "
+"ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ ਕਰੋ।</qt>"
 
 #: knewwalletdialog.cpp:55
 #, kde-format
@@ -197,9 +197,9 @@ msgid ""
 "Please choose the new wallet's type below or click cancel to deny the "
 "application's request.</qt>"
 msgstr ""
-"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>'  ਨੇ '<b>%2</b>' ਨਾਂ ਦਾ ਨਵਾਂ ਵਾਲਿਟ ਬਣਾਉਣ ਦੀ ਬੇਨਤੀ ਕੀਤੀ ਹੈ। "
-"ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਿਟ ਦੀ ਕਿਸਮ ਹੇਠਾਂ ਤੋਂ "
-"ਚੁਣੋ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ ਕਰੋ।</qt>"
+"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>'  ਨੇ '<b>%2</b>' ਨਾਂ ਦਾ ਨਵਾਂ ਵਾਲਟ ਬਣਾਉਣ ਦੀ ਬੇਨਤੀ ਕੀਤੀ ਹੈ। "
+"ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਟ ਦੀ ਕਿਸਮ ਹੇਠਾਂ ਤੋਂ ਚੁਣੋ "
+"ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ ਕਰੋ।</qt>"
 
 #: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
 #: kwalletwizard.cpp:157
@@ -254,7 +254,7 @@ msgstr "Key-ID"
 #: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
 #, kde-format
 msgid "The KDE Wallet System"
-msgstr "KDE ਵਾਲਿਟ ਸਿਸਟਮ"
+msgstr "KDE ਵਾਲਟ ਸਿਸਟਮ"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: knewwalletdialogintro.ui:30
@@ -266,8 +266,8 @@ msgid ""
 "cancel to deny the application's request.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>ਐਪਲੀਕੇਸ਼ਨ '<span style=\" font-weight:600;\">%1</span>' "
-"ਨੇ KDE ਵਾਲਿਟ ਖੋਲ੍ਹਣ ਦੀ ਬੇਨਤੀ ਕੀਤੀ ਹੈ। ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ "
-"ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਿਟ ਦੀ ਕਿਸਮ ਹੇਠਾਂ ਤੋਂ ਚੁਣੋ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ "
+"ਨੇ KDE ਵਾਲਟ ਖੋਲ੍ਹਣ ਦੀ ਬੇਨਤੀ ਕੀਤੀ ਹੈ। ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ "
+"ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਟ ਦੀ ਕਿਸਮ ਹੇਠਾਂ ਤੋਂ ਚੁਣੋ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ "
 "ਕਰੋ।</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
@@ -290,8 +290,8 @@ msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
 "password for this wallet below.</qt>"
 msgstr ""
-"<qt>KDE ਵਾਲਿਟ '<b>%1</b>' ਖੋਲ੍ਹਣ ਲਈ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਵਾਲਿਟ ਲਈ ਪਾਸਵਰਡ ਲਈ ਹੇਠਾਂ ਦਿਓ "
-"ਜੀ।</qt>"
+"<qt>KDE ਵਾਲਟ '<b>%1</b>' ਖੋਲ੍ਹਣ ਲਈ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਵਾਲਟ ਲਈ ਪਾਸਵਰਡ ਲਈ ਹੇਠਾਂ ਦਿਓ ਜੀ।"
+"</qt>"
 
 #: kwalletd.cpp:627
 #, kde-format
@@ -299,8 +299,8 @@ msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
 "b>'. Please enter the password for this wallet below.</qt>"
 msgstr ""
-"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>' ਨੇ ਵਾਲਿਟ '<b>%2</b>' ਖੋਲ੍ਹਣ ਲਈ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਵਾਲਿਟ ਲਈ "
-"ਹੇਠਾਂ ਪਾਸਵਰਡ ਦਿਓ ਜੀ।</qt>"
+"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>' ਨੇ ਵਾਲਟ '<b>%2</b>' ਖੋਲ੍ਹਣ ਲਈ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਵਾਲਟ ਲਈ ਹੇਠਾਂ "
+"ਪਾਸਵਰਡ ਦਿਓ ਜੀ।</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
 #: kwalletd.cpp:638 kwalletd.cpp:747 kwalletd.cpp:851 kwalletd.cpp:964
@@ -308,12 +308,12 @@ msgstr ""
 #: main.cpp:168 main.cpp:170
 #, kde-format
 msgid "KDE Wallet Service"
-msgstr "KDE ਵਾਲਿਟ ਸਰਵਿਸ"
+msgstr "KDE ਵਾਲਟ ਸਰਵਿਸ"
 
 #: kwalletd.cpp:653
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
-msgstr "ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਵਾਲਿਟ (%1) ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।"
+msgstr "ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਵਾਲਟ (%1) ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।"
 
 #: kwalletd.cpp:654
 #, kde-format
@@ -326,7 +326,7 @@ msgstr "ਉੱਥੇ ਬਦਲੋ"
 #: kwalletd.cpp:656
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
-msgstr "<b>%1</b> ਨੇ ਵਾਲਿਟ (%2) ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।"
+msgstr "<b>%1</b> ਨੇ ਵਾਲਟ (%2) ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।"
 
 #: kwalletd.cpp:658
 #, kde-format
@@ -341,8 +341,8 @@ msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
 "%2: %3)</qt>"
 msgstr ""
-"<qt>ਵਾਲਿਟ '<b>%1</b>' ਖੋਲ੍ਹਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ। ਮੁੜ ਟਰਾਈ ਕਰੋ ਜੀ।<br />(ਗਲਤੀ ਕੋਡ %2: "
-"%3)</qt>"
+"<qt>ਵਾਲਟ '<b>%1</b>' ਖੋਲ੍ਹਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ। ਮੁੜ ਟਰਾਈ ਕਰੋ ਜੀ।<br />(ਗਲਤੀ ਕੋਡ %2: %3)</"
+"qt>"
 
 #: kwalletd.cpp:723
 #, kde-format
@@ -351,8 +351,8 @@ msgid ""
 "in a secure fashion. Please enter a password to use with this wallet or "
 "click cancel to deny the application's request."
 msgstr ""
-"KDE ਨੇ ਵਾਲਿਟ ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ "
-"ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਿਟ ਨਾਲ ਵਰਤਣ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਦਿਓ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ "
+"KDE ਨੇ ਵਾਲਟ ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ "
+"ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਟ ਨਾਲ ਵਰਤਣ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਦਿਓ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ "
 "ਕਰੋ ਕਲਿੱਕ ਕਰੋ।"
 
 #: kwalletd.cpp:728
@@ -364,7 +364,7 @@ msgid ""
 "qt>"
 msgstr ""
 "<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>' ਨੇ KDEਵਾਲਿਟ ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ "
-"ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਿਟ ਨਾਲ ਵਰਤਣ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਦਿਓ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ "
+"ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਟ ਨਾਲ ਵਰਤਣ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਦਿਓ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ "
 "ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ ਕਰੋ।</qt>"
 
 #: kwalletd.cpp:736
@@ -374,7 +374,7 @@ msgid ""
 "choose a password for this wallet, or cancel to deny the application's "
 "request.</qt>"
 msgstr ""
-"<qt>KDE ਨੇ ਇੱਕ ਨਵਾਂ ਵਾਲਿਟ '<b>%1</b>' ਨਾਂ ਨਾਲ ਬਣਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਵਾਲਿਟ ਲਈ ਇੱਕ "
+"<qt>KDE ਨੇ ਇੱਕ ਨਵਾਂ ਵਾਲਟ '<b>%1</b>' ਨਾਂ ਨਾਲ ਬਣਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਵਾਲਟ ਲਈ ਇੱਕ "
 "ਪਾਸਵਰਡ ਚੁਣੋ ਜੀ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ।</qt>"
 
 #: kwalletd.cpp:741
@@ -384,13 +384,13 @@ msgid ""
 "'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
 "application's request.</qt>"
 msgstr ""
-"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>' ਨੇ ਇੱਕ ਨਵਾਂ ਵਾਲਿਟ '<b>%2</b>' ਨਾਂ ਨਾਲ ਬਣਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ "
-"ਹੈ। ਇਸ ਵਾਲਿਟ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਚੁਣੋ ਜੀ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ।</qt>"
+"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>' ਨੇ ਇੱਕ ਨਵਾਂ ਵਾਲਟ '<b>%2</b>' ਨਾਂ ਨਾਲ ਬਣਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ। "
+"ਇਸ ਵਾਲਟ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਚੁਣੋ ਜੀ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ।</qt>"
 
 #: kwalletd.cpp:853
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
-msgstr "<qt>KDE ਨੇ ਖੁੱਲ੍ਹੇ ਵਾਲਿਟ '<b>%1</b>' ਵਰਤਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।</qt>"
+msgstr "<qt>KDE ਨੇ ਖੁੱਲ੍ਹੇ ਵਾਲਟ '<b>%1</b>' ਵਰਤਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।</qt>"
 
 #: kwalletd.cpp:855
 #, kde-format
@@ -398,14 +398,14 @@ msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
 "%2</b>'.</qt>"
 msgstr ""
-"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>'  ਨੇ ਖੁੱਲ੍ਹੇ ਵਾਲਿਟ '<b>%2</b>' ਵਰਤਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।</qt>"
+"<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>'  ਨੇ ਖੁੱਲ੍ਹੇ ਵਾਲਟ '<b>%2</b>' ਵਰਤਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।</qt>"
 
 #: kwalletd.cpp:963
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
-msgstr "ਵਾਲਿਟ ਖੋਲ੍ਹਣ ਲਈ ਅਸਮੱਰਥ ਹੈ। ਪਾਸਵਰਡ ਬਦਲਣ ਲਈ ਵਾਲਿਟ ਨੂੰ ਖੋਲ੍ਹਣ ਲਾਜ਼ਮੀ ਹੈ।"
+msgstr "ਵਾਲਟ ਖੋਲ੍ਹਣ ਲਈ ਅਸਮੱਰਥ ਹੈ। ਪਾਸਵਰਡ ਬਦਲਣ ਲਈ ਵਾਲਟ ਨੂੰ ਖੋਲ੍ਹਣ ਲਾਜ਼ਮੀ ਹੈ।"
 
 #: kwalletd.cpp:979
 #, kde-format
@@ -418,17 +418,17 @@ msgstr ""
 #: kwalletd.cpp:986
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
-msgstr "<qt>ਵਾਲਿਟ '<b>%1</b>' ਲਈ ਨਵਾਂ ਪਾਸਵਰਡ ਚੁਣੋ ਜੀ।</qt>"
+msgstr "<qt>ਵਾਲਟ '<b>%1</b>' ਲਈ ਨਵਾਂ ਪਾਸਵਰਡ ਚੁਣੋ ਜੀ।</qt>"
 
 #: kwalletd.cpp:998
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
-msgstr "ਵਾਲਿਟ ਲਈ ਮੁੜ-ਇੰਕ੍ਰਿਪਸ਼ਨ ਕਰਨ ਲਈ ਗਲਤੀ। ਪਾਸਵਰਡ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
+msgstr "ਵਾਲਟ ਲਈ ਮੁੜ-ਇੰਕ੍ਰਿਪਸ਼ਨ ਕਰਨ ਲਈ ਗਲਤੀ। ਪਾਸਵਰਡ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
 
 #: kwalletd.cpp:1003
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
-msgstr "ਵਾਲਿਟ ਨੂੰ ਮੁੜ-ਖੋਲ੍ਹਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ। ਡਾਟਾ ਖਰਾਬ ਹੋ ਸਕਦਾ ਹੈ।"
+msgstr "ਵਾਲਟ ਨੂੰ ਮੁੜ-ਖੋਲ੍ਹਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ। ਡਾਟਾ ਖਰਾਬ ਹੋ ਸਕਦਾ ਹੈ।"
 
 #: kwalletd.cpp:1592
 #, kde-format
@@ -436,12 +436,12 @@ msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
 "application may be misbehaving."
 msgstr ""
-"ਵਾਲਿਟ ਵਰਤੋਂ ਲਈ ਲਗਾਤਾਰ ਕੋਸ਼ਿਸ਼ਾਂ ਫੇਲ੍ਹ ਹੋ ਰਹੀਆਂ ਹਨ। ਐਪਲੀਕੇਸ਼ਨ ਸ਼ਾਇਦ ਠੀਕ ਢੰਗ ਨਾਲ ਕੰਮ ਨਹੀਂ ਕਰਦੀ"
+"ਵਾਲਟ ਵਰਤੋਂ ਲਈ ਲਗਾਤਾਰ ਕੋਸ਼ਿਸ਼ਾਂ ਫੇਲ੍ਹ ਹੋ ਰਹੀਆਂ ਹਨ। ਐਪਲੀਕੇਸ਼ਨ ਸ਼ਾਇਦ ਠੀਕ ਢੰਗ ਨਾਲ ਕੰਮ ਨਹੀਂ ਕਰਦੀ"
 
 #: kwalletwizard.cpp:40
 #, kde-format
 msgid "KWallet"
-msgstr "ਕੇਵਾਲਿਟ"
+msgstr "ਕੇਵਾਲਟ"
 
 #: kwalletwizard.cpp:272
 #, kde-format
@@ -512,9 +512,9 @@ msgid ""
 "preventing others from viewing the information.  This wizard will tell you "
 "about KWallet and help you configure it for the first time."
 msgstr ""
-"ਕੇ-ਵਾਲਿਟ, KDE ਵਾਲਿਟ ਸਿਸਟਮ, ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ। ਕੇਵਾਲਿਟ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਅਤੇ ਹੋਰ ਨਿੱਜੀ "
+"ਕੇ-ਵਾਲਟ, KDE ਵਾਲਟ ਸਿਸਟਮ, ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ। ਕੇਵਾਲਟ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਅਤੇ ਹੋਰ ਨਿੱਜੀ "
 "ਜਾਣਕਾਰੀ ਨੂੰ ਡਿਸਕ ਉੱਤੇ ਇੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਫਾਇਲ ਵਿੱਚ ਸੰਭਾਲਣ ਲਈ ਸਹਾਇਕ ਹੈ, ਜਿਸ ਨੂੰ ਕਿ ਹੋਰਾਂ ਨੂੰ "
-"ਜਾਣਕਾਰੀ ਵੇਖਣ ਤੋਂ ਰੋਕਿਆ ਜਾ ਸਕਦਾ ਹੈ। ਇਹ ਸਹਾਇਕ ਤੁਹਾਨੂੰ ਕੇ-ਵਾਲਿਟ ਬਾਰੇ ਦੱਸੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਪਹਿਲੀਂ "
+"ਜਾਣਕਾਰੀ ਵੇਖਣ ਤੋਂ ਰੋਕਿਆ ਜਾ ਸਕਦਾ ਹੈ। ਇਹ ਸਹਾਇਕ ਤੁਹਾਨੂੰ ਕੇ-ਵਾਲਟ ਬਾਰੇ ਦੱਸੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਪਹਿਲੀਂ "
 "ਵਾਰ ਇਸ ਦੀ ਸੰਰਚਨਾ ਕਰਨ ਲਈ ਮਦਦ ਕਰੇਗਾ।"
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
@@ -539,22 +539,22 @@ msgid ""
 "change some of them.  You may further tune these settings from the KWallet "
 "control module."
 msgstr ""
-"KDE ਵਾਲਿਟ ਸਿਸਟਮ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਨਿੱਜੀ ਡਾਟੇ ਦੀ ਸੁਰੱਖਿਆ ਦਾ ਲੈਵਲ ਕੰਟਰੋਲ ਕਰਨ ਲਈ ਮਦਦਗਾਰ ਹੈ। "
-"ਇਹਨਾਂ 'ਚ ਕੁਝ ਸੈਟਿੰਗਾਂ ਵਰਤੋਂਯੋਗਤਾ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੀਆਂ ਹਨ। ਜਦੋਂ ਕੁ ਡਿਫਾਲਟ ਸੈਟਿੰਗ ਬਹੁਤੇ ਵਰਤੋਂਕਾਰਾਂ ਲਈ "
-"ਠੀਕ ਹਨ, ਪਰ ਤੁਸੀਂ ਉਹਨਾਂ 'ਚੋਂ ਕੁਝ ਬਦਲਣਾ ਚਾਹੁੰਦੇ ਹੋ ਸਕਦੇ ਹੋ। ਤੁਸੀਂ ਇਹ ਸੈਟਿੰਗ ਨੂੰ ਆਪਣੇ ਢੰਗ ਨਾਲ ਵਰਤਣ "
-"ਲਈ ਕੇਵਾਲਿਟ ਕੰਟਰੋਲ ਮੋਡੀਊਲ ਨੂੰ ਵਰਤ ਸਕਦੇ ਹੋ।"
+"KDE ਵਾਲਟ ਸਿਸਟਮ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਨਿੱਜੀ ਡਾਟੇ ਦੀ ਸੁਰੱਖਿਆ ਦਾ ਲੈਵਲ ਕੰਟਰੋਲ ਕਰਨ ਲਈ ਮਦਦਗਾਰ ਹੈ। ਇਹਨਾਂ "
+"'ਚ ਕੁਝ ਸੈਟਿੰਗਾਂ ਵਰਤੋਂਯੋਗਤਾ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੀਆਂ ਹਨ। ਜਦੋਂ ਕੁ ਡਿਫਾਲਟ ਸੈਟਿੰਗ ਬਹੁਤੇ ਵਰਤੋਂਕਾਰਾਂ ਲਈ ਠੀਕ "
+"ਹਨ, ਪਰ ਤੁਸੀਂ ਉਹਨਾਂ 'ਚੋਂ ਕੁਝ ਬਦਲਣਾ ਚਾਹੁੰਦੇ ਹੋ ਸਕਦੇ ਹੋ। ਤੁਸੀਂ ਇਹ ਸੈਟਿੰਗ ਨੂੰ ਆਪਣੇ ਢੰਗ ਨਾਲ ਵਰਤਣ ਲਈ "
+"ਕੇਵਾਲਟ ਕੰਟਰੋਲ ਮੋਡੀਊਲ ਨੂੰ ਵਰਤ ਸਕਦੇ ਹੋ।"
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: kwalletwizardpageoptions.ui:48
 #, kde-format
 msgid "Automatically close idle wallets"
-msgstr "ਜਦੋਂ ਵਾਲਿਟ ਵੇਹਲੇ ਹੋਣ ਤਾਂ ਆਟੋਮੈਟਿਕ ਬੰਦ ਕਰੋ"
+msgstr "ਜਦੋਂ ਵਾਲਟ ਵੇਹਲੇ ਹੋਣ ਤਾਂ ਆਟੋਮੈਟਿਕ ਬੰਦ ਕਰੋ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, _networkWallet)
 #: kwalletwizardpageoptions.ui:55
 #, kde-format
 msgid "Store network passwords and local passwords in separate wallet files"
-msgstr "ਨੈੱਟਵਰਕ ਪਾਸਵਰਡਾਂ ਅਤੇ ਲੋਕਲ ਪਾਸਵਰਡਾਂ ਨੂੰ ਵੱਖ ਵੱਖ ਵਾਲਿਟ ਫਾਇਲਾਂ ਵਿੱਚ ਸੰਭਾਲੋ"
+msgstr "ਨੈੱਟਵਰਕ ਪਾਸਵਰਡਾਂ ਅਤੇ ਲੋਕਲ ਪਾਸਵਰਡਾਂ ਨੂੰ ਵੱਖ ਵੱਖ ਵਾਲਟ ਫਾਇਲਾਂ ਵਿੱਚ ਸੰਭਾਲੋ"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: kwalletwizardpagepassword.ui:16
@@ -572,7 +572,7 @@ msgstr ""
 #: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
 msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr "ਹਾਂ, ਮੈਂ ਕੇ-ਵਾਲਿਟ ਨੂੰ ਆਪਣੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਣਾ ਚਾਹੁੰਦਾ ਹਾਂ।"
+msgstr "ਹਾਂ, ਮੈਂ ਕੇ-ਵਾਲਟ ਨੂੰ ਆਪਣੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਣਾ ਚਾਹੁੰਦਾ ਹਾਂ।"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: kwalletwizardpagepassword.ui:88 kwalletwizardpagepasswordgpg.ui:106
