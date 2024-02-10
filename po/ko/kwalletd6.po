@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2008, 2009, 2014, 2015, 2016, 2017, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2008, 2009, 2014, 2015, 2016, 2017, 2020, 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-14 01:34+0000\n"
-"PO-Revision-Date: 2023-07-24 00:06+0200\n"
+"PO-Revision-Date: 2024-02-10 00:10+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -676,10 +676,9 @@ msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
 #: main.cpp:173
-#, fuzzy, kde-format
-#| msgid "Maintainer, GPG backend support"
+#, kde-format
 msgid "Former Maintainer, GPG backend support"
-msgstr "관리자, GPG 백엔드 지원"
+msgstr "이전 관리자, GPG 백엔드 지원"
 
 #: main.cpp:174
 #, kde-format

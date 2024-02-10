@@ -61,7 +61,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
     <simpara
 ><command
 >kwallet-query</command
->, kabuk betiklerinin &kde; Cüzdan'ı okuması veya güncellemesi gerektiğinde işe yarar. <emphasis role="strong"
+>, kabuk betiklerinin &kde; Cüzdan’ı okuması veya güncellemesi gerektiğinde işe yarar. <emphasis role="strong"
 >&kde; Cüzdan Yöneticisi</emphasis
 > izlencesindeki girdileri manipüle ederek çalışır. Tek parametresi, okuması veya güncellemesi gereken <emphasis
 >cüzdan</emphasis
@@ -124,11 +124,11 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
           <simpara
 ><emphasis
 >cüzdan</emphasis
->'ın <emphasis role="strong"
+>’ın <emphasis role="strong"
 >klasör</emphasis
 >bölümünden verilen <emphasis
 >girdi</emphasis
->'ye gizleri yazın. Gizler standart girdi'den okunur. Haritalar, düzgünce oluşturulmuş bir &JSON; nesnesinden girdi alır. <emphasis role="strong"
+>’ye gizleri yazın. Gizler standart girdi’den okunur. Haritalar, düzgünce oluşturulmuş bir &JSON; nesnesinden girdi alır. <emphasis role="strong"
 >ÖNEMLİ</emphasis
 >, bir önceki cüzdan girdisinin bu seçenekle üzerine yazılır; bu yüzden kullanırken dikkatli olun!</simpara>
         </listitem>
