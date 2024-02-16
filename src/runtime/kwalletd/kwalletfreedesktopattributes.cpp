@@ -11,6 +11,7 @@
 #include "kwalletfreedesktopcollection.h"
 #include <QDir>
 #include <QFile>
+#include <QJsonDocument>
 #include <QSaveFile>
 
 KWalletFreedesktopAttributes::KWalletFreedesktopAttributes(const QString &walletName)

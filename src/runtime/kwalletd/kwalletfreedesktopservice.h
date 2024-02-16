@@ -14,7 +14,6 @@
 #include <QPointer>
 #include <QString>
 #include <QtCrypto>
-#include <QtDBus>
 
 #include "kwalletdbuscontext.h"
 

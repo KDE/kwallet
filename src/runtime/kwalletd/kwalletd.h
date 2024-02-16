@@ -10,13 +10,12 @@
 #define _KWALLETD_H_
 
 #include "kwalletbackend.h"
+#include <QDBusConnection>
+#include <QDBusContext>
 #include <QDBusServiceWatcher>
 #include <QHash>
 #include <QPointer>
 #include <QString>
-#include <QtDBus>
-#include <stdlib.h>
-#include <time.h>
 
 #include "ktimeout.h"
 #include "kwalletsessionstore.h"

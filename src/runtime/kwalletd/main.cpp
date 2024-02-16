@@ -13,6 +13,7 @@
 #include <KDBusService>
 #include <KLocalizedString>
 #include <QApplication>
+#include <QCommandLineParser>
 #include <QIcon>
 #include <QSessionManager>
 #include <QString>

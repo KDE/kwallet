@@ -8,6 +8,7 @@
 #define _KWALLETFREEDESKTOPATTRIBUTES_H_
 
 #include "kwalletfreedesktopservice.h"
+#include <QJsonObject>
 
 class KWalletFreedesktopAttributes : public QObject
 {
