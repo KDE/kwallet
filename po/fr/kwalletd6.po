@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-14 01:34+0000\n"
+"POT-Creation-Date: 2024-02-18 00:36+0000\n"
 "PO-Revision-Date: 2023-12-15 09:57+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -358,7 +358,7 @@ msgstr ""
 #. i18n( "&Open" ), "wallet-open"));
 #: kwalletd.cpp:638 kwalletd.cpp:747 kwalletd.cpp:851 kwalletd.cpp:964
 #: kwalletd.cpp:987 kwalletd.cpp:998 kwalletd.cpp:1003 kwalletd.cpp:1593
-#: main.cpp:168 main.cpp:170
+#: main.cpp:169 main.cpp:171
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Service de portefeuilles de KDE"
@@ -733,47 +733,47 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "Quelle type de chiffrement voulez-vous ?"
 
-#: main.cpp:172
+#: main.cpp:173
 #, kde-format
 msgid "(C) 2002-2013, The KDE Developers"
 msgstr "(c) 2002-2013 Les développeurs de KDE"
 
-#: main.cpp:173
+#: main.cpp:174
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:173
+#: main.cpp:174
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "Ancien mainteneur. Prise en charge du moteur « GPG »"
 
-#: main.cpp:174
+#: main.cpp:175
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:174
+#: main.cpp:175
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Mainteneur précédent"
 
-#: main.cpp:175
+#: main.cpp:176
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:175
+#: main.cpp:176
 #, kde-format
 msgid "Former maintainer"
 msgstr "Ancien mainteneur"
 
-#: main.cpp:176
+#: main.cpp:177
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:176
+#: main.cpp:177
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "Interface D-BUS"
