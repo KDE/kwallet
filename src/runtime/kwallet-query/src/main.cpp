@@ -18,6 +18,8 @@ int main(int argc, char *argv[])
 {
     KLocalizedString::setApplicationDomain("kwallet6-query");
 
+    QueryDriver app(argc, argv);
+
     KAboutData aboutData(QStringLiteral("kwallet-query"),
                          i18n("KWallet query interface"),
                          QStringLiteral("0.1"),
@@ -25,7 +27,6 @@ int main(int argc, char *argv[])
                          KAboutLicense::GPL,
                          i18n("(c) 2015, The KDE Developers"));
 
-    QueryDriver app(argc, argv);
     QCommandLineParser cmdParser;
     // clang-format off
     QCommandLineOption verboseOption(QStringList() << QStringLiteral("v") << QStringLiteral("verbose"), i18n("verbose output"));
