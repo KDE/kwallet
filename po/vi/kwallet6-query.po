@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-12-09 00:40+0000\n"
+"POT-Creation-Date: 2024-03-02 00:36+0000\n"
 "PO-Revision-Date: 2022-05-06 11:14+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -111,22 +111,22 @@ msgstr "Không tìm thấy ví %1"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "Mở ví %1 thất bại. Đang huỷ bỏ"
 
-#: querydriver.cpp:104 querydriver.cpp:121
+#: querydriver.cpp:104 querydriver.cpp:122
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "Thư mục %1 không tồn tại!"
 
-#: querydriver.cpp:130
+#: querydriver.cpp:132
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet."
 msgstr "Đọc giá trị mục %1 trong ví %2 thất bại."
 
-#: querydriver.cpp:141 querydriver.cpp:156
+#: querydriver.cpp:142 querydriver.cpp:159
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "Đọc giá trị mục %1 trong ví %2 thất bại"
 
-#: querydriver.cpp:189 querydriver.cpp:205
+#: querydriver.cpp:194 querydriver.cpp:211
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Ghi giá trị mục %1 vào ví %2 thất bại"

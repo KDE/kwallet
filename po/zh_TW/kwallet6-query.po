@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-12-09 00:40+0000\n"
+"POT-Creation-Date: 2024-03-02 00:36+0000\n"
 "PO-Revision-Date: 2023-05-28 16:50+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -112,22 +112,22 @@ msgstr "錢包 %1 找不到"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "開啟錢包 %1 失敗。操作中止"
 
-#: querydriver.cpp:104 querydriver.cpp:121
+#: querydriver.cpp:104 querydriver.cpp:122
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "資料夾 %1 不存在"
 
-#: querydriver.cpp:130
+#: querydriver.cpp:132
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet."
 msgstr "從錢包 %2 讀取項目 %1 的值失敗。"
 
-#: querydriver.cpp:141 querydriver.cpp:156
+#: querydriver.cpp:142 querydriver.cpp:159
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "從錢包 %2 讀取項目 %1 的值失敗"
 
-#: querydriver.cpp:189 querydriver.cpp:205
+#: querydriver.cpp:194 querydriver.cpp:211
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "將項目 %1 的值寫入錢包 %2 失敗"

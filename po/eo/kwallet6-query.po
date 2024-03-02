@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-12-09 00:40+0000\n"
+"POT-Creation-Date: 2024-03-02 00:36+0000\n"
 "PO-Revision-Date: 2023-05-01 21:52+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -113,22 +113,22 @@ msgstr "Monujo %1 ne trovita"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "Malsukcesis malfermi monujon %1. Abortante"
 
-#: querydriver.cpp:104 querydriver.cpp:121
+#: querydriver.cpp:104 querydriver.cpp:122
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "La dosierujo %1 ne ekzistas!"
 
-#: querydriver.cpp:130
+#: querydriver.cpp:132
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet."
 msgstr "Malsukcesis legi la valoron de eniro %1 el la monujo %2."
 
-#: querydriver.cpp:141 querydriver.cpp:156
+#: querydriver.cpp:142 querydriver.cpp:159
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "Malsukcesis legi la valoron de eniro %1 el la monujo %2"
 
-#: querydriver.cpp:189 querydriver.cpp:205
+#: querydriver.cpp:194 querydriver.cpp:211
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Malsukcesis skribi la valoron %1 de la eniro al monujo %2"

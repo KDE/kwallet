@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-12-09 00:40+0000\n"
+"POT-Creation-Date: 2024-03-02 00:36+0000\n"
 "PO-Revision-Date: 2022-07-31 18:30+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -115,22 +115,22 @@ msgstr "საფულე %1 ვერ ვიპოვე"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "საფულის (%1) გახსნის შეცდომა. მუშაობის დასრულება"
 
-#: querydriver.cpp:104 querydriver.cpp:121
+#: querydriver.cpp:104 querydriver.cpp:122
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "საქაღალდე არ არსებობს: %1!"
 
-#: querydriver.cpp:130
+#: querydriver.cpp:132
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet."
 msgstr "ჩანაწერის (%1) საფულიდან (%2) წაკითხვის შეცდომა."
 
-#: querydriver.cpp:141 querydriver.cpp:156
+#: querydriver.cpp:142 querydriver.cpp:159
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "ჩანაწერის (%1) საფულიდან (%2) წაკითხვის შეცდომა"
 
-#: querydriver.cpp:189 querydriver.cpp:205
+#: querydriver.cpp:194 querydriver.cpp:211
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "ჩანაწერის (%1) საფულეში (%2) ჩაწერის შეცდომა"
