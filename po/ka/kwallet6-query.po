@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:36+0000\n"
+"POT-Creation-Date: 2024-03-04 00:36+0000\n"
 "PO-Revision-Date: 2022-07-31 18:30+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,37 +28,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: main.cpp:22 main.cpp:24
+#: main.cpp:24 main.cpp:26
 #, kde-format
 msgid "KWallet query interface"
 msgstr "KWallet -ის მთხოვნის ინტერფეისი"
 
-#: main.cpp:26
+#: main.cpp:28
 #, kde-format
 msgid "(c) 2015, The KDE Developers"
 msgstr "(c) 2015, The KDE -ის პროგრამისტები"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgid "verbose output"
 msgstr "უფრო მეტის ჩვენება"
 
-#: main.cpp:32
+#: main.cpp:33
 #, kde-format
 msgid "list password entries"
 msgstr "პაროლების ჩანაწერების სია"
 
-#: main.cpp:33
+#: main.cpp:34
 #, kde-format
 msgid "reads the secrets from the given <entry>"
 msgstr "მითითებული <ჩანაწერის> პაროლების წაკითხვა"
 
-#: main.cpp:33 main.cpp:34
+#: main.cpp:34 main.cpp:35
 #, kde-format
 msgid "Entry"
 msgstr "ერთეული"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid ""
 "write secrets to the given <entry>. The values are read from the standard "
@@ -68,39 +68,39 @@ msgstr ""
 "იქნება წაკითხული. მნიშვნელოვანია: საფულის ჩანაწერის წინა მნიშვნელობები "
 "წაიშლება!"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "specify the folder in the wallet <folder>"
 msgstr "მიუთიეთ საქაღალდე საფულის <საქაღალდეში>"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Folder"
 msgstr "საქაღალდე"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "The wallet to query"
 msgstr "გამოსაყენებელი საფულე"
 
-#: main.cpp:49
+#: main.cpp:50
 #, kde-format
 msgid "Missing argument"
 msgstr "ნაკლული არგუმენტი"
 
-#: main.cpp:53
+#: main.cpp:54
 #, kde-format
 msgid "Too many arguments given"
 msgstr "მეტისმეტად ბევრი არგუმენტი"
 
-#: main.cpp:58
+#: main.cpp:59
 #, kde-format
 msgid "Only one mode (list, read or write) can be set. Aborting"
 msgstr ""
 "მხოლოდ ერთ რეჟიმის (list (სია), read (წაკითხვა) და write(ჩაწერა) დაყენება "
 "შეიძლება. გამოსვლა"
 
-#: main.cpp:62
+#: main.cpp:63
 #, kde-format
 msgid "Please specify the mode (list or read)."
 msgstr "მიუთითეთ რეჟიმი: list(სია) ან read(წაკითხვა)."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:36+0000\n"
+"POT-Creation-Date: 2024-03-04 00:36+0000\n"
 "PO-Revision-Date: 2020-08-26 14:47+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -27,37 +27,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sstavra@gmail.com"
 
-#: main.cpp:22 main.cpp:24
+#: main.cpp:24 main.cpp:26
 #, kde-format
 msgid "KWallet query interface"
 msgstr "Περιβάλλον ερωτήσεων του KWallet"
 
-#: main.cpp:26
+#: main.cpp:28
 #, kde-format
 msgid "(c) 2015, The KDE Developers"
 msgstr "(c) 2015, Οι προγραμματιστές του KDE"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgid "verbose output"
 msgstr "μακροσκελές αποτέλεσμα"
 
-#: main.cpp:32
+#: main.cpp:33
 #, kde-format
 msgid "list password entries"
 msgstr "λίστα εγγραφών κωδικών πρόσβασης"
 
-#: main.cpp:33
+#: main.cpp:34
 #, kde-format
 msgid "reads the secrets from the given <entry>"
 msgstr "διαβάζει τα μυστικά από τη δοσμένη <εγγραφή>"
 
-#: main.cpp:33 main.cpp:34
+#: main.cpp:34 main.cpp:35
 #, kde-format
 msgid "Entry"
 msgstr "Εγγραφή"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid ""
 "write secrets to the given <entry>. The values are read from the standard "
@@ -66,39 +66,39 @@ msgstr ""
 "εγγράφει μυστικά στη δοσμένη <εγγραφή>. Οι τιμές διαβάζονται από την τυπική "
 "είσοδο. ΣΗΜΑΝΤΙΚΟ: η προηγούμενη εγγραφή του πορτοφολιού θα αντικατασταθεί!"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "specify the folder in the wallet <folder>"
 msgstr "καθορίζει το φάκελο στο πορτοφόλι <φάκελος>\""
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Folder"
 msgstr "Φάκελος"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "The wallet to query"
 msgstr "Το πορτοφόλι για ερωτήσεις"
 
-#: main.cpp:49
+#: main.cpp:50
 #, kde-format
 msgid "Missing argument"
 msgstr "Λείπει το όρισμα"
 
-#: main.cpp:53
+#: main.cpp:54
 #, kde-format
 msgid "Too many arguments given"
 msgstr "Δόθηκαν πολλά ορίσματα"
 
-#: main.cpp:58
+#: main.cpp:59
 #, kde-format
 msgid "Only one mode (list, read or write) can be set. Aborting"
 msgstr ""
 "Μόνο μία λειτουργία (λίστα, ανάγνωση ή εγγραφή) μπορεί να οριστεί. "
 "Εγκατάλειψη"
 
-#: main.cpp:62
+#: main.cpp:63
 #, kde-format
 msgid "Please specify the mode (list or read)."
 msgstr "Καθορίστε τη λειτουργία (λίστα ή ανάγνωση)."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:36+0000\n"
+"POT-Creation-Date: 2024-03-04 00:36+0000\n"
 "PO-Revision-Date: 2020-04-04 15:05+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,37 +27,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: main.cpp:22 main.cpp:24
+#: main.cpp:24 main.cpp:26
 #, kde-format
 msgid "KWallet query interface"
 msgstr "KWallet 질의 인터페이스"
 
-#: main.cpp:26
+#: main.cpp:28
 #, kde-format
 msgid "(c) 2015, The KDE Developers"
 msgstr "(c) 2015, The KDE Developers"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgid "verbose output"
 msgstr "자세한 출력"
 
-#: main.cpp:32
+#: main.cpp:33
 #, kde-format
 msgid "list password entries"
 msgstr "암호 항목 표시"
 
-#: main.cpp:33
+#: main.cpp:34
 #, kde-format
 msgid "reads the secrets from the given <entry>"
 msgstr "주어진 <entry>에서 비밀 값 읽기"
 
-#: main.cpp:33 main.cpp:34
+#: main.cpp:34 main.cpp:35
 #, kde-format
 msgid "Entry"
 msgstr "항목"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid ""
 "write secrets to the given <entry>. The values are read from the standard "
@@ -66,37 +66,37 @@ msgstr ""
 "비밀 값을 주어진 <entry>에 기록합니다. 표준 입력에서 값을 읽어옵니다. 주의: "
 "이전 지갑 항목을 덮어씁니다!"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "specify the folder in the wallet <folder>"
 msgstr "지갑 <folder>의 폴더 지정"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Folder"
 msgstr "폴더"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "The wallet to query"
 msgstr "질의할지갑"
 
-#: main.cpp:49
+#: main.cpp:50
 #, kde-format
 msgid "Missing argument"
 msgstr "인자가 없음"
 
-#: main.cpp:53
+#: main.cpp:54
 #, kde-format
 msgid "Too many arguments given"
 msgstr "인자가 너무 많음"
 
-#: main.cpp:58
+#: main.cpp:59
 #, kde-format
 msgid "Only one mode (list, read or write) can be set. Aborting"
 msgstr "list, read, write 중 하나의 모드만 지정 가능합니다. 중단합니다"
 
-#: main.cpp:62
+#: main.cpp:63
 #, kde-format
 msgid "Please specify the mode (list or read)."
 msgstr "list, read 중 모드를 지정하십시오."

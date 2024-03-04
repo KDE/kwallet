@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:36+0000\n"
+"POT-Creation-Date: 2024-03-04 00:36+0000\n"
 "PO-Revision-Date: 2022-03-23 16:24+0100\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -32,37 +32,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
-#: main.cpp:22 main.cpp:24
+#: main.cpp:24 main.cpp:26
 #, kde-format
 msgid "KWallet query interface"
 msgstr "Interfície de consulta del KWallet"
 
-#: main.cpp:26
+#: main.cpp:28
 #, kde-format
 msgid "(c) 2015, The KDE Developers"
 msgstr "(c) 2015, The KDE Developers"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgid "verbose output"
 msgstr "Sortida detallada"
 
-#: main.cpp:32
+#: main.cpp:33
 #, kde-format
 msgid "list password entries"
 msgstr "Llista les entrades de contrasenya"
 
-#: main.cpp:33
+#: main.cpp:34
 #, kde-format
 msgid "reads the secrets from the given <entry>"
 msgstr "Llegeix els secrets de l'<entrada> indicada"
 
-#: main.cpp:33 main.cpp:34
+#: main.cpp:34 main.cpp:35
 #, kde-format
 msgid "Entry"
 msgstr "Entrada"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid ""
 "write secrets to the given <entry>. The values are read from the standard "
@@ -72,39 +72,39 @@ msgstr ""
 "l'entrada estàndard. IMPORTANT: Se sobreescriurà el valor previ de l'entrada "
 "a la cartera!"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "specify the folder in the wallet <folder>"
 msgstr "Indiqueu la carpeta a la cartera <carpeta>"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Folder"
 msgstr "Carpeta"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "The wallet to query"
 msgstr "La cartera a consultar"
 
-#: main.cpp:49
+#: main.cpp:50
 #, kde-format
 msgid "Missing argument"
 msgstr "Manca un argument"
 
-#: main.cpp:53
+#: main.cpp:54
 #, kde-format
 msgid "Too many arguments given"
 msgstr "Hi ha massa arguments indicats"
 
-#: main.cpp:58
+#: main.cpp:59
 #, kde-format
 msgid "Only one mode (list, read or write) can be set. Aborting"
 msgstr ""
 "Només es pot definir un mode (llista, lectura o escriptura). S'està "
 "interrompent"
 
-#: main.cpp:62
+#: main.cpp:63
 #, kde-format
 msgid "Please specify the mode (list or read)."
 msgstr "Si us plau, especifiqueu el mode (llista o lectura)."

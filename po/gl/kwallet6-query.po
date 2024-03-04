@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:36+0000\n"
+"POT-Creation-Date: 2024-03-04 00:36+0000\n"
 "PO-Revision-Date: 2018-04-21 19:11+0100\n"
 "Last-Translator: Adrian Chaves <adrian@chaves.io>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
@@ -27,37 +27,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "adrian@chaves.io"
 
-#: main.cpp:22 main.cpp:24
+#: main.cpp:24 main.cpp:26
 #, kde-format
 msgid "KWallet query interface"
 msgstr "Interface de consulta de KWallet"
 
-#: main.cpp:26
+#: main.cpp:28
 #, kde-format
 msgid "(c) 2015, The KDE Developers"
 msgstr "© 2015 Os desenvolvedores de KDE"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgid "verbose output"
 msgstr "Saída detallada."
 
-#: main.cpp:32
+#: main.cpp:33
 #, kde-format
 msgid "list password entries"
 msgstr "Listar todas as entradas de contrasinal."
 
-#: main.cpp:33
+#: main.cpp:34
 #, kde-format
 msgid "reads the secrets from the given <entry>"
 msgstr "Ler os segredos da entrada indicada."
 
-#: main.cpp:33 main.cpp:34
+#: main.cpp:34 main.cpp:35
 #, kde-format
 msgid "Entry"
 msgstr "Entrada"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid ""
 "write secrets to the given <entry>. The values are read from the standard "
@@ -67,39 +67,39 @@ msgstr ""
 "entrada estándar. Importante: Substituiranse os valores previos da entrada "
 "de contrasinal indicada."
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "specify the folder in the wallet <folder>"
 msgstr "Indique o cartafol na carteira <folder>"
 
-#: main.cpp:35
+#: main.cpp:36
 #, kde-format
 msgid "Folder"
 msgstr "Cartafol"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "The wallet to query"
 msgstr "A carteira para consultar."
 
-#: main.cpp:49
+#: main.cpp:50
 #, kde-format
 msgid "Missing argument"
 msgstr "Falta un argumento ou argumentos."
 
-#: main.cpp:53
+#: main.cpp:54
 #, kde-format
 msgid "Too many arguments given"
 msgstr "Hai demasiados argumentos."
 
-#: main.cpp:58
+#: main.cpp:59
 #, kde-format
 msgid "Only one mode (list, read or write) can be set. Aborting"
 msgstr ""
 "Só pode definir un modo: «list», «read» ou «write». Interrompeuse a "
 "execución."
 
-#: main.cpp:62
+#: main.cpp:63
 #, kde-format
 msgid "Please specify the mode (list or read)."
 msgstr "Indique o modo («list» ou «read»)."
