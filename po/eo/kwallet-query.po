@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2024-02-26 21:30+0100\n"
+"PO-Revision-Date: 2024-03-24 10:34+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -94,6 +94,7 @@ msgstr "Tro da argumentoj donitaj"
 #, kde-format
 msgid "Only one mode (list, read or write) can be set. Aborting"
 msgstr ""
+"Nur unu reĝimo (listigi, legi aŭ skribi) povas esti agordita. Abortante"
 
 #: main.cpp:62
 #, kde-format
