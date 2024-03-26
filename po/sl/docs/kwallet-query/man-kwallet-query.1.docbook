@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE 
+refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd"
+[
+  <!ENTITY % Slovenian "INCLUDE"
+><!-- change language only here -->
+]>
+<refentry lang="&language;">
+  <refentryinfo>
+    <title
+>kwallet-query(1)</title>
+    <author
+><firstname
+>Valentin</firstname
+> <surname
+>Rusu</surname
+> <contrib
+>Original author</contrib
+> <address
+> <email
+>kde@rusu.info</email
+> </address
+> </author>
+    <date
+>14.6.2015</date>
+    <releaseinfo
+>Frameworks 5.11</releaseinfo>
+    <productname
+>KDE Ogrodja</productname>
+  </refentryinfo>
+  <refmeta>
+    <refentrytitle
+>kwallet-query</refentrytitle>
+    <manvolnum
+>1</manvolnum>
+    <refmiscinfo class="source"
+>&#160;</refmiscinfo>
+    <refmiscinfo class="manual"
+>&#160;</refmiscinfo>
+  </refmeta>
+  <refnamediv>
+    <refname
+>kwallet-query</refname>
+    <refpurpose
+>orodje ukazne vrstice za upravljanje z &kde; Wallet</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv id="_synopsis">
+    <simpara
+><emphasis role="strong"
+>kwallet-query</emphasis
+> <emphasis
+>MOŽNOSTI</emphasis
+> <emphasis
+>denarnica</emphasis
+> </simpara>
+  </refsynopsisdiv>
+  <refsect1 id="_description">
+    <title
+>OPIS</title>
+    <simpara
+><command
+>kwallet-query</command
+> je uporaben, ko morajo skripte lupine prebrati ali posodobiti &kde; Denarnico. Deluje s pomočjo manipulacije vnosov, prikazanih v pripomočku <emphasis role="strong"
+>&kde;-jevega Upravljalnika denarnice</emphasis
+>. Njegov&#8217; edini parameter je ime <emphasis
+>denarnice</emphasis
+>, ki naj jo orodje prebere ali posodobi. Način delovanja je določen z možnostmi.</simpara>
+  </refsect1>
+  <refsect1 id="_options">
+    <title
+>MOŽNOSTI</title>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>-h,--help</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Prikaži kratko sporočilo o pomoči.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>-l,--list-entries</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Prikaži seznam vnosov. To so imena map, ki so prikazana na pripomočku <emphasis role="strong"
+>&kde;-jev Upravljalnik denarnice</emphasis
+>. Če je navedena možnost <emphasis role="strong"
+>-f</emphasis
+>, bodo prikazane le podmape navedene datoteke.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><emphasis role="strong"
+>-r,--read-password</emphasis
+> <emphasis
+>Vnos</emphasis
+> </term>
+        <listitem>
+          <simpara
+>Preberi vsebino podanega <emphasis
+>Vnosa</emphasis
+> iz razdelka <emphasis role="strong"
+>Mapa</emphasis
+>, ki je del <emphasis
+>denarnice</emphasis
+>, in jo izpiši na standardni vhod. Preslikave so izvožene v obliki &JSON; objektov.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><emphasis role="strong"
+>-w,--write-password</emphasis
+> <emphasis
+>Vnos</emphasis
+> </term>
+        <listitem>
+          <simpara
+>Napiši skrivnosti na podan <emphasis
+>Vhod</emphasis
+> pod razdelkom <emphasis role="strong"
+>Mapa</emphasis
+> podane <emphasis
+>denarnice</emphasis
+>. Skrivnosti so brane iz standardnega vhoda. Preslikave vzamejo vnos v obliki &JSON; objekta. <emphasis role="strong"
+>POMEMBNO</emphasis
+> prejšnje vrednosti vnosov v denarnico bodo prepisani s to možnostjo, zato bodite pazljivi, ko jo uporabljate!</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><emphasis role="strong"
+>-f,--folder</emphasis
+> <emphasis
+>Mapa</emphasis
+> </term>
+        <listitem>
+          <simpara
+>Nastavi mapo <emphasis
+>denarnice</emphasis
+> na vrednost <emphasis
+>Mapa</emphasis
+>. Privzeto je uporabljeno <emphasis role="strong"
+>Geslo</emphasis
+>.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>-v,--verbose</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Izpiši več informacij med izvajanjem opravila, za pomoč pri razhroščevanju.</simpara>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="_exit_status">
+    <title
+>IZHODNO STANJE</title>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>0</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Uspešno.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>1</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Denarnica <emphasis
+>denarnica</emphasis
+> ni bila najdena.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>2</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Denarnice <emphasis
+>denarnica</emphasis
+> ni bilo mogoče odpreti. To bi lahko bila posledica npr. napačnega vnosa gesla ali katerega drugega problema s &kde;-jevim sistemom Denarnic.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>3</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Razdeleka <emphasis role="strong"
+>Mapa</emphasis
+> ni bilo mogoče najti v denarnici <emphasis
+>denarnica</emphasis
+>. Mogoče je datoteka z denarnico poškodovana?</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>4</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Operacija branje ali pisanje iz nekega razloga ni uspela.</simpara>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="_bugs">
+    <title
+>HROŠČI</title>
+    <simpara
+>Prosimo, prijavite vse hrošče na &kde;-jevi strani za prijavljanje hroščev: bugs.kde.org. Bodite pozorni, da pri oddaji vašega poročila izberete <quote
+>kwallet-query</quote
+>.</simpara>
+  </refsect1>
+  <refsect1 id="_author">
+    <title
+>AVTOR</title>
+    <simpara
+><command
+>kwallet-query</command
+> je originalno napisal Valentin Rusu in je del &kde;-ja.</simpara>
+  </refsect1>
+  <refsect1 id="_copying">
+    <title
+>KOPIRANJE</title>
+    <simpara
+>Avtorske pravice (C) 2015 Valentin Rusu. Prosta uporaba te programske opreme je dovoljena pod pogoji &GNU; General Public License (GPL).</simpara>
+  </refsect1>
+</refentry>
+
