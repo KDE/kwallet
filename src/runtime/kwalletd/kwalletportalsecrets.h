@@ -8,6 +8,7 @@
 #ifndef KWALLETPORTALSECRETS_H
 #define KWALLETPORTALSECRETS_H
 
+#include <QDBusMessage>
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
 #include <QObject>
