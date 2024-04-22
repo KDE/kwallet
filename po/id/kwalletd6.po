@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:36+0000\n"
+"POT-Creation-Date: 2024-04-22 00:36+0000\n"
 "PO-Revision-Date: 2020-02-25 21:56+0700\n"
 "Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -322,7 +322,7 @@ msgstr "Klasik, file terenkripsi blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Gunakan enkripsi GPG, untuk proteksi lebih baik"
 
-#: kwalletd.cpp:623
+#: kwalletd.cpp:626
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -331,7 +331,7 @@ msgstr ""
 "<qt>KDE telah meminta untuk membuka wallet '<b>%1</b>'. Silakan masukkan "
 "sandi untuk wallet ini di bawah.</qt>"
 
-#: kwalletd.cpp:627
+#: kwalletd.cpp:630
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -341,19 +341,19 @@ msgstr ""
 "Silakan masukkan sandi untuk wallet ini di bawah.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:638 kwalletd.cpp:747 kwalletd.cpp:851 kwalletd.cpp:964
-#: kwalletd.cpp:987 kwalletd.cpp:998 kwalletd.cpp:1003 kwalletd.cpp:1593
+#: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
+#: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
 #: main.cpp:169 main.cpp:171
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Layanan Wallet KDE"
 
-#: kwalletd.cpp:653
+#: kwalletd.cpp:656
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Sebuah aplikasi telah meminta untuk membuka wallet (%1)."
 
-#: kwalletd.cpp:654
+#: kwalletd.cpp:657
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -361,19 +361,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Ganti di sana"
 
-#: kwalletd.cpp:656
+#: kwalletd.cpp:659
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> telah meminta untuk membuka wallet (%2)."
 
-#: kwalletd.cpp:658
+#: kwalletd.cpp:661
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Ganti ke %1"
 
-#: kwalletd.cpp:675 kwalletd.cpp:757
+#: kwalletd.cpp:678 kwalletd.cpp:760
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -382,7 +382,7 @@ msgstr ""
 "<qt>Error membuka wallet '<b>%1</b>'. Silakan coba lagi.<br />(Kode error "
 "%2: %3)</qt>"
 
-#: kwalletd.cpp:723
+#: kwalletd.cpp:726
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -393,7 +393,7 @@ msgstr ""
 "sensitif dengan cara yang aman. Silakan masukkan sandi untuk digunakan oleh "
 "wallet ini atau klik batal untuk menolak permintaan aplikasi."
 
-#: kwalletd.cpp:728
+#: kwalletd.cpp:731
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -406,7 +406,7 @@ msgstr ""
 "masukkan sandi untuk digunakan oleh wallet ini atau klik batal untuk menolak "
 "permintaan aplikasi.</qt>"
 
-#: kwalletd.cpp:736
+#: kwalletd.cpp:739
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -417,7 +417,7 @@ msgstr ""
 "pilih sandi untuk wallet ini, atau batal untuk menolak permintaan aplikasi.</"
 "qt>"
 
-#: kwalletd.cpp:741
+#: kwalletd.cpp:744
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -428,12 +428,12 @@ msgstr ""
 "%2</b>'. Silakan pilih sandi baru untuk wallet ini, atau batal untuk menolak "
 "permintaan aplikasi.</qt>"
 
-#: kwalletd.cpp:853
+#: kwalletd.cpp:856
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE telah meminta akses untuk membuka wallet '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:855
+#: kwalletd.cpp:858
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -442,7 +442,7 @@ msgstr ""
 "<qt>Aplikasi '<b>%1</b>' telah meminta akses untuk membuka wallet '<b>%2</"
 "b>'.</qt>"
 
-#: kwalletd.cpp:963
+#: kwalletd.cpp:966
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -450,7 +450,7 @@ msgid ""
 msgstr ""
 "Tak dapat membuka wallet. wallet harus dibuka agar dapat mengubah sandi."
 
-#: kwalletd.cpp:979
+#: kwalletd.cpp:982
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -461,22 +461,22 @@ msgstr ""
 "gunakan alat <b>GPG</b> (seperti <b>kleopatra</b>) untuk mengubah frasa kata "
 "yang diasosiasikan dengan kunci tersebut.</qt>"
 
-#: kwalletd.cpp:986
+#: kwalletd.cpp:989
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Silakan pilih sandi baru untuk wallet '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:998
+#: kwalletd.cpp:1001
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Error mengenkripsi ulang wallet. Sandi tidak diubah."
 
-#: kwalletd.cpp:1003
+#: kwalletd.cpp:1006
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Error membuka ulang wallet. Data mungkin hilang."
 
-#: kwalletd.cpp:1592
+#: kwalletd.cpp:1595
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

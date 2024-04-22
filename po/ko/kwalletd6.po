@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:36+0000\n"
+"POT-Creation-Date: 2024-04-22 00:36+0000\n"
 "PO-Revision-Date: 2024-02-10 00:10+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -308,7 +308,7 @@ msgstr "고전 Blowfish 기반 암호화 파일"
 msgid "Use GPG encryption, for better protection"
 msgstr "GPG 암호화 사용, 더 나은 암호화"
 
-#: kwalletd.cpp:623
+#: kwalletd.cpp:626
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -317,7 +317,7 @@ msgstr ""
 "<qt>KDE에서 지갑 '<b>%1</b>'을(를) 열려고 합니다. 지갑의 암호를 입력해 주십시"
 "오.</qt>"
 
-#: kwalletd.cpp:627
+#: kwalletd.cpp:630
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -327,19 +327,19 @@ msgstr ""
 "력해 주십시오.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:638 kwalletd.cpp:747 kwalletd.cpp:851 kwalletd.cpp:964
-#: kwalletd.cpp:987 kwalletd.cpp:998 kwalletd.cpp:1003 kwalletd.cpp:1593
+#: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
+#: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
 #: main.cpp:169 main.cpp:171
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE 지갑 서비스"
 
-#: kwalletd.cpp:653
+#: kwalletd.cpp:656
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "앱에서 지갑을 여는 것을 요청했습니다(%1)."
 
-#: kwalletd.cpp:654
+#: kwalletd.cpp:657
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -347,19 +347,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "거기로 가기"
 
-#: kwalletd.cpp:656
+#: kwalletd.cpp:659
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b>에서 지갑을 여는 것을 요청했습니다 (%2)."
 
-#: kwalletd.cpp:658
+#: kwalletd.cpp:661
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "%1(으)로 가기"
 
-#: kwalletd.cpp:675 kwalletd.cpp:757
+#: kwalletd.cpp:678 kwalletd.cpp:760
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -368,7 +368,7 @@ msgstr ""
 "<qt>지갑 '<b>%1</b>'을(를) 여는 중 오류가 발생했습니다. 다시 시도해 주십시오."
 "<br />(오류 코드 %2: %3)</qt>"
 
-#: kwalletd.cpp:723
+#: kwalletd.cpp:726
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -379,7 +379,7 @@ msgstr ""
 "저장할 수 있습니다. 지갑을 사용하려면 이 지갑에 사용할 암호를 입력하십시오. "
 "지갑을 사용하지 않으려면 취소를 클릭하십시오."
 
-#: kwalletd.cpp:728
+#: kwalletd.cpp:731
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -391,7 +391,7 @@ msgstr ""
 "하게 지갑 속에 저장할 수 있습니다. 지갑을 사용하려면 이 지갑에 사용할 암호를 "
 "입력하십시오. 지갑을 사용하지 않으려면 취소를 클릭하십시오.</qt>"
 
-#: kwalletd.cpp:736
+#: kwalletd.cpp:739
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -401,7 +401,7 @@ msgstr ""
 "<qt>KDE에서 새로운 지갑 '<b>%1</b>'을(를) 만들 것을 요청했습니다. 지갑을 만들"
 "려면 새 지갑의 암호를 입력하거나, 만들지 않으려면 취소를 누르십시오.</qt>"
 
-#: kwalletd.cpp:741
+#: kwalletd.cpp:744
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -412,12 +412,12 @@ msgstr ""
 "지갑을 만들려면 새 지갑의 암호를 입력하거나, 만들지 않으려면 취소를 누르십시"
 "오.</qt>"
 
-#: kwalletd.cpp:853
+#: kwalletd.cpp:856
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE에서 지갑 '<b>%1</b>'을(를) 여는 것을 요청했습니다.</qt>"
 
-#: kwalletd.cpp:855
+#: kwalletd.cpp:858
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -425,14 +425,14 @@ msgid ""
 msgstr ""
 "<qt>'<b>%1</b>' 앱에서 지갑 '<b>%2</b>'을(를) 여는 것을 요청했습니다.</qt>"
 
-#: kwalletd.cpp:963
+#: kwalletd.cpp:966
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "지갑을 열 수 없습니다. 암호를 변경하려면 지갑을 열어야 합니다."
 
-#: kwalletd.cpp:979
+#: kwalletd.cpp:982
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -443,22 +443,22 @@ msgstr ""
 "<b>kleopatra</b>와 같은 <b>GPG</b> 도구를 사용하여 해당하는 키의 암호를 변경"
 "하십시오.</qt>"
 
-#: kwalletd.cpp:986
+#: kwalletd.cpp:989
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>지갑 '<b>%1</b>'의 새 암호를 입력하십시오.</qt>"
 
-#: kwalletd.cpp:998
+#: kwalletd.cpp:1001
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "지갑을 다시 암호화하는 데 실패했습니다. 암호가 변경되지 않았습니다."
 
-#: kwalletd.cpp:1003
+#: kwalletd.cpp:1006
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "지갑을 다시 여는 데 실패했습니다. 데이터 손실이 있을 수도 있습니다."
 
-#: kwalletd.cpp:1592
+#: kwalletd.cpp:1595
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

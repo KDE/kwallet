@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:36+0000\n"
+"POT-Creation-Date: 2024-04-22 00:36+0000\n"
 "PO-Revision-Date: 2013-09-30 00:36+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -340,7 +340,7 @@ msgstr "Классикалық, blowfish шифрлаған файл"
 msgid "Use GPG encryption, for better protection"
 msgstr "Мықтылық үшін GPG шифрлау қолданылсын"
 
-#: kwalletd.cpp:623
+#: kwalletd.cpp:626
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -349,7 +349,7 @@ msgstr ""
 "<qt>KDE '<b>%1</b>' деген әмиянды ашуды сұрайды. Төменде бұл әмиянның "
 "паролін келтіріңіз.</qt>"
 
-#: kwalletd.cpp:627
+#: kwalletd.cpp:630
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -359,20 +359,20 @@ msgstr ""
 "бұл әмиянның паролін келтіріңіз.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:638 kwalletd.cpp:747 kwalletd.cpp:851 kwalletd.cpp:964
-#: kwalletd.cpp:987 kwalletd.cpp:998 kwalletd.cpp:1003 kwalletd.cpp:1593
+#: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
+#: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
 #: main.cpp:169 main.cpp:171
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE Әмиян қызметі"
 
-#: kwalletd.cpp:653
+#: kwalletd.cpp:656
 #, fuzzy, kde-format
 #| msgid "<b>KDE</b> has requested to open a wallet (%1)."
 msgid "An application has requested to open a wallet (%1)."
 msgstr "<b>KDE</b>'.%1 деген әмиянды ашуды сұрайды."
 
-#: kwalletd.cpp:654
+#: kwalletd.cpp:657
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -380,19 +380,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Ауысу"
 
-#: kwalletd.cpp:656
+#: kwalletd.cpp:659
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b>' деген.%2 деген әмиянды ашуды сұрайды."
 
-#: kwalletd.cpp:658
+#: kwalletd.cpp:661
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "%1 дегенге ауысу"
 
-#: kwalletd.cpp:675 kwalletd.cpp:757
+#: kwalletd.cpp:678 kwalletd.cpp:760
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -401,7 +401,7 @@ msgstr ""
 "<qt>'<b>%1</b>' деген әмиянды ашу қатесі. Қайталап көріңіз.<br />(Қатенің "
 "коды: %2: %3)</qt>"
 
-#: kwalletd.cpp:723
+#: kwalletd.cpp:726
 #, fuzzy, kde-format
 #| msgid ""
 #| "KDE has requested to open the wallet. This is used to store sensitive "
@@ -416,7 +416,7 @@ msgstr ""
 "сақтауға пайдаланады. Әмиянның паролін келтіріңіз немесе қолданбаның талабын "
 "елемей қалдыру үшін бас тартыңыз."
 
-#: kwalletd.cpp:728
+#: kwalletd.cpp:731
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -428,7 +428,7 @@ msgstr ""
 "шифрланған түрде сақтауға пайдаланады. Әмиянның паролін келтіріңіз немесе "
 "қолданбаның талабын елемей қалдыру үшін бас тартыңыз.</qt>"
 
-#: kwalletd.cpp:736
+#: kwalletd.cpp:739
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -438,7 +438,7 @@ msgstr ""
 "<qt>KDE.%1 деп аталған жаңа әмиянды құруды сұрайды. Әмиянның паролін таңдап "
 "беріңіз немесе қолданбаның талабын елемей қалдыру үшін бас тартыңыз.</qt>"
 
-#: kwalletd.cpp:741
+#: kwalletd.cpp:744
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -449,12 +449,12 @@ msgstr ""
 "сұрайды. Әмиянның паролін таңдап беріңіз немесе қолданбаның талабын елемей "
 "қалдыру үшін бас тартыңыз.</qt>"
 
-#: kwalletd.cpp:853
+#: kwalletd.cpp:856
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE '<b>%1</b>' әмиянына қатынауды сұрайды.</qt>"
 
-#: kwalletd.cpp:855
+#: kwalletd.cpp:858
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -463,14 +463,14 @@ msgstr ""
 "<qt>'<b>%1</b>' қолданбасы '<b>%2</b>' деп аталған әмиянына қатынауды "
 "сұрайды.</qt>"
 
-#: kwalletd.cpp:963
+#: kwalletd.cpp:966
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "Әмиян ашылмайды. Әмиянды паролін ауыстыру үшін ашу керек."
 
-#: kwalletd.cpp:979
+#: kwalletd.cpp:982
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -481,22 +481,22 @@ msgstr ""
 "байланысты паролін өзгерту үшін <b>GPG</b> құралдарын (<b>kleopatra</b> "
 "секілді) қолданған абзал.</qt>"
 
-#: kwalletd.cpp:986
+#: kwalletd.cpp:989
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>'<b>%1</b>' деген әмиянына жаңа парольді таңдап беріңіз.</qt>"
 
-#: kwalletd.cpp:998
+#: kwalletd.cpp:1001
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Әмиянды қайта шифрлау қатесі. Паролі ауыстырылмады."
 
-#: kwalletd.cpp:1003
+#: kwalletd.cpp:1006
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Әмиянды қайта ашу қатесі. Деректер жоғалу мүмкін."
 
-#: kwalletd.cpp:1592
+#: kwalletd.cpp:1595
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
