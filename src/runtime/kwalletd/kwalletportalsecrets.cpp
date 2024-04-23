@@ -84,7 +84,8 @@ void KWalletPortalSecrets::handleRequest(const Request &request)
 
     outFile.write(secret);
 
-    auto reply = request.message.createReply(0);
+    const auto replyList = QVariantList{{(uint)0}, {{QVariantMap{}}}};
+    auto reply = request.message.createReply(replyList);
     QDBusConnection::sessionBus().send(reply);
 }
 
