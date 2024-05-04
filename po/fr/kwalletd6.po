@@ -6,22 +6,22 @@
 # Vincent PINON <vpinon@kde.org>, 2014, 2016.
 # Maxime Corteel <mcorteel@gmail.com>, 2014, 2015.
 # Simon Depiets <sdepiets@gmail.com>, 2017.
-# SPDX-FileCopyrightText: 2021, 2023 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2021, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-22 00:36+0000\n"
-"PO-Revision-Date: 2023-12-15 09:57+0100\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2024-04-26 11:24+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -328,7 +328,7 @@ msgstr ""
 #: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
 #, kde-format
 msgid "Classic, blowfish encrypted file"
-msgstr "Classique,fichier chiffré par blowfish"
+msgstr "Classique,fichier chiffré par l'algorithme de Blowfish"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
@@ -548,7 +548,7 @@ msgstr ""
 "<html><head/><body><p>Le système de portefeuilles de KDE mémorise vos "
 "données dans un fichier de <span style=\" font-style:italic;\">portefeuille</"
 "span> sur votre disque dur local. Les données ne sont écrites que sous la "
-"forme chiffrée de votre choix - l'algorithme « blowfish » avec votre mot de "
+"forme chiffrée de votre choix - l'algorithme de Blowfish avec votre mot de "
 "passe comme clé ou en utilisant la clé de chiffrement GPG. Lorsqu'un "
 "portefeuille est ouvert, l'application de gestion de portefeuilles démarre "
 "et affiche une icône dans la boîte à miniatures. Vous pouvez employer cette "
@@ -602,7 +602,7 @@ msgstr ""
 "GPG, alors annulez cet assistant, configurez une <b>clé GPG de chiffrement</"
 "b>, puis réessayez cet assistant. Sinon, vous pouvez encore revenir en "
 "arrière en cliquant, choisir un format classique de fichier chiffré par "
-"« blowfish » sur la page précédente."
+"l'algorithme de Blowfish sur la page précédente."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: kwalletwizardpageintro.ui:30
