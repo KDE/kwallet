@@ -37,10 +37,8 @@ private:
     };
 
     QByteArray generateSecret() const;
-    void handleRequest(const Request &request);
 
-    QHash<QString, Request> m_pendingRequests;
-    int m_handle = -1;
+    QHash<int, Request> m_pendingRequests;
 
     KWalletD *m_kwalletd;
 };
