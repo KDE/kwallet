@@ -2,20 +2,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Yasen Pramatarov <yasen@lindeas.com>, 2009, 2011, 2013.
-# SPDX-FileCopyrightText: 2022, 2023 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-22 00:36+0000\n"
-"PO-Revision-Date: 2023-12-16 00:01+0100\n"
+"PO-Revision-Date: 2024-05-30 20:46+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.05.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -35,9 +35,9 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
-"<qt> Грешка при опит за инициализиране на OpenPGP при опит за запазване на "
+"<qt>Грешка при опит за инициализиране на OpenPGP при опит за запазване на "
 "портфейл <b>%1</b>. Кодът за грешка е <b>%2</b>. Моля, поправете вашата "
-"системна конфигурация, след това опитайте отново. </qt>"
+"системна конфигурация, след това опитайте отново.</qt>"
 
 #: backend/backendpersisthandler.cpp:501
 #, kde-format
@@ -45,9 +45,9 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to save the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"<qt> Грешка при опит за инициализиране на OpenPGP при опит за запазване на "
+"<qt>Грешка при опит за инициализиране на OpenPGP при опит за запазване на "
 "портфейл <b>%1</b>. Моля, коригирайте конфигурацията на вашата система, след "
-"което опитайте отново. </qt>"
+"което опитайте отново.</qt>"
 
 #: backend/backendpersisthandler.cpp:555
 #, kde-format
@@ -57,11 +57,11 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
-"<qt> Грешка при криптиране при опит за запазване на портфейла <b>%1</b>. "
+"<qt>Грешка при криптиране при опит за запазване на портфейла <b>%1</b>. "
 "Кодът за грешка е <b>%2 (%3)</b>. Моля, коригирайте конфигурацията на вашата "
 "система, след това опитайте отново. Тази грешка може да възникне, ако не "
 "използвате GPG ключ с пълно доверие.Моля, уверете се, че разполагате с "
-"тайния ключ за ключа, който използвате. </qt>"
+"тайния ключ за ключа, който използвате.</qt>"
 
 #: backend/backendpersisthandler.cpp:572
 #, kde-format
@@ -69,9 +69,9 @@ msgid ""
 "<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"<qt> Грешка при обработка на файлове при опит за запазване на портфейла <b>"
+"<qt>Грешка при обработка на файлове при опит за запазване на портфейла <b>"
 "%1</b>. Грешка<b>%2</b>. Моля, коригирайте конфигурацията на вашата система, "
-"след което опитайте отново. </qt>"
+"след което опитайте отново.</qt>"
 
 #: backend/backendpersisthandler.cpp:594
 #, kde-format
@@ -80,9 +80,9 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
-"<qt> Грешка при опит за инициализиране на OpenPGP при опит за отваряне на "
+"<qt>Грешка при опит за инициализиране на OpenPGP при опит за отваряне на "
 "портфейл <b>%1</b>. Кодът за грешка е <b>%2</b>. Моля, поправете вашата "
-"системна конфигурация, след това опитайте отново. </qt>"
+"системна конфигурация, след това опитайте отново.</qt>"
 
 #: backend/backendpersisthandler.cpp:616
 #, kde-format
@@ -90,9 +90,9 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to open the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"<qt> Грешка при опит за инициализиране на OpenPGP при опит за отваряне на "
+"<qt>Грешка при опит за инициализиране на OpenPGP при опит за отваряне на "
 "портфейл <b>%1</b>. Моля, коригирайте конфигурацията на вашата система, след "
-"което опитайте отново. </qt>"
+"което опитайте отново.</qt>"
 
 #: backend/backendpersisthandler.cpp:629
 #, kde-format
@@ -106,9 +106,9 @@ msgid ""
 "you're using a SmartCard, please ensure it's inserted then try again."
 "<br><br>GPG error was <b>%2</b></qt>"
 msgstr ""
-"<qt> Грешка при опит за дешифриране на портфейла <b>%1</b> с помощта на GPG. "
+"<qt>Грешка при опит за дешифриране на портфейла <b>%1</b> с помощта на GPG. "
 "Ако използвате SmartCard, моля, уверете се, че е поставена, след това "
-"опитайте отново.<br> <br> Грешката в GPG беше <b>%2</b> </qt>"
+"опитайте отново.<br><br> Грешката в GPG беше <b>%2</b></qt>"
 
 #: backend/backendpersisthandler.cpp:638
 #, kde-format
@@ -122,9 +122,9 @@ msgid ""
 "encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
 "system.</qt>"
 msgstr ""
-"<qt> Грешка при опит за отваряне на портфейла <b>%1</b>. Портфейлът беше "
+"<qt>Грешка при опит за отваряне на портфейла <b>%1</b>. Портфейлът беше "
 "криптиран с помощта на идентификатора на GPG ключ <b>%2</b>, но този ключ не "
-"е намерен във вашата система. </qt>"
+"е намерен във вашата система.</qt>"
 
 #: backend/kwalletbackend.cc:259
 #, kde-format
@@ -215,10 +215,10 @@ msgid ""
 "to store sensitive data in a secure fashion. Please choose the new wallet's "
 "type below or click cancel to deny the application's request.</qt>"
 msgstr ""
-"<qt> KDE поиска да създаде нов портфейл на име \"<b>%1</b>\". Това се "
+"<qt>KDE поиска да създаде нов портфейл на име \"<b>%1</b>\". Това се "
 "използва за съхраняване на поверителни данни по сигурен начин. Моля, "
 "изберете вида на новия портфейл по-долу или щракнете върху отмяна, за да "
-"откажете заявката на приложението. </qt>"
+"откажете заявката на приложението.</qt>"
 
 #: knewwalletdialog.cpp:55
 #, kde-format
@@ -228,10 +228,10 @@ msgid ""
 "Please choose the new wallet's type below or click cancel to deny the "
 "application's request.</qt>"
 msgstr ""
-"<qt> Приложението \"<b>%1</b>\" поиска да създаде нов портфейл с име\"<b>%2</"
+"<qt>Приложението \"<b>%1</b>\" поиска да създаде нов портфейл с име\"<b>%2</"
 "b>\". Това се използва за съхраняване на поверителни данни по сигурен начин."
 "Моля, изберете типа на новия портфейл по-долу или кликнете върху \"Отказ\", "
-"за да откажете заявка на заявлението. </qt>"
+"за да откажете заявка на заявлението.</qt>"
 
 #: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
 #: kwalletwizard.cpp:157
@@ -302,11 +302,11 @@ msgid ""
 "data in a secure fashion. Please choose the new wallet's type below or click "
 "cancel to deny the application's request.</p></body></html>"
 msgstr ""
-"<html><head/><body> <p> Приложението '<span style =\"font-weight: 600;\"> %1 "
+"<html><head/><body><p> Приложението '<span style =\"font-weight: 600;\"> %1 "
 "</span> 'поиска да отвори портфейла на KDE. Това се използва за съхраняване "
 "на чувствителни данни по сигурен начин. Моля, изберете типа на новия "
 "портфейл по-долу или кликнете отменете, за да откажете заявката на "
-"приложението. </p> </body> </html>"
+"приложението.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
@@ -456,9 +456,9 @@ msgid ""
 "<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
 "associated to that key.</qt>"
 msgstr ""
-"<qt> Портфейлът <b>%1</b> е шифрован с помощта на GPG ключ <b>%2</b>. Моля "
+"<qt>Портфейлът <b>%1</b> е шифрован с помощта на GPG ключ <b>%2</b>. Моля "
 "използвайте<b>Инструменти за GPG</b> (като <b>kleopatra</b>) за промяна на "
-"паролата, свързана с този ключ. </qt>"
+"паролата, свързана с този ключ.</qt>"
 
 #: kwalletd.cpp:989
 #, kde-format
@@ -518,16 +518,15 @@ msgid ""
 "your wallets. It even permits you to drag wallets and wallet contents, "
 "allowing you to easily copy a wallet to a remote system.</p></body></html>"
 msgstr ""
-"<html><head/><body> <p> Системата KDE Wallet съхранява вашите данни в "
-"<spanstyle =\"font-style: italic;\"> портфейл </span> файл на вашия локален "
-"твърд диск.Данните се записват само в криптирана форма по ваш избор - "
-"blowfish алгоритъм с вашата парола като ключ или с помощта на GPG ключ за "
-"криптиране. Когато портфейлът се отвори, приложението за диспечер на "
-"портфейли ще се стартира и ще покаже икона в системната област. Можете да "
-"използвате това приложение, за да управлявате всичките си портфейли. Дори ви "
-"позволява да влачите портфейли и съдържанието на портфейла,което ви "
-"позволява лесно да копирате портфейл в отдалечена система. </p> </body> </"
-"html>"
+"<html><head/><body><p> Системата KDE Wallet съхранява вашите данни в <span "
+"style =\"font-style: italic;\"> портфейл </span> файл на вашия локален твърд "
+"диск.Данните се записват само в криптирана форма по ваш избор - blowfish "
+"алгоритъм с вашата парола като ключ или с помощта на GPG ключ за криптиране. "
+"Когато портфейлът се отвори, приложението за диспечер на портфейли ще се "
+"стартира и ще покаже икона в системната област. Можете да използвате това "
+"приложение, за да управлявате всичките си портфейли. Дори ви позволява да "
+"влачите портфейли и съдържанието на портфейла,което ви позволява лесно да "
+"копирате портфейл в отдалечена система.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: kwalletwizardpagegpgkey.ui:24
@@ -541,14 +540,14 @@ msgid ""
 "font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
-"<html><head/><body> <p> Портфейлът, базиран на GPG, използва ключ за "
+"<html><head/><body><p> Портфейлът, базиран на GPG, използва ключ за "
 "криптиране на GPG за сигурно криптиране на данни на диска. Ключът трябва да "
 "е наличен при дешифрирането или портфейлът ви няма да бъде достъпен. "
 "Например, ако изберете базиран на SmartCard ключ за шифроване, GPG системата "
 "ще ви подкани да го въведете, както и свързания с него ПИН, когато се "
 "опитвате да отворите портфейла. <span style=\" font-weight:600;\"> "
 "ЗАБЕЛЕЖКА: </span> този списък съдържа само\"ултимативно ниво\"надеждни "
-"ключове. </p></body></html>"
+"ключове.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kwalletwizardpagegpgkey.ui:42
@@ -680,16 +679,16 @@ msgid ""
 "is lost, and will allow anyone who knows it to obtain all the information "
 "contained in the wallet.</p></body></html>"
 msgstr ""
-"<html><head/><body> <p> Различни приложения могат да се опитват да използват "
+"<html><head/><body><p> Различни приложения могат да се опитват да използват "
 "портфейла на KDE за съхраняване на пароли или друга информация като данни от "
 "уеб формуляри и бисквитки.Ако искате тези приложения да използват портфейла, "
-"трябва да го активирате сега и изберете метод за неговото криптиране. </p> "
-"<p> GPG методът е по-сигурен,но трябва да сте конфигурирали поне един ключ "
-"за шифроване на вашата система. </p> <p> Ако изберете класическия формат, "
-"бъдете предупредени, че паролата, която изберете <span style =\"font-style: "
-"italic;\"> не може </span> да бъде възстановена, ако се загуби и ще позволи "
-"на всеки, който го знае, да получи цялата информация, съдържаща се в "
-"портфейла. </p> </body> </html>"
+"трябва да го активирате сега и изберете метод за неговото криптиране.</p><p> "
+"GPG методът е по-сигурен,но трябва да сте конфигурирали поне един ключ за "
+"шифроване на вашата система.</p><p> Ако изберете класическия формат, бъдете "
+"предупредени, че паролата, която изберете <span style =\"font-style: italic;"
+"\"> не може </span> да бъде възстановена, ако се загуби и ще позволи на "
+"всеки, който го знае, да получи цялата информация, съдържаща се в портфейла."
+"</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: kwalletwizardpagepasswordgpg.ui:46
