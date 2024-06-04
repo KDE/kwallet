@@ -1,21 +1,22 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kwallet package.
 #
-# Xəyyam <xxmn77@gmail.com>, 2020, 2021.
+# SPDX-FileCopyrightText: 2024 X əyyam
+# SPDX-FileCopyrightText: 2024 Xəyyam Qocayev <xxmn77@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-22 00:36+0000\n"
-"PO-Revision-Date: 2021-07-03 12:23+0400\n"
-"Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
+"PO-Revision-Date: 2024-06-03 16:16+0400\n"
+"Last-Translator: Xəyyam Qocayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.04.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -695,10 +696,9 @@ msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
 #: main.cpp:174
-#, fuzzy, kde-format
-#| msgid "Maintainer, GPG backend support"
+#, kde-format
 msgid "Former Maintainer, GPG backend support"
-msgstr "Müşayətçi, GPG backend support"
+msgstr "Layihənin keçmiş himayəçisi: GPG dəstəyi"
 
 #: main.cpp:175
 #, kde-format
