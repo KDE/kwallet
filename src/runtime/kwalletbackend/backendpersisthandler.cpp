@@ -13,6 +13,7 @@
 #include <QCryptographicHash>
 #include <QFile>
 #include <QIODevice>
+#include <QRandomGenerator>
 #include <QSaveFile>
 #include <assert.h>
 #ifdef HAVE_GPGMEPP
@@ -27,12 +28,6 @@
 #include "cbc.h"
 #include "kwalletbackend.h"
 #include "sha1.h"
-
-#ifdef Q_OS_WIN
-#include <windows.h> // Must be included before wincrypt.h
-
-#include <wincrypt.h>
-#endif
 
 #define KWALLET_CIPHER_BLOWFISH_ECB 0 // this was the old KWALLET_CIPHER_BLOWFISH_CBC
 #define KWALLET_CIPHER_3DES_CBC 1 // unsupported
@@ -49,86 +44,10 @@ typedef char Digest[16];
 
 static int getRandomBlock(QByteArray &randBlock)
 {
-#ifdef Q_OS_WIN // krazy:exclude=cpp
-
-    // Use windows crypto API to get randomness on win32
-    // HACK: this should be done using qca
-    HCRYPTPROV hProv;
-
-    if (!CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_FULL, CRYPT_VERIFYCONTEXT | CRYPT_SILENT)) {
-        return -1; // couldn't get random data
+    for (char &c : randBlock) {
+        c = static_cast<char>(QRandomGenerator::system()->bounded(UCHAR_MAX + 1));
     }
-
-    if (!CryptGenRandom(hProv, static_cast<DWORD>(randBlock.size()), (BYTE *)randBlock.data())) {
-        return -3; // read error
-    }
-
-    // release the crypto context
-    CryptReleaseContext(hProv, 0);
-
-    return randBlock.size();
-
-#else
-
-    // First try /dev/urandom
-    if (QFile::exists(QStringLiteral("/dev/urandom"))) {
-        QFile devrand(QStringLiteral("/dev/urandom"));
-        if (devrand.open(QIODevice::ReadOnly)) {
-            int rc = devrand.read(randBlock.data(), randBlock.size());
-
-            if (rc != randBlock.size()) {
-                return -3; // not enough data read
-            }
-
-            return 0;
-        }
-    }
-
-    // If that failed, try /dev/random
-    // FIXME: open in noblocking mode!
-    if (QFile::exists(QStringLiteral("/dev/random"))) {
-        QFile devrand(QStringLiteral("/dev/random"));
-        if (devrand.open(QIODevice::ReadOnly)) {
-            int rc = 0;
-            int cnt = 0;
-
-            do {
-                int rc2 = devrand.read(randBlock.data() + rc, randBlock.size());
-
-                if (rc2 < 0) {
-                    return -3; // read error
-                }
-
-                rc += rc2;
-                cnt++;
-                if (cnt > randBlock.size()) {
-                    return -4; // reading forever?!
-                }
-            } while (rc < randBlock.size());
-
-            return 0;
-        }
-    }
-
-    // EGD method
-    QString randFilename = QString::fromLocal8Bit(qgetenv("RANDFILE"));
-    if (!randFilename.isEmpty()) {
-        if (QFile::exists(randFilename)) {
-            QFile devrand(randFilename);
-            if (devrand.open(QIODevice::ReadOnly)) {
-                int rc = devrand.read(randBlock.data(), randBlock.size());
-                if (rc != randBlock.size()) {
-                    return -3; // not enough data read
-                }
-                return 0;
-            }
-        }
-    }
-
-    // Couldn't get any random data!!
-    return -1;
-
-#endif
+    return 0;
 }
 
 BackendPersistHandler *BackendPersistHandler::getPersistHandler(BackendCipherType cipherType)
