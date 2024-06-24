@@ -25,7 +25,6 @@ set_package_properties(LibGcrypt PROPERTIES
                        TYPE REQUIRED
                        PURPOSE "kwalletd needs libgcrypt to perform PBKDF2-SHA512 hashing"
                       )
-find_package(Qca-qt6 REQUIRED 2.3.1)
 
 ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETBACKEND SOVERSION 6)
 
@@ -72,7 +71,6 @@ target_link_libraries(KF6WalletBackend
     KF6::Notifications
     KF6::I18n
     ${LIBGCRYPT_LIBRARIES}
-    ${Qca_LIBRARY}
 )
 if(Gpgmepp_FOUND)
    target_link_libraries(KF6WalletBackend Gpgmepp)
