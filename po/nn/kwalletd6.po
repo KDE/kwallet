@@ -1,13 +1,12 @@
 # Translation of kwalletd6 to Norwegian Nynorsk
 #
 # Eirik U. Birkeland <eirbir@gmail.com>, 2009, 2010.
-# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2017, 2018, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-22 00:36+0000\n"
-"PO-Revision-Date: 2023-03-11 23:29+0100\n"
+"PO-Revision-Date: 2024-07-21 14:19+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.05.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -694,10 +693,9 @@ msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
 #: main.cpp:174
-#, fuzzy, kde-format
-#| msgid "Maintainer, GPG backend support"
+#, kde-format
 msgid "Former Maintainer, GPG backend support"
-msgstr "Vedlikehaldar, støtte for GPG"
+msgstr "Tidlegare vedlikehaldar, støtte for GPG"
 
 #: main.cpp:175
 #, kde-format
