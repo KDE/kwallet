@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Sveinn í Felli <sveinki@nett.is>, 2009, 2016, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2024 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-22 00:36+0000\n"
-"PO-Revision-Date: 2024-04-15 17:23+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2024-07-22 20:18+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -23,12 +24,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Sveinn í Felli"
+msgstr "Sveinn í Felli, Guðmundur Erlingsson"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sv1@fellsnet.is"
+msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
 #: backend/backendpersisthandler.cpp:489
 #, kde-format
@@ -37,6 +38,9 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>Villa við að reyna að frumstilla OpenPGP þegar reynt var að vista veskið "
+"<b>%1</b>. Villukóðinn er <b>%2</b>. Lagfærðu kerfisuppsetninguna og reyndu "
+"svo aftur.</qt>"
 
 #: backend/backendpersisthandler.cpp:501
 #, kde-format
@@ -44,6 +48,8 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to save the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>Villa við að reyna að frumstilla OpenPGP þegar reynt var að vista veskið "
+"<b>%1</b>. Lagfærðu kerfisuppsetninguna og reyndu aftur.</qt>"
 
 #: backend/backendpersisthandler.cpp:555
 #, kde-format
@@ -53,6 +59,11 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
+"<qt>Dulritunarvilla þegar reynt var að vista veskið <b>%1</b>. Villukóðinn "
+"er <b>%2 (%3)</b>. Lagfærðu kerfisuppsetninguna og reyndu aftur. Þessi villa "
+"kemur hugsanlega ef þú notar GPG-lykil sem er ekki að fullu traustur. Gakktu "
+"úr skugga um að þú sért með leynilykilinn fyrir lykilinn sem þú ert að nota."
+"</qt>"
 
 #: backend/backendpersisthandler.cpp:572
 #, kde-format
@@ -60,6 +71,8 @@ msgid ""
 "<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>Villa í skráameðhöndlun þegar reynt var að vista veskið <b>%1</b>. "
+"Villan var <b>%2</b>. Lagfærðu kerfisuppsetninguna þína og reyndu aftur.</qt>"
 
 #: backend/backendpersisthandler.cpp:594
 #, kde-format
@@ -68,6 +81,9 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>Villa við að reyna var að frumstilla OpenPGP þegar reynt var að opna "
+"veskið <b>%1</b>. Villukóðinn er<b>%2</b>. Lagfærðu kerfisuppsetninguna þína "
+"og reyndu aftur.</qt>"
 
 #: backend/backendpersisthandler.cpp:616
 #, kde-format
@@ -75,6 +91,8 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to open the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>Villa við að reyna að frumstilla OpenPGP þegar reynt var að opna veskið "
+"<b>%1</b>. Lagfærðu kerfisuppsetningu þína og reyndu aftur.</qt>"
 
 #: backend/backendpersisthandler.cpp:629
 #, kde-format
@@ -88,6 +106,9 @@ msgid ""
 "you're using a SmartCard, please ensure it's inserted then try again."
 "<br><br>GPG error was <b>%2</b></qt>"
 msgstr ""
+"<qt>Villa þegar reynt var að afkóða veskið <b>%1</b> með GPG. Ef þú ert að "
+"nota snjallkort skaltu tryggja að það sé á sínum stað og reyna aftur."
+"<br><br>GPG-villa var <b>%2</b></qt>"
 
 #: backend/backendpersisthandler.cpp:638
 #, kde-format
@@ -101,16 +122,18 @@ msgid ""
 "encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
 "system.</qt>"
 msgstr ""
+"<qt>Villa við að reyna að opna veskið <b>%1</b>. Veskið var dulritað með GPG-"
+"lykilkenninu <b>%2</b> en þessi lykill fannst ekki í tölvunni þinni.</qt>"
 
 #: backend/kwalletbackend.cc:259
 #, kde-format
 msgid "Already open."
-msgstr "Þegar opin."
+msgstr "Þegar opið."
 
 #: backend/kwalletbackend.cc:261
 #, kde-format
 msgid "Error opening file."
-msgstr "Villa við skráaropnun."
+msgstr "Villa við að opna skrá."
 
 #: backend/kwalletbackend.cc:263
 #, kde-format
@@ -135,7 +158,7 @@ msgstr "Skemmd skrá?"
 #: backend/kwalletbackend.cc:273
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr "Villa við staðfestingu veskis. Það er mögulega skemmt."
+msgstr "Villa við staðfestingu á heilleika veskis. Það er hugsanlega skemmt."
 
 #: backend/kwalletbackend.cc:277
 #, kde-format
@@ -154,6 +177,9 @@ msgid ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
 msgstr ""
+"Mistókst að samstilla veskið <b>%1</b> á disk. Villukóðinn er:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Sendu villuskýrslu með þessum upplýsingum til bugs.kde.org"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -187,9 +213,9 @@ msgid ""
 "type below or click cancel to deny the application's request.</qt>"
 msgstr ""
 "<qt>KDE hefur beðið um að búa til nýtt veski með heitinu '<b>%1</b>'.  "
-"Veskið er notað til þess að geyma viðkvæm gögn á öruggan hátt. Veldu hér "
-"fyrir neðan hvaða tegund veskis á að nota eða ýttu á 'Hætta við' til þess að "
-"neita fyrirspurninni.</qt>"
+"Veskið er notað til þess að geyma viðkvæm gögn á öruggan hátt. Veldu gerð "
+"veskisins hér fyrir neðan eða smelltu á 'Hætta við' til þess að hafna "
+"beiðninni.</qt>"
 
 #: knewwalletdialog.cpp:55
 #, kde-format
@@ -201,8 +227,8 @@ msgid ""
 msgstr ""
 "<qt>Forritið '<b>%1</b>' hefur beðið um að búa til nýtt veski með heitinu "
 "'<b>%2</b>'. Veskið er notað til þess að geyma viðkvæm gögn á öruggan hátt. "
-"Veldu hér fyrir neðan hvaða tegund veskis á að nota eða ýttu á 'Hætta við' "
-"til þess að neita fyrirspurninni.</qt>"
+"Veldu gerð veskisins hér fyrir neðan eða smelltu á 'Hætta við' til að hafna "
+"beiðninni.</qt>"
 
 #: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
 #: kwalletwizard.cpp:157
@@ -211,6 +237,8 @@ msgid ""
 "The GpgME library failed to initialize for the OpenPGP protocol. Please "
 "check your system's configuration then try again."
 msgstr ""
+"GpgME-safninu tókst ekki að frumstilla fyrir OpenPGP-samskiptastaðalinn. "
+"Athugað kerfisuppsetninguna þína og reyndu aftur."
 
 #: knewwalletdialog.cpp:153
 #, kde-format
@@ -218,6 +246,8 @@ msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
 "least one encryption key, then try again."
 msgstr ""
+"Kerfið þitt virðist ekki vera með neina lykla sem henta til dulritunar. "
+"Settu upp a.m.k. einn dulritunarlykil og reyndu aftur."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: knewwalletdialoggpg.ui:17
@@ -232,6 +262,8 @@ msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">ATH.:</span> þessi "
+"listi sýnir einungis &quot;æðstastigs&quot; trausta lykla</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:59
@@ -420,6 +452,9 @@ msgid ""
 "<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
 "associated to that key.</qt>"
 msgstr ""
+"<qt>Veskið <b>%1</b> er dulritað með GPG-lyklinum <b>%2</b>. Notaðu<b>GPG</"
+"b>-verkfæri (eins og <b>kleopatra</b>) til að breyta lykilsetningunni sem "
+"tengd er við lykilinn.</qt>"
 
 #: kwalletd.cpp:989
 #, kde-format
@@ -479,13 +514,13 @@ msgid ""
 "allowing you to easily copy a wallet to a remote system.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Veskjakerfi KDE geymir gögnin þín í <span style=\" "
-"font-style:italic;\">veskis</span>-skrá á harða disknum þínum.  Gögnin eru "
-"einungis skrifuð á dulrituðu formi, sem í dag styðst við blowfish-algrím með "
-"lykilorðið þitt sem dulkóðunarlykil.  Þegar veski er opnað birtir "
-"veskisstjórinn tákn af veski í kerfisbakkanum.  Þú getur notað þetta forrit "
-"fyrir umsýslu allra veskjanna þinna.  Það leyfir þér meira að segja að draga "
-"veski til og einfaldar þannig að afrita veski yfir á annað kerfi.</p></"
-"body></html>"
+"font-style:italic;\">veskis</span>skrá á harða disknum þínum.  Gögnin eru "
+"einungis skrifuð á því dulritaða formi sem þú velur - blowfish-algóritma með "
+"lykilorðið þitt sem lykil eða með því að nota GPG-dulritunarlykil.  Þegar "
+"veski er opnað opnast veskisforritið og birtist sem tákn í kerfisbakkanum. "
+"Þú getur haldið utan um veskin þín með forritinu. Þú getur meira að segja "
+"dregið veski og innihald þeirra til og þannig er auðvelt að afrita veski "
+"yfir í aðra tölvu.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: kwalletwizardpagegpgkey.ui:24
@@ -499,6 +534,14 @@ msgid ""
 "font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Veski sem byggir á GPG notar GPG-dulritunarlykil til "
+"að dulrita gögn á diski á öruggan hátt. Lykillinn verður að vera tiltækur "
+"þegar þú þarft að afkóða, annars verður ekki hægt að opna veskið. Ef þú "
+"velur til dæmis dulritunarlykil sem notar snjallkort, biður GPG-kerfið þig "
+"um að slá hann inn auk PIN-númersins sem honum tengist þegar reynt er að "
+"opna veskið. <span style=\"font-weight:600;\">ATH.:</span> þessi listi "
+"inniheldur einungis traust lykla á &quot;æðsta stigi&quot; (ultimate-level)."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kwalletwizardpagegpgkey.ui:42
@@ -517,6 +560,12 @@ msgid ""
 "Otherwise, you may still click back, then choose a classic, blowfish "
 "encrypted file format on the previous page."
 msgstr ""
+"Ekki tókst að finna a.m.k. einn <b>GPG-dulritunarlykil</b>. KDE Wallet þarf "
+"slíkan <b>dulritunarlykil</b> til að geta geymt lykilorð og önnur viðkvæm "
+"gögn á diski á öruggan hátt. Ef þú vilt samt setja upp veski með GPG skaltu "
+"loka þessari hjálp, setja upp <b>GPG-dulritunarlykil</b> og opna þessa hjálp "
+"aftur. Að öðrum kosti geturðu alltaf farið til baka á síðuna á undan og "
+"valið hefðbundið dulritunarsnið sem notar blowfish-skrársnið til dulritunar."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: kwalletwizardpageintro.ui:30
@@ -528,9 +577,9 @@ msgid ""
 "about KWallet and help you configure it for the first time."
 msgstr ""
 "Velkomin(n) í KWallet, veskjakerfi KDE.  KWallet gerir þér kleift að geyma "
-"lykilorð og aðrar persónuupplýsingar á harða disknum þín í dulkóðaðri skrá, "
+"lykilorð og aðrar persónuupplýsingar á harða disknum þín í dulkóðaðri skrá "
 "sem kemur í veg fyrir að aðrir geti skoðað upplýsingarnar þínar.  Þessi "
-"leiðarvísir segir þér frá KWallet og mun hjálpa þér að stilla það í fyrsta "
+"hjálp segir þér frá KWallet og mun hjálpa þér að grunnstilla það í fyrsta "
 "skipti."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
@@ -624,12 +673,12 @@ msgstr ""
 "<html><head/><body><p>Ýmis forrit geta reynt að nýta sér KDE veskið til að "
 "geyma lykilorð eða aðrar upplýsingar, svo sem gögn fyrir vefform og "
 "vefkökur.  Ef þú vilt að þessi forrit noti veskið þarftu virkja það núna og "
-"velja aðferðina sem á að nota við dulritun þess.</p><p>GPG-aðferðin er "
-"öruggari, en þá þarft þú að hafa sett upp að minnsta kosti einn "
-"dulritunarlykil á kerfinu þínu.</p><p>Ef þú notar klassíska tegund veskis, "
-"þá skaltu athuga að <span style=\" font-style:italic;\">ekki</span> er hægt "
-"að endurheimta lykilorðið sem þú velur ef það tapast og hver sá sem veit það "
-"getur komist yfir allar upplýsingar í veskinu.</p></body></html>"
+"velja dulritunaraðferðina sem á að nota.</p><p>GPG-aðferðin er öruggari, en "
+"þá þarft þú að hafa sett upp að minnsta kosti einn dulritunarlykil í "
+"tölvunni þinni.</p><p>Ef þú notar hefðbundið veskissnið þá skaltu athuga að "
+"<span style=\" font-style:italic;\">ekki</span> er hægt að endurheimta "
+"lykilorðið sem þú velur ef það tapast og hver sá sem þekkir það getur komist "
+"yfir allar upplýsingar í veskinu.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: kwalletwizardpagepasswordgpg.ui:46

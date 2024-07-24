@@ -1,31 +1,32 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kwallet package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2023.
+# SPDX-FileCopyrightText: 2024 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-04 00:36+0000\n"
-"PO-Revision-Date: 2023-03-22 12:53+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2024-07-22 14:28+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Sveinn í Felli"
+msgstr "Sveinn í Felli, Guðmundur Erlingsson"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sv1@fellsnet.is"
+msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
 #: main.cpp:24 main.cpp:26
 #, kde-format
@@ -50,7 +51,7 @@ msgstr "telja upp lykilorðafærslur"
 #: main.cpp:34
 #, kde-format
 msgid "reads the secrets from the given <entry>"
-msgstr "les leyniorð úr uppgefnu <entry>"
+msgstr "les leyniorð úr tilgreindu <entry>"
 
 #: main.cpp:34 main.cpp:35
 #, kde-format
@@ -63,11 +64,13 @@ msgid ""
 "write secrets to the given <entry>. The values are read from the standard "
 "input. IMPORTANT: previous wallet entry value will be overwritten!"
 msgstr ""
+"skrifa leyniorð í tilgreinda <entry>. Gildin eru lesin úr stöðluðu inntaki. "
+"MIKILVÆGT: skrifað verður yfir gildi í eldri veskisfærslu!"
 
 #: main.cpp:36
 #, kde-format
 msgid "specify the folder in the wallet <folder>"
-msgstr "tilgreindu möppuna í veskinu <folder>"
+msgstr "tilgreina möppuna í veskinu <folder>"
 
 #: main.cpp:36
 #, kde-format
@@ -93,21 +96,22 @@ msgstr "Of mörg viðföng eru gefin"
 #, kde-format
 msgid "Only one mode (list, read or write) can be set. Aborting"
 msgstr ""
+"Einungis er hægt að velja eitt snið (listi, lesa eða skrifa). Hætti við"
 
 #: main.cpp:63
 #, kde-format
 msgid "Please specify the mode (list or read)."
-msgstr ""
+msgstr "Tilgreindu sniðið (listi eða lesa)."
 
 #: querydriver.cpp:46
 #, kde-format
 msgid "Wallet %1 not found"
-msgstr "Veskið %1 fannst ekki"
+msgstr "Veskið %1 finnst ekki"
 
 #: querydriver.cpp:70
 #, kde-format
 msgid "Failed to open wallet %1. Aborting"
-msgstr "Mistókst að opna veskið %1. Hætti"
+msgstr "Mistókst að opna veskið %1. Hætti við"
 
 #: querydriver.cpp:104 querydriver.cpp:122
 #, kde-format
@@ -122,9 +126,9 @@ msgstr "Mistókst að lesa gildi %1 færslu úr %2 veskinu."
 #: querydriver.cpp:142 querydriver.cpp:159
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet"
-msgstr "Mistókst að lesa gildi %1 færslu úr %2 veskinu"
+msgstr "Mistókst að lesa gildi færslunnar %1 úr veskinu %2"
 
 #: querydriver.cpp:194 querydriver.cpp:211
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
-msgstr "Mistókst að skrifa gildi %1 færslu í %2 veskið"
+msgstr "Mistókst að skrifa gildi færslunnar %1 í veskið %2"
