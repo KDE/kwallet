@@ -12,6 +12,7 @@ find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Notifications ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Crash ${KF_DEP_VERSION} REQUIRED)
 
 ########### find needed packages ######
 find_package(Gpgmepp 1.7.0) # provided by GpgME
@@ -154,6 +155,7 @@ target_link_libraries(kwalletd6
     KF6::WidgetsAddons
     KF6::WindowSystem
     KF6::Notifications
+    KF6::Crash
     ${Qca_LIBRARY})
 if (Gpgmepp_FOUND)
     target_link_libraries(kwalletd6 Gpgmepp)

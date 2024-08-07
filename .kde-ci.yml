@@ -11,6 +11,7 @@ Dependencies:
     'frameworks/knotifications' : '@same'
     'frameworks/kwindowsystem' : '@same'
     'frameworks/kwidgetsaddons' : '@same'
+    'frameworks/kcrash' : '@same'
     'libraries/qca': '@latest'
     'third-party/gpgme' : '@same'
 

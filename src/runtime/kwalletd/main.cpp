@@ -10,8 +10,10 @@
 #include <KAboutData>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KCrash>
 #include <KDBusService>
 #include <KLocalizedString>
+
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QIcon>
@@ -173,6 +175,8 @@ int main(int argc, char **argv)
     aboutdata.addAuthor(i18n("Thiago Maceira"), i18n("D-Bus Interface"), QStringLiteral("thiago@kde.org"));
 
     KAboutData::setApplicationData(aboutdata);
+
+    KCrash::initialize();
 
     KDBusService dbusUniqueInstance(KDBusService::Unique);
 
