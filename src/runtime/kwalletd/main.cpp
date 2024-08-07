@@ -146,11 +146,7 @@ char *checkPamModule(int argc, char **argv)
 }
 #endif
 
-#ifdef HAVE_KF5INIT
-extern "C" Q_DECL_EXPORT int kdemain(int argc, char **argv)
-#else
 int main(int argc, char **argv)
-#endif
 {
     char *hash = nullptr;
 #ifndef Q_OS_WIN
