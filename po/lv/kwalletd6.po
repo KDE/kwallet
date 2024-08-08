@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-22 00:36+0000\n"
+"POT-Creation-Date: 2024-08-08 00:37+0000\n"
 "PO-Revision-Date: 2024-02-23 14:41+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -336,7 +336,7 @@ msgstr ""
 #. i18n( "&Open" ), "wallet-open"));
 #: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
 #: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
-#: main.cpp:169 main.cpp:171
+#: main.cpp:167 main.cpp:169
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE maka serviss"
@@ -680,47 +680,47 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "Kāda veida šifrēšanu vēlaties izmantot?"
 
-#: main.cpp:173
+#: main.cpp:171
 #, kde-format
 msgid "(C) 2002-2013, The KDE Developers"
 msgstr "(C) 2002–2013, KDE izstrādātāji"
 
-#: main.cpp:174
+#: main.cpp:172
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:174
+#: main.cpp:172
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "Iepriekšējais uzturētājs, GPG aizmugursistēmas atbalsts"
 
-#: main.cpp:175
+#: main.cpp:173
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:175
+#: main.cpp:173
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Iepriekšējais uzturētājs"
 
-#: main.cpp:176
+#: main.cpp:174
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:176
+#: main.cpp:174
 #, kde-format
 msgid "Former maintainer"
 msgstr "Iepriekšējais uzturētājs"
 
-#: main.cpp:177
+#: main.cpp:175
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:177
+#: main.cpp:175
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "„D-Bus“ saskarne"

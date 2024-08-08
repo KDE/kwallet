@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-22 00:36+0000\n"
+"POT-Creation-Date: 2024-08-08 00:37+0000\n"
 "PO-Revision-Date: 2023-12-13 06:44+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -342,7 +342,7 @@ msgstr ""
 #. i18n( "&Open" ), "wallet-open"));
 #: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
 #: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
-#: main.cpp:169 main.cpp:171
+#: main.cpp:167 main.cpp:169
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Servo de sekretejo de KDE"
@@ -695,47 +695,47 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "Kiuspecan ĉifradon vi deziras?"
 
-#: main.cpp:173
+#: main.cpp:171
 #, kde-format
 msgid "(C) 2002-2013, The KDE Developers"
 msgstr "(k) 2002-2013, La KDE-Programistoj"
 
-#: main.cpp:174
+#: main.cpp:172
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:174
+#: main.cpp:172
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "Antaŭa Prizorganto, subteno de GPG-backend"
 
-#: main.cpp:175
+#: main.cpp:173
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael LEUPOLD"
 
-#: main.cpp:175
+#: main.cpp:173
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Antaŭa Prizorganto"
 
-#: main.cpp:176
+#: main.cpp:174
 #, kde-format
 msgid "George Staikos"
 msgstr "George STAIKOS"
 
-#: main.cpp:176
+#: main.cpp:174
 #, kde-format
 msgid "Former maintainer"
 msgstr "Antaŭa prizorganto"
 
-#: main.cpp:177
+#: main.cpp:175
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago MACEIRA"
 
-#: main.cpp:177
+#: main.cpp:175
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "Interfaco de D-Bus"

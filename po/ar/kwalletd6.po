@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-22 00:36+0000\n"
+"POT-Creation-Date: 2024-08-08 00:37+0000\n"
 "PO-Revision-Date: 2024-01-17 19:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -333,7 +333,7 @@ msgstr ""
 #. i18n( "&Open" ), "wallet-open"));
 #: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
 #: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
-#: main.cpp:169 main.cpp:171
+#: main.cpp:167 main.cpp:169
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "خدمة حافظة كِيدِي"
@@ -674,47 +674,47 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "أي نوع من التشفير ترغب فيه؟"
 
-#: main.cpp:173
+#: main.cpp:171
 #, kde-format
 msgid "(C) 2002-2013, The KDE Developers"
 msgstr "© 2002-2013 لمطوري كِيدِي"
 
-#: main.cpp:174
+#: main.cpp:172
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:174
+#: main.cpp:172
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "المصين السابق ودعم خلفية GPG"
 
-#: main.cpp:175
+#: main.cpp:173
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:175
+#: main.cpp:173
 #, kde-format
 msgid "Former Maintainer"
 msgstr "المشرف السابق"
 
-#: main.cpp:176
+#: main.cpp:174
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:176
+#: main.cpp:174
 #, kde-format
 msgid "Former maintainer"
 msgstr "المشرف السابق"
 
-#: main.cpp:177
+#: main.cpp:175
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:177
+#: main.cpp:175
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "واجهة DBus"
