@@ -153,10 +153,6 @@ KWalletD::KWalletD()
         new KWalletPortalSecrets(this);
     }
 
-#ifdef Q_WS_X11
-    screensaver = 0;
-#endif
-
     reconfigure();
     //  KGlobal::dirs()->addResourceType("kwallet", 0, "share/apps/kwallet");
     _dw = new KDirWatch(this);
@@ -178,10 +174,8 @@ KWalletD::KWalletD()
 
 KWalletD::~KWalletD()
 {
-#ifdef Q_WS_X11
     delete screensaver;
-    screensaver = 0;
-#endif
+    screensaver = nullptr;
     closeAllWallets();
     qDeleteAll(_transactions);
 }
@@ -196,20 +190,25 @@ QString KWalletD::decodeWalletName(const QString &mangledName)
     return KWallet::Backend::decodeWalletName(mangledName);
 }
 
-#ifdef Q_WS_X11
 void KWalletD::connectToScreenSaver()
 {
+    // do nothing if no session bus is around, else we will re-try forever
+    if (!QDBusConnection::sessionBus().interface()) {
+        return;
+    }
+
     screensaver = new QDBusInterface("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver");
     if (!screensaver->isValid()) {
         qCDebug(KWALLETD_LOG) << "Service org.freedesktop.ScreenSaver not found. Retrying in 10 seconds...";
         // keep attempting every 10 seconds
+        delete screensaver;
+        screensaver = nullptr;
         QTimer::singleShot(10000, this, SLOT(connectToScreenSaver()));
     } else {
         connect(screensaver, SIGNAL(ActiveChanged(bool)), SLOT(screenSaverChanged(bool)));
         qCDebug(KWALLETD_LOG) << "connected to screen saver service.";
     }
 }
-#endif
 
 int KWalletD::generateHandle()
 {
@@ -1704,7 +1703,7 @@ void KWalletD::reconfigure()
     int timeSave = _idleTime;
     // in minutes!
     _idleTime = walletGroup.readEntry("Idle Timeout", 10) * 60 * 1000;
-#ifdef Q_WS_X11
+
     if (walletGroup.readEntry("Close on Screensaver", false)) {
         // BUG 254273 : if kwalletd starts before the screen saver, then the
         // connection fails and kwalletd never receives it's notifications
@@ -1712,13 +1711,13 @@ void KWalletD::reconfigure()
         // attempts until connection succeeds
         QTimer::singleShot(0, this, SLOT(connectToScreenSaver()));
     } else {
-        if (screensaver && screensaver->isValid()) {
+        if (screensaver) {
             screensaver->disconnect(SIGNAL(ActiveChanged(bool)), this, SLOT(screenSaverChanged(bool)));
             delete screensaver;
-            screensaver = 0;
+            screensaver = nullptr;
         }
     }
-#endif
+
     // Handle idle changes
     if (_closeIdle) {
         if (_idleTime != timeSave) { // Timer length changed

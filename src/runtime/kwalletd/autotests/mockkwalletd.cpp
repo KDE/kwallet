@@ -141,6 +141,9 @@ void KWalletD::processTransactions()
 void KWalletD::activatePasswordDialog()
 {
 }
+void KWalletD::connectToScreenSaver()
+{
+}
 
 #include <QLoggingCategory>
 const QLoggingCategory &KWALLETD_LOG()

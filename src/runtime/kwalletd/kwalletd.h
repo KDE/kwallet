@@ -201,9 +201,7 @@ private Q_SLOTS:
     void notifyFailures();
     void processTransactions();
     void activatePasswordDialog();
-#ifdef Q_WS_X11
     void connectToScreenSaver();
-#endif
 
 private:
     // Internal - open a wallet
@@ -255,9 +253,7 @@ private:
     QList<KWalletTransaction *> _transactions;
     QPointer<QWidget> activeDialog;
 
-#ifdef Q_WS_X11
-    QDBusInterface *screensaver;
-#endif
+    QDBusInterface *screensaver = nullptr;
 
     // sessions
     KWalletSessionStore _sessions;
