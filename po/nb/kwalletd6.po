@@ -685,7 +685,6 @@ msgstr "Valentin Rusu"
 
 #: main.cpp:172
 #, fuzzy, kde-format
-#| msgid "Maintainer, GPG backend support"
 msgid "Former Maintainer, GPG backend support"
 msgstr "Vedlikeholder GPG bakgrunnsmotor"
 
