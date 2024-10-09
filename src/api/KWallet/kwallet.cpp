@@ -25,6 +25,7 @@ Q_DECLARE_METATYPE(StringByteArrayMap)
 
 namespace KWallet
 {
+#if KWALLET_ENABLE_DEPRECATED_SINCE(6, 8)
 class KWalletDLauncher
 {
 public:
@@ -925,6 +926,7 @@ org::kde::KWallet &KWalletDLauncher::getInterface()
 
     return *m_wallet_deamon;
 }
+#endif
 
 } // namespace KWallet
 

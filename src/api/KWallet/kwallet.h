@@ -35,6 +35,7 @@
 
 namespace KWallet
 {
+#if KWALLET_ENABLE_DEPRECATED_SINCE(6, 8)
 /**
  * KDE Wallet
  *
@@ -43,8 +44,9 @@ namespace KWallet
  *
  * @author George Staikos <staikos@kde.org>
  * @short KDE Wallet Class
+ * @deprecated Use QtKeyChain instead
  */
-class KWALLET_EXPORT Wallet : public QObject
+class [[deprecated("Use QtKeyChain instead.")]] KWALLET_EXPORT Wallet : public QObject
 {
     Q_OBJECT
 protected:
@@ -554,7 +556,7 @@ protected:
      */
     virtual void virtual_hook(int id, void *data);
 };
-
+#endif
 }
 
 #endif //_KWALLET_H
