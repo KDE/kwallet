@@ -6,8 +6,8 @@ platforms:
     - name: FreeBSD
     - name: Windows
     - name: macOS
-portingAid: false
-deprecated: false
+portingAid: true
+deprecated: true
 release: true
 libraries:
  - cmake: "KF6::Wallet"
