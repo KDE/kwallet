@@ -145,6 +145,10 @@ install(
     DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR}
 )
 
+if (HAIKU)
+    target_link_libraries(kwalletd6 network)
+endif ()
+
 target_link_libraries(kwalletd6
     KF6WalletBackend
     KF6Wallet
