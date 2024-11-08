@@ -1,3 +1,5 @@
+configure_file(config-kwalletd.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwalletd.h )
+
 include(CheckSymbolExists)
 
 check_symbol_exists(explicit_bzero "string.h" KWALLETD_HAVE_EXPLICIT_BZERO)

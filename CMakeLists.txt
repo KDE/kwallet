@@ -33,6 +33,10 @@ option(BUILD_KWALLET_QUERY "Build kwallet-query tool" ON)
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
 
+if(NOT WIN32 AND NOT APPLE AND NOT HAIKU)
+    option(WITH_X11 "Build with support for KWindowSystem::isPlatformX11()" ON)
+endif()
+
 # kwalletd contains functions that are marked as deprecated.
 # These are part of the public DBus API and are used by older applications
 # Therefore we must not exclude those by default

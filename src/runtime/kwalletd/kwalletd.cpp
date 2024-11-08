@@ -36,11 +36,9 @@
 #include <kwalletentry.h>
 #include <kwindowsystem.h>
 
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
-#define HAVE_X11 1
+#include <config-kwalletd.h>
+#if WITH_X11
 #include <KX11Extras>
-#else
-#define HAVE_X11 0
 #endif
 
 #ifdef HAVE_GPGMEPP
@@ -449,7 +447,7 @@ void KWalletD::setupDialog(QWidget *dialog, WId wId, const QString &appid, bool 
         //         kapp->updateUserTimestamp();
     }
 
-#if HAVE_X11
+#if WITH_X11
     if (KWindowSystem::isPlatformX11()) {
         if (modal) {
             KX11Extras::setState(dialog->winId(), NET::Modal);
@@ -483,7 +481,7 @@ void KWalletD::checkActiveDialog()
 
     activeDialog->show();
 
-#if HAVE_X11
+#if WITH_X11
     if (KWindowSystem::isPlatformX11()) {
         WId window = activeDialog->winId();
         KX11Extras::setState(window, NET::KeepAbove);
@@ -641,7 +639,7 @@ int KWalletD::internalOpen(const QString &appid, const QString &wallet, bool isP
                     kpd->setWindowTitle(i18n("KDE Wallet Service"));
                     kpd->setIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
 
-#if HAVE_X11
+#if WITH_X11
                     if (KWindowSystem::isPlatformX11() && w != KX11Extras::activeWindow() && w != 0L) {
                         // If the dialog is modal to a minimized window it
                         // might not be visible
