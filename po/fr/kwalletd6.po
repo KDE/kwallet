@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-08 00:37+0000\n"
+"POT-Creation-Date: 2024-11-09 00:38+0000\n"
 "PO-Revision-Date: 2024-04-26 11:24+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -337,7 +337,7 @@ msgstr "Classique,fichier chiffré par l'algorithme de Blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Utiliser le chiffrement GPG pour une meilleure protection"
 
-#: kwalletd.cpp:626
+#: kwalletd.cpp:624
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -346,7 +346,7 @@ msgstr ""
 "<qt>KDE a demandé l'ouverture du portefeuille « <b>%1</b> ». Veuillez saisir "
 "ci-dessous le mot de passe pour ce portefeuille.</qt>"
 
-#: kwalletd.cpp:630
+#: kwalletd.cpp:628
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -356,19 +356,19 @@ msgstr ""
 "b> ». Veuillez saisir ci-dessous le mot de passe pour ce portefeuille.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:641 kwalletd.cpp:750 kwalletd.cpp:854 kwalletd.cpp:967
-#: kwalletd.cpp:990 kwalletd.cpp:1001 kwalletd.cpp:1006 kwalletd.cpp:1596
+#: kwalletd.cpp:639 kwalletd.cpp:748 kwalletd.cpp:852 kwalletd.cpp:965
+#: kwalletd.cpp:988 kwalletd.cpp:999 kwalletd.cpp:1004 kwalletd.cpp:1594
 #: main.cpp:167 main.cpp:169
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Service de portefeuilles de KDE"
 
-#: kwalletd.cpp:656
+#: kwalletd.cpp:654
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Une application a demandé l'ouverture d'un portefeuille (%1)."
 
-#: kwalletd.cpp:657
+#: kwalletd.cpp:655
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -376,19 +376,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Basculer vers l'application"
 
-#: kwalletd.cpp:659
+#: kwalletd.cpp:657
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> a demandé l'ouverture d'un portefeuille (%2)."
 
-#: kwalletd.cpp:661
+#: kwalletd.cpp:659
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Basculer vers %1"
 
-#: kwalletd.cpp:678 kwalletd.cpp:760
+#: kwalletd.cpp:676 kwalletd.cpp:758
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -397,7 +397,7 @@ msgstr ""
 "<qt>Erreur lors de l'ouverture du portefeuille « <b>%1</b> ». Veuillez "
 "réessayer.<br />(Code d'erreur %2 : %3)</qt>"
 
-#: kwalletd.cpp:726
+#: kwalletd.cpp:724
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -409,7 +409,7 @@ msgstr ""
 "de passe à utiliser avec ce portefeuille ou cliquer sur « Annuler » pour "
 "rejeter la demande de l'application."
 
-#: kwalletd.cpp:731
+#: kwalletd.cpp:729
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -422,7 +422,7 @@ msgstr ""
 "sécurisée. Veuillez saisir un mot de passe à utiliser avec ce portefeuille "
 "ou cliquer sur « Annuler » pour rejeter la demande de l'application.</qt>"
 
-#: kwalletd.cpp:739
+#: kwalletd.cpp:737
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -433,7 +433,7 @@ msgstr ""
 "Veuillez choisir un mot de passe pour ce portefeuille ou cliquer sur "
 "« Annuler » pour rejeter la demande de l'application.</qt>"
 
-#: kwalletd.cpp:744
+#: kwalletd.cpp:742
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -444,14 +444,14 @@ msgstr ""
 "nommé « <b>%2</b> ». Veuillez choisir un mot de passe pour ce portefeuille "
 "ou cliquer sur « Annuler » pour rejeter la demande de l'application.</qt>"
 
-#: kwalletd.cpp:856
+#: kwalletd.cpp:854
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>KDE a demandé l'accès au portefeuille actuellement ouvert « <b>%1</b> »."
 "</qt>"
 
-#: kwalletd.cpp:858
+#: kwalletd.cpp:856
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -460,7 +460,7 @@ msgstr ""
 "<qt>L'application <b>%1</b> a demandé l'accès au portefeuille ouvert « <b>"
 "%2</b> ».</qt>"
 
-#: kwalletd.cpp:966
+#: kwalletd.cpp:964
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -469,7 +469,7 @@ msgstr ""
 "Il est impossible d'ouvrir le portefeuille. Il faut que ce dernier soit "
 "ouvert pour pouvoir changer le mot de passe."
 
-#: kwalletd.cpp:982
+#: kwalletd.cpp:980
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -480,28 +480,28 @@ msgstr ""
 "Veuillez utiliser les outils <b>GPG</b> (tels que <b>kleopatra</b>) pour "
 "changer la phrase secrète associée à cette clé.</qt>"
 
-#: kwalletd.cpp:989
+#: kwalletd.cpp:987
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>Veuillez choisir un nouveau mot de passe pour le portefeuille « <b>%1</"
 "b> ».</qt>"
 
-#: kwalletd.cpp:1001
+#: kwalletd.cpp:999
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
 "Erreur lors du nouveau chiffrement du portefeuille. Le mot de passe n'a pas "
 "été changé."
 
-#: kwalletd.cpp:1006
+#: kwalletd.cpp:1004
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Erreur lors de la réouverture du portefeuille. Des données risquent d'être "
 "perdues."
 
-#: kwalletd.cpp:1595
+#: kwalletd.cpp:1593
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
