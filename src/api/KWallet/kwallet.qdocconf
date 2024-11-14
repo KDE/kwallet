@@ -1,0 +1,11 @@
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
+
+project = KWallet
+description = Password storage API
+
+documentationinheaders = true
+
+headerdirs += .
+sourcedirs += .
+
+depends = kde qtcore qtwidgets

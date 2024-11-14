@@ -95,6 +95,8 @@ ecm_generate_headers(KWallet_HEADERS
   REQUIRED_HEADERS KWallet_HEADERS
 )
 
+ecm_generate_qdoc(KF6Wallet kwallet.qdocconf)
+
 install(TARGETS KF6Wallet EXPORT KF6WalletTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kwallet_export.h
@@ -102,43 +104,8 @@ install(FILES
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KWallet COMPONENT Devel
 )
 
-if(BUILD_QCH)
-    ecm_add_qch(
-        KF6Wallet_QCH
-        NAME KWallet
-        BASE_NAME KF6Wallet
-        VERSION ${KF_VERSION}
-        ORG_DOMAIN org.kde
-        SOURCES # using only public headers, to cover only public API
-            ${KWallet_HEADERS}
-        LINK_QCHS
-            Qt6Gui_QCH
-        INCLUDE_DIRS
-            ${CMAKE_CURRENT_BINARY_DIR}
-        BLANK_MACROS
-            KWALLET_EXPORT
-            KWALLET_DEPRECATED
-            KWALLET_DEPRECATED_EXPORT
-            "KWALLET_DEPRECATED_VERSION(x, y, t)"
-        TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
-        QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
-        COMPONENT Devel
-    )
-endif()
-
-
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6Wallet")
-
-if (BUILD_QCH)
-    ecm_install_qch_export(
-        TARGETS KF6Wallet_QCH
-        FILE KF6WalletQchTargets.cmake
-        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-        COMPONENT Devel
-    )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF6WalletQchTargets.cmake\")")
-endif()
 
 include(CMakePackageConfigHelpers)
 

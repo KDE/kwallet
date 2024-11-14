@@ -1,0 +1,20 @@
+/*!
+    \page kwallet-index.html
+    \title KWallet
+
+    Secrets Storage.
+
+    \section1 Using the Module
+
+    \include {module-use.qdocinc} {using the c++ api}
+
+    \section2 Building with CMake
+
+    \include {module-use.qdocinc} {building with cmake} {KF6} {Wallet} {KF6::Wallet}
+
+    \section1 API Reference
+
+    \list
+        \li \l{KWallet C++ Classes}
+    \endlist
+*/

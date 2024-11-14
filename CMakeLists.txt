@@ -22,16 +22,14 @@ include(ECMDeprecationSettings)
 set(REQUIRED_QT_VERSION 6.6.0)
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
 
-include(ECMAddQch)
 include(ECMGenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
 include(ECMMarkNonGuiExecutable)
+include(ECMGenerateQDoc)
 
 option(BUILD_KWALLETD "Build the kwallet daemon" ON)
 option(BUILD_KWALLET_QUERY "Build kwallet-query tool" ON)
-option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
-add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
 
 if(NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     option(WITH_X11 "Build with support for KWindowSystem::isPlatformX11()" ON)
