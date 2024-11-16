@@ -49,8 +49,8 @@ find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6DocTools ${KF_DEP_VERSION})
 
 ecm_set_disabled_deprecation_versions(
-    QT 6.5
-    KF 5.102
+    QT 6.8.0
+    KF 6.8.0
 )
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kwalletd6\")
