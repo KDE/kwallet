@@ -6,7 +6,7 @@
 */
 #include "kwalletfreedesktopcollection.h"
 
-#include "kwalletd.h"
+#include "ksecretd.h"
 #include "kwalletfreedesktopcollectionadaptor.h"
 #include "kwalletfreedesktopitem.h"
 
@@ -302,7 +302,7 @@ KWalletFreedesktopService *KWalletFreedesktopCollection::fdoService() const
     return m_service;
 }
 
-KWalletD *KWalletFreedesktopCollection::backend() const
+KSecretD *KWalletFreedesktopCollection::backend() const
 {
     return fdoService()->backend();
 }
@@ -335,20 +335,37 @@ void KWalletFreedesktopCollection::onWalletChangeState(int handle)
 
     m_handle = handle;
 
-    if (m_handle < 0 || !m_items.empty()) {
-        return;
-    }
-
     const QStringList folderList = backend()->folderList(m_handle, FDO_APPID);
     for (const QString &folder : folderList) {
         const QStringList entries = backend()->entryList(m_handle, folder, FDO_APPID);
 
+        const qulonglong createTime = QDateTime::currentSecsSinceEpoch();
         for (const auto &entry : entries) {
             const EntryLocation entryLoc{folder, entry};
             const auto itm = findItemByEntryLocation(entryLoc);
             if (!itm) {
+                StrStrMap attr;
+                attr["server"] = folder;
+                attr["user"] = entry;
+                switch (backend()->entryType(m_handle, folder, entry, FDO_APPID)) {
+                case KWallet::Wallet::Stream:
+                    attr["type"] = "base64";
+                    break;
+                case KWallet::Wallet::Map:
+                    attr["type"] = "map";
+                    break;
+                case KWallet::Wallet::Password:
+                default:
+                    attr["type"] = "plaintext";
+                    break;
+                }
+                itemAttributes().newItem(entryLoc);
+                itemAttributes().setParam(entryLoc, FDO_KEY_CREATED, createTime);
+                itemAttributes().setParam(entryLoc, FDO_KEY_MODIFIED, createTime);
+                itemAttributes().setAttributes(entryLoc, attr);
                 auto &newItem = pushNewItem(entryLoc.toUniqueLabel(), nextItemPath());
-                Q_EMIT ItemChanged(newItem.fdoObjectPath());
+                newItem.setAttributes(attr);
+                Q_EMIT ItemCreated(newItem.fdoObjectPath());
             } else {
                 Q_EMIT ItemChanged(itm->fdoObjectPath());
             }

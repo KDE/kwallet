@@ -24,7 +24,7 @@
 static inline constexpr size_t FDO_SECRETS_CIPHER_KEY_SIZE = 16;
 static inline constexpr int FDO_DH_PUBLIC_KEY_SIZE = 128;
 
-class KWalletD;
+class KSecretD;
 
 class FreedesktopSecret
 {
@@ -116,7 +116,7 @@ public:
     Q_OBJECT
 
 public:
-    explicit KWalletFreedesktopService(KWalletD *parent);
+    explicit KWalletFreedesktopService(KSecretD *parent);
     ~KWalletFreedesktopService();
 
     KWalletFreedesktopService(const KWalletFreedesktopService &) = delete;
@@ -128,7 +128,7 @@ public:
     static QString wrapToCollectionPath(const QString &itemPath);
 
     static QDBusObjectPath nextPromptPath();
-    KWalletD *backend() const;
+    KSecretD *backend() const;
     QDBusObjectPath fdoObjectPath() const;
 
     bool desecret(const QDBusMessage &message, FreedesktopSecret &secret);
@@ -186,7 +186,7 @@ private:
     /*
     QDBusServiceWatcher _serviceWatcher;
     */
-    KWalletD *m_parent;
+    KSecretD *m_parent;
     QCA::Initializer m_init;
     KConfig m_kwalletrc;
 

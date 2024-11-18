@@ -6,8 +6,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef _KWALLETD_H_
-#define _KWALLETD_H_
+#ifndef _KSECRETD_H_
+#define _KSECRETD_H_
 
 #include "kwalletbackend.h"
 #include <QDBusConnection>
@@ -28,13 +28,13 @@ class KWalletTransaction;
 class KWalletSessionStore;
 class KWalletFreedesktopService;
 
-class KWalletD : public QObject, protected QDBusContext
+class KSecretD : public QObject, protected QDBusContext
 {
     Q_OBJECT
 
 public:
-    KWalletD();
-    ~KWalletD() override;
+    KSecretD();
+    ~KSecretD() override;
 
     static QString encodeWalletName(const QString &name);
     static QString decodeWalletName(const QString &mangledName);

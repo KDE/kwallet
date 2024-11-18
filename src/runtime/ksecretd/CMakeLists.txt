@@ -1,9 +1,9 @@
-configure_file(config-kwalletd.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwalletd.h )
+configure_file(config-ksecretd.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-ksecretd.h )
 
 include(CheckSymbolExists)
 
-check_symbol_exists(explicit_bzero "string.h" KWALLETD_HAVE_EXPLICIT_BZERO)
-check_symbol_exists(RtlSecureZeroMemory "windows.h" KWALLETD_HAVE_RTLSECUREZEROMEMORY)
+check_symbol_exists(explicit_bzero "string.h" KSECRETD_HAVE_EXPLICIT_BZERO)
+check_symbol_exists(RtlSecureZeroMemory "windows.h" KSECRETD_HAVE_RTLSECUREZEROMEMORY)
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
 
@@ -17,41 +17,33 @@ find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Crash ${KF_DEP_VERSION} REQUIRED)
 
 ########### find needed packages ######
-find_package(Gpgmepp 1.7.0) # provided by GpgME
-
-if (Gpgmepp_FOUND)
-    message("GPG support enabled")
-    add_definitions(-DHAVE_GPGMEPP)
-    add_definitions(-DBOOST_NO_EXCEPTIONS)
-    include_directories(${GPGME_INCLUDES})
-endif(Gpgmepp_FOUND)
 
 find_package(Qca-qt6 REQUIRED 2.3.1)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-########### build backends #########
-add_subdirectory(backend)
+########### build tests #########
 add_subdirectory(autotests)
 
-########### kwalletd ###############
+########### ksecretd ###############
 
-add_executable(kwalletd6)
+add_executable(ksecretd)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backend)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../kwalletbackend)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/../kwalletbackend)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../api/KWallet)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../api/KWallet)
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
-ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KWALLETD
-                        VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kwalletd_version.h"
+ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KSECRETD
+                        VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/ksecretd_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF6WalletConfigVersion.cmake"
                         SOVERSION 6)
 
-target_sources(kwalletd6 PRIVATE
+target_sources(ksecretd PRIVATE
    main.cpp
    kbetterthankdialog.cpp
-   kwalletd.cpp
+   ksecretd.cpp
    kwalletwizard.cpp
    ktimeout.cpp
    kwalletsessionstore.cpp
@@ -64,16 +56,16 @@ target_sources(kwalletd6 PRIVATE
 
    kwalletportalsecrets.cpp
 )
-ecm_qt_declare_logging_category(kwalletd6
-    HEADER kwalletd_debug.h
-    IDENTIFIER KWALLETD_LOG
-    CATEGORY_NAME kf.wallet.kwalletd
-    OLD_CATEGORY_NAMES kf5.kwallet.kwalletd
-    DESCRIPTION "kwalletd"
+ecm_qt_declare_logging_category(ksecretd
+    HEADER ksecretd_debug.h
+    IDENTIFIER KSECRETD_LOG
+    CATEGORY_NAME kf.wallet.ksecretd
+    OLD_CATEGORY_NAMES kf5.kwallet.ksecretd
+    DESCRIPTION "ksecretd"
     EXPORT KWALLET
 )
 
-ki18n_wrap_ui(kwalletd6
+ki18n_wrap_ui(ksecretd
    kbetterthankdialogbase.ui
    kwalletwizardpageexplanation.ui
    kwalletwizardpageintro.ui
@@ -82,10 +74,10 @@ ki18n_wrap_ui(kwalletd6
 )
 
 if (Gpgmepp_FOUND)
-    target_sources(kwalletd6 PRIVATE
+    target_sources(ksecretd PRIVATE
         knewwalletdialog.cpp
     )
-    ki18n_wrap_ui(kwalletd6
+    ki18n_wrap_ui(ksecretd
         kwalletwizardpagepasswordgpg.ui
         kwalletwizardpagegpgkey.ui
         knewwalletdialogintro.ui
@@ -107,49 +99,32 @@ set(fdo_item_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Ite
 set(fdo_prompt_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Prompt.xml)
 set(fdo_portal_secret_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.impl.portal.Secret.xml)
 
-set(kwalletd_dbus_SRCS)
-qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${kwallet_xml} kwalletd.h KWalletD kwalletadaptor KWalletAdaptor)
-qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_service_xml} kwalletfreedesktopservice.h KWalletFreedesktopService
+set(ksecretd_dbus_SRCS)
+qt_add_dbus_adaptor(ksecretd_dbus_SRCS ${kwallet_xml} ksecretd.h KSecretD kwalletadaptor KWalletAdaptor)
+qt_add_dbus_adaptor(ksecretd_dbus_SRCS ${fdo_service_xml} kwalletfreedesktopservice.h KWalletFreedesktopService
     kwalletfreedesktopserviceadaptor KWalletFreedesktopServiceAdaptor)
-qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_session_xml} kwalletfreedesktopsession.h KWalletFreedesktopSession
+qt_add_dbus_adaptor(ksecretd_dbus_SRCS ${fdo_session_xml} kwalletfreedesktopsession.h KWalletFreedesktopSession
     kwalletfreedesktopsessionadaptor KWalletFreedesktopSessionAdaptor)
-qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_collection_xml} kwalletfreedesktopcollection.h KWalletFreedesktopCollection
+qt_add_dbus_adaptor(ksecretd_dbus_SRCS ${fdo_collection_xml} kwalletfreedesktopcollection.h KWalletFreedesktopCollection
     kwalletfreedesktopcollectionadaptor KWalletFreedesktopCollectionAdaptor)
-qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_item_xml} kwalletfreedesktopitem.h KWalletFreedesktopItem
+qt_add_dbus_adaptor(ksecretd_dbus_SRCS ${fdo_item_xml} kwalletfreedesktopitem.h KWalletFreedesktopItem
     kwalletfreedesktopitemadaptor KWalletFreedesktopItemAdaptor)
-qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_prompt_xml} kwalletfreedesktopprompt.h KWalletFreedesktopPrompt
+qt_add_dbus_adaptor(ksecretd_dbus_SRCS ${fdo_prompt_xml} kwalletfreedesktopprompt.h KWalletFreedesktopPrompt
     kwalletfreedesktoppromptadaptor KWalletFreedesktopPromptAdaptor)
-qt_add_dbus_adaptor(kwalletd_dbus_SRCS ${fdo_portal_secret_xml} kwalletportalsecrets.h KWalletPortalSecrets
+qt_add_dbus_adaptor(ksecretd_dbus_SRCS ${fdo_portal_secret_xml} kwalletportalsecrets.h KWalletPortalSecrets
     kwalletportalsecretsadaptor KWalletPortalSecretsAdaptor)
 
-target_sources(kwalletd6 PRIVATE
-    ${kwalletd_dbus_SRCS}
+target_sources(ksecretd PRIVATE
+    ${ksecretd_dbus_SRCS}
 )
 
-if(WIN32)
-    configure_file(org.kde.kwalletd5.service.win.in
-                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
-    configure_file(org.kde.kwalletd6.service.win.in
-                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd6.service)
-else()
-    configure_file(org.kde.kwalletd5.service.in
-                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
-    configure_file(org.kde.kwalletd6.service.in
-                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd6.service)
-endif()
 
-install(
-    FILES
-        ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
-        ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd6.service
-    DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR}
-)
 
 if (HAIKU)
-    target_link_libraries(kwalletd6 network)
+    target_link_libraries(ksecretd network)
 endif ()
 
-target_link_libraries(kwalletd6
+target_link_libraries(ksecretd
     KF6WalletBackend
     KF6Wallet
     Qt6::Widgets
@@ -164,15 +139,15 @@ target_link_libraries(kwalletd6
     KF6::Crash
     ${Qca_LIBRARY})
 if (Gpgmepp_FOUND)
-    target_link_libraries(kwalletd6 Gpgmepp)
-    kde_target_enable_exceptions(kwalletd6 PRIVATE)
+    target_link_libraries(ksecretd Gpgmepp)
+    kde_target_enable_exceptions(ksecretd PRIVATE)
 endif(Gpgmepp_FOUND)
 
-ecm_mark_nongui_executable(kwalletd6)
-install(TARGETS kwalletd6  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+ecm_mark_nongui_executable(ksecretd)
+install(TARGETS ksecretd  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
-install( FILES kwalletd6.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
-install( FILES org.kde.kwalletd6.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
+install( FILES ksecretd.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
+install( FILES org.kde.ksecretd.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
 install( FILES kwallet.portal DESTINATION ${KDE_INSTALL_DATADIR}/xdg-desktop-portal/portals)
 
