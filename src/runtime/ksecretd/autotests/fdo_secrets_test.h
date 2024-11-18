@@ -8,7 +8,7 @@
 #ifndef FDOSECRETSTEST_H
 #define FDOSECRETSTEST_H
 
-#include "../kwalletd.h"
+#include "../ksecretd.h"
 #include "testhelpers.hpp"
 
 class FdoSecretsTest : public QObject

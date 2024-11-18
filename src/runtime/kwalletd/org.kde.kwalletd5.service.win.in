@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=org.kde.kwalletd5
-Exec=kwalletd6
