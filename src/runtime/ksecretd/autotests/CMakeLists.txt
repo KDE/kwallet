@@ -40,7 +40,7 @@ set(TEST_SRC
     ../kwalletfreedesktopattributes.cpp
 )
 
-qt_add_dbus_adaptor( TEST_SRC ${kwallet_xml} ../kwalletd.h KWalletD kwalletadaptor KWalletAdaptor)
+qt_add_dbus_adaptor( TEST_SRC ${kwallet_xml} ../ksecretd.h KSecretD kwalletadaptor KWalletAdaptor)
 qt_add_dbus_adaptor( TEST_SRC ${fdo_service_xml} ../kwalletfreedesktopservice.h KWalletFreedesktopService
     kwalletfreedesktopserviceadaptor KWalletFreedesktopServiceAdaptor)
 qt_add_dbus_adaptor( TEST_SRC ${fdo_session_xml} ../kwalletfreedesktopsession.h KWalletFreedesktopSession
@@ -59,7 +59,7 @@ ecm_add_test(
     ../kwalletfreedesktopitem.h
     ../kwalletfreedesktopsession.h
     ../kwalletfreedesktopprompt.h
-    ../kwalletd.h
+    ../ksecretd.h
     ../ktimeout.h
     kwalletfreedesktopserviceadaptor.cpp
     kwalletfreedesktopcollectionadaptor.cpp

@@ -15,7 +15,7 @@
 
 #define FDO_SECRETS_SESSION_PATH FDO_SECRETS_SERVICE_OBJECT "/session/"
 
-class KWalletD;
+class KSecretD;
 
 class KWalletFreedesktopSessionAlgorithm
 {
@@ -38,6 +38,9 @@ public:
                               const QDBusMessage &message);
 
     KWalletFreedesktopService *fdoService() const;
+
+    KSecretD *backend() const;
+    QDBusObjectPath fdoObjectPath() const;
 
     QByteArray negotiationOutput() const;
     bool encrypt(const QDBusMessage &message, FreedesktopSecret &secret) const;

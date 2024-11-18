@@ -6,7 +6,7 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include "kwalletd_debug.h"
+#include "ksecretd_debug.h"
 #include <KAboutData>
 #include <KConfig>
 #include <KConfigGroup>
@@ -22,9 +22,9 @@
 
 #include <stdio.h>
 
-#include "backend/kwalletbackend.h" //For the hash size
-#include "kwalletd.h"
-#include "kwalletd_version.h"
+#include "../kwalletbackend/kwalletbackend.h" //For the hash size
+#include "ksecretd.h"
+#include "ksecretd_version.h"
 #include "kwalletfreedesktopservice.h"
 
 #ifndef Q_OS_WIN
@@ -49,7 +49,7 @@ static bool isWalletEnabled()
 // Waits until the PAM_MODULE sends the hash
 static char *waitForHash()
 {
-    qCDebug(KWALLETD_LOG) << "kwalletd5: Waiting for hash on" << pipefd;
+    qCDebug(KSECRETD_LOG) << "ksecretd5: Waiting for hash on" << pipefd;
     int totalRead = 0;
     int readBytes = 0;
     int attempts = 0;
@@ -72,16 +72,16 @@ static char *waitForHash()
 // Waits until startkde sends the environment variables
 static int waitForEnvironment()
 {
-    qCDebug(KWALLETD_LOG) << "kwalletd5: waitingForEnvironment on:" << socketfd;
+    qCDebug(KSECRETD_LOG) << "ksecretd5: waitingForEnvironment on:" << socketfd;
 
     int s2;
     struct sockaddr_un remote;
     socklen_t t = sizeof(remote);
     if ((s2 = accept(socketfd, (struct sockaddr *)&remote, &t)) == -1) {
-        qCWarning(KWALLETD_LOG) << "kwalletd5: Couldn't accept incoming connection";
+        qCWarning(KSECRETD_LOG) << "ksecretd5: Couldn't accept incoming connection";
         return -1;
     }
-    qCDebug(KWALLETD_LOG) << "kwalletd5: client connected";
+    qCDebug(KSECRETD_LOG) << "ksecretd5: client connected";
 
     char str[BSIZE] = {'\0'};
 
@@ -98,26 +98,26 @@ static int waitForEnvironment()
     }
     fclose(s3);
 
-    qCDebug(KWALLETD_LOG) << "kwalletd5: client disconnected";
+    qCDebug(KSECRETD_LOG) << "ksecretd5: client disconnected";
     close(socketfd);
     return 1;
 }
 
 char *checkPamModule(int argc, char **argv)
 {
-    qCDebug(KWALLETD_LOG) << "kwalletd5: Checking for pam module";
+    qCDebug(KSECRETD_LOG) << "ksecretd5: Checking for pam module";
     char *hash = nullptr;
     int x = 1;
     for (; x < argc; ++x) {
         if (strcmp(argv[x], "--pam-login") != 0) {
             continue;
         }
-        qCDebug(KWALLETD_LOG) << "kwalletd5: Got pam-login param";
+        qCDebug(KSECRETD_LOG) << "ksecretd5: Got pam-login param";
         argv[x] = nullptr;
         x++;
         // We need at least 2 extra arguments after --pam-login
         if (x + 1 > argc) {
-            qCWarning(KWALLETD_LOG) << "kwalletd5: Invalid arguments (less than needed)";
+            qCWarning(KSECRETD_LOG) << "ksecretd5: Invalid arguments (less than needed)";
             return nullptr;
         }
 
@@ -132,14 +132,14 @@ char *checkPamModule(int argc, char **argv)
     }
 
     if (!pipefd || !socketfd) {
-        qCWarning(KWALLETD_LOG) << "Lacking a socket, pipe:" << pipefd << "env:" << socketfd;
+        qCWarning(KSECRETD_LOG) << "Lacking a socket, pipe:" << pipefd << "env:" << socketfd;
         return nullptr;
     }
 
     hash = waitForHash();
 
     if (hash == nullptr || waitForEnvironment() == -1) {
-        qCWarning(KWALLETD_LOG) << "kwalletd5: Hash or environment not received";
+        qCWarning(KSECRETD_LOG) << "ksecretd5: Hash or environment not received";
         free(hash);
         return nullptr;
     }
@@ -160,12 +160,12 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
 
-    // this kwalletd5 program should be able to start with KDE4's kwalletd
-    // using kwalletd name would prevent KDBusService unique instance to initialize
-    // so we setApplicationName("kwalletd6")
-    KAboutData aboutdata("kwalletd6",
+    // this ksecretd5 program should be able to start with KDE4's ksecretd
+    // using ksecretd name would prevent KDBusService unique instance to initialize
+    // so we setApplicationName("ksecretd6")
+    KAboutData aboutdata("ksecretd",
                          i18n("KDE Wallet Service"),
-                         KWALLETD_VERSION_STRING,
+                         KSECRETD_VERSION_STRING,
                          i18n("KDE Wallet Service"),
                          KAboutLicense::LGPL,
                          i18n("(C) 2002-2013, The KDE Developers"));
@@ -194,7 +194,7 @@ int main(int argc, char **argv)
 
     // check if kwallet is disabled
     if (!isWalletEnabled()) {
-        qCDebug(KWALLETD_LOG) << "kwalletd is disabled!";
+        qCDebug(KSECRETD_LOG) << "ksecretd is disabled!";
 
         /* Do not keep dbus-daemon waiting for the org.freedesktop.secrets if kwallet is disabled */
         KWalletFreedesktopService(nullptr);
@@ -202,17 +202,17 @@ int main(int argc, char **argv)
         return (0);
     }
 
-    KWalletD walletd;
-    qCDebug(KWALLETD_LOG) << "kwalletd6 started";
+    KSecretD secretd;
+    qCDebug(KSECRETD_LOG) << "ksecretd6 started";
 
 #ifndef Q_OS_WIN
     if (hash) {
         QByteArray passHash(hash, PBKDF2_SHA512_KEYSIZE);
-        int wallet = walletd.pamOpen(KWallet::Wallet::LocalWallet(), passHash, 0);
+        int wallet = secretd.pamOpen(KWallet::Wallet::LocalWallet(), passHash, 0);
         if (wallet < 0) {
-            qCWarning(KWALLETD_LOG) << "Wallet failed to get opened by PAM, error code is" << wallet;
+            qCWarning(KSECRETD_LOG) << "Wallet failed to get opened by PAM, error code is" << wallet;
         } else {
-            qCDebug(KWALLETD_LOG) << "Wallet opened by PAM";
+            qCDebug(KSECRETD_LOG) << "Wallet opened by PAM";
         }
         free(hash);
     }
