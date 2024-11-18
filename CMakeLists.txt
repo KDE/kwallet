@@ -28,6 +28,7 @@ include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
 include(ECMMarkNonGuiExecutable)
 
+option(BUILD_KSECRETD "Build the ksecretd daemon" ON)
 option(BUILD_KWALLETD "Build the kwallet daemon" ON)
 option(BUILD_KWALLET_QUERY "Build kwallet-query tool" ON)
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
@@ -37,7 +38,7 @@ if(NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     option(WITH_X11 "Build with support for KWindowSystem::isPlatformX11()" ON)
 endif()
 
-# kwalletd contains functions that are marked as deprecated.
+# ksecretd contains functions that are marked as deprecated.
 # These are part of the public DBus API and are used by older applications
 # Therefore we must not exclude those by default
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
@@ -53,7 +54,7 @@ ecm_set_disabled_deprecation_versions(
     KF 6.12.0
 )
 
-add_definitions(-DTRANSLATION_DOMAIN=\"kwalletd6\")
+add_definitions(-DTRANSLATION_DOMAIN=\"ksecretd6\")
 ki18n_install(po)
 add_subdirectory(src)
 if (BUILD_TESTING)

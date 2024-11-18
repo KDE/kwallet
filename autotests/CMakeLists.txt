@@ -7,14 +7,14 @@ if(NOT TARGET Qt6::Test)
     return()
 endif()
 
-if(BUILD_KWALLETD)
+if(BUILD_KSECRETD)
     ecm_add_tests(
         blowfishtest.cpp
         LINK_LIBRARIES Qt6::Test KF6WalletBackend
         )
 
-    target_include_directories(blowfishtest PRIVATE ${CMAKE_SOURCE_DIR}/src/runtime/kwalletd
-        ${CMAKE_BINARY_DIR}/src/runtime/kwalletd/backend)
+    target_include_directories(blowfishtest PRIVATE ${CMAKE_SOURCE_DIR}/src/runtime/ksecretd
+        ${CMAKE_BINARY_DIR}/src/runtime/kwalletbackend)
 endif()
 
 add_subdirectory(KWallet)

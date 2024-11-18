@@ -6,8 +6,8 @@
 */
 #include "kwalletfreedesktopitem.h"
 
-#include "kwalletd.h"
-#include "kwalletd_debug.h"
+#include "ksecretd.h"
+#include "ksecretd_debug.h"
 #include "kwalletfreedesktopcollection.h"
 #include "kwalletfreedesktopitemadaptor.h"
 
@@ -186,7 +186,7 @@ KWalletFreedesktopService *KWalletFreedesktopItem::fdoService() const
     return fdoCollection()->fdoService();
 }
 
-KWalletD *KWalletFreedesktopItem::backend() const
+KSecretD *KWalletFreedesktopItem::backend() const
 {
     return fdoCollection()->fdoService()->backend();
 }

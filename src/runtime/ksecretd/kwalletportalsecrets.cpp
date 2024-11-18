@@ -11,7 +11,7 @@
 
 #include <QRandomGenerator>
 
-KWalletPortalSecrets::KWalletPortalSecrets(KWalletD *parent)
+KWalletPortalSecrets::KWalletPortalSecrets(KSecretD *parent)
     : QObject(parent)
     , m_kwalletd(parent)
 {
@@ -20,7 +20,7 @@ KWalletPortalSecrets::KWalletPortalSecrets(KWalletD *parent)
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.freedesktop.impl.portal.desktop.kwallet"));
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/freedesktop/portal/desktop"), this, QDBusConnection::ExportAdaptors);
 
-    connect(m_kwalletd, &KWalletD::walletAsyncOpened, this, &KWalletPortalSecrets::walletOpened);
+    connect(m_kwalletd, &KSecretD::walletAsyncOpened, this, &KWalletPortalSecrets::walletOpened);
 }
 
 uint KWalletPortalSecrets::RetrieveSecret(const QDBusObjectPath &handle,

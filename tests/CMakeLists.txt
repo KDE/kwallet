@@ -1,6 +1,6 @@
 
 add_subdirectory(KWallet)
 
-if(BUILD_KWALLETD)
+if(BUILD_KSECRETD)
     add_subdirectory(kwalletd)
 endif()

@@ -7,8 +7,8 @@
 #include "fdo_secrets_test.h"
 #include "mockkwalletd.cpp"
 // cannot be in mockkwalletd.cpp, as CMake's automoc does not look there
+#include "moc_ksecretd.cpp"
 #include "moc_ktimeout.cpp"
-#include "moc_kwalletd.cpp"
 #include "static_mock.hpp"
 
 void FdoSecretsTest::initTestCase()
@@ -72,16 +72,16 @@ void FdoSecretsTest::collectionStaticFunctions()
 
 void FdoSecretsTest::cleanup()
 {
-    SET_FUNCTION_RESULT(KWalletD::wallets, QStringList());
+    SET_FUNCTION_RESULT(KSecretD::wallets, QStringList());
 }
 
 void FdoSecretsTest::precreatedWallets()
 {
     const QStringList wallets = {"wallet1", "wallet2", "wallet2__0_", "wallet2__1_"};
-    SET_FUNCTION_RESULT(KWalletD::wallets, wallets);
-    SET_FUNCTION_RESULT_OVERLOADED(KWalletD::isOpen, true, bool(KWalletD::*)(int));
+    SET_FUNCTION_RESULT(KSecretD::wallets, wallets);
+    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool(KSecretD::*)(int));
 
-    std::unique_ptr<KWalletD> kwalletd{new KWalletD};
+    std::unique_ptr<KSecretD> kwalletd{new KSecretD};
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
 
     QCOMPARE(wallets.size(), service->collections().size());
@@ -99,7 +99,7 @@ void FdoSecretsTest::precreatedWallets()
 
 void FdoSecretsTest::aliases()
 {
-    std::unique_ptr<KWalletD> kwalletd{new KWalletD};
+    std::unique_ptr<KSecretD> kwalletd{new KSecretD};
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
 
     service->createCollectionAlias("alias", "walletName");
@@ -166,11 +166,11 @@ void FdoSecretsTest::items()
     const QStringList wallets = {"wallet1"};
     const QStringList folders = {FDO_SECRETS_DEFAULT_DIR};
     const QStringList entries = {"item1", "item2", "item3"};
-    SET_FUNCTION_RESULT(KWalletD::wallets, wallets);
-    SET_FUNCTION_RESULT(KWalletD::folderList, folders);
-    SET_FUNCTION_RESULT(KWalletD::entryList, entries);
+    SET_FUNCTION_RESULT(KSecretD::wallets, wallets);
+    SET_FUNCTION_RESULT(KSecretD::folderList, folders);
+    SET_FUNCTION_RESULT(KSecretD::entryList, entries);
 
-    SET_FUNCTION_IMPL(KWalletD::entryType, [](int, const QString &, const QString &key, const QString &) -> int {
+    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &key, const QString &) -> int {
         if (key == "item1")
             return KWallet::Wallet::Password;
         else if (key == "item2")
@@ -202,12 +202,12 @@ void FdoSecretsTest::items()
         ds << map;
     }
 
-    SET_FUNCTION_IMPL(KWalletD::readPassword, [&](int, const QString &, const QString &key, const QString &) -> QString {
+    SET_FUNCTION_IMPL(KSecretD::readPassword, [&](int, const QString &, const QString &key, const QString &) -> QString {
         QTEST_ASSERT(key == "item1");
         return _secretHolder1;
     });
 
-    SET_FUNCTION_IMPL(KWalletD::readEntry, [&](int, const QString &, const QString &key, const QString &) -> QByteArray {
+    SET_FUNCTION_IMPL(KSecretD::readEntry, [&](int, const QString &, const QString &key, const QString &) -> QByteArray {
         QTEST_ASSERT(key == "item3" || key == "item2");
         if (key == "item2")
             return _secretHolder2;
@@ -215,14 +215,14 @@ void FdoSecretsTest::items()
             return _secretHolder3;
     });
 
-    SET_FUNCTION_IMPL(KWalletD::writePassword, [&](int, const QString &, const QString &key, const QString &value, const QString &) -> int {
+    SET_FUNCTION_IMPL(KSecretD::writePassword, [&](int, const QString &, const QString &key, const QString &value, const QString &) -> int {
         QTEST_ASSERT(key == "item1");
         _secretHolder1 = value;
         return 0;
     });
 
-    using writeEntryT = int (KWalletD::*)(int, const QString &, const QString &, const QByteArray &, int, const QString &);
-    SET_FUNCTION_IMPL_OVERLOADED(KWalletD::writeEntry,
+    using writeEntryT = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, int, const QString &);
+    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::writeEntry,
                                  writeEntryT,
                                  [&](int, const QString &, const QString &key, const QByteArray &value, int, const QString &) -> int {
                                      QTEST_ASSERT(key == "item3" || key == "item2");
@@ -233,7 +233,7 @@ void FdoSecretsTest::items()
                                      return 0;
                                  });
 
-    std::unique_ptr<KWalletD> kwalletd{new KWalletD};
+    std::unique_ptr<KSecretD> kwalletd{new KSecretD};
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
 
     auto collection = service->getCollectionByWalletName("wallet1");
@@ -253,9 +253,9 @@ void FdoSecretsTest::items()
     }
 
     /* Create collection */
-    using OpenAsyncT = int (KWalletD::*)(const QString &, qlonglong, const QString &, bool, const QDBusConnection &, const QDBusMessage &);
+    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QString &, bool, const QDBusConnection &, const QDBusMessage &);
     bool openAsyncCalled = false;
-    SET_FUNCTION_IMPL_OVERLOADED(KWalletD::openAsync,
+    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync,
                                  OpenAsyncT,
                                  [&](const QString &, qlonglong, const QString &, bool, const QDBusConnection &, const QDBusMessage &) -> int {
                                      openAsyncCalled = true;
@@ -268,7 +268,7 @@ void FdoSecretsTest::items()
     QVERIFY(prompt);
     prompt->Prompt("wndid");
     Q_EMIT kwalletd->walletAsyncOpened(0, 0);
-    SET_FUNCTION_RESULT_OVERLOADED(KWalletD::isOpen, true, bool(KWalletD::*)(int));
+    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool(KSecretD::*)(int));
     QVERIFY(!collection->locked());
 
     auto item1 = collection->findItemByEntryLocation({FDO_SECRETS_DEFAULT_DIR, "item1"});
@@ -345,13 +345,13 @@ void FdoSecretsTest::items()
 
 void FdoSecretsTest::createLockUnlockCollection()
 {
-    std::unique_ptr<KWalletD> kwalletd{new KWalletD};
+    std::unique_ptr<KSecretD> kwalletd{new KSecretD};
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
 
     /* Create collection */
-    using OpenAsyncT = int (KWalletD::*)(const QString &, qlonglong, const QString &, bool, const QDBusConnection &, const QDBusMessage &);
+    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QString &, bool, const QDBusConnection &, const QDBusMessage &);
     bool openAsyncCalled = false;
-    SET_FUNCTION_IMPL_OVERLOADED(KWalletD::openAsync,
+    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync,
                                  OpenAsyncT,
                                  [&](const QString &, qlonglong, const QString &, bool, const QDBusConnection &, const QDBusMessage &) -> int {
                                      openAsyncCalled = true;
@@ -390,7 +390,7 @@ void FdoSecretsTest::createLockUnlockCollection()
     auto lockedObjects = service->Lock({createdCollection->fdoObjectPath()}, promptPath);
     QCOMPARE(lockedObjects.size(), 1);
     QCOMPARE(lockedObjects.front(), createdCollection->fdoObjectPath());
-    SET_FUNCTION_RESULT_OVERLOADED(KWalletD::isOpen, false, bool(KWalletD::*)(int));
+    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, false, bool(KSecretD::*)(int));
     QVERIFY(createdCollection->locked());
 
     service->Unlock({createdCollection->fdoObjectPath()}, promptPath);
@@ -400,13 +400,13 @@ void FdoSecretsTest::createLockUnlockCollection()
     prompt->Prompt("wndid");
     QVERIFY(openAsyncCalled);
     Q_EMIT kwalletd->walletAsyncOpened(0, 0);
-    SET_FUNCTION_RESULT_OVERLOADED(KWalletD::isOpen, true, bool(KWalletD::*)(int));
+    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool(KSecretD::*)(int));
     QVERIFY(!createdCollection->locked());
 }
 
 void FdoSecretsTest::session()
 {
-    std::unique_ptr<KWalletD> kwalletd{new KWalletD};
+    std::unique_ptr<KSecretD> kwalletd{new KSecretD};
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
 
     auto message = QDBusMessage::createSignal("dummy", "dummy", "dummy");

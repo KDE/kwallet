@@ -5,7 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include "backend/blowfish.h"
+#include "blowfish.h"
 
 #include <QByteArray>
 #include <QObject>

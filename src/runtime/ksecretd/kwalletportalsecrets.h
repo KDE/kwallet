@@ -13,14 +13,14 @@
 #include <QDBusUnixFileDescriptor>
 #include <QObject>
 
-#include "kwalletd.h"
+#include "ksecretd.h"
 
 class KWalletPortalSecrets : public QObject, protected QDBusContext
 {
     Q_OBJECT
 
 public:
-    KWalletPortalSecrets(KWalletD *parent);
+    KWalletPortalSecrets(KSecretD *parent);
 
 public Q_SLOTS:
     uint
@@ -40,7 +40,7 @@ private:
 
     QHash<int, Request> m_pendingRequests;
 
-    KWalletD *m_kwalletd;
+    KSecretD *m_kwalletd;
 };
 
 #endif

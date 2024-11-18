@@ -36,8 +36,8 @@ set_target_properties(KF6WalletBackend PROPERTIES
     SOVERSION ${KWALLETBACKEND_SOVERSION}
 )
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../api/KWallet)
-include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../../api/KWallet)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../api/KWallet)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../api/KWallet)
 include_directories(${LIBGCRYPT_INCLUDE_DIRS})
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)

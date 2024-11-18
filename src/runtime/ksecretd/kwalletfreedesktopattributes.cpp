@@ -6,8 +6,8 @@
 */
 #include "kwalletfreedesktopattributes.h"
 
-#include "kwalletd.h"
-#include "kwalletd_debug.h"
+#include "ksecretd.h"
+#include "ksecretd_debug.h"
 #include "kwalletfreedesktopcollection.h"
 #include <QDir>
 #include <QFile>
@@ -17,7 +17,7 @@
 KWalletFreedesktopAttributes::KWalletFreedesktopAttributes(const QString &walletName)
 {
     const QString writeLocation = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kwalletd");
-    _path = writeLocation + QChar::fromLatin1('/') + KWalletD::encodeWalletName(walletName) + QStringLiteral("_attributes.json");
+    _path = writeLocation + QChar::fromLatin1('/') + KSecretD::encodeWalletName(walletName) + QStringLiteral("_attributes.json");
 
     read();
 
@@ -35,7 +35,7 @@ void KWalletFreedesktopAttributes::read()
         QFile file(_path);
         file.open(QIODevice::ReadOnly | QIODevice::Text);
         if (!file.isOpen()) {
-            qCDebug(KWALLETD_LOG) << "Can't read attributes file " << _path;
+            qCDebug(KSECRETD_LOG) << "Can't read attributes file " << _path;
             return;
         }
         content = file.readAll();
@@ -45,7 +45,7 @@ void KWalletFreedesktopAttributes::read()
     if (jsonDoc.isObject()) {
         _params = jsonDoc.object();
     } else {
-        qCWarning(KWALLETD_LOG) << "Can't read attributes: the root element must be an JSON-object: " << _path;
+        qCWarning(KSECRETD_LOG) << "Can't read attributes: the root element must be an JSON-object: " << _path;
         _params = QJsonObject();
     }
 }
@@ -61,7 +61,7 @@ void KWalletFreedesktopAttributes::write()
 
     QSaveFile sf(_path);
     if (!sf.open(QIODevice::WriteOnly | QIODevice::Unbuffered)) {
-        qCWarning(KWALLETD_LOG) << "Can't write attributes file: " << _path;
+        qCWarning(KSECRETD_LOG) << "Can't write attributes file: " << _path;
         return;
     }
     sf.setPermissions(QSaveFile::ReadUser | QSaveFile::WriteUser);
@@ -71,11 +71,11 @@ void KWalletFreedesktopAttributes::write()
     const QByteArray jsonBytes = saveDoc.toJson();
     if (sf.write(jsonBytes) != jsonBytes.size()) {
         sf.cancelWriting();
-        qCWarning(KWALLETD_LOG) << "Cannot write attributes file " << _path;
+        qCWarning(KSECRETD_LOG) << "Cannot write attributes file " << _path;
         return;
     }
     if (!sf.commit()) {
-        qCWarning(KWALLETD_LOG) << "Cannot commit attributes file " << _path;
+        qCWarning(KSECRETD_LOG) << "Cannot commit attributes file " << _path;
     }
 }
 
@@ -88,7 +88,7 @@ static EntryLocation splitToEntryLocation(const QString &entryLocation)
 {
     const int slashPos = entryLocation.indexOf(QChar::fromLatin1('/'));
     if (slashPos == -1) {
-        qCWarning(KWALLETD_LOG) << "Entry location '" << entryLocation << "' has no slash '/'";
+        qCWarning(KSECRETD_LOG) << "Entry location '" << entryLocation << "' has no slash '/'";
         return {};
     } else {
         return {entryLocation.left(slashPos), entryLocation.right((entryLocation.size() - slashPos) - 1)};
@@ -116,7 +116,7 @@ void KWalletFreedesktopAttributes::renameLabel(const EntryLocation &oldLocation,
 
     const auto found = _params.find(oldLoc);
     if (found == _params.end() || !found->isObject()) {
-        qCWarning(KWALLETD_LOG) << "Can't rename label (!?)";
+        qCWarning(KSECRETD_LOG) << "Can't rename label (!?)";
         return;
     }
     const auto obj = found->toObject();
@@ -181,7 +181,6 @@ void KWalletFreedesktopAttributes::setAttributes(const EntryLocation &entryLocat
     }
 
     const QString strLocation = entryLocationToStr(entryLocation);
-
     const auto foundParams = _params.find(strLocation);
     QJsonObject params;
     if (foundParams != _params.end() && foundParams->isObject()) {

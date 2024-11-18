@@ -70,6 +70,16 @@ KWalletFreedesktopService *KWalletFreedesktopSession::fdoService() const
     return m_service;
 }
 
+KSecretD *KWalletFreedesktopSession::backend() const
+{
+    return fdoService()->backend();
+}
+
+QDBusObjectPath KWalletFreedesktopSession::fdoObjectPath() const
+{
+    return QDBusObjectPath(m_sessionPath);
+}
+
 QByteArray KWalletFreedesktopSessionAlgorithmPlain::negotiationOutput() const
 {
     return QByteArray();
