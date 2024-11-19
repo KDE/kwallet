@@ -181,13 +181,12 @@ void KWalletFreedesktopAttributes::setAttributes(const EntryLocation &entryLocat
     }
 
     const QString strLocation = entryLocationToStr(entryLocation);
-
     const auto foundParams = _params.find(strLocation);
     QJsonObject params;
     if (foundParams != _params.end() && foundParams->isObject()) {
         params = foundParams->toObject();
     } else {
-        return;
+        //  return;
     }
 
     if (jsonAttrs.empty()) {

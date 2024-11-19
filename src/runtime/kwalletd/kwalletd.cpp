@@ -143,7 +143,7 @@ KWalletD::KWalletD()
 
         // register services
         QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.ksecretd"));
-        QDBusConnection::sessionBus().registerObject(QStringLiteral("ksecretd"), this);
+        QDBusConnection::sessionBus().registerObject(QStringLiteral("/ksecretd"), this);
         // register also with the KF5 names for backward compatibility
         QDBusConnection::sessionBus().interface()->registerService(QStringLiteral("org.kde.ksecretd"), QDBusConnectionInterface::QueueService);
         QDBusConnection::sessionBus().registerObject(QStringLiteral("ksecretd"), this);
