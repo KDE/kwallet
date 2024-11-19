@@ -163,7 +163,7 @@ int main(int argc, char **argv)
     // this kwalletd5 program should be able to start with KDE4's kwalletd
     // using kwalletd name would prevent KDBusService unique instance to initialize
     // so we setApplicationName("kwalletd6")
-    KAboutData aboutdata("kwalletd6",
+    KAboutData aboutdata("ksecretd",
                          i18n("KDE Wallet Service"),
                          KWALLETD_VERSION_STRING,
                          i18n("KDE Wallet Service"),

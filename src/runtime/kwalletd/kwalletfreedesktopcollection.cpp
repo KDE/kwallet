@@ -336,7 +336,7 @@ void KWalletFreedesktopCollection::onWalletChangeState(int handle)
     m_handle = handle;
 
     if (m_handle < 0 || !m_items.empty()) {
-        return;
+        // return;
     }
 
     const QStringList folderList = backend()->folderList(m_handle, FDO_APPID);
@@ -348,7 +348,23 @@ void KWalletFreedesktopCollection::onWalletChangeState(int handle)
             const auto itm = findItemByEntryLocation(entryLoc);
             if (!itm) {
                 auto &newItem = pushNewItem(entryLoc.toUniqueLabel(), nextItemPath());
-                Q_EMIT ItemChanged(newItem.fdoObjectPath());
+                StrStrMap attr;
+                attr["server"] = folder;
+                attr["user"] = entry;
+                switch (backend()->entryType(m_handle, folder, entry, FDO_APPID)) {
+                case KWallet::Wallet::Stream:
+                    attr["type"] = "base64";
+                    break;
+                case KWallet::Wallet::Map:
+                    attr["type"] = "map";
+                    break;
+                case KWallet::Wallet::Password:
+                default:
+                    attr["type"] = "plaintext";
+                    break;
+                }
+                newItem.setAttributes(attr);
+                Q_EMIT ItemCreated(newItem.fdoObjectPath());
             } else {
                 Q_EMIT ItemChanged(itm->fdoObjectPath());
             }
