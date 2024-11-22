@@ -1,0 +1,46 @@
+/*
+    SPDX-FileCopyrightText: 2024 Marco Martin <notmart@gmail.com>
+
+    SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+*/
+
+#include "kwalletd.h"
+
+#include <KAboutData>
+#include <KDBusService>
+#include <KLocalizedString>
+
+#include <QApplication>
+#include <QCommandLineParser>
+
+int main(int argc, char **argv)
+{
+    QApplication application(argc, argv);
+
+    KLocalizedString::setApplicationDomain("kwalletd");
+
+    KAboutData aboutData(QStringLiteral("kwalletd"),
+                         i18n("kwalletd"),
+                         QStringLiteral("0.1"),
+                         i18n("A KWallet compatibility service, wrapping upon Secret Service"),
+                         KAboutLicense::GPL,
+                         i18n("Copyright 2024, Marco Martin <notmart@gmail.com>"));
+
+    aboutData.addAuthor(i18n("Marco Martin"), i18n("Author"), QStringLiteral("notmart@gmail.com"));
+    aboutData.setOrganizationDomain("kde.org");
+    aboutData.setDesktopFileName(QStringLiteral("org.kde.kwalletd"));
+
+    KAboutData::setApplicationData(aboutData);
+
+    QCommandLineParser parser;
+    aboutData.setupCommandLine(&parser);
+
+    parser.process(application);
+    aboutData.processCommandLine(&parser);
+
+    KDBusService dbusUniqueInstance(KDBusService::Unique);
+
+    KWalletD wallet;
+
+    return application.exec();
+}
