@@ -1,5 +1,5 @@
-if(BUILD_KWALLETD)
-    add_subdirectory(kwalletd)
+if(BUILD_KSECRETD)
+    add_subdirectory(ksecretd)
 endif()
 
 if(BUILD_KWALLET_QUERY)

@@ -10,7 +10,7 @@
 
 static inline constexpr auto FDO_SS_MAGICK = 0x4950414f44465353ULL;
 
-class KWalletD;
+class KSecretD;
 class KWalletFreedesktopCollection;
 
 class KWalletFreedesktopItem : public QObject, protected FDO_DBUS_CONTEXT
@@ -52,7 +52,7 @@ public:
 
     KWalletFreedesktopCollection *fdoCollection() const;
     KWalletFreedesktopService *fdoService() const;
-    KWalletD *backend() const;
+    KSecretD *backend() const;
     QDBusObjectPath fdoObjectPath() const;
     const FdoUniqueLabel &uniqueLabel() const;
     void uniqueLabel(const FdoUniqueLabel &uniqLabel);

@@ -6,7 +6,7 @@
 */
 
 #include "knewwalletdialog.h"
-#include "kwalletd_debug.h"
+#include "ksecretd_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QTableWidget>
@@ -120,7 +120,7 @@ void KNewWalletDialogGpg::initializePage()
     GpgME::initializeLibrary();
     GpgME::Error err = GpgME::checkEngine(GpgME::OpenPGP);
     if (err) {
-        qCDebug(KWALLETD_LOG) << "OpenPGP not supported on your system!";
+        qCDebug(KSECRETD_LOG) << "OpenPGP not supported on your system!";
         KMessageBox::error(this,
                            i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
         Q_EMIT completeChanged();
