@@ -17,27 +17,19 @@ find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Crash ${KF_DEP_VERSION} REQUIRED)
 
 ########### find needed packages ######
-find_package(Gpgmepp 1.7.0) # provided by GpgME
-
-if (Gpgmepp_FOUND)
-    message("GPG support enabled")
-    add_definitions(-DHAVE_GPGMEPP)
-    add_definitions(-DBOOST_NO_EXCEPTIONS)
-    include_directories(${GPGME_INCLUDES})
-endif(Gpgmepp_FOUND)
 
 find_package(Qca-qt6 REQUIRED 2.3.1)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-########### build backends #########
-add_subdirectory(backend)
+########### build tests #########
 add_subdirectory(autotests)
 
 ########### ksecretd ###############
 
 add_executable(ksecretd)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backend)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../kwalletbackend)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/../kwalletbackend)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../api/KWallet)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../api/KWallet)
 

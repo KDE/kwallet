@@ -22,7 +22,7 @@
 
 #include <stdio.h>
 
-#include "backend/kwalletbackend.h" //For the hash size
+#include "../kwalletbackend/kwalletbackend.h" //For the hash size
 #include "ksecretd.h"
 #include "ksecretd_version.h"
 #include "kwalletfreedesktopservice.h"

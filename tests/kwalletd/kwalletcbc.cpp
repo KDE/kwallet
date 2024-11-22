@@ -8,8 +8,8 @@
 #include "kwalletcbc.h"
 
 #include <QTest>
-#include <backend/blowfish.h>
-#include <backend/cbc.h>
+#include <blowfish.h>
+#include <cbc.h>
 
 void KWalletCBCTest::encryptDecryptOneBlock()
 {
