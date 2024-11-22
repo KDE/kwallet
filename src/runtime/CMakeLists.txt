@@ -1,4 +1,4 @@
-if(BUILD_KSECRETD)
+if(BUILD_KSECRETD OR BUILD_KWALLETD)
     find_package(Gpgmepp 1.7.0) # provided by GpgME
 
     if (Gpgmepp_FOUND)
@@ -8,8 +8,14 @@ if(BUILD_KSECRETD)
         include_directories(${GPGME_INCLUDES})
     endif(Gpgmepp_FOUND)
     add_subdirectory(kwalletbackend)
+endif()
 
+if(BUILD_KSECRETD)
     add_subdirectory(ksecretd)
+endif()
+
+if(BUILD_KWALLETD)
+    add_subdirectory(kwalletd)
 endif()
 
 if(BUILD_KWALLET_QUERY)
