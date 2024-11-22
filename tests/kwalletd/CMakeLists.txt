@@ -2,7 +2,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../src/api/KWallet ) # for k
 include_directories( ${CMAKE_CURRENT_BINARY_DIR}/../../src/api/KWallet )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../src/runtime/ksecretd ) # kwalletwizard.h
-include_directories( ${CMAKE_CURRENT_BINARY_DIR}/../../src/runtime/ksecretd/backend ) # kwalletwizard.h
+include_directories( ${CMAKE_CURRENT_BINARY_DIR}/../../src/runtime/kwalletbackend ) # kwalletwizard.h
 
 include(ECMMarkAsTest)
 

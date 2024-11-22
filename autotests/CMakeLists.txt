@@ -14,7 +14,7 @@ if(BUILD_KSECRETD)
         )
 
     target_include_directories(blowfishtest PRIVATE ${CMAKE_SOURCE_DIR}/src/runtime/ksecretd
-        ${CMAKE_BINARY_DIR}/src/runtime/ksecretd/backend)
+        ${CMAKE_BINARY_DIR}/src/runtime/kwalletbackend)
 endif()
 
 add_subdirectory(KWallet)
