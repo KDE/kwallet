@@ -15,7 +15,7 @@
 
 #define FDO_SECRETS_SESSION_PATH FDO_SECRETS_SERVICE_OBJECT "/session/"
 
-class KWalletD;
+class KSecretD;
 
 class KWalletFreedesktopSessionAlgorithm
 {
@@ -44,7 +44,7 @@ public:
     KWalletFreedesktopSession &operator=(KWalletFreedesktopSession &&) = delete;
 
     KWalletFreedesktopService *fdoService() const;
-    KWalletD *backend() const;
+    KSecretD *backend() const;
     QDBusObjectPath fdoObjectPath() const;
 
     QByteArray negotiationOutput() const;

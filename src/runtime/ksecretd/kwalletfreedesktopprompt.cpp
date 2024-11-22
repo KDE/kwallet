@@ -6,7 +6,7 @@
 */
 #include "kwalletfreedesktopprompt.h"
 
-#include "kwalletd.h"
+#include "ksecretd.h"
 #include "kwalletfreedesktopcollection.h"
 #include "kwalletfreedesktoppromptadaptor.h"
 
@@ -25,7 +25,7 @@ KWalletFreedesktopService *KWalletFreedesktopPrompt::fdoService() const
     return m_service;
 }
 
-KWalletD *KWalletFreedesktopPrompt::backend() const
+KSecretD *KWalletFreedesktopPrompt::backend() const
 {
     return fdoService()->backend();
 }
@@ -121,7 +121,7 @@ void KWalletFreedesktopPrompt::walletAsyncOpened(int transactionId, int walletHa
 
 void KWalletFreedesktopPrompt::subscribeForWalletAsyncOpened()
 {
-    connect(backend(), &KWalletD::walletAsyncOpened, this, &KWalletFreedesktopPrompt::walletAsyncOpened);
+    connect(backend(), &KSecretD::walletAsyncOpened, this, &KWalletFreedesktopPrompt::walletAsyncOpened);
     QDBusConnection::sessionBus().registerObject(fdoObjectPath().path(), this);
 }
 

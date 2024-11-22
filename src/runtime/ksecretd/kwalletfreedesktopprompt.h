@@ -11,7 +11,7 @@
 
 #define FDO_SECRET_SERVICE_PROMPT_PATH FDO_SECRETS_SERVICE_OBJECT "/prompt/"
 
-class KWalletD;
+class KSecretD;
 
 enum class PromptType {
     Open,
@@ -38,7 +38,7 @@ public:
     KWalletFreedesktopPrompt &operator=(KWalletFreedesktopPrompt &&) = delete;
 
     KWalletFreedesktopService *fdoService() const;
-    KWalletD *backend() const;
+    KSecretD *backend() const;
     QDBusObjectPath fdoObjectPath() const;
 
     void subscribeForWalletAsyncOpened();
