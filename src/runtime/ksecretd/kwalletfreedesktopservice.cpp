@@ -6,8 +6,8 @@
 */
 #include "kwalletfreedesktopservice.h"
 
-#include "kwalletd.h"
-#include "kwalletd_debug.h"
+#include "ksecretd.h"
+#include "ksecretd_debug.h"
 #include "kwalletfreedesktopcollection.h"
 #include "kwalletfreedesktopitem.h"
 #include "kwalletfreedesktopprompt.h"
@@ -135,7 +135,7 @@ QString KWalletFreedesktopService::wrapToCollectionPath(const QString &itemPath)
     return itemPath.section(QChar::fromLatin1('/'), 0, 5);
 }
 
-KWalletFreedesktopService::KWalletFreedesktopService(KWalletD *parent)
+KWalletFreedesktopService::KWalletFreedesktopService(KSecretD *parent)
     : QObject(nullptr)
     , m_parent(parent)
     , m_kwalletrc(QStringLiteral("kwalletrc"))
@@ -151,12 +151,12 @@ KWalletFreedesktopService::KWalletFreedesktopService(KWalletD *parent)
         return;
     }
 
-    connect(m_parent, static_cast<void (KWalletD::*)(const QString &)>(&KWalletD::walletClosed), this, &KWalletFreedesktopService::lockCollection);
-    connect(m_parent, &KWalletD::entryUpdated, this, &KWalletFreedesktopService::entryUpdated);
-    connect(m_parent, &KWalletD::entryDeleted, this, &KWalletFreedesktopService::entryDeleted);
-    connect(m_parent, &KWalletD::entryRenamed, this, &KWalletFreedesktopService::entryRenamed);
-    connect(m_parent, &KWalletD::walletDeleted, this, &KWalletFreedesktopService::walletDeleted);
-    connect(m_parent, &KWalletD::walletCreated, this, &KWalletFreedesktopService::walletCreated);
+    connect(m_parent, static_cast<void (KSecretD::*)(const QString &)>(&KSecretD::walletClosed), this, &KWalletFreedesktopService::lockCollection);
+    connect(m_parent, &KSecretD::entryUpdated, this, &KWalletFreedesktopService::entryUpdated);
+    connect(m_parent, &KSecretD::entryDeleted, this, &KWalletFreedesktopService::entryDeleted);
+    connect(m_parent, &KSecretD::entryRenamed, this, &KWalletFreedesktopService::entryRenamed);
+    connect(m_parent, &KSecretD::walletDeleted, this, &KWalletFreedesktopService::walletDeleted);
+    connect(m_parent, &KSecretD::walletCreated, this, &KWalletFreedesktopService::walletCreated);
 
     const auto walletNames = backend()->wallets();
 
@@ -464,7 +464,7 @@ QDBusObjectPath KWalletFreedesktopService::promptUnlockCollection(const QString 
     return QDBusObjectPath(objectPath);
 }
 
-/* Triggered after KWalletD::walletClosed signal */
+/* Triggered after KSecretD::walletClosed signal */
 void KWalletFreedesktopService::lockCollection(const QString &name)
 {
     auto *collection = getCollectionByWalletName(name);
@@ -474,7 +474,7 @@ void KWalletFreedesktopService::lockCollection(const QString &name)
     }
 }
 
-/* Triggered after KWalletD::entryUpdated signal */
+/* Triggered after KSecretD::entryUpdated signal */
 void KWalletFreedesktopService::entryUpdated(const QString &walletName, const QString &folder, const QString &entryName)
 {
     auto *collection = getCollectionByWalletName(walletName);
@@ -493,7 +493,7 @@ void KWalletFreedesktopService::entryUpdated(const QString &walletName, const QS
     }
 }
 
-/* Triggered after KWalletD::entryDeleted signal */
+/* Triggered after KSecretD::entryDeleted signal */
 void KWalletFreedesktopService::entryDeleted(const QString &walletName, const QString &folder, const QString &entryName)
 {
     auto *collection = getCollectionByWalletName(walletName);
@@ -507,7 +507,7 @@ void KWalletFreedesktopService::entryDeleted(const QString &walletName, const QS
     }
 }
 
-/* Triggered after KWalletD::entryRenamed signal */
+/* Triggered after KSecretD::entryRenamed signal */
 void KWalletFreedesktopService::entryRenamed(const QString &walletName, const QString &folder, const QString &oldName, const QString &newName)
 {
     auto *collection = getCollectionByWalletName(walletName);
@@ -522,7 +522,7 @@ void KWalletFreedesktopService::entryRenamed(const QString &walletName, const QS
     if (!item) {
         /* Warn if label not found and not yet renamed */
         if (!collection->findItemByEntryLocation(newLocation)) {
-            qCWarning(KWALLETD_LOG) << "Cannot rename secret service label:" << FdoUniqueLabel::fromEntryLocation(oldLocation).label;
+            qCWarning(KSECRETD_LOG) << "Cannot rename secret service label:" << FdoUniqueLabel::fromEntryLocation(oldLocation).label;
         }
         return;
     }
@@ -534,7 +534,7 @@ void KWalletFreedesktopService::entryRenamed(const QString &walletName, const QS
     }
 }
 
-/* Triggered after KWalletD::walletDeleted signal */
+/* Triggered after KSecretD::walletDeleted signal */
 void KWalletFreedesktopService::walletDeleted(const QString &walletName)
 {
     auto *collection = getCollectionByWalletName(walletName);
@@ -543,7 +543,7 @@ void KWalletFreedesktopService::walletDeleted(const QString &walletName)
     }
 }
 
-/* Triggered after KWalletD::walletCreated signal */
+/* Triggered after KSecretD::walletCreated signal */
 void KWalletFreedesktopService::walletCreated(const QString &walletName)
 {
     const auto objectPath = makeUniqueObjectPath(walletName);
@@ -638,7 +638,7 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, QCA::SecureArray &buf)
     return arg;
 }
 
-KWalletD *KWalletFreedesktopService::backend() const
+KSecretD *KWalletFreedesktopService::backend() const
 {
     return m_parent;
 }

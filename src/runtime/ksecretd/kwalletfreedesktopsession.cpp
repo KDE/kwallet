@@ -70,7 +70,7 @@ KWalletFreedesktopService *KWalletFreedesktopSession::fdoService() const
     return m_service;
 }
 
-KWalletD *KWalletFreedesktopSession::backend() const
+KSecretD *KWalletFreedesktopSession::backend() const
 {
     return fdoService()->backend();
 }

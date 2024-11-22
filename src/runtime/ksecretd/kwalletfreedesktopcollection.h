@@ -55,7 +55,7 @@ public:
     QDBusObjectPath nextItemPath();
 
     KWalletFreedesktopService *fdoService() const;
-    KWalletD *backend() const;
+    KSecretD *backend() const;
     QDBusObjectPath fdoObjectPath() const;
     const FdoUniqueLabel &uniqueLabel() const;
     QString walletName() const;
