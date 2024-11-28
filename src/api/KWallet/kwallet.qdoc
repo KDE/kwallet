@@ -1,0 +1,11 @@
+/*!
+    \module KWallet
+    \title KWallet C++ Classes
+    \ingroup modules
+    \cmakepackage KF6
+    \cmakecomponent Wallet
+
+    \brief Money
+
+    Stuff
+*/

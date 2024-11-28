@@ -33,16 +33,21 @@
 #define KSS_ATTR_ENTRYFOLDER "kwallet.folderName"
 #define KSS_ATTR_WALLETTYPE "kwallet.type"
 
+/*!
+ * \namespace KWallet
+ * \inmodule KWallet
+ */
 namespace KWallet
 {
 /*!
- * KDE Wallet
+ * \class KWallet::Wallet
+ * \inheaderfile KWallet
+ * \inmodule KWallet
+ *
+ * \brief KDE Wallet Class.
  *
  * This class implements a generic system-wide Wallet for KDE.  This is the
  * ONLY public interface.
- *
- * \class Wallet
- * \brief KDE Wallet Class
  */
 class KWALLET_EXPORT Wallet : public QObject
 {
@@ -65,11 +70,11 @@ protected:
 
 public:
     /*!
-     * \enum EntryType
      * \value Unknown An invalid entry
      * \value Password The entry is a simple text password
      * \value Stream The entry is binary data which the client will need to know how to decode
      * \value Map The entry is a key/value map and can be decoded as a QMap<QString, QString>
+     * \omitvalue Unused
      */
     enum EntryType {
         Unknown = 0,
@@ -80,7 +85,9 @@ public:
     };
 
     /*!
-     *  Destroy a KWallet object.  Closes the wallet.
+     * Destroy a KWallet object.
+     *
+     * Closes the wallet.
      */
     ~Wallet() override;
 
@@ -105,7 +112,7 @@ public:
      *
      *  \a name The name of the wallet to check.
      *
-     *  Returns true if the wallet is open, else false.
+     *  Returns \c true if the wallet is open, else false.
      */
     static bool isOpen(const QString &name);
 
@@ -140,10 +147,17 @@ public:
      *
      * \a app The name of the application to disconnect.
      *
-     * Returns true on success, false on error.
+     * Returns \c true on success, false on error.
      */
     static bool disconnectApplication(const QString &wallet, const QString &app);
 
+    /*!
+     * \value Synchronous
+     * \value Asynchronous
+     * \value Path
+     * \omitvalue OpenTypeUnused
+     *
+     */
     enum OpenType {
         Synchronous = 0,
         Asynchronous,
@@ -632,9 +646,6 @@ private:
     Q_PRIVATE_SLOT(d, void walletServiceUnregistered())
 
 protected:
-    /*!
-     * \internal
-     */
     virtual void virtual_hook(int id, void *data);
 };
 
