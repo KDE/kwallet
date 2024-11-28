@@ -95,6 +95,8 @@ ecm_generate_headers(KWallet_HEADERS
   REQUIRED_HEADERS KWallet_HEADERS
 )
 
+ecm_generate_qdoc(KF6Wallet kwallet.qdocconf)
+
 install(TARGETS KF6Wallet EXPORT KF6WalletTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kwallet_export.h
