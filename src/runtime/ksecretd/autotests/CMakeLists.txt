@@ -72,5 +72,7 @@ ecm_add_test(
         Qt6::Test
         KF6::DBusAddons
         KF6::ConfigCore
-        ${Qca_LIBRARY}
+        Botan::Botan
 )
+
+kde_target_enable_exceptions(fdo_secrets_test PRIVATE)

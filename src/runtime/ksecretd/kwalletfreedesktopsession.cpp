@@ -6,8 +6,17 @@
 */
 #include "kwalletfreedesktopsession.h"
 
+#include "botan_helper.h"
+#include "ksecretd_debug.h"
 #include "kwalletfreedesktopsessionadaptor.h"
 #include <QDBusConnection>
+
+#include <botan/block_cipher.h>
+#include <botan/cipher_mode.h>
+#include <botan/filters.h>
+#include <botan/hex.h>
+#include <botan/pipe.h>
+#include <botan/system_rng.h>
 
 QByteArray KWalletFreedesktopSessionAlgorithmDhAes::normalizeUnsignedDhValue(QByteArray value)
 {
@@ -22,13 +31,13 @@ QByteArray KWalletFreedesktopSessionAlgorithmDhAes::normalizeUnsignedDhValue(QBy
     return value;
 }
 
-QCA::BigInteger KWalletFreedesktopSessionAlgorithmDhAes::decodeUnsignedDhValue(const QByteArray &value)
+QByteArray KWalletFreedesktopSessionAlgorithmDhAes::decodeUnsignedDhValue(const QByteArray &value)
 {
     auto normalized = normalizeUnsignedDhValue(value);
     if (!normalized.isEmpty() && (static_cast<unsigned char>(normalized.front()) & 0x80U)) {
         normalized.prepend('\0');
     }
-    return QCA::BigInteger(QCA::SecureArray(normalized));
+    return normalized;
 }
 
 KWalletFreedesktopSession::KWalletFreedesktopSession(KWalletFreedesktopService *service,
@@ -118,48 +127,58 @@ bool KWalletFreedesktopSessionAlgorithmPlain::decrypt(FreedesktopSecret &) const
     return true;
 }
 
-KWalletFreedesktopSessionAlgorithmDhAes::KWalletFreedesktopSessionAlgorithmDhAes(const QCA::PublicKey &publicKey, QCA::SymmetricKey symmetricKey)
+KWalletFreedesktopSessionAlgorithmDhAes::KWalletFreedesktopSessionAlgorithmDhAes(const QByteArray &publicKey, const QByteArray &symmetricKey)
     : m_publicKey(publicKey)
-    , m_symmetricKey(std::move(symmetricKey))
+    , m_symmetricKey(symmetricKey)
 {
 }
 
 QByteArray KWalletFreedesktopSessionAlgorithmDhAes::negotiationOutput() const
 {
-    return normalizeUnsignedDhValue(m_publicKey.toDH().y().toArray().toByteArray());
+    return normalizeUnsignedDhValue(m_publicKey);
 }
 
 bool KWalletFreedesktopSessionAlgorithmDhAes::encrypt(FreedesktopSecret &secret) const
 {
-    auto initVector = QCA::InitializationVector(FDO_SECRETS_CIPHER_KEY_SIZE);
-    auto cipher = QCA::Cipher(QStringLiteral("aes128"), QCA::Cipher::CBC, QCA::Cipher::PKCS7, QCA::Encode, m_symmetricKey, initVector);
-    QCA::SecureArray result;
-    result.append(cipher.update(QCA::MemoryRegion(secret.value)));
-    if (cipher.ok()) {
-        result.append(cipher.final());
-        if (cipher.ok()) {
-            secret.value = std::move(result);
-            secret.parameters = initVector;
-            return true;
-        }
+    const Botan::InitializationVector iv(Botan::system_rng(), FDO_SECRETS_CIPHER_KEY_SIZE);
+    const Botan::SymmetricKey key(qbaToBotan(m_symmetricKey));
+    const auto cipher = Botan::get_cipher("AES-128/CBC/PKCS7", key, iv, Botan::Cipher_Dir::Encryption);
+
+    if (!cipher) {
+        qCWarning(KSECRETD_LOG) << "Failed to create cipher for encrypting";
+        return false;
     }
-    return false;
+
+    Botan::Pipe pipe(cipher);
+
+    pipe.start_msg();
+    pipe.write(secret.value);
+    pipe.end_msg();
+
+    secret.value = QByteArray(pipe.read_all());
+    secret.parameters = QByteArray(iv.bits_of());
+
+    return true;
 }
 
 bool KWalletFreedesktopSessionAlgorithmDhAes::decrypt(FreedesktopSecret &secret) const
 {
-    auto cipher =
-        QCA::Cipher(QStringLiteral("aes128"), QCA::Cipher::CBC, QCA::Cipher::PKCS7, QCA::Decode, m_symmetricKey, QCA::InitializationVector(secret.parameters));
-    QCA::SecureArray result;
-    result.append(cipher.update(QCA::MemoryRegion(secret.value)));
-    if (cipher.ok()) {
-        result.append(cipher.final());
-        if (cipher.ok()) {
-            secret.value = std::move(result);
-            return true;
-        }
+    const Botan::SymmetricKey key(qbaToBotan(m_symmetricKey));
+    const Botan::InitializationVector iv(secret.parameters.toHex());
+    const auto cipher = Botan::get_cipher("AES-128/CBC/PKCS7", key, iv, Botan::Cipher_Dir::Decryption);
+
+    if (!cipher) {
+        qCWarning(KSECRETD_LOG) << "Failed to create cipher for decrypting";
+        return false;
     }
-    return false;
+
+    Botan::Pipe pipe(cipher);
+
+    pipe.process_msg(secret.value);
+
+    secret.value = QByteArray(pipe.read_all());
+
+    return true;
 }
 
 #include "moc_kwalletfreedesktopsession.cpp"
