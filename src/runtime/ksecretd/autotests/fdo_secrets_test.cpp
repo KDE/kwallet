@@ -13,6 +13,14 @@
 
 #include <QJsonDocument>
 
+#include <botan/dh.h>
+#include <botan/dl_group.h>
+#include <botan/filters.h>
+#include <botan/kdf.h>
+#include <botan/pk_keys.h>
+#include <botan/pubkey.h>
+#include <botan/system_rng.h>
+
 void FdoSecretsTest::initTestCase()
 {
     if (qEnvironmentVariableIntValue("KDECI_CANNOT_CREATE_WINDOWS")) {
@@ -20,7 +28,6 @@ void FdoSecretsTest::initTestCase()
     }
 
     QStandardPaths::setTestModeEnabled(true);
-    static QCA::Initializer init{};
 }
 
 void FdoSecretsTest::serviceStaticFunctions()
@@ -127,33 +134,26 @@ void FdoSecretsTest::aliases()
 
 struct SetupSessionT {
     QDBusObjectPath sessionPath;
-    QCA::SymmetricKey symmetricKey;
+    QByteArray symmetricKey;
     QByteArray error;
 };
 
 #define SETUP_SESSION_VERIFY(cond)                                                                                                                             \
     do {                                                                                                                                                       \
         if (!(cond))                                                                                                                                           \
-            return SetupSessionT{QDBusObjectPath(), QCA::SymmetricKey(), #cond};                                                                               \
+            return SetupSessionT{QDBusObjectPath(), QByteArray(), #cond};                                                                                      \
     } while (false)
 
 SetupSessionT setupSession(KWalletFreedesktopService *service)
 {
     SetupSessionT result;
-    QCA::KeyGenerator keygen;
-    auto dlGroup = QCA::DLGroup(keygen.createDLGroup(QCA::IETF_1024));
-    if (dlGroup.isNull()) {
-        result.error = "createDLGroup failed, maybe libqca-ossl is missing";
-        return result;
-    }
 
-    auto privateKey = QCA::PrivateKey(keygen.createDH(dlGroup));
-    auto publicKey = QCA::PublicKey(privateKey);
+    Botan::DH_PrivateKey key(Botan::system_rng(), Botan::DL_Group::from_name("modp/ietf/1024"));
 
     auto connection = QDBusConnection::sessionBus();
     auto message = QDBusMessage::createSignal("dummy", "dummy", "dummy");
 
-    auto pubKeyBytes = publicKey.toDH().y().toArray().toByteArray();
+    auto pubKeyBytes = QByteArray(key.public_value());
     auto sessionPubKeyVariant = service->OpenSession("dh-ietf1024-sha256-aes128-cbc-pkcs7", QDBusVariant(pubKeyBytes), result.sessionPath);
     SETUP_SESSION_VERIFY(result.sessionPath.path() != "/");
     SETUP_SESSION_VERIFY(sessionPubKeyVariant.variant().canConvert<QByteArray>());
@@ -161,9 +161,15 @@ SetupSessionT setupSession(KWalletFreedesktopService *service)
     auto servicePublicKeyBytes = sessionPubKeyVariant.variant().toByteArray();
     SETUP_SESSION_VERIFY(!servicePublicKeyBytes.isEmpty());
 
-    auto servicePublicKey = QCA::DHPublicKey(dlGroup, QCA::BigInteger(QCA::SecureArray(servicePublicKeyBytes)));
-    auto commonSecret = privateKey.deriveKey(servicePublicKey);
-    result.symmetricKey = QCA::HKDF().makeKey(commonSecret, {}, {}, FDO_SECRETS_CIPHER_KEY_SIZE);
+    Botan::PK_Key_Agreement agreement(key, Botan::system_rng(), "HKDF(SHA-256)");
+
+    std::span<const uint8_t> publicKey(reinterpret_cast<const uint8_t *>(servicePublicKeyBytes.constData()), servicePublicKeyBytes.size());
+    auto commonSecret = agreement.derive_key(128, publicKey, "");
+
+    auto kdf = Botan::KDF::create_or_throw("HKDF(SHA-256)");
+    auto derived_key = kdf->derive_key(FDO_SECRETS_CIPHER_KEY_SIZE, commonSecret, "", "");
+
+    result.symmetricKey = QByteArray(derived_key);
 
     return result;
 }
@@ -309,12 +315,12 @@ void FdoSecretsTest::items()
     /* Check secrets */
     auto secret1 = item1->GetSecret(sessionPath);
     service->desecret(message, secret1);
-    QCOMPARE(secret1.value.toByteArray(), "It's a password");
+    QCOMPARE(secret1.value, "It's a password");
     // QCOMPARE(secret1.mimeType, "text/plain");
 
     auto secret2 = item2->GetSecret(sessionPath);
     service->desecret(message, secret2);
-    QByteArray secretBytes = secret2.value.toByteArray();
+    QByteArray secretBytes = secret2.value;
     QDataStream ds{secretBytes};
     QByteArray a;
     QString b;
@@ -326,7 +332,7 @@ void FdoSecretsTest::items()
 
     auto secret3 = item3->GetSecret(sessionPath);
     service->desecret(message, secret3);
-    auto bytes3 = secret3.value.toByteArray();
+    auto bytes3 = secret3.value;
 
     QJsonObject obj = QJsonDocument::fromJson(bytes3).object();
     StrStrMap map3;
@@ -347,7 +353,7 @@ void FdoSecretsTest::items()
     item1->SetSecret(secret1);
     secret1 = item1->GetSecret(sessionPath);
     service->desecret(message, secret1);
-    QCOMPARE(secret1.value.toByteArray(), "It's a new password");
+    QCOMPARE(secret1.value, "It's a new password");
     QCOMPARE(secret1.mimeType, "text/plain");
 
     secret2.value = QByteArray("It's a new secret");
@@ -360,7 +366,7 @@ void FdoSecretsTest::items()
 
     secret2 = item2->GetSecret(sessionPath);
     service->desecret(message, secret2);
-    QCOMPARE(secret2.value.toByteArray(), "It's a new secret");
+    QCOMPARE(secret2.value, "It's a new secret");
     QCOMPARE(item2->attributes()["newAttrib"], ")))");
 
     /* Search items */
@@ -446,16 +452,20 @@ void FdoSecretsTest::session()
     QVERIFY(service->ensecret(message, secret));
 
     /* Try to decrypt by hand with symmetricKey */
-    auto cipher = QCA::Cipher("aes128", QCA::Cipher::CBC, QCA::Cipher::PKCS7, QCA::Decode, symmetricKey, secret.parameters);
-    QCA::SecureArray result;
-    result.append(cipher.update(QCA::MemoryRegion(secret.value.toByteArray())));
-    result.append(cipher.final());
+    Botan::SymmetricKey key(reinterpret_cast<const uint8_t *>(symmetricKey.constData()), symmetricKey.size());
+    Botan::InitializationVector iv(secret.parameters.toHex());
+    auto cipher = Botan::get_cipher("AES-128/CBC/PKCS7", key, iv, Botan::Cipher_Dir::Decryption);
+    Botan::Pipe pipe(cipher);
 
-    QCOMPARE(QString::fromUtf8(result.toByteArray()), "It's a secret");
+    pipe.process_msg(secret.value);
+
+    QByteArray result(pipe.read_all());
+
+    QCOMPARE(QString::fromUtf8(result), "It's a secret");
 
     /* Try to decrypt by session */
     QVERIFY(service->desecret(message, secret));
-    QCOMPARE(secret.value.toByteArray(), QByteArray("It's a secret"));
+    QCOMPARE(secret.value, QByteArray("It's a secret"));
 }
 
 void FdoSecretsTest::attributes()

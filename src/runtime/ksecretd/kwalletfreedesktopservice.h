@@ -13,7 +13,6 @@
 #include <QHash>
 #include <QPointer>
 #include <QString>
-#include <QtCrypto>
 
 #include "kwalletdbuscontext.h"
 
@@ -31,7 +30,7 @@ class FreedesktopSecret
 public:
     FreedesktopSecret() = default;
 
-    FreedesktopSecret(QDBusObjectPath iSession, const QCA::SecureArray &iValue, QString iMimeType)
+    FreedesktopSecret(QDBusObjectPath iSession, const QByteArray &iValue, QString iMimeType)
         : session(std::move(iSession))
         , value(iValue)
         , mimeType(std::move(iMimeType))
@@ -42,8 +41,8 @@ public:
     friend const QDBusArgument &operator>>(const QDBusArgument &arg, FreedesktopSecret &secret);
 
     QDBusObjectPath session;
-    QCA::SecureArray parameters;
-    QCA::SecureArray value;
+    QByteArray parameters;
+    QByteArray value;
     QString mimeType;
 };
 
@@ -98,7 +97,6 @@ Q_DECLARE_METATYPE(FreedesktopSecret)
 Q_DECLARE_METATYPE(FreedesktopSecretMap)
 Q_DECLARE_METATYPE(PropertiesMap)
 Q_DECLARE_METATYPE(StrStrMap)
-Q_DECLARE_METATYPE(QCA::SecureArray)
 
 class KWalletFreedesktopSession;
 class KWalletFreedesktopSessionAlgorithm;
@@ -187,7 +185,6 @@ private:
     QDBusServiceWatcher _serviceWatcher;
     */
     KSecretD *m_parent;
-    QCA::Initializer m_init;
     KConfig m_kwalletrc;
 
     /* Freedesktop API */
@@ -215,11 +212,6 @@ QDataStream &operator>>(QDataStream &stream, QDBusObjectPath &value);
 
 const QDBusArgument &operator>>(const QDBusArgument &arg, PropertiesMap &value);
 QDBusArgument &operator<<(QDBusArgument &arg, const PropertiesMap &value);
-
-QDataStream &operator<<(QDataStream &stream, const QCA::SecureArray &value);
-QDataStream &operator>>(QDataStream &stream, QCA::SecureArray &value);
-QDBusArgument &operator<<(QDBusArgument &arg, const QCA::SecureArray &value);
-const QDBusArgument &operator>>(const QDBusArgument &arg, QCA::SecureArray &buf);
 
 void explicit_zero_mem(void *data, size_t size);
 

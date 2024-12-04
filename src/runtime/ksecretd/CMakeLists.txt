@@ -22,7 +22,7 @@ find_package(KF6Crash ${KF_DEP_VERSION} REQUIRED)
 
 ########### find needed packages ######
 
-find_package(Qca-qt6 REQUIRED 2.3.1)
+find_package(Botan 3.3.0 REQUIRED)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ########### build tests #########
@@ -139,11 +139,12 @@ target_link_libraries(ksecretd
     KF6::WindowSystem
     KF6::Notifications
     KF6::Crash
-    ${Qca_LIBRARY})
+    Botan::Botan)
 if (Gpgmepp_FOUND)
     target_link_libraries(ksecretd Gpgmepp)
-    kde_target_enable_exceptions(ksecretd PRIVATE)
 endif(Gpgmepp_FOUND)
+
+kde_target_enable_exceptions(ksecretd PRIVATE)
 
 ecm_mark_nongui_executable(ksecretd)
 install(TARGETS ksecretd  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})

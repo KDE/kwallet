@@ -17,6 +17,13 @@
 #include <QWidget>
 #include <string.h>
 
+#include <botan/dh.h>
+#include <botan/dl_group.h>
+#include <botan/kdf.h>
+#include <botan/pk_keys.h>
+#include <botan/pubkey.h>
+#include <botan/system_rng.h>
+
 #ifdef Q_OS_WIN
 #include <windows.h>
 #endif
@@ -27,7 +34,6 @@
     qDBusRegisterMetaType<FreedesktopSecret>();
     qDBusRegisterMetaType<FreedesktopSecretMap>();
     qDBusRegisterMetaType<PropertiesMap>();
-    qDBusRegisterMetaType<QCA::SecureArray>();
 
     return 0;
 }();
@@ -421,20 +427,17 @@ std::unique_ptr<KWalletFreedesktopSessionAlgorithm> KWalletFreedesktopService::c
         return nullptr;
     }
 
-    QCA::KeyGenerator keygen;
-    const auto dlGroup = QCA::DLGroup(keygen.createDLGroup(QCA::IETF_1024));
-    if (dlGroup.isNull()) {
-        sendErrorReply(QDBusError::ErrorType::InvalidArgs, QStringLiteral("createDLGroup failed: maybe libqca-ossl is missing"));
-        return nullptr;
-    }
+    const Botan::DH_PrivateKey key(Botan::system_rng(), Botan::DL_Group::from_name("modp/ietf/1024"));
 
-    auto privateKey = QCA::PrivateKey(keygen.createDH(dlGroup));
-    const auto publicKey = QCA::PublicKey(privateKey);
-    const auto clientPublicKey = QCA::DHPublicKey(dlGroup, QCA::BigInteger(QCA::SecureArray(clientKey)));
-    const auto commonSecret = privateKey.deriveKey(clientPublicKey);
-    const auto symmetricKey = QCA::HKDF().makeKey(commonSecret, {}, {}, FDO_SECRETS_CIPHER_KEY_SIZE);
+    const Botan::PK_Key_Agreement agreement(key, Botan::system_rng(), "HKDF(SHA-256)");
 
-    return std::make_unique<KWalletFreedesktopSessionAlgorithmDhAes>(publicKey, symmetricKey);
+    const std::span<const uint8_t> publicKey(reinterpret_cast<const uint8_t *>(clientKey.constData()), clientKey.size());
+    const auto commonSecret = agreement.derive_key(128, publicKey, "");
+
+    const auto kdf = Botan::KDF::create_or_throw("HKDF(SHA-256)");
+    const auto derived_key = kdf->derive_key(FDO_SECRETS_CIPHER_KEY_SIZE, commonSecret, "", "");
+
+    return std::make_unique<KWalletFreedesktopSessionAlgorithmDhAes>(QByteArray(key.public_value()), QByteArray(derived_key));
 }
 
 QString KWalletFreedesktopService::createSession(std::unique_ptr<KWalletFreedesktopSessionAlgorithm> algorithm)
@@ -611,40 +614,6 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, FreedesktopSecret &sec
     arg >> secret.value;
     arg >> secret.mimeType;
     arg.endStructure();
-    return arg;
-}
-
-QDataStream &operator<<(QDataStream &stream, const QCA::SecureArray &value)
-{
-    QByteArray bytes = value.toByteArray();
-    stream << bytes;
-    explicit_zero_mem(bytes.data(), bytes.size());
-    return stream;
-}
-
-QDataStream &operator>>(QDataStream &stream, QCA::SecureArray &value)
-{
-    QByteArray bytes;
-    stream >> bytes;
-    value = QCA::SecureArray(bytes);
-    explicit_zero_mem(bytes.data(), bytes.size());
-    return stream;
-}
-
-QDBusArgument &operator<<(QDBusArgument &arg, const QCA::SecureArray &value)
-{
-    QByteArray bytes = value.toByteArray();
-    arg << bytes;
-    explicit_zero_mem(bytes.data(), bytes.size());
-    return arg;
-}
-
-const QDBusArgument &operator>>(const QDBusArgument &arg, QCA::SecureArray &buf)
-{
-    QByteArray byteArray;
-    arg >> byteArray;
-    buf = QCA::SecureArray(byteArray);
-    explicit_zero_mem(byteArray.data(), byteArray.size());
     return arg;
 }
 

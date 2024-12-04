@@ -184,7 +184,7 @@ KWalletFreedesktopCollection::CreateItem(const PropertiesMap &properties, const 
         const QString typeString = attribs.value(QStringLiteral("type"));
 
         if (typeString == QStringLiteral("map")) {
-            QJsonObject obj = QJsonDocument::fromJson(decrypted.value.toByteArray()).object();
+            QJsonObject obj = QJsonDocument::fromJson(decrypted.value).object();
             QMap<QString, QString> map;
             for (auto it = obj.constBegin(); it != obj.constEnd(); it++) {
                 map[it.key()] = it.value().toString();
@@ -196,13 +196,13 @@ KWalletFreedesktopCollection::CreateItem(const PropertiesMap &properties, const 
             backend()->writeEntry(walletHandle(), dir, label, bytes, KWallet::Wallet::Map, FDO_APPID);
             explicit_zero_mem(bytes.data(), bytes.size());
         } else if (xdgSchema == QStringLiteral("org.kde.KWallet.Password") || secret.mimeType.startsWith(QStringLiteral("text/"))) {
-            auto bytes = decrypted.value.toByteArray();
+            auto bytes = decrypted.value;
             auto str = QString::fromUtf8(bytes);
             backend()->writePassword(walletHandle(), dir, label, str, FDO_APPID);
             explicit_zero_mem(bytes.data(), bytes.size());
             explicit_zero_mem(str.data(), str.size() * sizeof(QChar));
         } else {
-            auto bytes = decrypted.value.toByteArray();
+            auto bytes = decrypted.value;
             backend()->writeEntry(walletHandle(), dir, label, bytes, KWallet::Wallet::Stream, FDO_APPID);
             explicit_zero_mem(bytes.data(), bytes.size());
         }
