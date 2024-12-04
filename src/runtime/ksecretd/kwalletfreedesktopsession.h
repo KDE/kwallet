@@ -11,7 +11,6 @@
 #include <QDBusContext>
 #include <QDBusObjectPath>
 #include <QDBusServiceWatcher>
-#include <QtCrypto>
 
 #define FDO_SECRETS_SESSION_PATH FDO_SECRETS_SERVICE_OBJECT "/session/"
 
@@ -74,18 +73,18 @@ public:
 class KWalletFreedesktopSessionAlgorithmDhAes : public KWalletFreedesktopSessionAlgorithm
 {
 public:
-    KWalletFreedesktopSessionAlgorithmDhAes(const QCA::PublicKey &publicKey, QCA::SymmetricKey symmetricKey);
+    KWalletFreedesktopSessionAlgorithmDhAes(const QByteArray &publicKey, const QByteArray &symmetricKey);
 
     static QByteArray normalizeUnsignedDhValue(QByteArray value);
-    static QCA::BigInteger decodeUnsignedDhValue(const QByteArray &value);
+    static QByteArray decodeUnsignedDhValue(const QByteArray &value);
 
     QByteArray negotiationOutput() const override;
     bool encrypt(FreedesktopSecret &secret) const override;
     bool decrypt(FreedesktopSecret &secret) const override;
 
 private:
-    QCA::PublicKey m_publicKey;
-    QCA::SymmetricKey m_symmetricKey;
+    QByteArray m_publicKey;
+    QByteArray m_symmetricKey;
 };
 
 #endif
