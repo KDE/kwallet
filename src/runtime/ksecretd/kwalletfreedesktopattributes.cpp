@@ -185,8 +185,6 @@ void KWalletFreedesktopAttributes::setAttributes(const EntryLocation &entryLocat
     QJsonObject params;
     if (foundParams != _params.end() && foundParams->isObject()) {
         params = foundParams->toObject();
-    } else {
-        //  return;
     }
 
     if (jsonAttrs.empty()) {

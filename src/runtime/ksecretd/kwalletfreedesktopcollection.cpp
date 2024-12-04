@@ -335,10 +335,6 @@ void KWalletFreedesktopCollection::onWalletChangeState(int handle)
 
     m_handle = handle;
 
-    if (m_handle < 0 || !m_items.empty()) {
-        // return;
-    }
-
     const QStringList folderList = backend()->folderList(m_handle, FDO_APPID);
     for (const QString &folder : folderList) {
         const QStringList entries = backend()->entryList(m_handle, folder, FDO_APPID);
