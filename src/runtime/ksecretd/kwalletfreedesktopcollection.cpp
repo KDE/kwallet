@@ -181,7 +181,21 @@ KWalletFreedesktopCollection::CreateItem(const PropertiesMap &properties, const 
             xdgSchema = found.value();
         }
 
-        if (xdgSchema == QStringLiteral("org.kde.KWallet.Password") || secret.mimeType.startsWith(QStringLiteral("text/"))) {
+        const QString typeString = attribs.value(QStringLiteral("type"));
+
+        if (typeString == QStringLiteral("map")) {
+            QJsonObject obj = QJsonDocument::fromJson(decrypted.value.toByteArray()).object();
+            QMap<QString, QString> map;
+            for (auto it = obj.constBegin(); it != obj.constEnd(); it++) {
+                map[it.key()] = it.value().toString();
+            }
+
+            QByteArray bytes;
+            QDataStream ds(&bytes, QIODevice::WriteOnly);
+            ds << map;
+            backend()->writeEntry(walletHandle(), dir, label, bytes, KWallet::Wallet::Map, FDO_APPID);
+            explicit_zero_mem(bytes.data(), bytes.size());
+        } else if (xdgSchema == QStringLiteral("org.kde.KWallet.Password") || secret.mimeType.startsWith(QStringLiteral("text/"))) {
             auto bytes = decrypted.value.toByteArray();
             auto str = QString::fromUtf8(bytes);
             backend()->writePassword(walletHandle(), dir, label, str, FDO_APPID);
