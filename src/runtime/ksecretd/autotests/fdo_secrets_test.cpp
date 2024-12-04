@@ -11,6 +11,8 @@
 #include "moc_ktimeout.cpp"
 #include "static_mock.hpp"
 
+#include <QJsonDocument>
+
 void FdoSecretsTest::initTestCase()
 {
     static QCA::Initializer init{};
@@ -174,9 +176,9 @@ void FdoSecretsTest::items()
         if (key == "item1")
             return KWallet::Wallet::Password;
         else if (key == "item2")
-            return KWallet::Wallet::Map;
-        else if (key == "item3")
             return KWallet::Wallet::Stream;
+        else if (key == "item3")
+            return KWallet::Wallet::Map;
 
         QTEST_ASSERT(false);
         return KWallet::Wallet::Unknown;
@@ -208,11 +210,26 @@ void FdoSecretsTest::items()
     });
 
     SET_FUNCTION_IMPL(KSecretD::readEntry, [&](int, const QString &, const QString &key, const QString &) -> QByteArray {
-        QTEST_ASSERT(key == "item3" || key == "item2");
-        if (key == "item2")
-            return _secretHolder2;
-        else
-            return _secretHolder3;
+        QTEST_ASSERT(key == "item2");
+        return _secretHolder2;
+    });
+
+    SET_FUNCTION_IMPL(KSecretD::readMap, [&](int, const QString &, const QString &key, const QString &) -> QByteArray {
+        QTEST_ASSERT(key == "item3");
+        return _secretHolder3;
+
+        QJsonObject obj = QJsonDocument::fromJson(_secretHolder3).object();
+
+        QMap<QString, QString> map;
+        for (auto it = obj.constBegin(); it != obj.constEnd(); it++) {
+            map[it.key()] = it.value().toString();
+        }
+
+        QByteArray data;
+        QDataStream ds(&data, QIODevice::WriteOnly);
+        ds << map;
+
+        return data;
     });
 
     SET_FUNCTION_IMPL(KSecretD::writePassword, [&](int, const QString &, const QString &key, const QString &value, const QString &) -> int {
@@ -301,9 +318,12 @@ void FdoSecretsTest::items()
     auto secret3 = item3->GetSecret(sessionPath);
     service->desecret(message, secret3);
     auto bytes3 = secret3.value.toByteArray();
-    QDataStream ds2(bytes3);
+
+    QJsonObject obj = QJsonDocument::fromJson(bytes3).object();
     StrStrMap map3;
-    ds2 >> map3;
+    for (auto it = obj.constBegin(); it != obj.constEnd(); it++) {
+        map3[it.key()] = it.value().toString();
+    }
 
     QVERIFY(map3.find("it's a") != map3.end() && map3["it's a"] == "map");
     QCOMPARE(item3->created(), 100200300);
