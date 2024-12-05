@@ -41,7 +41,7 @@ public:
     };
     Q_ENUM(Type);
 
-    SecretServiceClient(QObject *parent = nullptr);
+    SecretServiceClient(bool useKWalletBackend, QObject *parent = nullptr);
 
     bool isAvailable() const;
 
@@ -101,5 +101,6 @@ private:
     std::map<QString, SecretCollectionPtr> m_openCollections;
     QDBusServiceWatcher *m_serviceWatcher;
     QSet<QString> m_watchedCollections;
+    QString m_serviceBusName;
     bool m_updateInProgress = false;
 };
