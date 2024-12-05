@@ -144,6 +144,7 @@ KWalletFreedesktopService::KWalletFreedesktopService(KSecretD *parent)
 
     /* register */
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.freedesktop.secrets"));
+    QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.secretservicecompat"));
     QDBusConnection::sessionBus().registerObject(QStringLiteral(FDO_SECRETS_SERVICE_OBJECT), this);
 
     const KConfigGroup walletGroup(&m_kwalletrc, "Wallet");
