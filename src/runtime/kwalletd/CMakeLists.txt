@@ -56,11 +56,8 @@ target_sources(kwalletd6 PRIVATE
 # Needed for fetching the name of the default wallet
 target_compile_definitions(kwalletd6 PRIVATE SECRET_WITH_UNSTABLE)
 
-# Hack only way to do this properly is to have this living in the kwallet repo
-find_library(KF6WalletBackend_LIB libKF6WalletBackend.so.6)
-
 target_link_libraries(kwalletd6
-    ${KF6WalletBackend_LIB}
+    KF6WalletBackend
     KF6::ConfigCore
     KF6::CoreAddons
     KF6::WidgetsAddons

@@ -39,7 +39,7 @@ public:
         Unused = 0xffff,
     };
     Q_ENUM(EntryType)
-    KWalletD(QObject *parent = nullptr);
+    KWalletD(bool useKWalletBackend, QObject *parent = nullptr);
 
     ~KWalletD() override;
 
@@ -202,7 +202,7 @@ Q_SIGNALS:
     void applicationDisconnected(const QString &wallet, const QString &application);
 
 private:
-    SecretServiceClient *m_libSecretWrapper;
+    SecretServiceClient *m_backend;
     // We need to store a structure here as well, because the api has createFolder that would make a folder without any keys
     QMultiHash<QString, QString> m_structure;
     QHash<QPair<int, QString>, QString> m_openWallets;
@@ -211,6 +211,7 @@ private:
     bool m_enabled = true;
     bool m_launchManager = false;
     bool m_closeIdle = false;
+    bool m_useKWalletBackend = true;
     // in minutes
     int m_idleTime = 10 * 60 * 1000;
     KConfigWatcher::Ptr m_configWatcher;

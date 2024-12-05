@@ -146,6 +146,21 @@ endif(Gpgmepp_FOUND)
 ecm_mark_nongui_executable(ksecretd)
 install(TARGETS ksecretd  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
+
+if(WIN32)
+    configure_file(org.kde.secretservicecompat.win.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.secretservicecompat.service)
+else()
+    configure_file(org.kde.secretservicecompat.service.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.secretservicecompat.service)
+endif()
+
+install(
+    FILES
+        ${CMAKE_CURRENT_BINARY_DIR}/org.kde.secretservicecompat.service
+    DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR}
+)
+
 ########### install files ###############
 install( FILES ksecretd.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
 install( FILES org.kde.ksecretd.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
