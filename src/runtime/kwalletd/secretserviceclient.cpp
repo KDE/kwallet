@@ -6,6 +6,8 @@
 
 #include "secretserviceclient.h"
 
+#include <KConfig>
+#include <KConfigGroup>
 #include <KLocalizedString>
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -95,8 +97,16 @@ static SecretServiceClient::Type stringToType(const QString &typeName)
 SecretServiceClient::SecretServiceClient(QObject *parent)
     : QObject(parent)
 {
-    m_serviceWatcher =
-        new QDBusServiceWatcher(QStringLiteral("org.freedesktop.secrets"), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    KConfig cfg(QStringLiteral("kwalletrc"));
+    KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
+    const bool useKWalletBackend = migrationGroup.readEntry("UseKWalletBackend", true);
+    if (useKWalletBackend) {
+        m_serviceBusName = QStringLiteral("org.kde.secretservicecompat");
+    } else {
+        m_serviceBusName = QStringLiteral("org.freedesktop.secrets");
+    }
+
+    m_serviceWatcher = new QDBusServiceWatcher(m_serviceBusName, QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
 
     connect(m_serviceWatcher, &QDBusServiceWatcher::serviceOwnerChanged, this, &SecretServiceClient::onServiceOwnerChanged);
 
@@ -105,7 +115,7 @@ SecretServiceClient::SecretServiceClient(QObject *parent)
                          QStringLiteral("org.freedesktop.DBus"),
                          QDBusConnection::sessionBus());
 
-    QDBusReply<QString> reply = iface.call(QStringLiteral("GetNameOwner"), QStringLiteral("org.freedesktop.secrets"));
+    QDBusReply<QString> reply = iface.call(QStringLiteral("GetNameOwner"), m_serviceBusName);
 
     GError *error = nullptr;
     m_service = SecretServicePtr(
@@ -207,19 +217,19 @@ void SecretServiceClient::watchCollection(const QString &collectionName, bool *o
         return;
     }
 
-    QDBusConnection::sessionBus().connect(QStringLiteral("org.freedesktop.secrets"),
+    QDBusConnection::sessionBus().connect(m_serviceBusName,
                                           path,
                                           QStringLiteral("org.freedesktop.Secret.Collection"),
                                           QStringLiteral("ItemChanged"),
                                           this,
                                           SLOT(onDbusSecretItemChanged(QDBusObjectPath)));
-    QDBusConnection::sessionBus().connect(QStringLiteral("org.freedesktop.secrets"),
+    QDBusConnection::sessionBus().connect(m_serviceBusName,
                                           path,
                                           QStringLiteral("org.freedesktop.Secret.Collection"),
                                           QStringLiteral("ItemCreated"),
                                           this,
                                           SLOT(onDbusSecretItemChanged(QDBusObjectPath)));
-    QDBusConnection::sessionBus().connect(QStringLiteral("org.freedesktop.secrets"),
+    QDBusConnection::sessionBus().connect(m_serviceBusName,
                                           path,
                                           QStringLiteral("org.freedesktop.Secret.Collection"),
                                           QStringLiteral("ItemDeleted"),
@@ -382,7 +392,7 @@ QString SecretServiceClient::defaultCollection(bool *ok)
     }
 
     // TODO: port from path to label
-    QDBusInterface collectionInterface(QStringLiteral("org.freedesktop.secrets"),
+    QDBusInterface collectionInterface(m_serviceBusName,
                                        QString::fromUtf8(path),
                                        QStringLiteral("org.freedesktop.Secret.Collection"),
                                        QDBusConnection::sessionBus());
@@ -560,7 +570,7 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
     // api yet to create collections
     QDBusConnection bus = QDBusConnection::sessionBus();
 
-    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.secrets"),
+    QDBusMessage message = QDBusMessage::createMethodCall(m_serviceBusName,
                                                           QStringLiteral("/org/freedesktop/secrets"),
                                                           QStringLiteral("org.freedesktop.Secret.Service"),
                                                           QStringLiteral("CreateCollection"));
@@ -570,14 +580,14 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
     message << props << QString();
     QDBusMessage reply = bus.call(message);
 
-    bus.connect(QStringLiteral("org.freedesktop.secrets"),
+    bus.connect(m_serviceBusName,
                 reply.arguments().last().value<QDBusObjectPath>().path(),
                 QStringLiteral("org.freedesktop.Secret.Prompt"),
                 QStringLiteral("Completed"),
                 this,
                 SLOT(handlePrompt(bool)));
 
-    bus.connect(QStringLiteral("org.freedesktop.secrets"),
+    bus.connect(m_serviceBusName,
                 QStringLiteral("/org/freedesktop/secrets"),
                 QStringLiteral("org.freedesktop.Secret.Service"),
                 QStringLiteral("CollectionCreated"),
@@ -595,7 +605,7 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
             loop.quit();
         });
 
-    message = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.secrets"),
+    message = QDBusMessage::createMethodCall(m_serviceBusName,
                                              reply.arguments().last().value<QDBusObjectPath>().path(),
                                              QStringLiteral("org.freedesktop.Secret.Prompt"),
                                              QStringLiteral("Prompt"));
