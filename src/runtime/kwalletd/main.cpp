@@ -17,6 +17,13 @@ int main(int argc, char **argv)
 {
     QApplication application(argc, argv);
 
+    KConfig cfg(QStringLiteral("kwalletrc"));
+    KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
+    const bool useKWalletBackend = migrationGroup.readEntry("UseKWalletBackend", true);
+    if (useKWalletBackend) {
+        qputenv("SECRET_SERVICE_BUS_NAME", "org.kde.secretservicecompat");
+    }
+
     KLocalizedString::setApplicationDomain("kwalletd");
 
     KAboutData aboutData(QStringLiteral("kwalletd"),

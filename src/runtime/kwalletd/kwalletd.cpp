@@ -46,16 +46,28 @@ KWalletD::KWalletD(QObject *parent)
 
     connect(m_libSecretWrapper, &SecretServiceClient::error, this, &KWalletD::error);
 
-    bool ok;
-    for (const QString &wallet : m_libSecretWrapper->listCollections(&ok)) {
-        for (const QString &folder : m_libSecretWrapper->listFolders(wallet, &ok)) {
-            m_structure.insert(wallet, folder);
+    auto readStructure = [this]() {
+        bool ok;
+        for (const QString &wallet : m_libSecretWrapper->listCollections(&ok)) {
+            for (const QString &folder : m_libSecretWrapper->listFolders(wallet, &ok)) {
+                m_structure.insert(wallet, folder);
+            }
         }
-    }
-    qWarning() << "Structure:" << m_structure;
+        qWarning() << "Structure:" << m_structure;
+        qWarning() << "Default wallet:" << m_libSecretWrapper->defaultCollection(&ok);
 
-    connect(m_libSecretWrapper, &SecretServiceClient::serviceAvailableChanged, this, [this](bool available) {
+        KConfig cfg(QStringLiteral("kwalletrc"));
+        KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
+        const bool useKWalletBackend = migrationGroup.readEntry("UseKWalletBackend", true);
+        if (!useKWalletBackend) {
+            migrateData();
+        }
+    };
+    readStructure();
+
+    connect(m_libSecretWrapper, &SecretServiceClient::serviceAvailableChanged, this, [this, readStructure](bool available) {
         if (available) {
+            readStructure();
             Q_EMIT walletListDirty();
         } else {
             closeAllWallets();
@@ -83,10 +95,6 @@ KWalletD::KWalletD(QObject *parent)
             Q_EMIT folderUpdated(wallet, folder);
         }
     });
-
-    qWarning() << "Default wallet:" << m_libSecretWrapper->defaultCollection(&ok);
-
-    migrateData();
 
     reconfigure();
 
@@ -187,6 +195,9 @@ bool KWalletD::migrateWallet(const QString &sourceWallet, const QString &destWal
 
 void KWalletD::migrateData()
 {
+    if (!m_libSecretWrapper->isAvailable()) {
+        return;
+    }
     KConfig cfg(QStringLiteral("kwalletrc"));
     KConfigGroup walletGroup(&cfg, QStringLiteral("Wallet"));
     KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
