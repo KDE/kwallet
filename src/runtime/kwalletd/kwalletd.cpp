@@ -58,8 +58,8 @@ KWalletD::KWalletD(QObject *parent)
 
         KConfig cfg(QStringLiteral("kwalletrc"));
         KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
-        const bool useKWalletBackend = migrationGroup.readEntry("UseKWalletBackend", true);
-        if (!useKWalletBackend) {
+        m_useKWalletBackend = migrationGroup.readEntry("UseKWalletBackend", true);
+        if (!m_useKWalletBackend) {
             migrateData();
         }
     };
@@ -195,7 +195,7 @@ bool KWalletD::migrateWallet(const QString &sourceWallet, const QString &destWal
 
 void KWalletD::migrateData()
 {
-    if (!m_libSecretWrapper->isAvailable()) {
+    if (!m_libSecretWrapper->isAvailable() || m_useKWalletBackend) {
         return;
     }
     KConfig cfg(QStringLiteral("kwalletrc"));
