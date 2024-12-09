@@ -41,7 +41,7 @@ public:
     };
     Q_ENUM(Type);
 
-    SecretServiceClient(QObject *parent = nullptr);
+    SecretServiceClient(bool useKWalletBackend, QObject *parent = nullptr);
 
     bool isAvailable() const;
 
