@@ -33,9 +33,10 @@ static void startManagerForKwalletd()
     }
 }
 
-KWalletD::KWalletD(QObject *parent)
+KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
     : QObject(parent)
-    , m_libSecretWrapper(new SecretServiceClient(this))
+    , m_libSecretWrapper(new SecretServiceClient(useKWalletBackend, this))
+    , m_useKWalletBackend(useKWalletBackend)
 {
     new KWalletAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
@@ -56,9 +57,6 @@ KWalletD::KWalletD(QObject *parent)
         qWarning() << "Structure:" << m_structure;
         qWarning() << "Default wallet:" << m_libSecretWrapper->defaultCollection(&ok);
 
-        KConfig cfg(QStringLiteral("kwalletrc"));
-        KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
-        m_useKWalletBackend = migrationGroup.readEntry("UseKWalletBackend", true);
         if (!m_useKWalletBackend) {
             migrateData();
         }

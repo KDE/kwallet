@@ -94,12 +94,9 @@ static SecretServiceClient::Type stringToType(const QString &typeName)
     }
 }
 
-SecretServiceClient::SecretServiceClient(QObject *parent)
+SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent)
     : QObject(parent)
 {
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
-    const bool useKWalletBackend = migrationGroup.readEntry("UseKWalletBackend", true);
     if (useKWalletBackend) {
         m_serviceBusName = QStringLiteral("org.kde.secretservicecompat");
     } else {

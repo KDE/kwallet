@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 
     KDBusService dbusUniqueInstance(KDBusService::Unique);
 
-    KWalletD wallet;
+    KWalletD wallet(useKWalletBackend);
 
     return application.exec();
 }

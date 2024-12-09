@@ -39,7 +39,7 @@ public:
         Unused = 0xffff,
     };
     Q_ENUM(EntryType)
-    KWalletD(QObject *parent = nullptr);
+    KWalletD(bool useKWalletBackend, QObject *parent = nullptr);
 
     ~KWalletD() override;
 
