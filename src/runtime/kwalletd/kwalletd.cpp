@@ -89,8 +89,8 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
 
         Q_EMIT folderListUpdated(wallet);
         // We are not sure which folder or item has been updated, reload all folders of all wallets
-        for (const QString &folder : oldFolders.intersect(newFolders)) {
-            Q_EMIT folderUpdated(wallet, folder);
+        for (const QString &folder : m_structure.values(wallet)) {
+            Q_EMIT folderUpdated(folder, wallet);
         }
     });
 
