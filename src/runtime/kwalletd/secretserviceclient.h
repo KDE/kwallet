@@ -12,6 +12,7 @@
 #include <libsecret/secret.h>
 
 class QDBusServiceWatcher;
+class QTimer;
 
 // To allow gobject derived things with std::unique_ptr
 struct GObjectDeleter {
@@ -101,6 +102,8 @@ private:
     std::map<QString, SecretCollectionPtr> m_openCollections;
     QDBusServiceWatcher *m_serviceWatcher;
     QSet<QString> m_watchedCollections;
+    QSet<QString> m_dirtyCollections;
+    QTimer *m_collectionDirtyTimer;
     QString m_serviceBusName;
     bool m_updateInProgress = false;
 };

@@ -103,6 +103,16 @@ SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent
         m_serviceBusName = QStringLiteral("org.freedesktop.secrets");
     }
 
+    m_collectionDirtyTimer = new QTimer(this);
+    m_collectionDirtyTimer->setSingleShot(true);
+    m_collectionDirtyTimer->setInterval(100);
+    connect(m_collectionDirtyTimer, &QTimer::timeout, this, [this]() {
+        for (const QString &collection : std::as_const(m_dirtyCollections)) {
+            Q_EMIT collectionDirty(collection);
+        }
+        m_dirtyCollections.clear();
+    });
+
     m_serviceWatcher = new QDBusServiceWatcher(m_serviceBusName, QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
 
     connect(m_serviceWatcher, &QDBusServiceWatcher::serviceOwnerChanged, this, &SecretServiceClient::onServiceOwnerChanged);
@@ -321,9 +331,10 @@ void SecretServiceClient::onDbusSecretItemChanged(const QDBusObjectPath &path)
         return;
     }
 
-    // Unfortunately we don't have more information when an item is deleted
-    // So make clients reload all folders
-    Q_EMIT collectionDirty(QString::fromUtf8(secret_collection_get_label(collection)));
+    const QString label = QString::fromUtf8(secret_collection_get_label(collection));
+
+    m_dirtyCollections.insert(label);
+    m_collectionDirtyTimer->start();
 }
 
 void SecretServiceClient::handlePrompt(bool dismissed)
