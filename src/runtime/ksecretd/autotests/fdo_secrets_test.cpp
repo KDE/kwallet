@@ -174,9 +174,9 @@ void FdoSecretsTest::items()
         if (key == "item1")
             return KWallet::Wallet::Password;
         else if (key == "item2")
-            return KWallet::Wallet::Map;
-        else if (key == "item3")
             return KWallet::Wallet::Stream;
+        else if (key == "item3")
+            return KWallet::Wallet::Map;
 
         QTEST_ASSERT(false);
         return KWallet::Wallet::Unknown;
