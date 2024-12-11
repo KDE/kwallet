@@ -353,11 +353,11 @@ void KWalletFreedesktopCollection::onWalletChangeState(int handle)
     for (const QString &folder : folderList) {
         const QStringList entries = backend()->entryList(m_handle, folder, FDO_APPID);
 
+        const qulonglong createTime = QDateTime::currentSecsSinceEpoch();
         for (const auto &entry : entries) {
             const EntryLocation entryLoc{folder, entry};
             const auto itm = findItemByEntryLocation(entryLoc);
             if (!itm) {
-                auto &newItem = pushNewItem(entryLoc.toUniqueLabel(), nextItemPath());
                 StrStrMap attr;
                 attr["server"] = folder;
                 attr["user"] = entry;
@@ -373,6 +373,11 @@ void KWalletFreedesktopCollection::onWalletChangeState(int handle)
                     attr["type"] = "plaintext";
                     break;
                 }
+                itemAttributes().newItem(entryLoc);
+                itemAttributes().setParam(entryLoc, FDO_KEY_CREATED, createTime);
+                itemAttributes().setParam(entryLoc, FDO_KEY_MODIFIED, createTime);
+                itemAttributes().setAttributes(entryLoc, attr);
+                auto &newItem = pushNewItem(entryLoc.toUniqueLabel(), nextItemPath());
                 newItem.setAttributes(attr);
                 Q_EMIT ItemCreated(newItem.fdoObjectPath());
             } else {
