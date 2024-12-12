@@ -15,6 +15,7 @@
 
 void FdoSecretsTest::initTestCase()
 {
+    QStandardPaths::setTestModeEnabled(true);
     static QCA::Initializer init{};
 }
 
@@ -260,13 +261,17 @@ void FdoSecretsTest::items()
     {
         collection->itemAttributes().newItem({FDO_SECRETS_DEFAULT_DIR, "item1"});
         collection->itemAttributes().newItem({FDO_SECRETS_DEFAULT_DIR, "item2"});
-        collection->itemAttributes().newItem({FDO_SECRETS_DEFAULT_DIR, "item3"});
-        collection->itemAttributes().setParam({FDO_SECRETS_DEFAULT_DIR, "item3"}, FDO_KEY_CREATED, 100200300ULL);
-        collection->itemAttributes().setParam({FDO_SECRETS_DEFAULT_DIR, "item3"}, FDO_KEY_MODIFIED, 100200301ULL);
-        auto attribs = collection->itemAttributes().getAttributes({FDO_SECRETS_DEFAULT_DIR, "item3"});
+
+        const EntryLocation entryLoc = {FDO_SECRETS_DEFAULT_DIR, "item3"};
+        collection->itemAttributes().newItem(entryLoc);
+        collection->itemAttributes().setParam(entryLoc, FDO_KEY_CREATED, 100200300ULL);
+        collection->itemAttributes().setParam(entryLoc, FDO_KEY_MODIFIED, 100200301ULL);
+        auto attribs = collection->itemAttributes().getAttributes(entryLoc);
         attribs["Attrib1"] = "value1";
         attribs["Attrib2"] = "value2";
-        collection->itemAttributes().setAttributes({FDO_SECRETS_DEFAULT_DIR, "item3"}, attribs);
+        collection->itemAttributes().setAttributes(entryLoc, attribs);
+        auto &newItem = collection->pushNewItem(entryLoc.toUniqueLabel(), collection->nextItemPath());
+        newItem.setAttributes(attribs);
     }
 
     /* Create collection */
