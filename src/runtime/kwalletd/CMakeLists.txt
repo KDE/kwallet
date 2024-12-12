@@ -9,12 +9,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../kwalletbackend)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../kwalletbackend)
 
 
-if(WIN32)
-    configure_file(org.kde.kwalletd5.service.win.in
-                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
-    configure_file(org.kde.kwalletd6.service.win.in
-                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd6.service)
-else()
+if(NOT WIN32)
     configure_file(org.kde.kwalletd5.service.in
                    ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
     configure_file(org.kde.kwalletd6.service.in
