@@ -148,18 +148,26 @@ install(TARGETS ksecretd  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 
 if(WIN32)
-    configure_file(org.kde.secretservicecompat.win.in
-                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.secretservicecompat.service)
+    configure_file(org.kde.kwalletd5.service.win.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service)
+    configure_file(org.kde.kwalletd6.service.win.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd6.service)
+    install(
+        FILES
+            ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd5.service
+            ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kwalletd6.service
+        DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR}
+    )
 else()
     configure_file(org.kde.secretservicecompat.service.in
                    ${CMAKE_CURRENT_BINARY_DIR}/org.kde.secretservicecompat.service)
-endif()
 
-install(
-    FILES
-        ${CMAKE_CURRENT_BINARY_DIR}/org.kde.secretservicecompat.service
-    DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR}
-)
+    install(
+        FILES
+            ${CMAKE_CURRENT_BINARY_DIR}/org.kde.secretservicecompat.service
+        DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR}
+    )
+endif()
 
 ########### install files ###############
 install( FILES ksecretd.notifyrc DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
