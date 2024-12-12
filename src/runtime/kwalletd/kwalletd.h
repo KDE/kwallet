@@ -202,7 +202,7 @@ Q_SIGNALS:
     void applicationDisconnected(const QString &wallet, const QString &application);
 
 private:
-    SecretServiceClient *m_libSecretWrapper;
+    SecretServiceClient *m_backend;
     // We need to store a structure here as well, because the api has createFolder that would make a folder without any keys
     QMultiHash<QString, QString> m_structure;
     QHash<QPair<int, QString>, QString> m_openWallets;

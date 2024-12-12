@@ -35,7 +35,7 @@ static void startManagerForKwalletd()
 
 KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
     : QObject(parent)
-    , m_libSecretWrapper(new SecretServiceClient(useKWalletBackend, this))
+    , m_backend(new SecretServiceClient(useKWalletBackend, this))
     , m_useKWalletBackend(useKWalletBackend)
 {
     new KWalletAdaptor(this);
@@ -45,17 +45,17 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
     dbus.registerObject(QStringLiteral("/modules/kwalletd5"), this);
     dbus.registerObject(QStringLiteral("/modules/kwalletd6"), this);
 
-    connect(m_libSecretWrapper, &SecretServiceClient::error, this, &KWalletD::error);
+    connect(m_backend, &SecretServiceClient::error, this, &KWalletD::error);
 
     auto readStructure = [this]() {
         bool ok;
-        for (const QString &wallet : m_libSecretWrapper->listCollections(&ok)) {
-            for (const QString &folder : m_libSecretWrapper->listFolders(wallet, &ok)) {
+        for (const QString &wallet : m_backend->listCollections(&ok)) {
+            for (const QString &folder : m_backend->listFolders(wallet, &ok)) {
                 m_structure.insert(wallet, folder);
             }
         }
         qWarning() << "Structure:" << m_structure;
-        qWarning() << "Default wallet:" << m_libSecretWrapper->defaultCollection(&ok);
+        qWarning() << "Default wallet:" << m_backend->defaultCollection(&ok);
 
         if (!m_useKWalletBackend) {
             migrateData();
@@ -63,7 +63,7 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
     };
     readStructure();
 
-    connect(m_libSecretWrapper, &SecretServiceClient::serviceAvailableChanged, this, [this, readStructure](bool available) {
+    connect(m_backend, &SecretServiceClient::serviceAvailableChanged, this, [this, readStructure](bool available) {
         if (available) {
             readStructure();
             Q_EMIT walletListDirty();
@@ -72,17 +72,17 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
         }
     });
 
-    connect(m_libSecretWrapper, &SecretServiceClient::collectionDirty, this, [this](const QString &wallet) {
+    connect(m_backend, &SecretServiceClient::collectionDirty, this, [this](const QString &wallet) {
         bool ok;
         QStringList folders = m_structure.values(wallet);
         QSet<QString> oldFolders(folders.constBegin(), folders.constEnd());
-        folders = m_libSecretWrapper->listFolders(wallet, &ok);
+        folders = m_backend->listFolders(wallet, &ok);
         QSet<QString> newFolders(folders.constBegin(), folders.constEnd());
 
         // Reload m_structure
         m_structure.clear();
-        for (const QString &wallet : m_libSecretWrapper->listCollections(&ok)) {
-            for (const QString &folder : m_libSecretWrapper->listFolders(wallet, &ok)) {
+        for (const QString &wallet : m_backend->listCollections(&ok)) {
+            for (const QString &folder : m_backend->listFolders(wallet, &ok)) {
                 m_structure.insert(wallet, folder);
             }
         }
@@ -101,12 +101,12 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
         bool ok = false;
         KConfig cfg(QStringLiteral("kwalletrc"));
         KConfigGroup walletGroup(&cfg, QStringLiteral("Wallet"));
-        const QString defaultCollection = m_libSecretWrapper->defaultCollection(&ok);
+        const QString defaultCollection = m_backend->defaultCollection(&ok);
         const QString newDefaultWallet = walletGroup.readEntry(QStringLiteral("Default Wallet"), defaultCollection);
 
         if (newDefaultWallet != defaultCollection) {
-            if (m_libSecretWrapper->unlockCollection(newDefaultWallet, &ok)) {
-                m_libSecretWrapper->setDefaultCollection(newDefaultWallet, &ok);
+            if (m_backend->unlockCollection(newDefaultWallet, &ok)) {
+                m_backend->setDefaultCollection(newDefaultWallet, &ok);
             }
         }
     });
@@ -141,19 +141,19 @@ bool KWalletD::migrateWallet(const QString &sourceWallet, const QString &destWal
 
     bool ok = false;
 
-    const QStringList allDestWallets = m_libSecretWrapper->listCollections(&ok);
+    const QStringList allDestWallets = m_backend->listCollections(&ok);
     if (!ok) {
         return false;
     }
     if (!allDestWallets.contains(destWallet)) {
         qWarning() << "Creating" << destWallet;
-        m_libSecretWrapper->createCollection(destWallet, &ok);
+        m_backend->createCollection(destWallet, &ok);
         if (!ok) {
             return false;
         }
     }
     qWarning() << "Unlocking" << destWallet;
-    bool unlocked = m_libSecretWrapper->unlockCollection(destWallet, &ok);
+    bool unlocked = m_backend->unlockCollection(destWallet, &ok);
     if (!ok || !unlocked) {
         return false;
     }
@@ -193,7 +193,7 @@ bool KWalletD::migrateWallet(const QString &sourceWallet, const QString &destWal
 
 void KWalletD::migrateData()
 {
-    if (!m_libSecretWrapper->isAvailable() || m_useKWalletBackend) {
+    if (!m_backend->isAvailable() || m_useKWalletBackend) {
         return;
     }
     KConfig cfg(QStringLiteral("kwalletrc"));
@@ -225,7 +225,7 @@ void KWalletD::migrateData()
         QString destWallet = sourceWallet;
         // Use the SecretService default collection as the new default wallet
         if (sourceWallet == oldDefaultWallet) {
-            destWallet = m_libSecretWrapper->defaultCollection(&ok);
+            destWallet = m_backend->defaultCollection(&ok);
         }
         if (walletsMigrated.contains(sourceWallet)) {
             continue;
@@ -236,7 +236,7 @@ void KWalletD::migrateData()
     }
 
     // The default wallet will always be the one Secret Service says
-    walletGroup.writeEntry(QStringLiteral("Default Wallet"), m_libSecretWrapper->defaultCollection(&ok));
+    walletGroup.writeEntry(QStringLiteral("Default Wallet"), m_backend->defaultCollection(&ok));
 
     migrationGroup.writeEntry(QStringLiteral("WalletsMigratedToSecretService"), walletsMigrated);
     cfg.sync();
@@ -254,7 +254,7 @@ QString KWalletD::walletForHandle(int handle, const QString &appId)
     const QString walletName = m_openWallets.value(QPair<int, QString>(handle, appId));
     if (!walletName.isEmpty()) {
         bool ok;
-        bool unlocked = m_libSecretWrapper->unlockCollection(walletName, &ok);
+        bool unlocked = m_backend->unlockCollection(walletName, &ok);
         if (!ok || !unlocked) {
             return QString();
         }
@@ -271,7 +271,7 @@ QString KWalletD::folderPath(const QString &folder, const QString &key) const
 KWalletD::EntryType KWalletD::keyType(const QString &wallet, const QString &folder, const QString &key)
 {
     bool ok;
-    const QHash<QString, QString> hash = m_libSecretWrapper->readMetadata(key, folder, wallet, &ok);
+    const QHash<QString, QString> hash = m_backend->readMetadata(key, folder, wallet, &ok);
 
     if (!ok) {
         return Unknown;
@@ -290,37 +290,37 @@ KWalletD::EntryType KWalletD::keyType(const QString &wallet, const QString &fold
 
 QString KWalletD::readString(const QString &key, const QString &folder, const QString &wallet, bool *ok)
 {
-    return QString::fromUtf8(m_libSecretWrapper->readEntry(key, SecretServiceClient::PlainText, folder, wallet, ok));
+    return QString::fromUtf8(m_backend->readEntry(key, SecretServiceClient::PlainText, folder, wallet, ok));
 }
 
 QByteArray KWalletD::readRawJson(const QString &key, const QString &folder, const QString &wallet, bool *ok)
 {
-    return m_libSecretWrapper->readEntry(key, SecretServiceClient::Map, folder, wallet, ok);
+    return m_backend->readEntry(key, SecretServiceClient::Map, folder, wallet, ok);
 }
 
 QByteArray KWalletD::readBinary(const QString &key, const QString &folder, const QString &wallet, bool *ok)
 {
-    return m_libSecretWrapper->readEntry(key, SecretServiceClient::Binary, folder, wallet, ok);
+    return m_backend->readEntry(key, SecretServiceClient::Binary, folder, wallet, ok);
 }
 
 void KWalletD::writeString(const QString &key, const QString &value, const QString &folder, const QString &wallet, bool *ok)
 {
-    m_libSecretWrapper->writeEntry(folderPath(folder, key), key, value.toUtf8(), SecretServiceClient::PlainText, folder, wallet, ok);
+    m_backend->writeEntry(folderPath(folder, key), key, value.toUtf8(), SecretServiceClient::PlainText, folder, wallet, ok);
 }
 
 void KWalletD::writeBinary(const QString &key, const QByteArray &value, const QString &folder, const QString &wallet, bool *ok)
 {
-    m_libSecretWrapper->writeEntry(folderPath(folder, key), key, value, SecretServiceClient::Binary, folder, wallet, ok);
+    m_backend->writeEntry(folderPath(folder, key), key, value, SecretServiceClient::Binary, folder, wallet, ok);
 }
 
 void KWalletD::writeRawJson(const QString &key, const QByteArray &value, const QString &folder, const QString &wallet, bool *ok)
 {
-    m_libSecretWrapper->writeEntry(folderPath(folder, key), key, value, SecretServiceClient::Map, folder, wallet, ok);
+    m_backend->writeEntry(folderPath(folder, key), key, value, SecretServiceClient::Map, folder, wallet, ok);
 }
 
 void KWalletD::removeItem(const QString &key, const QString &folder, const QString &wallet, bool *ok)
 {
-    m_libSecretWrapper->deleteEntry(key, folder, wallet, ok);
+    m_backend->deleteEntry(key, folder, wallet, ok);
 }
 
 void KWalletD::timerEvent(QTimerEvent *ev)
@@ -346,7 +346,7 @@ void KWalletD::timerEvent(QTimerEvent *ev)
 
 bool KWalletD::isEnabled() const
 {
-    return m_enabled && m_libSecretWrapper->isAvailable();
+    return m_enabled && m_backend->isAvailable();
 }
 
 int KWalletD::open(const QString &wallet, qlonglong wId, const QString &appId)
@@ -356,23 +356,23 @@ int KWalletD::open(const QString &wallet, qlonglong wId, const QString &appId)
     }
 
     bool ok;
-    const QStringList wallets = m_libSecretWrapper->listCollections(&ok);
+    const QStringList wallets = m_backend->listCollections(&ok);
     if (!ok) {
         return -1;
     }
     if (!wallets.contains(wallet)) {
-        m_libSecretWrapper->createCollection(wallet, &ok);
+        m_backend->createCollection(wallet, &ok);
         if (!ok) {
             return -1;
         }
     }
 
-    bool unlocked = m_libSecretWrapper->unlockCollection(wallet, &ok);
+    bool unlocked = m_backend->unlockCollection(wallet, &ok);
     if (!ok || !unlocked) {
         return -1;
     }
 
-    for (const QString &folder : m_libSecretWrapper->listFolders(wallet, &ok)) {
+    for (const QString &folder : m_backend->listFolders(wallet, &ok)) {
         m_structure.insert(wallet, folder);
     }
 
@@ -416,22 +416,22 @@ int KWalletD::openAsync(const QString &wallet, qlonglong wId, const QString &app
 
     QTimer::singleShot(0, [this, wallet, appId, tid, rnd]() {
         bool ok;
-        const QStringList wallets = m_libSecretWrapper->listCollections(&ok);
+        const QStringList wallets = m_backend->listCollections(&ok);
         if (!ok) {
             return;
         }
         if (!wallets.contains(wallet)) {
-            m_libSecretWrapper->createCollection(wallet, &ok);
+            m_backend->createCollection(wallet, &ok);
             if (!ok) {
                 return;
             }
         }
-        bool unlocked = m_libSecretWrapper->unlockCollection(wallet, &ok);
+        bool unlocked = m_backend->unlockCollection(wallet, &ok);
         if (!ok || !unlocked) {
             return;
         }
 
-        for (const QString &folder : m_libSecretWrapper->listFolders(wallet, &ok)) {
+        for (const QString &folder : m_backend->listFolders(wallet, &ok)) {
             m_structure.insert(wallet, folder);
         }
         m_openWallets[QPair<int, QString>(rnd, appId)] = wallet;
@@ -532,7 +532,7 @@ void KWalletD::sync(int handle, const QString &appId)
 int KWalletD::deleteWallet(const QString &wallet)
 {
     bool ok;
-    m_libSecretWrapper->deleteCollection(wallet, &ok);
+    m_backend->deleteCollection(wallet, &ok);
 
     if (ok) {
         m_structure.remove(wallet);
@@ -584,7 +584,7 @@ void KWalletD::changePassword(const QString &wallet, qlonglong wId, const QStrin
 QStringList KWalletD::wallets() const
 {
     bool ok;
-    return m_libSecretWrapper->listCollections(&ok);
+    return m_backend->listCollections(&ok);
 }
 
 QStringList KWalletD::folderList(int handle, const QString &appId)
@@ -632,7 +632,7 @@ bool KWalletD::removeFolder(int handle, const QString &folder, const QString &ap
     }
 
     bool ok;
-    m_libSecretWrapper->deleteFolder(folder, wallet, &ok);
+    m_backend->deleteFolder(folder, wallet, &ok);
     if (ok) {
         m_structure.remove(wallet, folder);
     }
@@ -647,7 +647,7 @@ QStringList KWalletD::entryList(int handle, const QString &folder, const QString
     }
 
     bool ok;
-    return m_libSecretWrapper->listEntries(folder, wallet, &ok);
+    return m_backend->listEntries(folder, wallet, &ok);
 }
 
 QByteArray KWalletD::readEntry(int handle, const QString &folder, const QString &key, const QString &appId)
@@ -743,7 +743,7 @@ QVariantMap KWalletD::entriesList(int handle, const QString &folder, const QStri
 
     bool ok;
 
-    const QStringList keys = m_libSecretWrapper->listEntries(folder, wallet, &ok);
+    const QStringList keys = m_backend->listEntries(folder, wallet, &ok);
     if (!ok) {
         return map;
     }
@@ -805,7 +805,7 @@ QVariantMap KWalletD::mapList(int handle, const QString &folder, const QString &
 
     bool ok;
 
-    const QStringList keys = m_libSecretWrapper->listEntries(folder, wallet, &ok);
+    const QStringList keys = m_backend->listEntries(folder, wallet, &ok);
     if (!ok) {
         return map;
     }
@@ -851,7 +851,7 @@ QVariantMap KWalletD::passwordList(int handle, const QString &folder, const QStr
 
     bool ok;
 
-    const QStringList keys = m_libSecretWrapper->listEntries(folder, wallet, &ok);
+    const QStringList keys = m_backend->listEntries(folder, wallet, &ok);
     if (!ok) {
         return map;
     }
@@ -877,7 +877,7 @@ int KWalletD::renameEntry(int handle, const QString &folder, const QString &oldN
     }
 
     bool ok;
-    m_libSecretWrapper->renameEntry(folderPath(folder, newName), oldName, newName, folder, wallet, &ok);
+    m_backend->renameEntry(folderPath(folder, newName), oldName, newName, folder, wallet, &ok);
 
     if (!ok) {
         return -1;
@@ -895,9 +895,9 @@ int KWalletD::writeEntry(int handle, const QString &folder, const QString &key, 
     }
 
     bool ok;
-    QStringList oldWallets = m_libSecretWrapper->listCollections(&ok);
-    QStringList oldFolders = m_libSecretWrapper->listFolders(wallet, &ok);
-    QStringList oldEntries = m_libSecretWrapper->listEntries(wallet, folder, &ok);
+    QStringList oldWallets = m_backend->listCollections(&ok);
+    QStringList oldFolders = m_backend->listFolders(wallet, &ok);
+    QStringList oldEntries = m_backend->listEntries(wallet, folder, &ok);
 
     switch (entryType) {
     case Password:
@@ -978,7 +978,7 @@ bool KWalletD::hasEntry(int handle, const QString &folder, const QString &key, c
     }
 
     bool ok;
-    const QStringList entries = m_libSecretWrapper->listEntries(folder, wallet, &ok);
+    const QStringList entries = m_backend->listEntries(folder, wallet, &ok);
 
     if (!ok) {
         return false;
@@ -1007,7 +1007,7 @@ int KWalletD::removeEntry(int handle, const QString &folder, const QString &key,
     bool ok;
     removeItem(key, folder, wallet, &ok);
     if (ok) {
-        QStringList folders = m_libSecretWrapper->listFolders(wallet, &ok);
+        QStringList folders = m_backend->listFolders(wallet, &ok);
         if (ok && !folders.contains(folder)) {
             m_structure.remove(wallet, folder);
             folderListUpdated(wallet);
@@ -1093,7 +1093,7 @@ void KWalletD::reconfigure()
 bool KWalletD::folderDoesNotExist(const QString &wallet, const QString &folder)
 {
     bool ok;
-    const QStringList entries = m_libSecretWrapper->listFolders(wallet, &ok);
+    const QStringList entries = m_backend->listFolders(wallet, &ok);
 
     if (!ok) {
         return true;
@@ -1105,7 +1105,7 @@ bool KWalletD::folderDoesNotExist(const QString &wallet, const QString &folder)
 bool KWalletD::keyDoesNotExist(const QString &wallet, const QString &folder, const QString &key)
 {
     bool ok;
-    const QStringList entries = m_libSecretWrapper->listEntries(folder, wallet, &ok);
+    const QStringList entries = m_backend->listEntries(folder, wallet, &ok);
 
     if (!ok) {
         return true;
@@ -1137,7 +1137,7 @@ void KWalletD::closeAllWallets()
 QString KWalletD::networkWallet()
 {
     bool ok;
-    const QString defaultWallet = m_libSecretWrapper->defaultCollection(&ok);
+    const QString defaultWallet = m_backend->defaultCollection(&ok);
 
     KConfig cfg(QStringLiteral("kwalletrc"));
     KConfigGroup walletGroup(&cfg, QStringLiteral("Wallet"));
