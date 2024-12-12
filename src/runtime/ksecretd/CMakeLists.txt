@@ -148,7 +148,7 @@ install(TARGETS ksecretd  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 
 if(WIN32)
-    configure_file(org.kde.secretservicecompat.win.in
+    configure_file(org.kde.secretservicecompat.service.win.in
                    ${CMAKE_CURRENT_BINARY_DIR}/org.kde.secretservicecompat.service)
 else()
     configure_file(org.kde.secretservicecompat.service.in
