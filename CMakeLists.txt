@@ -29,7 +29,11 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMMarkNonGuiExecutable)
 
 option(BUILD_KSECRETD "Build the ksecretd daemon" ON)
-option(BUILD_KWALLETD "Build the kwallet daemon" ON)
+if(NOT WIN32)
+    option(BUILD_KWALLETD "Build the kwallet daemon" ON)
+else()
+    set(BUILD_KWALLETD OFF)
+endif()
 option(BUILD_KWALLET_QUERY "Build kwallet-query tool" ON)
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
@@ -53,6 +57,12 @@ ecm_set_disabled_deprecation_versions(
     QT 6.9.0
     KF 6.12.0
 )
+
+if (WIN32)
+    set(EXPORT_LEGACY_API 1)
+else()
+    set(EXPORT_LEGACY_API 0)
+endif()
 
 add_definitions(-DTRANSLATION_DOMAIN=\"ksecretd6\")
 ki18n_install(po)

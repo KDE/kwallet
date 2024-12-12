@@ -140,13 +140,21 @@ KSecretD::KSecretD()
 
     if (cfgWallet.readEntry<bool>("apiEnabled", true)) {
         (void)new KWalletAdaptor(this);
-
+#if EXPORT_LEGACY_API
+        // register services
+        QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kwalletd6"));
+        QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kwalletd6"), this);
+        // register also with the KF5 names for backward compatibility
+        QDBusConnection::sessionBus().interface()->registerService(QStringLiteral("org.kde.kwalletd5"), QDBusConnectionInterface::QueueService);
+        QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kwalletd5"), this);
+#else
         // register services
         QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.ksecretd"));
         QDBusConnection::sessionBus().registerObject(QStringLiteral("/ksecretd"), this);
         // register also with the KF5 names for backward compatibility
         QDBusConnection::sessionBus().interface()->registerService(QStringLiteral("org.kde.ksecretd"), QDBusConnectionInterface::QueueService);
         QDBusConnection::sessionBus().registerObject(QStringLiteral("ksecretd"), this);
+#endif
 
         new KWalletPortalSecrets(this);
     }
