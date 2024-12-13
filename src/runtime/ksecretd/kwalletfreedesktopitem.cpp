@@ -137,7 +137,7 @@ FreedesktopSecret KWalletFreedesktopItem::getSecret(const QDBusConnection &conne
         }
         fdoSecret = FreedesktopSecret(session, QJsonDocument(obj).toJson(QJsonDocument::Compact), mimeType);
         // TODO explicit_zero_mem all the things
-        // explicit_zero_mem(encoded.data(), encoded.size() * sizeof(QChar));
+        explicit_zero_mem(encoded.data(), encoded.size());
     } else {
         auto bytes = backend()->readEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, FDO_APPID);
         fdoSecret = FreedesktopSecret(session, bytes, mimeType);
