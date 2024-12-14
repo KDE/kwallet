@@ -1,0 +1,713 @@
+# Sanskrit translations for kwallet package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kwallet package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kwallet\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-11-09 00:38+0000\n"
+"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: backend/backendpersisthandler.cpp:489
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+"<qt><b>%1</b> बटुकं रक्षितुं प्रयतमाने OpenPGP आरम्भं कर्तुं प्रयतमाने त्रुटिः । त्रुटिसङ्केतः "
+"<b>%2</b> अस्ति । कृपया स्वस्य प्रणालीविन्यासं समाधात, ततः पुनः प्रयासं कुर्वन्तु ।</qt>"
+
+#: backend/backendpersisthandler.cpp:501
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt><b>%1</b> बटुकं रक्षितुं प्रयतमाने OpenPGP आरम्भं कर्तुं प्रयतमाने त्रुटिः । कृपया स्वस्य "
+"प्रणालीविन्यासं समाधात, ततः पुनः प्रयासं कुर्वन्तु ।</qt>"
+
+#: backend/backendpersisthandler.cpp:555
+#, kde-format
+msgid ""
+"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+"again. This error may occur if you are not using a full trust GPG key. "
+"Please ensure you have the secret key for the key you are using.</qt>"
+msgstr ""
+"<qt><b>%1</b> बटुकं रक्षितुं प्रयतमाने एन्क्रिप्शनदोषः । त्रुटिसङ्केतः <b>%2 (%3)</b> अस्ति "
+"। कृपया स्वस्य प्रणालीविन्यासं समाधात, ततः पुनः प्रयासं कुर्वन्तु । यदि भवान् पूर्णविश्वासस्य "
+"GPG कीलस्य उपयोगं न करोति तर्हि एषा त्रुटिः भवितुम् अर्हति । कृपया सुनिश्चितं कुर्वन्तु यत् "
+"भवन्तः यस्य कीलस्य उपयोगं कुर्वन्ति तस्य गुप्तकुंजी अस्ति ।</qt>"
+
+#: backend/backendpersisthandler.cpp:572
+#, kde-format
+msgid ""
+"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
+"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt>बटुकं <b>%1</b> रक्षितुं प्रयतमाने सञ्चिकानियन्त्रणदोषः । त्रुटिः <b>%2</b> आसीत् । "
+"कृपया स्वस्य प्रणालीविन्यासं समाधात, ततः पुनः प्रयासं कुर्वन्तु ।</qt>"
+
+#: backend/backendpersisthandler.cpp:594
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+"<qt><b>%1</b> बटुकं उद्घाटयितुं प्रयतमाने OpenPGP आरम्भं कर्तुं प्रयतमाने त्रुटिः । "
+"त्रुटिसङ्केतः <b>%2</b> अस्ति । कृपया स्वस्य प्रणालीविन्यासं समाधात, ततः पुनः प्रयासं "
+"कुर्वन्तु ।</qt>"
+
+#: backend/backendpersisthandler.cpp:616
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt><b>%1</b> बटुकं उद्घाटयितुं प्रयतमाने OpenPGP आरम्भं कर्तुं प्रयतमाने त्रुटिः । कृपया "
+"स्वस्य प्रणालीविन्यासं समाधात, ततः पुनः प्रयासं कुर्वन्तु ।</qt>"
+
+#: backend/backendpersisthandler.cpp:629
+#, kde-format
+msgid "Retry"
+msgstr "पुनः प्रयासं कुर्वन्तु"
+
+#: backend/backendpersisthandler.cpp:634
+#, kde-format
+msgid ""
+"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+"you're using a SmartCard, please ensure it's inserted then try again."
+"<br><br>GPG error was <b>%2</b></qt>"
+msgstr ""
+"<qt>GPG इत्यस्य उपयोगेन <b>%1</b> बटुकं विगुप्तं कर्तुं प्रयतमाने त्रुटिः । यदि भवान् "
+"SmartCard इत्यस्य उपयोगं करोति तर्हि कृपया सुनिश्चितं कुर्वन्तु यत् एतत् सम्मिलितम् अस्ति ततः "
+"पुनः प्रयासं कुर्वन्तु।<br><br> GPG त्रुटिः <b>%2</b> आसीत्</qt>"
+
+#: backend/backendpersisthandler.cpp:638
+#, kde-format
+msgid "kwalletd GPG backend"
+msgstr "kwalletd GPG पृष्ठभाग"
+
+#: backend/backendpersisthandler.cpp:684
+#, kde-format
+msgid ""
+"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
+"system.</qt>"
+msgstr ""
+"<qt><b>%1</b> बटुकं उद्घाटयितुं प्रयतमाने त्रुटिः । बटुकं GPG Key ID <b>%2</b> इत्यस्य "
+"उपयोगेन एन्क्रिप्टेड् आसीत् किन्तु एतत् कीलं भवतः प्रणाल्यां न प्राप्तम् ।</qt>"
+
+#: backend/kwalletbackend.cc:259
+#, kde-format
+msgid "Already open."
+msgstr "पूर्वमेव उद्घाटितम्।"
+
+#: backend/kwalletbackend.cc:261
+#, kde-format
+msgid "Error opening file."
+msgstr "सञ्चिकां उद्घाटयितुं त्रुटिः।"
+
+#: backend/kwalletbackend.cc:263
+#, kde-format
+msgid "Not a wallet file."
+msgstr "न तु बटुकसञ्चिका।"
+
+#: backend/kwalletbackend.cc:265
+#, kde-format
+msgid "Unsupported file format revision."
+msgstr "असमर्थितं सञ्चिकास्वरूपपुनरीक्षणम् ।"
+
+#: backend/kwalletbackend.cc:269
+#, kde-format
+msgid "Unknown encryption scheme."
+msgstr "अज्ञात एन्क्रिप्शन योजना।"
+
+#: backend/kwalletbackend.cc:271
+#, kde-format
+msgid "Corrupt file?"
+msgstr "दूषितसञ्चिका?"
+
+#: backend/kwalletbackend.cc:273
+#, kde-format
+msgid "Error validating wallet integrity. Possibly corrupted."
+msgstr "बटुक अखण्डतां प्रमाणयितुं त्रुटिः। सम्भवतः दूषितः।"
+
+#: backend/kwalletbackend.cc:277
+#, kde-format
+msgid "Read error - possibly incorrect password."
+msgstr "पठनदोषः - सम्भवतः अशुद्धगुप्तशब्दः।"
+
+#: backend/kwalletbackend.cc:279
+#, kde-format
+msgid "Decryption error."
+msgstr "विगुप्तीकरणदोषः ।"
+
+#: backend/kwalletbackend.cc:455
+#, kde-format
+msgid ""
+"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
+msgstr ""
+"बटुकं <b>%1</b> डिस्कं प्रति समन्वययितुं असफलम् । त्रुटिसङ्केताः सन्ति: RC <b>%2</b> SF <b>"
+"%3</b> । कृपया एतां सूचनां उपयुज्य bugs.kde.org इत्यत्र BUG प्रतिवेदनं दातव्यम्"
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
+#: kbetterthankdialogbase.ui:50
+#, kde-format
+msgid "Allow &Once"
+msgstr "&एकदा अनुमन्यताम्"
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowAlways)
+#: kbetterthankdialogbase.ui:60
+#, kde-format
+msgid "Allow &Always"
+msgstr "अनुमन्यताम् &सदा"
+
+#. i18n: ectx: property (text), widget (QPushButton, _deny)
+#: kbetterthankdialogbase.ui:67
+#, kde-format
+msgid "&Deny"
+msgstr "&अपह्नुते"
+
+#. i18n: ectx: property (text), widget (QPushButton, _denyForever)
+#: kbetterthankdialogbase.ui:74
+#, kde-format
+msgid "Deny &Forever"
+msgstr "अङ्गीकुरु &सदा"
+
+#: knewwalletdialog.cpp:50
+#, kde-format
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
+"to store sensitive data in a secure fashion. Please choose the new wallet's "
+"type below or click cancel to deny the application's request.</qt>"
+msgstr ""
+"<qt>KDE इत्यनेन &#39; <b>%1</b> &#39; इति नामकं नूतनं बटुकं निर्मातुं अनुरोधः कृतः । "
+"एतस्य उपयोगः संवेदनशीलदत्तांशस्य सुरक्षितरूपेण संग्रहणार्थं भवति । कृपया अधः नूतनस्य बटुकस्य "
+"प्रकारं चिनोतु अथवा अनुप्रयोगस्य अनुरोधं नकारयितुं रद्दं नुदतु।</qt>"
+
+#: knewwalletdialog.cpp:55
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
+"Please choose the new wallet's type below or click cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+"<qt>&#39; <b>%1</b> &#39; इति अनुप्रयोगेन &#39; <b>%2</b> &#39; इति नामकं नूतनं "
+"बटुकं निर्मातुं अनुरोधः कृतः । एतस्य उपयोगः संवेदनशीलदत्तांशस्य सुरक्षितरूपेण संग्रहणार्थं भवति । "
+"कृपया अधः नूतनस्य बटुकस्य प्रकारं चिनोतु अथवा अनुप्रयोगस्य अनुरोधं नकारयितुं रद्दं नुदतु।</qt>"
+
+#: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
+#: kwalletwizard.cpp:157
+#, kde-format
+msgid ""
+"The GpgME library failed to initialize for the OpenPGP protocol. Please "
+"check your system's configuration then try again."
+msgstr ""
+"GpgME पुस्तकालयः OpenPGP प्रोटोकॉलस्य कृते आरम्भं कर्तुं असफलः अभवत् । कृपया स्वस्य "
+"प्रणाल्याः विन्यासं पश्यन्तु ततः पुनः प्रयासं कुर्वन्तु ।"
+
+#: knewwalletdialog.cpp:153
+#, kde-format
+msgid ""
+"Seems that your system has no keys suitable for encryption. Please set-up at "
+"least one encryption key, then try again."
+msgstr ""
+"भवतः प्रणाल्यां गुप्तीकरणाय उपयुक्तानि कीलानि नास्ति इति भाति । कृपया न्यूनातिन्यूनम् एकं "
+"एन्क्रिप्शन-कुंजी स्थापयन्तु, ततः पुनः प्रयासं कुर्वन्तु ।"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: knewwalletdialoggpg.ui:17
+#, kde-format
+msgid "Please select the signing key from the list below:"
+msgstr "कृपया अधोलिखितानां सूचीतः हस्ताक्षरकुंजी चिनोतु:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: knewwalletdialoggpg.ui:24
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> एषा सूची "
+"केवलं &quot;ultimate-level&quot; विश्वसनीयाः कीलानि दर्शयति</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:59
+#, kde-format
+msgid "Name"
+msgstr "नामः"
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:64
+#, kde-format
+msgid "E-Mail"
+msgstr "ई-मेल"
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: knewwalletdialoggpg.ui:69
+#, kde-format
+msgid "Key-ID"
+msgstr "कील-ID"
+
+#. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
+#: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
+#, kde-format
+msgid "The KDE Wallet System"
+msgstr "KDE Wallet System इति"
+
+#. i18n: ectx: property (text), widget (QLabel, labelIntro)
+#: knewwalletdialogintro.ui:30
+#, no-c-format, kde-format
+msgid ""
+"<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
+"span>' has requested to open the KDE wallet. This is used to store sensitive "
+"data in a secure fashion. Please choose the new wallet's type below or click "
+"cancel to deny the application's request.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>अनुप्रयोगेन &#39; <span style=\" font-weight:600;\">%1</"
+"span> &#39; KDE बटुकं उद्घाटयितुं अनुरोधः कृतः । एतस्य उपयोगः संवेदनशीलदत्तांशस्य "
+"सुरक्षितरूपेण संग्रहणार्थं भवति । कृपया अधः नूतनस्य बटुकस्य प्रकारं चिनोतु अथवा अनुप्रयोगस्य "
+"अनुरोधं नकारयितुं रद्दं नुदतु।</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
+#. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
+#: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
+#, kde-format
+msgid "Classic, blowfish encrypted file"
+msgstr "क्लासिक, ब्लोफिश एन्क्रिप्टेड् सञ्चिका"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
+#. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
+#: knewwalletdialogintro.ui:73 kwalletwizardpagepasswordgpg.ui:55
+#, kde-format
+msgid "Use GPG encryption, for better protection"
+msgstr "GPG एन्क्रिप्शनस्य उपयोगं कुर्वन्तु, उत्तमसंरक्षणार्थम्"
+
+#: kwalletd.cpp:624
+#, kde-format
+msgid ""
+"<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
+"password for this wallet below.</qt>"
+msgstr ""
+"<qt>KDE इत्यनेन &#39; <b>%1</b> &#39; इति बटुकं उद्घाटयितुं अनुरोधः कृतः । कृपया अधः "
+"अस्य बटुकस्य गुप्तशब्दं प्रविशन्तु ।</qt>"
+
+#: kwalletd.cpp:628
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+"b>'. Please enter the password for this wallet below.</qt>"
+msgstr ""
+"<qt>&#39; <b>%1</b> &#39; अनुप्रयोगेन &#39; <b>%2</b> &#39; बटुकं उद्घाटयितुं अनुरोधः "
+"कृतः । कृपया अधः अस्य बटुकस्य गुप्तशब्दं प्रविशन्तु ।</qt>"
+
+#. i18n( "&Open" ), "wallet-open"));
+#: kwalletd.cpp:639 kwalletd.cpp:748 kwalletd.cpp:852 kwalletd.cpp:965
+#: kwalletd.cpp:988 kwalletd.cpp:999 kwalletd.cpp:1004 kwalletd.cpp:1594
+#: main.cpp:167 main.cpp:169
+#, kde-format
+msgid "KDE Wallet Service"
+msgstr "केडीई बटुआ सेवा"
+
+#: kwalletd.cpp:654
+#, kde-format
+msgid "An application has requested to open a wallet (%1)."
+msgstr "एकेन अनुप्रयोगेन बटुकं (%1) उद्घाटयितुं अनुरोधः कृतः अस्ति ।"
+
+#: kwalletd.cpp:655
+#, kde-format
+msgctxt ""
+"Text of a button for switching to the (unnamed) application requesting a "
+"password"
+msgid "Switch there"
+msgstr ""
+
+#: kwalletd.cpp:657
+#, kde-format
+msgid "<b>%1</b> has requested to open a wallet (%2)."
+msgstr "<b>%1 इत्यनेन</b> बटुकं उद्घाटयितुं अनुरोधः कृतः (%2) ।"
+
+#: kwalletd.cpp:659
+#, kde-format
+msgctxt ""
+"Text of a button for switching to the application requesting a password"
+msgid "Switch to %1"
+msgstr ""
+
+#: kwalletd.cpp:676 kwalletd.cpp:758
+#, kde-format
+msgid ""
+"<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
+"%2: %3)</qt>"
+msgstr ""
+"<qt>&#39; <b>%1</b> &#39; बटुकं उद्घाटयितुं त्रुटिः । कृपया पुनः प्रयासं कुर्वन्तु।<br /> "
+"(दोषसङ्केतः %2: %3)</qt>"
+
+#: kwalletd.cpp:724
+#, kde-format
+msgid ""
+"KDE has requested to open the wallet. This is used to store sensitive data "
+"in a secure fashion. Please enter a password to use with this wallet or "
+"click cancel to deny the application's request."
+msgstr ""
+"KDE इत्यनेन बटुकं उद्घाटयितुं अनुरोधः कृतः । एतस्य उपयोगः संवेदनशीलदत्तांशस्य सुरक्षितरूपेण "
+"संग्रहणार्थं भवति । कृपया अस्मिन् बटुके सह उपयोगाय गुप्तशब्दं प्रविशन्तु अथवा अनुप्रयोगस्य "
+"अनुरोधं अङ्गीकुर्वितुं रद्दं नुदन्तु ।"
+
+#: kwalletd.cpp:729
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
+"is used to store sensitive data in a secure fashion. Please enter a password "
+"to use with this wallet or click cancel to deny the application's request.</"
+"qt>"
+msgstr ""
+"<qt>अनुप्रयोगेन &#39; <b>%1</b> &#39; KDE बटुकं उद्घाटयितुं अनुरोधः कृतः । एतस्य उपयोगः "
+"संवेदनशीलदत्तांशस्य सुरक्षितरूपेण संग्रहणार्थं भवति । कृपया अस्मिन् बटुके सह उपयोगाय गुप्तशब्दं "
+"प्रविशन्तु अथवा अनुप्रयोगस्य अनुरोधं अङ्गीकुर्वितुं रद्दं नुदन्तु ।</qt>"
+
+#: kwalletd.cpp:737
+#, kde-format
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
+"choose a password for this wallet, or cancel to deny the application's "
+"request.</qt>"
+msgstr ""
+"<qt>KDE इत्यनेन &#39; <b>%1</b> &#39; इति नामकं नूतनं बटुकं निर्मातुं अनुरोधः कृतः । "
+"कृपया अस्य बटुकस्य कृते गुप्तशब्दं चिनोतु, अथवा अनुप्रयोगस्य अनुरोधं नकारयितुं रद्दं कुर्वन्तु ।</qt>"
+
+#: kwalletd.cpp:742
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+"<qt>&#39; <b>%1</b> &#39; इति अनुप्रयोगेन &#39; <b>%2</b> &#39; इति नामकं नूतनं "
+"बटुकं निर्मातुं अनुरोधः कृतः । कृपया अस्य बटुकस्य कृते गुप्तशब्दं चिनोतु, अथवा अनुप्रयोगस्य अनुरोधं "
+"नकारयितुं रद्दं कुर्वन्तु ।</qt>"
+
+#: kwalletd.cpp:854
+#, kde-format
+msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
+msgstr "<qt>KDE इत्यनेन &#39; <b>%1</b> &#39; इति मुक्तबटुके प्रवेशः अनुरोधितः ।</qt>"
+
+#: kwalletd.cpp:856
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
+"%2</b>'.</qt>"
+msgstr ""
+"<qt>&#39; <b>%1</b> &#39; इति अनुप्रयोगेन &#39; <b>%2</b> &#39; इति मुक्तबटुके "
+"अभिगमनस्य अनुरोधः कृतः ।</qt>"
+
+#: kwalletd.cpp:964
+#, kde-format
+msgid ""
+"Unable to open wallet. The wallet must be opened in order to change the "
+"password."
+msgstr "बटुकं उद्घाटयितुं असमर्थः। गुप्तशब्दं परिवर्तयितुं बटुकं उद्घाटितव्यम् ।"
+
+#: kwalletd.cpp:980
+#, kde-format
+msgid ""
+"<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
+"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
+"associated to that key.</qt>"
+msgstr ""
+"<qt><b>%1</b> बटुकं GPG कुञ्जी <b>%2 इत्यस्य</b> उपयोगेन गुप्तीकरणं भवति । कृपया तस्य "
+"कीलस्य सम्बद्धं गुप्तवाक्यं परिवर्तयितुं <b>GPG</b> साधनानां (यथा <b>kleopatra</b> ) "
+"उपयोगं कुर्वन्तु ।</qt>"
+
+#: kwalletd.cpp:987
+#, kde-format
+msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
+msgstr "<qt>कृपया &#39; <b>%1</b> &#39; बटुकस्य कृते नूतनं गुप्तशब्दं चिनोतु ।</qt>"
+
+#: kwalletd.cpp:999
+#, kde-format
+msgid "Error re-encrypting the wallet. Password was not changed."
+msgstr "बटुकं पुनः गुप्तीकरणे त्रुटिः। गुप्तशब्दः परिवर्तितः नासीत्।"
+
+#: kwalletd.cpp:1004
+#, kde-format
+msgid "Error reopening the wallet. Data may be lost."
+msgstr "बटुकं पुनः उद्घाटने त्रुटिः। दत्तांशः नष्टः भवितुम् अर्हति।"
+
+#: kwalletd.cpp:1593
+#, kde-format
+msgid ""
+"There have been repeated failed attempts to gain access to a wallet. An "
+"application may be misbehaving."
+msgstr "बटुकप्रवेशं प्राप्तुं बहुवारं असफलप्रयासाः अभवन् । अनुप्रयोगः दुर्व्यवहारं कुर्वन् अस्ति।"
+
+#: kwalletwizard.cpp:40
+#, kde-format
+msgid "KWallet"
+msgstr "KWallet"
+
+#: kwalletwizard.cpp:272
+#, kde-format
+msgid "<qt>Password is empty.  <b>(WARNING: Insecure)</b></qt>"
+msgstr "<qt>गुप्तशब्दः रिक्तः अस्ति। <b>(चेतावनी: असुरक्षितम्)</b></qt>"
+
+#: kwalletwizard.cpp:274
+#, kde-format
+msgid "Passwords match."
+msgstr "गुप्तशब्दाः मेलन्ति।"
+
+#: kwalletwizard.cpp:277
+#, kde-format
+msgid "Passwords do not match."
+msgstr "गुप्तशब्दाः न मेलन्ति।"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: kwalletwizardpageexplanation.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>The KDE Wallet system stores your data in a <span "
+"style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
+"The data is only written in the encrypted form of your choice - blowfish "
+"algorithm with your password as the key or using a GPG encryption key. When "
+"a wallet is opened, the wallet manager application will launch and display "
+"an icon in the system tray. You can use this application to manage all of "
+"your wallets. It even permits you to drag wallets and wallet contents, "
+"allowing you to easily copy a wallet to a remote system.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>KDE Wallet प्रणाली भवतः दत्तांशं भवतः स्थानीयहार्डडिस्कमध्ये "
+"<span style=\" font-style:italic;\">बटुकसञ्चिकायां</span> संगृह्णाति । दत्तांशः केवलं "
+"भवतः पसन्दस्य एन्क्रिप्टेड् रूपेण लिखितः भवति - blowfish एल्गोरिदम् भवतः गुप्तशब्दं कुञ्जीरूपेण "
+"अथवा GPG एन्क्रिप्शन कीलस्य उपयोगेन । यदा बटुकं उद्घाट्यते तदा बटुकप्रबन्धक-अनुप्रयोगः "
+"प्रक्षेपणं कृत्वा सिस्टम् ट्रे मध्ये एकं चिह्नं प्रदर्शयिष्यति । भवान् स्वस्य सर्वाणि बटुकानि "
+"प्रबन्धयितुं एतत् अनुप्रयोगं उपयोक्तुं शक्नोति । एतत् भवन्तं बटुकं बटुकसामग्री च कर्षयितुं अपि "
+"शक्नोति, येन भवन्तः बटुकं दूरस्थप्रणाल्यां सहजतया प्रतिलिपिं कर्तुं शक्नुवन्ति ।</p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: kwalletwizardpagegpgkey.ui:24
+#, kde-format
+msgid ""
+"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when decrypting is "
+"needed or your wallet will not be accessible. For example, if you choose a "
+"SmartCard-based encryption key, the GPG system will prompt you to enter it "
+"and its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"level&quot; trusted keys.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>GPG-आधारितं बटुकं डिस्क-मध्ये सुरक्षिततया दत्तांशं गोपनार्थं GPG-"
+"गुप्तीकरण-कुंजीम् उपयुज्यते । विगुप्तीकरणस्य आवश्यकतायां कुञ्जी अवश्यमेव उपलब्धा भवेत् अन्यथा "
+"भवतः बटुकं सुलभं न भविष्यति । यथा, यदि भवान् SmartCard-आधारितं एन्क्रिप्शन-कुंजी चिनोति "
+"तर्हि GPG-प्रणाली भवन्तं बटुकं उद्घाटयितुं प्रयतमाने तत् तत्सम्बद्धं च PIN च प्रविष्टुं "
+"प्रेरयिष्यति । <span style=\" font-weight:600;\">NOTE:</span> अस्मिन् सूचौ केवलं "
+"&quot;ultimate-level&quot; विश्वसनीयाः कुञ्जिकाः सन्ति ।</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kwalletwizardpagegpgkey.ui:42
+#, kde-format
+msgid "Select encryption GPG key:"
+msgstr "एन्क्रिप्शन GPG कुञ्जी चिनोतु:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: kwalletwizardpagegpgkey.ui:81
+#, kde-format
+msgid ""
+"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
+"such <b>encrypting key</b> to securely store passwords or other sensitive "
+"data on disk. If you still want to setup a GPG-based wallet, then cancel "
+"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
+"Otherwise, you may still click back, then choose a classic, blowfish "
+"encrypted file format on the previous page."
+msgstr ""
+"न्यूनातिन्यूनम् एकं <b>एन्क्रिप्टिङ्ग् GPG कुञ्जीम्</b> अन्वेष्टुं असमर्थम् . गुप्तशब्दान् "
+"अन्यसंवेदनशीलदत्तांशं वा डिस्कमध्ये सुरक्षितरूपेण संग्रहीतुं KDE Wallet इत्यस्य एतादृशी "
+"<b>एन्क्रिप्टिङ्ग् कुञ्जी</b> आवश्यकी भवति । यदि भवान् अद्यापि GPG-आधारितं बटुकं स्थापयितुम् "
+"इच्छति, तर्हि एतत् विजार्डं रद्दं कुरुत, <b>एन्क्रिप्टिङ्ग् GPG कुञ्जी</b> स्थापयतु , ततः एतत् "
+"सहायकं पुनः प्रयतस्व । अन्यथा, भवान् अद्यापि पुनः क्लिक् कर्तुं शक्नोति, ततः पूर्वपृष्ठे "
+"क्लासिकं, blowfish एन्क्रिप्टेड् सञ्चिकास्वरूपं चिनोतु ।"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: kwalletwizardpageintro.ui:30
+#, kde-format
+msgid ""
+"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
+"passwords and other personal information on disk in an encrypted file, "
+"preventing others from viewing the information.  This wizard will tell you "
+"about KWallet and help you configure it for the first time."
+msgstr ""
+"KWallet, KDE Wallet System इत्यत्र भवतः स्वागतम् ।  KWallet भवन्तं स्वस्य गुप्तशब्दान् "
+"अन्ये च व्यक्तिगतसूचनाः डिस्क-मध्ये एन्क्रिप्टेड्-सञ्चिकायां संग्रहीतुं शक्नोति, येन अन्ये सूचनां न "
+"पश्यन्ति ।  एषः विजार्ड् भवन्तं KWallet इत्यस्य विषये वक्ष्यति तथा च प्रथमवारं तस्य विन्यासे "
+"सहायकः भविष्यति ।"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _basic)
+#: kwalletwizardpageintro.ui:69
+#, kde-format
+msgid "&Basic setup (recommended)"
+msgstr "&मूलभूतव्यवस्थापन (अनुशंसितम्)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, _advanced)
+#: kwalletwizardpageintro.ui:79
+#, kde-format
+msgid "&Advanced setup"
+msgstr "&उन्नत सेटअप"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: kwalletwizardpageoptions.ui:16
+#, kde-format
+msgid ""
+"The KDE Wallet system allows you to control the level of security of your "
+"personal data.  Some of these settings do impact usability.  While the "
+"default settings are generally acceptable for most users, you may wish to "
+"change some of them.  You may further tune these settings from the KWallet "
+"control module."
+msgstr ""
+"KDE Wallet प्रणाली भवन्तं स्वस्य व्यक्तिगतदत्तांशस्य सुरक्षास्तरं नियन्त्रयितुं शक्नोति ।  एतेषु "
+"केचन सेटिङ्ग्स् उपयोगितायाः प्रभावं कुर्वन्ति एव ।  यद्यपि पूर्वनिर्धारितसेटिंग्स् सामान्यतया "
+"अधिकांशप्रयोक्तृणां कृते स्वीकार्याः सन्ति तथापि भवान् तेषु केचन परिवर्तयितुम् इच्छति ।  भवान् "
+"एतानि सेटिङ्ग्स् KWallet नियन्त्रणमॉड्यूल् तः अधिकं ट्यून् कर्तुं शक्नोति ।"
+
+#. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
+#: kwalletwizardpageoptions.ui:48
+#, kde-format
+msgid "Automatically close idle wallets"
+msgstr "निष्क्रियबटुकानि स्वयमेव बन्दं कुर्वन्तु"
+
+#. i18n: ectx: property (text), widget (QCheckBox, _networkWallet)
+#: kwalletwizardpageoptions.ui:55
+#, kde-format
+msgid "Store network passwords and local passwords in separate wallet files"
+msgstr "संजालगुप्तशब्दान् स्थानीयगुप्तशब्दान् च पृथक् पृथक् बटुकसञ्चिकासु संग्रहयन्तु"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kwalletwizardpagepassword.ui:16
+#, kde-format
+msgid ""
+"Various applications may attempt to use the KDE wallet to store passwords or "
+"other information such as web form data and cookies.  If you would like "
+"these applications to use the wallet, you must enable it now and choose a "
+"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
+"and will allow anyone who knows it to obtain all the information contained "
+"in the wallet."
+msgstr ""
+"विभिन्नाः अनुप्रयोगाः गुप्तशब्दान् वा अन्यसूचनाः यथा जालप्रपत्रदत्तांशः कुकीजश्च संग्रहीतुं KDE "
+"बटुकस्य उपयोगं कर्तुं प्रयतन्ते । यदि भवान् इच्छति यत् एतानि अनुप्रयोगाः बटुकस्य उपयोगं कुर्वन्तु "
+"तर्हि भवान् इदानीं तत् सक्षमं कृत्वा गुप्तशब्दं चिनोतु । भवता चितः गुप्तशब्दः नष्टः चेत् पुनः "
+"प्राप्तुं <i>न शक्यते</i> , तथा च यः कोऽपि तत् जानाति सः बटुके विद्यमानाः सर्वाः सूचनाः "
+"प्राप्तुं शक्नोति ।"
+
+#. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
+#: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
+#, kde-format
+msgid "Yes, I wish to use the KDE wallet to store my personal information."
+msgstr "आम्, अहं मम व्यक्तिगतसूचनाः संग्रहीतुं KDE बटुकस्य उपयोगं कर्तुम् इच्छामि ।"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: kwalletwizardpagepassword.ui:88 kwalletwizardpagepasswordgpg.ui:106
+#, kde-format
+msgid "Enter a new password:"
+msgstr "नूतनं गुप्तशब्दं प्रविशतु:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: kwalletwizardpagepassword.ui:104 kwalletwizardpagepasswordgpg.ui:122
+#, kde-format
+msgid "Verify password:"
+msgstr "गुप्तशब्दस्य सत्यापनम् : १."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kwalletwizardpagepasswordgpg.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
+"to store passwords or other information such as web form data and cookies. "
+"If you would like these applications to use the wallet, you must enable it "
+"now and choose method for its encryption.</p><p>GPG method is more secure, "
+"but you must have configured at least one encrypting key on your system.</"
+"p><p>If you choose the classic format, be warned that the password you "
+"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
+"is lost, and will allow anyone who knows it to obtain all the information "
+"contained in the wallet.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>विभिन्नाः अनुप्रयोगाः गुप्तशब्दान् वा अन्यसूचनाः यथा "
+"जालप्रपत्रदत्तांशः कुकीजश्च संग्रहीतुं KDE बटुकस्य उपयोगं कर्तुं प्रयतन्ते । यदि भवान् इच्छति यत् "
+"एतानि अनुप्रयोगाः बटुकस्य उपयोगं कुर्वन्तु तर्हि भवान् इदानीं तत् सक्षमं कृत्वा तस्य गोपनार्थं "
+"विधिं चिनोतु ।</p><p> GPG विधिः अधिका सुरक्षिता अस्ति, परन्तु भवता स्वप्रणाल्यां "
+"न्यूनातिन्यूनम् एकं एन्क्रिप्टिङ्ग् कुञ्जी विन्यस्तं भवितुमर्हति ।</p><p> यदि भवान् शास्त्रीयस्वरूपं "
+"चिनोति तर्हि सावधानः भवतु यत् भवता चयनितः गुप्तशब्दः नष्टः चेत् पुनः प्राप्तुं <span style="
+"\" font-style:italic;\">न शक्यते</span> , तथा च यः कोऽपि तत् जानाति सः बटुके "
+"विद्यमानाः सर्वाः सूचनाः प्राप्तुं शक्नोति</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
+#: kwalletwizardpagepasswordgpg.ui:46
+#, kde-format
+msgid "What kind of encryption do you wish?"
+msgstr "भवान् कीदृशं एन्क्रिप्शनं इच्छति ?"
+
+#: main.cpp:171
+#, kde-format
+msgid "(C) 2002-2013, The KDE Developers"
+msgstr "(C) 2002-2013, द केडीई डेवलपर्स"
+
+#: main.cpp:172
+#, kde-format
+msgid "Valentin Rusu"
+msgstr "वैलेन्टिन रुसु"
+
+#: main.cpp:172
+#, kde-format
+msgid "Former Maintainer, GPG backend support"
+msgstr "पूर्वं Maintainer, GPG backend समर्थनम्"
+
+#: main.cpp:173
+#, kde-format
+msgid "Michael Leupold"
+msgstr "माइकल ल्यूपोल्ड"
+
+#: main.cpp:173
+#, kde-format
+msgid "Former Maintainer"
+msgstr "पूर्व रखरखावकर्ता"
+
+#: main.cpp:174
+#, kde-format
+msgid "George Staikos"
+msgstr "जार्ज स्टैइकोस"
+
+#: main.cpp:174
+#, kde-format
+msgid "Former maintainer"
+msgstr "पूर्व परिपालक"
+
+#: main.cpp:175
+#, kde-format
+msgid "Thiago Maceira"
+msgstr "थिआगो मसेरा"
+
+#: main.cpp:175
+#, kde-format
+msgid "D-Bus Interface"
+msgstr "D-Bus अन्तरफलकम्"
