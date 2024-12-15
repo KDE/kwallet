@@ -19,12 +19,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: backend/backendpersisthandler.cpp:489
 #, kde-format
@@ -344,7 +344,7 @@ msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
 "password"
 msgid "Switch there"
-msgstr ""
+msgstr "तत्र स्विच कुर्वन्तु"
 
 #: kwalletd.cpp:657
 #, kde-format
@@ -356,7 +356,7 @@ msgstr "<b>%1 इत्यनेन</b> बटुकं उद्घाटयि
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
-msgstr ""
+msgstr "%1 इत्यत्र स्विच कुर्वन्तु"
 
 #: kwalletd.cpp:676 kwalletd.cpp:758
 #, kde-format
