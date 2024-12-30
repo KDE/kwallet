@@ -451,13 +451,6 @@ public:
      */
     static bool keyDoesNotExist(const QString &wallet, const QString &folder, const QString &key);
 
-    /**
-     * Determine if the KWallet API is using the KSecretsService infrastructure
-     * This can ben changed in system settings
-     * @return Returns true if the KSecretsService infrastructure is active
-     */
-    static bool isUsingKSecretsService();
-
 Q_SIGNALS:
     /**
      *  Emitted when this wallet is closed.
