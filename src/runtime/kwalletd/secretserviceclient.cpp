@@ -703,19 +703,42 @@ void SecretServiceClient::deleteFolder(const QString &folder, const QString &col
 QByteArray
 SecretServiceClient::readEntry(const QString &key, const SecretServiceClient::Type type, const QString &folder, const QString &collectionName, bool *ok)
 {
+    GError *error = nullptr;
     QByteArray data;
 
     SecretItemPtr item = SecretItemPtr(retrieveItem(key, folder, collectionName, ok));
 
     if (item) {
-        SecretValuePtr secretValue = SecretValuePtr(secret_item_get_secret(item.get()));
-        if (secretValue) {
-            const gchar *password = secret_value_get_text(secretValue.get());
+        // Some providers like KeepassXC lock each item individually, and need to be
+        // unlocked by the user prior being able to access
+        if (secret_item_get_locked(item.get())) {
+            secret_service_unlock_sync(m_service.get(), g_list_append(nullptr, item.get()), nullptr, nullptr, &error);
+            *ok = wasErrorFree(&error, this);
+            if (!ok) {
+                Q_EMIT SecretServiceClient::error(i18n("Unable to unlock item"));
+                return data;
+            }
 
-            if (type == SecretServiceClient::Binary) {
-                data = QByteArray::fromBase64(QByteArray(password));
-            } else {
-                data = QByteArray(password);
+            secret_item_load_secret_sync(item.get(), nullptr, &error);
+            *ok = wasErrorFree(&error, this);
+            SecretValuePtr secretValue = SecretValuePtr(secret_item_get_secret(item.get()));
+            if (secretValue) {
+                const gchar *password = secret_value_get_text(secretValue.get());
+                if (type == SecretServiceClient::Binary) {
+                    data = QByteArray::fromBase64(QByteArray(password));
+                } else {
+                    data = QByteArray(password);
+                }
+            }
+        } else {
+            SecretValuePtr secretValue = SecretValuePtr(secret_item_get_secret(item.get()));
+            if (secretValue) {
+                const gchar *password = secret_value_get_text(secretValue.get());
+                if (type == SecretServiceClient::Binary) {
+                    data = QByteArray::fromBase64(QByteArray(password));
+                } else {
+                    data = QByteArray(password);
+                }
             }
         }
     }
