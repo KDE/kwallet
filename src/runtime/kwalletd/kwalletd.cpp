@@ -576,9 +576,20 @@ QStringList KWalletD::users(const QString &wallet) const
 
 void KWalletD::changePassword(const QString &wallet, qlonglong wId, const QString &appId)
 {
-    Q_UNUSED(wallet);
-    Q_UNUSED(wId);
-    Q_UNUSED(appId);
+    if (!m_useKWalletBackend) {
+        return;
+    }
+
+    QDBusInterface legacyKWalletInterface(QStringLiteral("org.kde.ksecretd"),
+                                          QStringLiteral("/ksecretd"),
+                                          QStringLiteral("org.kde.KWallet"),
+                                          QDBusConnection::sessionBus());
+
+    if (!legacyKWalletInterface.isValid()) {
+        return;
+    }
+
+    legacyKWalletInterface.asyncCall(QStringLiteral("changePassword"), wallet, wId, appId);
 }
 
 QStringList KWalletD::wallets() const
