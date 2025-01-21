@@ -44,8 +44,6 @@ public:
     KWalletFreedesktopSession &operator=(KWalletFreedesktopSession &&) = delete;
 
     KWalletFreedesktopService *fdoService() const;
-    KWalletD *backend() const;
-    QDBusObjectPath fdoObjectPath() const;
 
     QByteArray negotiationOutput() const;
     bool encrypt(const QDBusMessage &message, FreedesktopSecret &secret) const;
