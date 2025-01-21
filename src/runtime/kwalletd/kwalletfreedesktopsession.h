@@ -37,12 +37,6 @@ public:
                               const QDBusConnection &connection,
                               const QDBusMessage &message);
 
-    KWalletFreedesktopSession(const KWalletFreedesktopSession &) = delete;
-    KWalletFreedesktopSession &operator=(const KWalletFreedesktopSession &) = delete;
-
-    KWalletFreedesktopSession(KWalletFreedesktopSession &&) = delete;
-    KWalletFreedesktopSession &operator=(KWalletFreedesktopSession &&) = delete;
-
     KWalletFreedesktopService *fdoService() const;
 
     QByteArray negotiationOutput() const;
