@@ -1,23 +1,22 @@
 # translation of kwalletd.po to Spanish
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) 2008-2025 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kwallet package.
 #
-# Jaime Robles <jaime@kde.org>, 2008, 2009.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2009, 2013, 2014, 2015, 2016, 2021.
+# SPDX-FileCopyrightText: 2008, 2009 Jaime Robles <jaime@kde.org>
+# SPDX-FileCopyrightText: 2009, 2013, 2014, 2015, 2016, 2021, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2021-07-03 18:23+0200\n"
+"PO-Revision-Date: 2025-01-31 20:31+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"com>\n"
-"X-Generator: Lokalize 21.04.2\n"
+"X-Generator: Lokalize 24.12.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -38,8 +37,8 @@ msgid ""
 "configuration, then try again.</qt>"
 msgstr ""
 "<qt>Error al intentar inicializar OpenPGP mientras se procedía a guardar la "
-"cartera <b>%1</b>. El código de error es <b>%2</b>. Por favor, corrija la "
-"configuración del sistema y pruebe de nuevo.</qt>"
+"cartera <b>%1</b>. El código de error es <b>%2</b>. Corrija la configuración "
+"del sistema y pruebe de nuevo.</qt>"
 
 #: backend/backendpersisthandler.cpp:501
 #, kde-format
@@ -48,8 +47,8 @@ msgid ""
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
 "<qt>Error al intentar inicializar OpenPGP mientras se procedía a guardar la "
-"cartera <b>%1</b>. Por favor, corrija la configuración del sistema y pruebe "
-"de nuevo.</qt>"
+"cartera <b>%1</b>. Corrija la configuración del sistema y pruebe de nuevo.</"
+"qt>"
 
 #: backend/backendpersisthandler.cpp:555
 #, kde-format
@@ -60,10 +59,10 @@ msgid ""
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
 "<qt>Error de cifrado mientras se procedía a guardar la cartera <b>%1</b>. El "
-"código de error es <b>%2 (%3)</b>. Por favor, corrija la configuración del "
-"sistema y pruebe de nuevo. Este error puede ocurrir si no está usando una "
-"clave GPG de total confianza. Por favor, asegúrese de que dispone de la "
-"clave secreta de la clave que está usando.</qt>"
+"código de error es <b>%2 (%3)</b>. Corrija la configuración del sistema y "
+"pruebe de nuevo. Este error puede ocurrir si no está usando una clave GPG de "
+"total confianza. Asegúrese de que dispone de la clave secreta de la clave "
+"que está usando.</qt>"
 
 #: backend/backendpersisthandler.cpp:572
 #, kde-format
@@ -72,8 +71,8 @@ msgid ""
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
 "<qt>Error de manejo de archivos mientras se procedía a guardar la cartera <b>"
-"%1</b>. El error es <b>%2</b>. Por favor, corrija la configuración del "
-"sistema y pruebe de nuevo.</qt>"
+"%1</b>. El error es <b>%2</b>. Corrija la configuración del sistema y pruebe "
+"de nuevo.</qt>"
 
 #: backend/backendpersisthandler.cpp:594
 #, kde-format
@@ -83,8 +82,8 @@ msgid ""
 "configuration, then try again.</qt>"
 msgstr ""
 "<qt>Error al intentar inicializar OpenPGP mientras se procedía a abrir la "
-"cartera <b>%1</b>. El código de error es <b>%2</b>. Por favor, corrija la "
-"configuración del sistema y pruebe de nuevo.</qt>"
+"cartera <b>%1</b>. El código de error es <b>%2</b>. Corrija la configuración "
+"del sistema y pruebe de nuevo.</qt>"
 
 #: backend/backendpersisthandler.cpp:616
 #, kde-format
@@ -93,8 +92,8 @@ msgid ""
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
 "<qt>Error al intentar inicializar OpenPGP mientras se procedía a abrir la "
-"cartera <b>%1</b>. Por favor, corrija la configuración del sistema y pruebe "
-"de nuevo.</qt>"
+"cartera <b>%1</b>. Corrija la configuración del sistema y pruebe de nuevo.</"
+"qt>"
 
 #: backend/backendpersisthandler.cpp:629
 #, kde-format
@@ -184,8 +183,8 @@ msgstr ""
 "Ha fallado la sincronización de la cartera <b>%1</b> con el disco. Los "
 "códigos de error son:\n"
 "RC <b>%2</b>\n"
-"SF <b>%3</b>. Por favor, envíe un informe de error usando esta información "
-"en bugs.kde.org"
+"SF <b>%3</b>. Considere crear un informe de error usando esta información en "
+"bugs.kde.org"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -244,8 +243,7 @@ msgid ""
 "check your system's configuration then try again."
 msgstr ""
 "Ha fallado la inicialización de la biblioteca GpgME para el protocolo "
-"OpenPGP. Por favor, compruebe la configuración del sistema y vuelva a "
-"intentarlo."
+"OpenPGP. Compruebe la configuración del sistema y vuelva a intentarlo."
 
 #: knewwalletdialog.cpp:153
 #, kde-format
@@ -253,14 +251,14 @@ msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
 "least one encryption key, then try again."
 msgstr ""
-"Parece que su sistema no dispone de claves adecuadas para cifrar. Por favor, "
-"configure al menos una clave de cifrado y vuelva a intentarlo."
+"Parece que su sistema no dispone de claves adecuadas para cifrar. Configure "
+"al menos una clave de cifrado y vuelva a intentarlo."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: knewwalletdialoggpg.ui:17
 #, kde-format
 msgid "Please select the signing key from the list below:"
-msgstr "Por favor, seleccione la clave para firmar en la lista inferior:"
+msgstr "Seleccione la clave para firmar en la lista inferior:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: knewwalletdialoggpg.ui:24
@@ -307,9 +305,9 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>La aplicación «<span style=\"font-weight:600;\">%1</"
 "span>» ha solicitado abrir la cartera de KDE. Esto se usa para almacenar "
-"información importante de un modo seguro. Por favor, escoja el nuevo tipo de "
-"cartera más abajo, o cancele si desea denegar la petición de la aplicación.</"
-"p></body></html>"
+"información importante de un modo seguro. Escoja el nuevo tipo de cartera "
+"más abajo, o cancele si desea denegar la petición de la aplicación.</p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
@@ -463,9 +461,9 @@ msgid ""
 "<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
 "associated to that key.</qt>"
 msgstr ""
-"<qt>La cartera <b>%1</b> está cifrada con la clave GPG <b>%2</b>. Por favor, "
-"utilice las herramientas <b>GPG</b> (como <b>kleopatra</b>) para cambiar la "
-"contraseña larga asociada con esta clave.</qt>"
+"<qt>La cartera <b>%1</b> está cifrada con la clave GPG <b>%2</b>. Use las "
+"herramientas <b>GPG</b> (como <b>kleopatra</b>) para cambiar la contraseña "
+"larga asociada con esta clave.</qt>"
 
 #: kwalletd.cpp:1002
 #, kde-format
@@ -618,9 +616,9 @@ msgstr ""
 "La cartera de KDE le permite controlar el nivel de seguridad de sus datos. "
 "Algunas de estas opciones de configuración pueden tener impacto en la "
 "usabilidad. Las preferencias predeterminadas son, por lo general, aceptables "
-"para la mayor parte de los usuarios, aunque es posible que usted desee "
-"modificar algunas de ellas. Puede ajustar dichas preferencias desde el "
-"módulo de control de KWallet."
+"para la mayor parte de los usuarios, aunque es posible que quiera modificar "
+"algunas de ellas. Puede ajustar dichas preferencias en el módulo de control "
+"de KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: kwalletwizardpageoptions.ui:48
