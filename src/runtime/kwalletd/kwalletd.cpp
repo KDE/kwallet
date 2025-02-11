@@ -438,7 +438,7 @@ void KWalletD::setupDialog(QWidget *dialog, WId wId, const QString &appid, bool 
         if (appid.isEmpty()) {
             qWarning() << "Using kwallet without parent window!";
         } else {
-            qWarning() << "Application '" << appid << "' using kwallet without parent window!";
+            qWarning() << "Application" << appid << "using kwallet without parent window!";
         }
         // allow dialog activation even if it interrupts, better than trying
         // hacks
