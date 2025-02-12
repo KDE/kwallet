@@ -124,13 +124,13 @@ SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent
 
     QDBusReply<QString> reply = iface.call(QStringLiteral("GetNameOwner"), m_serviceBusName);
 
+    if (!reply.isValid() || reply.value().isEmpty()) {
+        return;
+    }
+
     GError *error = nullptr;
     m_service = SecretServicePtr(
         secret_service_get_sync(static_cast<SecretServiceFlags>(SECRET_SERVICE_OPEN_SESSION | SECRET_SERVICE_LOAD_COLLECTIONS), nullptr, &error));
-
-    if (reply.isValid() && !reply.value().isEmpty()) {
-        onServiceOwnerChanged(QString(), QString(), reply.value());
-    }
 
     bool ok = wasErrorFree(&error, this);
     if (ok) {
