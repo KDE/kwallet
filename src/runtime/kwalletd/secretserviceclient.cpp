@@ -5,6 +5,7 @@
 */
 
 #include "secretserviceclient.h"
+#include "kwalletd_debug.h"
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -54,18 +55,16 @@ struct SecretValueDeleter {
     }
 };
 
-using SecretItemPtr = GObjectPtr<SecretItem>;
-
 using GListPtr = std::unique_ptr<GList, GListDeleter>;
 using GHashTablePtr = std::unique_ptr<GHashTable, GHashTableDeleter>;
 using SecretValuePtr = std::unique_ptr<SecretValue, SecretValueDeleter>;
 
-static bool wasErrorFree(GError **error, SecretServiceClient *wrapper)
+static bool wasErrorFree(GError **error)
 {
     if (!*error) {
         return true;
     }
-    Q_EMIT wrapper->error(QString::fromUtf8((*error)->message));
+    qCWarning(KWALLETD_LOG) << QString::fromUtf8((*error)->message);
     g_error_free(*error);
     *error = nullptr;
     return false;
@@ -124,15 +123,15 @@ SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent
 
     QDBusReply<QString> reply = iface.call(QStringLiteral("GetNameOwner"), m_serviceBusName);
 
+    if (!reply.isValid() || reply.value().isEmpty()) {
+        return;
+    }
+
     GError *error = nullptr;
     m_service = SecretServicePtr(
         secret_service_get_sync(static_cast<SecretServiceFlags>(SECRET_SERVICE_OPEN_SESSION | SECRET_SERVICE_LOAD_COLLECTIONS), nullptr, &error));
 
-    if (reply.isValid() && !reply.value().isEmpty()) {
-        onServiceOwnerChanged(QString(), QString(), reply.value());
-    }
-
-    bool ok = wasErrorFree(&error, this);
+    bool ok = wasErrorFree(&error);
     if (ok) {
         for (const QString &collection : listCollections(&ok)) {
             watchCollection(collection, &ok);
@@ -143,7 +142,7 @@ SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent
 SecretCollection *SecretServiceClient::retrieveCollection(const QString &name)
 {
     if (!m_service) {
-        Q_EMIT SecretServiceClient::error(i18n("Not connected to Secret Service"));
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         return nullptr;
     }
 
@@ -152,27 +151,22 @@ SecretCollection *SecretServiceClient::retrieveCollection(const QString &name)
         return it->second.get();
     }
 
-    SecretCollection *collection = nullptr;
     GListPtr collections = GListPtr(secret_service_get_collections(m_service.get()));
 
     for (GList *l = collections.get(); l != nullptr; l = l->next) {
-        SecretCollection *coll = SECRET_COLLECTION(l->data);
-        const gchar *label = secret_collection_get_label(coll);
+        SecretCollectionPtr colPtr = SecretCollectionPtr(SECRET_COLLECTION(l->data));
+        const gchar *label = secret_collection_get_label(colPtr.get());
         if (QString::fromUtf8(label) == name) {
-            collection = coll;
-            break;
-        } else {
-            g_object_unref(coll);
+            m_openCollections.insert(std::make_pair(name, std::move(colPtr)));
+            SecretCollection *collection = colPtr.get();
+            return collection;
         }
     }
 
-    SecretCollectionPtr colPtr = SecretCollectionPtr(collection);
-    m_openCollections.insert(std::make_pair(name, std::move(colPtr)));
-
-    return collection;
+    return nullptr;
 }
 
-SecretItem *SecretServiceClient::retrieveItem(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
+SecretItemPtr SecretServiceClient::retrieveItem(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
 {
     GError *error = nullptr;
 
@@ -189,7 +183,7 @@ SecretItem *SecretServiceClient::retrieveItem(const QString &key, const QString 
                                                             nullptr,
                                                             &error));
 
-    *ok = wasErrorFree(&error, this);
+    *ok = wasErrorFree(&error);
     if (!*ok) {
         return nullptr;
     }
@@ -202,10 +196,10 @@ SecretItem *SecretServiceClient::retrieveItem(const QString &key, const QString 
         }
 
     } else {
-        Q_EMIT SecretServiceClient::error(i18n("Not found"));
+        qCWarning(KWALLETD_LOG) << i18n("Not found");
     }
 
-    return item;
+    return SecretItemPtr(item);
 }
 
 void SecretServiceClient::watchCollection(const QString &collectionName, bool *ok)
@@ -263,7 +257,7 @@ void SecretServiceClient::onServiceOwnerChanged(const QString &serviceName, cons
         GError *error = nullptr;
         m_service = SecretServicePtr(
             secret_service_get_sync(static_cast<SecretServiceFlags>(SECRET_SERVICE_OPEN_SESSION | SECRET_SERVICE_LOAD_COLLECTIONS), nullptr, &error));
-        available = wasErrorFree(&error, this);
+        available = wasErrorFree(&error);
     }
 
     if (!available) {
@@ -277,7 +271,7 @@ void SecretServiceClient::onServiceOwnerChanged(const QString &serviceName, cons
 void SecretServiceClient::onCollectionCreated(const QDBusObjectPath &path)
 {
     if (!m_service) {
-        Q_EMIT SecretServiceClient::error(i18n("Not connected to Secret Service"));
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         return;
     }
 
@@ -286,7 +280,7 @@ void SecretServiceClient::onCollectionCreated(const QDBusObjectPath &path)
     SecretCollection *collection =
         secret_collection_new_for_dbus_path_sync(m_service.get(), path.path().toUtf8().constData(), SECRET_COLLECTION_NONE, nullptr, &error);
 
-    bool ok = wasErrorFree(&error, this);
+    bool ok = wasErrorFree(&error);
     if (!ok) {
         return;
     }
@@ -299,7 +293,7 @@ void SecretServiceClient::onCollectionCreated(const QDBusObjectPath &path)
 void SecretServiceClient::onDbusSecretItemChanged(const QDBusObjectPath &path)
 {
     if (!m_service) {
-        Q_EMIT SecretServiceClient::error(i18n("Not connected to Secret Service"));
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         return;
     }
 
@@ -323,7 +317,7 @@ void SecretServiceClient::onDbusSecretItemChanged(const QDBusObjectPath &path)
     SecretCollection *collection =
         secret_collection_new_for_dbus_path_sync(m_service.get(), collectionPath.toUtf8().data(), SECRET_COLLECTION_NONE, nullptr, &error);
 
-    bool ok = wasErrorFree(&error, this);
+    bool ok = wasErrorFree(&error);
     if (!ok) {
         return;
     }
@@ -350,7 +344,7 @@ bool SecretServiceClient::isAvailable() const
 bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *ok)
 {
     if (!m_service) {
-        Q_EMIT SecretServiceClient::error(i18n("Not connected to Secret Service"));
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return false;
     }
@@ -368,9 +362,9 @@ bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *
 
     if (locked) {
         gboolean success = secret_service_unlock_sync(m_service.get(), g_list_append(nullptr, collection), nullptr, nullptr, &error);
-        *ok = wasErrorFree(&error, this);
+        *ok = wasErrorFree(&error);
         if (!success) {
-            Q_EMIT SecretServiceClient::error(i18n("Unable to unlock collectionName %1", collectionName));
+            qCWarning(KWALLETD_LOG) << i18n("Unable to unlock collectionName %1", collectionName);
         } else {
             watchCollection(collectionName, ok);
         }
@@ -384,7 +378,7 @@ bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *
 QString SecretServiceClient::defaultCollection(bool *ok)
 {
     if (!m_service) {
-        Q_EMIT SecretServiceClient::error(i18n("Not connected to Secret Service"));
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return QString();
     }
@@ -394,7 +388,7 @@ QString SecretServiceClient::defaultCollection(bool *ok)
 
     gchar *path = secret_service_read_alias_dbus_path_sync(m_service.get(), SECRET_COLLECTION_DEFAULT, nullptr, &error);
 
-    *ok = wasErrorFree(&error, this);
+    *ok = wasErrorFree(&error);
     if (!*ok) {
         return label;
     }
@@ -406,7 +400,7 @@ QString SecretServiceClient::defaultCollection(bool *ok)
                                        QDBusConnection::sessionBus());
 
     if (!collectionInterface.isValid()) {
-        Q_EMIT SecretServiceClient::error(i18n("Cannot retrieve default collection"));
+        qCWarning(KWALLETD_LOG) << i18n("Cannot retrieve default collection");
         *ok = false;
         return label;
     }
@@ -418,14 +412,14 @@ QString SecretServiceClient::defaultCollection(bool *ok)
     }
 
     *ok = false;
-    Q_EMIT SecretServiceClient::error(i18n("Cannot retrieve default collection"));
+    qCWarning(KWALLETD_LOG) << i18n("Cannot retrieve default collection");
     return label;
 }
 
 void SecretServiceClient::setDefaultCollection(const QString &collectionName, bool *ok)
 {
     if (!m_service) {
-        Q_EMIT SecretServiceClient::error(i18n("Not connected to Secret Service"));
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
     }
@@ -436,13 +430,13 @@ void SecretServiceClient::setDefaultCollection(const QString &collectionName, bo
 
     *ok = secret_service_set_alias_sync(m_service.get(), collectionName.toUtf8().data(), collection, nullptr, &error);
 
-    *ok = *ok && wasErrorFree(&error, this);
+    *ok = *ok && wasErrorFree(&error);
 }
 
 QStringList SecretServiceClient::listCollections(bool *ok)
 {
     if (!m_service) {
-        Q_EMIT SecretServiceClient::error(i18n("Not connected to Secret Service"));
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return QStringList();
     }
@@ -461,7 +455,7 @@ QStringList SecretServiceClient::listCollections(bool *ok)
             }
         }
     } else {
-        Q_EMIT SecretServiceClient::error(i18n("No collectionNames"));
+        qCWarning(KWALLETD_LOG) << i18n("No collectionNames");
     }
 
     *ok = true;
@@ -496,7 +490,7 @@ QStringList SecretServiceClient::listFolders(const QString &collectionName, bool
         }
     } else {
         *ok = false;
-        Q_EMIT SecretServiceClient::error(i18n("No entries"));
+        qCWarning(KWALLETD_LOG) << i18n("No entries");
     }
     *ok = true;
     return folders.values();
@@ -515,7 +509,7 @@ QStringList SecretServiceClient::listEntries(const QString &folder, const QStrin
 
     GListPtr glist = GListPtr(secret_collection_search_sync(collection, qtKeychainSchema(), attributes.get(), SECRET_SEARCH_ALL, nullptr, &error));
 
-    *ok = wasErrorFree(&error, this);
+    *ok = wasErrorFree(&error);
     if (!*ok) {
         return QStringList();
     }
@@ -539,7 +533,7 @@ QStringList SecretServiceClient::listEntries(const QString &folder, const QStrin
             }
         }
     } else {
-        Q_EMIT SecretServiceClient::error(i18n("No entries"));
+        qCWarning(KWALLETD_LOG) << i18n("No entries");
     }
 
     return folders.values();
@@ -549,10 +543,10 @@ QHash<QString, QString> SecretServiceClient::readMetadata(const QString &key, co
 {
     QHash<QString, QString> hash;
 
-    SecretItemPtr item = SecretItemPtr(retrieveItem(key, folder, collectionName, ok));
+    SecretItemPtr item = retrieveItem(key, folder, collectionName, ok);
 
     if (!item) {
-        Q_EMIT SecretServiceClient::error(i18n("Entry not found, key: %1, folder: %2", key, folder));
+        qCWarning(KWALLETD_LOG) << i18n("Entry not found, key: %1, folder: %2", key, folder);
         return hash;
     }
 
@@ -643,7 +637,7 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
 void SecretServiceClient::deleteCollection(const QString &collectionName, bool *ok)
 {
     if (!m_service) {
-        Q_EMIT SecretServiceClient::error(i18n("Not connected to Secret Service"));
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
     }
@@ -668,7 +662,7 @@ void SecretServiceClient::deleteCollection(const QString &collectionName, bool *
     *ok = secret_collection_delete_sync(collection, nullptr, &error);
     g_object_unref(collection);
 
-    *ok = *ok && wasErrorFree(&error, this);
+    *ok = *ok && wasErrorFree(&error);
 }
 
 void SecretServiceClient::deleteFolder(const QString &folder, const QString &collectionName, bool *ok)
@@ -682,7 +676,7 @@ void SecretServiceClient::deleteFolder(const QString &folder, const QString &col
 
     GListPtr glist = GListPtr(secret_collection_search_sync(collection, qtKeychainSchema(), attributes.get(), SECRET_SEARCH_ALL, nullptr, &error));
 
-    *ok = wasErrorFree(&error, this);
+    *ok = wasErrorFree(&error);
     if (!*ok) {
         return;
     }
@@ -692,11 +686,11 @@ void SecretServiceClient::deleteFolder(const QString &folder, const QString &col
             SecretItem *item = static_cast<SecretItem *>(iter->data);
             m_updateInProgress = true;
             secret_item_delete_sync(item, nullptr, &error);
-            *ok = wasErrorFree(&error, this);
+            *ok = wasErrorFree(&error);
             g_object_unref(item);
         }
     } else {
-        Q_EMIT SecretServiceClient::error(i18n("No entries"));
+        qCWarning(KWALLETD_LOG) << i18n("No entries");
     }
 }
 
@@ -706,21 +700,21 @@ SecretServiceClient::readEntry(const QString &key, const SecretServiceClient::Ty
     GError *error = nullptr;
     QByteArray data;
 
-    SecretItemPtr item = SecretItemPtr(retrieveItem(key, folder, collectionName, ok));
+    SecretItemPtr item = retrieveItem(key, folder, collectionName, ok);
 
     if (item) {
         // Some providers like KeepassXC lock each item individually, and need to be
         // unlocked by the user prior being able to access
         if (secret_item_get_locked(item.get())) {
             secret_service_unlock_sync(m_service.get(), g_list_append(nullptr, item.get()), nullptr, nullptr, &error);
-            *ok = wasErrorFree(&error, this);
+            *ok = wasErrorFree(&error);
             if (!ok) {
-                Q_EMIT SecretServiceClient::error(i18n("Unable to unlock item"));
+                qCWarning(KWALLETD_LOG) << i18n("Unable to unlock item");
                 return data;
             }
 
             secret_item_load_secret_sync(item.get(), nullptr, &error);
-            *ok = wasErrorFree(&error, this);
+            *ok = wasErrorFree(&error);
             SecretValuePtr secretValue = SecretValuePtr(secret_item_get_secret(item.get()));
             if (secretValue) {
                 const gchar *password = secret_value_get_text(secretValue.get());
@@ -753,13 +747,13 @@ void SecretServiceClient::renameEntry(const QString &display_name,
                                       const QString &collectionName,
                                       bool *ok)
 {
-    SecretItemPtr item = SecretItemPtr(retrieveItem(oldKey, folder, collectionName, ok));
+    SecretItemPtr item = retrieveItem(oldKey, folder, collectionName, ok);
     if (!*ok) {
         return;
     }
     if (!item) {
         *ok = false;
-        Q_EMIT SecretServiceClient::error(i18n("Entry to rename not found"));
+        qCWarning(KWALLETD_LOG) << i18n("Entry to rename not found");
         return;
     }
 
@@ -780,7 +774,7 @@ void SecretServiceClient::renameEntry(const QString &display_name,
         }
     } else {
         *ok = false;
-        Q_EMIT SecretServiceClient::error(i18n("Entry to rename incomplete"));
+        qCWarning(KWALLETD_LOG) << i18n("Entry to rename incomplete");
         return;
     }
 
@@ -795,7 +789,7 @@ void SecretServiceClient::renameEntry(const QString &display_name,
         }
     } else {
         *ok = false;
-        Q_EMIT SecretServiceClient::error(i18n("Entry to rename incomplete"));
+        qCWarning(KWALLETD_LOG) << i18n("Entry to rename incomplete");
         return;
     }
 
@@ -815,7 +809,7 @@ void SecretServiceClient::writeEntry(const QString &display_name,
                                      bool *ok)
 {
     if (!m_service) {
-        Q_EMIT SecretServiceClient::error(i18n("Not connected to Secret Service"));
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
     }
@@ -834,7 +828,7 @@ void SecretServiceClient::writeEntry(const QString &display_name,
     SecretValuePtr secretValue = SecretValuePtr(secret_value_new(data.constData(), -1, "text/plain"));
     if (!secretValue) {
         *ok = false;
-        Q_EMIT SecretServiceClient::error(i18n("Failed to create SecretValue"));
+        qCWarning(KWALLETD_LOG) << i18n("Failed to create SecretValue");
         return;
     }
 
@@ -853,24 +847,24 @@ void SecretServiceClient::writeEntry(const QString &display_name,
                                                                nullptr,
                                                                &error));
 
-    *ok = wasErrorFree(&error, this);
+    *ok = wasErrorFree(&error);
 }
 
 void SecretServiceClient::deleteEntry(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
 {
     GError *error = nullptr;
-    SecretItemPtr item = SecretItemPtr(retrieveItem(key, folder, collectionName, ok));
+    SecretItemPtr item = retrieveItem(key, folder, collectionName, ok);
     if (!*ok) {
         return;
     }
     if (!item) {
         *ok = false;
-        Q_EMIT SecretServiceClient::error(i18n("Entry to rename not found"));
+        qCWarning(KWALLETD_LOG) << i18n("Entry to rename not found");
         return;
     }
     m_updateInProgress = true;
     secret_item_delete_sync(item.get(), nullptr, &error);
-    *ok = wasErrorFree(&error, this);
+    *ok = wasErrorFree(&error);
 }
 
 #include <moc_secretserviceclient.cpp>

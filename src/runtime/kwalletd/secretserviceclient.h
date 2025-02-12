@@ -29,6 +29,7 @@ template<typename T>
 using GObjectPtr = std::unique_ptr<T, GObjectDeleter>;
 using SecretServicePtr = GObjectPtr<SecretService>;
 using SecretCollectionPtr = GObjectPtr<SecretCollection>;
+using SecretItemPtr = GObjectPtr<SecretItem>;
 
 class SecretServiceClient : public QObject
 {
@@ -79,7 +80,6 @@ public:
 
 Q_SIGNALS:
     void serviceAvailableChanged(bool available);
-    void error(const QString &message);
     void promptClosed(bool accepted);
     void collectionDirty(const QString &collection);
     void collectionCreated(const QString &collection);
@@ -89,7 +89,7 @@ protected:
     void onServiceOwnerChanged(const QString &serviceName, const QString &oldOwner, const QString &newOwner);
 
     SecretCollection *retrieveCollection(const QString &name);
-    SecretItem *retrieveItem(const QString &key, const QString &folder, const QString &collectionName, bool *ok);
+    SecretItemPtr retrieveItem(const QString &key, const QString &folder, const QString &collectionName, bool *ok);
 
 protected Q_SLOTS:
     void handlePrompt(bool dismissed);

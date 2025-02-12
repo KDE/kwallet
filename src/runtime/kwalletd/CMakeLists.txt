@@ -48,6 +48,14 @@ target_sources(kwalletd6 PRIVATE
     ${kwalletd6_SRCS}
 )
 
+ecm_qt_declare_logging_category(kwalletd6
+    HEADER kwalletd_debug.h
+    IDENTIFIER KWALLETD_LOG
+    CATEGORY_NAME kf.wallet.kwalletd
+    DESCRIPTION "kwalletd"
+    EXPORT KWALLET
+)
+
 # Needed for fetching the name of the default wallet
 target_compile_definitions(kwalletd6 PRIVATE SECRET_WITH_UNSTABLE)
 
