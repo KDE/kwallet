@@ -17,8 +17,8 @@ KWalletPortalSecrets::KWalletPortalSecrets(KSecretD *parent)
 {
     (void)new KWalletPortalSecretsAdaptor(this);
 
-    QDBusConnection::sessionBus().registerService(QStringLiteral("org.freedesktop.impl.portal.desktop.kwallet"));
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/freedesktop/portal/desktop"), this, QDBusConnection::ExportAdaptors);
+    QDBusConnection::sessionBus().registerService(QStringLiteral("org.freedesktop.impl.portal.desktop.kwallet"));
 
     connect(m_kwalletd, &KSecretD::walletAsyncOpened, this, &KWalletPortalSecrets::walletOpened);
 }
