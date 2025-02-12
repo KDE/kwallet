@@ -55,8 +55,6 @@ struct SecretValueDeleter {
     }
 };
 
-using SecretItemPtr = GObjectPtr<SecretItem>;
-
 using GListPtr = std::unique_ptr<GList, GListDeleter>;
 using GHashTablePtr = std::unique_ptr<GHashTable, GHashTableDeleter>;
 using SecretValuePtr = std::unique_ptr<SecretValue, SecretValueDeleter>;
@@ -153,27 +151,22 @@ SecretCollection *SecretServiceClient::retrieveCollection(const QString &name)
         return it->second.get();
     }
 
-    SecretCollection *collection = nullptr;
     GListPtr collections = GListPtr(secret_service_get_collections(m_service.get()));
 
     for (GList *l = collections.get(); l != nullptr; l = l->next) {
-        SecretCollection *coll = SECRET_COLLECTION(l->data);
-        const gchar *label = secret_collection_get_label(coll);
+        SecretCollectionPtr colPtr = SecretCollectionPtr(SECRET_COLLECTION(l->data));
+        const gchar *label = secret_collection_get_label(colPtr.get());
         if (QString::fromUtf8(label) == name) {
-            collection = coll;
-            break;
-        } else {
-            g_object_unref(coll);
+            m_openCollections.insert(std::make_pair(name, std::move(colPtr)));
+            SecretCollection *collection = colPtr.get();
+            return collection;
         }
     }
 
-    SecretCollectionPtr colPtr = SecretCollectionPtr(collection);
-    m_openCollections.insert(std::make_pair(name, std::move(colPtr)));
-
-    return collection;
+    return nullptr;
 }
 
-SecretItem *SecretServiceClient::retrieveItem(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
+SecretItemPtr SecretServiceClient::retrieveItem(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
 {
     GError *error = nullptr;
 
@@ -206,7 +199,7 @@ SecretItem *SecretServiceClient::retrieveItem(const QString &key, const QString 
         qCWarning(KWALLETD_LOG) << i18n("Not found");
     }
 
-    return item;
+    return SecretItemPtr(item);
 }
 
 void SecretServiceClient::watchCollection(const QString &collectionName, bool *ok)
@@ -550,7 +543,7 @@ QHash<QString, QString> SecretServiceClient::readMetadata(const QString &key, co
 {
     QHash<QString, QString> hash;
 
-    SecretItemPtr item = SecretItemPtr(retrieveItem(key, folder, collectionName, ok));
+    SecretItemPtr item = retrieveItem(key, folder, collectionName, ok);
 
     if (!item) {
         qCWarning(KWALLETD_LOG) << i18n("Entry not found, key: %1, folder: %2", key, folder);
@@ -710,7 +703,7 @@ SecretServiceClient::readEntry(const QString &key, const SecretServiceClient::Ty
     GError *error = nullptr;
     QByteArray data;
 
-    SecretItemPtr item = SecretItemPtr(retrieveItem(key, folder, collectionName, ok));
+    SecretItemPtr item = retrieveItem(key, folder, collectionName, ok);
 
     if (item) {
         // Some providers like KeepassXC lock each item individually, and need to be
@@ -757,7 +750,7 @@ void SecretServiceClient::renameEntry(const QString &display_name,
                                       const QString &collectionName,
                                       bool *ok)
 {
-    SecretItemPtr item = SecretItemPtr(retrieveItem(oldKey, folder, collectionName, ok));
+    SecretItemPtr item = retrieveItem(oldKey, folder, collectionName, ok);
     if (!*ok) {
         return;
     }
@@ -863,7 +856,7 @@ void SecretServiceClient::writeEntry(const QString &display_name,
 void SecretServiceClient::deleteEntry(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
 {
     GError *error = nullptr;
-    SecretItemPtr item = SecretItemPtr(retrieveItem(key, folder, collectionName, ok));
+    SecretItemPtr item = retrieveItem(key, folder, collectionName, ok);
     if (!*ok) {
         return;
     }
