@@ -40,12 +40,10 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
 {
     new KWalletAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
-    dbus.registerService(QStringLiteral("org.kde.kwalletd5"));
-    dbus.registerService(QStringLiteral("org.kde.kwalletd6"));
     dbus.registerObject(QStringLiteral("/modules/kwalletd5"), this);
     dbus.registerObject(QStringLiteral("/modules/kwalletd6"), this);
-
-    connect(m_backend, &SecretServiceClient::error, this, &KWalletD::error);
+    dbus.registerService(QStringLiteral("org.kde.kwalletd5"));
+    dbus.registerService(QStringLiteral("org.kde.kwalletd6"));
 
     auto readStructure = [this]() {
         bool ok;

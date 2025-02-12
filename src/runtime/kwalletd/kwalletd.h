@@ -43,30 +43,6 @@ public:
 
     ~KWalletD() override;
 
-protected:
-    // Migrate a single wallet, returns true on success
-    // sourceWallet is the wallet name on kwallet backend
-    // destWallet is the collection name on secretservice
-    bool migrateWallet(const QString &sourceWallet, const QString &destWallet);
-    // Migrate all wallets
-    void migrateData();
-    // from an handle int representing a session to the open wallet name of that session
-    QString walletForHandle(int handle, const QString &appId);
-    // A folder as user readable name in the keychain in the format wallet/folder
-    QString folderPath(const QString &folder, const QString &key) const;
-    // Type of a key in a wallet and folder
-    EntryType keyType(const QString &wallet, const QString &folder, const QString &key);
-
-    QString readString(const QString &key, const QString &folder, const QString &wallet, bool *ok);
-    QByteArray readRawJson(const QString &key, const QString &folder, const QString &wallet, bool *ok);
-    QByteArray readBinary(const QString &key, const QString &folder, const QString &wallet, bool *ok);
-    void writeString(const QString &key, const QString &value, const QString &folder, const QString &wallet, bool *ok);
-    void writeBinary(const QString &key, const QByteArray &value, const QString &folder, const QString &wallet, bool *ok);
-    void writeRawJson(const QString &key, const QByteArray &value, const QString &folder, const QString &wallet, bool *ok);
-    void removeItem(const QString &key, const QString &folder, const QString &wallet, bool *ok);
-
-    void timerEvent(QTimerEvent *) override;
-
 public Q_SLOTS:
     // Is the wallet enabled?  If not, all open() calls fail.
     bool isEnabled() const;
@@ -175,9 +151,31 @@ public Q_SLOTS:
     // password as the password hash is transmitted using D-Bus.
     int pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout);
 
-Q_SIGNALS:
-    void error(const QString &message);
+protected:
+    // Migrate a single wallet, returns true on success
+    // sourceWallet is the wallet name on kwallet backend
+    // destWallet is the collection name on secretservice
+    bool migrateWallet(const QString &sourceWallet, const QString &destWallet);
+    // Migrate all wallets
+    void migrateData();
+    // from an handle int representing a session to the open wallet name of that session
+    QString walletForHandle(int handle, const QString &appId);
+    // A folder as user readable name in the keychain in the format wallet/folder
+    QString folderPath(const QString &folder, const QString &key) const;
+    // Type of a key in a wallet and folder
+    EntryType keyType(const QString &wallet, const QString &folder, const QString &key);
 
+    QString readString(const QString &key, const QString &folder, const QString &wallet, bool *ok);
+    QByteArray readRawJson(const QString &key, const QString &folder, const QString &wallet, bool *ok);
+    QByteArray readBinary(const QString &key, const QString &folder, const QString &wallet, bool *ok);
+    void writeString(const QString &key, const QString &value, const QString &folder, const QString &wallet, bool *ok);
+    void writeBinary(const QString &key, const QByteArray &value, const QString &folder, const QString &wallet, bool *ok);
+    void writeRawJson(const QString &key, const QByteArray &value, const QString &folder, const QString &wallet, bool *ok);
+    void removeItem(const QString &key, const QString &folder, const QString &wallet, bool *ok);
+
+    void timerEvent(QTimerEvent *) override;
+
+Q_SIGNALS:
     void walletAsyncOpened(int id, int handle); // used to notify KWallet::Wallet
     void walletListDirty();
     void walletCreated(const QString &wallet);
