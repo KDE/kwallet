@@ -58,7 +58,6 @@ public:
 
     QHash<QString, QString> readMetadata(const QString &key, const QString &folder, const QString &collectionName, bool *ok);
 
-    // TODO: remove?
     void createCollection(const QString &collectionName, bool *ok);
 
     void deleteCollection(const QString &collectionName, bool *ok);

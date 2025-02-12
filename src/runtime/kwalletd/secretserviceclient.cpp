@@ -598,14 +598,13 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
 
     QEventLoop loop;
     bool created = false;
-    QMetaObject::Connection createdConn =
-        connect(this, &SecretServiceClient::collectionCreated, this, [this, &loop, collectionName, &created, ok](const QString &name) {
-            *ok = !name.isEmpty();
-            if (listCollections(ok).contains(collectionName)) {
-                created = true;
-            }
-            loop.quit();
-        });
+    connect(this, &SecretServiceClient::collectionCreated, &loop, [this, &loop, collectionName, &created, ok](const QString &name) {
+        *ok = !name.isEmpty();
+        if (listCollections(ok).contains(collectionName)) {
+            created = true;
+        }
+        loop.quit();
+    });
 
     message = QDBusMessage::createMethodCall(m_serviceBusName,
                                              reply.arguments().last().value<QDBusObjectPath>().path(),
@@ -614,7 +613,7 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
     message << QString();
     bus.call(message);
 
-    QMetaObject::Connection promptConn = connect(this, &SecretServiceClient::promptClosed, this, [this, &loop, collectionName, &created, ok](bool accepted) {
+    connect(this, &SecretServiceClient::promptClosed, &loop, [this, &loop, collectionName, &created, ok](bool accepted) {
         *ok = accepted;
         if (listCollections(ok).contains(collectionName)) {
             created = true;
@@ -622,7 +621,6 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
         loop.quit();
     });
     loop.exec();
-    QObject::disconnect(promptConn);
 
     // If the CollectionCreated signal didn't arrive yet, wait for it
     if (!created) {
@@ -634,7 +632,6 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
         timer.start();
         loop.exec();
     }
-    QObject::disconnect(createdConn);
 }
 
 void SecretServiceClient::deleteCollection(const QString &collectionName, bool *ok)
