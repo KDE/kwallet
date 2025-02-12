@@ -180,8 +180,6 @@ public Q_SLOTS:
     int pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout);
 
 Q_SIGNALS:
-    void error(const QString &message);
-
     void walletAsyncOpened(int id, int handle); // used to notify KWallet::Wallet
     void walletListDirty();
     void walletCreated(const QString &wallet);
