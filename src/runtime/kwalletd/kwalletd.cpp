@@ -45,8 +45,6 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
     dbus.registerService(QStringLiteral("org.kde.kwalletd5"));
     dbus.registerService(QStringLiteral("org.kde.kwalletd6"));
 
-    connect(m_backend, &SecretServiceClient::error, this, &KWalletD::error);
-
     auto readStructure = [this]() {
         bool ok;
         for (const QString &wallet : m_backend->listCollections(&ok)) {

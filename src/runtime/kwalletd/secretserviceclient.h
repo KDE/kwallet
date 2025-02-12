@@ -80,7 +80,6 @@ public:
 
 Q_SIGNALS:
     void serviceAvailableChanged(bool available);
-    void error(const QString &message);
     void promptClosed(bool accepted);
     void collectionDirty(const QString &collection);
     void collectionCreated(const QString &collection);
