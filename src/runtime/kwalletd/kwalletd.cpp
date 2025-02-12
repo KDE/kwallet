@@ -718,7 +718,6 @@ QString KWalletD::readPassword(int handle, const QString &folder, const QString 
 
 QVariantMap KWalletD::readEntryList(int handle, const QString &folder, const QString &key, const QString &appId)
 {
-    // TODO: still not sure about this one
     QVariantMap map;
     const QString wallet = walletForHandle(handle, appId);
     if (wallet.isEmpty()) {

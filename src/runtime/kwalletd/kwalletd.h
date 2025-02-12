@@ -134,7 +134,6 @@ public Q_SLOTS:
     // Disconnect an app from a wallet
     bool disconnectApplication(const QString &wallet, const QString &application);
 
-    // TODO: STUB
     void reconfigure();
 
     // Determine
@@ -144,10 +143,7 @@ public Q_SLOTS:
     // Everybody will need to call open() again
     void closeAllWallets();
 
-    // TODO: STUB
     QString networkWallet();
-
-    // TODO: STUB
     QString localWallet();
 
     // STUB: Open a wallet using a pre-hashed password. This is only useful in cooperation
