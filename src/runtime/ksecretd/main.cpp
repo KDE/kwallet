@@ -168,7 +168,7 @@ int main(int argc, char **argv)
                          KSECRETD_VERSION_STRING,
                          i18n("KDE Wallet Service"),
                          KAboutLicense::LGPL,
-                         i18n("(C) 2002-2013, The KDE Developers"));
+                         i18n("(C) 2002-2025, The KDE Developers"));
     aboutdata.addAuthor(i18n("Valentin Rusu"), i18n("Former Maintainer, GPG backend support"), QStringLiteral("kde@rusu.info"));
     aboutdata.addAuthor(i18n("Michael Leupold"), i18n("Former Maintainer"), QStringLiteral("lemma@confuego.org"));
     aboutdata.addAuthor(i18n("George Staikos"), i18n("Former maintainer"), QStringLiteral("staikos@kde.org"));

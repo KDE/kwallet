@@ -328,6 +328,8 @@ void KWalletFreedesktopCollection::onWalletChangeState(int handle)
         return;
     }
 
+    // this makes the subsequent metadata addition code execute only the
+    // first time an handle is added, right at ctor time
     if (handle >= 0 && m_handle >= 0) {
         m_handle = handle;
         return;
