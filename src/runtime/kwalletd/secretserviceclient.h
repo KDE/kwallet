@@ -81,8 +81,10 @@ public:
 Q_SIGNALS:
     void serviceAvailableChanged(bool available);
     void promptClosed(bool accepted);
+    void collectionListDirty();
     void collectionDirty(const QString &collection);
     void collectionCreated(const QString &collection);
+    void collectionDeleted(const QString &collection);
 
 protected:
     void watchCollection(const QString &collectionName, bool *ok);
@@ -94,6 +96,7 @@ protected:
 protected Q_SLOTS:
     void handlePrompt(bool dismissed);
     void onCollectionCreated(const QDBusObjectPath &path);
+    void onCollectionDeleted(const QDBusObjectPath &path);
     void onDbusSecretItemChanged(const QDBusObjectPath &path);
 
 private:
