@@ -92,6 +92,10 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
         }
     });
 
+    connect(m_backend, &SecretServiceClient::collectionCreated, this, &KWalletD::walletCreated);
+    connect(m_backend, &SecretServiceClient::collectionDeleted, this, &KWalletD::walletDeleted);
+    connect(m_backend, &SecretServiceClient::collectionListDirty, this, &KWalletD::walletListDirty);
+
     reconfigure();
 
     m_configWatcher = KConfigWatcher::create(KSharedConfig::openConfig(QStringLiteral("kwalletrc")));
