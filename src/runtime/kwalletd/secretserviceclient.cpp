@@ -819,6 +819,13 @@ void SecretServiceClient::renameEntry(const QString &display_name,
         return;
     }
 
+    SecretItemPtr existingItem = retrieveItem(newKey, folder, collectionName, ok);
+    if (existingItem) {
+        *ok = false;
+        qCWarning(KWALLETD_LOG) << i18n("Entry named %1 in folder %2 and wallet %3 already exists.", newKey, folder, collectionName);
+        return;
+    }
+
     deleteEntry(oldKey, folder, collectionName, ok);
     if (!*ok) {
         return;
