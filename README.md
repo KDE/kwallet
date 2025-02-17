@@ -17,7 +17,7 @@ The library can be built alone, without ksecretd, by setting the
 ## Migrating to Secret Service
 ksecretd is the codebase that used to be kwalletd, but now exposes only the SecretService api and it can be replaced with any other SecretService provider.
 
-kwalletd will use ksecretd by default but can be configured to not depend from it but instead use any other system-provided secret service provider, with the following config in kwalletrc
+kwalletd will use ksecretd by default but can be configured to not depend on it but instead use any other system-provided secret service provider, with the following config in kwalletrc
 
 ```
 [Migration]

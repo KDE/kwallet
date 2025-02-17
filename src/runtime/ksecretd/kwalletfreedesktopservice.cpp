@@ -948,9 +948,9 @@ QDBusArgument &operator<<(QDBusArgument &arg, const PropertiesMap &value)
 
 void explicit_zero_mem(void *data, size_t size)
 {
-#if defined(KWALLETD_HAVE_EXPLICIT_BZERO)
+#if defined(KSECRETD_HAVE_EXPLICIT_BZERO)
     explicit_bzero(data, size);
-#elif defined(KWALLETD_HAVE_RTLSECUREZEROMEMORY)
+#elif defined(KSECRETD_HAVE_RTLSECUREZEROMEMORY)
     RtlSecureZeroMemory(data, size);
 #else
     auto p = reinterpret_cast<volatile char *>(data);
