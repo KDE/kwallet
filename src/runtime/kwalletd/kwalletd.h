@@ -152,6 +152,7 @@ public Q_SLOTS:
     int pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout);
 
 protected:
+    int openInternal(const QString &wallet, const QString &appId);
     // Migrate a single wallet, returns true on success
     // sourceWallet is the wallet name on kwallet backend
     // destWallet is the collection name on secretservice
