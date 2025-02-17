@@ -39,7 +39,7 @@ public:
         Unused = 0xffff,
     };
     Q_ENUM(EntryType)
-    KWalletD(bool useKWalletBackend, QObject *parent = nullptr);
+    KWalletD(QObject *parent = nullptr);
 
     ~KWalletD() override;
 
@@ -152,11 +152,13 @@ public Q_SLOTS:
     int pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout);
 
 protected:
+    int openInternal(const QString &wallet, qlonglong wId, const QString &appId);
     // Migrate a single wallet, returns true on success
     // sourceWallet is the wallet name on kwallet backend
     // destWallet is the collection name on secretservice
     bool migrateWallet(const QString &sourceWallet, const QString &destWallet);
-    // Migrate all wallets
+    // Migrates to external (3rd party) Secret Service. The internal migration of legacy items
+    // occurs separately in KWalletFreedesktopCollection::onWalletChangeState()
     void migrateData();
     // from an handle int representing a session to the open wallet name of that session
     QString walletForHandle(int handle, const QString &appId);

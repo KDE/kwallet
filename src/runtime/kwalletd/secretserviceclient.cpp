@@ -17,6 +17,9 @@
 #include <QEventLoop>
 #include <QTimer>
 
+// Copied from
+// https://github.com/frankosterfeld/qtkeychain/blob/main/qtkeychain/libsecret.cpp
+// This is intended to be a data format compatible with QtKeychain
 const SecretSchema *qtKeychainSchema(void)
 {
     static const SecretSchema schema = {
@@ -72,6 +75,7 @@ static bool wasErrorFree(GError **error)
 
 static QString typeToString(SecretServiceClient::Type type)
 {
+    // Similar to QtKeychain implementation: adds the "map" datatype
     switch (type) {
     case SecretServiceClient::Binary:
         return QStringLiteral("base64");
@@ -97,6 +101,8 @@ SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent
     : QObject(parent)
 {
     if (useKWalletBackend) {
+        // Tell libsecret where the secretservice api is
+        qputenv("SECRET_SERVICE_BUS_NAME", "org.kde.secretservicecompat");
         m_serviceBusName = QStringLiteral("org.kde.secretservicecompat");
     } else {
         m_serviceBusName = QStringLiteral("org.freedesktop.secrets");
@@ -116,17 +122,8 @@ SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent
 
     connect(m_serviceWatcher, &QDBusServiceWatcher::serviceOwnerChanged, this, &SecretServiceClient::onServiceOwnerChanged);
 
-    QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"),
-                         QStringLiteral("/org/freedesktop/DBus"),
-                         QStringLiteral("org.freedesktop.DBus"),
-                         QDBusConnection::sessionBus());
-
-    QDBusReply<QString> reply = iface.call(QStringLiteral("GetNameOwner"), m_serviceBusName);
-
-    if (!reply.isValid() || reply.value().isEmpty()) {
-        return;
-    }
-
+    // Unconditionally try to connect to the service without checking it exists:
+    // it will try to dbus-activate it if not running
     GError *error = nullptr;
     m_service = SecretServicePtr(
         secret_service_get_sync(static_cast<SecretServiceFlags>(SECRET_SERVICE_OPEN_SESSION | SECRET_SERVICE_LOAD_COLLECTIONS), nullptr, &error));
@@ -206,13 +203,14 @@ SecretItemPtr SecretServiceClient::retrieveItem(const QString &key, const QStrin
 
     SecretItem *item = nullptr;
     if (glist) {
-        for (GList *iter = glist.get(); iter != nullptr; iter = iter->next) {
+        GList *iter = glist.get();
+        if (iter != nullptr) {
             item = static_cast<SecretItem *>(iter->data);
-            break;
         }
 
     } else {
-        qCWarning(KWALLETD_LOG) << i18n("Not found");
+        qCWarning(KWALLETD_LOG) << i18n("Item not found");
+        *ok = false;
     }
 
     return SecretItemPtr(item);
@@ -239,21 +237,22 @@ void SecretServiceClient::watchCollection(const QString &collectionName, bool *o
                                           QStringLiteral("org.freedesktop.Secret.Collection"),
                                           QStringLiteral("ItemChanged"),
                                           this,
-                                          SLOT(onDbusSecretItemChanged(QDBusObjectPath)));
+                                          SLOT(onSecretItemChanged(QDBusObjectPath)));
     QDBusConnection::sessionBus().connect(m_serviceBusName,
                                           path,
                                           QStringLiteral("org.freedesktop.Secret.Collection"),
                                           QStringLiteral("ItemCreated"),
                                           this,
-                                          SLOT(onDbusSecretItemChanged(QDBusObjectPath)));
+                                          SLOT(onSecretItemChanged(QDBusObjectPath)));
     QDBusConnection::sessionBus().connect(m_serviceBusName,
                                           path,
                                           QStringLiteral("org.freedesktop.Secret.Collection"),
                                           QStringLiteral("ItemDeleted"),
                                           this,
-                                          SLOT(onDbusSecretItemChanged(QDBusObjectPath)));
+                                          SLOT(onSecretItemChanged(QDBusObjectPath)));
 
     m_watchedCollections.insert(collectionName);
+    *ok = true;
 }
 
 void SecretServiceClient::onServiceOwnerChanged(const QString &serviceName, const QString &oldOwner, const QString &newOwner)
@@ -262,10 +261,6 @@ void SecretServiceClient::onServiceOwnerChanged(const QString &serviceName, cons
     Q_UNUSED(oldOwner);
 
     bool available = !newOwner.isEmpty();
-
-    if (available == (m_service != nullptr)) {
-        return;
-    }
 
     m_openCollections.clear();
 
@@ -281,7 +276,7 @@ void SecretServiceClient::onServiceOwnerChanged(const QString &serviceName, cons
     }
 
     qDebug() << "Secret Service availability changed:" << (available ? "Available" : "Unavailable");
-    Q_EMIT serviceAvailableChanged(m_service != nullptr);
+    Q_EMIT serviceChanged();
 }
 
 void SecretServiceClient::onCollectionCreated(const QDBusObjectPath &path)
@@ -320,7 +315,7 @@ void SecretServiceClient::onCollectionDeleted(const QDBusObjectPath &path)
     Q_EMIT collectionListDirty();
 }
 
-void SecretServiceClient::onDbusSecretItemChanged(const QDBusObjectPath &path)
+void SecretServiceClient::onSecretItemChanged(const QDBusObjectPath &path)
 {
     if (!m_service) {
         qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
@@ -413,7 +408,7 @@ QString SecretServiceClient::defaultCollection(bool *ok)
         return QString();
     }
 
-    QString label = QStringLiteral("kdecollectionName");
+    QString label = QStringLiteral("kdewallet");
     GError *error = nullptr;
 
     gchar *path = secret_service_read_alias_dbus_path_sync(m_service.get(), SECRET_COLLECTION_DEFAULT, nullptr, &error);
@@ -423,7 +418,6 @@ QString SecretServiceClient::defaultCollection(bool *ok)
         return label;
     }
 
-    // TODO: port from path to label
     QDBusInterface collectionInterface(m_serviceBusName,
                                        QString::fromUtf8(path),
                                        QStringLiteral("org.freedesktop.Secret.Collection"),
@@ -458,7 +452,7 @@ void SecretServiceClient::setDefaultCollection(const QString &collectionName, bo
 
     SecretCollection *collection = retrieveCollection(collectionName);
 
-    *ok = secret_service_set_alias_sync(m_service.get(), collectionName.toUtf8().data(), collection, nullptr, &error);
+    *ok = secret_service_set_alias_sync(m_service.get(), "default", collection, nullptr, &error);
 
     *ok = *ok && wasErrorFree(&error);
 }
@@ -485,7 +479,7 @@ QStringList SecretServiceClient::listCollections(bool *ok)
             }
         }
     } else {
-        qCWarning(KWALLETD_LOG) << i18n("No collectionNames");
+        qCDebug(KWALLETD_LOG) << i18n("No collections");
     }
 
     *ok = true;
@@ -498,6 +492,10 @@ QStringList SecretServiceClient::listFolders(const QString &collectionName, bool
 
     SecretCollection *collection = retrieveCollection(collectionName);
 
+    if (!collection) {
+        *ok = false;
+        return {};
+    }
     GListPtr glist = GListPtr(secret_collection_get_items(collection));
 
     if (glist) {
@@ -506,21 +504,14 @@ QStringList SecretServiceClient::listFolders(const QString &collectionName, bool
 
             GHashTable *attributes = secret_item_get_attributes(item);
             if (attributes) {
-                GHashTableIter attrIter;
-                gpointer key, value;
-                g_hash_table_iter_init(&attrIter, attributes);
-                while (g_hash_table_iter_next(&attrIter, &key, &value)) {
-                    QString keyString = QString::fromUtf8(static_cast<gchar *>(key));
-                    if (keyString == QStringLiteral("server")) {
-                        folders.insert(QString::fromUtf8(static_cast<gchar *>(value)));
-                        break;
-                    }
+                const gchar *value = (const char *)g_hash_table_lookup(attributes, "server");
+                if (value) {
+                    folders.insert(QString::fromUtf8(value));
                 }
             }
         }
     } else {
-        *ok = false;
-        qCWarning(KWALLETD_LOG) << i18n("No entries");
+        qCDebug(KWALLETD_LOG) << i18n("No entries");
     }
     *ok = true;
     return folders.values();
@@ -533,6 +524,11 @@ QStringList SecretServiceClient::listEntries(const QString &folder, const QStrin
     GError *error = nullptr;
 
     SecretCollection *collection = retrieveCollection(collectionName);
+
+    if (!collection) {
+        *ok = false;
+        return {};
+    }
 
     GHashTablePtr attributes = GHashTablePtr(g_hash_table_new(g_str_hash, g_str_equal));
     g_hash_table_insert(attributes.get(), g_strdup("server"), g_strdup(folder.toUtf8().constData()));
@@ -550,20 +546,14 @@ QStringList SecretServiceClient::listEntries(const QString &folder, const QStrin
             GHashTablePtr attributes = GHashTablePtr(secret_item_get_attributes(item.get()));
 
             if (attributes) {
-                GHashTableIter attrIter;
-                gpointer key, value;
-                g_hash_table_iter_init(&attrIter, attributes.get());
-                while (g_hash_table_iter_next(&attrIter, &key, &value)) {
-                    QString keyString = QString::fromUtf8(static_cast<gchar *>(key));
-                    if (keyString == QStringLiteral("user")) {
-                        folders.insert(QString::fromUtf8(static_cast<gchar *>(value)));
-                        break;
-                    }
+                const gchar *value = (const char *)g_hash_table_lookup(attributes.get(), "user");
+                if (value) {
+                    folders.insert(QString::fromUtf8(value));
                 }
             }
         }
     } else {
-        qCWarning(KWALLETD_LOG) << i18n("No entries");
+        qCDebug(KWALLETD_LOG) << i18n("No entries");
     }
 
     return folders.values();
@@ -612,10 +602,13 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
         loop.quit();
     });
 
+    // clang-format off
     QDBusMessage createCollectionMessage = QDBusMessage::createMethodCall(m_serviceBusName,
-                                                                          QStringLiteral("/org/freedesktop/secrets"),
-                                                                          QStringLiteral("org.freedesktop.Secret.Service"),
-                                                                          QStringLiteral("CreateCollection"));
+        QStringLiteral("/org/freedesktop/secrets"),
+        QStringLiteral("org.freedesktop.Secret.Service"),
+        QStringLiteral("CreateCollection")
+    );
+    // clang-format on
 
     QVariantMap props;
     props[QStringLiteral("org.freedesktop.Secret.Collection.Label")] = collectionName;
@@ -667,23 +660,11 @@ void SecretServiceClient::deleteCollection(const QString &collectionName, bool *
 
     GError *error = nullptr;
 
-    SecretCollection *collection = nullptr;
-    GListPtr collections = GListPtr(secret_service_get_collections(m_service.get()));
-
-    for (GList *l = collections.get(); l != nullptr; l = l->next) {
-        SecretCollection *coll = SECRET_COLLECTION(l->data);
-        const gchar *label = secret_collection_get_label(coll);
-
-        if (QString::fromUtf8(label) == collectionName) {
-            collection = coll;
-            break;
-        } else {
-            g_object_unref(coll);
-        }
-    }
+    SecretCollection *collection = retrieveCollection(collectionName);
 
     *ok = secret_collection_delete_sync(collection, nullptr, &error);
-    g_object_unref(collection);
+    m_openCollections.erase(collectionName);
+    m_watchedCollections.remove(collectionName);
 
     *ok = *ok && wasErrorFree(&error);
     if (ok) {
@@ -741,24 +722,16 @@ SecretServiceClient::readEntry(const QString &key, const SecretServiceClient::Ty
 
             secret_item_load_secret_sync(item.get(), nullptr, &error);
             *ok = wasErrorFree(&error);
-            SecretValuePtr secretValue = SecretValuePtr(secret_item_get_secret(item.get()));
-            if (secretValue) {
-                const gchar *password = secret_value_get_text(secretValue.get());
-                if (type == SecretServiceClient::Binary) {
-                    data = QByteArray::fromBase64(QByteArray(password));
-                } else {
-                    data = QByteArray(password);
-                }
-            }
-        } else {
-            SecretValuePtr secretValue = SecretValuePtr(secret_item_get_secret(item.get()));
-            if (secretValue) {
-                const gchar *password = secret_value_get_text(secretValue.get());
-                if (type == SecretServiceClient::Binary) {
-                    data = QByteArray::fromBase64(QByteArray(password));
-                } else {
-                    data = QByteArray(password);
-                }
+        }
+
+        SecretValuePtr secretValue = SecretValuePtr(secret_item_get_secret(item.get()));
+
+        if (secretValue) {
+            const gchar *password = secret_value_get_text(secretValue.get());
+            if (type == SecretServiceClient::Binary) {
+                data = QByteArray::fromBase64(QByteArray(password));
+            } else {
+                data = QByteArray(password);
             }
         }
     }
@@ -783,20 +756,21 @@ void SecretServiceClient::renameEntry(const QString &display_name,
         return;
     }
 
+    SecretItemPtr existingItem = retrieveItem(newKey, folder, collectionName, ok);
+    if (existingItem) {
+        *ok = false;
+        qCWarning(KWALLETD_LOG) << i18n("Entry named %1 in folder %2 and wallet %3 already exists.", newKey, folder, collectionName);
+        return;
+    }
+
     QByteArray data;
 
     Type type = PlainText;
     GHashTablePtr attributes = GHashTablePtr(secret_item_get_attributes(item.get()));
     if (attributes) {
-        GHashTableIter attrIter;
-        gpointer key, value;
-        g_hash_table_iter_init(&attrIter, attributes.get());
-        while (g_hash_table_iter_next(&attrIter, &key, &value)) {
-            QString keyString = QString::fromUtf8(static_cast<gchar *>(key));
-            if (keyString == QStringLiteral("type")) {
-                const QString typeString = QString::fromUtf8(static_cast<gchar *>(value));
-                type = stringToType(typeString);
-            }
+        const gchar *value = (const char *)g_hash_table_lookup(attributes.get(), "type");
+        if (value) {
+            type = stringToType(QString::fromUtf8(value));
         }
     } else {
         *ok = false;
@@ -816,13 +790,6 @@ void SecretServiceClient::renameEntry(const QString &display_name,
     } else {
         *ok = false;
         qCWarning(KWALLETD_LOG) << i18n("Entry to rename incomplete");
-        return;
-    }
-
-    SecretItemPtr existingItem = retrieveItem(newKey, folder, collectionName, ok);
-    if (existingItem) {
-        *ok = false;
-        qCWarning(KWALLETD_LOG) << i18n("Entry named %1 in folder %2 and wallet %3 already exists.", newKey, folder, collectionName);
         return;
     }
 

@@ -79,7 +79,8 @@ public:
     void deleteEntry(const QString &key, const QString &folder, const QString &collectionName, bool *ok);
 
 Q_SIGNALS:
-    void serviceAvailableChanged(bool available);
+    // Emitted when the service availability changed, or the service owner of secretservice has changed to a new one
+    void serviceChanged();
     void promptClosed(bool accepted);
     void collectionListDirty();
     void collectionDirty(const QString &collection);
@@ -97,7 +98,7 @@ protected Q_SLOTS:
     void handlePrompt(bool dismissed);
     void onCollectionCreated(const QDBusObjectPath &path);
     void onCollectionDeleted(const QDBusObjectPath &path);
-    void onDbusSecretItemChanged(const QDBusObjectPath &path);
+    void onSecretItemChanged(const QDBusObjectPath &path);
 
 private:
     SecretServicePtr m_service;

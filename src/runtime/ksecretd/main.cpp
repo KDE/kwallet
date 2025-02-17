@@ -205,7 +205,6 @@ int main(int argc, char **argv)
     KSecretD secretd;
     qCDebug(KSECRETD_LOG) << "ksecretd6 started";
 
-#ifndef Q_OS_WIN
     if (hash) {
         QByteArray passHash(hash, PBKDF2_SHA512_KEYSIZE);
         int wallet = secretd.pamOpen(KWallet::Wallet::LocalWallet(), passHash, 0);
@@ -216,7 +215,6 @@ int main(int argc, char **argv)
         }
         free(hash);
     }
-#endif
 
     return app.exec();
 }
