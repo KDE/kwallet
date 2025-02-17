@@ -127,16 +127,16 @@ FreedesktopSecret KWalletFreedesktopItem::getSecret(const QDBusConnection &conne
         explicit_zero_mem(bytes.data(), bytes.size());
         explicit_zero_mem(password.data(), password.size() * sizeof(QChar));
     } else if (entryType == KWallet::Wallet::Map) {
-        auto encoded = backend()->readMap(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, FDO_APPID);
+        auto serializedMap = backend()->readMap(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, FDO_APPID);
         QMap<QString, QString> map;
-        QDataStream ds(&encoded, QIODevice::ReadOnly);
+        QDataStream ds(&serializedMap, QIODevice::ReadOnly);
         ds >> map;
         QJsonObject obj;
         for (auto it = map.constBegin(); it != map.constEnd(); it++) {
             obj.insert(it.key(), it.value());
         }
         fdoSecret = FreedesktopSecret(session, QJsonDocument(obj).toJson(QJsonDocument::Compact), mimeType);
-        explicit_zero_mem(encoded.data(), encoded.size());
+        explicit_zero_mem(serializedMap.data(), serializedMap.size());
     } else {
         auto bytes = backend()->readEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, FDO_APPID);
         fdoSecret = FreedesktopSecret(session, bytes, mimeType);

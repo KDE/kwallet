@@ -26,18 +26,19 @@ static void startManagerForKwalletd()
 {
     if (!QStandardPaths::findExecutable(QStringLiteral("kstart")).isEmpty()) {
         QProcess::startDetached(QStringLiteral("kstart"), {QStringLiteral("kwalletmanager5"), QStringLiteral("--"), QStringLiteral("--kwalletd")});
-    } else if (!QStandardPaths::findExecutable(QStringLiteral("kstart5")).isEmpty()) {
-        QProcess::startDetached(QStringLiteral("kstart"), {QStringLiteral("kwalletmanager5"), QStringLiteral("--"), QStringLiteral("--kwalletd")});
     } else {
         QProcess::startDetached(QStringLiteral("kwalletmanager5"), QStringList{QStringLiteral("--kwalletd")});
     }
 }
 
-KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
+KWalletD::KWalletD(QObject *parent)
     : QObject(parent)
-    , m_backend(new SecretServiceClient(useKWalletBackend, this))
-    , m_useKWalletBackend(useKWalletBackend)
 {
+    KConfig cfg(QStringLiteral("kwalletrc"));
+    KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
+    m_useKWalletBackend = migrationGroup.readEntry("UseKWalletBackend", true);
+    m_backend = new SecretServiceClient(m_useKWalletBackend, this);
+
     new KWalletAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
     dbus.registerObject(QStringLiteral("/modules/kwalletd5"), this);
@@ -52,8 +53,8 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
                 m_structure.insert(wallet, folder);
             }
         }
-        qWarning() << "Structure:" << m_structure;
-        qWarning() << "Default wallet:" << m_backend->defaultCollection(&ok);
+        qCDebug(KWALLETD_LOG) << "Structure:" << m_structure;
+        qCDebug(KWALLETD_LOG) << "Default wallet:" << m_backend->defaultCollection(&ok);
 
         if (!m_useKWalletBackend) {
             migrateData();
@@ -61,8 +62,8 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
     };
     readStructure();
 
-    connect(m_backend, &SecretServiceClient::serviceAvailableChanged, this, [this, readStructure](bool available) {
-        if (available) {
+    connect(m_backend, &SecretServiceClient::serviceChanged, this, [this, readStructure]() {
+        if (m_backend->isAvailable()) {
             readStructure();
             Q_EMIT walletListDirty();
         } else {
@@ -70,7 +71,7 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
         }
     });
 
-    connect(m_backend, &SecretServiceClient::collectionDirty, this, [this](const QString &wallet) {
+    connect(m_backend, &SecretServiceClient::collectionDirty, this, [this, readStructure](const QString &wallet) {
         bool ok;
         QStringList folders = m_structure.values(wallet);
         QSet<QString> oldFolders(folders.constBegin(), folders.constEnd());
@@ -79,11 +80,7 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
 
         // Reload m_structure
         m_structure.clear();
-        for (const QString &wallet : m_backend->listCollections(&ok)) {
-            for (const QString &folder : m_backend->listFolders(wallet, &ok)) {
-                m_structure.insert(wallet, folder);
-            }
-        }
+        readStructure();
 
         Q_EMIT folderListUpdated(wallet);
         // We are not sure which folder or item has been updated, reload all folders of all wallets
@@ -107,9 +104,7 @@ KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
         const QString newDefaultWallet = walletGroup.readEntry(QStringLiteral("Default Wallet"), defaultCollection);
 
         if (newDefaultWallet != defaultCollection) {
-            if (m_backend->unlockCollection(newDefaultWallet, &ok)) {
-                m_backend->setDefaultCollection(newDefaultWallet, &ok);
-            }
+            m_backend->setDefaultCollection(newDefaultWallet, &ok);
         }
     });
 }
@@ -120,7 +115,7 @@ KWalletD::~KWalletD()
 
 bool KWalletD::migrateWallet(const QString &sourceWallet, const QString &destWallet)
 {
-    qWarning() << "Migrating" << sourceWallet;
+    qCWarning(KWALLETD_LOG) << "Migrating" << sourceWallet;
     KWallet::Backend backend(sourceWallet, sourceWallet.endsWith(QStringLiteral(".kwl")));
     backend.open(QByteArray());
     while (!backend.isOpen()) {
@@ -128,17 +123,10 @@ bool KWalletD::migrateWallet(const QString &sourceWallet, const QString &destWal
         dlg.setPrompt(i18n("Migrating the wallet \"%1\". Please provide the password to unlock.", sourceWallet));
         dlg.setRevealPasswordMode(KPassword::RevealMode::OnlyNew);
 
-        if (dlg.exec() == QDialog::Accepted) {
-            backend.open(dlg.password().toUtf8());
-            if (backend.isOpen()) {
-                break;
-            }
-        } else {
-            break;
+        if (dlg.exec() != QDialog::Accepted) {
+            return false;
         }
-    }
-    if (!backend.isOpen()) {
-        return false;
+        backend.open(dlg.password().toUtf8());
     }
 
     bool ok = false;
@@ -148,13 +136,13 @@ bool KWalletD::migrateWallet(const QString &sourceWallet, const QString &destWal
         return false;
     }
     if (!allDestWallets.contains(destWallet)) {
-        qWarning() << "Creating" << destWallet;
+        qCDebug(KWALLETD_LOG) << "Creating" << destWallet;
         m_backend->createCollection(destWallet, &ok);
         if (!ok) {
             return false;
         }
     }
-    qWarning() << "Unlocking" << destWallet;
+    qCDebug(KWALLETD_LOG) << "Unlocking" << destWallet;
     bool unlocked = m_backend->unlockCollection(destWallet, &ok);
     if (!ok || !unlocked) {
         return false;
@@ -254,13 +242,6 @@ QString KWalletD::walletForHandle(int handle, const QString &appId)
     }
 
     const QString walletName = m_openWallets.value(QPair<int, QString>(handle, appId));
-    if (!walletName.isEmpty()) {
-        bool ok;
-        bool unlocked = m_backend->unlockCollection(walletName, &ok);
-        if (!ok || !unlocked) {
-            return QString();
-        }
-    }
 
     return walletName;
 }
@@ -351,9 +332,9 @@ bool KWalletD::isEnabled() const
     return m_enabled && m_backend->isAvailable();
 }
 
-int KWalletD::open(const QString &wallet, qlonglong wId, const QString &appId)
+int KWalletD::openInternal(const QString &wallet, qlonglong wId, const QString &appId)
 {
-    if (wId <= 0) {
+    if (wId < 0) {
         return -1;
     }
 
@@ -368,7 +349,6 @@ int KWalletD::open(const QString &wallet, qlonglong wId, const QString &appId)
             return -1;
         }
     }
-
     bool unlocked = m_backend->unlockCollection(wallet, &ok);
     if (!ok || !unlocked) {
         return -1;
@@ -385,6 +365,16 @@ int KWalletD::open(const QString &wallet, qlonglong wId, const QString &appId)
 
     if (m_closeIdle) {
         m_idleTimers[QPair<int, QString>(rnd, appId)] = startTimer(m_idleTime);
+    }
+
+    return rnd;
+}
+
+int KWalletD::open(const QString &wallet, qlonglong wId, const QString &appId)
+{
+    int rnd = openInternal(wallet, wId, appId);
+    if (rnd < 0) {
+        return -1;
     }
 
     Q_EMIT walletOpened(wallet);
@@ -404,39 +394,17 @@ int KWalletD::openAsync(const QString &wallet, qlonglong wId, const QString &app
 {
     Q_UNUSED(handleSession);
 
-    if (wId <= 0) {
+    if (wId < 0) {
         return -1;
     }
 
-    QRandomGenerator rand = QRandomGenerator::securelySeeded();
-    const int rnd = std::abs(int(rand.generate()));
     const int tid = ++s_lastTransaction;
 
-    if (m_closeIdle) {
-        m_idleTimers[QPair<int, QString>(rnd, appId)] = startTimer(m_idleTime);
-    }
-
-    QTimer::singleShot(0, [this, wallet, appId, tid, rnd]() {
-        bool ok;
-        const QStringList wallets = m_backend->listCollections(&ok);
-        if (!ok) {
+    QTimer::singleShot(0, [this, wallet, wId, appId, tid]() {
+        int rnd = openInternal(wallet, wId, appId);
+        if (rnd < 0) {
             return;
         }
-        if (!wallets.contains(wallet)) {
-            m_backend->createCollection(wallet, &ok);
-            if (!ok) {
-                return;
-            }
-        }
-        bool unlocked = m_backend->unlockCollection(wallet, &ok);
-        if (!ok || !unlocked) {
-            return;
-        }
-
-        for (const QString &folder : m_backend->listFolders(wallet, &ok)) {
-            m_structure.insert(wallet, folder);
-        }
-        m_openWallets[QPair<int, QString>(rnd, appId)] = wallet;
         Q_EMIT walletAsyncOpened(tid, rnd);
     });
 
@@ -455,7 +423,6 @@ int KWalletD::openPathAsync(const QString &path, qlonglong wId, const QString &a
 
 int KWalletD::close(const QString &wallet, bool force)
 {
-    int ret = 0;
     QSet<QString> apps;
     auto it = m_openWallets.begin();
 
@@ -465,63 +432,64 @@ int KWalletD::close(const QString &wallet, bool force)
                 apps << it.key().second;
                 it = m_openWallets.erase(it);
             } else {
-                ret = 1;
-                ++it;
+                return 1;
             }
         } else {
             ++it;
         }
     }
 
-    if (ret == 0) {
-        Q_EMIT walletClosed(wallet);
-        if (m_openWallets.isEmpty()) {
-            Q_EMIT allWalletsClosed();
-        }
-        QSet<QString> newApps;
-        for (auto it = m_openWallets.constBegin(); it != m_openWallets.constEnd(); it++) {
-            newApps << it.key().second;
-        }
-        QSet<QString> disconnected = apps.subtract(newApps);
-        for (const QString &appId : std::as_const(disconnected)) {
-            Q_EMIT applicationDisconnected(wallet, appId);
-        }
+    Q_EMIT walletClosed(wallet);
+    if (m_openWallets.isEmpty()) {
+        Q_EMIT allWalletsClosed();
+    }
+    QSet<QString> newApps;
+    for (auto it = m_openWallets.constBegin(); it != m_openWallets.constEnd(); it++) {
+        newApps << it.key().second;
+    }
+    QSet<QString> disconnected = apps.subtract(newApps);
+    for (const QString &appId : std::as_const(disconnected)) {
+        Q_EMIT applicationDisconnected(wallet, appId);
     }
 
-    return ret;
+    return 0;
 }
 
 int KWalletD::close(int handle, bool force, const QString &appId)
 {
     Q_UNUSED(force);
     const QString wallet = walletForHandle(handle, appId);
-    int ret = 0;
+    if (wallet.isEmpty()) {
+        return 1;
+    }
     auto it = m_openWallets.begin();
 
     while (it != m_openWallets.end()) {
         if (it.key().first == handle && it.key().second == appId) {
-            it = m_openWallets.erase(it);
+            if (force) {
+                it = m_openWallets.erase(it);
+            } else {
+                return 1;
+            }
         } else {
             ++it;
         }
     }
 
-    if (ret == 0) {
-        Q_EMIT walletClosed(handle);
-        Q_EMIT walletClosedId(handle);
-        if (m_openWallets.isEmpty()) {
-            Q_EMIT allWalletsClosed();
-        }
-        QSet<QString> newApps;
-        for (auto it = m_openWallets.constBegin(); it != m_openWallets.constEnd(); it++) {
-            newApps << it.key().second;
-        }
-        if (!newApps.contains(appId)) {
-            Q_EMIT applicationDisconnected(wallet, appId);
-        }
+    Q_EMIT walletClosed(handle);
+    Q_EMIT walletClosedId(handle);
+    if (m_openWallets.isEmpty()) {
+        Q_EMIT allWalletsClosed();
+    }
+    QSet<QString> newApps;
+    for (auto it = m_openWallets.constBegin(); it != m_openWallets.constEnd(); it++) {
+        newApps << it.key().second;
+    }
+    if (!newApps.contains(appId)) {
+        Q_EMIT applicationDisconnected(wallet, appId);
     }
 
-    return ret;
+    return 0;
 }
 
 void KWalletD::sync(int handle, const QString &appId)
@@ -907,7 +875,6 @@ int KWalletD::writeEntry(int handle, const QString &folder, const QString &key, 
     }
 
     bool ok;
-    QStringList oldWallets = m_backend->listCollections(&ok);
     QStringList oldFolders = m_backend->listFolders(wallet, &ok);
     QStringList oldEntries = m_backend->listEntries(wallet, folder, &ok);
 
@@ -936,35 +903,20 @@ int KWalletD::writeEntry(int handle, const QString &folder, const QString &key, 
         return -1;
     }
 
-    if (ok) {
-        if (!oldWallets.contains(wallet)) {
-            Q_EMIT walletCreated(wallet);
-            Q_EMIT walletListDirty();
-        }
-        if (!oldFolders.contains(folder)) {
-            m_structure.insert(wallet, folder);
-            Q_EMIT folderListUpdated(wallet);
-        }
-        if (!oldEntries.contains(key)) {
-            Q_EMIT folderUpdated(wallet, folder);
-        } else {
-            Q_EMIT entryUpdated(wallet, folder, key);
-        }
-        return 0;
-    }
-
-    return -1;
-
-    switch (entryType) {
-    case Password:
-        return writePassword(handle, folder, key, QString::fromUtf8(value), appId);
-    case Stream:
-        return writeEntry(handle, folder, key, value, appId);
-    case Map:
-        return writeMap(handle, folder, key, value, appId);
-    default:
+    if (!ok) {
         return -1;
     }
+
+    if (!oldFolders.contains(folder)) {
+        m_structure.insert(wallet, folder);
+        Q_EMIT folderListUpdated(wallet);
+    }
+    if (!oldEntries.contains(key)) {
+        Q_EMIT folderUpdated(wallet, folder);
+    } else {
+        Q_EMIT entryUpdated(wallet, folder, key);
+    }
+    return 0;
 }
 
 int KWalletD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, const QString &appId)
