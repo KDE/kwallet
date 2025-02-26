@@ -77,8 +77,10 @@ static QString typeToString(SecretServiceClient::Type type)
 {
     // Similar to QtKeychain implementation: adds the "map" datatype
     switch (type) {
-    case SecretServiceClient::Binary:
+    case SecretServiceClient::Base64:
         return QStringLiteral("base64");
+    case SecretServiceClient::Binary:
+        return QStringLiteral("binary");
     case SecretServiceClient::Map:
         return QStringLiteral("map");
     default:
@@ -88,8 +90,10 @@ static QString typeToString(SecretServiceClient::Type type)
 
 static SecretServiceClient::Type stringToType(const QString &typeName)
 {
-    if (typeName == QStringLiteral("base64")) {
+    if (typeName == QStringLiteral("binary")) {
         return SecretServiceClient::Binary;
+    } else if (typeName == QStringLiteral("base64")) {
+        return SecretServiceClient::Base64;
     } else if (typeName == QStringLiteral("map")) {
         return SecretServiceClient::Map;
     } else {
@@ -174,7 +178,8 @@ SecretCollection *SecretServiceClient::retrieveCollection(const QString &name)
     return nullptr;
 }
 
-SecretItemPtr SecretServiceClient::retrieveItem(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
+SecretItemPtr
+SecretServiceClient::retrieveItem(const QString &key, const SecretServiceClient::Type type, const QString &folder, const QString &collectionName, bool *ok)
 {
     GError *error = nullptr;
 
@@ -183,6 +188,9 @@ SecretItemPtr SecretServiceClient::retrieveItem(const QString &key, const QStrin
     GHashTablePtr attributes = GHashTablePtr(g_hash_table_new(g_str_hash, g_str_equal));
     g_hash_table_insert(attributes.get(), g_strdup("server"), g_strdup(folder.toUtf8().constData()));
     g_hash_table_insert(attributes.get(), g_strdup("user"), g_strdup(key.toUtf8().constData()));
+    if (type != Unknown) {
+        g_hash_table_insert(attributes.get(), g_strdup("type"), g_strdup(typeToString(type).toUtf8().constData()));
+    }
 
     GListPtr glist = GListPtr(secret_collection_search_sync(collection,
                                                             qtKeychainSchema(),
@@ -395,6 +403,8 @@ bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *
         return false;
     }
 
+    watchCollection(collectionName, ok);
+
     gboolean locked = secret_collection_get_locked(collection);
 
     if (locked) {
@@ -402,13 +412,10 @@ bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *
         *ok = wasErrorFree(&error);
         if (!success) {
             qCWarning(KWALLETD_LOG) << i18n("Unable to unlock collectionName %1", collectionName);
-        } else {
-            watchCollection(collectionName, ok);
         }
         return success;
     }
 
-    watchCollection(collectionName, ok);
     return true;
 }
 
@@ -539,7 +546,7 @@ QStringList SecretServiceClient::listEntries(const QString &folder, const QStrin
     }
 
     // TODO: deduplicate
-    QSet<QString> folders;
+    QSet<QString> items;
     GError *error = nullptr;
 
     SecretCollection *collection = retrieveCollection(collectionName);
@@ -567,7 +574,7 @@ QStringList SecretServiceClient::listEntries(const QString &folder, const QStrin
             if (attributes) {
                 const gchar *value = (const char *)g_hash_table_lookup(attributes.get(), "user");
                 if (value) {
-                    folders.insert(QString::fromUtf8(value));
+                    items.insert(QString::fromUtf8(value));
                 }
             }
         }
@@ -575,7 +582,7 @@ QStringList SecretServiceClient::listEntries(const QString &folder, const QStrin
         qCDebug(KWALLETD_LOG) << i18n("No entries");
     }
 
-    return folders.values();
+    return items.values();
 }
 
 QHash<QString, QString> SecretServiceClient::readMetadata(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
@@ -587,7 +594,7 @@ QHash<QString, QString> SecretServiceClient::readMetadata(const QString &key, co
 
     QHash<QString, QString> hash;
 
-    SecretItemPtr item = retrieveItem(key, folder, collectionName, ok);
+    SecretItemPtr item = retrieveItem(key, Unknown, folder, collectionName, ok);
 
     if (!item) {
         qCWarning(KWALLETD_LOG) << i18n("Entry not found, key: %1, folder: %2", key, folder);
@@ -745,7 +752,7 @@ SecretServiceClient::readEntry(const QString &key, const SecretServiceClient::Ty
     GError *error = nullptr;
     QByteArray data;
 
-    SecretItemPtr item = retrieveItem(key, folder, collectionName, ok);
+    SecretItemPtr item = retrieveItem(key, type, folder, collectionName, ok);
 
     if (item) {
         // Some providers like KeepassXC lock each item individually, and need to be
@@ -765,8 +772,14 @@ SecretServiceClient::readEntry(const QString &key, const SecretServiceClient::Ty
         SecretValuePtr secretValue = SecretValuePtr(secret_item_get_secret(item.get()));
 
         if (secretValue) {
-            const gchar *password = secret_value_get_text(secretValue.get());
             if (type == SecretServiceClient::Binary) {
+                gsize length = 0;
+                const gchar *password = secret_value_get(secretValue.get(), &length);
+                return QByteArray(password, length);
+            }
+
+            const gchar *password = secret_value_get_text(secretValue.get());
+            if (type == SecretServiceClient::Base64) {
                 data = QByteArray::fromBase64(QByteArray(password));
             } else {
                 data = QByteArray(password);
@@ -784,7 +797,7 @@ void SecretServiceClient::renameEntry(const QString &display_name,
                                       const QString &collectionName,
                                       bool *ok)
 {
-    SecretItemPtr item = retrieveItem(oldKey, folder, collectionName, ok);
+    SecretItemPtr item = retrieveItem(oldKey, Unknown, folder, collectionName, ok);
 
     if (!*ok) {
         return;
@@ -795,7 +808,7 @@ void SecretServiceClient::renameEntry(const QString &display_name,
         return;
     }
 
-    SecretItemPtr existingItem = retrieveItem(newKey, folder, collectionName, ok);
+    SecretItemPtr existingItem = retrieveItem(newKey, Unknown, folder, collectionName, ok);
     if (existingItem) {
         *ok = false;
         qCWarning(KWALLETD_LOG) << i18n("Entry named %1 in folder %2 and wallet %3 already exists.", newKey, folder, collectionName);
@@ -857,13 +870,20 @@ void SecretServiceClient::writeEntry(const QString &display_name,
     SecretCollection *collection = retrieveCollection(collectionName);
 
     QByteArray data;
-    if (type == SecretServiceClient::Binary) {
+    if (type == SecretServiceClient::Base64) {
         data = value.toBase64();
     } else {
         data = value;
     }
 
-    SecretValuePtr secretValue = SecretValuePtr(secret_value_new(data.constData(), -1, "text/plain"));
+    QString mimeType;
+    if (type == SecretServiceClient::Binary) {
+        mimeType = QStringLiteral("application/octet-stream");
+    } else {
+        mimeType = QStringLiteral("text/plain");
+    }
+
+    SecretValuePtr secretValue = SecretValuePtr(secret_value_new(data.constData(), -1, mimeType.toLatin1().constData()));
     if (!secretValue) {
         *ok = false;
         qCWarning(KWALLETD_LOG) << i18n("Failed to create SecretValue");
@@ -896,7 +916,7 @@ void SecretServiceClient::deleteEntry(const QString &key, const QString &folder,
     }
 
     GError *error = nullptr;
-    SecretItemPtr item = retrieveItem(key, folder, collectionName, ok);
+    SecretItemPtr item = retrieveItem(key, Unknown, folder, collectionName, ok);
     if (!*ok) {
         return;
     }
