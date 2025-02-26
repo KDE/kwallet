@@ -365,7 +365,7 @@ void KWalletFreedesktopCollection::onWalletChangeState(int handle)
                 attr["user"] = entry;
                 switch (backend()->entryType(m_handle, folder, entry, FDO_APPID)) {
                 case KWallet::Wallet::Stream:
-                    attr["type"] = "base64";
+                    attr["type"] = "binary";
                     break;
                 case KWallet::Wallet::Map:
                     attr["type"] = "map";

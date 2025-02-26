@@ -264,7 +264,7 @@ KWalletD::EntryType KWalletD::keyType(const QString &wallet, const QString &fold
 
     if (typeStr == QStringLiteral("map")) {
         return Map;
-    } else if (typeStr == QStringLiteral("base64")) {
+    } else if (typeStr == QStringLiteral("base64") || typeStr == QStringLiteral("binary")) {
         return Stream;
     } else {
         return Password;
@@ -283,7 +283,12 @@ QByteArray KWalletD::readRawJson(const QString &key, const QString &folder, cons
 
 QByteArray KWalletD::readBinary(const QString &key, const QString &folder, const QString &wallet, bool *ok)
 {
-    return m_backend->readEntry(key, SecretServiceClient::Binary, folder, wallet, ok);
+    // Try first to read the base64 version, if fails, read the raw binary version as legacy fallback
+    QByteArray ret = m_backend->readEntry(key, SecretServiceClient::Base64, folder, wallet, ok);
+    if (!ok || ret.isEmpty()) {
+        ret = m_backend->readEntry(key, SecretServiceClient::Binary, folder, wallet, ok);
+    }
+    return ret;
 }
 
 void KWalletD::writeString(const QString &key, const QString &value, const QString &folder, const QString &wallet, bool *ok)
@@ -293,7 +298,7 @@ void KWalletD::writeString(const QString &key, const QString &value, const QStri
 
 void KWalletD::writeBinary(const QString &key, const QByteArray &value, const QString &folder, const QString &wallet, bool *ok)
 {
-    m_backend->writeEntry(folderPath(folder, key), key, value, SecretServiceClient::Binary, folder, wallet, ok);
+    m_backend->writeEntry(folderPath(folder, key), key, value, SecretServiceClient::Base64, folder, wallet, ok);
 }
 
 void KWalletD::writeRawJson(const QString &key, const QByteArray &value, const QString &folder, const QString &wallet, bool *ok)
