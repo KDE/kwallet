@@ -38,8 +38,10 @@ class SecretServiceClient : public QObject
 public:
     enum Type {
         PlainText = 0,
+        Base64,
         Binary,
-        Map
+        Map,
+        Unknown
     };
     Q_ENUM(Type);
 
@@ -92,7 +94,7 @@ protected:
     void onServiceOwnerChanged(const QString &serviceName, const QString &oldOwner, const QString &newOwner);
 
     SecretCollection *retrieveCollection(const QString &name);
-    SecretItemPtr retrieveItem(const QString &key, const QString &folder, const QString &collectionName, bool *ok);
+    SecretItemPtr retrieveItem(const QString &key, const SecretServiceClient::Type type, const QString &folder, const QString &collectionName, bool *ok);
 
 protected Q_SLOTS:
     void handlePrompt(bool dismissed);
