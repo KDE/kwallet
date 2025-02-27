@@ -389,6 +389,8 @@ bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *
         return false;
     }
 
+    watchCollection(collectionName, ok);
+
     gboolean locked = secret_collection_get_locked(collection);
 
     if (locked) {
@@ -396,13 +398,10 @@ bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *
         *ok = wasErrorFree(&error);
         if (!success) {
             qCWarning(KWALLETD_LOG) << i18n("Unable to unlock collectionName %1", collectionName);
-        } else {
-            watchCollection(collectionName, ok);
         }
         return success;
     }
 
-    watchCollection(collectionName, ok);
     return true;
 }
 
