@@ -126,12 +126,8 @@ SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent
 
     // Unconditionally try to connect to the service without checking it exists:
     // it will try to dbus-activate it if not running
-    GError *error = nullptr;
-    m_service = SecretServicePtr(
-        secret_service_get_sync(static_cast<SecretServiceFlags>(SECRET_SERVICE_OPEN_SESSION | SECRET_SERVICE_LOAD_COLLECTIONS), nullptr, &error));
-
-    bool ok = wasErrorFree(&error);
-    if (ok) {
+    if (attemptConnection()) {
+        bool ok = false;
         for (const QString &collection : listCollections(&ok)) {
             watchCollection(collection, &ok);
         }
@@ -156,7 +152,7 @@ SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent
 
 SecretCollection *SecretServiceClient::retrieveCollection(const QString &name)
 {
-    if (!m_service) {
+    if (!attemptConnection()) {
         qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         return nullptr;
     }
@@ -220,6 +216,26 @@ SecretServiceClient::retrieveItem(const QString &key, const SecretServiceClient:
     }
 
     return SecretItemPtr(item);
+}
+
+bool SecretServiceClient::attemptConnection()
+{
+    if (m_service) {
+        return true;
+    }
+
+    GError *error = nullptr;
+    m_service = SecretServicePtr(
+        secret_service_get_sync(static_cast<SecretServiceFlags>(SECRET_SERVICE_OPEN_SESSION | SECRET_SERVICE_LOAD_COLLECTIONS), nullptr, &error));
+
+    bool ok = wasErrorFree(&error);
+
+    if (!ok || !m_service) {
+        qCWarning(KWALLETD_LOG) << i18n("could not connect to Secret Service");
+        return false;
+    }
+
+    return true;
 }
 
 void SecretServiceClient::watchCollection(const QString &collectionName, bool *ok)
@@ -287,7 +303,7 @@ void SecretServiceClient::onServiceOwnerChanged(const QString &serviceName, cons
 
 void SecretServiceClient::onCollectionCreated(const QDBusObjectPath &path)
 {
-    if (!m_service) {
+    if (!attemptConnection()) {
         qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         return;
     }
@@ -311,7 +327,7 @@ void SecretServiceClient::onCollectionCreated(const QDBusObjectPath &path)
 void SecretServiceClient::onCollectionDeleted(const QDBusObjectPath &path)
 {
     Q_UNUSED(path);
-    if (!m_service) {
+    if (!attemptConnection()) {
         qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         return;
     }
@@ -323,7 +339,7 @@ void SecretServiceClient::onCollectionDeleted(const QDBusObjectPath &path)
 
 void SecretServiceClient::onSecretItemChanged(const QDBusObjectPath &path)
 {
-    if (!m_service) {
+    if (!attemptConnection()) {
         qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         return;
     }
@@ -374,7 +390,7 @@ bool SecretServiceClient::isAvailable() const
 
 bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *ok)
 {
-    if (!m_service) {
+    if (!attemptConnection()) {
         qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return false;
@@ -407,7 +423,7 @@ bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *
 
 QString SecretServiceClient::defaultCollection(bool *ok)
 {
-    if (!m_service) {
+    if (!attemptConnection()) {
         qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return QString();
@@ -447,7 +463,7 @@ QString SecretServiceClient::defaultCollection(bool *ok)
 
 void SecretServiceClient::setDefaultCollection(const QString &collectionName, bool *ok)
 {
-    if (!m_service) {
+    if (!attemptConnection()) {
         qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
@@ -464,7 +480,7 @@ void SecretServiceClient::setDefaultCollection(const QString &collectionName, bo
 
 QStringList SecretServiceClient::listCollections(bool *ok)
 {
-    if (!m_service) {
+    if (!attemptConnection()) {
         qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return QStringList();
@@ -493,6 +509,12 @@ QStringList SecretServiceClient::listCollections(bool *ok)
 
 QStringList SecretServiceClient::listFolders(const QString &collectionName, bool *ok)
 {
+    if (!attemptConnection()) {
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
+        *ok = false;
+        return {};
+    }
+
     QSet<QString> folders;
 
     SecretCollection *collection = retrieveCollection(collectionName);
@@ -524,6 +546,12 @@ QStringList SecretServiceClient::listFolders(const QString &collectionName, bool
 
 QStringList SecretServiceClient::listEntries(const QString &folder, const QString &collectionName, bool *ok)
 {
+    if (!attemptConnection()) {
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
+        *ok = false;
+        return {};
+    }
+
     // TODO: deduplicate
     QSet<QString> items;
     GError *error = nullptr;
@@ -566,6 +594,12 @@ QStringList SecretServiceClient::listEntries(const QString &folder, const QStrin
 
 QHash<QString, QString> SecretServiceClient::readMetadata(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
 {
+    if (!attemptConnection()) {
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
+        *ok = false;
+        return {};
+    }
+
     QHash<QString, QString> hash;
 
     SecretItemPtr item = retrieveItem(key, Unknown, folder, collectionName, ok);
@@ -593,6 +627,12 @@ QHash<QString, QString> SecretServiceClient::readMetadata(const QString &key, co
 
 void SecretServiceClient::createCollection(const QString &collectionName, bool *ok)
 {
+    if (!attemptConnection()) {
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
+        *ok = false;
+        return;
+    }
+
     // Using DBus directly here as libsecret doesn't have stable (and complete)
     // api yet to create collections
     QDBusConnection bus = QDBusConnection::sessionBus();
@@ -657,7 +697,7 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
 
 void SecretServiceClient::deleteCollection(const QString &collectionName, bool *ok)
 {
-    if (!m_service) {
+    if (!attemptConnection()) {
         qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
@@ -678,6 +718,12 @@ void SecretServiceClient::deleteCollection(const QString &collectionName, bool *
 
 void SecretServiceClient::deleteFolder(const QString &folder, const QString &collectionName, bool *ok)
 {
+    if (!attemptConnection()) {
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
+        *ok = false;
+        return;
+    }
+
     GError *error = nullptr;
 
     SecretCollection *collection = retrieveCollection(collectionName);
@@ -708,6 +754,12 @@ void SecretServiceClient::deleteFolder(const QString &folder, const QString &col
 QByteArray
 SecretServiceClient::readEntry(const QString &key, const SecretServiceClient::Type type, const QString &folder, const QString &collectionName, bool *ok)
 {
+    if (!attemptConnection()) {
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
+        *ok = false;
+        return {};
+    }
+
     GError *error = nullptr;
     QByteArray data;
 
@@ -756,6 +808,12 @@ void SecretServiceClient::renameEntry(const QString &display_name,
                                       const QString &collectionName,
                                       bool *ok)
 {
+    if (!attemptConnection()) {
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
+        *ok = false;
+        return;
+    }
+
     SecretItemPtr item = retrieveItem(oldKey, Unknown, folder, collectionName, ok);
     if (!*ok) {
         return;
@@ -818,7 +876,7 @@ void SecretServiceClient::writeEntry(const QString &display_name,
                                      const QString &collectionName,
                                      bool *ok)
 {
-    if (!m_service) {
+    if (!attemptConnection()) {
         qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
@@ -869,6 +927,12 @@ void SecretServiceClient::writeEntry(const QString &display_name,
 
 void SecretServiceClient::deleteEntry(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
 {
+    if (!attemptConnection()) {
+        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
+        *ok = false;
+        return;
+    }
+
     GError *error = nullptr;
     SecretItemPtr item = retrieveItem(key, Unknown, folder, collectionName, ok);
     if (!*ok) {
