@@ -88,6 +88,7 @@ Q_SIGNALS:
     void collectionDeleted(const QString &collection);
 
 protected:
+    bool attemptConnection();
     void watchCollection(const QString &collectionName, bool *ok);
     void onServiceOwnerChanged(const QString &serviceName, const QString &oldOwner, const QString &newOwner);
 
