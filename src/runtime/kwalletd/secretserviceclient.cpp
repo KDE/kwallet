@@ -633,66 +633,11 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
         return;
     }
 
-    // Using DBus directly here as libsecret doesn't have stable (and complete)
-    // api yet to create collections
-    QDBusConnection bus = QDBusConnection::sessionBus();
+    GError *error = nullptr;
 
-    bool collectionCreated = false;
-    QEventLoop loop;
-    connect(this, &SecretServiceClient::collectionCreated, &loop, [this, &loop, collectionName, &collectionCreated, ok](const QString &name) {
-        *ok = !name.isEmpty();
-        if (listCollections(ok).contains(collectionName)) {
-            collectionCreated = true;
-        }
-        loop.quit();
-    });
+    secret_collection_create_sync(m_service.get(), collectionName.toUtf8().data(), nullptr, SECRET_COLLECTION_CREATE_NONE, nullptr, &error);
 
-    // clang-format off
-    QDBusMessage createCollectionMessage = QDBusMessage::createMethodCall(m_serviceBusName,
-        QStringLiteral("/org/freedesktop/secrets"),
-        QStringLiteral("org.freedesktop.Secret.Service"),
-        QStringLiteral("CreateCollection")
-    );
-    // clang-format on
-
-    QVariantMap props;
-    props[QStringLiteral("org.freedesktop.Secret.Collection.Label")] = collectionName;
-    createCollectionMessage << props << QString();
-    QDBusMessage reply = bus.call(createCollectionMessage);
-
-    // We got a prompt, connect to its Completed signal
-    const QString promptPath = reply.arguments().last().value<QDBusObjectPath>().path();
-    bus.connect(m_serviceBusName, promptPath, QStringLiteral("org.freedesktop.Secret.Prompt"), QStringLiteral("Completed"), this, SLOT(handlePrompt(bool)));
-
-    // Execute the prompt
-    QDBusMessage promptMessage =
-        QDBusMessage::createMethodCall(m_serviceBusName, promptPath, QStringLiteral("org.freedesktop.Secret.Prompt"), QStringLiteral("Prompt"));
-    promptMessage << QString();
-    bus.call(promptMessage);
-
-    connect(this, &SecretServiceClient::promptClosed, &loop, [this, &loop, collectionName, &collectionCreated, ok](bool accepted) {
-        *ok = accepted;
-        if (listCollections(ok).contains(collectionName)) {
-            collectionCreated = true;
-        }
-        loop.quit();
-    });
-    // Wait until the user closed the prompt, either accepting it with a new password or dismissing it
-    loop.exec();
-
-    // We don't care about the prompt that has been just closed anymore
-    bus.disconnect(m_serviceBusName, promptPath, QStringLiteral("org.freedesktop.Secret.Prompt"), QStringLiteral("Completed"), this, SLOT(handlePrompt(bool)));
-
-    // The CollectionCreated signal isn't guaranteed to have arrived just yet, wait a bit more for it
-    if (!collectionCreated) {
-        QTimer timer;
-        timer.setSingleShot(true);
-        // Wait for maximum 1 second before giving up
-        timer.setInterval(1000);
-        connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
-        timer.start();
-        loop.exec();
-    }
+    *ok = wasErrorFree(&error);
 }
 
 void SecretServiceClient::deleteCollection(const QString &collectionName, bool *ok)
