@@ -105,6 +105,8 @@ SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent
     : QObject(parent)
 {
     if (useKWalletBackend) {
+        // Tell libsecret where the secretservice api is
+        qputenv("SECRET_SERVICE_BUS_NAME", "org.kde.secretservicecompat");
         m_serviceBusName = QStringLiteral("org.kde.secretservicecompat");
     } else {
         m_serviceBusName = QStringLiteral("org.freedesktop.secrets");
@@ -153,7 +155,6 @@ SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent
 SecretCollection *SecretServiceClient::retrieveCollection(const QString &name)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         return nullptr;
     }
 
@@ -231,7 +232,7 @@ bool SecretServiceClient::attemptConnection()
     bool ok = wasErrorFree(&error);
 
     if (!ok || !m_service) {
-        qCWarning(KWALLETD_LOG) << i18n("could not connect to Secret Service");
+        qCWarning(KWALLETD_LOG) << i18n("Could not connect to Secret Service");
         return false;
     }
 
@@ -304,7 +305,6 @@ void SecretServiceClient::onServiceOwnerChanged(const QString &serviceName, cons
 void SecretServiceClient::onCollectionCreated(const QDBusObjectPath &path)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         return;
     }
 
@@ -328,7 +328,6 @@ void SecretServiceClient::onCollectionDeleted(const QDBusObjectPath &path)
 {
     Q_UNUSED(path);
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         return;
     }
 
@@ -340,7 +339,6 @@ void SecretServiceClient::onCollectionDeleted(const QDBusObjectPath &path)
 void SecretServiceClient::onSecretItemChanged(const QDBusObjectPath &path)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         return;
     }
 
@@ -391,7 +389,6 @@ bool SecretServiceClient::isAvailable() const
 bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return false;
     }
@@ -424,7 +421,6 @@ bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *
 QString SecretServiceClient::defaultCollection(bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return QString();
     }
@@ -464,7 +460,6 @@ QString SecretServiceClient::defaultCollection(bool *ok)
 void SecretServiceClient::setDefaultCollection(const QString &collectionName, bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
     }
@@ -481,7 +476,6 @@ void SecretServiceClient::setDefaultCollection(const QString &collectionName, bo
 QStringList SecretServiceClient::listCollections(bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return QStringList();
     }
@@ -510,7 +504,6 @@ QStringList SecretServiceClient::listCollections(bool *ok)
 QStringList SecretServiceClient::listFolders(const QString &collectionName, bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return {};
     }
@@ -547,7 +540,6 @@ QStringList SecretServiceClient::listFolders(const QString &collectionName, bool
 QStringList SecretServiceClient::listEntries(const QString &folder, const QString &collectionName, bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return {};
     }
@@ -595,7 +587,6 @@ QStringList SecretServiceClient::listEntries(const QString &folder, const QStrin
 QHash<QString, QString> SecretServiceClient::readMetadata(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return {};
     }
@@ -628,7 +619,6 @@ QHash<QString, QString> SecretServiceClient::readMetadata(const QString &key, co
 void SecretServiceClient::createCollection(const QString &collectionName, bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
     }
@@ -643,7 +633,6 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
 void SecretServiceClient::deleteCollection(const QString &collectionName, bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
     }
@@ -654,6 +643,7 @@ void SecretServiceClient::deleteCollection(const QString &collectionName, bool *
 
     *ok = secret_collection_delete_sync(collection, nullptr, &error);
     m_openCollections.erase(collectionName);
+    m_watchedCollections.remove(collectionName);
 
     *ok = *ok && wasErrorFree(&error);
     if (ok) {
@@ -664,7 +654,6 @@ void SecretServiceClient::deleteCollection(const QString &collectionName, bool *
 void SecretServiceClient::deleteFolder(const QString &folder, const QString &collectionName, bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
     }
@@ -700,7 +689,6 @@ QByteArray
 SecretServiceClient::readEntry(const QString &key, const SecretServiceClient::Type type, const QString &folder, const QString &collectionName, bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return {};
     }
@@ -754,7 +742,6 @@ void SecretServiceClient::renameEntry(const QString &display_name,
                                       bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
     }
@@ -822,7 +809,6 @@ void SecretServiceClient::writeEntry(const QString &display_name,
                                      bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
     }
@@ -873,7 +859,6 @@ void SecretServiceClient::writeEntry(const QString &display_name,
 void SecretServiceClient::deleteEntry(const QString &key, const QString &folder, const QString &collectionName, bool *ok)
 {
     if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
         *ok = false;
         return;
     }

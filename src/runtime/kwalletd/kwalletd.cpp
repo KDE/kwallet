@@ -31,11 +31,14 @@ static void startManagerForKwalletd()
     }
 }
 
-KWalletD::KWalletD(bool useKWalletBackend, QObject *parent)
+KWalletD::KWalletD(QObject *parent)
     : QObject(parent)
-    , m_backend(new SecretServiceClient(useKWalletBackend, this))
-    , m_useKWalletBackend(useKWalletBackend)
 {
+    KConfig cfg(QStringLiteral("kwalletrc"));
+    KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
+    m_useKWalletBackend = migrationGroup.readEntry("UseKWalletBackend", true);
+    m_backend = new SecretServiceClient(m_useKWalletBackend, this);
+
     new KWalletAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
     dbus.registerObject(QStringLiteral("/modules/kwalletd5"), this);
