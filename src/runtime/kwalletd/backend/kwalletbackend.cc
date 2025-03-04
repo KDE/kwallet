@@ -66,14 +66,15 @@ gcry_error_t ensureGcryptInit()
 {
     gcry_error_t error = 0;
     bool static gcry_secmem_init = false;
-    if (!gcry_secmem_init) {
-        error = gcry_control(GCRYCTL_INIT_SECMEM, 32768, 0);
-        if (error != 0) {
-            qCWarning(KWALLETBACKEND_LOG) << "Can't get secure memory:" << error;
-            return error;
-        }
-        gcry_secmem_init = true;
+    if (gcry_secmem_init) {
+        return 0;
     }
+    error = gcry_control(GCRYCTL_INIT_SECMEM, 32768, 0);
+    if (error != 0) {
+        qCWarning(KWALLETBACKEND_LOG) << "Can't get secure memory:" << error;
+        return error;
+    }
+    gcry_secmem_init = true;
 
     gcry_control(GCRYCTL_INITIALIZATION_FINISHED, 0);
 
@@ -410,18 +411,19 @@ QByteArray Backend::createAndSaveSalt(const QString &path) const
     }
     saltFile.setPermissions(QFile::ReadUser | QFile::WriteUser);
 
-    std::array <char, PBKDF2_SHA512_SALTSIZE> salt;
+    ensureGcryptInit();
+
+    QByteArray salt(PBKDF2_SHA512_SALTSIZE, Qt::Initialization::Uninitialized);
     gcry_randomize(salt.data(), salt.size(), GCRY_STRONG_RANDOM);
 
-    QByteArray baSalt(salt.data());
 
-    if (saltFile.write(baSalt) != PBKDF2_SHA512_SALTSIZE) {
+    if (saltFile.write(salt) != PBKDF2_SHA512_SALTSIZE) {
         return QByteArray();
     }
 
     saltFile.close();
 
-    return baSalt;
+    return salt;
 }
 
 int Backend::sync(WId w)
