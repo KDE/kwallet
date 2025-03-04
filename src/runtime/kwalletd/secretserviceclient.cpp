@@ -152,6 +152,28 @@ SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent
                 SLOT(onCollectionDeleted(QDBusObjectPath)));
 }
 
+QString SecretServiceClient::collectionLabelForPath(const QDBusObjectPath &path)
+{
+    if (!attemptConnection()) {
+        return {};
+    }
+    QDBusInterface collectionInterface(m_serviceBusName, path.path(), QStringLiteral("org.freedesktop.Secret.Collection"), QDBusConnection::sessionBus());
+
+    if (!collectionInterface.isValid()) {
+        qCWarning(KWALLETD_LOG) << "Failed to connect to the DBus collection object:" << path.path();
+        return {};
+    }
+
+    QVariant reply = collectionInterface.property("Label");
+
+    if (!reply.isValid()) {
+        qCWarning(KWALLETD_LOG) << "Error reading label:" << collectionInterface.lastError();
+        return {};
+    }
+
+    return reply.toString();
+}
+
 SecretCollection *SecretServiceClient::retrieveCollection(const QString &name)
 {
     if (!attemptConnection()) {
@@ -304,22 +326,10 @@ void SecretServiceClient::onServiceOwnerChanged(const QString &serviceName, cons
 
 void SecretServiceClient::onCollectionCreated(const QDBusObjectPath &path)
 {
-    if (!attemptConnection()) {
-        qCWarning(KWALLETD_LOG) << i18n("Not connected to Secret Service");
+    const QString label = collectionLabelForPath(path);
+    if (label.isEmpty()) {
         return;
     }
-
-    GError *error = nullptr;
-
-    SecretCollection *collection =
-        secret_collection_new_for_dbus_path_sync(m_service.get(), path.path().toUtf8().constData(), SECRET_COLLECTION_NONE, nullptr, &error);
-
-    bool ok = wasErrorFree(&error);
-    if (!ok) {
-        return;
-    }
-
-    const QString label = QString::fromUtf8(secret_collection_get_label(collection));
 
     Q_EMIT collectionCreated(label);
     Q_EMIT collectionListDirty();
@@ -349,8 +359,6 @@ void SecretServiceClient::onSecretItemChanged(const QDBusObjectPath &path)
         return;
     }
 
-    GError *error = nullptr;
-
     QStringList pieces = path.path().split(QStringLiteral("/"), Qt::SkipEmptyParts);
 
     // 6 items: /org/freedesktop/secrets/collection/collectionName/itemName
@@ -360,18 +368,10 @@ void SecretServiceClient::onSecretItemChanged(const QDBusObjectPath &path)
     pieces.pop_back();
     const QString collectionPath = QStringLiteral("/") % pieces.join(QStringLiteral("/"));
 
-    SecretCollection *collection =
-        secret_collection_new_for_dbus_path_sync(m_service.get(), collectionPath.toUtf8().data(), SECRET_COLLECTION_NONE, nullptr, &error);
-
-    bool ok = wasErrorFree(&error);
-    if (!ok) {
+    const QString label = collectionLabelForPath(QDBusObjectPath(collectionPath));
+    if (label.isEmpty()) {
         return;
     }
-    if (!collection) {
-        return;
-    }
-
-    const QString label = QString::fromUtf8(secret_collection_get_label(collection));
 
     m_dirtyCollections.insert(label);
     m_collectionDirtyTimer->start();
@@ -427,34 +427,33 @@ QString SecretServiceClient::defaultCollection(bool *ok)
     }
 
     QString label = QStringLiteral("kdewallet");
-    GError *error = nullptr;
 
-    gchar *path = secret_service_read_alias_dbus_path_sync(m_service.get(), SECRET_COLLECTION_DEFAULT, nullptr, &error);
+    QDBusInterface serviceInterface(m_serviceBusName,
+                                    QStringLiteral("/org/freedesktop/secrets"),
+                                    QStringLiteral("org.freedesktop.Secret.Service"),
+                                    QDBusConnection::sessionBus());
 
-    *ok = wasErrorFree(&error);
-    if (!*ok) {
-        return label;
-    }
-
-    QDBusInterface collectionInterface(m_serviceBusName,
-                                       QString::fromUtf8(path),
-                                       QStringLiteral("org.freedesktop.Secret.Collection"),
-                                       QDBusConnection::sessionBus());
-
-    if (!collectionInterface.isValid()) {
-        qCWarning(KWALLETD_LOG) << i18n("Cannot retrieve default collection");
+    if (!serviceInterface.isValid()) {
+        qCWarning(KWALLETD_LOG) << "Failed to connect to the DBus SecretService object";
         *ok = false;
         return label;
     }
 
-    label = collectionInterface.property("Label").toString();
-    if (!label.isEmpty()) {
-        *ok = true;
+    QDBusReply<QDBusObjectPath> reply = serviceInterface.call(QStringLiteral("ReadAlias"), QStringLiteral("default"));
+
+    if (!reply.isValid()) {
+        qCWarning(KWALLETD_LOG) << "Error reading label:" << reply.error().message();
+        *ok = false;
         return label;
     }
 
-    *ok = false;
-    qCWarning(KWALLETD_LOG) << i18n("Cannot retrieve default collection");
+    label = collectionLabelForPath(reply.value());
+
+    if (label.isEmpty()) {
+        *ok = false;
+        return QStringLiteral("kdewallet");
+    }
+
     return label;
 }
 
@@ -624,66 +623,11 @@ void SecretServiceClient::createCollection(const QString &collectionName, bool *
         return;
     }
 
-    // Using DBus directly here as libsecret doesn't have stable (and complete)
-    // api yet to create collections
-    QDBusConnection bus = QDBusConnection::sessionBus();
+    GError *error = nullptr;
 
-    bool collectionCreated = false;
-    QEventLoop loop;
-    connect(this, &SecretServiceClient::collectionCreated, &loop, [this, &loop, collectionName, &collectionCreated, ok](const QString &name) {
-        *ok = !name.isEmpty();
-        if (listCollections(ok).contains(collectionName)) {
-            collectionCreated = true;
-        }
-        loop.quit();
-    });
+    secret_collection_create_sync(m_service.get(), collectionName.toUtf8().data(), nullptr, SECRET_COLLECTION_CREATE_NONE, nullptr, &error);
 
-    // clang-format off
-    QDBusMessage createCollectionMessage = QDBusMessage::createMethodCall(m_serviceBusName,
-        QStringLiteral("/org/freedesktop/secrets"),
-        QStringLiteral("org.freedesktop.Secret.Service"),
-        QStringLiteral("CreateCollection")
-    );
-    // clang-format on
-
-    QVariantMap props;
-    props[QStringLiteral("org.freedesktop.Secret.Collection.Label")] = collectionName;
-    createCollectionMessage << props << QString();
-    QDBusMessage reply = bus.call(createCollectionMessage);
-
-    // We got a prompt, connect to its Completed signal
-    const QString promptPath = reply.arguments().last().value<QDBusObjectPath>().path();
-    bus.connect(m_serviceBusName, promptPath, QStringLiteral("org.freedesktop.Secret.Prompt"), QStringLiteral("Completed"), this, SLOT(handlePrompt(bool)));
-
-    // Execute the prompt
-    QDBusMessage promptMessage =
-        QDBusMessage::createMethodCall(m_serviceBusName, promptPath, QStringLiteral("org.freedesktop.Secret.Prompt"), QStringLiteral("Prompt"));
-    promptMessage << QString();
-    bus.call(promptMessage);
-
-    connect(this, &SecretServiceClient::promptClosed, &loop, [this, &loop, collectionName, &collectionCreated, ok](bool accepted) {
-        *ok = accepted;
-        if (listCollections(ok).contains(collectionName)) {
-            collectionCreated = true;
-        }
-        loop.quit();
-    });
-    // Wait until the user closed the prompt, either accepting it with a new password or dismissing it
-    loop.exec();
-
-    // We don't care about the prompt that has been just closed anymore
-    bus.disconnect(m_serviceBusName, promptPath, QStringLiteral("org.freedesktop.Secret.Prompt"), QStringLiteral("Completed"), this, SLOT(handlePrompt(bool)));
-
-    // The CollectionCreated signal isn't guaranteed to have arrived just yet, wait a bit more for it
-    if (!collectionCreated) {
-        QTimer timer;
-        timer.setSingleShot(true);
-        // Wait for maximum 1 second before giving up
-        timer.setInterval(1000);
-        connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
-        timer.start();
-        loop.exec();
-    }
+    *ok = wasErrorFree(&error);
 }
 
 void SecretServiceClient::deleteCollection(const QString &collectionName, bool *ok)

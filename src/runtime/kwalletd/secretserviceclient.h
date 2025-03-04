@@ -94,6 +94,7 @@ protected:
     void watchCollection(const QString &collectionName, bool *ok);
     void onServiceOwnerChanged(const QString &serviceName, const QString &oldOwner, const QString &newOwner);
 
+    QString collectionLabelForPath(const QDBusObjectPath &path);
     SecretCollection *retrieveCollection(const QString &name);
     SecretItemPtr retrieveItem(const QString &key, const SecretServiceClient::Type type, const QString &folder, const QString &collectionName, bool *ok);
 

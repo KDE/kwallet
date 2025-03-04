@@ -56,9 +56,6 @@ ecm_qt_declare_logging_category(kwalletd6
     EXPORT KWALLET
 )
 
-# Needed for fetching the name of the default wallet
-target_compile_definitions(kwalletd6 PRIVATE SECRET_WITH_UNSTABLE)
-
 target_link_libraries(kwalletd6
     KF6WalletBackend
     KF6::ConfigCore
