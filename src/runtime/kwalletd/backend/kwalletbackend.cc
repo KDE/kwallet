@@ -410,18 +410,17 @@ QByteArray Backend::createAndSaveSalt(const QString &path) const
     }
     saltFile.setPermissions(QFile::ReadUser | QFile::WriteUser);
 
-    std::array <char, PBKDF2_SHA512_SALTSIZE> salt;
+    QByteArray salt(PBKDF2_SHA512_SALTSIZE, Qt::Initialization::Uninitialized);
     gcry_randomize(salt.data(), salt.size(), GCRY_STRONG_RANDOM);
 
-    QByteArray baSalt(salt.data());
 
-    if (saltFile.write(baSalt) != PBKDF2_SHA512_SALTSIZE) {
+    if (saltFile.write(salt) != PBKDF2_SHA512_SALTSIZE) {
         return QByteArray();
     }
 
     saltFile.close();
 
-    return baSalt;
+    return salt;
 }
 
 int Backend::sync(WId w)
