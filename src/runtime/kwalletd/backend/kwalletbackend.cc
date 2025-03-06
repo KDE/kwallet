@@ -64,12 +64,11 @@ QString Backend::decodeWalletName(const QString &encodedName) {
 
 gcry_error_t ensureGcryptInit()
 {
-    gcry_error_t error = 0;
     bool static gcry_secmem_init = false;
     if (gcry_secmem_init) {
         return 0;
     }
-    error = gcry_control(GCRYCTL_INIT_SECMEM, 32768, 0);
+    gcry_error_t error = gcry_control(GCRYCTL_INIT_SECMEM, 32768, 0);
     if (error != 0) {
         qCWarning(KWALLETBACKEND_LOG) << "Can't get secure memory:" << error;
         return error;
@@ -411,7 +410,9 @@ QByteArray Backend::createAndSaveSalt(const QString &path) const
     }
     saltFile.setPermissions(QFile::ReadUser | QFile::WriteUser);
 
-    ensureGcryptInit();
+    if (ensureGcryptInit() != 0) {
+        return QByteArray();
+    }
 
     QByteArray salt(PBKDF2_SHA512_SALTSIZE, Qt::Initialization::Uninitialized);
     gcry_randomize(salt.data(), salt.size(), GCRY_STRONG_RANDOM);
