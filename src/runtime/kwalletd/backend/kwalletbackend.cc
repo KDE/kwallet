@@ -411,7 +411,9 @@ QByteArray Backend::createAndSaveSalt(const QString &path) const
     }
     saltFile.setPermissions(QFile::ReadUser | QFile::WriteUser);
 
-    ensureGcryptInit();
+    if (ensureGcryptInit() != 0) {
+        return QByteArray();
+    }
 
     QByteArray salt(PBKDF2_SHA512_SALTSIZE, Qt::Initialization::Uninitialized);
     gcry_randomize(salt.data(), salt.size(), GCRY_STRONG_RANDOM);
