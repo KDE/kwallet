@@ -34,10 +34,7 @@ static void startManagerForKwalletd()
 KWalletD::KWalletD(QObject *parent)
     : QObject(parent)
 {
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
-    m_useKWalletBackend = migrationGroup.readEntry("UseKWalletBackend", true);
-    m_backend = new SecretServiceClient(m_useKWalletBackend, this);
+    m_backend = new SecretServiceClient(this);
 
     new KWalletAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
@@ -56,9 +53,8 @@ KWalletD::KWalletD(QObject *parent)
         qCDebug(KWALLETD_LOG) << "Structure:" << m_structure;
         qCDebug(KWALLETD_LOG) << "Default wallet:" << m_backend->defaultCollection(&ok);
 
-        if (!m_useKWalletBackend) {
-            migrateData();
-        }
+        // This function will only do something if the config file tells it to actually do the migration
+        migrateData();
     };
     readStructure();
 
@@ -183,12 +179,17 @@ bool KWalletD::migrateWallet(const QString &sourceWallet, const QString &destWal
 
 void KWalletD::migrateData()
 {
-    if (!m_backend->isAvailable() || m_useKWalletBackend) {
+    if (!m_backend->isAvailable() || m_backend->useKSecretBackend()) {
         return;
     }
     KConfig cfg(QStringLiteral("kwalletrc"));
     KConfigGroup walletGroup(&cfg, QStringLiteral("Wallet"));
     KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
+
+    if (!migrationGroup.readEntry(QStringLiteral("MigrateTo3rdParty"), false)) {
+        return;
+    }
+
     QStringList walletsMigrated = migrationGroup.readEntry(QStringLiteral("WalletsMigratedToSecretService"), QStringList());
 
     // Get the list of all known kwallets
@@ -551,7 +552,7 @@ QStringList KWalletD::users(const QString &wallet) const
 
 void KWalletD::changePassword(const QString &wallet, qlonglong wId, const QString &appId)
 {
-    if (!m_useKWalletBackend) {
+    if (!m_backend->useKSecretBackend()) {
         return;
     }
 
@@ -1122,7 +1123,7 @@ QString KWalletD::localWallet()
 
 int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout)
 {
-    if (!m_useKWalletBackend) {
+    if (!m_backend->useKSecretBackend()) {
         return -1;
     }
 

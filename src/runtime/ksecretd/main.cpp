@@ -38,13 +38,6 @@ static int pipefd = 0;
 static int socketfd = 0;
 #endif
 
-static bool isWalletEnabled()
-{
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup walletGroup(&cfg, "Wallet");
-    return walletGroup.readEntry("Enabled", true);
-}
-
 #ifndef Q_OS_WIN
 // Waits until the PAM_MODULE sends the hash
 static char *waitForHash()
@@ -193,7 +186,7 @@ int main(int argc, char **argv)
     QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
 
     // check if kwallet is disabled
-    if (!isWalletEnabled()) {
+    if (!KSecretD::isEnabled()) {
         qCDebug(KSECRETD_LOG) << "ksecretd is disabled!";
 
         /* Do not keep dbus-daemon waiting for the org.freedesktop.secrets if kwallet is disabled */

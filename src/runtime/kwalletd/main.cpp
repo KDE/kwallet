@@ -7,11 +7,20 @@
 #include "kwalletd.h"
 
 #include <KAboutData>
+#include <KConfig>
+#include <KConfigGroup>
 #include <KDBusService>
 #include <KLocalizedString>
 
 #include <QApplication>
 #include <QCommandLineParser>
+
+static bool isWalletEnabled()
+{
+    KConfig cfg(QStringLiteral("kwalletrc"));
+    KConfigGroup walletGroup(&cfg, QStringLiteral("Wallet"));
+    return walletGroup.readEntry(QStringLiteral("Enabled"), true);
+}
 
 int main(int argc, char **argv)
 {
@@ -37,6 +46,13 @@ int main(int argc, char **argv)
 
     parser.process(application);
     aboutData.processCommandLine(&parser);
+
+    // check if kwallet is disabled
+    if (!isWalletEnabled()) {
+        qCDebug(KWALLETD_LOG) << "kwallet is disabled!";
+
+        return (0);
+    }
 
     KDBusService dbusUniqueInstance(KDBusService::Unique);
 
