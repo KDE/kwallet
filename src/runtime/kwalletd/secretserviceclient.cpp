@@ -101,10 +101,14 @@ static SecretServiceClient::Type stringToType(const QString &typeName)
     }
 }
 
-SecretServiceClient::SecretServiceClient(bool useKWalletBackend, QObject *parent)
+SecretServiceClient::SecretServiceClient(QObject *parent)
     : QObject(parent)
 {
-    if (useKWalletBackend) {
+    KConfig cfg(QStringLiteral("kwalletrc"));
+    KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
+    m_useKWalletBackend = migrationGroup.readEntry("UseKWalletBackend", true);
+
+    if (m_useKWalletBackend) {
         // Tell libsecret where the secretservice api is
         qputenv("SECRET_SERVICE_BUS_NAME", "org.kde.secretservicecompat");
         m_serviceBusName = QStringLiteral("org.kde.secretservicecompat");
@@ -379,6 +383,11 @@ void SecretServiceClient::onSecretItemChanged(const QDBusObjectPath &path)
 void SecretServiceClient::handlePrompt(bool dismissed)
 {
     Q_EMIT promptClosed(!dismissed);
+}
+
+bool SecretServiceClient::useKWalletBackend() const
+{
+    return m_useKWalletBackend;
 }
 
 bool SecretServiceClient::isAvailable() const
