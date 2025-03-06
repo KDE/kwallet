@@ -21,7 +21,7 @@ kwalletd will use ksecretd by default but can be configured to not depend on it 
 
 ```
 [Migration]
-UseKWalletBackend=false
+UseKSecretBackend=false
 ```
 
 The first time kwalletd will encounter this configuration, it will perform a migration of all existing wallets and write the content in the new SecretService provider.
