@@ -3,6 +3,10 @@ configure_file(config-ksecretd.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-ksecre
 include(CheckSymbolExists)
 
 check_symbol_exists(explicit_bzero "string.h" KSECRETD_HAVE_EXPLICIT_BZERO)
+if (NOT KSECRETD_HAVE_EXPLICIT_BZERO)
+# On FreeBSD it's in strings.h
+check_symbol_exists(explicit_bzero "strings.h" KSECRETD_HAVE_EXPLICIT_BZERO)
+endif(NOT KSECRETD_HAVE_EXPLICIT_BZERO)
 check_symbol_exists(RtlSecureZeroMemory "windows.h" KSECRETD_HAVE_RTLSECUREZEROMEMORY)
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Gui)
@@ -118,8 +122,6 @@ target_sources(ksecretd PRIVATE
     ${ksecretd_dbus_SRCS}
 )
 
-
-
 if (HAIKU)
     target_link_libraries(ksecretd network)
 endif ()
@@ -145,7 +147,6 @@ endif(Gpgmepp_FOUND)
 
 ecm_mark_nongui_executable(ksecretd)
 install(TARGETS ksecretd  ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
-
 
 if(WIN32)
     configure_file(org.kde.kwalletd5.service.win.in
