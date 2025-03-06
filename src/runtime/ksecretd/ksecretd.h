@@ -38,6 +38,8 @@ public:
 
     static QString encodeWalletName(const QString &name);
     static QString decodeWalletName(const QString &mangledName);
+    // Is the wallet enabled?  If not, all open() calls fail.
+    static bool isEnabled();
 
     int nextTransactionId() const;
     int
@@ -45,10 +47,8 @@ public:
     // Close and lock the wallet
     // Accepts "message" for working from other QDBusContexts
     int close(int handle, bool force, const QString &appid, const QDBusMessage &message);
-public Q_SLOTS:
 
-    // Is the wallet enabled?  If not, all open() calls fail.
-    bool isEnabled() const;
+public Q_SLOTS:
 
     // Open and unlock the wallet
     int open(const QString &wallet, qlonglong wId, const QString &appid);
@@ -242,7 +242,7 @@ private:
     int _failed;
 
     // configuration values
-    bool _leaveOpen, _closeIdle, _launchManager, _enabled;
+    bool _leaveOpen, _closeIdle, _launchManager;
     bool _openPrompt, _firstUse, _showingFailureNotify;
     int _idleTime;
     QMap<QString, QStringList> _implicitAllowMap, _implicitDenyMap;

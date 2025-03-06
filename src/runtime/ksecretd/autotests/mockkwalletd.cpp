@@ -64,7 +64,7 @@ MOCK_FUNCTION_OVERLOADED_RES(KSecretD, writeEntry, 5, 0, OVWriteEntry_5);
 MOCK_FUNCTION(KSecretD, entryType, 4, );
 MOCK_FUNCTION_RES(KSecretD, renameEntry, 5, 0, );
 
-MOCK_FUNCTION(KSecretD, isEnabled, 0, const);
+MOCK_FUNCTION_RES(KSecretD, isEnabled, 0, 1);
 MOCK_FUNCTION(KSecretD, open, 3, );
 MOCK_FUNCTION(KSecretD, openPath, 3, );
 MOCK_FUNCTION(KSecretD, openPathAsync, 4, );

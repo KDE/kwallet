@@ -136,7 +136,6 @@ KSecretD::KSecretD()
 
     KConfig kwalletrc(QStringLiteral("kwalletrc"));
     KConfigGroup cfgWallet(&kwalletrc, "Wallet");
-    KConfigGroup cfgSecrets(&kwalletrc, "org.freedesktop.secrets");
 
     if (cfgWallet.readEntry<bool>("apiEnabled", true)) {
         (void)new KWalletAdaptor(this);
@@ -330,7 +329,7 @@ int KSecretD::openPath(const QString &path, qlonglong wId, const QString &appid)
 
 int KSecretD::open(const QString &wallet, qlonglong wId, const QString &appid)
 {
-    if (!_enabled) { // guard
+    if (!isEnabled()) { // guard
         return -1;
     }
 
@@ -366,7 +365,7 @@ int KSecretD::openAsync(const QString &wallet,
                         const QDBusConnection &connection,
                         const QDBusMessage &message)
 {
-    if (!_enabled) { // guard
+    if (!isEnabled()) { // guard
         return -1;
     }
 
@@ -398,7 +397,7 @@ int KSecretD::openAsync(const QString &wallet, qlonglong wId, const QString &app
 
 int KSecretD::openPathAsync(const QString &path, qlonglong wId, const QString &appid, bool handleSession)
 {
-    if (!_enabled) { // guard
+    if (!isEnabled()) { // guard
         return -1;
     }
 
@@ -1689,7 +1688,6 @@ void KSecretD::reconfigure()
     KConfig cfg(QStringLiteral("kwalletrc"));
     KConfigGroup walletGroup(&cfg, "Wallet");
     _firstUse = walletGroup.readEntry("First Use", true);
-    _enabled = walletGroup.readEntry("Enabled", true);
     _launchManager = walletGroup.readEntry("Launch Manager", false);
     _leaveOpen = walletGroup.readEntry("Leave Open", true);
     bool idleSave = _closeIdle;
@@ -1751,7 +1749,7 @@ void KSecretD::reconfigure()
     }
 
     // Update if wallet was enabled/disabled
-    if (!_enabled) { // close all wallets
+    if (!isEnabled()) { // close all wallets
         while (!_wallets.isEmpty()) {
             Wallets::const_iterator it = _wallets.constBegin();
             internalClose(it.value(), it.key(), true);
@@ -1760,9 +1758,15 @@ void KSecretD::reconfigure()
     }
 }
 
-bool KSecretD::isEnabled() const
+bool KSecretD::isEnabled()
 {
-    return _enabled;
+    KConfig cfg(QStringLiteral("kwalletrc"));
+    KConfigGroup walletGroup(&cfg, "Wallet");
+    KConfigGroup ksecretdGroup(&cfg, "KSecretD");
+    // For KSecredD to be enabled, it needs both global kwallet enabled and ksecretd enabled
+    // values, as it does not make sense without kwallet, but is possible kwallet without
+    // ksecretd
+    return ksecretdGroup.readEntry("Enabled", true) && walletGroup.readEntry("Enabled", true);
 }
 
 bool KSecretD::folderDoesNotExist(const QString &wallet, const QString &folder)

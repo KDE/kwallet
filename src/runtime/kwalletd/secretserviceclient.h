@@ -45,8 +45,9 @@ public:
     };
     Q_ENUM(Type);
 
-    SecretServiceClient(bool useKWalletBackend, QObject *parent = nullptr);
+    SecretServiceClient(QObject *parent = nullptr);
 
+    bool useKSecretBackend() const;
     bool isAvailable() const;
 
     bool unlockCollection(const QString &collectionName, bool *ok);
@@ -112,5 +113,6 @@ private:
     QSet<QString> m_dirtyCollections;
     QTimer *m_collectionDirtyTimer;
     QString m_serviceBusName;
+    bool m_useKSecretBackend = false;
     bool m_updateInProgress = false;
 };

@@ -207,7 +207,6 @@ private:
     bool m_enabled = true;
     bool m_launchManager = false;
     bool m_closeIdle = false;
-    bool m_useKWalletBackend = true;
     // in minutes
     int m_idleTime = 10 * 60 * 1000;
     KConfigWatcher::Ptr m_configWatcher;
