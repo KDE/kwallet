@@ -156,6 +156,28 @@ SecretServiceClient::SecretServiceClient(QObject *parent)
                 SLOT(onCollectionDeleted(QDBusObjectPath)));
 }
 
+QString SecretServiceClient::collectionLabelForPath(const QDBusObjectPath &path)
+{
+    if (!attemptConnection()) {
+        return {};
+    }
+    QDBusInterface collectionInterface(m_serviceBusName, path.path(), QStringLiteral("org.freedesktop.Secret.Collection"), QDBusConnection::sessionBus());
+
+    if (!collectionInterface.isValid()) {
+        qCWarning(KWALLETD_LOG) << "Failed to connect to the DBus collection object:" << path.path();
+        return {};
+    }
+
+    QVariant reply = collectionInterface.property("Label");
+
+    if (!reply.isValid()) {
+        qCWarning(KWALLETD_LOG) << "Error reading label:" << collectionInterface.lastError();
+        return {};
+    }
+
+    return reply.toString();
+}
+
 SecretCollection *SecretServiceClient::retrieveCollection(const QString &name)
 {
     if (!attemptConnection()) {
@@ -308,21 +330,10 @@ void SecretServiceClient::onServiceOwnerChanged(const QString &serviceName, cons
 
 void SecretServiceClient::onCollectionCreated(const QDBusObjectPath &path)
 {
-    if (!attemptConnection()) {
+    const QString label = collectionLabelForPath(path);
+    if (label.isEmpty()) {
         return;
     }
-
-    GError *error = nullptr;
-
-    SecretCollection *collection =
-        secret_collection_new_for_dbus_path_sync(m_service.get(), path.path().toUtf8().constData(), SECRET_COLLECTION_NONE, nullptr, &error);
-
-    bool ok = wasErrorFree(&error);
-    if (!ok) {
-        return;
-    }
-
-    const QString label = QString::fromUtf8(secret_collection_get_label(collection));
 
     Q_EMIT collectionCreated(label);
     Q_EMIT collectionListDirty();
@@ -352,8 +363,6 @@ void SecretServiceClient::onSecretItemChanged(const QDBusObjectPath &path)
         return;
     }
 
-    GError *error = nullptr;
-
     QStringList pieces = path.path().split(QStringLiteral("/"), Qt::SkipEmptyParts);
 
     // 6 items: /org/freedesktop/secrets/collection/collectionName/itemName
@@ -363,18 +372,10 @@ void SecretServiceClient::onSecretItemChanged(const QDBusObjectPath &path)
     pieces.pop_back();
     const QString collectionPath = QStringLiteral("/") % pieces.join(QStringLiteral("/"));
 
-    SecretCollection *collection =
-        secret_collection_new_for_dbus_path_sync(m_service.get(), collectionPath.toUtf8().data(), SECRET_COLLECTION_NONE, nullptr, &error);
-
-    bool ok = wasErrorFree(&error);
-    if (!ok) {
+    const QString label = collectionLabelForPath(QDBusObjectPath(collectionPath));
+    if (label.isEmpty()) {
         return;
     }
-    if (!collection) {
-        return;
-    }
-
-    const QString label = QString::fromUtf8(secret_collection_get_label(collection));
 
     m_dirtyCollections.insert(label);
     m_collectionDirtyTimer->start();
@@ -435,34 +436,33 @@ QString SecretServiceClient::defaultCollection(bool *ok)
     }
 
     QString label = QStringLiteral("kdewallet");
-    GError *error = nullptr;
 
-    gchar *path = secret_service_read_alias_dbus_path_sync(m_service.get(), SECRET_COLLECTION_DEFAULT, nullptr, &error);
+    QDBusInterface serviceInterface(m_serviceBusName,
+                                    QStringLiteral("/org/freedesktop/secrets"),
+                                    QStringLiteral("org.freedesktop.Secret.Service"),
+                                    QDBusConnection::sessionBus());
 
-    *ok = wasErrorFree(&error);
-    if (!*ok) {
-        return label;
-    }
-
-    QDBusInterface collectionInterface(m_serviceBusName,
-                                       QString::fromUtf8(path),
-                                       QStringLiteral("org.freedesktop.Secret.Collection"),
-                                       QDBusConnection::sessionBus());
-
-    if (!collectionInterface.isValid()) {
-        qCWarning(KWALLETD_LOG) << i18n("Cannot retrieve default collection");
+    if (!serviceInterface.isValid()) {
+        qCWarning(KWALLETD_LOG) << "Failed to connect to the DBus SecretService object";
         *ok = false;
         return label;
     }
 
-    label = collectionInterface.property("Label").toString();
-    if (!label.isEmpty()) {
-        *ok = true;
+    QDBusReply<QDBusObjectPath> reply = serviceInterface.call(QStringLiteral("ReadAlias"), QStringLiteral("default"));
+
+    if (!reply.isValid()) {
+        qCWarning(KWALLETD_LOG) << "Error reading label:" << reply.error().message();
+        *ok = false;
         return label;
     }
 
-    *ok = false;
-    qCWarning(KWALLETD_LOG) << i18n("Cannot retrieve default collection");
+    label = collectionLabelForPath(reply.value());
+
+    if (label.isEmpty()) {
+        *ok = false;
+        return QStringLiteral("kdewallet");
+    }
+
     return label;
 }
 
