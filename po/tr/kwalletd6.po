@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:38+0000\n"
-"PO-Revision-Date: 2025-03-04 12:55+0300\n"
+"PO-Revision-Date: 2025-03-11 12:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -366,7 +366,7 @@ msgstr "<b>%1</b> uygulaması bu cüzdana erişerek açma isteğinde bulundu (%2
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
-msgstr "%1 uygulamasına geç"
+msgstr "%1 Uygulamasına Geç"
 
 #: kwalletd.cpp:676 kwalletd.cpp:758
 #, kde-format
