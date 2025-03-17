@@ -62,6 +62,24 @@ QString Backend::decodeWalletName(const QString &encodedName) {
     return QString::fromUtf8(QByteArray::fromPercentEncoding(encodedName.toUtf8(), ';'));
 }
 
+gcry_error_t ensureGcryptInit()
+{
+    bool static gcry_secmem_init = false;
+    if (gcry_secmem_init) {
+        return 0;
+    }
+    gcry_error_t error = gcry_control(GCRYCTL_INIT_SECMEM, 32768, 0);
+    if (error != 0) {
+        qCWarning(KWALLETBACKEND_LOG) << "Can't get secure memory:" << error;
+        return error;
+    }
+    gcry_secmem_init = true;
+
+    gcry_control(GCRYCTL_INITIALIZATION_FINISHED, 0);
+
+    return error;
+}
+
 class Backend::BackendPrivate
 {
 };
@@ -77,6 +95,9 @@ Backend::Backend(const QString &name, bool isPath)
       _cipherType(KWallet::BACKEND_CIPHER_UNKNOWN)
 {
 //  initKWalletDir();
+
+    ensureGcryptInit();
+
     if (isPath) {
         _path = name;
     } else {
@@ -122,18 +143,10 @@ static int password2PBKDF2_SHA512(const QByteArray &password, QByteArray &hash, 
         return GPG_ERR_USER_2;
     }
 
-    gcry_error_t error;
-    bool static gcry_secmem_init = false;
-    if (!gcry_secmem_init) {
-        error = gcry_control(GCRYCTL_INIT_SECMEM, 32768, 0);
-        if (error != 0) {
-            qCWarning(KWALLETBACKEND_LOG) << "Can't get secure memory:" << error;
-            return error;
-        }
-        gcry_secmem_init = true;
+    gcry_error_t error = ensureGcryptInit();
+    if (error != 0) {
+        return error;
     }
-
-    gcry_control(GCRYCTL_INITIALIZATION_FINISHED, 0);
 
     error = gcry_kdf_derive(password.constData(), password.size(),
                             GCRY_KDF_PBKDF2, GCRY_MD_SHA512,
@@ -397,9 +410,13 @@ QByteArray Backend::createAndSaveSalt(const QString &path) const
     }
     saltFile.setPermissions(QFile::ReadUser | QFile::WriteUser);
 
-    char *randomData = (char *) gcry_random_bytes(PBKDF2_SHA512_SALTSIZE, GCRY_STRONG_RANDOM);
-    QByteArray salt(randomData, PBKDF2_SHA512_SALTSIZE);
-    free(randomData);
+    if (ensureGcryptInit() != 0) {
+        return QByteArray();
+    }
+
+    QByteArray salt(PBKDF2_SHA512_SALTSIZE, Qt::Initialization::Uninitialized);
+    gcry_randomize(salt.data(), salt.size(), GCRY_STRONG_RANDOM);
+
 
     if (saltFile.write(salt) != PBKDF2_SHA512_SALTSIZE) {
         return QByteArray();
