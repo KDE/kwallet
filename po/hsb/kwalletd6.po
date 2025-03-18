@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop_kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:38+0000\n"
+"POT-Creation-Date: 2025-03-18 00:39+0000\n"
 "PO-Revision-Date: 2008-11-22 23:39+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -99,52 +99,52 @@ msgid ""
 "system.</qt>"
 msgstr ""
 
-#: backend/kwalletbackend.cc:259
+#: backend/kwalletbackend.cc:272
 #, fuzzy, kde-format
 msgid "Already open."
 msgstr "Dataja wočinjena."
 
-#: backend/kwalletbackend.cc:261
+#: backend/kwalletbackend.cc:274
 #, fuzzy, kde-format
 msgid "Error opening file."
 msgstr "Zmylk při wuběranju GSM-dataje: "
 
-#: backend/kwalletbackend.cc:263
+#: backend/kwalletbackend.cc:276
 #, kde-format
 msgid "Not a wallet file."
 msgstr ""
 
-#: backend/kwalletbackend.cc:265
+#: backend/kwalletbackend.cc:278
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr ""
 
-#: backend/kwalletbackend.cc:269
+#: backend/kwalletbackend.cc:282
 #, fuzzy, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Njeznata opcija '%1'."
 
-#: backend/kwalletbackend.cc:271
+#: backend/kwalletbackend.cc:284
 #, fuzzy, kde-format
 msgid "Corrupt file?"
 msgstr "Dataja za &output:"
 
-#: backend/kwalletbackend.cc:273
+#: backend/kwalletbackend.cc:286
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr ""
 
-#: backend/kwalletbackend.cc:277
+#: backend/kwalletbackend.cc:290
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr ""
 
-#: backend/kwalletbackend.cc:279
+#: backend/kwalletbackend.cc:292
 #, fuzzy, kde-format
 msgid "Decryption error."
 msgstr "Wopisanje:"
 
-#: backend/kwalletbackend.cc:455
+#: backend/kwalletbackend.cc:472
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"

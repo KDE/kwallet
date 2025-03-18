@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:38+0000\n"
+"POT-Creation-Date: 2025-03-18 00:39+0000\n"
 "PO-Revision-Date: 2008-09-26 16:25+0300\n"
 "Last-Translator: kom <me@komzpa.net>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -101,52 +101,52 @@ msgid ""
 "system.</qt>"
 msgstr ""
 
-#: backend/kwalletbackend.cc:259
+#: backend/kwalletbackend.cc:272
 #, kde-format
 msgid "Already open."
 msgstr "Ужо адкрыты."
 
-#: backend/kwalletbackend.cc:261
+#: backend/kwalletbackend.cc:274
 #, kde-format
 msgid "Error opening file."
 msgstr "Памылка адкрыцця файла."
 
-#: backend/kwalletbackend.cc:263
+#: backend/kwalletbackend.cc:276
 #, kde-format
 msgid "Not a wallet file."
 msgstr "Гэта не файл гаманца."
 
-#: backend/kwalletbackend.cc:265
+#: backend/kwalletbackend.cc:278
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "Непадтрымлівая рэвізія фармату файлу."
 
-#: backend/kwalletbackend.cc:269
+#: backend/kwalletbackend.cc:282
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Невядомая схема шыфравання."
 
-#: backend/kwalletbackend.cc:271
+#: backend/kwalletbackend.cc:284
 #, kde-format
 msgid "Corrupt file?"
 msgstr "Зламаны файл?"
 
-#: backend/kwalletbackend.cc:273
+#: backend/kwalletbackend.cc:286
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "Немагчыма праверыць гаманец. Магчыма, ён зламаны."
 
-#: backend/kwalletbackend.cc:277
+#: backend/kwalletbackend.cc:290
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "Памылка чытання - магчыма, пароль няправільны."
 
-#: backend/kwalletbackend.cc:279
+#: backend/kwalletbackend.cc:292
 #, kde-format
 msgid "Decryption error."
 msgstr "Памылка расшыфроўкі."
 
-#: backend/kwalletbackend.cc:455
+#: backend/kwalletbackend.cc:472
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"

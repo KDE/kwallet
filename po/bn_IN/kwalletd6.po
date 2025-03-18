@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:38+0000\n"
+"POT-Creation-Date: 2025-03-18 00:39+0000\n"
 "PO-Revision-Date: 2009-01-02 17:05+0530\n"
 "Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
 "Language-Team: Bengali INDIA <fedora-trans-bn_IN@redhat.com>\n"
@@ -100,52 +100,52 @@ msgid ""
 "system.</qt>"
 msgstr ""
 
-#: backend/kwalletbackend.cc:259
+#: backend/kwalletbackend.cc:272
 #, kde-format
 msgid "Already open."
 msgstr "বর্তমানে খোলা"
 
-#: backend/kwalletbackend.cc:261
+#: backend/kwalletbackend.cc:274
 #, kde-format
 msgid "Error opening file."
 msgstr "ফাইল খুলতে ব্যর্থ।"
 
-#: backend/kwalletbackend.cc:263
+#: backend/kwalletbackend.cc:276
 #, kde-format
 msgid "Not a wallet file."
 msgstr "wallet ফাইল নয়।"
 
-#: backend/kwalletbackend.cc:265
+#: backend/kwalletbackend.cc:278
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "পরিবর্ধিত ফাইলের বিন্যাস সমর্থিত নয়।"
 
-#: backend/kwalletbackend.cc:269
+#: backend/kwalletbackend.cc:282
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "এনক্রিপশনের স্কিম অজানা।"
 
-#: backend/kwalletbackend.cc:271
+#: backend/kwalletbackend.cc:284
 #, kde-format
 msgid "Corrupt file?"
 msgstr "ফাইল কি ক্ষতিগ্রস্ত?"
 
-#: backend/kwalletbackend.cc:273
+#: backend/kwalletbackend.cc:286
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "wallet-র অখণ্ডতা যাচাই করতে সমস্যা। সম্ভবত ক্ষতিগ্রস্ত।"
 
-#: backend/kwalletbackend.cc:277
+#: backend/kwalletbackend.cc:290
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "পড়তে সমস্যা - সম্ভবত পাসওয়ার্ড সঠিক নয়।"
 
-#: backend/kwalletbackend.cc:279
+#: backend/kwalletbackend.cc:292
 #, kde-format
 msgid "Decryption error."
 msgstr "ডিক্রিপশন সংক্রান্ত ত্রুটি।"
 
-#: backend/kwalletbackend.cc:455
+#: backend/kwalletbackend.cc:472
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"

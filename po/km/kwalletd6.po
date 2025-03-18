@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:38+0000\n"
+"POT-Creation-Date: 2025-03-18 00:39+0000\n"
 "PO-Revision-Date: 2010-01-06 14:32+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -101,52 +101,52 @@ msgid ""
 "system.</qt>"
 msgstr ""
 
-#: backend/kwalletbackend.cc:259
+#: backend/kwalletbackend.cc:272
 #, kde-format
 msgid "Already open."
 msgstr "បើក​រួច​ហើយ ។"
 
-#: backend/kwalletbackend.cc:261
+#: backend/kwalletbackend.cc:274
 #, kde-format
 msgid "Error opening file."
 msgstr "កំហុស​ក្នុងបើក​ឯកសារ ។"
 
-#: backend/kwalletbackend.cc:263
+#: backend/kwalletbackend.cc:276
 #, kde-format
 msgid "Not a wallet file."
 msgstr "មិនមែន​ជា​ឯកសារ​កាបូប ។"
 
-#: backend/kwalletbackend.cc:265
+#: backend/kwalletbackend.cc:278
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "មិនគាំទ្រ​កំណែ​ទ្រង់ទ្រាយ​ឯកសារ ។"
 
-#: backend/kwalletbackend.cc:269
+#: backend/kwalletbackend.cc:282
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "មិនស្គាល់​គ្រោងការណ៍​អ៊ិនគ្រិប ។"
 
-#: backend/kwalletbackend.cc:271
+#: backend/kwalletbackend.cc:284
 #, kde-format
 msgid "Corrupt file?"
 msgstr "ឯកសារ​ខូច ?"
 
-#: backend/kwalletbackend.cc:273
+#: backend/kwalletbackend.cc:286
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "កំហុសក្នុងការ​ផ្ទៀងផ្ទាត់​ភាព​ត្រឹមត្រូវ​របស់​កាបូប ។ អាច​ខូច ។"
 
-#: backend/kwalletbackend.cc:277
+#: backend/kwalletbackend.cc:290
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "កំហុស​ក្នុងកា​រអាន ពាក្យសម្ងាត់​អាច​មិនត្រឹមត្រូវ ។"
 
-#: backend/kwalletbackend.cc:279
+#: backend/kwalletbackend.cc:292
 #, kde-format
 msgid "Decryption error."
 msgstr "កំហុស​ក្នុងកា​រអ៊ិនគ្រិប ។"
 
-#: backend/kwalletbackend.cc:455
+#: backend/kwalletbackend.cc:472
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"

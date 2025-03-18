@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:38+0000\n"
+"POT-Creation-Date: 2025-03-18 00:39+0000\n"
 "PO-Revision-Date: 2024-06-18 00:32+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -122,52 +122,52 @@ msgstr ""
 "användning av GPG-nyckeln <b>%2</b> men nyckeln hittades inte på systemet.</"
 "qt>"
 
-#: backend/kwalletbackend.cc:259
+#: backend/kwalletbackend.cc:272
 #, kde-format
 msgid "Already open."
 msgstr "Redan öppen."
 
-#: backend/kwalletbackend.cc:261
+#: backend/kwalletbackend.cc:274
 #, kde-format
 msgid "Error opening file."
 msgstr "Fel när filen skulle öppnas."
 
-#: backend/kwalletbackend.cc:263
+#: backend/kwalletbackend.cc:276
 #, kde-format
 msgid "Not a wallet file."
 msgstr "Inte en plånboksfil."
 
-#: backend/kwalletbackend.cc:265
+#: backend/kwalletbackend.cc:278
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "Version av filformatet som inte stöds."
 
-#: backend/kwalletbackend.cc:269
+#: backend/kwalletbackend.cc:282
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Okänd krypteringsmetod."
 
-#: backend/kwalletbackend.cc:271
+#: backend/kwalletbackend.cc:284
 #, kde-format
 msgid "Corrupt file?"
 msgstr "Felaktig fil?"
 
-#: backend/kwalletbackend.cc:273
+#: backend/kwalletbackend.cc:286
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "Fel vid validering av plånbokens integritet. Möjligen felaktig."
 
-#: backend/kwalletbackend.cc:277
+#: backend/kwalletbackend.cc:290
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "Läsfel: möjligen felaktigt lösenord."
 
-#: backend/kwalletbackend.cc:279
+#: backend/kwalletbackend.cc:292
 #, kde-format
 msgid "Decryption error."
 msgstr "Avkodningsfel."
 
-#: backend/kwalletbackend.cc:455
+#: backend/kwalletbackend.cc:472
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"

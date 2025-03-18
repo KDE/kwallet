@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:38+0000\n"
+"POT-Creation-Date: 2025-03-18 00:39+0000\n"
 "PO-Revision-Date: 2024-01-28 19:15-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -101,52 +101,52 @@ msgid ""
 "system.</qt>"
 msgstr ""
 
-#: backend/kwalletbackend.cc:259
+#: backend/kwalletbackend.cc:272
 #, kde-format
 msgid "Already open."
 msgstr "ਪਹਿਲਾਂ ਹੀ ਖੁੱਲ੍ਹਾ ਹੈ।"
 
-#: backend/kwalletbackend.cc:261
+#: backend/kwalletbackend.cc:274
 #, kde-format
 msgid "Error opening file."
 msgstr "ਫਾਇਲ ਖੋਲ੍ਹਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ।"
 
-#: backend/kwalletbackend.cc:263
+#: backend/kwalletbackend.cc:276
 #, kde-format
 msgid "Not a wallet file."
 msgstr "ਇੱਕ ਵਾਲਟ ਫਾਇਲ ਨਹੀਂ ਹੈ।"
 
-#: backend/kwalletbackend.cc:265
+#: backend/kwalletbackend.cc:278
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "ਗ਼ੈਰ-ਸਹਾਇਕ ਫਾਇਲ ਫਾਰਮੈਟ ਰੀਵਿਜ਼ਨ ਹੈ।"
 
-#: backend/kwalletbackend.cc:269
+#: backend/kwalletbackend.cc:282
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "ਅਣਜਾਣ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਕੀਮ ਹੈ।"
 
-#: backend/kwalletbackend.cc:271
+#: backend/kwalletbackend.cc:284
 #, kde-format
 msgid "Corrupt file?"
 msgstr "ਫਾਇਲ ਨਿਕਾਰਾ ਹੈ?"
 
-#: backend/kwalletbackend.cc:273
+#: backend/kwalletbackend.cc:286
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "ਵਾਲਟ ਐਂਟੀਗਰੇਟੀ ਵੈਧਤਾ ਲਈ ਗਲਤੀ। ਨਿਕਾਰਾ ਹੋਣਾ ਸੰਭਵ ਹੈ।"
 
-#: backend/kwalletbackend.cc:277
+#: backend/kwalletbackend.cc:290
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "ਪੜ੍ਹਨ ਗਲਤੀ - ਸੰਭਵ ਤੌਰ ਉੱਤੇ ਗਲਤ ਪਾਸਵਰਡ ਹੈ।"
 
-#: backend/kwalletbackend.cc:279
+#: backend/kwalletbackend.cc:292
 #, kde-format
 msgid "Decryption error."
 msgstr "ਡਿ-ਕ੍ਰਿਪਸ਼ਨ ਗਲਤੀ ਹੈ।"
 
-#: backend/kwalletbackend.cc:455
+#: backend/kwalletbackend.cc:472
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
