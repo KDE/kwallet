@@ -49,7 +49,7 @@ find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6DocTools ${KF_DEP_VERSION})
 
 ecm_set_disabled_deprecation_versions(
-    QT 6.8.0
+    QT 6.9.0
     KF 6.12.0
 )
 
