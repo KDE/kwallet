@@ -84,3 +84,5 @@ QByteArray KWalletPortalSecrets::generateSecret() const
 
     return secret;
 }
+
+#include "moc_kwalletportalsecrets.cpp"
