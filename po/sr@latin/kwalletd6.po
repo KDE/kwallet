@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-04-15 00:38+0000\n"
 "PO-Revision-Date: 2017-09-28 17:58+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -28,157 +28,6 @@ msgstr "Časlav Ilić"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "caslav.ilic@gmx.net"
-
-#: backend/backendpersisthandler.cpp:489
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Greška pri pokušaju pripremanja OpenPGP‑a radi upisivanja novčanika <b>"
-"%1</b>. Kô̂d greške je <b>%2</b>. Popravite postavu sistema, pa pokušajte "
-"ponovo.</qt>"
-
-#: backend/backendpersisthandler.cpp:501
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Greška pri pokušaju pripremanja OpenPGP‑a radi upisivanja novčanika <b>"
-"%1</b>. Popravite postavu sistema, pa pokušajte ponovo.</qt>"
-
-#: backend/backendpersisthandler.cpp:555
-#, kde-format
-msgid ""
-"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-"again. This error may occur if you are not using a full trust GPG key. "
-"Please ensure you have the secret key for the key you are using.</qt>"
-msgstr ""
-"<qt>Greška u šifrovanju pri pokušaju upisivanja novčanika <b>%1</b>. Kô̂d "
-"greške je <b>%2 (%3)</b>. Popravite postavu sistema, pa pokušajte ponovo. "
-"Uzrok ove greške može biti to što GPG ključ koji koristite nije potpune "
-"pouzdanosti. Pobrinite se da imate tajni ključ za ključ koji koristite.</qt>"
-
-#: backend/backendpersisthandler.cpp:572
-#, kde-format
-msgid ""
-"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
-"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Greška u rukovanju fajlom pri pokušaju upisivanja novčanika <b>%1</b>. "
-"Greška je <b>%2</b>. Popravite postavu sistema, pa pokušajte ponovo.</qt>"
-
-#: backend/backendpersisthandler.cpp:594
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Greška pri pokušaju pripremanja OpenPGP‑a radi otvaranja novčanika <b>"
-"%1</b>. Kô̂d greške je <b>%2</b>. Popravite postavu sistema, pa pokušajte "
-"ponovo.</qt>"
-
-#: backend/backendpersisthandler.cpp:616
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Greška pri pokušaju pripremanja OpenPGP‑a radi otvaranja novčanika <b>"
-"%1</b>. Popravite postavu sistema, pa pokušajte ponovo.</qt>"
-
-#: backend/backendpersisthandler.cpp:629
-#, kde-format
-msgid "Retry"
-msgstr "Pokušaj ponovo"
-
-#: backend/backendpersisthandler.cpp:634
-#, kde-format
-msgid ""
-"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-"you're using a SmartCard, please ensure it's inserted then try again."
-"<br><br>GPG error was <b>%2</b></qt>"
-msgstr ""
-"<qt><p>Greška pri pokušaju dešifrovanja novčanika <b>%1</b> pomoću GPG‑a. "
-"Ako koristite smart-karticu, uverite se da je ubačena pa pokušajte ponovo.</"
-"p><p>Greška GPG‑a: <b>%2</b></p></qt>"
-
-#: backend/backendpersisthandler.cpp:638
-#, kde-format
-msgid "kwalletd GPG backend"
-msgstr "Pozadina K‑novčanika za GPG"
-
-#: backend/backendpersisthandler.cpp:684
-#, kde-format
-msgid ""
-"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
-"system.</qt>"
-msgstr ""
-"<qt>Greška pri pokušaju otvaranja novčanika <b>%1</b>. Novčanik je šifrovan "
-"GPG ključem ID‑a <b>%2</b>, ali ovaj ključ nije nađen na sistemu.</qt>"
-
-# >? Already open what? A wallet?
-#: backend/kwalletbackend.cc:272
-#, kde-format
-msgid "Already open."
-msgstr "Već otvoren."
-
-#: backend/kwalletbackend.cc:274
-#, kde-format
-msgid "Error opening file."
-msgstr "Greška pri otvaranju fajla."
-
-#: backend/kwalletbackend.cc:276
-#, kde-format
-msgid "Not a wallet file."
-msgstr "Nije fajl novčanika."
-
-#: backend/kwalletbackend.cc:278
-#, kde-format
-msgid "Unsupported file format revision."
-msgstr "Nepodržana revizija fajl formata."
-
-#: backend/kwalletbackend.cc:282
-#, kde-format
-msgid "Unknown encryption scheme."
-msgstr "Nepoznata šema šifrovanja."
-
-#: backend/kwalletbackend.cc:284
-#, kde-format
-msgid "Corrupt file?"
-msgstr "Iskvaren fajl?"
-
-#: backend/kwalletbackend.cc:286
-#, kde-format
-msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr "Greška pri overi celovitosti novčanika. Možda je iskvaren."
-
-#: backend/kwalletbackend.cc:290
-#, kde-format
-msgid "Read error - possibly incorrect password."
-msgstr "Greška čitanja — možda je lozinka pogrešna."
-
-#: backend/kwalletbackend.cc:292
-#, kde-format
-msgid "Decryption error."
-msgstr "Greška u dešifrovanju."
-
-#: backend/kwalletbackend.cc:472
-#, kde-format
-msgid ""
-"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
-msgstr ""
-"Ne mogu da sinhronizujem novčanik <b>%1</b> na disk. Kodovi grešaka:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Podnesite izveštaj o grešci sa ovim podacima na https://bugs."
-"kde.org ."
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -327,7 +176,7 @@ msgid "Use GPG encryption, for better protection"
 msgstr "Šifrovanje GPG‑om, radi bolje zaštite"
 
 # rewrite-msgid: /KDE//
-#: kwalletd.cpp:624
+#: ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -336,7 +185,7 @@ msgstr ""
 "<qt>Zatraženo je otvaranje novčanika <b>%1</b>. Unesite ispod lozinku "
 "novčanika.</qt>"
 
-#: kwalletd.cpp:628
+#: ksecretd.cpp:623
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -346,19 +195,19 @@ msgstr ""
 "lozinku novčanika.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:639 kwalletd.cpp:748 kwalletd.cpp:852 kwalletd.cpp:965
-#: kwalletd.cpp:988 kwalletd.cpp:999 kwalletd.cpp:1004 kwalletd.cpp:1594
-#: main.cpp:167 main.cpp:169
+#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
+#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE‑ov servis novčanika"
 
-#: kwalletd.cpp:654
+#: ksecretd.cpp:649
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Program je zatražio otvaranje novčanika (%1)."
 
-#: kwalletd.cpp:655
+#: ksecretd.cpp:650
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -366,19 +215,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Prebaci tamo"
 
-#: kwalletd.cpp:657
+#: ksecretd.cpp:652
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> traži da otvori novčanik (%2)."
 
-#: kwalletd.cpp:659
+#: ksecretd.cpp:654
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Prebaci na %1|/|Prebaci na $[aku %1]"
 
-#: kwalletd.cpp:676 kwalletd.cpp:758
+#: ksecretd.cpp:671 ksecretd.cpp:753
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -389,7 +238,7 @@ msgstr ""
 
 # >? Really "click Cancel", or "click Deny"?
 # rewrite-msgid: /KDE//
-#: kwalletd.cpp:724
+#: ksecretd.cpp:719
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -401,7 +250,7 @@ msgstr ""
 "kliknite na <i>Odbij</i> da odbijete zahtev.</qt>"
 
 # >? Really "click Cancel", or "click Deny"?
-#: kwalletd.cpp:729
+#: ksecretd.cpp:724
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -415,7 +264,7 @@ msgstr ""
 
 # >? Really "click Cancel", or "click Deny"?
 # rewrite-msgid: /KDE//
-#: kwalletd.cpp:737
+#: ksecretd.cpp:732
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -427,7 +276,7 @@ msgstr ""
 "qt>"
 
 # >? Really "click Cancel", or "click Deny"?
-#: kwalletd.cpp:742
+#: ksecretd.cpp:737
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -438,12 +287,12 @@ msgstr ""
 "Izaberite lozinku za ovaj novčanik, ili <i>Odbij</i> da odbijete zahtev.</qt>"
 
 # rewrite-msgid: /KDE//
-#: kwalletd.cpp:854
+#: ksecretd.cpp:849
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Zatražen je pristup otvorenom novčaniku <b>%1</b>.</qt>"
 
-#: kwalletd.cpp:856
+#: ksecretd.cpp:851
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -451,7 +300,7 @@ msgid ""
 msgstr ""
 "<qt>Program <b>%1</b> traži pristup otvorenom novčaniku <b>%2</b>.</qt>"
 
-#: kwalletd.cpp:964
+#: ksecretd.cpp:959
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -460,7 +309,7 @@ msgstr ""
 "<qt>Ne mogu da otvorim novčanik. Mora biti otvoren da bi se izmenila lozinka."
 "</qt>"
 
-#: kwalletd.cpp:980
+#: ksecretd.cpp:975
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -470,24 +319,24 @@ msgstr ""
 "<qt>Novčanik <b>%1</b> šifrovan je GPG ključem <b>%2</b>. Upotrebite neku "
 "GPG alatku (poput Kleopatre) da izmenite lozinku pridruženu ovom ključu.</qt>"
 
-#: kwalletd.cpp:987
+#: ksecretd.cpp:982
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Izaberite novu lozinku za novčanik <b>%1</b>.</qt>"
 
-#: kwalletd.cpp:999
+#: ksecretd.cpp:994
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Greška pri ponovnom šifrovanju novčanika. Lozinka nije izmenjena."
 
-#: kwalletd.cpp:1004
+#: ksecretd.cpp:999
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Greška pri ponovnom otvaranju novčaniku. Može biti da su neki podaci "
 "izgubljeni."
 
-#: kwalletd.cpp:1593
+#: ksecretd.cpp:1588
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -709,51 +558,170 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "Kakvu vrstu šifrovanja želite?"
 
-#: main.cpp:171
-#, kde-format
-msgid "(C) 2002-2013, The KDE Developers"
+#: main.cpp:164
+#, fuzzy, kde-format
+#| msgid "(C) 2002-2013, The KDE Developers"
+msgid "(C) 2002-2025, The KDE Developers"
 msgstr "© 2002–2013, KDE programeri"
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valanten Rizi"
 
-#: main.cpp:172
+#: main.cpp:165
 #, fuzzy, kde-format
 #| msgid "Maintainer, GPG backend support"
 msgid "Former Maintainer, GPG backend support"
 msgstr "održavalac, podrška za GPG pozadinu"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Mihael Lojpold"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Former Maintainer"
 msgstr "bivši održavalac"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "George Staikos"
 msgstr "Džordž Stajkos"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "Former maintainer"
 msgstr "bivši održavalac"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Tijago Masijeira"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "D‑Bus sučelje"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Greška pri pokušaju pripremanja OpenPGP‑a radi upisivanja novčanika "
+#~ "<b>%1</b>. Kô̂d greške je <b>%2</b>. Popravite postavu sistema, pa "
+#~ "pokušajte ponovo.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Greška pri pokušaju pripremanja OpenPGP‑a radi upisivanja novčanika "
+#~ "<b>%1</b>. Popravite postavu sistema, pa pokušajte ponovo.</qt>"
+
+#~ msgid ""
+#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+#~ "again. This error may occur if you are not using a full trust GPG key. "
+#~ "Please ensure you have the secret key for the key you are using.</qt>"
+#~ msgstr ""
+#~ "<qt>Greška u šifrovanju pri pokušaju upisivanja novčanika <b>%1</b>. Kô̂d "
+#~ "greške je <b>%2 (%3)</b>. Popravite postavu sistema, pa pokušajte ponovo. "
+#~ "Uzrok ove greške može biti to što GPG ključ koji koristite nije potpune "
+#~ "pouzdanosti. Pobrinite se da imate tajni ključ za ključ koji koristite.</"
+#~ "qt>"
+
+#~ msgid ""
+#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
+#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Greška u rukovanju fajlom pri pokušaju upisivanja novčanika <b>%1</"
+#~ "b>. Greška je <b>%2</b>. Popravite postavu sistema, pa pokušajte ponovo.</"
+#~ "qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Greška pri pokušaju pripremanja OpenPGP‑a radi otvaranja novčanika <b>"
+#~ "%1</b>. Kô̂d greške je <b>%2</b>. Popravite postavu sistema, pa pokušajte "
+#~ "ponovo.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Greška pri pokušaju pripremanja OpenPGP‑a radi otvaranja novčanika <b>"
+#~ "%1</b>. Popravite postavu sistema, pa pokušajte ponovo.</qt>"
+
+#~ msgid "Retry"
+#~ msgstr "Pokušaj ponovo"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+#~ "you're using a SmartCard, please ensure it's inserted then try again."
+#~ "<br><br>GPG error was <b>%2</b></qt>"
+#~ msgstr ""
+#~ "<qt><p>Greška pri pokušaju dešifrovanja novčanika <b>%1</b> pomoću GPG‑a. "
+#~ "Ako koristite smart-karticu, uverite se da je ubačena pa pokušajte ponovo."
+#~ "</p><p>Greška GPG‑a: <b>%2</b></p></qt>"
+
+#~ msgid "kwalletd GPG backend"
+#~ msgstr "Pozadina K‑novčanika za GPG"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
+#~ "your system.</qt>"
+#~ msgstr ""
+#~ "<qt>Greška pri pokušaju otvaranja novčanika <b>%1</b>. Novčanik je "
+#~ "šifrovan GPG ključem ID‑a <b>%2</b>, ali ovaj ključ nije nađen na sistemu."
+#~ "</qt>"
+
+# >? Already open what? A wallet?
+#~ msgid "Already open."
+#~ msgstr "Već otvoren."
+
+#~ msgid "Error opening file."
+#~ msgstr "Greška pri otvaranju fajla."
+
+#~ msgid "Not a wallet file."
+#~ msgstr "Nije fajl novčanika."
+
+#~ msgid "Unsupported file format revision."
+#~ msgstr "Nepodržana revizija fajl formata."
+
+#~ msgid "Unknown encryption scheme."
+#~ msgstr "Nepoznata šema šifrovanja."
+
+#~ msgid "Corrupt file?"
+#~ msgstr "Iskvaren fajl?"
+
+#~ msgid "Error validating wallet integrity. Possibly corrupted."
+#~ msgstr "Greška pri overi celovitosti novčanika. Možda je iskvaren."
+
+#~ msgid "Read error - possibly incorrect password."
+#~ msgstr "Greška čitanja — možda je lozinka pogrešna."
+
+#~ msgid "Decryption error."
+#~ msgstr "Greška u dešifrovanju."
+
+#~ msgid ""
+#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
+#~ "org"
+#~ msgstr ""
+#~ "Ne mogu da sinhronizujem novčanik <b>%1</b> na disk. Kodovi grešaka:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Podnesite izveštaj o grešci sa ovim podacima na https://"
+#~ "bugs.kde.org ."
 
 #~ msgid "kwalletd"
 #~ msgstr "kwalletd"

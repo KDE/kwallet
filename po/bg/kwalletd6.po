@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-04-15 00:38+0000\n"
 "PO-Revision-Date: 2024-10-26 19:03+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -27,162 +27,6 @@ msgstr "Златко Попов,Ясен Праматаров"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zlatkopopov@fsa-bg.org,yasen@lindeas.com"
-
-#: backend/backendpersisthandler.cpp:489
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Грешка при опит за инициализиране на OpenPGP при опит за запазване на "
-"портфейл <b>%1</b>. Кодът за грешка е <b>%2</b>. Моля, поправете вашата "
-"системна конфигурация, след това опитайте отново.</qt>"
-
-#: backend/backendpersisthandler.cpp:501
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Грешка при опит за инициализиране на OpenPGP при опит за запазване на "
-"портфейл <b>%1</b>. Моля, коригирайте конфигурацията на вашата система, след "
-"което опитайте отново.</qt>"
-
-#: backend/backendpersisthandler.cpp:555
-#, kde-format
-msgid ""
-"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-"again. This error may occur if you are not using a full trust GPG key. "
-"Please ensure you have the secret key for the key you are using.</qt>"
-msgstr ""
-"<qt>Грешка при криптиране при опит за запазване на портфейла <b>%1</b>. "
-"Кодът за грешка е <b>%2 (%3)</b>. Моля, коригирайте конфигурацията на вашата "
-"система, след това опитайте отново. Тази грешка може да възникне, ако не "
-"използвате GPG ключ с пълно доверие.Моля, уверете се, че разполагате с "
-"тайния ключ за ключа, който използвате.</qt>"
-
-#: backend/backendpersisthandler.cpp:572
-#, kde-format
-msgid ""
-"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
-"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Грешка при обработка на файлове при опит за запазване на портфейла <b>"
-"%1</b>. Грешка<b>%2</b>. Моля, коригирайте конфигурацията на вашата система, "
-"след което опитайте отново.</qt>"
-
-#: backend/backendpersisthandler.cpp:594
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Грешка при опит за инициализиране на OpenPGP при опит за отваряне на "
-"портфейл <b>%1</b>. Кодът за грешка е <b>%2</b>. Моля, поправете вашата "
-"системна конфигурация, след това опитайте отново.</qt>"
-
-#: backend/backendpersisthandler.cpp:616
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Грешка при опит за инициализиране на OpenPGP при опит за отваряне на "
-"портфейл <b>%1</b>. Моля, коригирайте конфигурацията на вашата система, след "
-"което опитайте отново.</qt>"
-
-#: backend/backendpersisthandler.cpp:629
-#, kde-format
-msgid "Retry"
-msgstr "Повторен опит"
-
-#: backend/backendpersisthandler.cpp:634
-#, kde-format
-msgid ""
-"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-"you're using a SmartCard, please ensure it's inserted then try again."
-"<br><br>GPG error was <b>%2</b></qt>"
-msgstr ""
-"<qt>Грешка при опит за дешифриране на портфейла <b>%1</b> с помощта на GPG. "
-"Ако използвате SmartCard, моля, уверете се, че е поставена, след това "
-"опитайте отново.<br><br> Грешката в GPG беше <b>%2</b></qt>"
-
-#: backend/backendpersisthandler.cpp:638
-#, kde-format
-msgid "kwalletd GPG backend"
-msgstr "GPG ядро за kwalletd"
-
-#: backend/backendpersisthandler.cpp:684
-#, kde-format
-msgid ""
-"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
-"system.</qt>"
-msgstr ""
-"<qt>Грешка при опит за отваряне на портфейла <b>%1</b>. Портфейлът беше "
-"криптиран с помощта на идентификатора на GPG ключ <b>%2</b>, но този ключ не "
-"е намерен във вашата система.</qt>"
-
-#: backend/kwalletbackend.cc:272
-#, kde-format
-msgid "Already open."
-msgstr "Вече е отворен."
-
-#: backend/kwalletbackend.cc:274
-#, kde-format
-msgid "Error opening file."
-msgstr "Грешка при отваряне на файла."
-
-#: backend/kwalletbackend.cc:276
-#, kde-format
-msgid "Not a wallet file."
-msgstr "Не портфейлен файл."
-
-#: backend/kwalletbackend.cc:278
-#, kde-format
-msgid "Unsupported file format revision."
-msgstr "Неподдържан формат на файла."
-
-#: backend/kwalletbackend.cc:282
-#, kde-format
-msgid "Unknown encryption scheme."
-msgstr "Неизвестна схема за шифроване."
-
-#: backend/kwalletbackend.cc:284
-#, kde-format
-msgid "Corrupt file?"
-msgstr "Вероятно повреден файл"
-
-#: backend/kwalletbackend.cc:286
-#, kde-format
-msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr "Грешка при проверка цялостта на портфейла. Най-вероятно е повреден."
-
-#: backend/kwalletbackend.cc:290
-#, kde-format
-msgid "Read error - possibly incorrect password."
-msgstr "Грешка при четене: най-вероятно грешна парола."
-
-#: backend/kwalletbackend.cc:292
-#, kde-format
-msgid "Decryption error."
-msgstr "Грешки при разшифроване."
-
-#: backend/kwalletbackend.cc:472
-#, kde-format
-msgid ""
-"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
-msgstr ""
-"Синхронизирането на портфейла <b>%1</b> с диска е неуспешно. Кодовете за "
-"грешки са:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Моля, подайте доклад за ГРЕШКА, използвайки тази информация, "
-"на bugs.kde.org"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -322,7 +166,7 @@ msgstr "Класически файл, криптиран с blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Използване на GPG криптиране за по-добра защита"
 
-#: kwalletd.cpp:624
+#: ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -331,7 +175,7 @@ msgstr ""
 "<qt>KDE поиска отварянето на портфейла \"<b>%1</b>\". Въведете паролата на "
 "портфейла.</qt>"
 
-#: kwalletd.cpp:628
+#: ksecretd.cpp:623
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -341,19 +185,19 @@ msgstr ""
 "Въведете паролата на портфейла.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:639 kwalletd.cpp:748 kwalletd.cpp:852 kwalletd.cpp:965
-#: kwalletd.cpp:988 kwalletd.cpp:999 kwalletd.cpp:1004 kwalletd.cpp:1594
-#: main.cpp:167 main.cpp:169
+#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
+#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Портфейл за KDE"
 
-#: kwalletd.cpp:654
+#: ksecretd.cpp:649
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Приложението поиска да отвори портфейл (%1)."
 
-#: kwalletd.cpp:655
+#: ksecretd.cpp:650
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -361,19 +205,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Превключване"
 
-#: kwalletd.cpp:657
+#: ksecretd.cpp:652
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> поиска отварянето на портфейл (%2)."
 
-#: kwalletd.cpp:659
+#: ksecretd.cpp:654
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Превключване към %1"
 
-#: kwalletd.cpp:676 kwalletd.cpp:758
+#: ksecretd.cpp:671 ksecretd.cpp:753
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -382,7 +226,7 @@ msgstr ""
 "<qt>Грешка при отваряне на портфейла \"<b>%1</b>\". Опитайте отново.<br /"
 ">(Код на грешката %2: %3)</qt>"
 
-#: kwalletd.cpp:724
+#: ksecretd.cpp:719
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -393,7 +237,7 @@ msgstr ""
 "използва за съхранение на лични данни в шифрован вид. Моля, въведете "
 "паролата за този портфейл или натиснете \"Отмяна\"."
 
-#: kwalletd.cpp:729
+#: ksecretd.cpp:724
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -405,7 +249,7 @@ msgstr ""
 "съхраняват по сигурен начин чувствителни данни. Въведете парола за портфейла "
 "или откажете искането на програмата.</qt>"
 
-#: kwalletd.cpp:737
+#: ksecretd.cpp:732
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -415,7 +259,7 @@ msgstr ""
 "<qt>KDE направи заявка за създаване на нов портфейл с име \"<b>%1</b>\". "
 "Изберете парола за портфейла или откажете искането на програмата.</qt>"
 
-#: kwalletd.cpp:742
+#: ksecretd.cpp:737
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -426,12 +270,12 @@ msgstr ""
 "име \"<b>%2</b>\". Изберете парола за портфейла или откажете искането на "
 "програмата.</qt>"
 
-#: kwalletd.cpp:854
+#: ksecretd.cpp:849
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE поиска достъп до отворения портфейл \"<b>%1</b>\".</qt>"
 
-#: kwalletd.cpp:856
+#: ksecretd.cpp:851
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -440,7 +284,7 @@ msgstr ""
 "<qt>Програмата \"<b>%1</b>\" поиска достъп до отворения портфейл \"<b>%2</b>"
 "\".</qt>"
 
-#: kwalletd.cpp:964
+#: ksecretd.cpp:959
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -449,7 +293,7 @@ msgstr ""
 "Портфейлът не може да бъде отворен. Това обаче трябва да стане, за да можете "
 "да смените паролата му."
 
-#: kwalletd.cpp:980
+#: ksecretd.cpp:975
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -460,23 +304,23 @@ msgstr ""
 "използвайте<b>Инструменти за GPG</b> (като <b>kleopatra</b>) за промяна на "
 "паролата, свързана с този ключ.</qt>"
 
-#: kwalletd.cpp:987
+#: ksecretd.cpp:982
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Изберете нова парола за портфейла '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:999
+#: ksecretd.cpp:994
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Грешка при шифроване на портфейла. Паролата не беше сменена."
 
-#: kwalletd.cpp:1004
+#: ksecretd.cpp:999
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Грешка при повторно отваряне на портфейла. Може да има загуба на данни."
 
-#: kwalletd.cpp:1593
+#: ksecretd.cpp:1588
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -696,47 +540,168 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "Какъв вид шифриране искате?"
 
-#: main.cpp:171
-#, kde-format
-msgid "(C) 2002-2013, The KDE Developers"
+#: main.cpp:164
+#, fuzzy, kde-format
+#| msgid "(C) 2002-2013, The KDE Developers"
+msgid "(C) 2002-2025, The KDE Developers"
 msgstr "(C) 2002-2013, Разработчиците на KDE"
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "Предишна поддръжка, поддръжка на GPG бекенда"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Бивш  разработчик"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "Former maintainer"
 msgstr "Предишна поддръжка"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "Интерфейс към D-Bus"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Грешка при опит за инициализиране на OpenPGP при опит за запазване на "
+#~ "портфейл <b>%1</b>. Кодът за грешка е <b>%2</b>. Моля, поправете вашата "
+#~ "системна конфигурация, след това опитайте отново.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Грешка при опит за инициализиране на OpenPGP при опит за запазване на "
+#~ "портфейл <b>%1</b>. Моля, коригирайте конфигурацията на вашата система, "
+#~ "след което опитайте отново.</qt>"
+
+#~ msgid ""
+#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+#~ "again. This error may occur if you are not using a full trust GPG key. "
+#~ "Please ensure you have the secret key for the key you are using.</qt>"
+#~ msgstr ""
+#~ "<qt>Грешка при криптиране при опит за запазване на портфейла <b>%1</b>. "
+#~ "Кодът за грешка е <b>%2 (%3)</b>. Моля, коригирайте конфигурацията на "
+#~ "вашата система, след това опитайте отново. Тази грешка може да възникне, "
+#~ "ако не използвате GPG ключ с пълно доверие.Моля, уверете се, че "
+#~ "разполагате с тайния ключ за ключа, който използвате.</qt>"
+
+#~ msgid ""
+#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
+#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Грешка при обработка на файлове при опит за запазване на портфейла <b>"
+#~ "%1</b>. Грешка<b>%2</b>. Моля, коригирайте конфигурацията на вашата "
+#~ "система, след което опитайте отново.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Грешка при опит за инициализиране на OpenPGP при опит за отваряне на "
+#~ "портфейл <b>%1</b>. Кодът за грешка е <b>%2</b>. Моля, поправете вашата "
+#~ "системна конфигурация, след това опитайте отново.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Грешка при опит за инициализиране на OpenPGP при опит за отваряне на "
+#~ "портфейл <b>%1</b>. Моля, коригирайте конфигурацията на вашата система, "
+#~ "след което опитайте отново.</qt>"
+
+#~ msgid "Retry"
+#~ msgstr "Повторен опит"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+#~ "you're using a SmartCard, please ensure it's inserted then try again."
+#~ "<br><br>GPG error was <b>%2</b></qt>"
+#~ msgstr ""
+#~ "<qt>Грешка при опит за дешифриране на портфейла <b>%1</b> с помощта на "
+#~ "GPG. Ако използвате SmartCard, моля, уверете се, че е поставена, след "
+#~ "това опитайте отново.<br><br> Грешката в GPG беше <b>%2</b></qt>"
+
+#~ msgid "kwalletd GPG backend"
+#~ msgstr "GPG ядро за kwalletd"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
+#~ "your system.</qt>"
+#~ msgstr ""
+#~ "<qt>Грешка при опит за отваряне на портфейла <b>%1</b>. Портфейлът беше "
+#~ "криптиран с помощта на идентификатора на GPG ключ <b>%2</b>, но този ключ "
+#~ "не е намерен във вашата система.</qt>"
+
+#~ msgid "Already open."
+#~ msgstr "Вече е отворен."
+
+#~ msgid "Error opening file."
+#~ msgstr "Грешка при отваряне на файла."
+
+#~ msgid "Not a wallet file."
+#~ msgstr "Не портфейлен файл."
+
+#~ msgid "Unsupported file format revision."
+#~ msgstr "Неподдържан формат на файла."
+
+#~ msgid "Unknown encryption scheme."
+#~ msgstr "Неизвестна схема за шифроване."
+
+#~ msgid "Corrupt file?"
+#~ msgstr "Вероятно повреден файл"
+
+#~ msgid "Error validating wallet integrity. Possibly corrupted."
+#~ msgstr "Грешка при проверка цялостта на портфейла. Най-вероятно е повреден."
+
+#~ msgid "Read error - possibly incorrect password."
+#~ msgstr "Грешка при четене: най-вероятно грешна парола."
+
+#~ msgid "Decryption error."
+#~ msgstr "Грешки при разшифроване."
+
+#~ msgid ""
+#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
+#~ "org"
+#~ msgstr ""
+#~ "Синхронизирането на портфейла <b>%1</b> с диска е неуспешно. Кодовете за "
+#~ "грешки са:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Моля, подайте доклад за ГРЕШКА, използвайки тази "
+#~ "информация, на bugs.kde.org"

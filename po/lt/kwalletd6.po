@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-04-15 00:38+0000\n"
 "PO-Revision-Date: 2024-01-13 18:03+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -30,161 +30,6 @@ msgstr "Andrius Štikonas, Moo"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andrius@stikonas.eu, <>"
-
-#: backend/backendpersisthandler.cpp:489
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Klaida bandant inicijuoti OpenPGP, kol bandoma įrašyti slaptažodinę <b>"
-"%1</b>. Klaidos kodas yra <b>%2</b>. Pataisykite savo sistemos "
-"konfigūraciją, o tuomet bandykite dar kartą.</qt>"
-
-#: backend/backendpersisthandler.cpp:501
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Klaida bandant inicijuoti OpenPGP, kol bandoma įrašyti slaptažodinę <b>"
-"%1</b>. Pataisykite savo sistemos konfigūraciją, o tuomet bandykite dar "
-"kartą.</qt>"
-
-#: backend/backendpersisthandler.cpp:555
-#, kde-format
-msgid ""
-"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-"again. This error may occur if you are not using a full trust GPG key. "
-"Please ensure you have the secret key for the key you are using.</qt>"
-msgstr ""
-"<qt>Šifravimo klaida bandant įrašyti slaptažodinę <b>%1</b>. Klaidos kodas "
-"yra <b>%2 (%3)</b>. Pataisykite savo sistemos konfigūraciją, o tuomet "
-"bandykite dar kartą. Ši klaida gali atsirasti tuomet, kai nenaudojate pilno "
-"pasitikėjimo GPG rakto. Įsitikinkite, kad savo naudojamam raktui turite "
-"slaptą raktą.</qt>"
-
-#: backend/backendpersisthandler.cpp:572
-#, kde-format
-msgid ""
-"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
-"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Failų apdorojimo klaida bandant įrašyti slaptažodinę <b>%1</b>. Klaidos "
-"kodas buvo <b>%2</b>. Pataisykite savo sistemos konfigūraciją, o tuomet "
-"bandykite dar kartą.</qt>"
-
-#: backend/backendpersisthandler.cpp:594
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Klaida bandant inicijuoti OpenPGP, kol bandoma atverti slaptažodinę <b>"
-"%1</b>. Klaidos kodas yra <b>%2</b>. Pataisykite savo sistemos "
-"konfigūraciją, o tuomet bandykite dar kartą.</qt>"
-
-#: backend/backendpersisthandler.cpp:616
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Klaida bandant inicijuoti OpenPGP, kol bandoma atverti slaptažodinę <b>"
-"%1</b>. Pataisykite savo sistemos konfigūraciją, o tuomet bandykite dar "
-"kartą.</qt>"
-
-#: backend/backendpersisthandler.cpp:629
-#, kde-format
-msgid "Retry"
-msgstr "Bandyti dar kartą"
-
-#: backend/backendpersisthandler.cpp:634
-#, kde-format
-msgid ""
-"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-"you're using a SmartCard, please ensure it's inserted then try again."
-"<br><br>GPG error was <b>%2</b></qt>"
-msgstr ""
-"<qt>Klaida bandant iššifruoti slaptažodinę <b>%1</b> naudojant GPG. Jei "
-"naudojate SmartCard, įsitikinkite, kad kortelė įdėta, o tuomet bandykite dar "
-"kartą.<br><br>GPG klaida buvo <b>%2</b></qt>"
-
-#: backend/backendpersisthandler.cpp:638
-#, kde-format
-msgid "kwalletd GPG backend"
-msgstr "kwalletd GPG vidinė pusė"
-
-#: backend/backendpersisthandler.cpp:684
-#, kde-format
-msgid ""
-"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
-"system.</qt>"
-msgstr ""
-"<qt>Klaida bandant atverti slaptažodinę <b>%1</b>. Slaptažodinė buvo "
-"užšifruota naudojant GPG rakto ID <b>%2</b>, tačiau jūsų sistemoje šio rakto "
-"nepavyko rasti.</qt>"
-
-#: backend/kwalletbackend.cc:272
-#, kde-format
-msgid "Already open."
-msgstr "Jau atverta."
-
-#: backend/kwalletbackend.cc:274
-#, kde-format
-msgid "Error opening file."
-msgstr "Klaida atveriant failą."
-
-#: backend/kwalletbackend.cc:276
-#, kde-format
-msgid "Not a wallet file."
-msgstr "Nėra slaptažodinės failas."
-
-#: backend/kwalletbackend.cc:278
-#, kde-format
-msgid "Unsupported file format revision."
-msgstr "Nepalaikomas failo formato poversijis."
-
-#: backend/kwalletbackend.cc:282
-#, kde-format
-msgid "Unknown encryption scheme."
-msgstr "Nežinoma šifravimo schema."
-
-#: backend/kwalletbackend.cc:284
-#, kde-format
-msgid "Corrupt file?"
-msgstr "Sugadintas failas?"
-
-#: backend/kwalletbackend.cc:286
-#, kde-format
-msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr "Klaida tikrinant slaptažodinės vientisumą. Ji gali būti sugadinta."
-
-#: backend/kwalletbackend.cc:290
-#, kde-format
-msgid "Read error - possibly incorrect password."
-msgstr "Skaitymo klaida - galimai neteisingas slaptažodis."
-
-#: backend/kwalletbackend.cc:292
-#, kde-format
-msgid "Decryption error."
-msgstr "Iššifravimo klaida."
-
-#: backend/kwalletbackend.cc:472
-#, kde-format
-msgid ""
-"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
-msgstr ""
-"Nepavyko į diską sinchronizuoti slaptažodinės <b>%1</b>. Klaidos kodai yra:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Prašome, naudojant šią informaciją, pateikti pranešimą apie "
-"klaidą į bugs.kde.org"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -324,7 +169,7 @@ msgstr "Klasikinis, blowfish šifruotas failas"
 msgid "Use GPG encryption, for better protection"
 msgstr "Naudoti GPG šifravimą, geresnei apsaugai"
 
-#: kwalletd.cpp:624
+#: ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -333,7 +178,7 @@ msgstr ""
 "<qt>KDE paprašė atverti slaptažodinę \"<b>%1</b>\". Žemiau įveskite šios "
 "slaptažodinės slaptažodį.</qt>"
 
-#: kwalletd.cpp:628
+#: ksecretd.cpp:623
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -343,19 +188,19 @@ msgstr ""
 "Žemiau įveskite šios slaptažodinės slaptažodį.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:639 kwalletd.cpp:748 kwalletd.cpp:852 kwalletd.cpp:965
-#: kwalletd.cpp:988 kwalletd.cpp:999 kwalletd.cpp:1004 kwalletd.cpp:1594
-#: main.cpp:167 main.cpp:169
+#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
+#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE slaptažodinių tarnyba"
 
-#: kwalletd.cpp:654
+#: ksecretd.cpp:649
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Programa paprašė atverti slaptažodinę (%1)."
 
-#: kwalletd.cpp:655
+#: ksecretd.cpp:650
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -363,19 +208,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Perjungti ten"
 
-#: kwalletd.cpp:657
+#: ksecretd.cpp:652
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> paprašė atverti slaptažodinę (%2)."
 
-#: kwalletd.cpp:659
+#: ksecretd.cpp:654
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Perjungti į %1"
 
-#: kwalletd.cpp:676 kwalletd.cpp:758
+#: ksecretd.cpp:671 ksecretd.cpp:753
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -384,7 +229,7 @@ msgstr ""
 "<qt>Klaida atveriant slaptažodinę \"<b>%1</b>\". Bandykite dar kartą.<br /"
 ">(Klaidos kodas %2: %3)</qt>"
 
-#: kwalletd.cpp:724
+#: ksecretd.cpp:719
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -395,7 +240,7 @@ msgstr ""
 "saugoti slaptus duomenis. Įrašykite su šia slaptažodine naudojamą slaptažodį "
 "arba, norėdami atmesti programos prašymą, spustelėkite \"Atsisakyti\"."
 
-#: kwalletd.cpp:729
+#: ksecretd.cpp:724
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -408,7 +253,7 @@ msgstr ""
 "slaptažodine naudojamą slaptažodį arba, norėdami atmesti programos prašymą, "
 "spustelėkite \"Atsisakyti\".</qt>"
 
-#: kwalletd.cpp:737
+#: ksecretd.cpp:732
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -419,7 +264,7 @@ msgstr ""
 "Pasirinkite šiai slaptažodinei slaptažodį arba, norėdami atmesti programos "
 "prašymą, spustelėkite \"Atsisakyti\".</qt>"
 
-#: kwalletd.cpp:742
+#: ksecretd.cpp:737
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -430,13 +275,13 @@ msgstr ""
 "\"<b>%2</b>\". Pasirinkite šiai slaptažodinei slaptažodį arba, norėdami "
 "atmesti programos prašymą, spustelėkite \"Atsisakyti\".</qt>"
 
-#: kwalletd.cpp:854
+#: ksecretd.cpp:849
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>KDE paprašė prieigos prie atvertos slaptažodinės \"<b>%1</b>\".</qt>"
 
-#: kwalletd.cpp:856
+#: ksecretd.cpp:851
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -445,7 +290,7 @@ msgstr ""
 "<qt>Programa \"<b>%1</b>\" paprašė prieigos prie atvertos slaptažodinės \"<b>"
 "%2</b>\".</qt>"
 
-#: kwalletd.cpp:964
+#: ksecretd.cpp:959
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -454,7 +299,7 @@ msgstr ""
 "Nepavyko atverti slaptažodinės. Norint pakeisti slaptažodį, slaptažodinė "
 "privalo būti atverta."
 
-#: kwalletd.cpp:980
+#: ksecretd.cpp:975
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -465,22 +310,22 @@ msgstr ""
 "Norėdami pakeisti su tuo raktu susietą slaptafrazę, naudokite <b>GPG</b> "
 "įrankius (tokius kaip <b>kleopatra</b>).</qt>"
 
-#: kwalletd.cpp:987
+#: ksecretd.cpp:982
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Pasirinkite naują slaptažodį slaptažodinei „<b>%1</b>“.</qt>"
 
-#: kwalletd.cpp:999
+#: ksecretd.cpp:994
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Klaida iš naujo šifruojant slaptažodinę. Slaptažodis nebuvo pakeistas."
 
-#: kwalletd.cpp:1004
+#: ksecretd.cpp:999
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Klaida iš naujo atveriant slaptažodinę. Gali būti prarasti duomenys."
 
-#: kwalletd.cpp:1593
+#: ksecretd.cpp:1588
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -703,50 +548,171 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "Kokios šifravimo rūšies norėtumėte?"
 
-#: main.cpp:171
-#, kde-format
-msgid "(C) 2002-2013, The KDE Developers"
+#: main.cpp:164
+#, fuzzy, kde-format
+#| msgid "(C) 2002-2013, The KDE Developers"
+msgid "(C) 2002-2025, The KDE Developers"
 msgstr "(C) 2002-2013, KDE programuotojai"
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "Buvęs prižiūrėtojas, GPG vidinės pusės palaikymas"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Ankstesnis prižiūrėtojas"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "Former maintainer"
 msgstr "Ankstesnis prižiūrėtojas"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "D-Bus sąsaja"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Klaida bandant inicijuoti OpenPGP, kol bandoma įrašyti slaptažodinę "
+#~ "<b>%1</b>. Klaidos kodas yra <b>%2</b>. Pataisykite savo sistemos "
+#~ "konfigūraciją, o tuomet bandykite dar kartą.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Klaida bandant inicijuoti OpenPGP, kol bandoma įrašyti slaptažodinę "
+#~ "<b>%1</b>. Pataisykite savo sistemos konfigūraciją, o tuomet bandykite "
+#~ "dar kartą.</qt>"
+
+#~ msgid ""
+#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+#~ "again. This error may occur if you are not using a full trust GPG key. "
+#~ "Please ensure you have the secret key for the key you are using.</qt>"
+#~ msgstr ""
+#~ "<qt>Šifravimo klaida bandant įrašyti slaptažodinę <b>%1</b>. Klaidos "
+#~ "kodas yra <b>%2 (%3)</b>. Pataisykite savo sistemos konfigūraciją, o "
+#~ "tuomet bandykite dar kartą. Ši klaida gali atsirasti tuomet, kai "
+#~ "nenaudojate pilno pasitikėjimo GPG rakto. Įsitikinkite, kad savo "
+#~ "naudojamam raktui turite slaptą raktą.</qt>"
+
+#~ msgid ""
+#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
+#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Failų apdorojimo klaida bandant įrašyti slaptažodinę <b>%1</b>. "
+#~ "Klaidos kodas buvo <b>%2</b>. Pataisykite savo sistemos konfigūraciją, o "
+#~ "tuomet bandykite dar kartą.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Klaida bandant inicijuoti OpenPGP, kol bandoma atverti slaptažodinę "
+#~ "<b>%1</b>. Klaidos kodas yra <b>%2</b>. Pataisykite savo sistemos "
+#~ "konfigūraciją, o tuomet bandykite dar kartą.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Klaida bandant inicijuoti OpenPGP, kol bandoma atverti slaptažodinę "
+#~ "<b>%1</b>. Pataisykite savo sistemos konfigūraciją, o tuomet bandykite "
+#~ "dar kartą.</qt>"
+
+#~ msgid "Retry"
+#~ msgstr "Bandyti dar kartą"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+#~ "you're using a SmartCard, please ensure it's inserted then try again."
+#~ "<br><br>GPG error was <b>%2</b></qt>"
+#~ msgstr ""
+#~ "<qt>Klaida bandant iššifruoti slaptažodinę <b>%1</b> naudojant GPG. Jei "
+#~ "naudojate SmartCard, įsitikinkite, kad kortelė įdėta, o tuomet bandykite "
+#~ "dar kartą.<br><br>GPG klaida buvo <b>%2</b></qt>"
+
+#~ msgid "kwalletd GPG backend"
+#~ msgstr "kwalletd GPG vidinė pusė"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
+#~ "your system.</qt>"
+#~ msgstr ""
+#~ "<qt>Klaida bandant atverti slaptažodinę <b>%1</b>. Slaptažodinė buvo "
+#~ "užšifruota naudojant GPG rakto ID <b>%2</b>, tačiau jūsų sistemoje šio "
+#~ "rakto nepavyko rasti.</qt>"
+
+#~ msgid "Already open."
+#~ msgstr "Jau atverta."
+
+#~ msgid "Error opening file."
+#~ msgstr "Klaida atveriant failą."
+
+#~ msgid "Not a wallet file."
+#~ msgstr "Nėra slaptažodinės failas."
+
+#~ msgid "Unsupported file format revision."
+#~ msgstr "Nepalaikomas failo formato poversijis."
+
+#~ msgid "Unknown encryption scheme."
+#~ msgstr "Nežinoma šifravimo schema."
+
+#~ msgid "Corrupt file?"
+#~ msgstr "Sugadintas failas?"
+
+#~ msgid "Error validating wallet integrity. Possibly corrupted."
+#~ msgstr "Klaida tikrinant slaptažodinės vientisumą. Ji gali būti sugadinta."
+
+#~ msgid "Read error - possibly incorrect password."
+#~ msgstr "Skaitymo klaida - galimai neteisingas slaptažodis."
+
+#~ msgid "Decryption error."
+#~ msgstr "Iššifravimo klaida."
+
+#~ msgid ""
+#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
+#~ "org"
+#~ msgstr ""
+#~ "Nepavyko į diską sinchronizuoti slaptažodinės <b>%1</b>. Klaidos kodai "
+#~ "yra:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Prašome, naudojant šią informaciją, pateikti pranešimą apie "
+#~ "klaidą į bugs.kde.org"
 
 #~ msgid "kwalletd"
 #~ msgstr "kwalletd"

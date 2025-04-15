@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-04-15 00:38+0000\n"
 "PO-Revision-Date: 2022-04-09 19:23+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -24,160 +24,6 @@ msgstr "Roman Paholík"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wizzardsk@gmail.com"
-
-#: backend/backendpersisthandler.cpp:489
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Chyba pri pokuse o inicializáciu OpenPGP počas pokusu o uloženie "
-"peňaženky <b>%1</b>. Kód chyby je <b>%2</b>. Prosím opravte nastavenie vášho "
-"systému a skúste znova!</qt>"
-
-#: backend/backendpersisthandler.cpp:501
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Chyba pri pokuse o inicializáciu OpenPGP počas pokusu o uloženie "
-"peňaženky <b>%1</b>. Prosím opravte nastavenie vášho systému a skúste znova!"
-"</qt>"
-
-#: backend/backendpersisthandler.cpp:555
-#, kde-format
-msgid ""
-"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-"again. This error may occur if you are not using a full trust GPG key. "
-"Please ensure you have the secret key for the key you are using.</qt>"
-msgstr ""
-"<qt>Chyba šifrovania počas pokusu o uloženie peňaženky <b>%1</b>. Kód chyby "
-"je <b>%2 (%3)</b>. Prosím, opravte nastavenie vášho systému a skúste znova!. "
-"Táto chyba môže nastať, ak nepoužívate úplne dôveryhodný GPG kľúč. Prosím, "
-"uistite sa, že máte tajný kľúč pre kľúč, ktorý používate.</qt>"
-
-#: backend/backendpersisthandler.cpp:572
-#, kde-format
-msgid ""
-"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
-"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Chyba spracovania súboru počas pokusu o uloženie peňaženky <b>%1</b>. "
-"Chyba bola <b>%2</b>. Prosím opravte nastavenie vášho systému a skúste znova!"
-"</qt>"
-
-#: backend/backendpersisthandler.cpp:594
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Chyba pri pokuse o inicializáciu OpenPGP počas pokusu o otvorenie "
-"peňaženky <b>%1</b>. Kód chyby je <b>%2</b>. Prosím opravte nastavenie vášho "
-"systému a skúste znova!</qt>"
-
-#: backend/backendpersisthandler.cpp:616
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Chyba pri pokuse o inicializáciu OpenPGP počas pokusu o otvorenie "
-"peňaženky <b>%1</b>. Prosím opravte nastavenie vášho systému a skúste znova!"
-"</qt>"
-
-#: backend/backendpersisthandler.cpp:629
-#, kde-format
-msgid "Retry"
-msgstr "Znovu"
-
-#: backend/backendpersisthandler.cpp:634
-#, kde-format
-msgid ""
-"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-"you're using a SmartCard, please ensure it's inserted then try again."
-"<br><br>GPG error was <b>%2</b></qt>"
-msgstr ""
-"<qt>Chyba pri pokuse o dešifrovanie peňaženky <b>%1</b> pomocou GPG. Ak "
-"používate SmartCard, prosím uistite sa, že je vložená a skúste znova."
-"<br><br>GPG chyba bola <b>%2</b></qt>"
-
-#: backend/backendpersisthandler.cpp:638
-#, kde-format
-msgid "kwalletd GPG backend"
-msgstr "GPG backend kwalletd"
-
-#: backend/backendpersisthandler.cpp:684
-#, kde-format
-msgid ""
-"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
-"system.</qt>"
-msgstr ""
-"<qt>Chyba počas pokusu o otvorenie peňaženky <b>%1</b>. Peňaženka je "
-"šifrovaná pomocou GPG kľúča ID <b>%2</b> ale tento kľúč sa nenašiel vo vašom "
-"systéme.</qt>"
-
-#: backend/kwalletbackend.cc:272
-#, kde-format
-msgid "Already open."
-msgstr "Už je otvorený."
-
-#: backend/kwalletbackend.cc:274
-#, kde-format
-msgid "Error opening file."
-msgstr "Chyba pri otváraní súboru."
-
-#: backend/kwalletbackend.cc:276
-#, kde-format
-msgid "Not a wallet file."
-msgstr "Nie je súbor wallet."
-
-#: backend/kwalletbackend.cc:278
-#, kde-format
-msgid "Unsupported file format revision."
-msgstr "Nepodporovaná revízia formátu súboru."
-
-#: backend/kwalletbackend.cc:282
-#, kde-format
-msgid "Unknown encryption scheme."
-msgstr "Neznáma schéma šifrovania."
-
-#: backend/kwalletbackend.cc:284
-#, kde-format
-msgid "Corrupt file?"
-msgstr "Poškodený súbor?"
-
-#: backend/kwalletbackend.cc:286
-#, kde-format
-msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr "Chyba pri overovaní integrity walletu. Možno je poškodený."
-
-#: backend/kwalletbackend.cc:290
-#, kde-format
-msgid "Read error - possibly incorrect password."
-msgstr "Chyba čítania - pravdepodobne chybné heslo."
-
-#: backend/kwalletbackend.cc:292
-#, kde-format
-msgid "Decryption error."
-msgstr "Chyba pri dešifrovaní."
-
-#: backend/kwalletbackend.cc:472
-#, kde-format
-msgid ""
-"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
-msgstr ""
-"Zlyhala synchronizácia peňaženky <b>%1</b> na disk. Chybové kódy sú:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Prosím zadajte oznámenie o chybe pomocou týchto informácií na "
-"bugs.kde.org"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -316,7 +162,7 @@ msgstr "Klasicky, blowfishom zašifrovaný súbor"
 msgid "Use GPG encryption, for better protection"
 msgstr "Použiť GPG šifrovanie, pre lepšiu ochranu"
 
-#: kwalletd.cpp:624
+#: ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -325,7 +171,7 @@ msgstr ""
 "<qt>KDE požaduje otvoriť wallet '<b>%1</b>'. Prosím, zadajte heslo pre tento "
 "wallet.</qt>"
 
-#: kwalletd.cpp:628
+#: ksecretd.cpp:623
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -335,19 +181,19 @@ msgstr ""
 "zadajte heslo pre tento wallet.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:639 kwalletd.cpp:748 kwalletd.cpp:852 kwalletd.cpp:965
-#: kwalletd.cpp:988 kwalletd.cpp:999 kwalletd.cpp:1004 kwalletd.cpp:1594
-#: main.cpp:167 main.cpp:169
+#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
+#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Služba KDE Wallet"
 
-#: kwalletd.cpp:654
+#: ksecretd.cpp:649
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Aplikácia požaduje prístup k otvoreniu walletu (%1)."
 
-#: kwalletd.cpp:655
+#: ksecretd.cpp:650
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -355,19 +201,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Prepnúť tam"
 
-#: kwalletd.cpp:657
+#: ksecretd.cpp:652
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> požaduje prístup k otvoreniu walletu (%2)."
 
-#: kwalletd.cpp:659
+#: ksecretd.cpp:654
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Prepnúť na %1"
 
-#: kwalletd.cpp:676 kwalletd.cpp:758
+#: ksecretd.cpp:671 ksecretd.cpp:753
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -376,7 +222,7 @@ msgstr ""
 "<qt>Chyba pri otváraní walletu '<b>%1</b>'. Prosím, skúste to znovu. <br /"
 ">(Kód chyby %2: %3)</qt>"
 
-#: kwalletd.cpp:724
+#: ksecretd.cpp:719
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -387,7 +233,7 @@ msgstr ""
 "uloženie citlivých dát. Prosím, zadajte heslo pre tento wallet alebo "
 "kliknite Zrušiť pre zamietnutie požiadavku aplikácie."
 
-#: kwalletd.cpp:729
+#: ksecretd.cpp:724
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -399,7 +245,7 @@ msgstr ""
 "sa používa na bezpečné uloženie citlivých dát. Prosím, zadajte heslo pre "
 "tento wallet alebo kliknite Zrušiť pre zamietnutie požiadavku aplikácie.</qt>"
 
-#: kwalletd.cpp:737
+#: ksecretd.cpp:732
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -410,7 +256,7 @@ msgstr ""
 "vyberte heslo pre tento wallet alebo kliknite Zrušiť pre zamietnutie "
 "požiadavku aplikácie.</qt>"
 
-#: kwalletd.cpp:742
+#: ksecretd.cpp:737
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -421,12 +267,12 @@ msgstr ""
 "b>'. Prosím, vyberte heslo pre tento wallet alebo kliknite Zrušiť pre "
 "zamietnutie požiadavku aplikácie.</qt>"
 
-#: kwalletd.cpp:854
+#: ksecretd.cpp:849
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE požaduje prístup k otvoreniu walletu '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:856
+#: ksecretd.cpp:851
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -435,7 +281,7 @@ msgstr ""
 "<qt>Aplikácia '<b>%1</b>' požaduje prístup k otvoreniu walletu '<b>%2</b>'.</"
 "qt>"
 
-#: kwalletd.cpp:964
+#: ksecretd.cpp:959
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -444,7 +290,7 @@ msgstr ""
 "Nepodarilo sa otvoriť wallet. Wallet musí byť otvorený, ak sa má zmeniť "
 "heslo."
 
-#: kwalletd.cpp:980
+#: ksecretd.cpp:975
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -455,22 +301,22 @@ msgstr ""
 "použite <b>GPG</b> nástroje (ako napríklad <b>kleopatra</b>) na zmenu hesla "
 "priradeného ku kľúču.</qt>"
 
-#: kwalletd.cpp:987
+#: ksecretd.cpp:982
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Prosím, vyberte nové heslo pre wallet '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:999
+#: ksecretd.cpp:994
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Chyba pri opätovnom zašifrovaní wallet. Heslo nebolo zmenené."
 
-#: kwalletd.cpp:1004
+#: ksecretd.cpp:999
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Chyba pri opätovnom otvorení wallet. Dáta môžu byť stratené."
 
-#: kwalletd.cpp:1593
+#: ksecretd.cpp:1588
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -684,51 +530,171 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "Aký druh šifrovania si želáte?"
 
-#: main.cpp:171
-#, kde-format
-msgid "(C) 2002-2013, The KDE Developers"
+#: main.cpp:164
+#, fuzzy, kde-format
+#| msgid "(C) 2002-2013, The KDE Developers"
+msgid "(C) 2002-2025, The KDE Developers"
 msgstr "(c) 202-2013, Vývojári KDE"
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:172
+#: main.cpp:165
 #, fuzzy, kde-format
 #| msgid "Maintainer, GPG backend support"
 msgid "Former Maintainer, GPG backend support"
 msgstr "Správca, podpora backengu GPG"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Pôvodný správca"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "Former maintainer"
 msgstr "Predošlý správca"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "Rozhranie D-Bus"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Chyba pri pokuse o inicializáciu OpenPGP počas pokusu o uloženie "
+#~ "peňaženky <b>%1</b>. Kód chyby je <b>%2</b>. Prosím opravte nastavenie "
+#~ "vášho systému a skúste znova!</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Chyba pri pokuse o inicializáciu OpenPGP počas pokusu o uloženie "
+#~ "peňaženky <b>%1</b>. Prosím opravte nastavenie vášho systému a skúste "
+#~ "znova!</qt>"
+
+#~ msgid ""
+#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+#~ "again. This error may occur if you are not using a full trust GPG key. "
+#~ "Please ensure you have the secret key for the key you are using.</qt>"
+#~ msgstr ""
+#~ "<qt>Chyba šifrovania počas pokusu o uloženie peňaženky <b>%1</b>. Kód "
+#~ "chyby je <b>%2 (%3)</b>. Prosím, opravte nastavenie vášho systému a "
+#~ "skúste znova!. Táto chyba môže nastať, ak nepoužívate úplne dôveryhodný "
+#~ "GPG kľúč. Prosím, uistite sa, že máte tajný kľúč pre kľúč, ktorý "
+#~ "používate.</qt>"
+
+#~ msgid ""
+#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
+#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Chyba spracovania súboru počas pokusu o uloženie peňaženky <b>%1</b>. "
+#~ "Chyba bola <b>%2</b>. Prosím opravte nastavenie vášho systému a skúste "
+#~ "znova!</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Chyba pri pokuse o inicializáciu OpenPGP počas pokusu o otvorenie "
+#~ "peňaženky <b>%1</b>. Kód chyby je <b>%2</b>. Prosím opravte nastavenie "
+#~ "vášho systému a skúste znova!</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Chyba pri pokuse o inicializáciu OpenPGP počas pokusu o otvorenie "
+#~ "peňaženky <b>%1</b>. Prosím opravte nastavenie vášho systému a skúste "
+#~ "znova!</qt>"
+
+#~ msgid "Retry"
+#~ msgstr "Znovu"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+#~ "you're using a SmartCard, please ensure it's inserted then try again."
+#~ "<br><br>GPG error was <b>%2</b></qt>"
+#~ msgstr ""
+#~ "<qt>Chyba pri pokuse o dešifrovanie peňaženky <b>%1</b> pomocou GPG. Ak "
+#~ "používate SmartCard, prosím uistite sa, že je vložená a skúste znova."
+#~ "<br><br>GPG chyba bola <b>%2</b></qt>"
+
+#~ msgid "kwalletd GPG backend"
+#~ msgstr "GPG backend kwalletd"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
+#~ "your system.</qt>"
+#~ msgstr ""
+#~ "<qt>Chyba počas pokusu o otvorenie peňaženky <b>%1</b>. Peňaženka je "
+#~ "šifrovaná pomocou GPG kľúča ID <b>%2</b> ale tento kľúč sa nenašiel vo "
+#~ "vašom systéme.</qt>"
+
+#~ msgid "Already open."
+#~ msgstr "Už je otvorený."
+
+#~ msgid "Error opening file."
+#~ msgstr "Chyba pri otváraní súboru."
+
+#~ msgid "Not a wallet file."
+#~ msgstr "Nie je súbor wallet."
+
+#~ msgid "Unsupported file format revision."
+#~ msgstr "Nepodporovaná revízia formátu súboru."
+
+#~ msgid "Unknown encryption scheme."
+#~ msgstr "Neznáma schéma šifrovania."
+
+#~ msgid "Corrupt file?"
+#~ msgstr "Poškodený súbor?"
+
+#~ msgid "Error validating wallet integrity. Possibly corrupted."
+#~ msgstr "Chyba pri overovaní integrity walletu. Možno je poškodený."
+
+#~ msgid "Read error - possibly incorrect password."
+#~ msgstr "Chyba čítania - pravdepodobne chybné heslo."
+
+#~ msgid "Decryption error."
+#~ msgstr "Chyba pri dešifrovaní."
+
+#~ msgid ""
+#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
+#~ "org"
+#~ msgstr ""
+#~ "Zlyhala synchronizácia peňaženky <b>%1</b> na disk. Chybové kódy sú:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Prosím zadajte oznámenie o chybe pomocou týchto informácií "
+#~ "na bugs.kde.org"
 
 #~ msgid "kwalletd"
 #~ msgstr "kwalletd"

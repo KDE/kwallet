@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-04-15 00:38+0000\n"
 "PO-Revision-Date: 2023-12-14 05:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -27,155 +27,6 @@ msgstr "Temuri Doghonadze"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
-
-#: backend/backendpersisthandler.cpp:489
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>OpenPGP-ის ინიციალიზაციის შეცდომა საფულის შენახვისას <b>%1</b>. შეცდომის "
-"კოდია <b>%2</b>. გაასწორეთ სისტემის კონფიგურაცია და თავიდან სცადეთ.</qt>"
-
-#: backend/backendpersisthandler.cpp:501
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>OpenPGP-ის ინიციალიზაციის შეცდომა საფულის შენახვისას <b>%1</b>. "
-"გაასწორეთ სისტემის კონფიგურაცია და თავიდან სცადეთ.</qt>"
-
-#: backend/backendpersisthandler.cpp:555
-#, kde-format
-msgid ""
-"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-"again. This error may occur if you are not using a full trust GPG key. "
-"Please ensure you have the secret key for the key you are using.</qt>"
-msgstr ""
-"<qt>დაშიფვრის შეცდომა საფულის <b>%1</b> შენახვისას. შეცდომის კოდია <b>%2 "
-"(%3)</b>. ჩაასწორეთ თქვენი სისტემის კონფიგურაცია და თავიდან სცადეთ. ეს "
-"შეცდომა როგორც წესი მაშინ ხდება, თუ სრულიად სანდო GPG გასაღებს არ იყენებთ. "
-"დარწმუნდით, რომ გასაღებისთვის, რომელსაც იყენებთ, საიდუმლო გასაღები გაგაჩნიათ."
-"</qt>"
-
-#: backend/backendpersisthandler.cpp:572
-#, kde-format
-msgid ""
-"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
-"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"ფაილის დამუშავების შეცდომა საფულის (<b>%1</b>) შენახვის მცდელობისას. "
-"შეცდომაა <b>%2</b>. გაასწორეთ თქვენი სისტემის კონფიგურაცია და თავიდან სცადეთ."
-"</qt>"
-
-#: backend/backendpersisthandler.cpp:594
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>OpenPGP-ის ინიციალიზაციის შეცდომა საფულის გახსნისას <b>%1</b>. შეცდომის "
-"კოდია <b>%2</b>. გაასწორეთ სისტემის კონფიგურაცია და თავიდან სცადეთ.</qt>"
-
-#: backend/backendpersisthandler.cpp:616
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>OpenPGP-ის ინიციალიზაციის შეცდომა საფულის გახსნისას <b>%1</b>. გაასწორეთ "
-"სისტემის კონფიგურაცია და თავიდან სცადეთ.</qt>"
-
-#: backend/backendpersisthandler.cpp:629
-#, kde-format
-msgid "Retry"
-msgstr "თავიდან ცდა"
-
-#: backend/backendpersisthandler.cpp:634
-#, kde-format
-msgid ""
-"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-"you're using a SmartCard, please ensure it's inserted then try again."
-"<br><br>GPG error was <b>%2</b></qt>"
-msgstr ""
-"<qt>შეცდომა GPG-ით საფულის <b>%1</b> გაშიფვრის მცდელობისას. თუ სმარტ-ბარათს "
-"იყენებთ, დარწმუნდით, რომ ის შეერთებულია და თავიდან სცადეთ.<br><br>GPG-ის "
-"შეცდომა:<b>%2</b></qt>"
-
-#: backend/backendpersisthandler.cpp:638
-#, kde-format
-msgid "kwalletd GPG backend"
-msgstr "kwalletd-ის GPG უკანაბოლო"
-
-#: backend/backendpersisthandler.cpp:684
-#, kde-format
-msgid ""
-"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
-"system.</qt>"
-msgstr ""
-"<qt>შეცდომა საფულის (<b>%1</b>) გახსნისას. საფულე დაშიფრულია GPG გასაღებით "
-"ID-ით <b>%2</b>, მაგრამ ეს გასაღები თქვენს სისტემაში აღმოჩენილი არაა.</qt>"
-
-#: backend/kwalletbackend.cc:272
-#, kde-format
-msgid "Already open."
-msgstr "უკვე ღიაა."
-
-#: backend/kwalletbackend.cc:274
-#, kde-format
-msgid "Error opening file."
-msgstr "შეცდომა ფაილის გახსნისას."
-
-#: backend/kwalletbackend.cc:276
-#, kde-format
-msgid "Not a wallet file."
-msgstr "არ არის საფულის ფაილი."
-
-#: backend/kwalletbackend.cc:278
-#, kde-format
-msgid "Unsupported file format revision."
-msgstr "ფაილის ფორმატის ვერსია მხარდაუჭერელია."
-
-#: backend/kwalletbackend.cc:282
-#, kde-format
-msgid "Unknown encryption scheme."
-msgstr "უცნობი დაშიფვრის სქემა."
-
-#: backend/kwalletbackend.cc:284
-#, kde-format
-msgid "Corrupt file?"
-msgstr "ფაილი დაზიანებულია?"
-
-#: backend/kwalletbackend.cc:286
-#, kde-format
-msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr "საფულის მთლიანობის დადასტურების შეცდომა. შესაძლოა, ის დაზიანებულია."
-
-#: backend/kwalletbackend.cc:290
-#, kde-format
-msgid "Read error - possibly incorrect password."
-msgstr "წაიკითხეთ შეცდომა - შესაძლოა არასწორი პაროლი."
-
-#: backend/kwalletbackend.cc:292
-#, kde-format
-msgid "Decryption error."
-msgstr "გაშიფვრის შეცდომა."
-
-#: backend/kwalletbackend.cc:472
-#, kde-format
-msgid ""
-"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
-msgstr ""
-"საფულის (<b>%1</b>) დისკთან სინქრონიზაციის შეცდომა. სეცდომის კოდია:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. შეავსეთ შეცდომის შესახებ ამ ინფორმაციით ვებგვერდზე bugs.kde.org"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -313,7 +164,7 @@ msgstr "კლასიკური, blowfish-ით დაშიფრული
 msgid "Use GPG encryption, for better protection"
 msgstr "გამოიყენეთ GPG დაშიფვრა, უკეთესი დაცვისთვის"
 
-#: kwalletd.cpp:624
+#: ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -322,7 +173,7 @@ msgstr ""
 "<qt>KDE-მა საფულის '<b>%1</b>' გახსნა მოითხოვა. შეიყვანეთ ამ საფულის პაროლი."
 "</qt>"
 
-#: kwalletd.cpp:628
+#: ksecretd.cpp:623
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -332,19 +183,19 @@ msgstr ""
 "საფულის პაროლი.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:639 kwalletd.cpp:748 kwalletd.cpp:852 kwalletd.cpp:965
-#: kwalletd.cpp:988 kwalletd.cpp:999 kwalletd.cpp:1004 kwalletd.cpp:1594
-#: main.cpp:167 main.cpp:169
+#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
+#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE საფულის სერვისი"
 
-#: kwalletd.cpp:654
+#: ksecretd.cpp:649
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "აპლიკაციამ მოითხოვა საფულის გახსნა (%1)."
 
-#: kwalletd.cpp:655
+#: ksecretd.cpp:650
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -352,19 +203,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "იქ გადართვა"
 
-#: kwalletd.cpp:657
+#: ksecretd.cpp:652
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1-მა</b> საფულის გახსნა მოითხოვა (%2)."
 
-#: kwalletd.cpp:659
+#: ksecretd.cpp:654
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "%1-ზე გადართვა"
 
-#: kwalletd.cpp:676 kwalletd.cpp:758
+#: ksecretd.cpp:671 ksecretd.cpp:753
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -373,7 +224,7 @@ msgstr ""
 "<qt>შეცდომა საფულის '<b>%1</b>' გახსნისას. თავიდან სცადეთ.<br />(შეცდომის "
 "კოდი %2: %3)</qt>"
 
-#: kwalletd.cpp:724
+#: ksecretd.cpp:719
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -384,7 +235,7 @@ msgstr ""
 "გამოიყენება. შეიყვანეთ საფულის პაროლი ან, აპლიკაციის მოთხოვნის უარყოფისთვის, "
 "გაუქმებაზე დააწკაპუნეთ."
 
-#: kwalletd.cpp:729
+#: ksecretd.cpp:724
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -396,7 +247,7 @@ msgstr ""
 "ინფორმაციის დაცულად შესანახად გამოიყენება. შეიყვანეთ ამ საფულის პაროლი, ან, "
 "აპლიკაციის მოთხოვნის უარყოფისთვის, გაუქმებაზე დააწკაპუნეთ.</qt>"
 
-#: kwalletd.cpp:737
+#: ksecretd.cpp:732
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -406,7 +257,7 @@ msgstr ""
 "<qt>KDE-მა მოითხოვა ახალი საფულის შექმნა სახელით '<b>%1</b>'. შეიყვანეთ "
 "პაროლი ამ საფულისთვის ან გააუქმეთ აპლიკაციის მოთხოვნა.</qt>"
 
-#: kwalletd.cpp:742
+#: ksecretd.cpp:737
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -417,12 +268,12 @@ msgstr ""
 "მოითხოვა. შეიყვანეთ პაროლი ამ საფულისთვის, ან, აპლიკაციის მოთხოვნის "
 "უარყოფისთვის, გაუქმებაზე დააწკაპუნეთ.</qt>"
 
-#: kwalletd.cpp:854
+#: ksecretd.cpp:849
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE ითხოვს წვდომას, გახსნას საფულე  '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:856
+#: ksecretd.cpp:851
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -431,7 +282,7 @@ msgstr ""
 "<qt>აპლიკაცია '<b>%1</b>' ითხოვს წვდომას, რათა გახსნას საფულე '<b>%2</b>'.</"
 "qt>"
 
-#: kwalletd.cpp:964
+#: ksecretd.cpp:959
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -439,7 +290,7 @@ msgid ""
 msgstr ""
 "საფულის გახსნის შეცდომა. პაროლის შესაცვლელად საფულის გახსნა აუცილებელია."
 
-#: kwalletd.cpp:980
+#: ksecretd.cpp:975
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -450,22 +301,22 @@ msgstr ""
 "ფრაზის შესაცვლელდ <b>GPG</b>-ის პროგრამები (მაგალითად <b>kleopatra</b>) "
 "გამოიყენეთ.</qt>"
 
-#: kwalletd.cpp:987
+#: ksecretd.cpp:982
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>შეიყვანეთ ახალი პაროლი საფულისთვის '<b>%1</b>'.</qt>"
 
-#: kwalletd.cpp:999
+#: ksecretd.cpp:994
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "საფულის ხელახალი დაშიფვრის შეცდომა. პაროლი არ შეცვლილა."
 
-#: kwalletd.cpp:1004
+#: ksecretd.cpp:999
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "პაროლის ხელახლა გახსნის შეცდომა. მონაცემები შეიძლება დაიკარგოს."
 
-#: kwalletd.cpp:1593
+#: ksecretd.cpp:1588
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -681,47 +532,165 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "რომელი ტიპის დაშიფვრა გნებავთ?"
 
-#: main.cpp:171
-#, kde-format
-msgid "(C) 2002-2013, The KDE Developers"
+#: main.cpp:164
+#, fuzzy, kde-format
+#| msgid "(C) 2002-2013, The KDE Developers"
+msgid "(C) 2002-2025, The KDE Developers"
 msgstr "(C) 2002-2013, KDE დეველოპერები"
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "ვალენტინ რუსუ"
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "ყოფილი წამყვანი პროგრამისტი, GPG უკანაბოლოს მხარდაჭერა"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Michael Leupold"
 msgstr "მაიკლ ლეუპოლდი"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Former Maintainer"
 msgstr "ყოფილი პროგრამისტი"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "Former maintainer"
 msgstr "ყოფილი პროგრამისტი"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "თიაგო მაცეირა"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "D-Bus ინტერფეისი"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>OpenPGP-ის ინიციალიზაციის შეცდომა საფულის შენახვისას <b>%1</b>. "
+#~ "შეცდომის კოდია <b>%2</b>. გაასწორეთ სისტემის კონფიგურაცია და თავიდან "
+#~ "სცადეთ.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>OpenPGP-ის ინიციალიზაციის შეცდომა საფულის შენახვისას <b>%1</b>. "
+#~ "გაასწორეთ სისტემის კონფიგურაცია და თავიდან სცადეთ.</qt>"
+
+#~ msgid ""
+#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+#~ "again. This error may occur if you are not using a full trust GPG key. "
+#~ "Please ensure you have the secret key for the key you are using.</qt>"
+#~ msgstr ""
+#~ "<qt>დაშიფვრის შეცდომა საფულის <b>%1</b> შენახვისას. შეცდომის კოდია <b>%2 "
+#~ "(%3)</b>. ჩაასწორეთ თქვენი სისტემის კონფიგურაცია და თავიდან სცადეთ. ეს "
+#~ "შეცდომა როგორც წესი მაშინ ხდება, თუ სრულიად სანდო GPG გასაღებს არ "
+#~ "იყენებთ. დარწმუნდით, რომ გასაღებისთვის, რომელსაც იყენებთ, საიდუმლო "
+#~ "გასაღები გაგაჩნიათ.</qt>"
+
+#~ msgid ""
+#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
+#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
+#~ "</qt>"
+#~ msgstr ""
+#~ "ფაილის დამუშავების შეცდომა საფულის (<b>%1</b>) შენახვის მცდელობისას. "
+#~ "შეცდომაა <b>%2</b>. გაასწორეთ თქვენი სისტემის კონფიგურაცია და თავიდან "
+#~ "სცადეთ.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>OpenPGP-ის ინიციალიზაციის შეცდომა საფულის გახსნისას <b>%1</b>. "
+#~ "შეცდომის კოდია <b>%2</b>. გაასწორეთ სისტემის კონფიგურაცია და თავიდან "
+#~ "სცადეთ.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>OpenPGP-ის ინიციალიზაციის შეცდომა საფულის გახსნისას <b>%1</b>. "
+#~ "გაასწორეთ სისტემის კონფიგურაცია და თავიდან სცადეთ.</qt>"
+
+#~ msgid "Retry"
+#~ msgstr "თავიდან ცდა"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+#~ "you're using a SmartCard, please ensure it's inserted then try again."
+#~ "<br><br>GPG error was <b>%2</b></qt>"
+#~ msgstr ""
+#~ "<qt>შეცდომა GPG-ით საფულის <b>%1</b> გაშიფვრის მცდელობისას. თუ სმარტ-"
+#~ "ბარათს იყენებთ, დარწმუნდით, რომ ის შეერთებულია და თავიდან სცადეთ."
+#~ "<br><br>GPG-ის შეცდომა:<b>%2</b></qt>"
+
+#~ msgid "kwalletd GPG backend"
+#~ msgstr "kwalletd-ის GPG უკანაბოლო"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
+#~ "your system.</qt>"
+#~ msgstr ""
+#~ "<qt>შეცდომა საფულის (<b>%1</b>) გახსნისას. საფულე დაშიფრულია GPG "
+#~ "გასაღებით ID-ით <b>%2</b>, მაგრამ ეს გასაღები თქვენს სისტემაში აღმოჩენილი "
+#~ "არაა.</qt>"
+
+#~ msgid "Already open."
+#~ msgstr "უკვე ღიაა."
+
+#~ msgid "Error opening file."
+#~ msgstr "შეცდომა ფაილის გახსნისას."
+
+#~ msgid "Not a wallet file."
+#~ msgstr "არ არის საფულის ფაილი."
+
+#~ msgid "Unsupported file format revision."
+#~ msgstr "ფაილის ფორმატის ვერსია მხარდაუჭერელია."
+
+#~ msgid "Unknown encryption scheme."
+#~ msgstr "უცნობი დაშიფვრის სქემა."
+
+#~ msgid "Corrupt file?"
+#~ msgstr "ფაილი დაზიანებულია?"
+
+#~ msgid "Error validating wallet integrity. Possibly corrupted."
+#~ msgstr "საფულის მთლიანობის დადასტურების შეცდომა. შესაძლოა, ის დაზიანებულია."
+
+#~ msgid "Read error - possibly incorrect password."
+#~ msgstr "წაიკითხეთ შეცდომა - შესაძლოა არასწორი პაროლი."
+
+#~ msgid "Decryption error."
+#~ msgstr "გაშიფვრის შეცდომა."
+
+#~ msgid ""
+#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
+#~ "org"
+#~ msgstr ""
+#~ "საფულის (<b>%1</b>) დისკთან სინქრონიზაციის შეცდომა. სეცდომის კოდია:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. შეავსეთ შეცდომის შესახებ ამ ინფორმაციით ვებგვერდზე bugs.kde."
+#~ "org"

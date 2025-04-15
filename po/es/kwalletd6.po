@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-04-15 00:38+0000\n"
 "PO-Revision-Date: 2023-12-14 03:16+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -29,163 +29,6 @@ msgstr "Eloy Cuadra,Jaime Robles,Santiago Fernández Sancho"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net,jaime@kde.org,santi@kde-es.org"
-
-#: backend/backendpersisthandler.cpp:489
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Error al intentar inicializar OpenPGP mientras se procedía a guardar la "
-"cartera <b>%1</b>. El código de error es <b>%2</b>. Por favor, corrija la "
-"configuración del sistema y pruebe de nuevo.</qt>"
-
-#: backend/backendpersisthandler.cpp:501
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Error al intentar inicializar OpenPGP mientras se procedía a guardar la "
-"cartera <b>%1</b>. Por favor, corrija la configuración del sistema y pruebe "
-"de nuevo.</qt>"
-
-#: backend/backendpersisthandler.cpp:555
-#, kde-format
-msgid ""
-"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-"again. This error may occur if you are not using a full trust GPG key. "
-"Please ensure you have the secret key for the key you are using.</qt>"
-msgstr ""
-"<qt>Error de cifrado mientras se procedía a guardar la cartera <b>%1</b>. El "
-"código de error es <b>%2 (%3)</b>. Por favor, corrija la configuración del "
-"sistema y pruebe de nuevo. Este error puede ocurrir si no está usando una "
-"clave GPG de total confianza. Por favor, asegúrese de que dispone de la "
-"clave secreta de la clave que está usando.</qt>"
-
-#: backend/backendpersisthandler.cpp:572
-#, kde-format
-msgid ""
-"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
-"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Error de manejo de archivos mientras se procedía a guardar la cartera <b>"
-"%1</b>. El error es <b>%2</b>. Por favor, corrija la configuración del "
-"sistema y pruebe de nuevo.</qt>"
-
-#: backend/backendpersisthandler.cpp:594
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Error al intentar inicializar OpenPGP mientras se procedía a abrir la "
-"cartera <b>%1</b>. El código de error es <b>%2</b>. Por favor, corrija la "
-"configuración del sistema y pruebe de nuevo.</qt>"
-
-#: backend/backendpersisthandler.cpp:616
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Error al intentar inicializar OpenPGP mientras se procedía a abrir la "
-"cartera <b>%1</b>. Por favor, corrija la configuración del sistema y pruebe "
-"de nuevo.</qt>"
-
-#: backend/backendpersisthandler.cpp:629
-#, kde-format
-msgid "Retry"
-msgstr "Reintentar"
-
-#: backend/backendpersisthandler.cpp:634
-#, kde-format
-msgid ""
-"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-"you're using a SmartCard, please ensure it's inserted then try again."
-"<br><br>GPG error was <b>%2</b></qt>"
-msgstr ""
-"<qt>Error al intentar descifrar la cartera <b>%1</b> usando GPG. Si está "
-"usando una SmartCard, asegúrese de que está insertada y vuelva a intentarlo "
-"de nuevo.<br><br>El error GPG es <b>%2</b></qt>"
-
-#: backend/backendpersisthandler.cpp:638
-#, kde-format
-msgid "kwalletd GPG backend"
-msgstr "Motor GPG para kwalletd"
-
-#: backend/backendpersisthandler.cpp:684
-#, kde-format
-msgid ""
-"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
-"system.</qt>"
-msgstr ""
-"<qt>Error al intentar abrir la cartera <b>%1</b>. La cartera estaba cifrada "
-"usando la ID de clave GPG <b>%2</b>, pero esta clave no se ha encontrado en "
-"el sistema.</qt>"
-
-#: backend/kwalletbackend.cc:272
-#, kde-format
-msgid "Already open."
-msgstr "Archivo ya abierto."
-
-#: backend/kwalletbackend.cc:274
-#, kde-format
-msgid "Error opening file."
-msgstr "Error al abrir archivo."
-
-#: backend/kwalletbackend.cc:276
-#, kde-format
-msgid "Not a wallet file."
-msgstr "No es un archivo de cartera."
-
-#: backend/kwalletbackend.cc:278
-#, kde-format
-msgid "Unsupported file format revision."
-msgstr "Revisión de formato de archivo no soportado."
-
-#: backend/kwalletbackend.cc:282
-#, kde-format
-msgid "Unknown encryption scheme."
-msgstr "Esquema de cifrado desconocido."
-
-#: backend/kwalletbackend.cc:284
-#, kde-format
-msgid "Corrupt file?"
-msgstr "¿Archivo dañado?"
-
-#: backend/kwalletbackend.cc:286
-#, kde-format
-msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr ""
-"Error validando la integridad de la cartera. Es posible que esté dañada."
-
-#: backend/kwalletbackend.cc:290
-#, kde-format
-msgid "Read error - possibly incorrect password."
-msgstr "Error de lectura - posiblemente contraseña incorrecta."
-
-#: backend/kwalletbackend.cc:292
-#, kde-format
-msgid "Decryption error."
-msgstr "Descripción de descifrado."
-
-#: backend/kwalletbackend.cc:472
-#, kde-format
-msgid ""
-"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
-msgstr ""
-"Ha fallado la sincronización de la cartera <b>%1</b> con el disco. Los "
-"códigos de error son:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Por favor, envíe un informe de error usando esta información "
-"en bugs.kde.org"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -325,7 +168,7 @@ msgstr "Clásico, archivo cifrado con blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Usar cifrado GPG, para una mejor protección"
 
-#: kwalletd.cpp:624
+#: ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -334,7 +177,7 @@ msgstr ""
 "<qt>KDE ha solicitado abrir la cartera «<b>%1</b>». Introduzca la contraseña "
 "de esta cartera más abajo.</qt>"
 
-#: kwalletd.cpp:628
+#: ksecretd.cpp:623
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -344,19 +187,19 @@ msgstr ""
 "Introduzca la contraseña de esta cartera más abajo.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:639 kwalletd.cpp:748 kwalletd.cpp:852 kwalletd.cpp:965
-#: kwalletd.cpp:988 kwalletd.cpp:999 kwalletd.cpp:1004 kwalletd.cpp:1594
-#: main.cpp:167 main.cpp:169
+#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
+#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Servicio de cartera de KDE"
 
-#: kwalletd.cpp:654
+#: ksecretd.cpp:649
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Una aplicación ha solicitado abrir una cartera (%1)."
 
-#: kwalletd.cpp:655
+#: ksecretd.cpp:650
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -364,19 +207,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Cambiar"
 
-#: kwalletd.cpp:657
+#: ksecretd.cpp:652
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> ha solicitado abrir una cartera (%2)."
 
-#: kwalletd.cpp:659
+#: ksecretd.cpp:654
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Cambiar a %1"
 
-#: kwalletd.cpp:676 kwalletd.cpp:758
+#: ksecretd.cpp:671 ksecretd.cpp:753
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -385,7 +228,7 @@ msgstr ""
 "<qt>Error al abrir la cartera «<b>%1</b>». Inténtelo de nuevo.<br />(Código "
 "de error %2: %3)</qt>"
 
-#: kwalletd.cpp:724
+#: ksecretd.cpp:719
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -397,7 +240,7 @@ msgstr ""
 "si desea abrirlo, o pulse «Cancelar» si desea denegar la petición de la "
 "aplicación."
 
-#: kwalletd.cpp:729
+#: ksecretd.cpp:724
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -410,7 +253,7 @@ msgstr ""
 "contraseña de esta cartera más abajo si desea abrirla, o cancele si desea "
 "denegar la petición de la aplicación.</qt>"
 
-#: kwalletd.cpp:737
+#: ksecretd.cpp:732
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -421,7 +264,7 @@ msgstr ""
 "una contraseña para esta cartera, o pulse «Cancelar» para denegar la "
 "solicitud de la aplicación.</qt>"
 
-#: kwalletd.cpp:742
+#: ksecretd.cpp:737
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -432,13 +275,13 @@ msgstr ""
 "denominada «<b>%2</b>». Escoja una contraseña para esta cartera, o cancele "
 "para denegar la solicitud de la aplicación.</qt>"
 
-#: kwalletd.cpp:854
+#: ksecretd.cpp:849
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>KDE ha solicitado acceder a la cartera «<b>%1</b>», ya abierta.</qt>"
 
-#: kwalletd.cpp:856
+#: ksecretd.cpp:851
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -447,7 +290,7 @@ msgstr ""
 "<qt>La aplicación «<b>%1</b>» ha solicitado acceder a la cartera «<b>%2</"
 "b>», ya abierta.</qt>"
 
-#: kwalletd.cpp:964
+#: ksecretd.cpp:959
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -456,7 +299,7 @@ msgstr ""
 "Imposible abrir cartera. La cartera debe abrirse para poder cambiar la "
 "contraseña."
 
-#: kwalletd.cpp:980
+#: ksecretd.cpp:975
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -467,22 +310,22 @@ msgstr ""
 "utilice las herramientas <b>GPG</b> (como <b>kleopatra</b>) para cambiar la "
 "contraseña larga asociada con esta clave.</qt>"
 
-#: kwalletd.cpp:987
+#: ksecretd.cpp:982
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Escoja una nueva contraseña para la cartera «<b>%1</b>».</qt>"
 
-#: kwalletd.cpp:999
+#: ksecretd.cpp:994
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Error al cifrar de nuevo la cartera. La contraseña no cambió."
 
-#: kwalletd.cpp:1004
+#: ksecretd.cpp:999
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Error al reabrir la cartera. Los datos pueden haberse perdido."
 
-#: kwalletd.cpp:1593
+#: ksecretd.cpp:1588
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -703,50 +546,172 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "¿Qué tipo de cifrado desea usar?"
 
-#: main.cpp:171
-#, kde-format
-msgid "(C) 2002-2013, The KDE Developers"
+#: main.cpp:164
+#, fuzzy, kde-format
+#| msgid "(C) 2002-2013, The KDE Developers"
+msgid "(C) 2002-2025, The KDE Developers"
 msgstr "© 2002-2013, los desarrolladores de KDE"
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "Encargado anterior, implementación del motor GPG"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Encargado anterior"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "Former maintainer"
 msgstr "Encargado anterior"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "Interfaz DBus"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Error al intentar inicializar OpenPGP mientras se procedía a guardar "
+#~ "la cartera <b>%1</b>. El código de error es <b>%2</b>. Por favor, corrija "
+#~ "la configuración del sistema y pruebe de nuevo.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Error al intentar inicializar OpenPGP mientras se procedía a guardar "
+#~ "la cartera <b>%1</b>. Por favor, corrija la configuración del sistema y "
+#~ "pruebe de nuevo.</qt>"
+
+#~ msgid ""
+#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+#~ "again. This error may occur if you are not using a full trust GPG key. "
+#~ "Please ensure you have the secret key for the key you are using.</qt>"
+#~ msgstr ""
+#~ "<qt>Error de cifrado mientras se procedía a guardar la cartera <b>%1</b>. "
+#~ "El código de error es <b>%2 (%3)</b>. Por favor, corrija la configuración "
+#~ "del sistema y pruebe de nuevo. Este error puede ocurrir si no está usando "
+#~ "una clave GPG de total confianza. Por favor, asegúrese de que dispone de "
+#~ "la clave secreta de la clave que está usando.</qt>"
+
+#~ msgid ""
+#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
+#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Error de manejo de archivos mientras se procedía a guardar la cartera "
+#~ "<b>%1</b>. El error es <b>%2</b>. Por favor, corrija la configuración del "
+#~ "sistema y pruebe de nuevo.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Error al intentar inicializar OpenPGP mientras se procedía a abrir la "
+#~ "cartera <b>%1</b>. El código de error es <b>%2</b>. Por favor, corrija la "
+#~ "configuración del sistema y pruebe de nuevo.</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Error al intentar inicializar OpenPGP mientras se procedía a abrir la "
+#~ "cartera <b>%1</b>. Por favor, corrija la configuración del sistema y "
+#~ "pruebe de nuevo.</qt>"
+
+#~ msgid "Retry"
+#~ msgstr "Reintentar"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+#~ "you're using a SmartCard, please ensure it's inserted then try again."
+#~ "<br><br>GPG error was <b>%2</b></qt>"
+#~ msgstr ""
+#~ "<qt>Error al intentar descifrar la cartera <b>%1</b> usando GPG. Si está "
+#~ "usando una SmartCard, asegúrese de que está insertada y vuelva a "
+#~ "intentarlo de nuevo.<br><br>El error GPG es <b>%2</b></qt>"
+
+#~ msgid "kwalletd GPG backend"
+#~ msgstr "Motor GPG para kwalletd"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
+#~ "your system.</qt>"
+#~ msgstr ""
+#~ "<qt>Error al intentar abrir la cartera <b>%1</b>. La cartera estaba "
+#~ "cifrada usando la ID de clave GPG <b>%2</b>, pero esta clave no se ha "
+#~ "encontrado en el sistema.</qt>"
+
+#~ msgid "Already open."
+#~ msgstr "Archivo ya abierto."
+
+#~ msgid "Error opening file."
+#~ msgstr "Error al abrir archivo."
+
+#~ msgid "Not a wallet file."
+#~ msgstr "No es un archivo de cartera."
+
+#~ msgid "Unsupported file format revision."
+#~ msgstr "Revisión de formato de archivo no soportado."
+
+#~ msgid "Unknown encryption scheme."
+#~ msgstr "Esquema de cifrado desconocido."
+
+#~ msgid "Corrupt file?"
+#~ msgstr "¿Archivo dañado?"
+
+#~ msgid "Error validating wallet integrity. Possibly corrupted."
+#~ msgstr ""
+#~ "Error validando la integridad de la cartera. Es posible que esté dañada."
+
+#~ msgid "Read error - possibly incorrect password."
+#~ msgstr "Error de lectura - posiblemente contraseña incorrecta."
+
+#~ msgid "Decryption error."
+#~ msgstr "Descripción de descifrado."
+
+#~ msgid ""
+#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
+#~ "org"
+#~ msgstr ""
+#~ "Ha fallado la sincronización de la cartera <b>%1</b> con el disco. Los "
+#~ "códigos de error son:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Por favor, envíe un informe de error usando esta "
+#~ "información en bugs.kde.org"
 
 #~ msgid "kwalletd"
 #~ msgstr "kwalletd"

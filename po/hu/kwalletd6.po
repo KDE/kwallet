@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-04-15 00:38+0000\n"
 "PO-Revision-Date: 2024-01-03 10:50+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -29,163 +29,6 @@ msgstr "Kiszel Kristóf"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ulysses@fsf.hu"
-
-#: backend/backendpersisthandler.cpp:489
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Hiba az OpenPGP előkészítésének kísérletekor, miközben a(z) <b>%1</b> "
-"jelszótároló mentését próbálta. A hibakód: <b>%2</b>. Kérjük javítsa a "
-"rendszerbeállítását, majd próbálja újra!</qt>"
-
-#: backend/backendpersisthandler.cpp:501
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Hiba az OpenPGP előkészítésének kísérletekor, miközben a(z) <b>%1</b> "
-"jelszótároló mentését próbálta. Kérjük javítsa a rendszerbeállítását, majd "
-"próbálja újra!</qt>"
-
-#: backend/backendpersisthandler.cpp:555
-#, kde-format
-msgid ""
-"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-"again. This error may occur if you are not using a full trust GPG key. "
-"Please ensure you have the secret key for the key you are using.</qt>"
-msgstr ""
-"<qt>Titkosítási hiba történt, miközben a(z) <b>%1</b> jelszótároló mentését "
-"próbálta. A hibakód: <b>%2 (%3)</b>. Kérjük javítsa a rendszerbeállítását, "
-"majd próbálja újra! Ez akkor történhet, ha nem teljesen megbízható GPG "
-"kulcsot használ. Ellenőrizze, hogy rendelkezik a használt kulcshoz tartozó "
-"titkos kulccsal.</qt>"
-
-#: backend/backendpersisthandler.cpp:572
-#, kde-format
-msgid ""
-"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
-"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Fájlkezelési hiba történt, miközben a(z) <b>%1</b> jelszótároló mentését "
-"próbálta. A hiba ez volt: <b>%2</b>. Kérjük javítsa a rendszerbeállítását, "
-"majd próbálja újra!</qt>"
-
-#: backend/backendpersisthandler.cpp:594
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt>Hiba az OpenPGP előkészítésének kísérletekor, miközben a(z) <b>%1</b> "
-"jelszótároló megnyitását próbálta. A hibakód: <b>%2</b>. Kérjük javítsa a "
-"rendszerbeállítását, majd próbálja újra!</qt>"
-
-#: backend/backendpersisthandler.cpp:616
-#, kde-format
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt>Hiba az OpenPGP előkészítésének kísérletekor, miközben a(z) <b>%1</b> "
-"jelszótároló megnyitását próbálta.  Kérjük javítsa a rendszerbeállítását, "
-"majd próbálja újra!</qt>"
-
-#: backend/backendpersisthandler.cpp:629
-#, kde-format
-msgid "Retry"
-msgstr "Ismét"
-
-#: backend/backendpersisthandler.cpp:634
-#, kde-format
-msgid ""
-"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-"you're using a SmartCard, please ensure it's inserted then try again."
-"<br><br>GPG error was <b>%2</b></qt>"
-msgstr ""
-"<qt>Hiba történt a(z) <b>%1</b> jelszótároló GPG-vel történő "
-"visszafejtésének kísérlete közben. Ha okoskártyát használ, győződjön meg "
-"arról, hogy be van-e helyezve, majd próbálja újra.<br><br>A GPG hiba ez "
-"volt: <b>%2</b></qt>"
-
-#: backend/backendpersisthandler.cpp:638
-#, kde-format
-msgid "kwalletd GPG backend"
-msgstr "kwalletd GPG háttérprogram"
-
-#: backend/backendpersisthandler.cpp:684
-#, kde-format
-msgid ""
-"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
-"system.</qt>"
-msgstr ""
-"<qt>Hiba történt a(z) <b>%1</b> jelszótároló megnyitásának kísérlete közben. "
-"A jelszótároló a(z) <b>%2</b> azonosítójú GPG kulccsal lett titkosítva, de "
-"ez a kulcs nem található a rendszerén.</qt>"
-
-#: backend/kwalletbackend.cc:272
-#, kde-format
-msgid "Already open."
-msgstr "Már meg van nyitva."
-
-#: backend/kwalletbackend.cc:274
-#, kde-format
-msgid "Error opening file."
-msgstr "Nem sikerült megnyitni egy fájlt."
-
-#: backend/kwalletbackend.cc:276
-#, kde-format
-msgid "Not a wallet file."
-msgstr "A fájl nem jelszótároló."
-
-#: backend/kwalletbackend.cc:278
-#, kde-format
-msgid "Unsupported file format revision."
-msgstr "Nem támogatott verziójú a jelszótároló."
-
-#: backend/kwalletbackend.cc:282
-#, kde-format
-msgid "Unknown encryption scheme."
-msgstr "Ismeretlen titkosítási mód."
-
-#: backend/kwalletbackend.cc:284
-#, kde-format
-msgid "Corrupt file?"
-msgstr "Lehet, hogy a fájl megsérült"
-
-#: backend/kwalletbackend.cc:286
-#, kde-format
-msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr "A jelszótároló integritása sérült, valószínűleg megsérült a fájl."
-
-#: backend/kwalletbackend.cc:290
-#, kde-format
-msgid "Read error - possibly incorrect password."
-msgstr "Olvasási hiba történt, valószínűleg hibás a megadott jelszó."
-
-#: backend/kwalletbackend.cc:292
-#, kde-format
-msgid "Decryption error."
-msgstr "Dekódolási hiba történt."
-
-#: backend/kwalletbackend.cc:472
-#, kde-format
-msgid ""
-"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
-msgstr ""
-"Nem sikerült a(z) <b>%1</b> jelszótárolót szinkronizálni a lemezre. A "
-"hibakódok:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Kérjük töltsön ki egy hibajelentést ezen információk "
-"használatával a bugs.kde.org oldalon."
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -325,7 +168,7 @@ msgstr "Klasszikus, blowfish titkosított fájl"
 msgid "Use GPG encryption, for better protection"
 msgstr "GPG titkosítás használata a jobb védelemért"
 
-#: kwalletd.cpp:624
+#: ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -334,7 +177,7 @@ msgstr ""
 "<qt>A KDE a következő jelszótároló megnyitását kérte: „<b>%1</b>”. Kérjük "
 "adja meg tároló jelszavát.</qt>"
 
-#: kwalletd.cpp:628
+#: ksecretd.cpp:623
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -344,19 +187,19 @@ msgstr ""
 "„<b>%2</b>”. Kérjük adja meg a tároló jelszavát.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:639 kwalletd.cpp:748 kwalletd.cpp:852 kwalletd.cpp:965
-#: kwalletd.cpp:988 kwalletd.cpp:999 kwalletd.cpp:1004 kwalletd.cpp:1594
-#: main.cpp:167 main.cpp:169
+#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
+#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE jelszókezelő szolgáltatás"
 
-#: kwalletd.cpp:654
+#: ksecretd.cpp:649
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Egy alkalmazás szeretné megnyitni egy jelszótárolót (%1)."
 
-#: kwalletd.cpp:655
+#: ksecretd.cpp:650
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -364,19 +207,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Váltás erre"
 
-#: kwalletd.cpp:657
+#: ksecretd.cpp:652
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "A(z) <b>%1</b> meg szeretne nyitni egy jelszótárolót (%2)."
 
-#: kwalletd.cpp:659
+#: ksecretd.cpp:654
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Váltás erre: %1"
 
-#: kwalletd.cpp:676 kwalletd.cpp:758
+#: ksecretd.cpp:671 ksecretd.cpp:753
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -385,7 +228,7 @@ msgstr ""
 "<qt>Nem sikerült megnyitni a következő jelszótárolót: „<b>%1</b>”, esetleg "
 "próbálja meg újra.<br />(Hibakód %2: %3)</qt>"
 
-#: kwalletd.cpp:724
+#: ksecretd.cpp:719
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -396,7 +239,7 @@ msgstr ""
 "hasonló, védett adatok biztonságos tárolására szolgál). Kérjük írja be a "
 "tárolót védő jelszót vagy a Mégsem gombbal utasítsa el a hozzáférést)."
 
-#: kwalletd.cpp:729
+#: ksecretd.cpp:724
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -409,7 +252,7 @@ msgstr ""
 "szolgál). Kérjük írja be a tárolót védő jelszót vagy a Mégsem gombbal "
 "utasítsa el a hozzáférést).</qt>"
 
-#: kwalletd.cpp:737
+#: ksecretd.cpp:732
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -420,7 +263,7 @@ msgstr ""
 "meg egy, a tárolóhoz való hozzáférést védő jelszót, vagy a Mégsem gombbal "
 "utasítsa el a kérést.</qt>"
 
-#: kwalletd.cpp:742
+#: ksecretd.cpp:737
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -431,13 +274,13 @@ msgstr ""
 "szeretne létrehozni. Adjon meg egy, a tárolóhoz való hozzáférést védő "
 "jelszót, vagy a Mégsem gombbal utasítsa el a kérést.</qt>"
 
-#: kwalletd.cpp:854
+#: ksecretd.cpp:849
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>A KDE meg szeretné nyitni a következő jelszótárolót: „<b>%1</b>”.</qt>"
 
-#: kwalletd.cpp:856
+#: ksecretd.cpp:851
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -446,7 +289,7 @@ msgstr ""
 "<qt>Egy alkalmazás („<b>%1</b>”) meg szeretné nyitni a következő "
 "jelszótárolót: „<b>%2</b>”.</qt>"
 
-#: kwalletd.cpp:964
+#: ksecretd.cpp:959
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -455,7 +298,7 @@ msgstr ""
 "Nem sikerült megnyitni a jelszótárolót. Egy tárolt jelszó megváltoztatásához "
 "meg kell nyitni a tárolót."
 
-#: kwalletd.cpp:980
+#: ksecretd.cpp:975
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -466,28 +309,28 @@ msgstr ""
 "Kérjük használja a <b>GPG</b> eszközöket (mint <b>kleopatra</b>) a kulcshoz "
 "rendelt jelmondat megváltoztatásához.</qt>"
 
-#: kwalletd.cpp:987
+#: ksecretd.cpp:982
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>Adjon meg egy új jelszót a következő jelszótároló védéséhez: „<b>%1</b>”."
 "</qt>"
 
-#: kwalletd.cpp:999
+#: ksecretd.cpp:994
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
 "Nem sikerült újratitkosítani a jelszótárolót, ezért a jelszó nem változott "
 "meg."
 
-#: kwalletd.cpp:1004
+#: ksecretd.cpp:999
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Nem sikerült újra megnyitni a jelszótárolót, lehet, hogy egyes adatok "
 "elvesztek."
 
-#: kwalletd.cpp:1593
+#: ksecretd.cpp:1588
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -707,50 +550,172 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "Milyen típusú titkosítást szeretne?"
 
-#: main.cpp:171
-#, kde-format
-msgid "(C) 2002-2013, The KDE Developers"
+#: main.cpp:164
+#, fuzzy, kde-format
+#| msgid "(C) 2002-2013, The KDE Developers"
+msgid "(C) 2002-2025, The KDE Developers"
 msgstr "© A KDE fejlesztői, 2002-2013."
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "Korábbi karbantartó, GPG háttérprogram támogatás"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Korábbi karbantartó"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "Former maintainer"
 msgstr "Korábbi karbantartó"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "D-Bus-csatoló"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Hiba az OpenPGP előkészítésének kísérletekor, miközben a(z) <b>%1</b> "
+#~ "jelszótároló mentését próbálta. A hibakód: <b>%2</b>. Kérjük javítsa a "
+#~ "rendszerbeállítását, majd próbálja újra!</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Hiba az OpenPGP előkészítésének kísérletekor, miközben a(z) <b>%1</b> "
+#~ "jelszótároló mentését próbálta. Kérjük javítsa a rendszerbeállítását, "
+#~ "majd próbálja újra!</qt>"
+
+#~ msgid ""
+#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+#~ "again. This error may occur if you are not using a full trust GPG key. "
+#~ "Please ensure you have the secret key for the key you are using.</qt>"
+#~ msgstr ""
+#~ "<qt>Titkosítási hiba történt, miközben a(z) <b>%1</b> jelszótároló "
+#~ "mentését próbálta. A hibakód: <b>%2 (%3)</b>. Kérjük javítsa a "
+#~ "rendszerbeállítását, majd próbálja újra! Ez akkor történhet, ha nem "
+#~ "teljesen megbízható GPG kulcsot használ. Ellenőrizze, hogy rendelkezik a "
+#~ "használt kulcshoz tartozó titkos kulccsal.</qt>"
+
+#~ msgid ""
+#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
+#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt>Fájlkezelési hiba történt, miközben a(z) <b>%1</b> jelszótároló "
+#~ "mentését próbálta. A hiba ez volt: <b>%2</b>. Kérjük javítsa a "
+#~ "rendszerbeállítását, majd próbálja újra!</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt>Hiba az OpenPGP előkészítésének kísérletekor, miközben a(z) <b>%1</b> "
+#~ "jelszótároló megnyitását próbálta. A hibakód: <b>%2</b>. Kérjük javítsa a "
+#~ "rendszerbeállítását, majd próbálja újra!</qt>"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt>Hiba az OpenPGP előkészítésének kísérletekor, miközben a(z) <b>%1</b> "
+#~ "jelszótároló megnyitását próbálta.  Kérjük javítsa a rendszerbeállítását, "
+#~ "majd próbálja újra!</qt>"
+
+#~ msgid "Retry"
+#~ msgstr "Ismét"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+#~ "you're using a SmartCard, please ensure it's inserted then try again."
+#~ "<br><br>GPG error was <b>%2</b></qt>"
+#~ msgstr ""
+#~ "<qt>Hiba történt a(z) <b>%1</b> jelszótároló GPG-vel történő "
+#~ "visszafejtésének kísérlete közben. Ha okoskártyát használ, győződjön meg "
+#~ "arról, hogy be van-e helyezve, majd próbálja újra.<br><br>A GPG hiba ez "
+#~ "volt: <b>%2</b></qt>"
+
+#~ msgid "kwalletd GPG backend"
+#~ msgstr "kwalletd GPG háttérprogram"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
+#~ "your system.</qt>"
+#~ msgstr ""
+#~ "<qt>Hiba történt a(z) <b>%1</b> jelszótároló megnyitásának kísérlete "
+#~ "közben. A jelszótároló a(z) <b>%2</b> azonosítójú GPG kulccsal lett "
+#~ "titkosítva, de ez a kulcs nem található a rendszerén.</qt>"
+
+#~ msgid "Already open."
+#~ msgstr "Már meg van nyitva."
+
+#~ msgid "Error opening file."
+#~ msgstr "Nem sikerült megnyitni egy fájlt."
+
+#~ msgid "Not a wallet file."
+#~ msgstr "A fájl nem jelszótároló."
+
+#~ msgid "Unsupported file format revision."
+#~ msgstr "Nem támogatott verziójú a jelszótároló."
+
+#~ msgid "Unknown encryption scheme."
+#~ msgstr "Ismeretlen titkosítási mód."
+
+#~ msgid "Corrupt file?"
+#~ msgstr "Lehet, hogy a fájl megsérült"
+
+#~ msgid "Error validating wallet integrity. Possibly corrupted."
+#~ msgstr "A jelszótároló integritása sérült, valószínűleg megsérült a fájl."
+
+#~ msgid "Read error - possibly incorrect password."
+#~ msgstr "Olvasási hiba történt, valószínűleg hibás a megadott jelszó."
+
+#~ msgid "Decryption error."
+#~ msgstr "Dekódolási hiba történt."
+
+#~ msgid ""
+#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
+#~ "org"
+#~ msgstr ""
+#~ "Nem sikerült a(z) <b>%1</b> jelszótárolót szinkronizálni a lemezre. A "
+#~ "hibakódok:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Kérjük töltsön ki egy hibajelentést ezen információk "
+#~ "használatával a bugs.kde.org oldalon."
 
 #~ msgid "kwalletd"
 #~ msgstr "kwalletd"

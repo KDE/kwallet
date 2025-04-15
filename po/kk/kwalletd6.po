@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-18 00:39+0000\n"
+"POT-Creation-Date: 2025-04-15 00:38+0000\n"
 "PO-Revision-Date: 2013-09-30 00:36+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -26,180 +26,6 @@ msgstr "Сайран Киккарин"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sairan@computer.org"
-
-#: backend/backendpersisthandler.cpp:489
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#| "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#| "configuration, then try again!</qt>"
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt><b>%1</b> әмиянын сақтау кезде OpenPGP-ні бастау күйіне келтіру қатесі . "
-"Қатенің коды: <b>%2</b>. Жүйе баптауын түзеп, қайталап көріңіз</qt>"
-
-#: backend/backendpersisthandler.cpp:501
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#| "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#| "again!</qt>"
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt><b>%1</b> әмиянын сақтау кезде OpenPGP-ні бастау күйіне келтіру қатесі . "
-"Жүйе баптауын түзеп, қайталап көріңіз</qt>"
-
-#: backend/backendpersisthandler.cpp:555
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-#| "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-#| "again!</qt>"
-msgid ""
-"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-"again. This error may occur if you are not using a full trust GPG key. "
-"Please ensure you have the secret key for the key you are using.</qt>"
-msgstr ""
-"<qt><b>%1</b> әмиянын сақтау кезде шифрлау қатесі . Қатенің коды: <b>%2 "
-"(%3)</b>. Жүйе баптауын түзеп, қайталап көріңіз. </qt>"
-
-#: backend/backendpersisthandler.cpp:572
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
-#| "Error was <b>%2</b>. Please fix your system configuration, then try again!"
-#| "</qt>"
-msgid ""
-"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
-"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt><b>%1</b> әмиянын сақтау кезде шифрлау қатесі . Қате <b>%2</b> болды. "
-"Жүйе баптауын түзеп, қайталап көріңіз</qt>"
-
-#: backend/backendpersisthandler.cpp:594
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#| "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#| "configuration, then try again!</qt>"
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-"configuration, then try again.</qt>"
-msgstr ""
-"<qt><b>%1</b> әмиянын ашу кезде OpenPGP-ні бастау күйіне келтіру қатесі . "
-"Қатенің коды: <b>%2</b>. Жүйе баптауын түзеп, қайталап көріңіз</qt>"
-
-#: backend/backendpersisthandler.cpp:616
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#| "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#| "again!</qt>"
-msgid ""
-"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
-"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
-msgstr ""
-"<qt><b>%1</b> әмиянын ашу кезде OpenPGP-ні бастау күйіне келтіру қатесі . "
-"Жүйе баптауын түзеп, қайталап көріңіз</qt>"
-
-#: backend/backendpersisthandler.cpp:629
-#, kde-format
-msgid "Retry"
-msgstr "Қайталап көру"
-
-#: backend/backendpersisthandler.cpp:634
-#, kde-format
-msgid ""
-"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-"you're using a SmartCard, please ensure it's inserted then try again."
-"<br><br>GPG error was <b>%2</b></qt>"
-msgstr ""
-"<qt><b>%1</b> әмиянның шифрын шешу кезде GPG қолдану қатесі. SmartCard-ты "
-"қолдансаңыз, ол енгізілгенін тексеріңіз де, қайталап көріңіз. <br><br>GPG "
-"қатесі <b>%2</b> болды</qt>"
-
-#: backend/backendpersisthandler.cpp:638
-#, kde-format
-msgid "kwalletd GPG backend"
-msgstr "kwalletd GPG тетігі"
-
-#: backend/backendpersisthandler.cpp:684
-#, kde-format
-msgid ""
-"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
-"system.</qt>"
-msgstr ""
-"<qt><b>%1</b> әмиянын ашу кездегі қате. Бұл әмиян ID-і <b>%2</b> GPG "
-"кілтімен шифрланған, бірақ ол кілт жүйеңізде табылмады.</qt>"
-
-#: backend/kwalletbackend.cc:272
-#, kde-format
-msgid "Already open."
-msgstr "Ашылған ғой."
-
-#: backend/kwalletbackend.cc:274
-#, kde-format
-msgid "Error opening file."
-msgstr "Файлды ашу қатесі."
-
-#: backend/kwalletbackend.cc:276
-#, kde-format
-msgid "Not a wallet file."
-msgstr "Әмиян файлы емес."
-
-#: backend/kwalletbackend.cc:278
-#, kde-format
-msgid "Unsupported file format revision."
-msgstr "Танымайтын файл пішімінің нұсқасы."
-
-#: backend/kwalletbackend.cc:282
-#, kde-format
-msgid "Unknown encryption scheme."
-msgstr "Беймәлім шифрлау сұлбасы."
-
-#: backend/kwalletbackend.cc:284
-#, kde-format
-msgid "Corrupt file?"
-msgstr "Бүлінген файл ма?"
-
-#: backend/kwalletbackend.cc:286
-#, kde-format
-msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr "Әмиян тұтастығын тексеру қатесі. Бәлкім, бүлінген."
-
-#: backend/kwalletbackend.cc:290
-#, kde-format
-msgid "Read error - possibly incorrect password."
-msgstr "Оқу қатесі - пароль дұрыс емес сияқты."
-
-#: backend/kwalletbackend.cc:292
-#, kde-format
-msgid "Decryption error."
-msgstr "Шифрды шешу қатесі."
-
-#: backend/kwalletbackend.cc:472
-#, fuzzy, kde-format
-#| msgid ""
-#| "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-#| "RC <b>%2</b>\n"
-#| "SF <b>%2</b>. Please file a BUG report using this information to bugs.kde."
-#| "org"
-msgid ""
-"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-"RC <b>%2</b>\n"
-"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
-msgstr ""
-"<b>%1</b> әмиянын дискідегімен қадамдастыру жаңылысы. Қате кодтары:\n"
-"RC <b>%2</b>\n"
-"SF <b>%2</b>. Осы деректерді ҚАТЕ туралы bugs.kde.org дегенге хабарлаңыз."
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -340,7 +166,7 @@ msgstr "Классикалық, blowfish шифрлаған файл"
 msgid "Use GPG encryption, for better protection"
 msgstr "Мықтылық үшін GPG шифрлау қолданылсын"
 
-#: kwalletd.cpp:624
+#: ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -349,7 +175,7 @@ msgstr ""
 "<qt>KDE '<b>%1</b>' деген әмиянды ашуды сұрайды. Төменде бұл әмиянның "
 "паролін келтіріңіз.</qt>"
 
-#: kwalletd.cpp:628
+#: ksecretd.cpp:623
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -359,20 +185,20 @@ msgstr ""
 "бұл әмиянның паролін келтіріңіз.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: kwalletd.cpp:639 kwalletd.cpp:748 kwalletd.cpp:852 kwalletd.cpp:965
-#: kwalletd.cpp:988 kwalletd.cpp:999 kwalletd.cpp:1004 kwalletd.cpp:1594
-#: main.cpp:167 main.cpp:169
+#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
+#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE Әмиян қызметі"
 
-#: kwalletd.cpp:654
+#: ksecretd.cpp:649
 #, fuzzy, kde-format
 #| msgid "<b>KDE</b> has requested to open a wallet (%1)."
 msgid "An application has requested to open a wallet (%1)."
 msgstr "<b>KDE</b>'.%1 деген әмиянды ашуды сұрайды."
 
-#: kwalletd.cpp:655
+#: ksecretd.cpp:650
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -380,19 +206,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Ауысу"
 
-#: kwalletd.cpp:657
+#: ksecretd.cpp:652
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b>' деген.%2 деген әмиянды ашуды сұрайды."
 
-#: kwalletd.cpp:659
+#: ksecretd.cpp:654
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "%1 дегенге ауысу"
 
-#: kwalletd.cpp:676 kwalletd.cpp:758
+#: ksecretd.cpp:671 ksecretd.cpp:753
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -401,7 +227,7 @@ msgstr ""
 "<qt>'<b>%1</b>' деген әмиянды ашу қатесі. Қайталап көріңіз.<br />(Қатенің "
 "коды: %2: %3)</qt>"
 
-#: kwalletd.cpp:724
+#: ksecretd.cpp:719
 #, fuzzy, kde-format
 #| msgid ""
 #| "KDE has requested to open the wallet. This is used to store sensitive "
@@ -416,7 +242,7 @@ msgstr ""
 "сақтауға пайдаланады. Әмиянның паролін келтіріңіз немесе қолданбаның талабын "
 "елемей қалдыру үшін бас тартыңыз."
 
-#: kwalletd.cpp:729
+#: ksecretd.cpp:724
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -428,7 +254,7 @@ msgstr ""
 "шифрланған түрде сақтауға пайдаланады. Әмиянның паролін келтіріңіз немесе "
 "қолданбаның талабын елемей қалдыру үшін бас тартыңыз.</qt>"
 
-#: kwalletd.cpp:737
+#: ksecretd.cpp:732
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -438,7 +264,7 @@ msgstr ""
 "<qt>KDE.%1 деп аталған жаңа әмиянды құруды сұрайды. Әмиянның паролін таңдап "
 "беріңіз немесе қолданбаның талабын елемей қалдыру үшін бас тартыңыз.</qt>"
 
-#: kwalletd.cpp:742
+#: ksecretd.cpp:737
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -449,12 +275,12 @@ msgstr ""
 "сұрайды. Әмиянның паролін таңдап беріңіз немесе қолданбаның талабын елемей "
 "қалдыру үшін бас тартыңыз.</qt>"
 
-#: kwalletd.cpp:854
+#: ksecretd.cpp:849
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE '<b>%1</b>' әмиянына қатынауды сұрайды.</qt>"
 
-#: kwalletd.cpp:856
+#: ksecretd.cpp:851
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -463,14 +289,14 @@ msgstr ""
 "<qt>'<b>%1</b>' қолданбасы '<b>%2</b>' деп аталған әмиянына қатынауды "
 "сұрайды.</qt>"
 
-#: kwalletd.cpp:964
+#: ksecretd.cpp:959
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "Әмиян ашылмайды. Әмиянды паролін ауыстыру үшін ашу керек."
 
-#: kwalletd.cpp:980
+#: ksecretd.cpp:975
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -481,22 +307,22 @@ msgstr ""
 "байланысты паролін өзгерту үшін <b>GPG</b> құралдарын (<b>kleopatra</b> "
 "секілді) қолданған абзал.</qt>"
 
-#: kwalletd.cpp:987
+#: ksecretd.cpp:982
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>'<b>%1</b>' деген әмиянына жаңа парольді таңдап беріңіз.</qt>"
 
-#: kwalletd.cpp:999
+#: ksecretd.cpp:994
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Әмиянды қайта шифрлау қатесі. Паролі ауыстырылмады."
 
-#: kwalletd.cpp:1004
+#: ksecretd.cpp:999
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Әмиянды қайта ашу қатесі. Деректер жоғалу мүмкін."
 
-#: kwalletd.cpp:1593
+#: ksecretd.cpp:1588
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -713,52 +539,198 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "Қай шифрлау тәсілін қалайсыз?"
 
-#: main.cpp:171
+#: main.cpp:164
 #, kde-format
-msgid "(C) 2002-2013, The KDE Developers"
+msgid "(C) 2002-2025, The KDE Developers"
 msgstr ""
 
-#: main.cpp:172
+#: main.cpp:165
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:172
+#: main.cpp:165
 #, fuzzy, kde-format
 #| msgid "GPG backend support"
 msgid "Former Maintainer, GPG backend support"
 msgstr "GPG тетігін қолдануы"
 
-#: main.cpp:173
+#: main.cpp:166
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:173
+#: main.cpp:166
 #, fuzzy, kde-format
 #| msgid "Former maintainer"
 msgid "Former Maintainer"
 msgstr "Бұрынғы жетілдірушісі"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:174
+#: main.cpp:167
 #, kde-format
 msgid "Former maintainer"
 msgstr "Бұрынғы жетілдірушісі"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:175
+#: main.cpp:168
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "D-Bus интерфейсі"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~| "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~| "configuration, then try again!</qt>"
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt><b>%1</b> әмиянын сақтау кезде OpenPGP-ні бастау күйіне келтіру "
+#~ "қатесі . Қатенің коды: <b>%2</b>. Жүйе баптауын түзеп, қайталап көріңіз</"
+#~ "qt>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~| "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~| "again!</qt>"
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt><b>%1</b> әмиянын сақтау кезде OpenPGP-ні бастау күйіне келтіру "
+#~ "қатесі . Жүйе баптауын түзеп, қайталап көріңіз</qt>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>Encryption error while attempting to save the wallet <b>%1</b>. "
+#~| "Error code is <b>%2 (%3)</b>. Please fix your system configuration, then "
+#~| "try again!</qt>"
+#~ msgid ""
+#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+#~ "again. This error may occur if you are not using a full trust GPG key. "
+#~ "Please ensure you have the secret key for the key you are using.</qt>"
+#~ msgstr ""
+#~ "<qt><b>%1</b> әмиянын сақтау кезде шифрлау қатесі . Қатенің коды: <b>%2 "
+#~ "(%3)</b>. Жүйе баптауын түзеп, қайталап көріңіз. </qt>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
+#~| "Error was <b>%2</b>. Please fix your system configuration, then try "
+#~| "again!</qt>"
+#~ msgid ""
+#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
+#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
+#~ "</qt>"
+#~ msgstr ""
+#~ "<qt><b>%1</b> әмиянын сақтау кезде шифрлау қатесі . Қате <b>%2</b> болды. "
+#~ "Жүйе баптауын түзеп, қайталап көріңіз</qt>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~| "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~| "configuration, then try again!</qt>"
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+#~ "configuration, then try again.</qt>"
+#~ msgstr ""
+#~ "<qt><b>%1</b> әмиянын ашу кезде OpenPGP-ні бастау күйіне келтіру қатесі . "
+#~ "Қатенің коды: <b>%2</b>. Жүйе баптауын түзеп, қайталап көріңіз</qt>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~| "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~| "again!</qt>"
+#~ msgid ""
+#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
+#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
+#~ "again.</qt>"
+#~ msgstr ""
+#~ "<qt><b>%1</b> әмиянын ашу кезде OpenPGP-ні бастау күйіне келтіру қатесі . "
+#~ "Жүйе баптауын түзеп, қайталап көріңіз</qt>"
+
+#~ msgid "Retry"
+#~ msgstr "Қайталап көру"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+#~ "you're using a SmartCard, please ensure it's inserted then try again."
+#~ "<br><br>GPG error was <b>%2</b></qt>"
+#~ msgstr ""
+#~ "<qt><b>%1</b> әмиянның шифрын шешу кезде GPG қолдану қатесі. SmartCard-ты "
+#~ "қолдансаңыз, ол енгізілгенін тексеріңіз де, қайталап көріңіз. <br><br>GPG "
+#~ "қатесі <b>%2</b> болды</qt>"
+
+#~ msgid "kwalletd GPG backend"
+#~ msgstr "kwalletd GPG тетігі"
+
+#~ msgid ""
+#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
+#~ "your system.</qt>"
+#~ msgstr ""
+#~ "<qt><b>%1</b> әмиянын ашу кездегі қате. Бұл әмиян ID-і <b>%2</b> GPG "
+#~ "кілтімен шифрланған, бірақ ол кілт жүйеңізде табылмады.</qt>"
+
+#~ msgid "Already open."
+#~ msgstr "Ашылған ғой."
+
+#~ msgid "Error opening file."
+#~ msgstr "Файлды ашу қатесі."
+
+#~ msgid "Not a wallet file."
+#~ msgstr "Әмиян файлы емес."
+
+#~ msgid "Unsupported file format revision."
+#~ msgstr "Танымайтын файл пішімінің нұсқасы."
+
+#~ msgid "Unknown encryption scheme."
+#~ msgstr "Беймәлім шифрлау сұлбасы."
+
+#~ msgid "Corrupt file?"
+#~ msgstr "Бүлінген файл ма?"
+
+#~ msgid "Error validating wallet integrity. Possibly corrupted."
+#~ msgstr "Әмиян тұтастығын тексеру қатесі. Бәлкім, бүлінген."
+
+#~ msgid "Read error - possibly incorrect password."
+#~ msgstr "Оқу қатесі - пароль дұрыс емес сияқты."
+
+#~ msgid "Decryption error."
+#~ msgstr "Шифрды шешу қатесі."
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+#~| "RC <b>%2</b>\n"
+#~| "SF <b>%2</b>. Please file a BUG report using this information to bugs."
+#~| "kde.org"
+#~ msgid ""
+#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
+#~ "org"
+#~ msgstr ""
+#~ "<b>%1</b> әмиянын дискідегімен қадамдастыру жаңылысы. Қате кодтары:\n"
+#~ "RC <b>%2</b>\n"
+#~ "SF <b>%2</b>. Осы деректерді ҚАТЕ туралы bugs.kde.org дегенге хабарлаңыз."
 
 #, fuzzy
 #~| msgid "KWallet"
