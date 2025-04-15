@@ -1,6 +1,7 @@
 
 find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(PkgConfig REQUIRED)
 
 pkg_check_modules(LIBSECRET REQUIRED libsecret-1)
 include_directories(${LIBSECRET_INCLUDE_DIRS})
