@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-15 00:38+0000\n"
-"PO-Revision-Date: 2023-12-14 06:34+0100\n"
+"PO-Revision-Date: 2025-04-15 07:17+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -47,13 +47,13 @@ msgstr "Dovoli &vedno"
 #: kbetterthankdialogbase.ui:67
 #, kde-format
 msgid "&Deny"
-msgstr "&Zavrni"
+msgstr "Zavrni"
 
 #. i18n: ectx: property (text), widget (QPushButton, _denyForever)
 #: kbetterthankdialogbase.ui:74
 #, kde-format
 msgid "Deny &Forever"
-msgstr "Zavrni &trajno"
+msgstr "Zavrni trajno"
 
 #: knewwalletdialog.cpp:50
 #, kde-format
@@ -75,7 +75,7 @@ msgid ""
 "Please choose the new wallet's type below or click cancel to deny the "
 "application's request.</qt>"
 msgstr ""
-"<qt>Program »<b>%1</b>« je zahteval ustvaritev listnice imenovane '<b>%2</"
+"<qt>Program '<b>%1</b>' je zahteval ustvaritev listnice imenovane '<b>%2</"
 "b>'. To se uporablja za shranjevanje občutljivih podatkov na varen način. "
 "Izberite vrsto nove listnice spodaj ali pa kliknite »Prekliči«, da bi "
 "zavrnili zahtevo programa.</qt>"
@@ -539,10 +539,9 @@ msgid "What kind of encryption do you wish?"
 msgstr "Kakšno vrsto šifriranja želite?"
 
 #: main.cpp:164
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2013, The KDE Developers"
+#, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr "(C) 2002-2013, razvijalci KDE"
+msgstr "(C) 2002-2025, razvijalci KDE"
 
 #: main.cpp:165
 #, kde-format

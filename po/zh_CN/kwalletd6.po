@@ -494,10 +494,9 @@ msgid "What kind of encryption do you wish?"
 msgstr "您想要使用哪种加密方式？"
 
 #: main.cpp:164
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2013, The KDE Developers"
+#, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr "(C) 2002-2013, The KDE Developers"
+msgstr ""
 
 #: main.cpp:165
 #, kde-format
@@ -538,112 +537,3 @@ msgstr "Thiago Maceira"
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "D-Bus 接口"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#~ "configuration, then try again.</qt>"
-#~ msgstr ""
-#~ "<qt>尝试保存密码库 <b>%1</b> 时初始化 OpenPGP 出错。错误代码为 <b>%2</b>。"
-#~ "请修复您的系统配置，然后重试。</qt>"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#~ "again.</qt>"
-#~ msgstr ""
-#~ "<qt>尝试保存密码库 <b>%1</b> 时初始化 OpenPGP 出错。请修复您的系统配置，然"
-#~ "后重试。</qt>"
-
-#~ msgid ""
-#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-#~ "again. This error may occur if you are not using a full trust GPG key. "
-#~ "Please ensure you have the secret key for the key you are using.</qt>"
-#~ msgstr ""
-#~ "<qt>尝试保存密码库 <b>%1</b> 时加密出错。错误代码为 <b>%2 (%3)</b>。请修复"
-#~ "您的系统配置，然后重试。这个错误可能是因为您并未使用完全信任的 GPG 密钥。"
-#~ "请确保您持有要使用的密钥的私钥。</qt>"
-
-#~ msgid ""
-#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
-#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>尝试保存密码库 <b>%1</b> 时文件处理出错。错误为 <b>%2</b>。请修复您的"
-#~ "系统配置，然后重试。</qt>"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#~ "configuration, then try again.</qt>"
-#~ msgstr ""
-#~ "<qt>尝试打开密码库 <b>%1</b> 时初始化 OpenPGP 出错。错误代码为 <b>%2</b>。"
-#~ "请修复您的系统配置，然后重试。</qt>"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#~ "again.</qt>"
-#~ msgstr ""
-#~ "<qt>尝试打开密码库 <b>%1</b> 时初始化 OpenPGP 出错。请修复您的系统配置，然"
-#~ "后重试。</qt>"
-
-#~ msgid "Retry"
-#~ msgstr "重试"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-#~ "you're using a SmartCard, please ensure it's inserted then try again."
-#~ "<br><br>GPG error was <b>%2</b></qt>"
-#~ msgstr ""
-#~ "<qt>尝试使用 GPG 解密密码库 <b>%1</b> 时出错。如果您使用的是智能卡，请确保"
-#~ "您已经插入了智能卡，然后重试。<br><br>GPG 错误为 <b>%2</b></qt>"
-
-#~ msgid "kwalletd GPG backend"
-#~ msgstr "kwalletd GPG 后端程序"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
-#~ "your system.</qt>"
-#~ msgstr ""
-#~ "<qt>尝试打开密码库 <b>%1</b> 时出错。此密码库使用 GPG 密钥 ID <b>%2</b> 进"
-#~ "行加密，但在您的系统中无法找到该密钥。</qt>"
-
-#~ msgid "Already open."
-#~ msgstr "已经打开。"
-
-#~ msgid "Error opening file."
-#~ msgstr "打开文件时出错。"
-
-#~ msgid "Not a wallet file."
-#~ msgstr "这不是一个密码库文件。"
-
-#~ msgid "Unsupported file format revision."
-#~ msgstr "不支持的文件格式版本。"
-
-#~ msgid "Unknown encryption scheme."
-#~ msgstr "未知的加密方式。"
-
-#~ msgid "Corrupt file?"
-#~ msgstr "文件可能已经损坏。"
-
-#~ msgid "Error validating wallet integrity. Possibly corrupted."
-#~ msgstr "校验密码库完整性时出错。文件可能已损坏。"
-
-#~ msgid "Read error - possibly incorrect password."
-#~ msgstr "读取错误 - 密码可能不正确。"
-
-#~ msgid "Decryption error."
-#~ msgstr "解密错误。"
-
-#~ msgid ""
-#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-#~ "RC <b>%2</b>\n"
-#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
-#~ "org"
-#~ msgstr ""
-#~ "无法将密码库 <b>%1</b> 同步到磁盘。错误代码为：\n"
-#~ "RC <b>%2</b>\n"
-#~ "SF <b>%3</b>。请将此信息作为程序缺陷报告提交到 bugs.kde.org 网站"
