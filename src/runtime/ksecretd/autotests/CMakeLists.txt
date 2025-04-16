@@ -9,8 +9,6 @@ include(ECMAddTests)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/..)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/..)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../backend)
-include_directories(${CMAKE_CURRENT_BINARY_DIR}/../backend)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../api/KWallet)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../../api/KWallet)
 
