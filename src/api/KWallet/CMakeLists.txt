@@ -38,7 +38,7 @@ else()
         set(kwallet_xml org.kde.KWallet.xml)
     else()
         # copy of org.kde.KWallet.xml, but with all deprecated API removed
-        set(kwallet_xml org.kde.KWallet.nodeprecated.xml)
+        set(kwallet_xml org.kde.nodeprecated.KWallet.xml)
     endif()
     qt_add_dbus_interface(kwallet_dbus_SRCS ${kwallet_xml} kwallet_interface)
     target_sources(KF6Wallet PRIVATE

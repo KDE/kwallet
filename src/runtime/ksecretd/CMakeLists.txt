@@ -94,7 +94,7 @@ if (NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
     set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.KWallet.xml)
 else()
     # copy of org.kde.KWallet.xml, but with all deprecated API removed
-    set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.KWallet.nodeprecated.xml)
+    set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.nodeprecated.KWallet.xml)
 endif()
 set(fdo_service_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Service.xml)
 set(fdo_session_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Session.xml)
