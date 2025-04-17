@@ -496,7 +496,7 @@ msgstr "您想要使用哪种加密方式？"
 #: main.cpp:164
 #, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr ""
+msgstr "(C) 2002-2025, The KDE Developers"
 
 #: main.cpp:165
 #, kde-format

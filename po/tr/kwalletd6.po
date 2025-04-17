@@ -545,10 +545,9 @@ msgid "What kind of encryption do you wish?"
 msgstr "Ne tür bir şifreleme istiyorsunuz?"
 
 #: main.cpp:164
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2013, The KDE Developers"
+#, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr "© 2002–2013, KDE Geliştiricileri"
+msgstr "© 2002–2025, KDE Geliştiricileri"
 
 #: main.cpp:165
 #, kde-format
@@ -589,118 +588,3 @@ msgstr "Thiago Maceira"
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "D-Bus arayüzü"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#~ "configuration, then try again.</qt>"
-#~ msgstr ""
-#~ "<qt><b>%1</b> cüzdanına kaydedilirken OpenPGP başlatmada hata oluştu. "
-#~ "Hata kodu <b>%2</b>. Lütfen sistem yapılandırmanızı onarın ve yeniden "
-#~ "deneyin.</qt>"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#~ "again.</qt>"
-#~ msgstr ""
-#~ "<qt><b>%1</b> cüzdanına kaydedilirken OpenPGP başlatmada hata oluştu. "
-#~ "Lütfen sistem yapılandırmanızı onarın ve yeniden deneyin.</qt>"
-
-#~ msgid ""
-#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-#~ "again. This error may occur if you are not using a full trust GPG key. "
-#~ "Please ensure you have the secret key for the key you are using.</qt>"
-#~ msgstr ""
-#~ "<qt><b>%1</b> cüzdanı kaydedilirken şifreleme hatası. Hata kodu <b>%2 "
-#~ "(%3)</b>. Lütfen sistem yapılandırmanızı onarın ve yeniden deneyin. Bu "
-#~ "hata tam güvenli bir GPG anahtarı kullanmadığınız için oluşmuş olabilir. "
-#~ "Lütfen kullandığınız anahtar için gerekli gizli anahtara sahip "
-#~ "olduğunuzdan emin olun.</qt>"
-
-#~ msgid ""
-#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
-#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt><b>%1</b> cüzdanı kaydedilirken dosya ele alma hatası. Hata <b>%2</b> "
-#~ "idi. Lütfen sistem yapılandırmanızı onarın ve yeniden deneyin.</qt>"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#~ "configuration, then try again.</qt>"
-#~ msgstr ""
-#~ "<qt><b>%1</b> cüzdanı açılırken OpenPGP başlatmada hata oluştu. Hata kodu "
-#~ "<b>%2</b>. Lütfen sistem yapılandırmanızı onarın ve yeniden deneyin.</qt>"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#~ "again.</qt>"
-#~ msgstr ""
-#~ "<qt><b>%1</b> cüzdanı açılırken OpenPGP başlatmada hata oluştu. Lütfen "
-#~ "sistem yapılandırmanızı onarın ve yeniden deneyin.</qt>"
-
-#~ msgid "Retry"
-#~ msgstr "Yeniden Dene"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-#~ "you're using a SmartCard, please ensure it's inserted then try again."
-#~ "<br><br>GPG error was <b>%2</b></qt>"
-#~ msgstr ""
-#~ "<qt>GPG kullanılırken <b>%1</b> cüzdanı şifre çözmesi sırasında hata "
-#~ "oluştu. Eğer bir Akıllı Kart kullanıyorsanız, takılı olduğundan emin olun "
-#~ "ve yeniden deneyin.<br><br>GPG hatası şuydu: <b>%2</b></qt>"
-
-#~ msgid "kwalletd GPG backend"
-#~ msgstr "kwalletd GPG arka ucu"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
-#~ "your system.</qt>"
-#~ msgstr ""
-#~ "<qt><b>%1</b> cüzdanı açılırken bir hata oluştu. Cüzdan GPG Anahtar "
-#~ "Kimliği <b>%2</b> ile şifrelenmiş ancak bu anahtar sistemde bulunamadı.</"
-#~ "qt>"
-
-#~ msgid "Already open."
-#~ msgstr "Zaten açık."
-
-#~ msgid "Error opening file."
-#~ msgstr "Dosya açılırken hata oluştu."
-
-#~ msgid "Not a wallet file."
-#~ msgstr "Bu bir cüzdan dosyası değil."
-
-#~ msgid "Unsupported file format revision."
-#~ msgstr "Desteklenmeyen dosya biçimi sürümü."
-
-#~ msgid "Unknown encryption scheme."
-#~ msgstr "Bilinmeyen şifreleme yapısı."
-
-#~ msgid "Corrupt file?"
-#~ msgstr "Dosya bozuk mu?"
-
-#~ msgid "Error validating wallet integrity. Possibly corrupted."
-#~ msgstr "Cüzdan bütünlüğü doğrulanamadı. Büyük olasılıkla hasar görmüş."
-
-#~ msgid "Read error - possibly incorrect password."
-#~ msgstr "Okuma hatası — büyük olasılıkla parola hatalı."
-
-#~ msgid "Decryption error."
-#~ msgstr "Şifreleme açma hatası."
-
-#~ msgid ""
-#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-#~ "RC <b>%2</b>\n"
-#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
-#~ "org"
-#~ msgstr ""
-#~ "<b>%1</b> cüzdanı diske eşzamanlanamadı. Hata kodları:\n"
-#~ "RC <b>%2</b>\n"
-#~ "SF <b>%3</b>. Lütfen bu bilgiyi kullanarak bugs.kde.org sitesine bir HATA "
-#~ "kaydı gönderin."
