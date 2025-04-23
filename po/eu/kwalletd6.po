@@ -1,24 +1,24 @@
-# Translation for kwalletd5.po to Euskara/Basque (eu).
-# Copyright (C) 2009-2023 This file is copyright:
+# Translation for kwalletd6.po to Euskara/Basque (eu).
+# Copyright (C) 2009-2025 This file is copyright:
 # This file is distributed under the same license as the kwallet package.
-# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2009, 2010, 2017, 2021, 2023.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2009, 2010, 2017, 2021, 2023, 2025.
 # marcos <marcos@euskalgnu.org>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-15 00:38+0000\n"
-"PO-Revision-Date: 2023-12-14 18:38+0100\n"
+"PO-Revision-Date: 2025-04-22 11:06+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -543,10 +543,9 @@ msgid "What kind of encryption do you wish?"
 msgstr "Zein motako zifratzea nahi duzu?"
 
 #: main.cpp:164
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2013, The KDE Developers"
+#, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr "(C) 2002-2013, KDEren garatzaileak"
+msgstr "(C) 2002-2025, KDE garatzaileak"
 
 #: main.cpp:165
 #, kde-format
