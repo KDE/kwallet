@@ -4,13 +4,13 @@
 # Tamas Szanto <tszanto@interware.hu>, 2009.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2010, 2014, 2015.
 # Balázs Úr <urbalazs@gmail.com>, 2013, 2014.
-# SPDX-FileCopyrightText: 2018, 2021, 2024 Kristof Kiszel <kiszel.kristof@gmail.com>
+# SPDX-FileCopyrightText: 2018, 2021, 2024, 2025 Kristof Kiszel <kiszel.kristof@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-15 00:38+0000\n"
-"PO-Revision-Date: 2024-01-03 10:50+0100\n"
+"PO-Revision-Date: 2025-04-26 22:22+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -551,10 +551,9 @@ msgid "What kind of encryption do you wish?"
 msgstr "Milyen típusú titkosítást szeretne?"
 
 #: main.cpp:164
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2013, The KDE Developers"
+#, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr "© A KDE fejlesztői, 2002-2013."
+msgstr "© A KDE fejlesztői, 2002-2025."
 
 #: main.cpp:165
 #, kde-format
