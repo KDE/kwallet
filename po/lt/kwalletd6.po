@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-15 00:38+0000\n"
-"PO-Revision-Date: 2024-01-13 18:03+0200\n"
+"PO-Revision-Date: 2025-04-28 01:30+0300\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -549,10 +549,9 @@ msgid "What kind of encryption do you wish?"
 msgstr "Kokios šifravimo rūšies norėtumėte?"
 
 #: main.cpp:164
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2013, The KDE Developers"
+#, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr "(C) 2002-2013, KDE programuotojai"
+msgstr "(C) 2002–2025, KDE programuotojai"
 
 #: main.cpp:165
 #, kde-format
