@@ -20,7 +20,7 @@ include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 
 set(REQUIRED_QT_VERSION 6.7.0)
-find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets DBus)
+find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core DBus Gui Widgets)
 
 include(ECMGenerateExportHeader)
 include(ECMSetupVersion)
@@ -45,11 +45,11 @@ endif()
 # Therefore we must not exclude those by default
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
-find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6DocTools ${KF_DEP_VERSION})
+
+if(BUILD_KSECRETD OR BUILD_KWALLETD)
+    find_package(KF6 ${KF_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n WindowSystem)
+endif()
 
 ecm_set_disabled_deprecation_versions(
     QT 6.9.0
@@ -63,15 +63,20 @@ else()
 endif()
 
 add_definitions(-DTRANSLATION_DOMAIN=\"ksecretd6\")
-ki18n_install(po)
+if(BUILD_KSECRETD OR BUILD_KWALLETD OR BUILD_KWALLET_QUERY)
+    ki18n_install(po)
+endif()
 add_subdirectory(src)
 if (BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
     add_subdirectory(examples)
 endif()
-if (KF6DocTools_FOUND)
-    add_subdirectory(docs)
+if(BUILD_KWALLET_QUERY)
+    find_package(KF6DocTools ${KF_DEP_VERSION})
+    if(KF6DocTools_FOUND)
+        add_subdirectory(docs)
+    endif()
 endif()
 
 include(ECMFeatureSummary)
