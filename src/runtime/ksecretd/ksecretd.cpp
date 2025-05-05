@@ -141,7 +141,6 @@ KSecretD::KSecretD()
         (void)new KWalletAdaptor(this);
         // register legacy services
         QDBusConnection::sessionBus().registerObject(QStringLiteral("/ksecretd"), this);
-        QDBusConnection::sessionBus().registerObject(QStringLiteral("ksecretd"), this);
         QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.ksecretd"));
         QDBusConnection::sessionBus().interface()->registerService(QStringLiteral("org.kde.ksecretd"), QDBusConnectionInterface::QueueService);
 
