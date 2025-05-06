@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-15 00:38+0000\n"
+"POT-Creation-Date: 2025-05-06 00:38+0000\n"
 "PO-Revision-Date: 2025-04-28 01:30+0300\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -169,7 +169,7 @@ msgstr "Klasikinis, blowfish šifruotas failas"
 msgid "Use GPG encryption, for better protection"
 msgstr "Naudoti GPG šifravimą, geresnei apsaugai"
 
-#: ksecretd.cpp:619
+#: ksecretd.cpp:618
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -178,7 +178,7 @@ msgstr ""
 "<qt>KDE paprašė atverti slaptažodinę \"<b>%1</b>\". Žemiau įveskite šios "
 "slaptažodinės slaptažodį.</qt>"
 
-#: ksecretd.cpp:623
+#: ksecretd.cpp:622
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -188,19 +188,19 @@ msgstr ""
 "Žemiau įveskite šios slaptažodinės slaptažodį.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
-#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: ksecretd.cpp:633 ksecretd.cpp:742 ksecretd.cpp:846 ksecretd.cpp:959
+#: ksecretd.cpp:982 ksecretd.cpp:993 ksecretd.cpp:998 ksecretd.cpp:1588
 #: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE slaptažodinių tarnyba"
 
-#: ksecretd.cpp:649
+#: ksecretd.cpp:648
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Programa paprašė atverti slaptažodinę (%1)."
 
-#: ksecretd.cpp:650
+#: ksecretd.cpp:649
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -208,19 +208,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Perjungti ten"
 
-#: ksecretd.cpp:652
+#: ksecretd.cpp:651
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> paprašė atverti slaptažodinę (%2)."
 
-#: ksecretd.cpp:654
+#: ksecretd.cpp:653
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Perjungti į %1"
 
-#: ksecretd.cpp:671 ksecretd.cpp:753
+#: ksecretd.cpp:670 ksecretd.cpp:752
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -229,7 +229,7 @@ msgstr ""
 "<qt>Klaida atveriant slaptažodinę \"<b>%1</b>\". Bandykite dar kartą.<br /"
 ">(Klaidos kodas %2: %3)</qt>"
 
-#: ksecretd.cpp:719
+#: ksecretd.cpp:718
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -240,7 +240,7 @@ msgstr ""
 "saugoti slaptus duomenis. Įrašykite su šia slaptažodine naudojamą slaptažodį "
 "arba, norėdami atmesti programos prašymą, spustelėkite \"Atsisakyti\"."
 
-#: ksecretd.cpp:724
+#: ksecretd.cpp:723
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -253,7 +253,7 @@ msgstr ""
 "slaptažodine naudojamą slaptažodį arba, norėdami atmesti programos prašymą, "
 "spustelėkite \"Atsisakyti\".</qt>"
 
-#: ksecretd.cpp:732
+#: ksecretd.cpp:731
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -264,7 +264,7 @@ msgstr ""
 "Pasirinkite šiai slaptažodinei slaptažodį arba, norėdami atmesti programos "
 "prašymą, spustelėkite \"Atsisakyti\".</qt>"
 
-#: ksecretd.cpp:737
+#: ksecretd.cpp:736
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -275,13 +275,13 @@ msgstr ""
 "\"<b>%2</b>\". Pasirinkite šiai slaptažodinei slaptažodį arba, norėdami "
 "atmesti programos prašymą, spustelėkite \"Atsisakyti\".</qt>"
 
-#: ksecretd.cpp:849
+#: ksecretd.cpp:848
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>KDE paprašė prieigos prie atvertos slaptažodinės \"<b>%1</b>\".</qt>"
 
-#: ksecretd.cpp:851
+#: ksecretd.cpp:850
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -290,7 +290,7 @@ msgstr ""
 "<qt>Programa \"<b>%1</b>\" paprašė prieigos prie atvertos slaptažodinės \"<b>"
 "%2</b>\".</qt>"
 
-#: ksecretd.cpp:959
+#: ksecretd.cpp:958
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -299,7 +299,7 @@ msgstr ""
 "Nepavyko atverti slaptažodinės. Norint pakeisti slaptažodį, slaptažodinė "
 "privalo būti atverta."
 
-#: ksecretd.cpp:975
+#: ksecretd.cpp:974
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -310,22 +310,22 @@ msgstr ""
 "Norėdami pakeisti su tuo raktu susietą slaptafrazę, naudokite <b>GPG</b> "
 "įrankius (tokius kaip <b>kleopatra</b>).</qt>"
 
-#: ksecretd.cpp:982
+#: ksecretd.cpp:981
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Pasirinkite naują slaptažodį slaptažodinei „<b>%1</b>“.</qt>"
 
-#: ksecretd.cpp:994
+#: ksecretd.cpp:993
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Klaida iš naujo šifruojant slaptažodinę. Slaptažodis nebuvo pakeistas."
 
-#: ksecretd.cpp:999
+#: ksecretd.cpp:998
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Klaida iš naujo atveriant slaptažodinę. Gali būti prarasti duomenys."
 
-#: ksecretd.cpp:1588
+#: ksecretd.cpp:1587
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

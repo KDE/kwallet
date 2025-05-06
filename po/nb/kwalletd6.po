@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-15 00:38+0000\n"
+"POT-Creation-Date: 2025-05-06 00:38+0000\n"
 "PO-Revision-Date: 2015-04-27 19:45+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -160,7 +160,7 @@ msgstr "Klassisk blowfish-kryptert fil"
 msgid "Use GPG encryption, for better protection"
 msgstr "Bruk GPG-kryptering som gir bedre beskyttelsse"
 
-#: ksecretd.cpp:619
+#: ksecretd.cpp:618
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -169,7 +169,7 @@ msgstr ""
 "<qt>KDE har bedt om å få åpne lommeboka «<b>%1</b>». Oppgi et passord for "
 "denne lommeboka nedenfor.</qt>"
 
-#: ksecretd.cpp:623
+#: ksecretd.cpp:622
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -179,19 +179,19 @@ msgstr ""
 "Oppgi et passord for denne lommeboka nedenfor.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
-#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: ksecretd.cpp:633 ksecretd.cpp:742 ksecretd.cpp:846 ksecretd.cpp:959
+#: ksecretd.cpp:982 ksecretd.cpp:993 ksecretd.cpp:998 ksecretd.cpp:1588
 #: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE Lommebok-tjeneste"
 
-#: ksecretd.cpp:649
+#: ksecretd.cpp:648
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Et program har bedt om å få åpne en lommebok (%1)."
 
-#: ksecretd.cpp:650
+#: ksecretd.cpp:649
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -199,19 +199,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Bytt dit"
 
-#: ksecretd.cpp:652
+#: ksecretd.cpp:651
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> har bedt om å åpne en lommebok (%2)."
 
-#: ksecretd.cpp:654
+#: ksecretd.cpp:653
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Bytt til %1"
 
-#: ksecretd.cpp:671 ksecretd.cpp:753
+#: ksecretd.cpp:670 ksecretd.cpp:752
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -220,7 +220,7 @@ msgstr ""
 "<qt>Feil ved åpning av lommeboka «<b>%1</b>». Forsøk igjen. <br /"
 ">(Feilkode %2: %3)</qt>"
 
-#: ksecretd.cpp:719
+#: ksecretd.cpp:718
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -231,7 +231,7 @@ msgstr ""
 "på en trygg måte. Oppgi et passord for denne lommeboka eller trykk Avbryt "
 "for å nekte programmet tilgang."
 
-#: ksecretd.cpp:724
+#: ksecretd.cpp:723
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -243,7 +243,7 @@ msgstr ""
 "til å lagre følsomme data på en trygg måte. Oppgi et passord for denne "
 "lommeboka eller trykk Avbryt for å nekte programmet tilgang.</qt>"
 
-#: ksecretd.cpp:732
+#: ksecretd.cpp:731
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -254,7 +254,7 @@ msgstr ""
 "Velg et passord for denne lommeboka, eller avbryt for å nekte forespørselen."
 "</qt>"
 
-#: ksecretd.cpp:737
+#: ksecretd.cpp:736
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -265,12 +265,12 @@ msgstr ""
 "navnet «<b>%2</b>». Velg et passord for denne lommeboka, eller avbryt for å "
 "nekte forespørselen.</qt>"
 
-#: ksecretd.cpp:849
+#: ksecretd.cpp:848
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE har bedt om tilgang til den åpne lommeboka «<b>%1</b>».</qt>"
 
-#: ksecretd.cpp:851
+#: ksecretd.cpp:850
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -279,7 +279,7 @@ msgstr ""
 "<qt>Programmet «<b>%1</b>» har bedt om tilgang til den åpne lommeboka «<b>"
 "%2</b>».</qt>"
 
-#: ksecretd.cpp:959
+#: ksecretd.cpp:958
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -287,7 +287,7 @@ msgid ""
 msgstr ""
 "Kan ikke åpne lommeboka. Lommeboka må åpnes for å kunne endre passordet."
 
-#: ksecretd.cpp:975
+#: ksecretd.cpp:974
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -298,22 +298,22 @@ msgstr ""
 "b>-verktøy (slik som <b>kleopatra</b>) til å endre pass-setningen for den "
 "nøkkelen.</qt>"
 
-#: ksecretd.cpp:982
+#: ksecretd.cpp:981
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Velg nytt passord for lommeboka <b>«%1»</b>.</qt>"
 
-#: ksecretd.cpp:994
+#: ksecretd.cpp:993
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Feil ved ny kryptering av lommeboka. Passordet ble ikke endret."
 
-#: ksecretd.cpp:999
+#: ksecretd.cpp:998
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Feil ved gjenåpning av lommeboka. Noen data kan være mistet."
 
-#: ksecretd.cpp:1588
+#: ksecretd.cpp:1587
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

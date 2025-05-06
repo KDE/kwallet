@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-15 00:38+0000\n"
+"POT-Creation-Date: 2025-05-06 00:38+0000\n"
 "PO-Revision-Date: 2014-01-31 20:10+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -171,7 +171,7 @@ msgstr "Klasično, blowfish šfrirane datoteke"
 msgid "Use GPG encryption, for better protection"
 msgstr "Koristiti GPG šifriranje, za bolju zaštitu"
 
-#: ksecretd.cpp:619
+#: ksecretd.cpp:618
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -180,7 +180,7 @@ msgstr ""
 "<qt>KDE traži da otvori novčanik <b>%1</b>. Unesite ispod lozinku novčanika."
 "</qt>"
 
-#: ksecretd.cpp:623
+#: ksecretd.cpp:622
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -190,20 +190,20 @@ msgstr ""
 "lozinku novčanika.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
-#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: ksecretd.cpp:633 ksecretd.cpp:742 ksecretd.cpp:846 ksecretd.cpp:959
+#: ksecretd.cpp:982 ksecretd.cpp:993 ksecretd.cpp:998 ksecretd.cpp:1588
 #: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE‑ov servis novčanika"
 
-#: ksecretd.cpp:649
+#: ksecretd.cpp:648
 #, fuzzy, kde-format
 #| msgid "<b>KDE</b> has requested to open a wallet (%1)."
 msgid "An application has requested to open a wallet (%1)."
 msgstr "<b>KDE</b> traži pristup otvorenom novčaniku (%1)."
 
-#: ksecretd.cpp:650
+#: ksecretd.cpp:649
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -211,19 +211,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Prebaci tamo"
 
-#: ksecretd.cpp:652
+#: ksecretd.cpp:651
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> traži da otvori novčanik (%2)."
 
-#: ksecretd.cpp:654
+#: ksecretd.cpp:653
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Prebaci na %1"
 
-#: ksecretd.cpp:671 ksecretd.cpp:753
+#: ksecretd.cpp:670 ksecretd.cpp:752
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -233,7 +233,7 @@ msgstr ""
 "greške %2: %3)</qt>"
 
 # >? Really "click Cancel", or "click Deny"?
-#: ksecretd.cpp:719
+#: ksecretd.cpp:718
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -244,7 +244,7 @@ msgstr ""
 "bezbjedno skladište. Unesite lozinku koja pripada ovom novčaniku, ili "
 "kliknite na <interface>Odbij</interface> da odbijete zahtjev.</html>"
 
-#: ksecretd.cpp:724
+#: ksecretd.cpp:723
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -257,7 +257,7 @@ msgstr ""
 "novčaniku, ili kliknite na <interface>Odbij</interface> da odbijete zahtjev."
 "</qt>"
 
-#: ksecretd.cpp:732
+#: ksecretd.cpp:731
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -267,7 +267,7 @@ msgstr ""
 "<qt>KDE traži da napravi novi novčanik po imenu <b>%1</b>. Izaberite lozinku "
 "za ovaj novčanik, ili <interface>Odbij</interface> da odbijete zahtjev.</qt>"
 
-#: ksecretd.cpp:737
+#: ksecretd.cpp:736
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -278,12 +278,12 @@ msgstr ""
 "Izaberite lozinku za ovaj novčanik, ili <interface>Odbij</interface> da "
 "odbijete zahtjev.</qt>"
 
-#: ksecretd.cpp:849
+#: ksecretd.cpp:848
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE traži pristup otvorenom novčaniku <b>%1</b>.</qt>"
 
-#: ksecretd.cpp:851
+#: ksecretd.cpp:850
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -291,7 +291,7 @@ msgid ""
 msgstr ""
 "<qt>Program <b>%1</b> traži pristup otvorenom novčaniku <b>%2</b>.</qt>"
 
-#: ksecretd.cpp:959
+#: ksecretd.cpp:958
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -300,7 +300,7 @@ msgstr ""
 "<html>Ne mogu da otvorim novčanik. Mora biti otvoren da bi se izmijenila "
 "lozinka.</html>"
 
-#: ksecretd.cpp:975
+#: ksecretd.cpp:974
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -311,24 +311,24 @@ msgstr ""
 "koristite GPG alate (kao što je kleopatra) za izmjenu šifre povezane s tim "
 "ključem.</qt>"
 
-#: ksecretd.cpp:982
+#: ksecretd.cpp:981
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Izaberite novu lozinku za novčanik <b>%1</b>.</qt>"
 
-#: ksecretd.cpp:994
+#: ksecretd.cpp:993
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Greška pri ponovnom šifrovanju novčanika. Lozinka nije izmijenjena."
 
-#: ksecretd.cpp:999
+#: ksecretd.cpp:998
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Greška pri ponovnom otvaranju novčaniku. Može biti da su neki podaci "
 "izgubljeni."
 
-#: ksecretd.cpp:1588
+#: ksecretd.cpp:1587
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

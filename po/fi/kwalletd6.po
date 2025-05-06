@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-15 00:38+0000\n"
+"POT-Creation-Date: 2025-05-06 00:38+0000\n"
 "PO-Revision-Date: 2024-02-14 18:51+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -166,14 +166,14 @@ msgstr "Perinteinen, Blowfish-salattu tiedosto"
 msgid "Use GPG encryption, for better protection"
 msgstr "Käytä GPG-salausta (turvallisempi)"
 
-#: ksecretd.cpp:619
+#: ksecretd.cpp:618
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
 "password for this wallet below.</qt>"
 msgstr "<qt>KDE pyytää avata lompakon ”<b>%1</b>”. Syötä sen salasana.</qt>"
 
-#: ksecretd.cpp:623
+#: ksecretd.cpp:622
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -182,19 +182,19 @@ msgstr ""
 "<qt>”<b>%1</b>” pyytää avata lompakon ”<b>%2</b>”. Syötä sen salasana.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
-#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: ksecretd.cpp:633 ksecretd.cpp:742 ksecretd.cpp:846 ksecretd.cpp:959
+#: ksecretd.cpp:982 ksecretd.cpp:993 ksecretd.cpp:998 ksecretd.cpp:1588
 #: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE:n lompakkopalvelu"
 
-#: ksecretd.cpp:649
+#: ksecretd.cpp:648
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Sovellus pyytää saada avata lompakon (%1)."
 
-#: ksecretd.cpp:650
+#: ksecretd.cpp:649
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -202,19 +202,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Vaihda sovellukseen"
 
-#: ksecretd.cpp:652
+#: ksecretd.cpp:651
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> pyytää saada avata lompakon (%2)."
 
-#: ksecretd.cpp:654
+#: ksecretd.cpp:653
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Vaihda sovellukseen %1|/|Vaihda $[illat %1]"
 
-#: ksecretd.cpp:671 ksecretd.cpp:753
+#: ksecretd.cpp:670 ksecretd.cpp:752
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -223,7 +223,7 @@ msgstr ""
 "<qt>Virhe avattaessa lompakkoa ”<b>%1</b>”. Yritä uudelleen.<br /> "
 "(Virhekoodi %2: %3)</qt>"
 
-#: ksecretd.cpp:719
+#: ksecretd.cpp:718
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -233,7 +233,7 @@ msgstr ""
 "KDE pyytää saada avata arkaluontoisen tiedon turvalliseen tallennukseen "
 "käytetyn lompakon. Syötä sen salasana tai torju pyyntö napsauttamalla ”Peru”."
 
-#: ksecretd.cpp:724
+#: ksecretd.cpp:723
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -245,7 +245,7 @@ msgstr ""
 "tallennukseen käytetyn KDE:n lompakon. Syötä sen salasana tai torju pyyntö "
 "napsauttamalla ”Peru”.</qt>"
 
-#: ksecretd.cpp:732
+#: ksecretd.cpp:731
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -255,7 +255,7 @@ msgstr ""
 "<qt>KDE pyytää saada avata lompakon nimeltä ”<b>%1</b>”. Syötä lompakon "
 "salasana tai torju sovelluksen pyyntö napsauttamalla ”Peru”.</qt>"
 
-#: ksecretd.cpp:737
+#: ksecretd.cpp:736
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -265,12 +265,12 @@ msgstr ""
 "<qt>”<b>%1</b>” pyytää saada luoda uuden lompakon nimeltä ”<b>%2</b>”. Anna "
 "lompakolle salasana tai torju sovelluksen pyyntö napsauttamalla ”Peru”.</qt>"
 
-#: ksecretd.cpp:849
+#: ksecretd.cpp:848
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE pyytää saada käyttää avointa lompakkoa ”<b>%1</b>”.</qt>"
 
-#: ksecretd.cpp:851
+#: ksecretd.cpp:850
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -278,7 +278,7 @@ msgid ""
 msgstr ""
 "<qt>”<b>%1</b>” pyytää saada käyttää avointa lompakkoa ”<b>%2</b>”.</qt>"
 
-#: ksecretd.cpp:959
+#: ksecretd.cpp:958
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -287,7 +287,7 @@ msgstr ""
 "Lompakon avaaminen epäonnistui. Jotta salasanan voi vaihtaa, lompakon on "
 "oltava auki."
 
-#: ksecretd.cpp:975
+#: ksecretd.cpp:974
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -297,22 +297,22 @@ msgstr ""
 "<qt>Lompakko <b>%1</b> on salattu GPG-avaimella <b>%2</b>. Vaihda avaimeen "
 "kytketty salasana <b>GPG</b>-työkalulla (kuten <b>kleopatra</b>).</qt>"
 
-#: ksecretd.cpp:982
+#: ksecretd.cpp:981
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Anna lompakolle ”<b>%1</b>” uusi salasana.</qt>"
 
-#: ksecretd.cpp:994
+#: ksecretd.cpp:993
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Lompakkoa salattaessa tapahtui virhe: salasanaa ei vaihdettu."
 
-#: ksecretd.cpp:999
+#: ksecretd.cpp:998
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Virhe avattaessa lompakkoa uudelleen: tietoa on voinut kadota."
 
-#: ksecretd.cpp:1588
+#: ksecretd.cpp:1587
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-15 00:38+0000\n"
+"POT-Creation-Date: 2025-05-06 00:38+0000\n"
 "PO-Revision-Date: 2019-10-31 17:55+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -164,7 +164,7 @@ msgstr "Klassikaline, Blowfish-krüpteeringuga fail"
 msgid "Use GPG encryption, for better protection"
 msgstr "GPG krüptimise kasutamine parema turbe nimel"
 
-#: ksecretd.cpp:619
+#: ksecretd.cpp:618
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -173,7 +173,7 @@ msgstr ""
 "<qt>KDE soovib avada turvalaegast '<b>%1</b>'. Palun anna allpool selle "
 "laeka parool.</qt>"
 
-#: ksecretd.cpp:623
+#: ksecretd.cpp:622
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -183,19 +183,19 @@ msgstr ""
 "allpool selle laeka parool.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:634 ksecretd.cpp:743 ksecretd.cpp:847 ksecretd.cpp:960
-#: ksecretd.cpp:983 ksecretd.cpp:994 ksecretd.cpp:999 ksecretd.cpp:1589
+#: ksecretd.cpp:633 ksecretd.cpp:742 ksecretd.cpp:846 ksecretd.cpp:959
+#: ksecretd.cpp:982 ksecretd.cpp:993 ksecretd.cpp:998 ksecretd.cpp:1588
 #: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE turvalaeka teenus"
 
-#: ksecretd.cpp:649
+#: ksecretd.cpp:648
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Rakendus soovib ligipääsu turvalaeka avamiseks (%1)."
 
-#: ksecretd.cpp:650
+#: ksecretd.cpp:649
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -203,19 +203,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Lülita ümber"
 
-#: ksecretd.cpp:652
+#: ksecretd.cpp:651
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> soovib ligipääsu turvalaeka (%2) avamiseks."
 
-#: ksecretd.cpp:654
+#: ksecretd.cpp:653
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Lülita rakendusele %1"
 
-#: ksecretd.cpp:671 ksecretd.cpp:753
+#: ksecretd.cpp:670 ksecretd.cpp:752
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -224,7 +224,7 @@ msgstr ""
 "<qt>Viga turvalaeka '<b>%1</b>' avamisel. Palun proovi uuesti. <br /"
 ">(Veakood %2: %3)</qt>"
 
-#: ksecretd.cpp:719
+#: ksecretd.cpp:718
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -235,7 +235,7 @@ msgstr ""
 "salvestamiseks. Palun anna selle laeka kasutamiseks parool või lükka "
 "loobumisega rakenduse soov tagasi."
 
-#: ksecretd.cpp:724
+#: ksecretd.cpp:723
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -247,7 +247,7 @@ msgstr ""
 "tundlike andmete turvaliseks salvestamiseks. Palun anna selle laeka "
 "kasutamiseks parool või lükka loobumisega rakenduse soov tagasi.</qt>"
 
-#: ksecretd.cpp:732
+#: ksecretd.cpp:731
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -257,7 +257,7 @@ msgstr ""
 "<qt>KDE soovib luua uue turvalaeka nimega '<b>%1</b>'. Palun anna selle "
 "laeka jaoks parool või lükka loobumisega rakenduse soov tagasi.</qt>"
 
-#: ksecretd.cpp:737
+#: ksecretd.cpp:736
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -268,12 +268,12 @@ msgstr ""
 "Palun anna selle laeka jaoks parool või lükka loobumisega rakenduse soov "
 "tagasi.</qt>"
 
-#: ksecretd.cpp:849
+#: ksecretd.cpp:848
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE soovib ligipääsu turvalaeka '<b>%1</b>' avamiseks.</qt>"
 
-#: ksecretd.cpp:851
+#: ksecretd.cpp:850
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -282,14 +282,14 @@ msgstr ""
 "<qt>Rakendus '<b>%1</b>' soovib ligipääsu turvalaeka '<b>%2</b>' avamiseks.</"
 "qt>"
 
-#: ksecretd.cpp:959
+#: ksecretd.cpp:958
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "Turvalaeka avamine nurjus. Parooli muutmiseks tuleb see avada."
 
-#: ksecretd.cpp:975
+#: ksecretd.cpp:974
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -300,22 +300,22 @@ msgstr ""
 "võtmega seotud paroolifraasi muutmiseks <b>GPG</b> tööriistu (näiteks "
 "<b>kleopatra</b>).</qt>"
 
-#: ksecretd.cpp:982
+#: ksecretd.cpp:981
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Palun anna turvalaeka '<b>%1</b>' jaoks uus parool.</qt>"
 
-#: ksecretd.cpp:994
+#: ksecretd.cpp:993
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Viga turvalaeka taaskrüptimisel. Parooli ei muudetud."
 
-#: ksecretd.cpp:999
+#: ksecretd.cpp:998
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Viga turvalaeka taasavamisel. Andmed võivad kaotsi minna."
 
-#: ksecretd.cpp:1588
+#: ksecretd.cpp:1587
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
