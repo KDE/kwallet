@@ -29,7 +29,7 @@ include(ECMMarkNonGuiExecutable)
 include(ECMGenerateQDoc)
 
 option(BUILD_KSECRETD "Build the ksecretd daemon" ON)
-if(NOT WIN32)
+if(NOT WIN32 AND NOT APPLE)
     option(BUILD_KWALLETD "Build the kwallet daemon" ON)
 else()
     set(BUILD_KWALLETD OFF)
