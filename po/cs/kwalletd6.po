@@ -528,10 +528,9 @@ msgid "What kind of encryption do you wish?"
 msgstr "Jaký druh šifrování si přejete použít?"
 
 #: main.cpp:164
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2013, The KDE Developers"
+#, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr "(c) 2002-2013, Vývojáři KDE"
+msgstr ""
 
 #: main.cpp:165
 #, kde-format
@@ -572,120 +571,3 @@ msgstr "Thiago Maceira"
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "Rozhraní DBus"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#~ "configuration, then try again.</qt>"
-#~ msgstr ""
-#~ "<qt>Chyba při pokusu spustit OpenPGP při ukládání úschovny <b>%1</b>. Kód "
-#~ "chyby je <b>%2</b>. Prosím, opravte nastavení systému a zkuste to znovu.</"
-#~ "qt>"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#~ "again.</qt>"
-#~ msgstr ""
-#~ "<qt>Chyba při pokusu spustit OpenPGP při ukládání úschovny <b>%1</b>. "
-#~ "Prosím, opravte nastavení systému a zkuste to znovu.</qt>"
-
-#~ msgid ""
-#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-#~ "again. This error may occur if you are not using a full trust GPG key. "
-#~ "Please ensure you have the secret key for the key you are using.</qt>"
-#~ msgstr ""
-#~ "<qt>Chyba během šifrování při ukládání úschovny <b>%1</b>. Kód chyby je "
-#~ "<b>%2 (%3)</b>. Prosím, opravte nastavení systému a zkuste to znovu. K "
-#~ "této chybě může docházet pokud nepoužíváte plně důvěryhodný klíč GPG. "
-#~ "Prosím ujistěte se, že máte tajný klíč pro klíč, který používáte.</qt>"
-
-#~ msgid ""
-#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
-#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>Chyba při zacházení se souborem při pokusu o uložení úschovny <b>%1</"
-#~ "b>. Chyba byla <b>%2</b>. Prosím, opravte si nastavení systému a zkuste "
-#~ "to znovu.</qt>"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#~ "configuration, then try again.</qt>"
-#~ msgstr ""
-#~ "<qt>Chyba při pokusu spustit OpenPGP při otevírání úschovny <b>%1</b>. "
-#~ "Kód chyby je <b>%2</b>. Prosím, opravte nastavení systému a zkuste to "
-#~ "znovu.</qt>"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#~ "again.</qt>"
-#~ msgstr ""
-#~ "<qt>Chyba při pokusu spustit OpenPGP při otevírání úschovny <b>%1</b>. "
-#~ "Prosím, opravte nastavení systému a zkuste to znovu.</qt>"
-
-#~ msgid "Retry"
-#~ msgstr "Zkusit znovu"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-#~ "you're using a SmartCard, please ensure it's inserted then try again."
-#~ "<br><br>GPG error was <b>%2</b></qt>"
-#~ msgstr ""
-#~ "<qt>Chyba při pokusu o dešifrování úschovny <b>%1</b> pomocí GPG. Pokud "
-#~ "používáte SmartCard, ujistěte se prosím, že je zasunuta a zkuste to znova."
-#~ "<br><br>Chyba GPG byla <b>%2</b></qt>"
-
-#~ msgid "kwalletd GPG backend"
-#~ msgstr "Podpůrná vrstva GPG kwalletd"
-
-#~ msgid ""
-#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
-#~ "your system.</qt>"
-#~ msgstr ""
-#~ "<qt>Chyba při pokusu o otevření úschovny <b>%1</b>. Tato byla zašifrována "
-#~ "pomocí GPG klíče s ID <b>%2</b> ale tento klíč ve vašem systému nebyl "
-#~ "nalezen.</qt>"
-
-#~ msgid "Already open."
-#~ msgstr "Již otevřen."
-
-#~ msgid "Error opening file."
-#~ msgstr "Chyba při otevírání souboru."
-
-#~ msgid "Not a wallet file."
-#~ msgstr "Toto není soubor úschovny."
-
-#~ msgid "Unsupported file format revision."
-#~ msgstr "Nepodporovaná revize formátu souborů."
-
-#~ msgid "Unknown encryption scheme."
-#~ msgstr "Neznámé šifrovací schéma."
-
-#~ msgid "Corrupt file?"
-#~ msgstr "Poškozený soubor?"
-
-#~ msgid "Error validating wallet integrity. Possibly corrupted."
-#~ msgstr ""
-#~ "Chyba při kontrole neporušenosti úschovny; pravděpodobně je poškozená."
-
-#~ msgid "Read error - possibly incorrect password."
-#~ msgstr "Chyba ve čtení - pravděpodobně chybné heslo."
-
-#~ msgid "Decryption error."
-#~ msgstr "Chyba v dešifrování."
-
-#~ msgid ""
-#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-#~ "RC <b>%2</b>\n"
-#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
-#~ "org"
-#~ msgstr ""
-#~ "Selhala synchronizace úschovny <b>%1</b> na disk. Kód chyby:\n"
-#~ "RC <b>%2</b>\n"
-#~ "SF <b>%3</b>. Prosím, nahlaste chybu obsahující tuto informaci na bugs."
-#~ "kde.org"
