@@ -192,7 +192,7 @@ int main(int argc, char **argv)
         /* Do not keep dbus-daemon waiting for the org.freedesktop.secrets if kwallet is disabled */
         KWalletFreedesktopService(nullptr);
 
-        return (0);
+        return (-1);
     }
 
     KSecretD secretd;

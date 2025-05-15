@@ -51,7 +51,7 @@ int main(int argc, char **argv)
     if (!isWalletEnabled()) {
         qCDebug(KWALLETD_LOG) << "kwallet is disabled!";
 
-        return (0);
+        return (-1);
     }
 
     KDBusService dbusUniqueInstance(KDBusService::Unique);
