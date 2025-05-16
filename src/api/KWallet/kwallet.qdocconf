@@ -8,4 +8,6 @@ documentationinheaders = true
 headerdirs += .
 sourcedirs += .
 
+navigation.landingpage = "KWallet"
+
 depends = kde qtcore qtwidgets
