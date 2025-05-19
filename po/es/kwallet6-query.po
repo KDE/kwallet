@@ -1,15 +1,15 @@
-# Spanish translations for kwallet-query.po package.
-# Copyright (C) 2015 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
+# Spanish translations for kwallet6-query.po package.
+# Copyright (C) 2015-2025 This file is copyright:
+# This file is distributed under the same license as the kwallet package.
 # Automatically generated, 2015.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2015.
+#
+# SPDX-FileCopyrightText: 2015, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: kwallet-query\n"
+"Project-Id-Version: kwallet6-query\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-04 00:36+0000\n"
-"PO-Revision-Date: 2015-07-11 19:22+0200\n"
+"PO-Revision-Date: 2025-05-18 14:45+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -133,12 +133,3 @@ msgstr "Ha fallado la lectura del valor de la entrada %1 en la cartera %2"
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Ha fallado la escritura del valor de la entrada %1 en la cartera %2"
-
-#~ msgid "wallet"
-#~ msgstr "cartera"
-
-#~ msgid "kwallet-query"
-#~ msgstr "kwallet-query"
-
-#~ msgid "'Passwords' folder not found"
-#~ msgstr "No se ha encontrado la carpeta «Passwords»"
