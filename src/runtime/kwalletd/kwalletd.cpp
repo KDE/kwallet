@@ -25,7 +25,7 @@ unsigned int KWalletD::s_lastTransaction = 0;
 static void startManagerForKwalletd()
 {
     if (!QStandardPaths::findExecutable(QStringLiteral("kstart")).isEmpty()) {
-        QProcess::startDetached(QStringLiteral("kstart"), {QStringLiteral("kwalletmanager5"), QStringLiteral("--"), QStringLiteral("--kwalletd")});
+        QProcess::startDetached(QStringLiteral("kstart"), {QStringLiteral("--application"), QStringLiteral("kwalletmanager5-kwalletd")});
     } else {
         QProcess::startDetached(QStringLiteral("kwalletmanager5"), QStringList{QStringLiteral("--kwalletd")});
     }
