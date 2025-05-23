@@ -169,6 +169,9 @@ KWalletFreedesktopService::KWalletFreedesktopService(KSecretD *parent)
 
     /* Build collections */
     for (const QString &walletName : walletNames) {
+        if (walletName.isEmpty()) {
+            continue;
+        }
         const auto objectPath = makeUniqueObjectPath(walletName);
         auto collection = std::make_unique<KWalletFreedesktopCollection>(this, -1, walletName, objectPath);
 
