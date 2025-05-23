@@ -11,3 +11,17 @@ sourcedirs += .
 navigation.landingpage = "KWallet"
 
 depends = kde qtcore qtwidgets
+
+qhp.projects            = KWallet
+
+qhp.KWallet.file                = kwallet.qhp
+qhp.KWallet.namespace           = org.kde.kwallet.$QT_VERSION_TAG
+qhp.KWallet.virtualFolder       = kwallet
+qhp.KWallet.indexTitle          = KWallet
+qhp.KWallet.indexRoot           =
+
+qhp.KWallet.subprojects         = classes
+qhp.KWallet.subprojects.classes.title = C++ Classes
+qhp.KWallet.subprojects.classes.indexTitle = KWallet C++ Classes
+qhp.KWallet.subprojects.classes.selectors = class fake:headerfile
+qhp.KWallet.subprojects.classes.sortPages = true
