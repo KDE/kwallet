@@ -58,8 +58,6 @@ static void startManagerForKSecretD()
 {
     if (!QStandardPaths::findExecutable(QStringLiteral("kstart")).isEmpty()) {
         QProcess::startDetached(QStringLiteral("kstart"), {QStringLiteral("kwalletmanager5"), QStringLiteral("--"), QStringLiteral("--kwalletd")});
-    } else if (!QStandardPaths::findExecutable(QStringLiteral("kstart5")).isEmpty()) {
-        QProcess::startDetached(QStringLiteral("kstart"), {QStringLiteral("kwalletmanager5"), QStringLiteral("--"), QStringLiteral("--kwalletd")});
     } else {
         QProcess::startDetached(QStringLiteral("kwalletmanager5"), QStringList{QStringLiteral("--kwalletd")});
     }
