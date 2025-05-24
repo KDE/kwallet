@@ -25,3 +25,5 @@ qhp.KWallet.subprojects.classes.title = C++ Classes
 qhp.KWallet.subprojects.classes.indexTitle = KWallet C++ Classes
 qhp.KWallet.subprojects.classes.selectors = class fake:headerfile
 qhp.KWallet.subprojects.classes.sortPages = true
+
+tagfile = kwallet.tags
