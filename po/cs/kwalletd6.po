@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:38+0000\n"
+"POT-Creation-Date: 2025-05-24 00:39+0000\n"
 "PO-Revision-Date: 2025-05-16 14:52+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -165,7 +165,7 @@ msgstr "Klasický soubor šifrovaný blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Pro lepší zabezpečení použijte šifrování GPG"
 
-#: ksecretd.cpp:618
+#: ksecretd.cpp:616
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -173,7 +173,7 @@ msgid ""
 msgstr ""
 "<qt>KDE požaduje otevření úschovny <b>%1</b>. Prosím zadejte níže heslo.</qt>"
 
-#: ksecretd.cpp:622
+#: ksecretd.cpp:620
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -183,19 +183,19 @@ msgstr ""
 "níže heslo.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:633 ksecretd.cpp:742 ksecretd.cpp:846 ksecretd.cpp:959
-#: ksecretd.cpp:982 ksecretd.cpp:993 ksecretd.cpp:998 ksecretd.cpp:1588
+#: ksecretd.cpp:631 ksecretd.cpp:740 ksecretd.cpp:844 ksecretd.cpp:957
+#: ksecretd.cpp:980 ksecretd.cpp:991 ksecretd.cpp:996 ksecretd.cpp:1586
 #: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Služba úschovny KDE"
 
-#: ksecretd.cpp:648
+#: ksecretd.cpp:646
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Aplikace požaduje přístup k otevřené úschovně (%1)."
 
-#: ksecretd.cpp:649
+#: ksecretd.cpp:647
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -203,19 +203,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Přepnout zde"
 
-#: ksecretd.cpp:651
+#: ksecretd.cpp:649
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "Aplikace <b>%1</b> požaduje přístup k úschovně (%2)."
 
-#: ksecretd.cpp:653
+#: ksecretd.cpp:651
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Přepnout na %1"
 
-#: ksecretd.cpp:670 ksecretd.cpp:752
+#: ksecretd.cpp:668 ksecretd.cpp:750
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -224,7 +224,7 @@ msgstr ""
 "<qt>Chyba při otevírání úschovny '<b>%1</b>'. Prosím zkuste znovu.<br/> "
 "(Chybový kód %2: %3)</qt>"
 
-#: ksecretd.cpp:718
+#: ksecretd.cpp:716
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -235,7 +235,7 @@ msgstr ""
 "citlivých dat. Prosím zadejte heslo pro tuto úschovnu, nebo stiskněte Zrušit "
 "pro odmítnutí tohoto požadavku."
 
-#: ksecretd.cpp:723
+#: ksecretd.cpp:721
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -247,7 +247,7 @@ msgstr ""
 "bezpečné uložení citlivých dat. Prosím zadejte heslo pro tuto úschovnu, nebo "
 "stiskněte Zrušit pro odmítnutí tohoto požadavku.</qt>"
 
-#: ksecretd.cpp:731
+#: ksecretd.cpp:729
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -257,7 +257,7 @@ msgstr ""
 "<qt>KDE požaduje vytvoření úschovny <b>%1</b>. Prosím zadejte heslo pro tuto "
 "úschovnu, nebo stiskněte Zrušit pro odmítnutí tohoto požadavku.</qt>"
 
-#: ksecretd.cpp:736
+#: ksecretd.cpp:734
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -268,12 +268,12 @@ msgstr ""
 "heslo pro tuto úschovnu, nebo stiskněte Zrušit pro odmítnutí tohoto "
 "požadavku.</qt>"
 
-#: ksecretd.cpp:848
+#: ksecretd.cpp:846
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE požaduje přístup k otevřené úschovny <b>%1</b>.</qt>"
 
-#: ksecretd.cpp:850
+#: ksecretd.cpp:848
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -281,14 +281,14 @@ msgid ""
 msgstr ""
 "<qt>Aplikace <b>%1</b> požaduje přístup k otevřené úschovně <b>%2</b>.</qt>"
 
-#: ksecretd.cpp:958
+#: ksecretd.cpp:956
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "Nelze otevřít úschovnu. Pro změnu hesla je potřeba ji nejprve otevřít."
 
-#: ksecretd.cpp:974
+#: ksecretd.cpp:972
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -299,22 +299,22 @@ msgstr ""
 "použijte nástroje <b>GPG</b> (jako např. <b>kleopatra</b>) ke změně hesla "
 "přidělenému tomuto klíči.</qt>"
 
-#: ksecretd.cpp:981
+#: ksecretd.cpp:979
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Prosím zvolte nové heslo pro úschovnu <b>%1</b>.</qt>"
 
-#: ksecretd.cpp:993
+#: ksecretd.cpp:991
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Chyba při opětovném zašifrování úschovny. Změna hesla neprovedena."
 
-#: ksecretd.cpp:998
+#: ksecretd.cpp:996
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Chyba při otevírání úschovny. Data mohou být ztracena."
 
-#: ksecretd.cpp:1587
+#: ksecretd.cpp:1585
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:38+0000\n"
+"POT-Creation-Date: 2025-05-24 00:39+0000\n"
 "PO-Revision-Date: 2022-02-27 20:33+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -162,7 +162,7 @@ msgstr ""
 msgid "Use GPG encryption, for better protection"
 msgstr "Folosește criptare GPG, pentru protecție mai bună"
 
-#: ksecretd.cpp:618
+#: ksecretd.cpp:616
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -171,7 +171,7 @@ msgstr ""
 "<qt>KDE a cerut deschiderea portofelului „<b>%1</b>”. Introduceți mai jos "
 "parola pentru acest portofel.</qt>"
 
-#: ksecretd.cpp:622
+#: ksecretd.cpp:620
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -181,19 +181,19 @@ msgstr ""
 "Introduceți mai jos parola pentru acest portofel.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:633 ksecretd.cpp:742 ksecretd.cpp:846 ksecretd.cpp:959
-#: ksecretd.cpp:982 ksecretd.cpp:993 ksecretd.cpp:998 ksecretd.cpp:1588
+#: ksecretd.cpp:631 ksecretd.cpp:740 ksecretd.cpp:844 ksecretd.cpp:957
+#: ksecretd.cpp:980 ksecretd.cpp:991 ksecretd.cpp:996 ksecretd.cpp:1586
 #: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Serviciul de portofel KDE"
 
-#: ksecretd.cpp:648
+#: ksecretd.cpp:646
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "O aplicație a cerut deschiderea unui portofel (%1)."
 
-#: ksecretd.cpp:649
+#: ksecretd.cpp:647
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -201,19 +201,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Comută acolo"
 
-#: ksecretd.cpp:651
+#: ksecretd.cpp:649
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> a cerut deschiderea unui portofel (%2)."
 
-#: ksecretd.cpp:653
+#: ksecretd.cpp:651
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Comută la %1"
 
-#: ksecretd.cpp:670 ksecretd.cpp:752
+#: ksecretd.cpp:668 ksecretd.cpp:750
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -222,7 +222,7 @@ msgstr ""
 "<qt>Eroare la deschiderea portofelului „<b>%1</b>”. Reîncercați.<br />(Cod "
 "eroare  %2: %3)</qt>"
 
-#: ksecretd.cpp:718
+#: ksecretd.cpp:716
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -233,7 +233,7 @@ msgstr ""
 "datele sensibile într-un mod sigur. Introduceți o parolă de utilizat cu "
 "acest portofel sau apăsați pe Renunță pentru a respinge cererea aplicației."
 
-#: ksecretd.cpp:723
+#: ksecretd.cpp:721
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -246,7 +246,7 @@ msgstr ""
 "parolă de utilizat cu acest portofel sau apăsați pe Renunță pentru a "
 "respinge cererea aplicației.</qt>"
 
-#: ksecretd.cpp:731
+#: ksecretd.cpp:729
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -257,7 +257,7 @@ msgstr ""
 "o parolă pentru acest portofel sau apăsați pe Renunță pentru a respinge "
 "cererea aplicației.</qt>"
 
-#: ksecretd.cpp:736
+#: ksecretd.cpp:734
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -268,13 +268,13 @@ msgstr ""
 "%2</b>”. Alegeți o parolă pentru acest portofel sau apăsați pe Renunță "
 "pentru a respinge cererea aplicației.</qt>"
 
-#: ksecretd.cpp:848
+#: ksecretd.cpp:846
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>KDE a cerut acces pentru deschiderea portofelului „<b>%1</b>”.</qt>"
 
-#: ksecretd.cpp:850
+#: ksecretd.cpp:848
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -283,7 +283,7 @@ msgstr ""
 "<qt>Aplicația „<b>%1</b>” a cerut acces pentru a deschide portofelul „<b>%2</"
 "b>”.</qt>"
 
-#: ksecretd.cpp:958
+#: ksecretd.cpp:956
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -292,7 +292,7 @@ msgstr ""
 "Imposibil de deschis portofelul. Portofelul trebuie deschis pentru a "
 "modifica parola."
 
-#: ksecretd.cpp:974
+#: ksecretd.cpp:972
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -303,22 +303,22 @@ msgstr ""
 "<b>GPG</b> (ca <b>kleopatra</b>) pentru a schimba fraza de acces asociată cu "
 "acea cheie.</qt>"
 
-#: ksecretd.cpp:981
+#: ksecretd.cpp:979
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Alegeți o nouă parolă pentru portofelul „<b>%1</b>”.</qt>"
 
-#: ksecretd.cpp:993
+#: ksecretd.cpp:991
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Eroare la recriptarea portofelului. Parola nu a fost modificată."
 
-#: ksecretd.cpp:998
+#: ksecretd.cpp:996
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Eroare la redeschiderea portofelului. Datele puteau fi pierdute."
 
-#: ksecretd.cpp:1587
+#: ksecretd.cpp:1585
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

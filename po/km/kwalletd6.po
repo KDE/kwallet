@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:38+0000\n"
+"POT-Creation-Date: 2025-05-24 00:39+0000\n"
 "PO-Revision-Date: 2010-01-06 14:32+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Use GPG encryption, for better protection"
 msgstr ""
 
-#: ksecretd.cpp:618
+#: ksecretd.cpp:616
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -178,7 +178,7 @@ msgstr ""
 "<qt>KDE បាន​ស្នើ​ឲ្យ​បើក​កាបូប '<b>%1</b>' ។ សូម​បញ្ចូល​ពាក្យ​សម្ងាត់​សម្រាប់​កាបូប​នេះ​ខាង​ក្រោម ។</"
 "qt>"
 
-#: ksecretd.cpp:622
+#: ksecretd.cpp:620
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -188,20 +188,20 @@ msgstr ""
 "កាបូបនេះ​ខាងក្រោម ។</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:633 ksecretd.cpp:742 ksecretd.cpp:846 ksecretd.cpp:959
-#: ksecretd.cpp:982 ksecretd.cpp:993 ksecretd.cpp:998 ksecretd.cpp:1588
+#: ksecretd.cpp:631 ksecretd.cpp:740 ksecretd.cpp:844 ksecretd.cpp:957
+#: ksecretd.cpp:980 ksecretd.cpp:991 ksecretd.cpp:996 ksecretd.cpp:1586
 #: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "សេវា​កាបូប​របស់ KDE"
 
-#: ksecretd.cpp:648
+#: ksecretd.cpp:646
 #, fuzzy, kde-format
 #| msgid "<b>KDE</b> has requested to open a wallet (%1)."
 msgid "An application has requested to open a wallet (%1)."
 msgstr "<b>KDE</b> បាន​ស្នើ​ឲ្យ​បើក​កាបូប (%1) ។"
 
-#: ksecretd.cpp:649
+#: ksecretd.cpp:647
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -209,19 +209,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "ប្ដូរ​នៅ​ទីនោះ"
 
-#: ksecretd.cpp:651
+#: ksecretd.cpp:649
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> បាន​ស្នើ​ឲ្យ​បើក​កាបូប (%2) ។"
 
-#: ksecretd.cpp:653
+#: ksecretd.cpp:651
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "ប្ដូរ​ទៅ %1"
 
-#: ksecretd.cpp:670 ksecretd.cpp:752
+#: ksecretd.cpp:668 ksecretd.cpp:750
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -230,7 +230,7 @@ msgstr ""
 "<qt>កំហុស​ក្នុងកា​របើក​ការបូប '<b>%1</b>' ។ សូម​ព្យាយាម​ម្ដង​ទៀត ។<br />(កូដ​កំហុស %2 ៖ %3)</"
 "qt>"
 
-#: ksecretd.cpp:718
+#: ksecretd.cpp:716
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -240,7 +240,7 @@ msgstr ""
 "KDE បាន​ស្នើ​ឲ្យ​បើក​កាបូប ។ វា​ត្រូវ​បាន​ប្រើ​ដើម្បី​ទុក​ទិន្នន័យ​នៅ​ក្នុង​របៀប​មាន​សុវត្ថិភាព ។ សូម​បញ្ចូល​ពាក្យ​"
 "សម្ងាត់​ដើម្បី​ប្រើ​ជា​មួយកាបូប ឬ​ចុច​បោះបង់​ដើម្បីបដិសេធ​សំណើ​របស់​កម្មវិធី ។"
 
-#: ksecretd.cpp:723
+#: ksecretd.cpp:721
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -252,7 +252,7 @@ msgstr ""
 "របៀប​មាន​សុវត្ថិភាព ។ សូម​បញ្ចូល​ពាក្យ​សម្ងាត់​ដើម្បី​ប្រើ​ជា​មួយ​ការបូប​នេះ ឬ​ចុច​បោះបង់​ដើម្បី​បោះបង់​សំណើ​របស់​"
 "កម្មវិធី ។</qt>"
 
-#: ksecretd.cpp:731
+#: ksecretd.cpp:729
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -262,7 +262,7 @@ msgstr ""
 "<qt>KDE បាន​ស្នើ​ឲ្យ​បង្កើត​កាបូប​ថ្មី​ដែលមាន​ឈ្មោះ '<b>%1</b>' ។ សូម​ជ្រើស​ពាក្យ​សម្ងាត់​សម្រាប់​កាបូប​"
 "នេះ ឬ​បោះបង់​ដើម្បីបដិសេធ​សំណើ​របស់​កម្មវិធី ។</qt>"
 
-#: ksecretd.cpp:736
+#: ksecretd.cpp:734
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -272,26 +272,26 @@ msgstr ""
 "<qt>កម្មវិធី '<b>%1</b>' បាន​ស្នើ​ឲ្យ​បង្កើត​កាបូប​ថ្មីដែល​មាន​ឈ្មោះ'<b>%2</b>' ។ សូម​ជ្រើស​ពាក្យ​"
 "សម្ងាត់​សម្រាប់កា​បូប​នេះ ឬ​បោះបង់ ដើម្បីបដិសេធ​សំណើ​របស់​កម្មវិធី ។</qt>"
 
-#: ksecretd.cpp:848
+#: ksecretd.cpp:846
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE បាន​ស្នើ​ឲ្យ​ចូលដំណើរការ​ដើម្បីបើក​កាបូប '<b>%1</b>' ។</qt>"
 
-#: ksecretd.cpp:850
+#: ksecretd.cpp:848
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
 "%2</b>'.</qt>"
 msgstr "<qt>កម្មវិធី '<b>%1</b>' បាន​ស្នើ​ឲ្យ​ចូលដំណើរការ​ដើម្បីបើក​កាបូប '<b>%2</b>' ។</qt>"
 
-#: ksecretd.cpp:958
+#: ksecretd.cpp:956
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "មិនអាច​បើក​កាបូប​បានទេ ។ កាបូប​ត្រូវ​តែ​បាន​បើក​ ដើម្បី​ផ្លាស់ប្ដូរ​ពាក្យស​ម្ងាត់ ។"
 
-#: ksecretd.cpp:974
+#: ksecretd.cpp:972
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -299,22 +299,22 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: ksecretd.cpp:981
+#: ksecretd.cpp:979
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>សូម​ជ្រើស​ពាក្យ​សម្ងាត់​ថ្មី​សម្រាប់​កាបូប '<b>%1</b>' ។</qt>"
 
-#: ksecretd.cpp:993
+#: ksecretd.cpp:991
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "កំហុស​ក្នុងកា​រអ៊ិនគ្រិប​​កាបូប​នេះ​ម្ដង​ទៀត ។ ពាក្យ​សម្ងាត់​មិន​ត្រូវ​បាន​ផ្លាស់ប្ដូរ ។"
 
-#: ksecretd.cpp:998
+#: ksecretd.cpp:996
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "កំហុស​ក្នុង​កា​របើក​កាបូប​ឡើង​វិញ ។ ទិន្នន័យ​អាច​បាត់បង់ ។"
 
-#: ksecretd.cpp:1587
+#: ksecretd.cpp:1585
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

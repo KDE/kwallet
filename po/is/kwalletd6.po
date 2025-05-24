@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:38+0000\n"
+"POT-Creation-Date: 2025-05-24 00:39+0000\n"
 "PO-Revision-Date: 2024-07-22 20:18+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -168,7 +168,7 @@ msgstr "Klassísk dulrituð skrá"
 msgid "Use GPG encryption, for better protection"
 msgstr "Notaðu GPG-dulritun, til að fá betra öryggi"
 
-#: ksecretd.cpp:618
+#: ksecretd.cpp:616
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -177,7 +177,7 @@ msgstr ""
 "<qt>KDE hefur beðið um að veskið '<b>%1</b>' verði opnað. Settu inn lykilorð "
 "fyrir veskið hér fyrir neðan.</qt>"
 
-#: ksecretd.cpp:622
+#: ksecretd.cpp:620
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -187,19 +187,19 @@ msgstr ""
 "Settu inn lykilorð fyrir veskið hér fyrir neðan.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:633 ksecretd.cpp:742 ksecretd.cpp:846 ksecretd.cpp:959
-#: ksecretd.cpp:982 ksecretd.cpp:993 ksecretd.cpp:998 ksecretd.cpp:1588
+#: ksecretd.cpp:631 ksecretd.cpp:740 ksecretd.cpp:844 ksecretd.cpp:957
+#: ksecretd.cpp:980 ksecretd.cpp:991 ksecretd.cpp:996 ksecretd.cpp:1586
 #: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE veskisþjónusta"
 
-#: ksecretd.cpp:648
+#: ksecretd.cpp:646
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Forrit hefur beðið um að fá að opna veski (%1)."
 
-#: ksecretd.cpp:649
+#: ksecretd.cpp:647
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -207,19 +207,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Skipta yfir"
 
-#: ksecretd.cpp:651
+#: ksecretd.cpp:649
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> hefur beðið um að fá að opna veskið (%2)."
 
-#: ksecretd.cpp:653
+#: ksecretd.cpp:651
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Skipta yfir í %1"
 
-#: ksecretd.cpp:670 ksecretd.cpp:752
+#: ksecretd.cpp:668 ksecretd.cpp:750
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -228,7 +228,7 @@ msgstr ""
 "<qt>Villa við opnum veskis '<b>%1</b>'. Vinsamlegast reyndu aftur.<br /"
 ">(Villuboð %2: %3)</qt>"
 
-#: ksecretd.cpp:718
+#: ksecretd.cpp:716
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -239,7 +239,7 @@ msgstr ""
 "viðkvæm gögn á öruggan hátt. Settu inn lykilorð til að nota fyrir þetta "
 "veski, eða ýttu á 'Hætta við' til þess að neita fyrirspurninni."
 
-#: ksecretd.cpp:723
+#: ksecretd.cpp:721
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -252,7 +252,7 @@ msgstr ""
 "til að nota fyrir þetta veski, eða ýttu á 'Hætta við' til þess að neita "
 "fyrirspurninni.</qt>"
 
-#: ksecretd.cpp:731
+#: ksecretd.cpp:729
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -263,7 +263,7 @@ msgstr ""
 "Veldu þér lykilorð fyrir þetta veski, eða ýttu á 'Hætta við' til að neita "
 "fyrirspurninni.</qt>"
 
-#: ksecretd.cpp:736
+#: ksecretd.cpp:734
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -274,19 +274,19 @@ msgstr ""
 "verði búið til. Vu þér lykilorð fyrir þetta veski, eða ýttu á 'Hætta við' "
 "til að neita fyrirspurninni.</qt>"
 
-#: ksecretd.cpp:848
+#: ksecretd.cpp:846
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE hefur beðið um aðgang til að opna veskið '<b>%1</b>'.</qt>"
 
-#: ksecretd.cpp:850
+#: ksecretd.cpp:848
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
 "%2</b>'.</qt>"
 msgstr "<qt>Forritið '<b>%1</b>' vill opna veskið '<b>%2</b>'.</qt>"
 
-#: ksecretd.cpp:958
+#: ksecretd.cpp:956
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -295,7 +295,7 @@ msgstr ""
 "Gat ekki opnað veskið.  Ekki er hægt að breyta lykilorðinu nema veskið sé "
 "opið."
 
-#: ksecretd.cpp:974
+#: ksecretd.cpp:972
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -306,22 +306,22 @@ msgstr ""
 "b>-verkfæri (eins og <b>kleopatra</b>) til að breyta lykilsetningunni sem "
 "tengd er við lykilinn.</qt>"
 
-#: ksecretd.cpp:981
+#: ksecretd.cpp:979
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Veldu þér nýtt lykilorð fyrir veskið '<b>%1</b>'.</qt>"
 
-#: ksecretd.cpp:993
+#: ksecretd.cpp:991
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Villa við að endurdulrita veskið. Lykilorðinu var ekki breytt."
 
-#: ksecretd.cpp:998
+#: ksecretd.cpp:996
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Tókst ekki að opna veskið aftur.  Gögn gætu tapast."
 
-#: ksecretd.cpp:1587
+#: ksecretd.cpp:1585
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

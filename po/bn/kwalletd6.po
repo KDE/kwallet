@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:38+0000\n"
+"POT-Creation-Date: 2025-05-24 00:39+0000\n"
 "PO-Revision-Date: 2012-07-12 14:04+0530\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: Bengali <kde-translation@bengalinux.org>\n"
@@ -181,7 +181,7 @@ msgstr ""
 msgid "Use GPG encryption, for better protection"
 msgstr ""
 
-#: ksecretd.cpp:618
+#: ksecretd.cpp:616
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -190,7 +190,7 @@ msgstr ""
 "<qt>কে.ডি.ই. '<b>%1</b>' ওয়ালেট-টি খুলতে অনুরোধ জানাচ্ছে। অনুগ্রহ করে এই ওয়ালেট-"
 "টির পাসওয়ার্ড দিন।</qt>"
 
-#: ksecretd.cpp:622
+#: ksecretd.cpp:620
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -200,20 +200,20 @@ msgstr ""
 "অনুগ্রহ করে এই ওয়ালেট-টির পাসওয়ার্ড দিন।</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:633 ksecretd.cpp:742 ksecretd.cpp:846 ksecretd.cpp:959
-#: ksecretd.cpp:982 ksecretd.cpp:993 ksecretd.cpp:998 ksecretd.cpp:1588
+#: ksecretd.cpp:631 ksecretd.cpp:740 ksecretd.cpp:844 ksecretd.cpp:957
+#: ksecretd.cpp:980 ksecretd.cpp:991 ksecretd.cpp:996 ksecretd.cpp:1586
 #: main.cpp:160 main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "কে.ডি.ই. ওয়ালেট সার্ভিস"
 
-#: ksecretd.cpp:648
+#: ksecretd.cpp:646
 #, fuzzy, kde-format
 #| msgid "<b>KDE</b> has requested to open a wallet (%1)."
 msgid "An application has requested to open a wallet (%1)."
 msgstr "<b>কে.ডি.ই.</b>একটি ওয়ালেট খুলতে অনুরোধ করেছে (%1)।"
 
-#: ksecretd.cpp:649
+#: ksecretd.cpp:647
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -221,19 +221,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "ওখানে বদলে যাও"
 
-#: ksecretd.cpp:651
+#: ksecretd.cpp:649
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> একটি ওয়ালেট খুলতে অনুরোধ করেছে (%2)।"
 
-#: ksecretd.cpp:653
+#: ksecretd.cpp:651
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "%1-তে বদলে যাও"
 
-#: ksecretd.cpp:670 ksecretd.cpp:752
+#: ksecretd.cpp:668 ksecretd.cpp:750
 #, fuzzy, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -242,7 +242,7 @@ msgstr ""
 "<qt>ত্রুটি আরম্ভ মানিব্যাগ '<b>%1</b>ের। দয়া করে পুনরায় চেষ্টা করো।<br />(ত্রুটি কোড "
 "%2: %3)</qt>"
 
-#: ksecretd.cpp:718
+#: ksecretd.cpp:716
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -254,7 +254,7 @@ msgstr ""
 "করতে চান তাহলে এর জন্য একটি পাসওয়ার্ড লিখুন, অথবা ব্যবহার না করতে চাইলে বাতিল "
 "ক্লিক করে অ্যাপলিকেশটির অনুরোধ অস্বীকার করুন। "
 
-#: ksecretd.cpp:723
+#: ksecretd.cpp:721
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -267,7 +267,7 @@ msgstr ""
 "আপনি ওয়ালেট-টি ব্যবহার করতে চান তাহলে এর জন্য একটি পাসওয়ার্ড লিখুন, অথবা ব্যবহার "
 "না করতে চাইলে বাতিল ক্লিক করে অ্যাপলিকেশটির অনুরোধ অস্বীকার করুন।</qt>"
 
-#: ksecretd.cpp:731
+#: ksecretd.cpp:729
 #, fuzzy, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -278,7 +278,7 @@ msgstr ""
 "করে এই মানিব্যাগটির জন্য একটি শব্দচাবি বেছে নাও, অথবা অ্যাপলিকেশনের অনুরোধ "
 "অস্বীকার করতে বাতিল করো।</qt>"
 
-#: ksecretd.cpp:736
+#: ksecretd.cpp:734
 #, fuzzy, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -289,13 +289,13 @@ msgstr ""
 "করেছে<b>%2</b>ের। দয়া করে এই মানিব্যাগটির জন্য একটি শব্দচাবি বেছে নাও, অথবা "
 "অ্যাপলিকেশনের অনুরোধ অস্বীকার করতে বাতিল করো।</qt>"
 
-#: ksecretd.cpp:848
+#: ksecretd.cpp:846
 #, fuzzy, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>কে.ডি.ই.  মুক্ত মানিব্যাগ 'তে তথ্য উদ্ধার করা অনুরোধ করেছে<b>%1</b>ের।</qt>"
 
-#: ksecretd.cpp:850
+#: ksecretd.cpp:848
 #, fuzzy, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -304,7 +304,7 @@ msgstr ""
 "<qt>অ্যাপলিকেশন '<b>%1</b>' মুক্ত মানিব্যাগ 'তে তথ্য উদ্ধার করা কি অনুরোধ করেছে<b>"
 "%2</b>ের।</qt>"
 
-#: ksecretd.cpp:958
+#: ksecretd.cpp:956
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -313,7 +313,7 @@ msgstr ""
 "ওয়ালেট খুলতে অক্ষম। ওয়ালেট-এর পাসওয়ার্ড পরিবর্তন করতে হলে প্রথমে ওয়ালেট-টি খোলা "
 "প্রয়োজন।"
 
-#: ksecretd.cpp:974
+#: ksecretd.cpp:972
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -321,23 +321,23 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: ksecretd.cpp:981
+#: ksecretd.cpp:979
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>অনুগ্রহ করে '<b>%1</b>' ওয়ালেট-এর জন্য একটি নতুন পাসওয়ার্ড বেছে নিন।</qt>"
 
-#: ksecretd.cpp:993
+#: ksecretd.cpp:991
 #, fuzzy, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "ত্রুটি মানিব্যাগ re-encryptingেছিল। পাসওয়ার্ড পরিবর্তন করা হয়নি।"
 
-#: ksecretd.cpp:998
+#: ksecretd.cpp:996
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "ওয়ালেট পুনরায় খুলতে সমস্যা হয়েছে। কিছু তথ্য হারিয়ে গিয়ে থাকতে পারে।"
 
-#: ksecretd.cpp:1587
+#: ksecretd.cpp:1585
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
