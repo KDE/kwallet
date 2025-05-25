@@ -65,8 +65,8 @@ msgid ""
 msgstr ""
 "<qt>KDE ha demanat crear una cartera nova anomenada «<b>%1</b>». Esta "
 "s'utilitza per a emmagatzemar les dades confidencials de manera segura. "
-"Seleccioneu el tipus de cartera nova o cliqueu «Cancel·la» per a rebutjar la "
-"petició de l'aplicació.</qt>"
+"Seleccioneu el tipus de cartera nova o cliqueu damunt «Cancel·la» per a "
+"rebutjar la petició de l'aplicació.</qt>"
 
 #: knewwalletdialog.cpp:55
 #, kde-format
@@ -78,8 +78,8 @@ msgid ""
 msgstr ""
 "<qt>L'aplicació «<b>%1</b>» ha demanat crear una cartera nova anomenada «<b>"
 "%2</b>». Esta s'utilitza per a emmagatzemar les dades confidencials de "
-"manera segura. Seleccioneu el tipus de cartera nova o cliqueu «Cancel·la» "
-"per a rebutjar la petició de l'aplicació.</qt>"
+"manera segura. Seleccioneu el tipus de cartera nova o cliqueu damunt "
+"«Cancel·la» per a rebutjar la petició de l'aplicació.</qt>"
 
 #: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
 #: kwalletwizard.cpp:157
@@ -152,7 +152,7 @@ msgstr ""
 "<html><head/><body><p>L'aplicació «<span style=\" font-weight:600;\">%1</"
 "span>» ha demanat obrir la cartera de KDE. Esta s'utilitza per a "
 "emmagatzemar les dades confidencials de manera segura. Seleccioneu el tipus "
-"de la cartera nova o cliqueu «Cancel·la» per a rebutjar la petició de "
+"de la cartera nova o cliqueu damunt «Cancel·la» per a rebutjar la petició de "
 "l'aplicació.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
@@ -238,7 +238,7 @@ msgid ""
 msgstr ""
 "KDE ha demanat obrir la cartera. Esta s'utilitza emmagatzemar les dades "
 "confidencials de manera segura. Introduïu una contrasenya per a utilitzar-la "
-"amb esta cartera o cliqueu «Cancel·la» per a rebutjar la petició de "
+"amb esta cartera o cliqueu damunt «Cancel·la» per a rebutjar la petició de "
 "l'aplicació."
 
 #: ksecretd.cpp:721
@@ -252,7 +252,7 @@ msgstr ""
 "<qt>L'aplicació «<b>%1</b>» ha demanat obrir la cartera de KDE. Esta "
 "s'utilitza per a emmagatzemar les dades confidencials de manera segura. "
 "Introduïu una contrasenya per a utilitzar-la amb esta cartera o cliqueu "
-"«Cancel·la» per a rebutjar la petició de l'aplicació.</qt>"
+"damunt «Cancel·la» per a rebutjar la petició de l'aplicació.</qt>"
 
 #: ksecretd.cpp:729
 #, kde-format
