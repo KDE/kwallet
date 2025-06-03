@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-24 00:39+0000\n"
-"PO-Revision-Date: 2024-07-21 14:19+0200\n"
+"PO-Revision-Date: 2025-06-01 14:49+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -534,10 +534,9 @@ msgid "What kind of encryption do you wish?"
 msgstr "Kva slags kryptering vil du bruka?"
 
 #: main.cpp:164
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2013, The KDE Developers"
+#, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr "© 2002–2013 KDE-utviklarane"
+msgstr "© 2002–2025 KDE-utviklarane"
 
 #: main.cpp:165
 #, kde-format
