@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:25+0000\n"
-"PO-Revision-Date: 2022-01-23 23:02+0400\n"
+"PO-Revision-Date: 2025-08-03 15:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -57,7 +57,7 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
-"<qt> حدث خطأ في التشفير أثناء محاولة حفظ المحفظة <b>%1</b>. رمز الخطأ هو <b>"
+"<qt> حدث خطأ في التعمية أثناء محاولة حفظ المحفظة <b>%1</b>. رمز الخطأ هو <b>"
 "%2 (%3)</b>. الرجاء إصلاح تكوين النظام الخاص بك ، ثم حاول مرة أخرى. قد يحدث "
 "هذا الخطأ إذا كنت لا تستخدم مفتاح GPG ذو الثقة الكاملة.يرجى التأكد من أن "
 "لديك المفتاح السري للمفتاح الذي تستخدمه.</qt>"
@@ -103,7 +103,7 @@ msgid ""
 "you're using a SmartCard, please ensure it's inserted then try again."
 "<br><br>GPG error was <b>%2</b></qt>"
 msgstr ""
-"<qt> خطأ عند محاولة فك تشفير المحفظة <b>%1</b> باستخدام GPG. إذا كنت تستخدم "
+"<qt> خطأ عند محاولة فك تعمية المحفظة <b>%1</b> باستخدام GPG. إذا كنت تستخدم "
 "SmartCard ، فيرجى التأكد من إدخالها ثم المحاولة مرة أخرى.<br> <br> خطأ GPG "
 "كان <b>%2</b> </qt>"
 
@@ -145,7 +145,7 @@ msgstr "إصدارة تنسيق ملف غير مدعوم."
 #: backend/kwalletbackend.cc:276
 #, kde-format
 msgid "Unknown encryption scheme."
-msgstr "مخطط تشفير مجهول."
+msgstr "مخطط تعمية مجهول."
 
 #: backend/kwalletbackend.cc:278
 #, kde-format
@@ -165,7 +165,7 @@ msgstr "خطأ في القراءة - قد يكون كلمة السر خاطئة"
 #: backend/kwalletbackend.cc:286
 #, kde-format
 msgid "Decryption error."
-msgstr "خطأ في فك التشفير."
+msgstr "خطأ في فك التعمية."
 
 #: backend/kwalletbackend.cc:462
 #, kde-format
@@ -241,7 +241,7 @@ msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
 "least one encryption key, then try again."
 msgstr ""
-"يبدو أن نظامك لا يحتوي على مفاتيح مناسبة للتشفير. يرجى إعداد مفتاح تشفير "
+"يبدو أن نظامك لا يحتوي على مفاتيح مناسبة للتعمية. يرجى إعداد مفتاح تعمية "
 "واحد على الأقل ، ثم المحاولة مرة أخرى."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -305,14 +305,14 @@ msgstr ""
 #: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
 #, kde-format
 msgid "Classic, blowfish encrypted file"
-msgstr "تقليدي ، ملف تشفير blowfish"
+msgstr "تقليدي ، ملف تعمية blowfish"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
 #: knewwalletdialogintro.ui:73 kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
 msgid "Use GPG encryption, for better protection"
-msgstr "استخدم تشفير GPG لحماية أفضل"
+msgstr "استخدم تعمية GPG لحماية أفضل"
 
 #: kwalletd.cpp:640
 #, kde-format
@@ -444,9 +444,9 @@ msgid ""
 "<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
 "associated to that key.</qt>"
 msgstr ""
-"<qt> تم تشفير محفظة <b>%1</b> باستخدام مفتاح GPG <b>%2</b>. الرجاء استخدام "
-"أدوات <b> GPG </b> (مثل <b> kleopatra </b>) لتغيير عبارة المرور المرتبطة "
-"بهذا المفتاح. </qt>"
+"<qt> تم تعمية محفظة <b>%1</b> باستخدام مفتاح GPG <b>%2</b>. الرجاء استخدام "
+"أدوات <b> GPG </b> (مثل <b> kleopatra </b>) لتغيير عبارة السر المرتبطة بهذا "
+"المفتاح. </qt>"
 
 #: kwalletd.cpp:1002
 #, kde-format
@@ -456,7 +456,7 @@ msgstr "<qt>الرجاء اختيار كلمة سر جديدة للحافظة '<
 #: kwalletd.cpp:1014
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
-msgstr "خطأ في إعادة تشفير الحافظة. كلمة السر لم تغير"
+msgstr "خطأ في إعادة تعمية الحافظة. كلمة السر لم تغير"
 
 #: kwalletd.cpp:1019
 #, kde-format
@@ -508,11 +508,10 @@ msgstr ""
 "<html><head/><body> <p> يخزن نظام محفظة كِيدِي بياناتك في ملف <span style = "
 "\"font-style: italic;\"> محفظة </span> على القرص الثابت المحلي.تتم كتابة "
 "البيانات فقط بالشكل المشفر الذي تختاره - خوارزمية السمكة المنتفخة blowfish "
-"مع كلمة المرور الخاصة بك كمفتاح أو باستخدام مفتاح تشفير GPG. عند فتح "
-"المحفظة ، سيتم تشغيل تطبيق مدير المحفظة وعرض رمز في علبة النظام. يمكنك "
-"استخدام هذا التطبيق لإدارة جميع محافظك. حتى أنه يسمح لك بسحب المحافظ "
-"ومحتويات المحفظة ، مما يتيح لك بسهولة نسخ المحفظة إلى نظام بعيد.  </p> </"
-"body> </html>"
+"مع كلمة السر الخاصة بك كمفتاح أو باستخدام مفتاح تعمية GPG. عند فتح المحفظة ، "
+"سيتم تشغيل تطبيق مدير المحفظة وعرض رمز في علبة النظام. يمكنك استخدام هذا "
+"التطبيق لإدارة جميع محافظك. حتى أنه يسمح لك بسحب المحافظ ومحتويات المحفظة ، "
+"مما يتيح لك بسهولة نسخ المحفظة إلى نظام بعيد.  </p> </body> </html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: kwalletwizardpagegpgkey.ui:24
@@ -526,10 +525,10 @@ msgid ""
 "font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
-"<html><head/><body> <p> تستخدم المحفظة المستندة إلى GPG مفتاح تشفير GPG "
-"لتشفير البيانات بأمان على القرص. يجب أن يكون المفتاح متاحًا عند الحاجة إلى فك "
-"التشفير وإلا فلن يمكن الوصول إلى محفظتك. على سبيل المثال ، إذا اخترت مفتاح "
-"تشفير قائم على البطاقة الذكية ، سيطالبك نظام GPG بإدخاله ورقم التعريف الشخصي "
+"<html><head/><body> <p> تستخدم المحفظة المستندة إلى GPG مفتاح تعمية GPG "
+"لتعمية البيانات بأمان على القرص. يجب أن يكون المفتاح متاحًا عند الحاجة إلى فك "
+"التعمية وإلا فلن يمكن الوصول إلى محفظتك. على سبيل المثال ، إذا اخترت مفتاح "
+"تعمية قائم على البطاقة الذكية ، سيطالبك نظام GPG بإدخاله ورقم التعريف الشخصي "
 "المرتبط به عند محاولة فتح المحفظة. <span style=\"font-weight:600;\">ملاحظة:</"
 "span> هذه القائمة تظهر مفاتيح موثوقة فقط من &quot; المستوى النهائي &quot;</"
 "p> </body> </html>"
@@ -538,7 +537,7 @@ msgstr ""
 #: kwalletwizardpagegpgkey.ui:42
 #, kde-format
 msgid "Select encryption GPG key:"
-msgstr "اختر مفتاح تشفير GPG:"
+msgstr "اختر مفتاح تعمية GPG:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: kwalletwizardpagegpgkey.ui:81
@@ -552,9 +551,9 @@ msgid ""
 "encrypted file format on the previous page."
 msgstr ""
 "تعذر تحديد موقع <b> مفتاح GPG واحد على الأقل </b>. تحتاج محفظة كِيدِي إلى <b> "
-"مفتاح التشفير </b> لتخزين كلمات المرور أو البيانات الحساسة الأخرى بأمان على "
+"مفتاح التعمية </b> لتخزين كلمات السر أو البيانات الحساسة الأخرى بأمان على "
 "القرص. إذا كنت لا تزال ترغب في إعداد محفظة قائمة على GPG ، فقم بإلغاء هذا "
-"المعالج ، وقم بإعداد <b> مفتاح تشفير GPG </b> ، ثم أعد محاولة هذا المساعد."
+"المعالج ، وقم بإعداد <b> مفتاح تعمية GPG </b> ، ثم أعد محاولة هذا المساعد."
 "بخلاف ذلك ، لا يزال بإمكانك النقر مرة أخرى ، ثم اختيار تنسيق ملف كلاسيكي "
 "مشفر على شكل سمكة المنتفخ في الصفحة السابقة."
 
@@ -660,20 +659,19 @@ msgid ""
 "contained in the wallet.</p></body></html>"
 msgstr ""
 "<html><head/><body> <p> قد تحاول العديد من التطبيقات استخدام محفظة كِيدِي "
-"لتخزين كلمات المرور أو غيرها من المعلومات مثل بيانات نموذج الويب وملفات "
-"تعريف الارتباط.إذا كنت ترغب في استخدام هذه التطبيقات للمحفظة ، فيجب عليك "
-"تمكينها الآن واختيار طريقة لتشفيرها. </p> <p> طريقة GPG أكثر أمانًا ، ولكن "
-"يجب أن تكون قد قمت بتكوين مفتاح تشفير واحد على الأقل على نظامك. </p> <p> إذا "
-"اخترت التنسيق الكلاسيكي ، فاحذر من أن كلمة المرور التي تختارها <span style="
-"\" font-style:italic;\"> لا يمكن </span> استردادها في حالة فقدها ، وستسمح "
-"لأي شخص من يعرفها للحصول على جميع المعلومات الواردة في المحفظة. </p> </body> "
-"</html> "
+"لتخزين كلمات السر أو غيرها من المعلومات مثل بيانات نموذج الويب وملفات تعريف "
+"الارتباط.إذا كنت ترغب في استخدام هذه التطبيقات للمحفظة ، فيجب عليك تمكينها "
+"الآن واختيار طريقة لتعميةها. </p> <p> طريقة GPG أكثر أمانًا ، ولكن يجب أن "
+"تكون قد قمت بتكوين مفتاح تعمية واحد على الأقل على نظامك. </p> <p> إذا اخترت "
+"التنسيق الكلاسيكي ، فاحذر من أن كلمة السر التي تختارها <span style=\" font-"
+"style:italic;\"> لا يمكن </span> استردادها في حالة فقدها ، وستسمح لأي شخص من "
+"يعرفها للحصول على جميع المعلومات الواردة في المحفظة. </p> </body> </html> "
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
 msgid "What kind of encryption do you wish?"
-msgstr "أي نوع من التشفير ترغب فيه؟"
+msgstr "أي نوع من التعمية ترغب فيها؟"
 
 #: main.cpp:173
 #, kde-format
