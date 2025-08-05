@@ -601,7 +601,7 @@ msgstr ""
 #: kwalletwizardpageoptions.ui:48
 #, kde-format
 msgid "Automatically close idle wallets"
-msgstr "أغلق الحافظات الساكنة بشكل تلقائي"
+msgstr "أغلق الحافظات الساكنة بشكل آليّ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, _networkWallet)
 #: kwalletwizardpageoptions.ui:55
@@ -686,7 +686,7 @@ msgstr "Valentin Rusu"
 #: main.cpp:174
 #, kde-format
 msgid "Maintainer, GPG backend support"
-msgstr "المصين ودعم خلفية GPG"
+msgstr "الصائن ودعم خلفية GPG"
 
 #: main.cpp:175
 #, kde-format
