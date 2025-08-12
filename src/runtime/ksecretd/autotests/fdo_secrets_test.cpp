@@ -15,6 +15,10 @@
 
 void FdoSecretsTest::initTestCase()
 {
+    if (qEnvironmentVariableIntValue("KDECI_CANNOT_CREATE_WINDOWS")) {
+        QSKIP("These tests are unstable on Windows CI, skipping.");
+    }
+
     QStandardPaths::setTestModeEnabled(true);
     static QCA::Initializer init{};
 }
