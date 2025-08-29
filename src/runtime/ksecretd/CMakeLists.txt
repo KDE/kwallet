@@ -162,10 +162,13 @@ if(WIN32)
 else()
     configure_file(org.kde.secretservicecompat.service.in
                    ${CMAKE_CURRENT_BINARY_DIR}/org.kde.secretservicecompat.service)
+    configure_file(org.freedesktop.impl.portal.desktop.kwallet.service.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/org.freedesktop.impl.portal.desktop.kwallet.service)
 
     install(
         FILES
             ${CMAKE_CURRENT_BINARY_DIR}/org.kde.secretservicecompat.service
+            ${CMAKE_CURRENT_BINARY_DIR}/org.freedesktop.impl.portal.desktop.kwallet.service
         DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR}
     )
 endif()
