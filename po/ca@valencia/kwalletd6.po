@@ -65,8 +65,8 @@ msgid ""
 msgstr ""
 "<qt>KDE ha demanat crear una cartera nova anomenada «<b>%1</b>». Esta "
 "s'utilitza per a emmagatzemar les dades confidencials de manera segura. "
-"Seleccioneu el tipus de cartera nova o cliqueu damunt «Cancel·la» per a "
-"rebutjar la petició de l'aplicació.</qt>"
+"Trieu el tipus de cartera nova o cliqueu damunt «Cancel·la» per a rebutjar "
+"la petició de l'aplicació.</qt>"
 
 #: knewwalletdialog.cpp:55
 #, kde-format
@@ -78,8 +78,8 @@ msgid ""
 msgstr ""
 "<qt>L'aplicació «<b>%1</b>» ha demanat crear una cartera nova anomenada «<b>"
 "%2</b>». Esta s'utilitza per a emmagatzemar les dades confidencials de "
-"manera segura. Seleccioneu el tipus de cartera nova o cliqueu damunt "
-"«Cancel·la» per a rebutjar la petició de l'aplicació.</qt>"
+"manera segura. Trieu el tipus de cartera nova o cliqueu damunt «Cancel·la» "
+"per a rebutjar la petició de l'aplicació.</qt>"
 
 #: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
 #: kwalletwizard.cpp:157
@@ -104,7 +104,7 @@ msgstr ""
 #: knewwalletdialoggpg.ui:17
 #, kde-format
 msgid "Please select the signing key from the list below:"
-msgstr "Seleccioneu la clau de signatura des de la llista següent:"
+msgstr "Trieu la clau de signatura des de la llista següent:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: knewwalletdialoggpg.ui:24
@@ -151,8 +151,8 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>L'aplicació «<span style=\" font-weight:600;\">%1</"
 "span>» ha demanat obrir la cartera de KDE. Esta s'utilitza per a "
-"emmagatzemar les dades confidencials de manera segura. Seleccioneu el tipus "
-"de la cartera nova o cliqueu damunt «Cancel·la» per a rebutjar la petició de "
+"emmagatzemar les dades confidencials de manera segura. Trieu el tipus de la "
+"cartera nova o cliqueu damunt «Cancel·la» per a rebutjar la petició de "
 "l'aplicació.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
@@ -261,8 +261,8 @@ msgid ""
 "choose a password for this wallet, or cancel to deny the application's "
 "request.</qt>"
 msgstr ""
-"<qt>KDE ha demanat crear una cartera nova anomenada «<b>%1</b>». Seleccioneu "
-"una contrasenya per a esta cartera o cancel·leu per a rebutjar la petició de "
+"<qt>KDE ha demanat crear una cartera nova anomenada «<b>%1</b>». Trieu una "
+"contrasenya per a esta cartera o cancel·leu per a rebutjar la petició de "
 "l'aplicació.</qt>"
 
 #: ksecretd.cpp:734
@@ -273,7 +273,7 @@ msgid ""
 "application's request.</qt>"
 msgstr ""
 "<qt>L'aplicació «<b>%1</b>» ha demanat la creació d'una cartera nova "
-"anomenada «<b>%2</b>». Seleccioneu una contrasenya per a esta cartera, o "
+"anomenada «<b>%2</b>». Trieu una contrasenya per a esta cartera, o "
 "cancel·leu per a rebutjar la petició de l'aplicació.</qt>"
 
 #: ksecretd.cpp:846
@@ -313,8 +313,7 @@ msgstr ""
 #: ksecretd.cpp:979
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
-msgstr ""
-"<qt>Seleccioneu una contrasenya nova per a la cartera «<b>%1</b>».</qt>"
+msgstr "<qt>Trieu una contrasenya nova per a la cartera «<b>%1</b>».</qt>"
 
 #: ksecretd.cpp:991
 #, kde-format
@@ -398,17 +397,17 @@ msgstr ""
 "<html><head/><body><p>La cartera basada en GPG utilitza una clau "
 "d'encriptació GPG per a encriptar amb seguretat les dades en el disc. Cal "
 "que la clau estiga disponible en desencriptar o no es podrà accedir a la "
-"cartera. Per exemple, si seleccioneu una clau d'encriptació basada en "
-"targeta intel·ligent, el sistema GPG sol·licitarà que la introduïu amb el "
-"seu PIN associat en intentar obrir la cartera.<span style=\"font-weight:600;"
-"\">NOTA:</span> Esta llista només conté claus de confiança &quot;"
-"absoluta&quot;.</p></body></html>"
+"cartera. Per exemple, si trieu una clau d'encriptació basada en targeta "
+"intel·ligent, el sistema GPG sol·licitarà que la introduïu amb el seu PIN "
+"associat en intentar obrir la cartera.<span style=\"font-weight:600;\">NOTA:"
+"</span> Esta llista només conté claus de confiança &quot;absoluta&quot;.</"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kwalletwizardpagegpgkey.ui:42
 #, kde-format
 msgid "Select encryption GPG key:"
-msgstr "Seleccioneu la clau d'encriptació GPG:"
+msgstr "Trieu la clau d'encriptació GPG:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: kwalletwizardpagegpgkey.ui:81
@@ -426,7 +425,7 @@ msgstr ""
 "seguretat contrasenyes i altres dades confidencials en el disc. Si encara "
 "voleu una cartera basada en GPG, cancel·leu este assistent, configureu una "
 "<b>clau d'encriptació GPG</b>, i després torneu-ho a provar amb este "
-"assistent. Altrament, encara podeu tornar arrere, i seleccionar un format de "
+"assistent. Altrament, encara podeu tornar arrere, i triar un format de "
 "fitxer clàssic encriptat amb blowfish en la pàgina anterior."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
