@@ -42,14 +42,6 @@ namespace KWallet
 {
 typedef char Digest[16];
 
-static int getRandomBlock(QByteArray &randBlock)
-{
-    for (char &c : randBlock) {
-        c = static_cast<char>(QRandomGenerator::system()->bounded(UCHAR_MAX + 1));
-    }
-    return 0;
-}
-
 BackendPersistHandler *BackendPersistHandler::getPersistHandler(BackendCipherType cipherType)
 {
     switch (cipherType) {
@@ -164,12 +156,7 @@ int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &versio
 
     QByteArray randBlock;
     randBlock.resize(blksz + delta);
-    if (getRandomBlock(randBlock) < 0) {
-        sha.reset();
-        decrypted.fill(0);
-        sf.cancelWriting();
-        return -3; // Fatal error: can't get random
-    }
+    QRandomGenerator::securelySeeded().generate(randBlock.begin(), randBlock.end());
 
     for (int i = 0; i < blksz; i++) {
         wholeFile[i] = randBlock[i];
