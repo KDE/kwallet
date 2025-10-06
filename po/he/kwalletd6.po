@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-24 00:39+0000\n"
-"PO-Revision-Date: 2025-04-16 08:51+0300\n"
+"PO-Revision-Date: 2025-10-05 12:24+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -17,7 +17,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Poedit-Language: Hebrew\n"
 "X-Poedit-Country: ISRAEL\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -206,7 +206,7 @@ msgstr "מעבר לשם"
 #: ksecretd.cpp:649
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
-msgstr "<b>%1</b> ביקש לפתוח ארנק  (%2)."
+msgstr "<b>%1</b> ביקש לפתוח ארנק (%2)."
 
 #: ksecretd.cpp:651
 #, kde-format
@@ -399,7 +399,7 @@ msgid ""
 "encrypted file format on the previous page."
 msgstr ""
 "לא ניתן לאתר לפחות <b>מפתח GPG מצפין</b> אחד. מערכת הארנקים של KDE צריכה "
-"<b>מפתח הצפנה</b> כדי לאחסן סיסמאות ומידע נגיש נוסףבצורה מאובטחת בכונן. אם "
+"<b>מפתח הצפנה</b> כדי לאחסן סיסמאות ומידע נגיש נוסף בצורה מאובטחת בכונן. אם "
 "עדיין חשוב לך להקים ארנק מבוסס GPG יש לבטל את האשף הזה, להקים <b>מפתח GPG "
 "מצפין</b>, ולחזור למסייע הזה. אחרת, אפשר ללחוץ על חזרה, ואז לבחור בתצורת "
 "קובץ מוצפנת קלסית, blowfish בעמוד הקודם."
