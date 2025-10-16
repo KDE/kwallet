@@ -19,7 +19,7 @@ include(KDECMakeSettings)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 
-set(REQUIRED_QT_VERSION 6.7.0)
+set(REQUIRED_QT_VERSION 6.8.0)
 find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core DBus Gui Widgets)
 
 include(ECMGenerateExportHeader)
