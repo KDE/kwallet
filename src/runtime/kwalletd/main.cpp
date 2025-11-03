@@ -24,6 +24,7 @@ static bool isWalletEnabled()
 
 int main(int argc, char **argv)
 {
+    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
     QApplication application(argc, argv);
 
     KLocalizedString::setApplicationDomain("kwalletd");
