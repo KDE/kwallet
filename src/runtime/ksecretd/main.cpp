@@ -17,7 +17,6 @@
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QIcon>
-#include <QSessionManager>
 #include <QString>
 
 #include <stdio.h>
@@ -150,6 +149,7 @@ int main(int argc, char **argv)
     }
 #endif
 
+    QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
 
@@ -179,11 +179,6 @@ int main(int argc, char **argv)
     cmdParser.process(app);
 
     app.setQuitOnLastWindowClosed(false);
-    auto disableSessionManagement = [](QSessionManager &sm) {
-        sm.setRestartHint(QSessionManager::RestartNever);
-    };
-    QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
-    QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
 
     // check if kwallet is disabled
     if (!KSecretD::isEnabled()) {
