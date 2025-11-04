@@ -44,7 +44,7 @@ void KWalletFreedesktopPrompt::Dismiss()
     QVariantList args;
     // LibSecret wants a "valid" QDBusObjectPath here or it will just freeze
     // Gnome-keyring also sends "/" as object path when the create dialog gets dismissed
-    args << true << QVariant::fromValue(QDBusVariant(QVariant::fromValue(QDBusObjectPath(QStringLiteral("/")))));
+    args << true << QVariant::fromValue(QDBusVariant(QVariant::fromValue(QList{QDBusObjectPath(QStringLiteral("/"))})));
     msg.setArguments(args);
     QDBusConnection::sessionBus().send(msg);
     QDBusConnection::sessionBus().unregisterObject(fdoObjectPath().path());
