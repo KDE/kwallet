@@ -11,7 +11,6 @@
 #include "kwallet.h"
 #include "kwallet_api_debug.h"
 
-#include <QApplication>
 #include <QDBusConnection>
 #include <QRegularExpression>
 

@@ -73,7 +73,6 @@ target_link_libraries(KF6Wallet
         Qt6::Gui
     PRIVATE
         Qt6::DBus
-        Qt6::Widgets
         KF6::ConfigCore   # used to store the wallet to be used
 )
 
