@@ -1,6 +1,7 @@
 
 find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Crash ${KF_DEP_VERSION} REQUIRED)
 find_package(PkgConfig REQUIRED)
 
 pkg_check_modules(LIBSECRET REQUIRED libsecret-1)
@@ -62,7 +63,7 @@ target_link_libraries(kwalletd6
     KF6::ConfigCore
     KF6::CoreAddons
     KF6::WidgetsAddons
-    #KF6::Crash
+    KF6::Crash
     KF6::I18n
     KF6::DBusAddons
     KF6::Wallet

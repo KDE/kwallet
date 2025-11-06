@@ -9,6 +9,7 @@
 #include <KAboutData>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KCrash>
 #include <KDBusService>
 #include <KLocalizedString>
 
@@ -41,6 +42,8 @@ int main(int argc, char **argv)
     aboutData.setDesktopFileName(QStringLiteral("org.kde.kwalletd"));
 
     KAboutData::setApplicationData(aboutData);
+
+    KCrash::initialize();
 
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
