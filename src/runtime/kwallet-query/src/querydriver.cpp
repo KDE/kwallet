@@ -18,7 +18,7 @@
 #include <KLocalizedString>
 
 QueryDriver::QueryDriver(int &argc, char *argv[])
-    : QApplication(argc, argv)
+    : QCoreApplication(argc, argv)
     , entryFolder(QStringLiteral("Passwords"))
 {
     QTimerEvent *timerEvent = new QTimerEvent(100);
@@ -36,7 +36,7 @@ QueryDriver::~QueryDriver()
 }
 void QueryDriver::timerEvent(QTimerEvent *event)
 {
-    QApplication::timerEvent(event);
+    QCoreApplication::timerEvent(event);
     if (verbose) {
         qDebug() << "timer event";
     }

@@ -7,13 +7,13 @@
 
 #pragma once
 
-#include <QApplication>
+#include <QCoreApplication>
 
 #include <KWallet>
 
 using namespace KWallet;
 
-class QueryDriver : public QApplication
+class QueryDriver : public QCoreApplication
 {
     Q_OBJECT
 public:
