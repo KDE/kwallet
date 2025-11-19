@@ -489,9 +489,18 @@ QStringList SecretServiceClient::listCollections(bool *ok)
         return QStringList();
     }
 
-    QStringList collections;
+    GError *error = nullptr;
 
+    // secret_service_get_collections might be cached and can return stale contents
+    // force a reload of the collection list, see BUG:512135
+    secret_service_load_collections_sync(m_service.get(), nullptr, &error);
+    if (!wasErrorFree(&error)) {
+        *ok = false;
+        return QStringList();
+    }
     GListPtr glist = GListPtr(secret_service_get_collections(m_service.get()));
+
+    QStringList collections;
 
     if (glist) {
         for (GList *iter = glist.get(); iter != nullptr; iter = iter->next) {
