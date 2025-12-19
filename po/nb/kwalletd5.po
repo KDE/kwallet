@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:25+0000\n"
+"POT-Creation-Date: 2025-11-17 09:00+0000\n"
 "PO-Revision-Date: 2015-04-27 19:45+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -27,9 +27,7 @@ msgstr "Knut Yrvin,Harald Inge Børseth,Nils Kristian Tomren,Bjørn Steensrud"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
-"knut.yrvin@gmail.com,haraldib@broadpark.no,slx@nilsk.net,bjornst@skogkatt."
-"homelinux.org"
+msgstr "knut.yrvin@gmail.com,haraldib@broadpark.no,slx@nilsk.net,bjornst@skogkatt.homelinux.org"
 
 #: backend/backendpersisthandler.cpp:489
 #, kde-format
