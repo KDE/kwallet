@@ -23,7 +23,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 > </address
 > </author>
     <date
->2015-06-14</date>
+>2015‒06‒14</date>
     <releaseinfo
 >Frameworks 5.11</releaseinfo>
     <productname
@@ -106,11 +106,11 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
           <simpara
 ><emphasis
 >cüzdan</emphasis
->'ın <emphasis role="strong"
+>’ın <emphasis role="strong"
 >klasör</emphasis
 >bölümünden verilen <emphasis
 >girdi</emphasis
->'nin içeriğini okuyun ve standart çıktıya yönlendirin. Haritalar bir &JSON; nesnesi olarak dışa aktarılır.</simpara>
+>’nin içeriğini okuyun ve standart çıktıya yönlendirin. Haritalar bir &JSON; nesnesi olarak dışa aktarılır.</simpara>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -241,7 +241,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
     <simpara
 ><command
 >kwallet-query</command
->, ilk olarak Valentin Rusu tarafından yazılmıştır ve &kde;'nin bir parçasıdır.</simpara>
+>, ilk olarak Valentin Rusu tarafından yazılmıştır ve &kde;’nin bir parçasıdır.</simpara>
   </refsect1>
   <refsect1 id="_copying">
     <title
