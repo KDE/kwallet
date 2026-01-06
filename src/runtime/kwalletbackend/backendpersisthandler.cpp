@@ -470,7 +470,7 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     }
 
     char buffer[4096];
-    ssize_t bytes = 0;
+    qint64 bytes = 0;
     encryptedData.seek(0, SEEK_SET);
     while ((bytes = encryptedData.read(buffer, sizeof(buffer) / sizeof(buffer[0]))) > 0) {
         if (sf.write(buffer, bytes) != bytes) {
@@ -510,7 +510,7 @@ int GpgPersistHandler::read(Backend *wb, QFile &sf, WId w)
     // the remainder of the file is GPG encrypted. Let's decrypt it
     GpgME::Data encryptedData;
     char buffer[4096];
-    ssize_t bytes = 0;
+    qint64 bytes = 0;
     while ((bytes = sf.read(buffer, sizeof(buffer) / sizeof(buffer[0])))) {
         encryptedData.write(buffer, bytes);
     }
