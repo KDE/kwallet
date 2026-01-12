@@ -25,7 +25,7 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "SPDX-FileCopyrightText: 2019 Empar Montoro Martín,Josep M. Ferrer"
+msgstr "Empar Montoro Martín,Josep M. Ferrer"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -39,9 +39,9 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
-"<qt>S'ha produït un error en intentar restablir OpenPGP mentre s'intentava "
-"guardar la cartera <b>%1</b>. El codi d'error és <b>%2</b>. Esmeneu la "
-"configuració del sistema i torneu-ho a provar.</qt>"
+"<qt>S'ha produït un error mentre s'intentava restablir OpenPGP quan "
+"s'intentava guardar la cartera <b>%1</b>. El codi d'error és <b>%2</b>. "
+"Esmeneu la configuració del sistema i torneu-ho a provar.</qt>"
 
 #: backend/backendpersisthandler.cpp:501
 #, kde-format
@@ -49,9 +49,9 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to save the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"<qt>S'ha produït un error en intentar restablir OpenPGP mentre s'intentava "
-"guardar la cartera <b>%1</b>. Esmeneu la configuració del sistema i torneu-"
-"ho a provar.</qt>"
+"<qt>S'ha produït un error mentre s'intentava restablir OpenPGP quan "
+"s'intentava guardar la cartera <b>%1</b>. Esmeneu la configuració del "
+"sistema i torneu-ho a provar.</qt>"
 
 #: backend/backendpersisthandler.cpp:555
 #, kde-format
@@ -73,9 +73,9 @@ msgid ""
 "<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"<qt>S'ha produït un error en la gestió dels fitxers en intentar guardar la "
-"cartera <b>%1</b>. L'error ha sigut <b>%2</b>. Esmeneu la configuració del "
-"sistema i torneu-ho a provar.</qt>"
+"<qt>S'ha produït un error durant la gestió dels fitxers quan s'intentava "
+"guardar la cartera <b>%1</b>. L'error ha sigut <b>%2</b>. Esmeneu la "
+"configuració del sistema i torneu-ho a provar.</qt>"
 
 #: backend/backendpersisthandler.cpp:594
 #, kde-format
@@ -84,9 +84,9 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
-"<qt>S'ha produït un error en intentar restablir OpenPGP mentre s'intentava "
-"obrir la cartera <b>%1</b>. El codi d'error és <b>%2</b>. Esmeneu la "
-"configuració del sistema i torneu-ho a provar.</qt>"
+"<qt>S'ha produït un error mentre s'intentava restablir OpenPGP mentre "
+"s'intentava obrir la cartera <b>%1</b>. El codi d'error és <b>%2</b>. "
+"Esmeneu la configuració del sistema i torneu-ho a provar.</qt>"
 
 #: backend/backendpersisthandler.cpp:616
 #, kde-format
@@ -94,9 +94,9 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to open the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"<qt>S'ha produït un error en intentar restablir OpenPGP mentre s'intentava "
-"obrir la cartera <b>%1</b>. Esmeneu la configuració del sistema i torneu-ho "
-"a provar.</qt>"
+"<qt>S'ha produït un error mentre s'intentava restablir OpenPGP mentre "
+"s'intentava obrir la cartera <b>%1</b>. Esmeneu la configuració del sistema "
+"i torneu-ho a provar.</qt>"
 
 #: backend/backendpersisthandler.cpp:629
 #, kde-format
@@ -110,10 +110,10 @@ msgid ""
 "you're using a SmartCard, please ensure it's inserted then try again."
 "<br><br>GPG error was <b>%2</b></qt>"
 msgstr ""
-"<qt>S'ha produït un error en intentar desencriptar la cartera <b>%1</b> "
-"utilitzant GPG. Si esteu utilitzant una targeta intel·ligent, comproveu que "
-"estiga inserida i torneu-ho a provar. <br><br>L'error de GPG ha sigut <b>%2</"
-"b></qt>"
+"<qt>S'ha produït un error mentre s'intentava desencriptar la cartera <b>%1</"
+"b> utilitzant GPG. Si esteu utilitzant una targeta intel·ligent, comproveu "
+"que estiga inserida i torneu-ho a provar. <br><br>L'error de GPG ha sigut <b>"
+"%2</b></qt>"
 
 #: backend/backendpersisthandler.cpp:638
 #, kde-format
@@ -127,9 +127,9 @@ msgid ""
 "encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
 "system.</qt>"
 msgstr ""
-"<qt>S'ha produït un error en intentar obrir la cartera <b>%1</b>. La cartera "
-"estava encriptada utilitzant la clau GPG amb ID <b>%2</b>, però no s'ha "
-"trobat esta clau en el sistema.</qt>"
+"<qt>S'ha produït un error mentre s'intentava obrir la cartera <b>%1</b>. La "
+"cartera estava encriptada utilitzant la clau GPG amb ID <b>%2</b>, però no "
+"s'ha trobat esta clau en el sistema.</qt>"
 
 #: backend/kwalletbackend.cc:266
 #, kde-format
@@ -139,7 +139,7 @@ msgstr "Ja està obert."
 #: backend/kwalletbackend.cc:268
 #, kde-format
 msgid "Error opening file."
-msgstr "S'ha produït un error en obrir el fitxer."
+msgstr "S'ha produït un error mentre s'obria el fitxer."
 
 #: backend/kwalletbackend.cc:270
 #, kde-format
@@ -165,8 +165,8 @@ msgstr "Fitxer espatlat?"
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr ""
-"S'ha produït un error en validar la integritat de la cartera. Possiblement "
-"s'ha espatlat."
+"S'ha produït un error mentre es validava la integritat de la cartera. "
+"Possiblement s'ha espatlat."
 
 #: backend/kwalletbackend.cc:284
 #, kde-format
@@ -186,7 +186,7 @@ msgid ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
 msgstr ""
-"No s'ha pogut sincronitzar la cartera <b>%1</b> amb el disc. Els codis "
+"Ha fallat mentre se sincronitzava la cartera <b>%1</b> al disc. Els codis "
 "d'error són:\n"
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Empleneu un informe d'error en bugs.kde.org utilitzant esta "
@@ -248,8 +248,8 @@ msgid ""
 "The GpgME library failed to initialize for the OpenPGP protocol. Please "
 "check your system's configuration then try again."
 msgstr ""
-"La biblioteca GpgME ha fallat en intentar restablir el protocol OpenPGP. "
-"Reviseu la configuració del sistema i torneu-ho a provar."
+"La biblioteca GpgME ha fallat mentre s'intentava restablir el protocol "
+"OpenPGP. Reviseu la configuració del sistema i torneu-ho a provar."
 
 #: knewwalletdialog.cpp:153
 #, kde-format
@@ -386,7 +386,7 @@ msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
 "%2: %3)</qt>"
 msgstr ""
-"<qt>S'ha produït un error en obrir la cartera «<b>%1</b>». Torneu-ho a "
+"<qt>S'ha produït un error mentre s'obria la cartera «<b>%1</b>». Torneu-ho a "
 "provar.<br />(Codi d'error %2: %3)</qt>"
 
 #: kwalletd.cpp:739
@@ -479,15 +479,15 @@ msgstr "<qt>Trieu una contrasenya nova per a la cartera «<b>%1</b>».</qt>"
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
-"S'ha produït un error en tornar a encriptar la cartera. La contrasenya no "
-"s'ha canviat."
+"S'ha produït un error mentre es tornava a encriptar la cartera. La "
+"contrasenya no s'ha canviat."
 
 #: kwalletd.cpp:1019
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
-"S'ha produït un error en tornar a obrir la cartera. Potser s'han perdut les "
-"dades."
+"S'ha produït un error mentre es tornava a obrir la cartera. Potser s'han "
+"perdut les dades."
 
 #: kwalletd.cpp:1608
 #, kde-format

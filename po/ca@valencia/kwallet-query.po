@@ -25,7 +25,7 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "SPDX-FileCopyrightText: 2019 Empar Montoro Martín,Josep M. Ferrer"
+msgstr "Empar Montoro Martín,Josep M. Ferrer"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -117,7 +117,7 @@ msgstr "No s'ha trobat la cartera %1"
 #: querydriver.cpp:70
 #, kde-format
 msgid "Failed to open wallet %1. Aborting"
-msgstr "No s'ha pogut obrir la cartera %1. S'està interrompent"
+msgstr "Ha fallat mentre s'obria la cartera %1. S'està interrompent"
 
 #: querydriver.cpp:104 querydriver.cpp:121
 #, kde-format
@@ -127,14 +127,16 @@ msgstr "La carpeta %1 no existix."
 #: querydriver.cpp:130
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet."
-msgstr "No s'ha pogut llegir el valor de l'entrada %1 des de la cartera %2."
+msgstr ""
+"Ha fallat mentre es llegia el valor de l'entrada %1 des de la cartera %2."
 
 #: querydriver.cpp:141 querydriver.cpp:156
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet"
-msgstr "No s'ha pogut llegir el valor de l'entrada %1 des de la cartera %2"
+msgstr ""
+"Ha fallat mentre es llegia el valor de l'entrada %1 des de la cartera %2"
 
 #: querydriver.cpp:189 querydriver.cpp:205
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
-msgstr "No s'ha pogut escriure el valor de l'entrada %1 a la cartera %2"
+msgstr "Ha fallat mentre s'escrivia el valor de l'entrada %1 a la cartera %2"
