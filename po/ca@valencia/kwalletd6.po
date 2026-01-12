@@ -88,8 +88,8 @@ msgid ""
 "The GpgME library failed to initialize for the OpenPGP protocol. Please "
 "check your system's configuration then try again."
 msgstr ""
-"La biblioteca GpgME ha fallat en intentar restablir el protocol OpenPGP. "
-"Reviseu la configuració del sistema i torneu-ho a provar."
+"La biblioteca GpgME ha fallat mentre s'intentava restablir el protocol "
+"OpenPGP. Reviseu la configuració del sistema i torneu-ho a provar."
 
 #: knewwalletdialog.cpp:153
 #, kde-format
@@ -226,7 +226,7 @@ msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
 "%2: %3)</qt>"
 msgstr ""
-"<qt>S'ha produït un error en obrir la cartera «<b>%1</b>». Torneu-ho a "
+"<qt>S'ha produït un error mentre s'obria la cartera «<b>%1</b>». Torneu-ho a "
 "provar.<br />(Codi d'error %2: %3)</qt>"
 
 #: ksecretd.cpp:716
@@ -319,15 +319,15 @@ msgstr "<qt>Trieu una contrasenya nova per a la cartera «<b>%1</b>».</qt>"
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
-"S'ha produït un error en tornar a encriptar la cartera. La contrasenya no "
-"s'ha canviat."
+"S'ha produït un error mentre es tornava a encriptar la cartera. La "
+"contrasenya no s'ha canviat."
 
 #: ksecretd.cpp:996
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
-"S'ha produït un error en tornar a obrir la cartera. Potser s'han perdut les "
-"dades."
+"S'ha produït un error mentre es tornava a obrir la cartera. Potser s'han "
+"perdut les dades."
 
 #: ksecretd.cpp:1585
 #, kde-format
