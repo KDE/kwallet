@@ -177,6 +177,8 @@ private:
     QString defaultWalletName(KConfigGroup &cfg);
 
 private:
+    QCA::Initializer m_init;
+
     std::map<QString, std::unique_ptr<KWalletFreedesktopSession>> m_sessions;
     std::map<QString, std::unique_ptr<KWalletFreedesktopCollection>> m_collections;
     std::map<QString, std::unique_ptr<KWalletFreedesktopPrompt>> m_prompts;
@@ -187,7 +189,6 @@ private:
     QDBusServiceWatcher _serviceWatcher;
     */
     KSecretD *m_parent;
-    QCA::Initializer m_init;
     KConfig m_kwalletrc;
 
     /* Freedesktop API */
