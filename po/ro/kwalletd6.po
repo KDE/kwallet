@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2026-01-29 01:55+0000\n"
+"PO-Revision-Date: 2026-02-04 14:22+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -85,6 +85,8 @@ msgid ""
 "The GpgME library failed to initialize for the OpenPGP protocol. Please "
 "check your system's configuration then try again."
 msgstr ""
+"Biblioteca GpgME nu a putut fi inițializată pentru protocolul OpenPGP. "
+"Verificați configurația sistemului și încercați din nou."
 
 #: knewwalletdialog.cpp:153
 #, kde-format
@@ -385,6 +387,14 @@ msgid ""
 "font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Portofelul bazat pe GPG folosește o cheie de criptare "
+"GPG pentru a cripta datele pe disc în siguranță. Cheia trebuie să fie "
+"disponibilă când e necesară decriptarea, în caz contrar portofelul nu va fi "
+"disponibil. De exemplu, dacă alegeți o cheie de criptare bazată pe "
+"SmartCard, sistemul GPG vă va cere să introduceți cartela și PIN-ul acesteia "
+"când încercați să deschideți portofelul. <span style=\" font-weight:600;"
+"\">NOTĂ:</span> această listă conține doar chei cu încredere de nivel maxim."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kwalletwizardpagegpgkey.ui:42
@@ -403,6 +413,13 @@ msgid ""
 "Otherwise, you may still click back, then choose a classic, blowfish "
 "encrypted file format on the previous page."
 msgstr ""
+"Nu poate fi găsită nicio <b>cheie GPG pentru criptare</b>. Portofelul KDE "
+"necesită o <b>cheie pentru criptare</b> pentru a păstra în siguranță parole "
+"sau alte date sensibile pe disc. Dacă doriți totuși să inițializați un "
+"portofel bazat pe GPG, atunci închideți acest asistent, configurați o "
+"<b>cheie GPG pentru criptare</b>, apoi deschideți din nou acest asistent. În "
+"caz contrar, puteți apăsa Înapoi și alege un format de fișier cu criptare "
+"clasică Blowfish de pe pagina precedentă."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: kwalletwizardpageintro.ui:30
@@ -499,14 +516,7 @@ msgstr "Verificați parola:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: kwalletwizardpagepasswordgpg.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "Various applications may attempt to use the KDE wallet to store passwords "
-#| "or other information such as web form data and cookies.  If you would "
-#| "like these applications to use the wallet, you must enable it now and "
-#| "choose a password.  The password you choose <i>cannot</i> be recovered if "
-#| "it is lost, and will allow anyone who knows it to obtain all the "
-#| "information contained in the wallet."
+#, kde-format
 msgid ""
 "<html><head/><body><p>Various applications may attempt to use the KDE wallet "
 "to store passwords or other information such as web form data and cookies. "
@@ -518,12 +528,16 @@ msgid ""
 "is lost, and will allow anyone who knows it to obtain all the information "
 "contained in the wallet.</p></body></html>"
 msgstr ""
-"Diferite aplicații pot încerca să utilizeze portofelul KDE pentru a stoca "
-"parole sau alte informații cum ar fi datele din formulare web sau „cookies”. "
-"Dacă doriți să permiteți acestor aplicații să utilizeze portofelul, trebuie "
-"să îl activați acum și să alegeți o parolă. Parola pe care o veți alege "
-"<i>nu poate</i> fi recuperată dacă este pierdută, și va permite oricui o "
-"cunoaște să obțină toate informațiile conținute în portofel."
+"<html><head/><body><p>Diferite aplicații pot încerca să utilizeze portofelul "
+"KDE pentru a stoca parole sau alte informații cum ar fi datele din formulare "
+"web sau „cookies”. Dacă doriți să permiteți acestor aplicații să utilizeze "
+"portofelul, trebuie să îl activați acum și să alegeți o metodă pentru "
+"criptarea acestuia.</p><p>Metoda GPG e mai sigură, dar trebuie să fi "
+"configurat cel puțin o cheie pentru criptare în sistem.</p><p>Dacă alegeți "
+"formatul clasic, să aveți în vedere faptul că parola pe care o alegeți <span "
+"style=\" font-style:italic;\">nu poate</span> fi recuperată dacă este "
+"pierdută și va permite oricui o cunoaște să obțină toate informațiile "
+"conținute în portofel.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: kwalletwizardpagepasswordgpg.ui:46
