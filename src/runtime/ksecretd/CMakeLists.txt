@@ -1,3 +1,5 @@
+add_definitions(-DTRANSLATION_DOMAIN="kwalletd6")
+
 configure_file(config-ksecretd.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-ksecretd.h )
 
 include(CheckSymbolExists)
