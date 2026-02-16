@@ -1,3 +1,4 @@
+add_definitions(-DTRANSLATION_DOMAIN="kwalletd6")
 
 find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6DBusAddons ${KF_DEP_VERSION} REQUIRED)

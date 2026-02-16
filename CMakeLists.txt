@@ -62,7 +62,6 @@ else()
     set(EXPORT_LEGACY_API 0)
 endif()
 
-add_definitions(-DTRANSLATION_DOMAIN=\"ksecretd6\")
 if(BUILD_KSECRETD OR BUILD_KWALLETD OR BUILD_KWALLET_QUERY)
     ki18n_install(po)
 endif()

@@ -28,8 +28,6 @@ int main(int argc, char **argv)
     QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
     QApplication application(argc, argv);
 
-    KLocalizedString::setApplicationDomain("kwalletd");
-
     KAboutData aboutData(QStringLiteral("kwalletd"),
                          i18n("kwalletd"),
                          QStringLiteral("0.1"),

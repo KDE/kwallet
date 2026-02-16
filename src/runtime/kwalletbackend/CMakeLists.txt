@@ -1,3 +1,5 @@
+add_definitions(-DTRANSLATION_DOMAIN="kwalletd6")
+
 include(CheckIncludeFiles)
 include(GenerateExportHeader)
 
