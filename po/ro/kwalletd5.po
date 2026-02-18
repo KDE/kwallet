@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2013, 2022.
+# SPDX-FileCopyrightText: 2008, 2009, 2013, 2022, 2026 Sergiu Bivol <sergiu@cip.md>
 # Cristian Oneț <onet.cristian@gmail.com>, 2010.
 #
 msgid ""
@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2022-02-27 20:33+0000\n"
+"PO-Revision-Date: 2026-02-04 14:22+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
-"Language-Team: Romanian\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,6 +36,9 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>Eroare de inițializare OpenPGP la salvarea portofelului <b>%1</b>. Codul "
+"erorii e <b>%2</b>. Corectați configurația sistemului și încercați din nou.</"
+"qt>"
 
 #: backend/backendpersisthandler.cpp:501
 #, kde-format
@@ -43,6 +46,8 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to save the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>Eroare de inițializare OpenPGP la salvarea portofelului <b>%1</b>. "
+"Corectați configurația sistemului și încercați din nou.</qt>"
 
 #: backend/backendpersisthandler.cpp:555
 #, kde-format
@@ -52,6 +57,10 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
+"<qt>Eroare de criptare la salvarea portofelului <b>%1</b>. Codul erorii e <b>"
+"%2 (%3)</b>. Corectați configurația sistemului și încercați din nou. Această "
+"eroare poate interveni dacă nu folosiți o cheie GPG cu încredere deplină. "
+"Asigurați-vă că aveți cheia secretă pentru cheia pe care o folosiți.</qt>"
 
 #: backend/backendpersisthandler.cpp:572
 #, kde-format
@@ -59,6 +68,9 @@ msgid ""
 "<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>Eroare de manipulare a fișierului la salvarea portofelului <b>%1</b>. "
+"Eroarea a fost <b>%2</b>. Corectați configurația sistemului și încercați din "
+"nou.</qt>"
 
 #: backend/backendpersisthandler.cpp:594
 #, kde-format
@@ -67,6 +79,9 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>Eroare de inițializare OpenPGP la deschiderea portofelului <b>%1</b>. "
+"Codul erorii e <b>%2</b>. Corectați configurația sistemului și încercați din "
+"nou.</qt>"
 
 #: backend/backendpersisthandler.cpp:616
 #, kde-format
@@ -74,6 +89,8 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to open the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>Eroare de inițializare OpenPGP la deschiderea portofelului <b>%1</b>. "
+"Corectați configurația sistemului și încercați din nou.</qt>"
 
 #: backend/backendpersisthandler.cpp:629
 #, kde-format
@@ -87,11 +104,14 @@ msgid ""
 "you're using a SmartCard, please ensure it's inserted then try again."
 "<br><br>GPG error was <b>%2</b></qt>"
 msgstr ""
+"<qt>Eroare la decriptarea portofelului <b>%1</b> folosind GPG. Dacă folosiți "
+"un SmartCard, asigurați-vă că e introdus și încercați din nou."
+"<br><br>Eroarea GPG a fost <b>%2</b></qt>"
 
 #: backend/backendpersisthandler.cpp:638
 #, kde-format
 msgid "kwalletd GPG backend"
-msgstr ""
+msgstr "platformă GPG pentru kwalletd"
 
 #: backend/backendpersisthandler.cpp:684
 #, kde-format
@@ -100,6 +120,9 @@ msgid ""
 "encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
 "system.</qt>"
 msgstr ""
+"<qt>Eroare la deschiderea portofelului <b>%1</b>. Portofelul a fost criptat "
+"cu cheia GPG cu identificator <b>%2</b>, dar această cheie nu a fost găsită "
+"în sistem.</qt>"
 
 #: backend/kwalletbackend.cc:266
 #, kde-format
@@ -154,6 +177,10 @@ msgid ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
 msgstr ""
+"Sincronizarea portofelului <b>%1</b> pe disc a eșuat. Codurile de eroare "
+"sunt:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Raportați un defect cu aceste informații la bugs.kde.org"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
 #: kbetterthankdialogbase.ui:50
@@ -211,6 +238,8 @@ msgid ""
 "The GpgME library failed to initialize for the OpenPGP protocol. Please "
 "check your system's configuration then try again."
 msgstr ""
+"Biblioteca GpgME nu a putut fi inițializată pentru protocolul OpenPGP. "
+"Verificați configurația sistemului și încercați din nou."
 
 #: knewwalletdialog.cpp:153
 #, kde-format
@@ -234,6 +263,8 @@ msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">NOTĂ:</span> Această "
+"listă arată doar cheile cu încredere de nivel maxim</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:59
@@ -279,7 +310,7 @@ msgstr ""
 #: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
 #, kde-format
 msgid "Classic, blowfish encrypted file"
-msgstr ""
+msgstr "Clasică, fișier criptat cu blowfish"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
@@ -337,7 +368,7 @@ msgstr "<b>%1</b> a cerut deschiderea unui portofel (%2)."
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
-msgstr "Comută la %1"
+msgstr "Schimbă la %1"
 
 #: kwalletd.cpp:691 kwalletd.cpp:773
 #, kde-format
@@ -509,6 +540,14 @@ msgid ""
 "font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Portofelul bazat pe GPG folosește o cheie de criptare "
+"GPG pentru a cripta datele pe disc în siguranță. Cheia trebuie să fie "
+"disponibilă când e necesară decriptarea, în caz contrar portofelul nu va fi "
+"disponibil. De exemplu, dacă alegeți o cheie de criptare bazată pe "
+"SmartCard, sistemul GPG vă va cere să introduceți cartela și PIN-ul acesteia "
+"când încercați să deschideți portofelul. <span style=\" font-weight:600;"
+"\">NOTĂ:</span> această listă conține doar chei cu încredere de nivel maxim."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kwalletwizardpagegpgkey.ui:42
@@ -527,6 +566,13 @@ msgid ""
 "Otherwise, you may still click back, then choose a classic, blowfish "
 "encrypted file format on the previous page."
 msgstr ""
+"Nu poate fi găsită nicio <b>cheie GPG pentru criptare</b>. Portofelul KDE "
+"necesită o <b>cheie pentru criptare</b> pentru a păstra în siguranță parole "
+"sau alte date sensibile pe disc. Dacă doriți totuși să inițializați un "
+"portofel bazat pe GPG, atunci închideți acest asistent, configurați o "
+"<b>cheie GPG pentru criptare</b>, apoi deschideți din nou acest asistent. În "
+"caz contrar, puteți apăsa Înapoi și alege un format de fișier cu criptare "
+"clasică Blowfish de pe pagina precedentă."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: kwalletwizardpageintro.ui:30
@@ -623,14 +669,7 @@ msgstr "Verificați parola:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: kwalletwizardpagepasswordgpg.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "Various applications may attempt to use the KDE wallet to store passwords "
-#| "or other information such as web form data and cookies.  If you would "
-#| "like these applications to use the wallet, you must enable it now and "
-#| "choose a password.  The password you choose <i>cannot</i> be recovered if "
-#| "it is lost, and will allow anyone who knows it to obtain all the "
-#| "information contained in the wallet."
+#, kde-format
 msgid ""
 "<html><head/><body><p>Various applications may attempt to use the KDE wallet "
 "to store passwords or other information such as web form data and cookies. "
@@ -642,12 +681,16 @@ msgid ""
 "is lost, and will allow anyone who knows it to obtain all the information "
 "contained in the wallet.</p></body></html>"
 msgstr ""
-"Diferite aplicații pot încerca să utilizeze portofelul KDE pentru a stoca "
-"parole sau alte informații cum ar fi datele din formulare web sau „cookies”. "
-"Dacă doriți să permiteți acestor aplicații să utilizeze portofelul, trebuie "
-"să îl activați acum și să alegeți o parolă. Parola pe care o veți alege "
-"<i>nu poate</i> fi recuperată dacă este pierdută, și va permite oricui o "
-"cunoaște să obțină toate informațiile conținute în portofel."
+"<html><head/><body><p>Diferite aplicații pot încerca să utilizeze portofelul "
+"KDE pentru a stoca parole sau alte informații cum ar fi datele din formulare "
+"web sau „cookies”. Dacă doriți să permiteți acestor aplicații să utilizeze "
+"portofelul, trebuie să îl activați acum și să alegeți o metodă pentru "
+"criptarea acestuia.</p><p>Metoda GPG e mai sigură, dar trebuie să fi "
+"configurat cel puțin o cheie pentru criptare în sistem.</p><p>Dacă alegeți "
+"formatul clasic, să aveți în vedere faptul că parola pe care o alegeți <span "
+"style=\" font-style:italic;\">nu poate</span> fi recuperată dacă este "
+"pierdută și va permite oricui o cunoaște să obțină toate informațiile "
+"conținute în portofel.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: kwalletwizardpagepasswordgpg.ui:46
@@ -668,7 +711,7 @@ msgstr "Valentin Rusu"
 #: main.cpp:174
 #, kde-format
 msgid "Maintainer, GPG backend support"
-msgstr ""
+msgstr "Responsabil, suport pentru platforma GPG"
 
 #: main.cpp:175
 #, kde-format
