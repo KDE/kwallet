@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-02-18 00:41+0000\n"
 "PO-Revision-Date: 2022-09-05 17:29+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -29,30 +29,30 @@ msgid "Your emails"
 msgstr "phu.nguyen@kdemail.net,herophuong93@gmail.com"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
-#: kbetterthankdialogbase.ui:50
+#: ksecretd/kbetterthankdialogbase.ui:50
 #, kde-format
 msgid "Allow &Once"
 msgstr "Cho phép &một lần"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowAlways)
-#: kbetterthankdialogbase.ui:60
+#: ksecretd/kbetterthankdialogbase.ui:60
 #, kde-format
 msgid "Allow &Always"
 msgstr "Luôn &cho phép"
 
 #. i18n: ectx: property (text), widget (QPushButton, _deny)
-#: kbetterthankdialogbase.ui:67
+#: ksecretd/kbetterthankdialogbase.ui:67
 #, kde-format
 msgid "&Deny"
 msgstr "&Từ chối"
 
 #. i18n: ectx: property (text), widget (QPushButton, _denyForever)
-#: kbetterthankdialogbase.ui:74
+#: ksecretd/kbetterthankdialogbase.ui:74
 #, kde-format
 msgid "Deny &Forever"
 msgstr "&Luôn từ chối"
 
-#: knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:50
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
@@ -63,7 +63,7 @@ msgstr ""
 "liệu nhạy cảm một cách an toàn. Vui lòng chọn kiểu của ví mới ở dưới hoặc "
 "bấm huỷ để từ chối yêu cầu của ứng dụng.</qt>"
 
-#: knewwalletdialog.cpp:55
+#: ksecretd/knewwalletdialog.cpp:55
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -75,8 +75,8 @@ msgstr ""
 "dùng để lưu dữ liệu nhạy cảm một cách an toàn. Vui lòng chọn kiểu của ví mới "
 "ở dưới hoặc bấm huỷ để từ chối yêu cầu của ứng dụng.</qt>"
 
-#: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
-#: kwalletwizard.cpp:157
+#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
 #, kde-format
 msgid ""
 "The GpgME library failed to initialize for the OpenPGP protocol. Please "
@@ -85,7 +85,7 @@ msgstr ""
 "Không thể khởi tạo thư viện GpgME cho giao thức OpenPGP. Vui lòng kiểm tra "
 "cấu hình hệ thống rồi thử lại."
 
-#: knewwalletdialog.cpp:153
+#: ksecretd/knewwalletdialog.cpp:153
 #, kde-format
 msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
@@ -95,13 +95,13 @@ msgstr ""
 "ít nhất một khoá mật mã hoá rồi thử lại."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: knewwalletdialoggpg.ui:17
+#: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
 msgid "Please select the signing key from the list below:"
 msgstr "Vui lòng chọn khoá kí trong danh sách bên dưới:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: knewwalletdialoggpg.ui:24
+#: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
@@ -112,31 +112,31 @@ msgstr ""
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
-#: knewwalletdialoggpg.ui:59
+#: ksecretd/knewwalletdialoggpg.ui:59
 #, kde-format
 msgid "Name"
 msgstr "Tên"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
-#: knewwalletdialoggpg.ui:64
+#: ksecretd/knewwalletdialoggpg.ui:64
 #, kde-format
 msgid "E-Mail"
 msgstr "Thư"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
-#: knewwalletdialoggpg.ui:69
+#: ksecretd/knewwalletdialoggpg.ui:69
 #, kde-format
 msgid "Key-ID"
 msgstr "Mã khoá"
 
 #. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
-#: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
+#: ksecretd/knewwalletdialogintro.ui:17 ksecretd/kwalletwizardpageintro.ui:17
 #, kde-format
 msgid "The KDE Wallet System"
 msgstr "Hệ thống Ví KDE"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
-#: knewwalletdialogintro.ui:30
+#: ksecretd/knewwalletdialogintro.ui:30
 #, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
@@ -151,19 +151,21 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
-#: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/knewwalletdialogintro.ui:66
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
 #, kde-format
 msgid "Classic, blowfish encrypted file"
 msgstr "Tệp mật mã hoá blowfish cổ điển"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: knewwalletdialogintro.ui:73 kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:73
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
 msgid "Use GPG encryption, for better protection"
 msgstr "Dùng mật mã hoá GPG cho tính bảo vệ tốt hơn"
 
-#: ksecretd.cpp:616
+#: ksecretd/ksecretd.cpp:616
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -172,7 +174,7 @@ msgstr ""
 "<qt>KDE yêu cầu mở ví '<b>%1</b>'. Vui lòng nhập mật khẩu cho ví này ở dưới."
 "</qt>"
 
-#: ksecretd.cpp:620
+#: ksecretd/ksecretd.cpp:620
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -182,19 +184,21 @@ msgstr ""
 "cho ví này ở dưới.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:631 ksecretd.cpp:740 ksecretd.cpp:844 ksecretd.cpp:957
-#: ksecretd.cpp:980 ksecretd.cpp:991 ksecretd.cpp:996 ksecretd.cpp:1586
-#: main.cpp:160 main.cpp:162
+#: ksecretd/ksecretd.cpp:631 ksecretd/ksecretd.cpp:740
+#: ksecretd/ksecretd.cpp:844 ksecretd/ksecretd.cpp:957
+#: ksecretd/ksecretd.cpp:980 ksecretd/ksecretd.cpp:991
+#: ksecretd/ksecretd.cpp:996 ksecretd/ksecretd.cpp:1586 ksecretd/main.cpp:160
+#: ksecretd/main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Dịch vụ Ví KDE"
 
-#: ksecretd.cpp:646
+#: ksecretd/ksecretd.cpp:646
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Một ứng dụng yêu cầu mở ví (%1)."
 
-#: ksecretd.cpp:647
+#: ksecretd/ksecretd.cpp:647
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -202,26 +206,26 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Chuyển sang đó"
 
-#: ksecretd.cpp:649
+#: ksecretd/ksecretd.cpp:649
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> yêu cầu mở ví (%2)."
 
-#: ksecretd.cpp:651
+#: ksecretd/ksecretd.cpp:651
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Chuyển sang %1"
 
-#: ksecretd.cpp:668 ksecretd.cpp:750
+#: ksecretd/ksecretd.cpp:668 ksecretd/ksecretd.cpp:750
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
 "%2: %3)</qt>"
 msgstr "<qt>Lỗi mở ví '<b>%1</b>'. Vui lòng thử lại.<br />(Mã lỗi %2: %3)</qt>"
 
-#: ksecretd.cpp:716
+#: ksecretd/ksecretd.cpp:716
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -232,7 +236,7 @@ msgstr ""
 "Vui lòng chọn kiểu của ví mới ở dưới hoặc bấm huỷ để từ chối yêu cầu của ứng "
 "dụng."
 
-#: ksecretd.cpp:721
+#: ksecretd/ksecretd.cpp:721
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -244,7 +248,7 @@ msgstr ""
 "cảm một cách an toàn. Vui lòng chọn kiểu của ví mới ở dưới hoặc bấm huỷ để "
 "từ chối yêu cầu của ứng dụng.</qt>"
 
-#: ksecretd.cpp:729
+#: ksecretd/ksecretd.cpp:729
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -254,7 +258,7 @@ msgstr ""
 "<qt>KDE yêu cầu tạo một ví mới tên là '<b>%1</b>'. Vui lòng chọn một mật "
 "khẩu cho ví này, hoặc huỷ để từ chối yêu cầu của ứng dụng.</qt>"
 
-#: ksecretd.cpp:734
+#: ksecretd/ksecretd.cpp:734
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -264,26 +268,26 @@ msgstr ""
 "<qt>Ứng dụng '<b>%1</b>' yêu cầu tạo một ví mới tên là '<b>%2</b>'. Vui lòng "
 "chọn một mật khẩu cho ví này, hoặc huỷ để từ chối yêu cầu của ứng dụng.</qt>"
 
-#: ksecretd.cpp:846
+#: ksecretd/ksecretd.cpp:846
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE yêu cầu truy cập đến ví mở '<b>%1</b>'.</qt>"
 
-#: ksecretd.cpp:848
+#: ksecretd/ksecretd.cpp:848
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
 "%2</b>'.</qt>"
 msgstr "<qt>Ứng dụng '<b>%1</b>' yêu cầu truy cập đến ví mở '<b>%2</b>'.</qt>"
 
-#: ksecretd.cpp:956
+#: ksecretd/ksecretd.cpp:956
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "Không thể mở ví. Ví phải được mở để có thể thay đổi mật khẩu."
 
-#: ksecretd.cpp:972
+#: ksecretd/ksecretd.cpp:972
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -294,22 +298,22 @@ msgstr ""
 "công cụ <b>GPG</b> (chẳng hạn như <b>kleopatra</b>) để thay đổi mật tổ được "
 "liên kết với khoá đó.</qt>"
 
-#: ksecretd.cpp:979
+#: ksecretd/ksecretd.cpp:979
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Vui lòng chọn một mật khẩu mới cho ví '<b>%1</b>'.</qt>"
 
-#: ksecretd.cpp:991
+#: ksecretd/ksecretd.cpp:991
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Lỗi mật mã hoá lại ví. Chưa đổi mật khẩu."
 
-#: ksecretd.cpp:996
+#: ksecretd/ksecretd.cpp:996
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Lỗi mở lại ví. Có thể mất dữ liệu."
 
-#: ksecretd.cpp:1585
+#: ksecretd/ksecretd.cpp:1585
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -318,28 +322,28 @@ msgstr ""
 "Đã có nhiều lần cố gắng truy cập tới ví thất bại. Một ứng dụng nào đó có thể "
 "đang hoạt động sai."
 
-#: kwalletwizard.cpp:40
+#: ksecretd/kwalletwizard.cpp:40
 #, kde-format
 msgid "KWallet"
 msgstr "KWallet"
 
-#: kwalletwizard.cpp:272
+#: ksecretd/kwalletwizard.cpp:272
 #, kde-format
 msgid "<qt>Password is empty.  <b>(WARNING: Insecure)</b></qt>"
 msgstr "<qt>Mật khẩu trống. <b>(CẢNH BÁO: Không an toàn)</b></qt>"
 
-#: kwalletwizard.cpp:274
+#: ksecretd/kwalletwizard.cpp:274
 #, kde-format
 msgid "Passwords match."
 msgstr "Mật khẩu khớp."
 
-#: kwalletwizard.cpp:277
+#: ksecretd/kwalletwizard.cpp:277
 #, kde-format
 msgid "Passwords do not match."
 msgstr "Mật khẩu không khớp."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
-#: kwalletwizardpageexplanation.ui:17
+#: ksecretd/kwalletwizardpageexplanation.ui:17
 #, kde-format
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
@@ -361,7 +365,7 @@ msgstr ""
 "thống ở xa.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: kwalletwizardpagegpgkey.ui:24
+#: ksecretd/kwalletwizardpagegpgkey.ui:24
 #, kde-format
 msgid ""
 "<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
@@ -381,13 +385,13 @@ msgstr ""
 "p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kwalletwizardpagegpgkey.ui:42
+#: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
 msgid "Select encryption GPG key:"
 msgstr "Chọn khoá mật mã hoá GPG:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: kwalletwizardpagegpgkey.ui:81
+#: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
 "Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
@@ -405,7 +409,7 @@ msgstr ""
 "hoá blowfish cổ điển ở trang trước."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: kwalletwizardpageintro.ui:30
+#: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
 "Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
@@ -419,19 +423,19 @@ msgstr ""
 "bạn biết về KWallet và giúp bạn cấu hình nó lần đầu tiên."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
-#: kwalletwizardpageintro.ui:69
+#: ksecretd/kwalletwizardpageintro.ui:69
 #, kde-format
 msgid "&Basic setup (recommended)"
 msgstr "&Cài đặt cơ bản (khuyến nghị)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, _advanced)
-#: kwalletwizardpageintro.ui:79
+#: ksecretd/kwalletwizardpageintro.ui:79
 #, kde-format
 msgid "&Advanced setup"
 msgstr "Cài đặt &nâng cao"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
-#: kwalletwizardpageoptions.ui:16
+#: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
 "The KDE Wallet system allows you to control the level of security of your "
@@ -447,19 +451,19 @@ msgstr ""
 "lập này thêm nữa ở trong khối điều khiển KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
-#: kwalletwizardpageoptions.ui:48
+#: ksecretd/kwalletwizardpageoptions.ui:48
 #, kde-format
 msgid "Automatically close idle wallets"
 msgstr "Tự động đóng ví rỗi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, _networkWallet)
-#: kwalletwizardpageoptions.ui:55
+#: ksecretd/kwalletwizardpageoptions.ui:55
 #, kde-format
 msgid "Store network passwords and local passwords in separate wallet files"
 msgstr "Lưu mật khẩu mạng và mật khẩu cục bộ trong các tệp ví tách biệt"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: kwalletwizardpagepassword.ui:16
+#: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
 "Various applications may attempt to use the KDE wallet to store passwords or "
@@ -476,25 +480,28 @@ msgstr ""
 "biết nó có thể lấy được toàn bộ thông tin có trong ví."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
-#: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
+#: ksecretd/kwalletwizardpagepassword.ui:29
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
 msgid "Yes, I wish to use the KDE wallet to store my personal information."
 msgstr "Có, tôi muốn sử dụng ví KDE để lưu dữ liệu cá nhân của mình."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
-#: kwalletwizardpagepassword.ui:88 kwalletwizardpagepasswordgpg.ui:106
+#: ksecretd/kwalletwizardpagepassword.ui:88
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:106
 #, kde-format
 msgid "Enter a new password:"
 msgstr "Nhập một mật khẩu mới:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
-#: kwalletwizardpagepassword.ui:104 kwalletwizardpagepasswordgpg.ui:122
+#: ksecretd/kwalletwizardpagepassword.ui:104
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:122
 #, kde-format
 msgid "Verify password:"
 msgstr "Xác nhận mật khẩu:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: kwalletwizardpagepasswordgpg.ui:17
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:17
 #, kde-format
 msgid ""
 "<html><head/><body><p>Various applications may attempt to use the KDE wallet "
@@ -518,170 +525,289 @@ msgstr ""
 "body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
-#: kwalletwizardpagepasswordgpg.ui:46
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
 msgid "What kind of encryption do you wish?"
 msgstr "Bạn muốn loại mật mã hoá nào?"
 
-#: main.cpp:164
+#: ksecretd/main.cpp:164
 #, fuzzy, kde-format
 #| msgid "(C) 2002-2013, The KDE Developers"
 msgid "(C) 2002-2025, The KDE Developers"
 msgstr "(C) 2002-2013, Các nhà phát triển KDE"
 
-#: main.cpp:165
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:165
+#: ksecretd/main.cpp:165
 #, fuzzy, kde-format
 #| msgid "Maintainer, GPG backend support"
 msgid "Former Maintainer, GPG backend support"
 msgstr "Bảo trì viên, hỗ trợ hậu phương GPG"
 
-#: main.cpp:166
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:166
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Bảo trì viên trước đây"
 
-#: main.cpp:167
+#: ksecretd/main.cpp:167
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:167
+#: ksecretd/main.cpp:167
 #, kde-format
 msgid "Former maintainer"
 msgstr "Bảo trì viên trước đây"
 
-#: main.cpp:168
+#: ksecretd/main.cpp:168
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:168
+#: ksecretd/main.cpp:168
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "Giao diện D-Bus"
 
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#~ "configuration, then try again.</qt>"
-#~ msgstr ""
-#~ "<qt>Lỗi khi khởi tạo OpenPGP trong khi lưu ví <b>%1</b>. Mã lỗi: <b>%2</"
-#~ "b>. Vui lòng sửa cấu hình hệ thống rồi thử lại.</qt>"
+#: kwalletbackend/backendpersisthandler.cpp:395
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+"<qt>Lỗi khi khởi tạo OpenPGP trong khi lưu ví <b>%1</b>. Mã lỗi: <b>%2</b>. "
+"Vui lòng sửa cấu hình hệ thống rồi thử lại.</qt>"
 
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#~ "again.</qt>"
-#~ msgstr ""
-#~ "<qt>Lỗi khi khởi tạo OpenPGP trong khi lưu ví <b>%1</b>. Vui lòng sửa cấu "
-#~ "hình hệ thống rồi thử lại.</qt>"
+#: kwalletbackend/backendpersisthandler.cpp:407
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt>Lỗi khi khởi tạo OpenPGP trong khi lưu ví <b>%1</b>. Vui lòng sửa cấu "
+"hình hệ thống rồi thử lại.</qt>"
 
-#~ msgid ""
-#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-#~ "again. This error may occur if you are not using a full trust GPG key. "
-#~ "Please ensure you have the secret key for the key you are using.</qt>"
-#~ msgstr ""
-#~ "<qt>Lỗi mật mã hoá trong khi lưu ví <b>%1</b>. Mã lỗi: <b>%2 (%3)</b>. "
-#~ "Vui lòng sửa cấu hình hệ thống rồi thử lại. Lỗi này có thể xảy ra nếu bạn "
-#~ "đang không dùng một khoá GPG tin cậy đầy đủ. Vui lòng đảm bảo rằng bạn có "
-#~ "khoá bí mật cho khoá mà bạn đang dùng.</qt>"
+#: kwalletbackend/backendpersisthandler.cpp:461
+#, kde-format
+msgid ""
+"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+"again. This error may occur if you are not using a full trust GPG key. "
+"Please ensure you have the secret key for the key you are using.</qt>"
+msgstr ""
+"<qt>Lỗi mật mã hoá trong khi lưu ví <b>%1</b>. Mã lỗi: <b>%2 (%3)</b>. Vui "
+"lòng sửa cấu hình hệ thống rồi thử lại. Lỗi này có thể xảy ra nếu bạn đang "
+"không dùng một khoá GPG tin cậy đầy đủ. Vui lòng đảm bảo rằng bạn có khoá bí "
+"mật cho khoá mà bạn đang dùng.</qt>"
 
-#~ msgid ""
-#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
-#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>Lỗi xử lí tệp trong khi lưu ví <b>%1</b>. Lỗi: <b>%2</b>. Vui lòng "
-#~ "sửa cấu hình hệ thống rồi thử lại.</qt>"
+#: kwalletbackend/backendpersisthandler.cpp:478
+#, kde-format
+msgid ""
+"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
+"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt>Lỗi xử lí tệp trong khi lưu ví <b>%1</b>. Lỗi: <b>%2</b>. Vui lòng sửa "
+"cấu hình hệ thống rồi thử lại.</qt>"
 
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#~ "configuration, then try again.</qt>"
-#~ msgstr ""
-#~ "<qt>Lỗi khi khởi tạo OpenPGP trong khi mở ví <b>%1</b>. Mã lỗi: <b>%2</"
-#~ "b>. Vui lòng sửa cấu hình hệ thống rồi thử lại.</qt>"
+#: kwalletbackend/backendpersisthandler.cpp:500
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+"<qt>Lỗi khi khởi tạo OpenPGP trong khi mở ví <b>%1</b>. Mã lỗi: <b>%2</b>. "
+"Vui lòng sửa cấu hình hệ thống rồi thử lại.</qt>"
 
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#~ "again.</qt>"
-#~ msgstr ""
-#~ "<qt>Lỗi khi khởi tạo OpenPGP trong khi mở ví <b>%1</b>. Vui lòng sửa cấu "
-#~ "hình hệ thống rồi thử lại.</qt>"
+#: kwalletbackend/backendpersisthandler.cpp:522
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt>Lỗi khi khởi tạo OpenPGP trong khi mở ví <b>%1</b>. Vui lòng sửa cấu "
+"hình hệ thống rồi thử lại.</qt>"
 
-#~ msgid "Retry"
-#~ msgstr "Thử lại"
+#: kwalletbackend/backendpersisthandler.cpp:535
+#, kde-format
+msgid "Retry"
+msgstr "Thử lại"
 
-#~ msgid ""
-#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-#~ "you're using a SmartCard, please ensure it's inserted then try again."
-#~ "<br><br>GPG error was <b>%2</b></qt>"
-#~ msgstr ""
-#~ "<qt>Lỗi khi giải mật mã ví <b>%1</b> bằng GPG. Nếu bạn đang dùng "
-#~ "SmartCard, vui lòng đảm bảo rằng nó đã được cắm vào rồi thử lại."
-#~ "<br><br>Lỗi GPG: <b>%2</b></qt>"
+#: kwalletbackend/backendpersisthandler.cpp:540
+#, kde-format
+msgid ""
+"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+"you're using a SmartCard, please ensure it's inserted then try again."
+"<br><br>GPG error was <b>%2</b></qt>"
+msgstr ""
+"<qt>Lỗi khi giải mật mã ví <b>%1</b> bằng GPG. Nếu bạn đang dùng SmartCard, "
+"vui lòng đảm bảo rằng nó đã được cắm vào rồi thử lại.<br><br>Lỗi GPG: <b>%2</"
+"b></qt>"
 
-#~ msgid "kwalletd GPG backend"
-#~ msgstr "hậu phương GPG kwalletd"
+#: kwalletbackend/backendpersisthandler.cpp:544
+#, kde-format
+msgid "kwalletd GPG backend"
+msgstr "hậu phương GPG kwalletd"
 
-#~ msgid ""
-#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
-#~ "your system.</qt>"
-#~ msgstr ""
-#~ "<qt>Lỗi khi mở ví <b>%1</b>. Ví được mật mã hoá bằng mã khoá GPG <b>%2</"
-#~ "b> nhưng khoá này không tìm thấy trong hệ thống của bạn.</qt>"
+#: kwalletbackend/backendpersisthandler.cpp:590
+#, kde-format
+msgid ""
+"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
+"system.</qt>"
+msgstr ""
+"<qt>Lỗi khi mở ví <b>%1</b>. Ví được mật mã hoá bằng mã khoá GPG <b>%2</b> "
+"nhưng khoá này không tìm thấy trong hệ thống của bạn.</qt>"
 
-#~ msgid "Already open."
-#~ msgstr "Đã mở rồi."
+#: kwalletbackend/kwalletbackend.cc:272
+#, kde-format
+msgid "Already open."
+msgstr "Đã mở rồi."
 
-#~ msgid "Error opening file."
-#~ msgstr "Lỗi mở tệp."
+#: kwalletbackend/kwalletbackend.cc:274
+#, kde-format
+msgid "Error opening file."
+msgstr "Lỗi mở tệp."
 
-#~ msgid "Not a wallet file."
-#~ msgstr "Không phải tệp ví."
+#: kwalletbackend/kwalletbackend.cc:276
+#, kde-format
+msgid "Not a wallet file."
+msgstr "Không phải tệp ví."
 
-#~ msgid "Unsupported file format revision."
-#~ msgstr "Tu bản định dạng tệp không được hỗ trợ."
+#: kwalletbackend/kwalletbackend.cc:278
+#, kde-format
+msgid "Unsupported file format revision."
+msgstr "Tu bản định dạng tệp không được hỗ trợ."
 
-#~ msgid "Unknown encryption scheme."
-#~ msgstr "Phương pháp mật mã hoá không rõ."
+#: kwalletbackend/kwalletbackend.cc:282
+#, kde-format
+msgid "Unknown encryption scheme."
+msgstr "Phương pháp mật mã hoá không rõ."
 
-#~ msgid "Corrupt file?"
-#~ msgstr "Tệp hỏng?"
+#: kwalletbackend/kwalletbackend.cc:284
+#, kde-format
+msgid "Corrupt file?"
+msgstr "Tệp hỏng?"
 
-#~ msgid "Error validating wallet integrity. Possibly corrupted."
-#~ msgstr "Lỗi kiểm nhận tính toàn vẹn của ví. Có thể đã bị hỏng."
+#: kwalletbackend/kwalletbackend.cc:286
+#, kde-format
+msgid "Error validating wallet integrity. Possibly corrupted."
+msgstr "Lỗi kiểm nhận tính toàn vẹn của ví. Có thể đã bị hỏng."
 
-#~ msgid "Read error - possibly incorrect password."
-#~ msgstr "Lỗi đọc - có thể do mật khẩu sai."
+#: kwalletbackend/kwalletbackend.cc:290
+#, kde-format
+msgid "Read error - possibly incorrect password."
+msgstr "Lỗi đọc - có thể do mật khẩu sai."
 
-#~ msgid "Decryption error."
-#~ msgstr "Lỗi giải mật mã."
+#: kwalletbackend/kwalletbackend.cc:292
+#, kde-format
+msgid "Decryption error."
+msgstr "Lỗi giải mật mã."
 
-#~ msgid ""
-#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-#~ "RC <b>%2</b>\n"
-#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
-#~ "org"
-#~ msgstr ""
-#~ "Đồng bộ ví <b>%1</b> vào đĩa thất bại. Mã lỗi:\n"
-#~ "RC <b>%2</b>\n"
-#~ "SF <b>%3</b>. Vui lòng báo lỗi (BUG) với thông tin này ở bugs.kde.org"
+#: kwalletbackend/kwalletbackend.cc:472
+#, kde-format
+msgid ""
+"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
+msgstr ""
+"Đồng bộ ví <b>%1</b> vào đĩa thất bại. Mã lỗi:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Vui lòng báo lỗi (BUG) với thông tin này ở bugs.kde.org"
 
-#, fuzzy
-#~| msgid "KWallet"
-#~ msgid "kwalletd"
-#~ msgstr "KWallet"
+#: kwalletd/kwalletd.cpp:119
+#, kde-format
+msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
+msgstr ""
+
+#: kwalletd/main.cpp:32
+#, fuzzy, kde-format
+#| msgid "KWallet"
+msgid "kwalletd"
+msgstr "KWallet"
+
+#: kwalletd/main.cpp:34
+#, kde-format
+msgid "A KWallet compatibility service, wrapping upon Secret Service"
+msgstr ""
+
+#: kwalletd/main.cpp:36
+#, fuzzy, kde-format
+#| msgid "(C) 2002-2013, The KDE Developers"
+msgid "(C) 2025, The KDE Developers"
+msgstr "(C) 2002-2013, Các nhà phát triển KDE"
+
+#: kwalletd/main.cpp:38
+#, kde-format
+msgid "Marco Martin"
+msgstr ""
+
+#: kwalletd/main.cpp:38
+#, kde-format
+msgid "Author"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:241
+#, kde-format
+msgid "Item not found"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:261
+#, kde-format
+msgid "Could not connect to Secret Service"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:423
+#, kde-format
+msgid "Unable to unlock collectionName %1"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:515
+#, kde-format
+msgid "No collections"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
+#: kwalletd/secretserviceclient.cpp:702
+#, kde-format
+msgid "No entries"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:617
+#, kde-format
+msgid "Entry not found, key: %1, folder: %2"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:726
+#, kde-format
+msgid "Unable to unlock item"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
+#, kde-format
+msgid "Entry to rename not found"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:776
+#, kde-format
+msgid "Entry named %1 in folder %2 and wallet %3 already exists."
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
+#, kde-format
+msgid "Entry to rename incomplete"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:851
+#, kde-format
+msgid "Failed to create SecretValue"
+msgstr ""

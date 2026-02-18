@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-02-18 00:41+0000\n"
 "PO-Revision-Date: 2025-08-14 11:56+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -30,30 +30,30 @@ msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
-#: kbetterthankdialogbase.ui:50
+#: ksecretd/kbetterthankdialogbase.ui:50
 #, kde-format
 msgid "Allow &Once"
 msgstr "ا&سمح مرة واحدة"
 
 #. i18n: ectx: property (text), widget (QPushButton, _allowAlways)
-#: kbetterthankdialogbase.ui:60
+#: ksecretd/kbetterthankdialogbase.ui:60
 #, kde-format
 msgid "Allow &Always"
 msgstr "اسمح &دائما"
 
 #. i18n: ectx: property (text), widget (QPushButton, _deny)
-#: kbetterthankdialogbase.ui:67
+#: ksecretd/kbetterthankdialogbase.ui:67
 #, kde-format
 msgid "&Deny"
 msgstr "ا&رفض"
 
 #. i18n: ectx: property (text), widget (QPushButton, _denyForever)
-#: kbetterthankdialogbase.ui:74
+#: ksecretd/kbetterthankdialogbase.ui:74
 #, kde-format
 msgid "Deny &Forever"
 msgstr "ارفض للأ&بد"
 
-#: knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:50
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
@@ -64,7 +64,7 @@ msgstr ""
 "البيانات الحساسة بطريقة آمنة. الرجاء اختيار نوع المحفظة الجديدة أدناه أو "
 "النقر فوق \"ألغ\" لرفض طلب التطبيق. </qt>"
 
-#: knewwalletdialog.cpp:55
+#: ksecretd/knewwalletdialog.cpp:55
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -76,8 +76,8 @@ msgstr ""
 "الحافظة في تخزين البيانات الحساسة بطريقة أمنة. الرجاء إدخال كلمة السر "
 "لاستعمال هذه الحافظة، أو النقر على ألغ لرفض طلب البرنامج.</qt>"
 
-#: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
-#: kwalletwizard.cpp:157
+#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
 #, kde-format
 msgid ""
 "The GpgME library failed to initialize for the OpenPGP protocol. Please "
@@ -86,7 +86,7 @@ msgstr ""
 "فشلت مكتبة GpgME في التهيئة لميفاق OpenPGP. يرجى التحقق من إعداد نظامكثم "
 "حاول مرة أخرى."
 
-#: knewwalletdialog.cpp:153
+#: ksecretd/knewwalletdialog.cpp:153
 #, kde-format
 msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
@@ -96,13 +96,13 @@ msgstr ""
 "واحد على الأقل، ثم المحاولة مرة أخرى."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: knewwalletdialoggpg.ui:17
+#: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
 msgid "Please select the signing key from the list below:"
 msgstr "الرجاء تحديد مفتاح التوقيع من القائمة أدناه:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: knewwalletdialoggpg.ui:24
+#: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
@@ -113,31 +113,31 @@ msgstr ""
 "body> </html> "
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
-#: knewwalletdialoggpg.ui:59
+#: ksecretd/knewwalletdialoggpg.ui:59
 #, kde-format
 msgid "Name"
 msgstr "الاسم"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
-#: knewwalletdialoggpg.ui:64
+#: ksecretd/knewwalletdialoggpg.ui:64
 #, kde-format
 msgid "E-Mail"
 msgstr "البريد الإلكتروني"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
-#: knewwalletdialoggpg.ui:69
+#: ksecretd/knewwalletdialoggpg.ui:69
 #, kde-format
 msgid "Key-ID"
 msgstr "معرف المفتاح"
 
 #. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
-#: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
+#: ksecretd/knewwalletdialogintro.ui:17 ksecretd/kwalletwizardpageintro.ui:17
 #, kde-format
 msgid "The KDE Wallet System"
 msgstr "نظام حافظة كِيدِي"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
-#: knewwalletdialogintro.ui:30
+#: ksecretd/knewwalletdialogintro.ui:30
 #, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
@@ -152,19 +152,21 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
-#: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/knewwalletdialogintro.ui:66
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
 #, kde-format
 msgid "Classic, blowfish encrypted file"
 msgstr "تقليدي، ملف تعمية blowfish"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: knewwalletdialogintro.ui:73 kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:73
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
 msgid "Use GPG encryption, for better protection"
 msgstr "استخدم تعمية GPG لحماية أفضل"
 
-#: ksecretd.cpp:616
+#: ksecretd/ksecretd.cpp:616
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -172,7 +174,7 @@ msgid ""
 msgstr ""
 "<qt>طلبت كِيدِي فتح الحافظة '<b>%1</b>'. الرجاء أدخل كلمة سرها في الأسفل.</qt>"
 
-#: ksecretd.cpp:620
+#: ksecretd/ksecretd.cpp:620
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -182,19 +184,21 @@ msgstr ""
 "في الأسفل.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd.cpp:631 ksecretd.cpp:740 ksecretd.cpp:844 ksecretd.cpp:957
-#: ksecretd.cpp:980 ksecretd.cpp:991 ksecretd.cpp:996 ksecretd.cpp:1586
-#: main.cpp:160 main.cpp:162
+#: ksecretd/ksecretd.cpp:631 ksecretd/ksecretd.cpp:740
+#: ksecretd/ksecretd.cpp:844 ksecretd/ksecretd.cpp:957
+#: ksecretd/ksecretd.cpp:980 ksecretd/ksecretd.cpp:991
+#: ksecretd/ksecretd.cpp:996 ksecretd/ksecretd.cpp:1586 ksecretd/main.cpp:160
+#: ksecretd/main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "خدمة حافظة كِيدِي"
 
-#: ksecretd.cpp:646
+#: ksecretd/ksecretd.cpp:646
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "طلب تطبيق فتح حافظة (%1)."
 
-#: ksecretd.cpp:647
+#: ksecretd/ksecretd.cpp:647
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -202,19 +206,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "غير هناك"
 
-#: ksecretd.cpp:649
+#: ksecretd/ksecretd.cpp:649
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "طلب البرنامج<b>%1</b> فتح الحافظة<b>%2</b>."
 
-#: ksecretd.cpp:651
+#: ksecretd/ksecretd.cpp:651
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "بدل إلى %1"
 
-#: ksecretd.cpp:668 ksecretd.cpp:750
+#: ksecretd/ksecretd.cpp:668 ksecretd/ksecretd.cpp:750
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -223,7 +227,7 @@ msgstr ""
 "<qt>خطأ في فتح الحافظة '<b>%1</b>'. الرجاء المحاولة مرة أخرى.<br />(رمز "
 "الخطأ %2: %3)</qt>"
 
-#: ksecretd.cpp:716
+#: ksecretd/ksecretd.cpp:716
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -234,7 +238,7 @@ msgstr ""
 "الرجاء إدخال كلمة السر لاستعمال هذه الحافظة، أو النقر على ألغ لرفض طلب "
 "البرنامج."
 
-#: ksecretd.cpp:721
+#: ksecretd/ksecretd.cpp:721
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -246,7 +250,7 @@ msgstr ""
 "البيانات الحساسة بطريقة أمنة. الرجاء إدخال كلمة السر لاستعمال هذه الحافظة، "
 "أو النقر على ألغ لرفض طلب البرنامج.</qt>"
 
-#: ksecretd.cpp:729
+#: ksecretd/ksecretd.cpp:729
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -256,7 +260,7 @@ msgstr ""
 "<qt>طلبت كِيدِي إنشاء حافظة جديدة باسم '<b>%1</b>'. الرجاء اختيار كلمة سر لهذه "
 "الحافظة أو النقر على ألغ لرفض طلب البرنامج.</qt>"
 
-#: ksecretd.cpp:734
+#: ksecretd/ksecretd.cpp:734
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -266,12 +270,12 @@ msgstr ""
 "<qt>طلب البرنامج '<b>%1</b>'  إنشاء حافظة جديدة باسم '<b>%2</b>'. الرجاء "
 "اختيار كلمة سر لهذه الحافظة أو النقر على ألغ لرفض طلب البرنامج.</qt>"
 
-#: ksecretd.cpp:846
+#: ksecretd/ksecretd.cpp:846
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>طلبت كِيدِي النفاذ إلى الحافظة المفتوحة '<b>%1</b>'.</qt>"
 
-#: ksecretd.cpp:848
+#: ksecretd/ksecretd.cpp:848
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -279,7 +283,7 @@ msgid ""
 msgstr ""
 "<qt>طلب البرنامج'<b>%1</b>' النفاذ إلى الحافظة المفتوحة '<b>%2</b>'.</qt>"
 
-#: ksecretd.cpp:956
+#: ksecretd/ksecretd.cpp:956
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -287,7 +291,7 @@ msgid ""
 msgstr ""
 "غير قادر على فتح الحافظة. يجب فتح الحافظة أولا حتى تستطيع تغيير  كلمة سرها."
 
-#: ksecretd.cpp:972
+#: ksecretd/ksecretd.cpp:972
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -298,22 +302,22 @@ msgstr ""
 "أدوات <b> GPG </b> (مثل <b> kleopatra </b>) لتغيير عبارة السر المرتبطة بهذا "
 "المفتاح. </qt>"
 
-#: ksecretd.cpp:979
+#: ksecretd/ksecretd.cpp:979
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>الرجاء اختيار كلمة سر جديدة للحافظة '<b>%1</b>'.</qt>"
 
-#: ksecretd.cpp:991
+#: ksecretd/ksecretd.cpp:991
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "خطأ في إعادة تعمية الحافظة. كلمة السر لم تغير"
 
-#: ksecretd.cpp:996
+#: ksecretd/ksecretd.cpp:996
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "خطأ في فتح الحافظة، البيانات قد تكون فقدت."
 
-#: ksecretd.cpp:1585
+#: ksecretd/ksecretd.cpp:1585
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -322,28 +326,28 @@ msgstr ""
 "يوجد عدة محاولات فاشلة مكررة للنفاذ إلى الحافظة. قد يكون هناك تطبيق يسيء "
 "التصرف."
 
-#: kwalletwizard.cpp:40
+#: ksecretd/kwalletwizard.cpp:40
 #, kde-format
 msgid "KWallet"
 msgstr "محفظة ك"
 
-#: kwalletwizard.cpp:272
+#: ksecretd/kwalletwizard.cpp:272
 #, kde-format
 msgid "<qt>Password is empty.  <b>(WARNING: Insecure)</b></qt>"
 msgstr "<qt>كلمة السر فارغة.  <b>(تحذير: غير آمن)</b></qt>"
 
-#: kwalletwizard.cpp:274
+#: ksecretd/kwalletwizard.cpp:274
 #, kde-format
 msgid "Passwords match."
 msgstr "كلمات السر تطابقت"
 
-#: kwalletwizard.cpp:277
+#: ksecretd/kwalletwizard.cpp:277
 #, kde-format
 msgid "Passwords do not match."
 msgstr "كلمات السر لم تتطابق"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
-#: kwalletwizardpageexplanation.ui:17
+#: ksecretd/kwalletwizardpageexplanation.ui:17
 #, kde-format
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
@@ -364,7 +368,7 @@ msgstr ""
 "بسهولة نسخ المحفظة إلى نظام بعيد.  </p> </body> </html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: kwalletwizardpagegpgkey.ui:24
+#: ksecretd/kwalletwizardpagegpgkey.ui:24
 #, kde-format
 msgid ""
 "<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
@@ -384,13 +388,13 @@ msgstr ""
 "p> </body> </html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kwalletwizardpagegpgkey.ui:42
+#: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
 msgid "Select encryption GPG key:"
 msgstr "اختر مفتاح تعمية GPG:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: kwalletwizardpagegpgkey.ui:81
+#: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
 "Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
@@ -408,7 +412,7 @@ msgstr ""
 "سمكة المنتفخ في الصفحة السابقة."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: kwalletwizardpageintro.ui:30
+#: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
 "Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
@@ -421,19 +425,19 @@ msgstr ""
 "هذا المعالج سيخبرك عن ك.والت و سيساعدك على ضبطها للمرة أولى."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
-#: kwalletwizardpageintro.ui:69
+#: ksecretd/kwalletwizardpageintro.ui:69
 #, kde-format
 msgid "&Basic setup (recommended)"
 msgstr "ضبط أ&ساسي (موصى به)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, _advanced)
-#: kwalletwizardpageintro.ui:79
+#: ksecretd/kwalletwizardpageintro.ui:79
 #, kde-format
 msgid "&Advanced setup"
 msgstr "ضبط &متقدم"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
-#: kwalletwizardpageoptions.ui:16
+#: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
 "The KDE Wallet system allows you to control the level of security of your "
@@ -448,19 +452,19 @@ msgstr ""
 "الإعدادات بشكل أكثر من وحدة تحكم حافظة ك"
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
-#: kwalletwizardpageoptions.ui:48
+#: ksecretd/kwalletwizardpageoptions.ui:48
 #, kde-format
 msgid "Automatically close idle wallets"
 msgstr "أغلق الحافظات الساكنة بشكل آليّ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, _networkWallet)
-#: kwalletwizardpageoptions.ui:55
+#: ksecretd/kwalletwizardpageoptions.ui:55
 #, kde-format
 msgid "Store network passwords and local passwords in separate wallet files"
 msgstr "احفظ كلمات سر الشبكة و كلمات السر المحلية في ملفات حافظة منفصلة"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: kwalletwizardpagepassword.ui:16
+#: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
 "Various applications may attempt to use the KDE wallet to store passwords or "
@@ -477,25 +481,28 @@ msgstr ""
 "شخص يعرفها أن يحصل على كل المعلومات التي تحويها هذه الحافظة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
-#: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
+#: ksecretd/kwalletwizardpagepassword.ui:29
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
 msgid "Yes, I wish to use the KDE wallet to store my personal information."
 msgstr "نعم، أرغب في استخدام حافظة كِيدِي لحفظ معلوماتي الشخصية"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
-#: kwalletwizardpagepassword.ui:88 kwalletwizardpagepasswordgpg.ui:106
+#: ksecretd/kwalletwizardpagepassword.ui:88
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:106
 #, kde-format
 msgid "Enter a new password:"
 msgstr "أدخل كلمة سر جديدة:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
-#: kwalletwizardpagepassword.ui:104 kwalletwizardpagepasswordgpg.ui:122
+#: ksecretd/kwalletwizardpagepassword.ui:104
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:122
 #, kde-format
 msgid "Verify password:"
 msgstr "أكد كلمة السر:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: kwalletwizardpagepasswordgpg.ui:17
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:17
 #, kde-format
 msgid ""
 "<html><head/><body><p>Various applications may attempt to use the KDE wallet "
@@ -518,172 +525,291 @@ msgstr ""
 "للحصول على جميع المعلومات الواردة في المحفظة. </p> </body> </html> "
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
-#: kwalletwizardpagepasswordgpg.ui:46
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
 msgid "What kind of encryption do you wish?"
 msgstr "أي نوع من التعمية ترغب فيها؟"
 
-#: main.cpp:164
+#: ksecretd/main.cpp:164
 #, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
 msgstr "© 2002-2025 لمطوري كِيدِي"
 
-#: main.cpp:165
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: main.cpp:165
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "الصائن السابق ودعم خلفية GPG"
 
-#: main.cpp:166
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: main.cpp:166
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "Former Maintainer"
 msgstr "المشرف السابق"
 
-#: main.cpp:167
+#: ksecretd/main.cpp:167
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: main.cpp:167
+#: ksecretd/main.cpp:167
 #, kde-format
 msgid "Former maintainer"
 msgstr "المشرف السابق"
 
-#: main.cpp:168
+#: ksecretd/main.cpp:168
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: main.cpp:168
+#: ksecretd/main.cpp:168
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "واجهة DBus"
 
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#~ "configuration, then try again.</qt>"
-#~ msgstr ""
-#~ "<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة حفظ المحفظة <b>%1</"
-#~ "b>. رمز الخطأ هو <b>%2</b>. يرجى إصلاح تكوين النظام الخاص بك ، ثم "
-#~ "المحاولة مرة أخرى. </qt>"
+#: kwalletbackend/backendpersisthandler.cpp:395
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+"<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة حفظ المحفظة <b>%1</b>. "
+"رمز الخطأ هو <b>%2</b>. يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة "
+"أخرى. </qt>"
 
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to save "
-#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#~ "again.</qt>"
-#~ msgstr ""
-#~ "<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة حفظ المحفظة <b>%1</"
-#~ "b>. يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة أخرى. </qt>"
+#: kwalletbackend/backendpersisthandler.cpp:407
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة حفظ المحفظة <b>%1</b>. "
+"يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة أخرى. </qt>"
 
-#~ msgid ""
-#~ "<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
-#~ "code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
-#~ "again. This error may occur if you are not using a full trust GPG key. "
-#~ "Please ensure you have the secret key for the key you are using.</qt>"
-#~ msgstr ""
-#~ "<qt> حدث خطأ في التشفير أثناء محاولة حفظ المحفظة <b>%1</b>. رمز الخطأ هو "
-#~ "<b>%2 (%3)</b>. الرجاء إصلاح تكوين النظام الخاص بك ، ثم حاول مرة أخرى. قد "
-#~ "يحدث هذا الخطأ إذا كنت لا تستخدم مفتاح GPG ذو الثقة الكاملة.يرجى التأكد "
-#~ "من أن لديك المفتاح السري للمفتاح الذي تستخدمه.</qt>"
+#: kwalletbackend/backendpersisthandler.cpp:461
+#, kde-format
+msgid ""
+"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+"again. This error may occur if you are not using a full trust GPG key. "
+"Please ensure you have the secret key for the key you are using.</qt>"
+msgstr ""
+"<qt> حدث خطأ في التشفير أثناء محاولة حفظ المحفظة <b>%1</b>. رمز الخطأ هو <b>"
+"%2 (%3)</b>. الرجاء إصلاح تكوين النظام الخاص بك ، ثم حاول مرة أخرى. قد يحدث "
+"هذا الخطأ إذا كنت لا تستخدم مفتاح GPG ذو الثقة الكاملة.يرجى التأكد من أن "
+"لديك المفتاح السري للمفتاح الذي تستخدمه.</qt>"
 
-#~ msgid ""
-#~ "<qt>File handling error while attempting to save the wallet <b>%1</b>. "
-#~ "Error was <b>%2</b>. Please fix your system configuration, then try again."
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt> خطأ في معالجة الملف أثناء محاولة حفظ المحفظة <b>%1</b>. كان الخطأ <b>"
-#~ "%2</b>. يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة أخرى. </qt>"
+#: kwalletbackend/backendpersisthandler.cpp:478
+#, kde-format
+msgid ""
+"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
+"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt> خطأ في معالجة الملف أثناء محاولة حفظ المحفظة <b>%1</b>. كان الخطأ <b>"
+"%2</b>. يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة أخرى. </qt>"
 
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#~ "the wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
-#~ "configuration, then try again.</qt>"
-#~ msgstr ""
-#~ "<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة فتح المحفظة <b>%1</"
-#~ "b>. رمز الخطأ هو <b>%2</b>. يرجى إصلاح تكوين النظام الخاص بك ، ثم "
-#~ "المحاولة مرة أخرى. </qt>"
+#: kwalletbackend/backendpersisthandler.cpp:500
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+"<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة فتح المحفظة <b>%1</b>. "
+"رمز الخطأ هو <b>%2</b>. يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة "
+"أخرى. </qt>"
 
-#~ msgid ""
-#~ "<qt>Error when attempting to initialize OpenPGP while attempting to open "
-#~ "the wallet <b>%1</b>. Please fix your system configuration, then try "
-#~ "again.</qt>"
-#~ msgstr ""
-#~ "<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة فتح المحفظة  <b>%1</"
-#~ "b>. يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة أخرى. </qt>"
+#: kwalletbackend/backendpersisthandler.cpp:522
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+"<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة فتح المحفظة  <b>%1</b>. "
+"يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة أخرى. </qt>"
 
-#~ msgid "Retry"
-#~ msgstr "أعد المحاولة"
+#: kwalletbackend/backendpersisthandler.cpp:535
+#, kde-format
+msgid "Retry"
+msgstr "أعد المحاولة"
 
-#~ msgid ""
-#~ "<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
-#~ "you're using a SmartCard, please ensure it's inserted then try again."
-#~ "<br><br>GPG error was <b>%2</b></qt>"
-#~ msgstr ""
-#~ "<qt> خطأ عند محاولة فك تشفير المحفظة <b>%1</b> باستخدام GPG. إذا كنت "
-#~ "تستخدم SmartCard ، فيرجى التأكد من إدخالها ثم المحاولة مرة أخرى.<br> <br> "
-#~ "خطأ GPG كان <b>%2</b> </qt>"
+#: kwalletbackend/backendpersisthandler.cpp:540
+#, kde-format
+msgid ""
+"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+"you're using a SmartCard, please ensure it's inserted then try again."
+"<br><br>GPG error was <b>%2</b></qt>"
+msgstr ""
+"<qt> خطأ عند محاولة فك تشفير المحفظة <b>%1</b> باستخدام GPG. إذا كنت تستخدم "
+"SmartCard ، فيرجى التأكد من إدخالها ثم المحاولة مرة أخرى.<br> <br> خطأ GPG "
+"كان <b>%2</b> </qt>"
 
-#~ msgid "kwalletd GPG backend"
-#~ msgstr "خلفية GPG لمحفظة ك."
+#: kwalletbackend/backendpersisthandler.cpp:544
+#, kde-format
+msgid "kwalletd GPG backend"
+msgstr "خلفية GPG لمحفظة ك."
 
-#~ msgid ""
-#~ "<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
-#~ "encrypted using the GPG Key ID <b>%2</b> but this key was not found on "
-#~ "your system.</qt>"
-#~ msgstr ""
-#~ "<qt> حدث خطأ أثناء محاولة فتح المحفظة <b>%1</b>. شفرت المحفظة باستخدام "
-#~ "معرّف مفتاح GPG <b>%2</b> ولكن لم يتم العثور على هذا المفتاح في نظامك. </"
-#~ "qt>"
+#: kwalletbackend/backendpersisthandler.cpp:590
+#, kde-format
+msgid ""
+"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
+"system.</qt>"
+msgstr ""
+"<qt> حدث خطأ أثناء محاولة فتح المحفظة <b>%1</b>. شفرت المحفظة باستخدام معرّف "
+"مفتاح GPG <b>%2</b> ولكن لم يتم العثور على هذا المفتاح في نظامك. </qt>"
 
-#~ msgid "Already open."
-#~ msgstr "مفتوحة بالفعل."
+#: kwalletbackend/kwalletbackend.cc:272
+#, kde-format
+msgid "Already open."
+msgstr "مفتوحة بالفعل."
 
-#~ msgid "Error opening file."
-#~ msgstr "خطأ في فتح الملف."
+#: kwalletbackend/kwalletbackend.cc:274
+#, kde-format
+msgid "Error opening file."
+msgstr "خطأ في فتح الملف."
 
-#~ msgid "Not a wallet file."
-#~ msgstr "ليس ملف حافظة."
+#: kwalletbackend/kwalletbackend.cc:276
+#, kde-format
+msgid "Not a wallet file."
+msgstr "ليس ملف حافظة."
 
-#~ msgid "Unsupported file format revision."
-#~ msgstr "إصدارة تنسيق ملف غير مدعوم."
+#: kwalletbackend/kwalletbackend.cc:278
+#, kde-format
+msgid "Unsupported file format revision."
+msgstr "إصدارة تنسيق ملف غير مدعوم."
 
-#~ msgid "Unknown encryption scheme."
-#~ msgstr "مخطط تشفير مجهول."
+#: kwalletbackend/kwalletbackend.cc:282
+#, kde-format
+msgid "Unknown encryption scheme."
+msgstr "مخطط تشفير مجهول."
 
-#~ msgid "Corrupt file?"
-#~ msgstr "ملف تالف؟"
+#: kwalletbackend/kwalletbackend.cc:284
+#, kde-format
+msgid "Corrupt file?"
+msgstr "ملف تالف؟"
 
-#~ msgid "Error validating wallet integrity. Possibly corrupted."
-#~ msgstr "خطأ في فحص سلامة الحافظة. قد تكون معطوبة."
+#: kwalletbackend/kwalletbackend.cc:286
+#, kde-format
+msgid "Error validating wallet integrity. Possibly corrupted."
+msgstr "خطأ في فحص سلامة الحافظة. قد تكون معطوبة."
 
-#~ msgid "Read error - possibly incorrect password."
-#~ msgstr "خطأ في القراءة - قد يكون كلمة السر خاطئة"
+#: kwalletbackend/kwalletbackend.cc:290
+#, kde-format
+msgid "Read error - possibly incorrect password."
+msgstr "خطأ في القراءة - قد يكون كلمة السر خاطئة"
 
-#~ msgid "Decryption error."
-#~ msgstr "خطأ في فك التشفير."
+#: kwalletbackend/kwalletbackend.cc:292
+#, kde-format
+msgid "Decryption error."
+msgstr "خطأ في فك التشفير."
 
-#~ msgid ""
-#~ "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
-#~ "RC <b>%2</b>\n"
-#~ "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde."
-#~ "org"
-#~ msgstr ""
-#~ "فشلت مزامنة المحفظة <b>%1</b> إلى القرص. رموز الخطأ هي: \n"
-#~ "RC <b>%2 </b> \n"
-#~ "SF <b>%3</b>. يرجى تقديم تقرير علة باستخدام هذه المعلومات إلى bugs.kde.org"
+#: kwalletbackend/kwalletbackend.cc:472
+#, kde-format
+msgid ""
+"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
+msgstr ""
+"فشلت مزامنة المحفظة <b>%1</b> إلى القرص. رموز الخطأ هي: \n"
+"RC <b>%2 </b> \n"
+"SF <b>%3</b>. يرجى تقديم تقرير علة باستخدام هذه المعلومات إلى bugs.kde.org"
 
-#~ msgid "kwalletd"
-#~ msgstr "kwalletd"
+#: kwalletd/kwalletd.cpp:119
+#, kde-format
+msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
+msgstr ""
+
+#: kwalletd/main.cpp:32
+#, kde-format
+msgid "kwalletd"
+msgstr "kwalletd"
+
+#: kwalletd/main.cpp:34
+#, kde-format
+msgid "A KWallet compatibility service, wrapping upon Secret Service"
+msgstr ""
+
+#: kwalletd/main.cpp:36
+#, fuzzy, kde-format
+#| msgid "(C) 2002-2025, The KDE Developers"
+msgid "(C) 2025, The KDE Developers"
+msgstr "© 2002-2025 لمطوري كِيدِي"
+
+#: kwalletd/main.cpp:38
+#, kde-format
+msgid "Marco Martin"
+msgstr ""
+
+#: kwalletd/main.cpp:38
+#, kde-format
+msgid "Author"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:241
+#, kde-format
+msgid "Item not found"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:261
+#, kde-format
+msgid "Could not connect to Secret Service"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:423
+#, kde-format
+msgid "Unable to unlock collectionName %1"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:515
+#, kde-format
+msgid "No collections"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
+#: kwalletd/secretserviceclient.cpp:702
+#, kde-format
+msgid "No entries"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:617
+#, kde-format
+msgid "Entry not found, key: %1, folder: %2"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:726
+#, kde-format
+msgid "Unable to unlock item"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
+#, kde-format
+msgid "Entry to rename not found"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:776
+#, kde-format
+msgid "Entry named %1 in folder %2 and wallet %3 already exists."
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
+#, kde-format
+msgid "Entry to rename incomplete"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:851
+#, kde-format
+msgid "Failed to create SecretValue"
+msgstr ""
 
 #, fuzzy
 #~| msgid "KDE Wallet Service"
