@@ -4,13 +4,13 @@
 # Serdar Soytetir <tulliana@gmail.com>, 2008, 2009, 2013.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2015, 2017.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-18 00:41+0000\n"
-"PO-Revision-Date: 2025-03-13 22:00+0300\n"
+"PO-Revision-Date: 2026-02-18 16:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -603,18 +603,19 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt><b>%1</b> cüzdanını kaydetmeye çalışırken OpenPGP’yi ilklendirme "
+"denemesi sırasında hata. Hata kodu <b>%2</b>. Lütfen sistem yapılandırmanızı "
+"onarın ve yeniden deneyin.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:407
-#, fuzzy, kde-format
-#| msgid ""
-#| "The GpgME library failed to initialize for the OpenPGP protocol. Please "
-#| "check your system's configuration then try again."
+#, kde-format
 msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to save the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"GpgME kitaplığı, OpenPGP protokolünü başlatırken başarısız oldu. Lütfen "
-"sistem yapılandırmanızı onarın ve yeniden deneyin!"
+"<qt><b>%1</b> cüzdanını kaydetmeye çalışırken OpenPGP’yi ilklendirme "
+"denemesi sırasında hata. Lütfen sistem yapılandırmanızı onarın ve yeniden "
+"deneyin.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:461
 #, kde-format
@@ -624,6 +625,11 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
+"<qt><b>%1</b> cüzdanını kaydetmeye çalışırken şifreleme hatası. Hata kodu <b>"
+"%2 (%3)</b>. Lütfen sistem yapılandırmanızı onarın ve yeniden deneyin. Bu "
+"hata, tümüyle güvenilmeyen bir GPG anahtarı kullanıyorsanız ortaya "
+"çıkabilir. Lütfen kullandığınız anahtar için giz anahtarına iye olduğunuzdan "
+"emin olun.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:478
 #, kde-format
@@ -631,6 +637,8 @@ msgid ""
 "<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt><b>%1</b> cüzdanını kaydetmeye çalışırken dosya işleme hatası. Hata, <b>"
+"%2</b> idi. Lütfen sistem yapılandırmanızı onarın ve yeniden deneyin.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:500
 #, kde-format
@@ -639,23 +647,24 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt><b>%1</b> cüzdanını kaydetmeye çalışırken OpenPGP’yi ilklendirme "
+"denemesi sırasında hata. Hata kodu <b>%2</b>. Lütfen sistem yapılandırmanızı "
+"onarın ve yeniden deneyin.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:522
-#, fuzzy, kde-format
-#| msgid ""
-#| "The GpgME library failed to initialize for the OpenPGP protocol. Please "
-#| "check your system's configuration then try again."
+#, kde-format
 msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to open the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"GpgME kitaplığı, OpenPGP protokolünü başlatırken başarısız oldu. Lütfen "
-"sistem yapılandırmanızı onarın ve yeniden deneyin!"
+"<qt><b>%1</b> cüzdanını kaydetmeye çalışırken OpenPGP’yi ilklendirme "
+"denemesi sırasında hata. Lütfen sistem yapılandırmanızı onarın ve yeniden "
+"deneyin.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:535
 #, kde-format
 msgid "Retry"
-msgstr ""
+msgstr "Yeniden Dene"
 
 #: kwalletbackend/backendpersisthandler.cpp:540
 #, kde-format
@@ -664,11 +673,14 @@ msgid ""
 "you're using a SmartCard, please ensure it's inserted then try again."
 "<br><br>GPG error was <b>%2</b></qt>"
 msgstr ""
+"<qt><b>%1</b> cüzdanının şifresini GPG kullanarak çözmeye çalışırken hata. "
+"Bir akıllı kart kullanıyorsanız lütfen takılı olduğundan emin olun ve "
+"yeniden deneyin.<br><br>GPG hatası <b>%2</b> idi.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:544
 #, kde-format
 msgid "kwalletd GPG backend"
-msgstr ""
+msgstr "kwalletd GPG arka ucu"
 
 #: kwalletbackend/backendpersisthandler.cpp:590
 #, kde-format
@@ -677,51 +689,54 @@ msgid ""
 "encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
 "system.</qt>"
 msgstr ""
+"<qt><b>%1</b> cüzdanını açmaya çalışırken hata. Cüzdan, <b>%2</b> GPG "
+"anahtarı kimliği kullanılarak şifrelenmişti; ancak anahtar sisteminizde "
+"bulunamadı.</qt>"
 
 #: kwalletbackend/kwalletbackend.cc:272
 #, kde-format
 msgid "Already open."
-msgstr ""
+msgstr "Halihazırda açık."
 
 #: kwalletbackend/kwalletbackend.cc:274
 #, kde-format
 msgid "Error opening file."
-msgstr ""
+msgstr "Dosya açılırken hata."
 
 #: kwalletbackend/kwalletbackend.cc:276
 #, kde-format
 msgid "Not a wallet file."
-msgstr ""
+msgstr "Bir cüzdan dosyası değil."
 
 #: kwalletbackend/kwalletbackend.cc:278
 #, kde-format
 msgid "Unsupported file format revision."
-msgstr ""
+msgstr "Desteklenmeyen dosya biçimi revizyonu."
 
 #: kwalletbackend/kwalletbackend.cc:282
 #, kde-format
 msgid "Unknown encryption scheme."
-msgstr ""
+msgstr "Bilinmeyen şifreleme şeması."
 
 #: kwalletbackend/kwalletbackend.cc:284
 #, kde-format
 msgid "Corrupt file?"
-msgstr ""
+msgstr "Dosya bozuk olabilir mi?"
 
 #: kwalletbackend/kwalletbackend.cc:286
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr ""
+msgstr "Cüzdan bütünlülüğü doğrulanırken hata. Büyük olasılıkla hasar görmüş."
 
 #: kwalletbackend/kwalletbackend.cc:290
 #, kde-format
 msgid "Read error - possibly incorrect password."
-msgstr ""
+msgstr "Okuma hatası — büyük olasılıkla yanlış parola."
 
 #: kwalletbackend/kwalletbackend.cc:292
 #, kde-format
 msgid "Decryption error."
-msgstr ""
+msgstr "Şifre çözme hatası."
 
 #: kwalletbackend/kwalletbackend.cc:472
 #, kde-format
@@ -730,91 +745,93 @@ msgid ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
 msgstr ""
+"<b>%1</b> cüzdanı diske eşzamanlanamadı. Hata kodları:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Bu bilgiyi kullanarak bugs.kde.org üzerinde bir hata kaydı "
+"açın."
 
 #: kwalletd/kwalletd.cpp:119
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
-msgstr ""
+msgstr "“%1” cüzdanı aktarılıyor. Kilidini açmak için parolayı sağlayın."
 
 #: kwalletd/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "KWallet"
+#, kde-format
 msgid "kwalletd"
-msgstr "K Cüzdan"
+msgstr "kwalletd"
 
 #: kwalletd/main.cpp:34
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
-msgstr ""
+msgstr "Secret Service özelliğini sargılayan bir K Cüzdan uyumluluk hizmeti"
 
 #: kwalletd/main.cpp:36
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2025, The KDE Developers"
+#, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr "© 2002–2025, KDE Geliştiricileri"
+msgstr "© 2025, KDE Geliştiricileri"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Yazar"
 
 #: kwalletd/secretserviceclient.cpp:241
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "Öge bulunamadı"
 
 #: kwalletd/secretserviceclient.cpp:261
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "Secret Service’e bağlanılamadı"
 
 #: kwalletd/secretserviceclient.cpp:423
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "%1 koleksiyon adının kilidi açılamıyor"
 
 #: kwalletd/secretserviceclient.cpp:515
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "Koleksiyon yok"
 
 #: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
 #: kwalletd/secretserviceclient.cpp:702
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "Girdi yok"
 
 #: kwalletd/secretserviceclient.cpp:617
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "Girdi bulunamadı, anahtar: %1, klasör: %2"
 
 #: kwalletd/secretserviceclient.cpp:726
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "Öge kilidi açılamıyor"
 
 #: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "Yeniden adlandırılacak girdi bulunamadı"
 
 #: kwalletd/secretserviceclient.cpp:776
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr ""
+msgstr "%3 cüzdanındaki ve %2 klasöründeki %1 girdisi halihazırda var."
 
 #: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "Yeniden adlandırılacak girdi tam değil"
 
 #: kwalletd/secretserviceclient.cpp:851
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
+msgstr "Gizli değer oluşturulamadı"

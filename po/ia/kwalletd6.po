@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2013, 2014, 2017, 2021, 2023, 2025 g.sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2010, 2011, 2013, 2014, 2017, 2021, 2023, 2025, 2026 g.sora <g.sora@tiscali.it>
 # Giovanni Sora <g.sora@tioscali.it>, 2014, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-18 00:41+0000\n"
-"PO-Revision-Date: 2025-04-15 15:38+0200\n"
+"PO-Revision-Date: 2026-02-18 19:01+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -766,6 +766,7 @@ msgstr ""
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr ""
+"Migrante le portafolio \"%1\".Pro favor forni le contrasigno per disblocar."
 
 #: kwalletd/main.cpp:32
 #, kde-format
@@ -776,79 +777,79 @@ msgstr "kwalletd"
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
 msgstr ""
+"Un servicio de compatibilitate de KWallet, inveloppate sur Secret Service "
+"(Servicio Secrete)"
 
 #: kwalletd/main.cpp:36
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2025, The KDE Developers"
+#, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr "(C) 2002-2025, Le disveloppatores de KDE"
+msgstr "(C) 2025, Le disveloppatores de KDE"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: kwalletd/secretserviceclient.cpp:241
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "Elemento non trovate"
 
 #: kwalletd/secretserviceclient.cpp:261
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "Non poteva connecter se a Secret Service (Servico Secrete)"
 
 #: kwalletd/secretserviceclient.cpp:423
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "Incapace a disblocar Nomine de collection : %1"
 
 #: kwalletd/secretserviceclient.cpp:515
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "Nulle collectiones"
 
 #: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
 #: kwalletd/secretserviceclient.cpp:702
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "Necun entratas"
 
 #: kwalletd/secretserviceclient.cpp:617
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "Entrata non trovate, clave: %1, dossier: %2"
 
 #: kwalletd/secretserviceclient.cpp:726
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "Incapace a disblocar elemento"
 
 #: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "Entrata per renominar non trovate"
 
 #: kwalletd/secretserviceclient.cpp:776
-#, fuzzy, kde-format
-#| msgid "* SKIPPING entry %1 in folder %2 as it seems already migrated"
+#, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr "* SALTANTE entrata %1 in dossier %2 proque il sembla ja migrate"
+msgstr "Entrata nominate %1 in dossier %2 e portafolio %3 ja existe."
 
 #: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "Entrata perrenominar incomplete"
 
 #: kwalletd/secretserviceclient.cpp:851
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
+msgstr "Falleva a crear SecretValue (Valor Secrete)"
 
 #~ msgid "Cannot read old wallet list. Aborting."
 #~ msgstr "Non pot eleger vetere lista de portafolio. On aborti."

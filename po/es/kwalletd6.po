@@ -1,22 +1,22 @@
 # Spanish translations for kwalletd6.po package.
-# Copyright (C) 2008-2025 This file is copyright:
+# Copyright (C) 2008-2026 This file is copyright:
 # This file is distributed under the same license as the kwallet package.
 #
 # SPDX-FileCopyrightText: 2008, 2009 Jaime Robles <jaime@kde.org>
-# SPDX-FileCopyrightText: 2009, 2013, 2014, 2015, 2016, 2021, 2023, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2009, 2013, 2014, 2015, 2016, 2021, 2023, 2025, 2026 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-18 00:41+0000\n"
-"PO-Revision-Date: 2025-05-18 14:46+0100\n"
+"PO-Revision-Date: 2026-02-18 17:28+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.12.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -604,19 +604,19 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>Ha ocurrido un error cuando se intentaba inicializar OpenPGP para "
+"guardar la cartera <b>%1</b>. El código de error es <b>%2</b>. Corrija la "
+"configuración del sistema y vuelva a probar.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:407
-#, fuzzy, kde-format
-#| msgid ""
-#| "The GpgME library failed to initialize for the OpenPGP protocol. Please "
-#| "check your system's configuration then try again."
+#, kde-format
 msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to save the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"Ha fallado la inicialización de la biblioteca GpgME para el protocolo "
-"OpenPGP. Por favor, compruebe la configuración del sistema y vuelva a "
-"intentarlo."
+"<qt>Ha ocurrido un error cuando se intentaba inicializar OpenPGP para "
+"guardar la cartera <b>%1</b>. Corrija la configuración del sistema y vuelva "
+"a probar.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:461
 #, kde-format
@@ -626,6 +626,11 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
+"<qt>Ha ocurrido un error de cifrado cuando se intentaba guardar la cartera "
+"<b>%1</b>. El código de error es <b>%2 (%3)</b>. Corrija la configuración "
+"del sistema y vuelva a probar. Este error puede ocurrir si no está usando "
+"una clave GPG de plena confianza. Asegúrese de que dispone de la clave "
+"secreta para la clave que está usando.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:478
 #, kde-format
@@ -633,6 +638,9 @@ msgid ""
 "<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>Ha ocurrido un error de archivo cuando se intentaba guardar la cartera "
+"<b>%1</b>. El error ha sido: <b>%2</b>. Corrija la configuración del sistema "
+"y vuelva a probar.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:500
 #, kde-format
@@ -641,24 +649,24 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>Ha ocurrido un error cuando se intentaba inicializar OpenPGP para abrir "
+"la cartera <b>%1</b>. El código de error es <b>%2</b>. Corrija la "
+"configuración del sistema y vuelva a probar.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:522
-#, fuzzy, kde-format
-#| msgid ""
-#| "The GpgME library failed to initialize for the OpenPGP protocol. Please "
-#| "check your system's configuration then try again."
+#, kde-format
 msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to open the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"Ha fallado la inicialización de la biblioteca GpgME para el protocolo "
-"OpenPGP. Por favor, compruebe la configuración del sistema y vuelva a "
-"intentarlo."
+"<qt>Ha ocurrido un error cuando se intentaba inicializar OpenPGP para abrir "
+"la cartera <b>%1</b>. Corrija la configuración del sistema y vuelva a probar."
+"</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:535
 #, kde-format
 msgid "Retry"
-msgstr ""
+msgstr "Volver a probar"
 
 #: kwalletbackend/backendpersisthandler.cpp:540
 #, kde-format
@@ -667,11 +675,14 @@ msgid ""
 "you're using a SmartCard, please ensure it's inserted then try again."
 "<br><br>GPG error was <b>%2</b></qt>"
 msgstr ""
+"<qt>Ha ocurrido un error cuando se intentaba descifrar la cartera <b>%1</b> "
+"usando GPG. Si está usando una tarjeta inteligente, asegúrese de que está "
+"insertada y vuelva a probar.<br><br>El error GPG ha sido: <b>%2</b></qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:544
 #, kde-format
 msgid "kwalletd GPG backend"
-msgstr ""
+msgstr "Motor GPG de kwalletd"
 
 #: kwalletbackend/backendpersisthandler.cpp:590
 #, kde-format
@@ -680,51 +691,56 @@ msgid ""
 "encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
 "system.</qt>"
 msgstr ""
+"<qt>Ha ocurrido un error cuando se intentaba abrir la cartera <b>%1</b>. La "
+"cartera estaba cifrada usando la ID de clave GPG <b>%2</b>, pero esta clave "
+"no se ha encontrado en el sistema.</qt>"
 
 #: kwalletbackend/kwalletbackend.cc:272
 #, kde-format
 msgid "Already open."
-msgstr ""
+msgstr "Ya está abierta."
 
 #: kwalletbackend/kwalletbackend.cc:274
 #, kde-format
 msgid "Error opening file."
-msgstr ""
+msgstr "Ha ocurrido un error al abrir el archivo."
 
 #: kwalletbackend/kwalletbackend.cc:276
 #, kde-format
 msgid "Not a wallet file."
-msgstr ""
+msgstr "No es un archivo de cartera."
 
 #: kwalletbackend/kwalletbackend.cc:278
 #, kde-format
 msgid "Unsupported file format revision."
-msgstr ""
+msgstr "Revisión de formato de archivo no permitida."
 
 #: kwalletbackend/kwalletbackend.cc:282
 #, kde-format
 msgid "Unknown encryption scheme."
-msgstr ""
+msgstr "Esquema de cifrado desconocido."
 
 #: kwalletbackend/kwalletbackend.cc:284
 #, kde-format
 msgid "Corrupt file?"
-msgstr ""
+msgstr "¿Archivo dañado?"
 
 #: kwalletbackend/kwalletbackend.cc:286
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr ""
+"Ha ocurrido un error al validar la integridad de la cartera. Es posible que "
+"esté dañada."
 
 #: kwalletbackend/kwalletbackend.cc:290
 #, kde-format
 msgid "Read error - possibly incorrect password."
-msgstr ""
+msgstr "Error de lectura: es posible que la contraseña sea incorrecta."
 
 #: kwalletbackend/kwalletbackend.cc:292
 #, kde-format
 msgid "Decryption error."
-msgstr ""
+msgstr "Ha ocurrido un error al descifrar."
 
 #: kwalletbackend/kwalletbackend.cc:472
 #, kde-format
@@ -733,91 +749,94 @@ msgid ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
 msgstr ""
+"No se ha podido sincronizar la cartera <b>%1</b> con el disco. Los códigos "
+"de error son:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Cree un informe de error usando esta información en bugs.kde."
+"org."
 
 #: kwalletd/kwalletd.cpp:119
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
-msgstr ""
+msgstr "Migrando la cartera «%1». Introduzca la contraseña para desbloquearla."
 
 #: kwalletd/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "KWallet"
+#, kde-format
 msgid "kwalletd"
-msgstr "KWallet"
+msgstr "kwalletd"
 
 #: kwalletd/main.cpp:34
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
-msgstr ""
+msgstr "Servicio de compatibilidad de KWallet con Secret Service."
 
 #: kwalletd/main.cpp:36
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2025, The KDE Developers"
+#, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr "© 2002-2025, los desarrolladores de KDE"
+msgstr "© 2025, los desarrolladores de KDE"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: kwalletd/secretserviceclient.cpp:241
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "Elemento no encontrado"
 
 #: kwalletd/secretserviceclient.cpp:261
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "No se puede conectar con Secret Service"
 
 #: kwalletd/secretserviceclient.cpp:423
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "No se ha podido desbloquear collectionName %1"
 
 #: kwalletd/secretserviceclient.cpp:515
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "No hay colecciones"
 
 #: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
 #: kwalletd/secretserviceclient.cpp:702
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "No hay entradas"
 
 #: kwalletd/secretserviceclient.cpp:617
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "Entrada no encontrada. Clave: %1. Carpeta: %2"
 
 #: kwalletd/secretserviceclient.cpp:726
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "No se ha podido desbloquear el elemento"
 
 #: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "No se ha encontrado la entrada cuyo nombre se quiere cambiar"
 
 #: kwalletd/secretserviceclient.cpp:776
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr ""
+msgstr "La entrada %1 de la carpeta %2 ya existe en la cartera %3."
 
 #: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "La entrada cuyo nombre se quiere cambiar está incompleta"
 
 #: kwalletd/secretserviceclient.cpp:851
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
+msgstr "No se ha podido crear el SecretValue"

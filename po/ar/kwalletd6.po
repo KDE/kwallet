@@ -1,14 +1,14 @@
 # translation of kwalletd.po to Arabic
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2008, 2021, 2022, 2024, 2025 zayed <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2008, 2021, 2022, 2024, 2025, 2026 zayed <zayed.alsaidi@gmail.com>
 # Abdalrahim Fakhouri <abdilra7eem@yahoo.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-18 00:41+0000\n"
-"PO-Revision-Date: 2025-08-14 11:56+0400\n"
+"PO-Revision-Date: 2026-02-18 18:02+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -583,8 +583,7 @@ msgid ""
 "configuration, then try again.</qt>"
 msgstr ""
 "<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة حفظ المحفظة <b>%1</b>. "
-"رمز الخطأ هو <b>%2</b>. يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة "
-"أخرى. </qt>"
+"رمز الخطأ هو <b>%2</b>. يرجى إصلاح إعداد نظامك، ثم المحاولة مرة أخرى. </qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:407
 #, kde-format
@@ -593,7 +592,7 @@ msgid ""
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
 "<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة حفظ المحفظة <b>%1</b>. "
-"يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة أخرى. </qt>"
+"يرجى إصلاح إعداد نظامك، ثم المحاولة مرة أخرى. </qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:461
 #, kde-format
@@ -603,10 +602,10 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
-"<qt> حدث خطأ في التشفير أثناء محاولة حفظ المحفظة <b>%1</b>. رمز الخطأ هو <b>"
-"%2 (%3)</b>. الرجاء إصلاح تكوين النظام الخاص بك ، ثم حاول مرة أخرى. قد يحدث "
-"هذا الخطأ إذا كنت لا تستخدم مفتاح GPG ذو الثقة الكاملة.يرجى التأكد من أن "
-"لديك المفتاح السري للمفتاح الذي تستخدمه.</qt>"
+"<qt> حدث خطأ في التعمية أثناء محاولة حفظ المحفظة <b>%1</b>. رمز الخطأ هو <b>"
+"%2 (%3)</b>. الرجاء إصلاح إعداد نظامك، ثم حاول مرة أخرى. قد يحدث هذا الخطأ "
+"إذا كنت لا تستخدم مفتاح GPG ذو الثقة الكاملة.يرجى التأكد من أن لديك المفتاح "
+"السري للمفتاح الذي تستخدمه.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:478
 #, kde-format
@@ -615,7 +614,7 @@ msgid ""
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
 "<qt> خطأ في معالجة الملف أثناء محاولة حفظ المحفظة <b>%1</b>. كان الخطأ <b>"
-"%2</b>. يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة أخرى. </qt>"
+"%2</b>. يرجى إصلاح إعداد نظامك، ثم المحاولة مرة أخرى. </qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:500
 #, kde-format
@@ -625,8 +624,7 @@ msgid ""
 "configuration, then try again.</qt>"
 msgstr ""
 "<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة فتح المحفظة <b>%1</b>. "
-"رمز الخطأ هو <b>%2</b>. يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة "
-"أخرى. </qt>"
+"رمز الخطأ هو <b>%2</b>. يرجى إصلاح إعداد نظامك، ثم المحاولة مرة أخرى. </qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:522
 #, kde-format
@@ -635,7 +633,7 @@ msgid ""
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
 "<qt> حدث خطأ أثناء محاولة تهيئة OpenPGP أثناء محاولة فتح المحفظة  <b>%1</b>. "
-"يرجى إصلاح تكوين النظام الخاص بك ، ثم المحاولة مرة أخرى. </qt>"
+"يرجى إصلاح إعداد نظامك، ثم المحاولة مرة أخرى. </qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:535
 #, kde-format
@@ -649,8 +647,8 @@ msgid ""
 "you're using a SmartCard, please ensure it's inserted then try again."
 "<br><br>GPG error was <b>%2</b></qt>"
 msgstr ""
-"<qt> خطأ عند محاولة فك تشفير المحفظة <b>%1</b> باستخدام GPG. إذا كنت تستخدم "
-"SmartCard ، فيرجى التأكد من إدخالها ثم المحاولة مرة أخرى.<br> <br> خطأ GPG "
+"<qt> خطأ عند محاولة فك تعمية المحفظة <b>%1</b> باستخدام GPG. إذا كنت تستخدم "
+"SmartCard، فيرجى التأكد من إدخالها ثم المحاولة مرة أخرى.<br> <br> خطأ GPG "
 "كان <b>%2</b> </qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:544
@@ -665,13 +663,13 @@ msgid ""
 "encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
 "system.</qt>"
 msgstr ""
-"<qt> حدث خطأ أثناء محاولة فتح المحفظة <b>%1</b>. شفرت المحفظة باستخدام معرّف "
-"مفتاح GPG <b>%2</b> ولكن لم يتم العثور على هذا المفتاح في نظامك. </qt>"
+"<qt> حدث خطأ أثناء محاولة فتح المحفظة <b>%1</b>. عميت المحفظة باستخدام معرّف "
+"مفتاح GPG <b>%2</b> ولكن لم يعثر على هذا المفتاح في نظامك. </qt>"
 
 #: kwalletbackend/kwalletbackend.cc:272
 #, kde-format
 msgid "Already open."
-msgstr "مفتوحة بالفعل."
+msgstr "مفتوحة فعلًا."
 
 #: kwalletbackend/kwalletbackend.cc:274
 #, kde-format
@@ -691,7 +689,7 @@ msgstr "إصدارة تنسيق ملف غير مدعوم."
 #: kwalletbackend/kwalletbackend.cc:282
 #, kde-format
 msgid "Unknown encryption scheme."
-msgstr "مخطط تشفير مجهول."
+msgstr "مخطط تعمية مجهول."
 
 #: kwalletbackend/kwalletbackend.cc:284
 #, kde-format
@@ -711,7 +709,7 @@ msgstr "خطأ في القراءة - قد يكون كلمة السر خاطئة"
 #: kwalletbackend/kwalletbackend.cc:292
 #, kde-format
 msgid "Decryption error."
-msgstr "خطأ في فك التشفير."
+msgstr "خطأ في فك التعمية."
 
 #: kwalletbackend/kwalletbackend.cc:472
 #, kde-format
@@ -727,89 +725,88 @@ msgstr ""
 #: kwalletd/kwalletd.cpp:119
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
-msgstr ""
+msgstr "ترحيل المحفظة ”%1“. يرجى إدخال كلمة السر لإلغاء القفل."
 
 #: kwalletd/main.cpp:32
 #, kde-format
 msgid "kwalletd"
-msgstr "kwalletd"
+msgstr "محفظة ك"
 
 #: kwalletd/main.cpp:34
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
-msgstr ""
+msgstr "خدمة توافق KWallet، مبنية على Secret Service"
 
 #: kwalletd/main.cpp:36
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2025, The KDE Developers"
+#, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr "© 2002-2025 لمطوري كِيدِي"
+msgstr "© 2025 لمطوري كِيدِي"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "ماركو مارتن"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "المؤلف"
 
 #: kwalletd/secretserviceclient.cpp:241
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "العنصر غير موجود"
 
 #: kwalletd/secretserviceclient.cpp:261
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "تعذر الاتصال بالخدمة السرية"
 
 #: kwalletd/secretserviceclient.cpp:423
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "تعذر فتح collectionName %1"
 
 #: kwalletd/secretserviceclient.cpp:515
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "لا توجد مجموعات"
 
 #: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
 #: kwalletd/secretserviceclient.cpp:702
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "لا توجد مدخلات"
 
 #: kwalletd/secretserviceclient.cpp:617
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "لم يُعثر على الإدخال، المفتاح: %1، المجلد: %2"
 
 #: kwalletd/secretserviceclient.cpp:726
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "تعذر فتح العنصر"
 
 #: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "لم يُعثر على إدخال لإعادة التسمية"
 
 #: kwalletd/secretserviceclient.cpp:776
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr ""
+msgstr "المدخل المسمى %1 في المجلد %2 والمحفظة %3 موجود مسبقًا."
 
 #: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "إدخال لإعادة تسمية غير مكتمل"
 
 #: kwalletd/secretserviceclient.cpp:851
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
+msgstr "فشل في إنشاء SecretValue"
 
 #, fuzzy
 #~| msgid "KDE Wallet Service"
