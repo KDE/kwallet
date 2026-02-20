@@ -1,12 +1,12 @@
 # Diego Iastrubni <elcuco@kde.org>, 2012, 2013.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-18 00:41+0000\n"
-"PO-Revision-Date: 2025-10-05 12:24+0300\n"
+"PO-Revision-Date: 2026-02-19 09:44+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -17,7 +17,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Poedit-Language: Hebrew\n"
 "X-Poedit-Country: ISRAEL\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -720,89 +720,88 @@ msgstr ""
 #: kwalletd/kwalletd.cpp:119
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
-msgstr ""
+msgstr "הארנק „%1” עובר הסבה. נא למלא סיסמה לשחרור נעילה."
 
 #: kwalletd/main.cpp:32
-#, fuzzy, kde-format
+#, kde-format
 msgid "kwalletd"
-msgstr "KWallet"
+msgstr "kwalletd"
 
 #: kwalletd/main.cpp:34
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
-msgstr ""
+msgstr "שירות תאימות מול KWallet, מעטפת על השירות החשאי"
 
 #: kwalletd/main.cpp:36
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2025, The KDE Developers"
+#, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr "‏(C) 2002‏-2025, מפתחי KDE"
+msgstr "‏(C) 2025, מפתחי KDE"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "מרקו מרטין"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "יוצר"
 
 #: kwalletd/secretserviceclient.cpp:241
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "הפריט לא נמצא"
 
 #: kwalletd/secretserviceclient.cpp:261
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "לא ניתן להתחבר לשירות החשאי"
 
 #: kwalletd/secretserviceclient.cpp:423
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "לא ניתן לשחרר את שם האוסף (collectionName) %1"
 
 #: kwalletd/secretserviceclient.cpp:515
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "אין אוספים"
 
 #: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
 #: kwalletd/secretserviceclient.cpp:702
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "אין רשומות"
 
 #: kwalletd/secretserviceclient.cpp:617
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "הרשומה לא נמצאה, מפתח: %1, תיקייה: %2"
 
 #: kwalletd/secretserviceclient.cpp:726
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "לא ניתן לשחרר פריט"
 
 #: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "לא נמצאה רשומה לשינוי שם"
 
 #: kwalletd/secretserviceclient.cpp:776
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr ""
+msgstr "רשומה בשם %1 בתיקייה %2 והארנק %3 כבר קיימת."
 
 #: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "הרשומה לשינוי שם חלקית"
 
 #: kwalletd/secretserviceclient.cpp:851
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
+msgstr "יצירת ערך סודי נכשלה"
 
 #, fuzzy
 #~ msgid "KDE Wallet Migration Agent"

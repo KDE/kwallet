@@ -52,37 +52,21 @@ msgid "Deny &Forever"
 msgstr "Diúltaigh i g&Cónaí"
 
 #: ksecretd/knewwalletdialog.cpp:50
-#, fuzzy, kde-format
-#| msgid ""
-#| "KDE has requested to open the wallet. This is used to store sensitive "
-#| "data in a secure fashion. Please enter a password to use with this wallet "
-#| "or click cancel to deny the application's request."
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
 "to store sensitive data in a secure fashion. Please choose the new wallet's "
 "type below or click cancel to deny the application's request.</qt>"
 msgstr ""
-"Tá KDE ag iarraidh an sparán a oscailt. Úsáidtear an sparán chun sonraí "
-"íogaire a stóráil go slán. Iontráil focal faire a úsáidfear leis an sparán "
-"seo nó cliceáil Cealaigh chun iarratas an fheidhmchláir a dhiúltú."
 
 #: ksecretd/knewwalletdialog.cpp:55
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
-#| "This is used to store sensitive data in a secure fashion. Please enter a "
-#| "password to use with this wallet or click cancel to deny the "
-#| "application's request.</qt>"
+#, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
 "'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
 "Please choose the new wallet's type below or click cancel to deny the "
 "application's request.</qt>"
 msgstr ""
-"<qt>Tá feidhmchlár '<b>%1</b>' ag iarraidh an sparán KDE a oscailt. "
-"Úsáidtear an sparán seo chun sonraí íogaire a stóráil go slán. Iontráil "
-"focal faire a úsáidfear leis an sparán seo nó cliceáil Cealaigh chun "
-"iarratas an fheidhmchláir a dhiúltú.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
@@ -139,22 +123,13 @@ msgstr "Córas Sparáin KDE"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: ksecretd/knewwalletdialogintro.ui:30
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
-#| "This is used to store sensitive data in a secure fashion. Please enter a "
-#| "password to use with this wallet or click cancel to deny the "
-#| "application's request.</qt>"
+#, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
 "span>' has requested to open the KDE wallet. This is used to store sensitive "
 "data in a secure fashion. Please choose the new wallet's type below or click "
 "cancel to deny the application's request.</p></body></html>"
 msgstr ""
-"<qt>Tá feidhmchlár '<b>%1</b>' ag iarraidh an sparán KDE a oscailt. "
-"Úsáidtear an sparán seo chun sonraí íogaire a stóráil go slán. Iontráil "
-"focal faire a úsáidfear leis an sparán seo nó cliceáil Cealaigh chun "
-"iarratas an fheidhmchláir a dhiúltú.</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
@@ -201,10 +176,9 @@ msgid "KDE Wallet Service"
 msgstr "Seirbhís Sparáin KDE"
 
 #: ksecretd/ksecretd.cpp:646
-#, fuzzy, kde-format
-#| msgid "<b>KDE</b> has requested to open a wallet (%1)."
+#, kde-format
 msgid "An application has requested to open a wallet (%1)."
-msgstr "Tá <b>KDE</b> ag iarraidh sparán a oscailt (%1)."
+msgstr ""
 
 #: ksecretd/ksecretd.cpp:647
 #, kde-format
@@ -361,15 +335,7 @@ msgstr "Ní ionann na focail fhaire."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
 #: ksecretd/kwalletwizardpageexplanation.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "The KDE Wallet system stores your data in a <i>wallet</i> file on your "
-#| "local hard disk.  The data is only written in encrypted form, presently "
-#| "using the blowfish algorithm with your password as the key.  When a "
-#| "wallet is opened, the wallet manager application will launch and display "
-#| "an icon in the system tray.  You can use this application to manage your "
-#| "wallets.  It even permits you to drag wallets and wallet contents, "
-#| "allowing you to easily copy a wallet to a remote system."
+#, kde-format
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
@@ -380,13 +346,6 @@ msgid ""
 "your wallets. It even permits you to drag wallets and wallet contents, "
 "allowing you to easily copy a wallet to a remote system.</p></body></html>"
 msgstr ""
-"Stórálann an Córas Sparáin KDE do chuid sonraí i <i>sparán</i> ar do dhiosca "
-"crua logánta. Scríobhtar na sonraí i bhfoirm chriptithe a úsáideann an t-"
-"algartam blowfish faoi láthair, le d'fhocal faire mar eochair. Nuair a "
-"osclófar an sparán, tosóidh bainisteoir an sparáin agus taispeánfar deilbhín "
-"i dtráidire an chórais. Is féidir leat an feidhmchlár seo a úsáid chun do "
-"chuid sparán a bhainistiú. Is féidir freisin sparáin agus inneachar na "
-"sparán a tharraingt agus sparáin a chóipeáil go córas i gcéin."
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
@@ -517,14 +476,7 @@ msgstr "Deimhnigh an focal faire:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "Various applications may attempt to use the KDE wallet to store passwords "
-#| "or other information such as web form data and cookies.  If you would "
-#| "like these applications to use the wallet, you must enable it now and "
-#| "choose a password.  The password you choose <i>cannot</i> be recovered if "
-#| "it is lost, and will allow anyone who knows it to obtain all the "
-#| "information contained in the wallet."
+#, kde-format
 msgid ""
 "<html><head/><body><p>Various applications may attempt to use the KDE wallet "
 "to store passwords or other information such as web form data and cookies. "
@@ -536,13 +488,6 @@ msgid ""
 "is lost, and will allow anyone who knows it to obtain all the information "
 "contained in the wallet.</p></body></html>"
 msgstr ""
-"Déanfaidh feidhmchláir éagsúla iarracht ar fhocail fhaire nó faisnéis eile, "
-"mar shampla sonraí ó fhoirmeacha Gréasáin nó fianáin, a stóráil sa sparán "
-"KDE. Más mian leat go mbainfidh na feidhmchláir seo úsáid as an sparán, "
-"caithfidh tú é a chumasú anois agus focal faire a roghnú.  <i>Ní</i> bheidh "
-"tú in ann an focal faire a fháil ar ais dá mbeadh sé caillte, agus b'fhéidir "
-"le héinne a bhfuil an focal faire ar a eolas an fhaisnéis go léir sa sparán "
-"a rochtain."
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
@@ -561,10 +506,9 @@ msgid "Valentin Rusu"
 msgstr ""
 
 #: ksecretd/main.cpp:165
-#, fuzzy, kde-format
-#| msgid "Former maintainer"
+#, kde-format
 msgid "Former Maintainer, GPG backend support"
-msgstr "Iarchothaitheoir"
+msgstr ""
 
 #: ksecretd/main.cpp:166
 #, kde-format
@@ -572,10 +516,9 @@ msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
 #: ksecretd/main.cpp:166
-#, fuzzy, kde-format
-#| msgid "Former maintainer"
+#, kde-format
 msgid "Former Maintainer"
-msgstr "Iarchothaitheoir"
+msgstr ""
 
 #: ksecretd/main.cpp:167
 #, kde-format
@@ -728,10 +671,9 @@ msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr ""
 
 #: kwalletd/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "KWallet"
+#, kde-format
 msgid "kwalletd"
-msgstr "KWallet"
+msgstr ""
 
 #: kwalletd/main.cpp:34
 #, kde-format
@@ -808,28 +750,3 @@ msgstr ""
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr ""
-
-#, fuzzy
-#~| msgid "KDE Wallet Service"
-#~ msgid "KDE Wallet Migration Agent"
-#~ msgstr "Seirbhís Sparáin KDE"
-
-#~ msgctxt "Text of a button to ignore the open-wallet notification"
-#~ msgid "Ignore"
-#~ msgstr "Déan Neamhaird De"
-
-#~ msgid "&Open"
-#~ msgstr "&Oscail"
-
-#~ msgid "C&reate"
-#~ msgstr "C&ruthaigh"
-
-#, fuzzy
-#~| msgid "(C) 2002-2008 George Staikos, Michael Leupold, Thiago Maceira"
-#~ msgid ""
-#~ "(C) 2002-2008 George Staikos, Michael Leupold, Thiago Maceira, Valentin "
-#~ "Rusu"
-#~ msgstr "© 2002-2008 George Staikos, Michael Leupold, Thiago Maceira"
-
-#~ msgid "Maintainer"
-#~ msgstr "Cothaitheoir"
