@@ -733,7 +733,8 @@ msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr ""
 
 #: kwalletd/main.cpp:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "kwalletd"
 msgid "kwalletd"
 msgstr "kwalletd"
 

@@ -658,7 +658,7 @@ msgid ""
 msgstr ""
 "<qt>Erreur de chiffrement lors de l'enregistrement du portefeuille <b>%1</"
 "b>. Le code d'erreur est <b>%2 (%3)</b>. Veuillez corriger la configuration "
-"de votre système puis essayer à nouveau. Cette erreur peut apparaître "
+"de votre système puis essayer à nouveau. Cette erreur peut apparaitre "
 "lorsque vous n'utilisez pas une clé GPG entièrement fiable. Merci de "
 "vérifier que vous avez bien la clé secrète de la clé que vous utilisez.</qt>"
 
