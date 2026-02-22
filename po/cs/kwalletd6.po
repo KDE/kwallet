@@ -586,18 +586,17 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>Chyba při pokusu spustit OpenPGP při ukládání úschovny <b>%1</b>. Kód "
+"chyby je <b>%2</b>. Prosím, opravte nastavení systému a zkuste to znovu.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:407
-#, fuzzy, kde-format
-#| msgid ""
-#| "The GpgME library failed to initialize for the OpenPGP protocol. Please "
-#| "check your system's configuration then try again."
+#, kde-format
 msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to save the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"Knihovně GpgME se nezdařilo spustit protokol OpenPGP. Prosím, zkontrolujte "
-"nastavení systému a zkuste to znovu."
+"<qt>Chyba při pokusu spustit OpenPGP při ukládání úschovny <b>%1</b>. "
+"Prosím, opravte nastavení systému a zkuste to znovu.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:461
 #, kde-format
@@ -607,6 +606,10 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
+"<qt>Chyba během šifrování při ukládání úschovny <b>%1</b>. Kód chyby je <b>"
+"%2 (%3)</b>. Prosím, opravte nastavení systému a zkuste to znovu. K této "
+"chybě může docházet pokud nepoužíváte plně důvěryhodný klíč GPG. Prosím "
+"ujistěte se, že máte tajný klíč pro klíč, který používáte.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:478
 #, kde-format
@@ -614,6 +617,9 @@ msgid ""
 "<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>Chyba při zacházení se souborem při pokusu o uložení úschovny <b>%1</b>. "
+"Chyba byla <b>%2</b>. Prosím, opravte si nastavení systému a zkuste to znovu."
+"</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:500
 #, kde-format
@@ -622,23 +628,22 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>Chyba při pokusu spustit OpenPGP při otevírání úschovny <b>%1</b>. Kód "
+"chyby je <b>%2</b>. Prosím, opravte nastavení systému a zkuste to znovu.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:522
-#, fuzzy, kde-format
-#| msgid ""
-#| "The GpgME library failed to initialize for the OpenPGP protocol. Please "
-#| "check your system's configuration then try again."
+#, kde-format
 msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to open the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
-"Knihovně GpgME se nezdařilo spustit protokol OpenPGP. Prosím, zkontrolujte "
-"nastavení systému a zkuste to znovu."
+"<qt>Chyba při pokusu spustit OpenPGP při otevírání úschovny <b>%1</b>. "
+"Prosím, opravte nastavení systému a zkuste to znovu.</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:535
 #, kde-format
 msgid "Retry"
-msgstr ""
+msgstr "Zkusit znovu"
 
 #: kwalletbackend/backendpersisthandler.cpp:540
 #, kde-format
@@ -647,11 +652,14 @@ msgid ""
 "you're using a SmartCard, please ensure it's inserted then try again."
 "<br><br>GPG error was <b>%2</b></qt>"
 msgstr ""
+"<qt>Chyba při pokusu o dešifrování úschovny <b>%1</b> pomocí GPG. Pokud "
+"používáte SmartCard, ujistěte se prosím, že je zasunuta a zkuste to znova."
+"<br><br>Chyba GPG byla <b>%2</b></qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:544
 #, kde-format
 msgid "kwalletd GPG backend"
-msgstr ""
+msgstr "Podpůrná vrstva GPG kwalletd"
 
 #: kwalletbackend/backendpersisthandler.cpp:590
 #, kde-format
@@ -660,51 +668,54 @@ msgid ""
 "encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
 "system.</qt>"
 msgstr ""
+"<qt>Chyba při pokusu o otevření úschovny <b>%1</b>. Tato byla zašifrována "
+"pomocí GPG klíče s ID <b>%2</b> ale tento klíč ve vašem systému nebyl "
+"nalezen.</qt>"
 
 #: kwalletbackend/kwalletbackend.cc:272
 #, kde-format
 msgid "Already open."
-msgstr ""
+msgstr "Již otevřen."
 
 #: kwalletbackend/kwalletbackend.cc:274
 #, kde-format
 msgid "Error opening file."
-msgstr ""
+msgstr "Chyba při otevírání souboru."
 
 #: kwalletbackend/kwalletbackend.cc:276
 #, kde-format
 msgid "Not a wallet file."
-msgstr ""
+msgstr "Toto není soubor úschovny."
 
 #: kwalletbackend/kwalletbackend.cc:278
 #, kde-format
 msgid "Unsupported file format revision."
-msgstr ""
+msgstr "Nepodporovaná revize formátu souborů."
 
 #: kwalletbackend/kwalletbackend.cc:282
 #, kde-format
 msgid "Unknown encryption scheme."
-msgstr ""
+msgstr "Neznámé šifrovací schéma."
 
 #: kwalletbackend/kwalletbackend.cc:284
 #, kde-format
 msgid "Corrupt file?"
-msgstr ""
+msgstr "Poškozený soubor?"
 
 #: kwalletbackend/kwalletbackend.cc:286
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr ""
+msgstr "Chyba při kontrole neporušenosti úschovny; pravděpodobně je poškozená."
 
 #: kwalletbackend/kwalletbackend.cc:290
 #, kde-format
 msgid "Read error - possibly incorrect password."
-msgstr ""
+msgstr "Chyba ve čtení - pravděpodobně chybné heslo."
 
 #: kwalletbackend/kwalletbackend.cc:292
 #, kde-format
 msgid "Decryption error."
-msgstr ""
+msgstr "Chyba v dešifrování."
 
 #: kwalletbackend/kwalletbackend.cc:472
 #, kde-format
@@ -713,6 +724,10 @@ msgid ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
 msgstr ""
+"Selhala synchronizace úschovny <b>%1</b> na disk. Kód chyby:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Prosím, nahlaste chybu obsahující tuto informaci na bugs.kde."
+"org"
 
 #: kwalletd/kwalletd.cpp:119
 #, kde-format
@@ -739,12 +754,12 @@ msgstr "(c) 2002-2025, Vývojáři KDE"
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: kwalletd/secretserviceclient.cpp:241
 #, kde-format
