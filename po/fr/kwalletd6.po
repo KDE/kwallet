@@ -6,24 +6,24 @@
 # Vincent PINON <vpinon@kde.org>, 2014, 2016.
 # Maxime Corteel <mcorteel@gmail.com>, 2014, 2015.
 # Simon Depiets <sdepiets@gmail.com>, 2017.
-# SPDX-FileCopyrightText: 2021, 2023, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2021, 2023, 2024, 2025, 2026 Xavier Besnard <xavier.besnard@kde.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-18 00:41+0000\n"
-"PO-Revision-Date: 2025-04-17 08:56+0200\n"
+"PO-Revision-Date: 2026-02-21 17:10+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: French <French <kde-francophone@kde.org>>\n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
-"X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
+"X-Environment: kde\n"
+"X-Generator: Lokalize 25.12.2\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -789,6 +789,8 @@ msgstr ""
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr ""
+"Migration du portefeuille « %1 ». Veuillez fournir le mot de passe pour le "
+"déverrouiller."
 
 #: kwalletd/main.cpp:32
 #, kde-format
@@ -799,81 +801,78 @@ msgstr "kwalletd"
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
 msgstr ""
+"Un service de compatibilité avec KWallet, reposant sur le Service des secrets"
 
 #: kwalletd/main.cpp:36
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2025, The KDE Developers"
+#, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr "(c) 2002 - 2025, l'équipe de développement de KDE"
+msgstr "(C) 2025, l'équipe de développement de KDE"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 #: kwalletd/secretserviceclient.cpp:241
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "Élément non trouvé"
 
 #: kwalletd/secretserviceclient.cpp:261
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "Impossible de se connecter au service des secrets"
 
 #: kwalletd/secretserviceclient.cpp:423
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "Impossible de déverrouiller collectionName %1"
 
 #: kwalletd/secretserviceclient.cpp:515
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "Aucune collection"
 
 #: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
 #: kwalletd/secretserviceclient.cpp:702
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "Aucune entrée"
 
 #: kwalletd/secretserviceclient.cpp:617
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "Entrée non trouvée, clé : %1, dossier : %2"
 
 #: kwalletd/secretserviceclient.cpp:726
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "Impossible de déverrouiller l'élément"
 
 #: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "Impossible de trouver l'entrée à renommer"
 
 #: kwalletd/secretserviceclient.cpp:776
-#, fuzzy, kde-format
-#| msgid "* SKIPPING entry %1 in folder %2 as it seems already migrated"
+#, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr ""
-"* Entrée %1 du dossier %2 PASSÉE car sa migration semble déjà avoir été "
-"effectuée"
+msgstr "Entrée nommée %1 du dossier %2 . Le portefeuille %3 existe déjà."
 
 #: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "Entrée à renommer incomplète"
 
 #: kwalletd/secretserviceclient.cpp:851
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
+msgstr "Impossible de créer la valeur secrète"
 
 #~ msgid "Cannot read old wallet list. Aborting."
 #~ msgstr "Impossible de lire l'ancienne liste de portefeuilles. Annulation."
