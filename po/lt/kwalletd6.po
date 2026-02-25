@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-18 00:41+0000\n"
-"PO-Revision-Date: 2025-04-28 01:30+0300\n"
+"PO-Revision-Date: 2026-02-24 23:56+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -558,7 +558,7 @@ msgstr "Kokios šifravimo rūšies norėtumėte?"
 #: ksecretd/main.cpp:164
 #, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr "(C) 2002–2025, KDE programuotojai"
+msgstr "(C) 2002–2025, KDE plėtotojai"
 
 #: ksecretd/main.cpp:165
 #, kde-format
@@ -758,7 +758,7 @@ msgstr ""
 #: kwalletd/kwalletd.cpp:119
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
-msgstr ""
+msgstr "Perkeliama slaptažodinė „%1“. Pateikite slaptažodį norėdami atrakinti."
 
 #: kwalletd/main.cpp:32
 #, kde-format
@@ -768,79 +768,79 @@ msgstr "kwalletd"
 #: kwalletd/main.cpp:34
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
-msgstr ""
+msgstr "KWallet suderinamumo tarnyba, apgaubta slaptąja tarnyba"
 
 #: kwalletd/main.cpp:36
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2025, The KDE Developers"
+#, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr "(C) 2002–2025, KDE programuotojai"
+msgstr "(C) 2025, KDE plėtotojai"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Autorius"
 
 #: kwalletd/secretserviceclient.cpp:241
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "Elementas nerastas"
 
 #: kwalletd/secretserviceclient.cpp:261
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "Nepavyko prisijungti prie slaptos tarnybos"
 
 #: kwalletd/secretserviceclient.cpp:423
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "Nepavyko atrakinti collectionName %1"
 
 #: kwalletd/secretserviceclient.cpp:515
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "Nėra rinkinių"
 
 #: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
 #: kwalletd/secretserviceclient.cpp:702
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "Nėra įrašų"
 
 #: kwalletd/secretserviceclient.cpp:617
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "Įrašas nerastas, raktas: %1, aplankas: %2"
 
 #: kwalletd/secretserviceclient.cpp:726
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "Nepavyko užrakinti elemento"
 
 #: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "Nerastas įrašas, kurį pervadinti"
 
 #: kwalletd/secretserviceclient.cpp:776
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr ""
+"Įrašas, pavadinimu „%1“, esantis aplanke %2 ir slaptažodinėje %3, jau yra."
 
 #: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "Neužbaigtas įrašas, kurį pervadinti"
 
 #: kwalletd/secretserviceclient.cpp:851
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
+msgstr "Nepavyko sukurti SecretValue"
 
 #, fuzzy
 #~| msgid "KDE Wallet Service"
