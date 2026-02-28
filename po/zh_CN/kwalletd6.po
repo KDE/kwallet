@@ -552,6 +552,8 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>尝试保存密码库 <b>%1</b> 时初始化 OpenPGP 出错。错误代码为 <b>%2</b>。请"
+"修复您的系统配置，然后重试。</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:407
 #, kde-format
@@ -559,6 +561,8 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to save the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>尝试保存密码库 <b>%1</b> 时初始化 OpenPGP 出错。请修复您的系统配置，然后"
+"重试。</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:461
 #, kde-format
@@ -568,6 +572,9 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
+"<qt>尝试保存密码库 <b>%1</b> 时加密出错。错误代码为 <b>%2 (%3)</b>。请修复您"
+"的系统配置，然后重试。这个错误可能是因为您并未使用完全信任的 GPG 密钥。请确保"
+"您持有要使用的密钥的私钥。</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:478
 #, kde-format
@@ -575,6 +582,8 @@ msgid ""
 "<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
 "was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>尝试保存密码库 <b>%1</b> 时文件处理出错。错误为 <b>%2</b>。请修复您的系统"
+"配置，然后重试。</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:500
 #, kde-format
@@ -583,6 +592,8 @@ msgid ""
 "wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
 "configuration, then try again.</qt>"
 msgstr ""
+"<qt>尝试打开密码库 <b>%1</b> 时初始化 OpenPGP 出错。错误代码为 <b>%2</b>。请"
+"修复您的系统配置，然后重试。</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:522
 #, kde-format
@@ -590,11 +601,13 @@ msgid ""
 "<qt>Error when attempting to initialize OpenPGP while attempting to open the "
 "wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
 msgstr ""
+"<qt>尝试打开密码库 <b>%1</b> 时初始化 OpenPGP 出错。请修复您的系统配置，然后"
+"重试。</qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:535
 #, kde-format
 msgid "Retry"
-msgstr ""
+msgstr "重试"
 
 #: kwalletbackend/backendpersisthandler.cpp:540
 #, kde-format
@@ -603,11 +616,13 @@ msgid ""
 "you're using a SmartCard, please ensure it's inserted then try again."
 "<br><br>GPG error was <b>%2</b></qt>"
 msgstr ""
+"<qt>尝试使用 GPG 解密密码库 <b>%1</b> 时出错。如果您使用的是智能卡，请确保您"
+"已经插入了智能卡，然后重试。<br><br>GPG 错误为 <b>%2</b></qt>"
 
 #: kwalletbackend/backendpersisthandler.cpp:544
 #, kde-format
 msgid "kwalletd GPG backend"
-msgstr ""
+msgstr "kwalletd GPG 后端程序"
 
 #: kwalletbackend/backendpersisthandler.cpp:590
 #, kde-format
@@ -616,51 +631,53 @@ msgid ""
 "encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
 "system.</qt>"
 msgstr ""
+"<qt>尝试打开密码库 <b>%1</b> 时出错。此密码库使用 GPG 密钥 ID <b>%2</b> 进行"
+"加密，但在您的系统中无法找到该密钥。</qt>"
 
 #: kwalletbackend/kwalletbackend.cc:272
 #, kde-format
 msgid "Already open."
-msgstr ""
+msgstr "已经打开。"
 
 #: kwalletbackend/kwalletbackend.cc:274
 #, kde-format
 msgid "Error opening file."
-msgstr ""
+msgstr "打开文件时出错。"
 
 #: kwalletbackend/kwalletbackend.cc:276
 #, kde-format
 msgid "Not a wallet file."
-msgstr ""
+msgstr "这不是一个密码库文件。"
 
 #: kwalletbackend/kwalletbackend.cc:278
 #, kde-format
 msgid "Unsupported file format revision."
-msgstr ""
+msgstr "不支持的文件格式版本。"
 
 #: kwalletbackend/kwalletbackend.cc:282
 #, kde-format
 msgid "Unknown encryption scheme."
-msgstr ""
+msgstr "未知的加密方式。"
 
 #: kwalletbackend/kwalletbackend.cc:284
 #, kde-format
 msgid "Corrupt file?"
-msgstr ""
+msgstr "文件可能已经损坏。"
 
 #: kwalletbackend/kwalletbackend.cc:286
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
-msgstr ""
+msgstr "校验密码库完整性时出错。文件可能已损坏。"
 
 #: kwalletbackend/kwalletbackend.cc:290
 #, kde-format
 msgid "Read error - possibly incorrect password."
-msgstr ""
+msgstr "读取错误 - 密码可能不正确。"
 
 #: kwalletbackend/kwalletbackend.cc:292
 #, kde-format
 msgid "Decryption error."
-msgstr ""
+msgstr "解密错误。"
 
 #: kwalletbackend/kwalletbackend.cc:472
 #, kde-format
@@ -669,89 +686,92 @@ msgid ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
 msgstr ""
+"无法将密码库 <b>%1</b> 同步到磁盘。错误代码为：\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>。请将此信息作为程序缺陷报告提交到 bugs.kde.org 网站"
 
 #: kwalletd/kwalletd.cpp:119
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
-msgstr ""
+msgstr "正在迁移密码库“%1”请提供密码以解锁。"
 
 #: kwalletd/main.cpp:32
 #, kde-format
 msgid "kwalletd"
-msgstr ""
+msgstr "kwalletd"
 
 #: kwalletd/main.cpp:34
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
-msgstr ""
+msgstr "一个基于 Secret 服务的 KWallet 兼容服务"
 
 #: kwalletd/main.cpp:36
 #, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr ""
+msgstr "(C) 2025, The KDE Developers"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "作者"
 
 #: kwalletd/secretserviceclient.cpp:241
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "未找到项目"
 
 #: kwalletd/secretserviceclient.cpp:261
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "无法连接到 Secret 服务"
 
 #: kwalletd/secretserviceclient.cpp:423
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "无法解锁集合名称 %1"
 
 #: kwalletd/secretserviceclient.cpp:515
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "没有集合"
 
 #: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
 #: kwalletd/secretserviceclient.cpp:702
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "没有条目"
 
 #: kwalletd/secretserviceclient.cpp:617
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "找不到条目，密钥：%1，文件夹：%2"
 
 #: kwalletd/secretserviceclient.cpp:726
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "无法解锁项目"
 
 #: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "找不到要重命名的条目"
 
 #: kwalletd/secretserviceclient.cpp:776
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr ""
+msgstr "名为 %1 的条目在文件夹 %2 和密码库 %3 中已存在。"
 
 #: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "要重命名的条目不完整"
 
 #: kwalletd/secretserviceclient.cpp:851
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
+msgstr "创建 SecretValue 失败"
