@@ -56,6 +56,13 @@ QString mangleInvalidObjectPathChars(const QString &str)
 
     return mangled;
 }
+
+QCA::SymmetricKey deriveSymmetricKeyFromDhSecret(const QCA::SecureArray &commonSecret)
+{
+    auto paddedSecret = KWalletFreedesktopSessionAlgorithmDhAes::normalizeUnsignedDhValue(commonSecret.toByteArray());
+
+    return QCA::HKDF().makeKey(QCA::SecureArray(paddedSecret), {}, {}, FDO_SECRETS_CIPHER_KEY_SIZE);
+}
 }
 
 #define LABEL_NUMBER_PREFIX "__"
@@ -416,11 +423,6 @@ std::unique_ptr<KWalletFreedesktopSessionAlgorithm> KWalletFreedesktopService::c
 
 std::unique_ptr<KWalletFreedesktopSessionAlgorithm> KWalletFreedesktopService::createSessionAlgorithmDhAes(const QByteArray &clientKey) const
 {
-    if (clientKey.size() < FDO_DH_PUBLIC_KEY_SIZE) {
-        sendErrorReply(QDBusError::ErrorType::InvalidArgs, QStringLiteral("Client public key size is invalid"));
-        return nullptr;
-    }
-
     QCA::KeyGenerator keygen;
     const auto dlGroup = QCA::DLGroup(keygen.createDLGroup(QCA::IETF_1024));
     if (dlGroup.isNull()) {
@@ -430,9 +432,9 @@ std::unique_ptr<KWalletFreedesktopSessionAlgorithm> KWalletFreedesktopService::c
 
     auto privateKey = QCA::PrivateKey(keygen.createDH(dlGroup));
     const auto publicKey = QCA::PublicKey(privateKey);
-    const auto clientPublicKey = QCA::DHPublicKey(dlGroup, QCA::BigInteger(QCA::SecureArray(clientKey)));
+    const auto clientPublicKey = QCA::DHPublicKey(dlGroup, KWalletFreedesktopSessionAlgorithmDhAes::decodeUnsignedDhValue(clientKey));
     const auto commonSecret = privateKey.deriveKey(clientPublicKey);
-    const auto symmetricKey = QCA::HKDF().makeKey(commonSecret, {}, {}, FDO_SECRETS_CIPHER_KEY_SIZE);
+    const auto symmetricKey = deriveSymmetricKeyFromDhSecret(commonSecret);
 
     return std::make_unique<KWalletFreedesktopSessionAlgorithmDhAes>(publicKey, symmetricKey);
 }

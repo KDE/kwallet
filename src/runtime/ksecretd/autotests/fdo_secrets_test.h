@@ -21,12 +21,16 @@ private Q_SLOTS:
 
     void serviceStaticFunctions();
     void collectionStaticFunctions();
+    void sessionAlgorithmStaticFunctions();
 
     void precreatedWallets();
     void aliases();
     void createLockUnlockCollection();
     void items();
     void session();
+    void sessionWithShortDhSecret();
+    void sessionWithShortClientPublicKey();
+    void sessionWithMsbSetClientPublicKey();
     void attributes();
     void walletNameEncodeDecode();
 };

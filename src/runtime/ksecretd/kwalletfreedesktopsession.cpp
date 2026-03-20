@@ -9,6 +9,28 @@
 #include "kwalletfreedesktopsessionadaptor.h"
 #include <QDBusConnection>
 
+QByteArray KWalletFreedesktopSessionAlgorithmDhAes::normalizeUnsignedDhValue(QByteArray value)
+{
+    // Secret Service uses unsigned 1024-bit DH public keys on the wire. Normalize to exactly 128 bytes to match.
+    if (value.size() < FDO_DH_PUBLIC_KEY_SIZE) {
+        return value.prepend(FDO_DH_PUBLIC_KEY_SIZE - value.size(), '\0');
+    }
+    if (value.size() > FDO_DH_PUBLIC_KEY_SIZE) {
+        // Keep the 128 least-significant bytes.
+        return value.last(FDO_DH_PUBLIC_KEY_SIZE);
+    }
+    return value;
+}
+
+QCA::BigInteger KWalletFreedesktopSessionAlgorithmDhAes::decodeUnsignedDhValue(const QByteArray &value)
+{
+    auto normalized = normalizeUnsignedDhValue(value);
+    if (!normalized.isEmpty() && (static_cast<unsigned char>(normalized.front()) & 0x80U)) {
+        normalized.prepend('\0');
+    }
+    return QCA::BigInteger(QCA::SecureArray(normalized));
+}
+
 KWalletFreedesktopSession::KWalletFreedesktopSession(KWalletFreedesktopService *service,
                                                      std::unique_ptr<KWalletFreedesktopSessionAlgorithm> algorithm,
                                                      QString sessionPath,
@@ -104,7 +126,7 @@ KWalletFreedesktopSessionAlgorithmDhAes::KWalletFreedesktopSessionAlgorithmDhAes
 
 QByteArray KWalletFreedesktopSessionAlgorithmDhAes::negotiationOutput() const
 {
-    return m_publicKey.toDH().y().toArray().toByteArray();
+    return normalizeUnsignedDhValue(m_publicKey.toDH().y().toArray().toByteArray());
 }
 
 bool KWalletFreedesktopSessionAlgorithmDhAes::encrypt(FreedesktopSecret &secret) const

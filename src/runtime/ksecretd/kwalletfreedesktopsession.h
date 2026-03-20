@@ -76,6 +76,9 @@ class KWalletFreedesktopSessionAlgorithmDhAes : public KWalletFreedesktopSession
 public:
     KWalletFreedesktopSessionAlgorithmDhAes(const QCA::PublicKey &publicKey, QCA::SymmetricKey symmetricKey);
 
+    static QByteArray normalizeUnsignedDhValue(QByteArray value);
+    static QCA::BigInteger decodeUnsignedDhValue(const QByteArray &value);
+
     QByteArray negotiationOutput() const override;
     bool encrypt(FreedesktopSecret &secret) const override;
     bool decrypt(FreedesktopSecret &secret) const override;

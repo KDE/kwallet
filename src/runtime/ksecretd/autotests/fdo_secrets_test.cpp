@@ -5,6 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "fdo_secrets_test.h"
+#include "../kwalletfreedesktopsession.h"
 #include "mockkwalletd.cpp"
 // cannot be in mockkwalletd.cpp, as CMake's automoc does not look there
 #include "moc_ksecretd.cpp"
@@ -128,44 +129,101 @@ void FdoSecretsTest::aliases()
 struct SetupSessionT {
     QDBusObjectPath sessionPath;
     QCA::SymmetricKey symmetricKey;
+    int commonSecretSize = 0;
     QByteArray error;
 };
 
 #define SETUP_SESSION_VERIFY(cond)                                                                                                                             \
     do {                                                                                                                                                       \
         if (!(cond))                                                                                                                                           \
-            return SetupSessionT{QDBusObjectPath(), QCA::SymmetricKey(), #cond};                                                                               \
+            return SetupSessionT{QDBusObjectPath(), QCA::SymmetricKey(), 0, #cond};                                                                            \
     } while (false)
 
-SetupSessionT setupSession(KWalletFreedesktopService *service)
+static QCA::SymmetricKey deriveLibsecretStyleSymmetricKey(const QCA::SecureArray &commonSecret)
 {
-    SetupSessionT result;
+    auto paddedSecret = commonSecret.toByteArray();
+    if (paddedSecret.size() < FDO_DH_PUBLIC_KEY_SIZE) {
+        paddedSecret.prepend(FDO_DH_PUBLIC_KEY_SIZE - paddedSecret.size(), '\0');
+    }
+
+    return QCA::HKDF().makeKey(QCA::SecureArray(paddedSecret), {}, {}, FDO_SECRETS_CIPHER_KEY_SIZE);
+}
+
+SetupSessionT setupSession(KWalletFreedesktopService *service, bool requireShortDhSecret = false, bool requireMsbSetClientPublicKey = false)
+{
     QCA::KeyGenerator keygen;
     auto dlGroup = QCA::DLGroup(keygen.createDLGroup(QCA::IETF_1024));
     if (dlGroup.isNull()) {
-        result.error = "createDLGroup failed, maybe libqca-ossl is missing";
+        return SetupSessionT{QDBusObjectPath(), QCA::SymmetricKey(), 0, "createDLGroup failed, maybe libqca-ossl is missing"};
+    }
+
+    for (int attempt = 0; attempt < 4096; ++attempt) {
+        SetupSessionT result;
+        auto privateKey = QCA::PrivateKey(keygen.createDH(dlGroup));
+        auto publicKey = QCA::PublicKey(privateKey);
+
+        auto pubKeyBytes = KWalletFreedesktopSessionAlgorithmDhAes::normalizeUnsignedDhValue(publicKey.toDH().y().toArray().toByteArray());
+        if (requireMsbSetClientPublicKey && (static_cast<unsigned char>(pubKeyBytes.front()) & 0x80U) == 0) {
+            continue;
+        }
+        auto sessionPubKeyVariant = service->OpenSession("dh-ietf1024-sha256-aes128-cbc-pkcs7", QDBusVariant(pubKeyBytes), result.sessionPath);
+        SETUP_SESSION_VERIFY(result.sessionPath.path() != "/");
+        SETUP_SESSION_VERIFY(sessionPubKeyVariant.variant().canConvert<QByteArray>());
+
+        auto servicePublicKeyBytes = sessionPubKeyVariant.variant().toByteArray();
+        SETUP_SESSION_VERIFY(!servicePublicKeyBytes.isEmpty());
+
+        auto servicePublicKey = QCA::DHPublicKey(dlGroup, KWalletFreedesktopSessionAlgorithmDhAes::decodeUnsignedDhValue(servicePublicKeyBytes));
+        auto commonSecret = privateKey.deriveKey(servicePublicKey);
+        result.commonSecretSize = commonSecret.size();
+        if (requireShortDhSecret && result.commonSecretSize >= FDO_DH_PUBLIC_KEY_SIZE) {
+            continue;
+        }
+
+        result.symmetricKey = deriveLibsecretStyleSymmetricKey(commonSecret);
         return result;
     }
 
-    auto privateKey = QCA::PrivateKey(keygen.createDH(dlGroup));
-    auto publicKey = QCA::PublicKey(privateKey);
+    return SetupSessionT{QDBusObjectPath(), QCA::SymmetricKey(), 0, "failed to produce a short DH secret"};
+}
 
-    auto connection = QDBusConnection::sessionBus();
-    auto message = QDBusMessage::createSignal("dummy", "dummy", "dummy");
+void FdoSecretsTest::sessionAlgorithmStaticFunctions()
+{
+    const QByteArray shortValue(127, '\x5a');
+    const QByteArray fullValue(FDO_DH_PUBLIC_KEY_SIZE, '\x7f');
+    const QByteArray highBitValue(FDO_DH_PUBLIC_KEY_SIZE, static_cast<char>(0x80));
+    const QByteArray signExtendedHighBitValue = QByteArray(1, '\0') + highBitValue;
 
-    auto pubKeyBytes = publicKey.toDH().y().toArray().toByteArray();
-    auto sessionPubKeyVariant = service->OpenSession("dh-ietf1024-sha256-aes128-cbc-pkcs7", QDBusVariant(pubKeyBytes), result.sessionPath);
-    SETUP_SESSION_VERIFY(result.sessionPath.path() != "/");
-    SETUP_SESSION_VERIFY(sessionPubKeyVariant.variant().canConvert<QByteArray>());
+    auto normalizedShort = KWalletFreedesktopSessionAlgorithmDhAes::normalizeUnsignedDhValue(shortValue);
+    QCOMPARE(normalizedShort.size(), FDO_DH_PUBLIC_KEY_SIZE);
+    QCOMPARE(normalizedShort.front(), '\0');
+    QCOMPARE(normalizedShort.mid(1), shortValue);
 
-    auto servicePublicKeyBytes = sessionPubKeyVariant.variant().toByteArray();
-    SETUP_SESSION_VERIFY(!servicePublicKeyBytes.isEmpty());
+    QCOMPARE(KWalletFreedesktopSessionAlgorithmDhAes::normalizeUnsignedDhValue(fullValue), fullValue);
+    QCOMPARE(KWalletFreedesktopSessionAlgorithmDhAes::normalizeUnsignedDhValue(signExtendedHighBitValue), highBitValue);
 
-    auto servicePublicKey = QCA::DHPublicKey(dlGroup, QCA::BigInteger(QCA::SecureArray(servicePublicKeyBytes)));
-    auto commonSecret = privateKey.deriveKey(servicePublicKey);
-    result.symmetricKey = QCA::HKDF().makeKey(commonSecret, {}, {}, FDO_SECRETS_CIPHER_KEY_SIZE);
+    auto decodedHighBit = KWalletFreedesktopSessionAlgorithmDhAes::decodeUnsignedDhValue(highBitValue);
+    QCOMPARE(KWalletFreedesktopSessionAlgorithmDhAes::normalizeUnsignedDhValue(decodedHighBit.toArray().toByteArray()), highBitValue);
+}
 
-    return result;
+static QByteArray makeShortDhPublicKey()
+{
+    QCA::KeyGenerator keygen;
+    auto dlGroup = QCA::DLGroup(keygen.createDLGroup(QCA::IETF_1024));
+    if (dlGroup.isNull()) {
+        return {};
+    }
+
+    for (int attempt = 0; attempt < 4096; ++attempt) {
+        auto privateKey = QCA::PrivateKey(keygen.createDH(dlGroup));
+        auto publicKey = QCA::PublicKey(privateKey);
+        auto publicKeyBytes = publicKey.toDH().y().toArray().toByteArray();
+        if (publicKeyBytes.size() < FDO_DH_PUBLIC_KEY_SIZE) {
+            return publicKeyBytes;
+        }
+    }
+
+    return {};
 }
 
 void FdoSecretsTest::items()
@@ -303,8 +361,9 @@ void FdoSecretsTest::items()
     QVERIFY(item1 && item2 && item3);
 
     auto message = QDBusMessage::createSignal("dummy", "dummy", "dummy");
-    auto [sessionPath, symmetricKey, errorStr] = setupSession(service.get());
+    auto [sessionPath, symmetricKey, commonSecretSize, errorStr] = setupSession(service.get());
     QVERIFY2(errorStr.isEmpty(), errorStr.constData());
+    Q_UNUSED(commonSecretSize);
 
     /* Check secrets */
     auto secret1 = item1->GetSecret(sessionPath);
@@ -439,7 +498,9 @@ void FdoSecretsTest::session()
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
 
     auto message = QDBusMessage::createSignal("dummy", "dummy", "dummy");
-    auto [sessionPath, symmetricKey, errorStr] = setupSession(service.get());
+    auto [sessionPath, symmetricKey, commonSecretSize, errorStr] = setupSession(service.get());
+    QVERIFY2(errorStr.isEmpty(), errorStr.constData());
+    Q_UNUSED(commonSecretSize);
 
     /* Generate secret */
     auto secret = FreedesktopSecret(sessionPath, QByteArray("It's a secret"), "text/plain");
@@ -456,6 +517,66 @@ void FdoSecretsTest::session()
     /* Try to decrypt by session */
     QVERIFY(service->desecret(message, secret));
     QCOMPARE(secret.value.toByteArray(), QByteArray("It's a secret"));
+}
+
+void FdoSecretsTest::sessionWithShortDhSecret()
+{
+    std::unique_ptr<KSecretD> kwalletd{new KSecretD};
+    std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
+
+    auto message = QDBusMessage::createSignal("dummy", "dummy", "dummy");
+    auto [sessionPath, symmetricKey, commonSecretSize, errorStr] = setupSession(service.get(), true);
+    QVERIFY2(errorStr.isEmpty(), errorStr.constData());
+    QVERIFY(commonSecretSize < FDO_DH_PUBLIC_KEY_SIZE);
+
+    auto secret = FreedesktopSecret(sessionPath, QByteArray("It's a secret"), "text/plain");
+    QVERIFY(service->ensecret(message, secret));
+
+    auto cipher = QCA::Cipher("aes128", QCA::Cipher::CBC, QCA::Cipher::PKCS7, QCA::Decode, symmetricKey, secret.parameters);
+    QCA::SecureArray result;
+    result.append(cipher.update(QCA::MemoryRegion(secret.value.toByteArray())));
+    result.append(cipher.final());
+
+    QVERIFY(cipher.ok());
+    QCOMPARE(QString::fromUtf8(result.toByteArray()), "It's a secret");
+}
+
+void FdoSecretsTest::sessionWithShortClientPublicKey()
+{
+    std::unique_ptr<KSecretD> kwalletd{new KSecretD};
+    std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
+
+    auto publicKeyBytes = makeShortDhPublicKey();
+    QVERIFY2(!publicKeyBytes.isEmpty(), "failed to generate a short DH public key");
+    QVERIFY(publicKeyBytes.size() < FDO_DH_PUBLIC_KEY_SIZE);
+
+    QDBusObjectPath sessionPath;
+    auto sessionPubKeyVariant = service->OpenSession("dh-ietf1024-sha256-aes128-cbc-pkcs7", QDBusVariant(publicKeyBytes), sessionPath);
+    QVERIFY(sessionPath.path() != "/");
+    QVERIFY(sessionPubKeyVariant.variant().canConvert<QByteArray>());
+    QVERIFY(!sessionPubKeyVariant.variant().toByteArray().isEmpty());
+}
+
+void FdoSecretsTest::sessionWithMsbSetClientPublicKey()
+{
+    std::unique_ptr<KSecretD> kwalletd{new KSecretD};
+    std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
+
+    auto message = QDBusMessage::createSignal("dummy", "dummy", "dummy");
+    auto [sessionPath, symmetricKey, commonSecretSize, errorStr] = setupSession(service.get(), false, true);
+    QVERIFY2(errorStr.isEmpty(), errorStr.constData());
+    QVERIFY(commonSecretSize > 0);
+
+    auto secret = FreedesktopSecret(sessionPath, QByteArray("It's a secret"), "text/plain");
+    QVERIFY(service->ensecret(message, secret));
+
+    auto cipher = QCA::Cipher("aes128", QCA::Cipher::CBC, QCA::Cipher::PKCS7, QCA::Decode, symmetricKey, secret.parameters);
+    QCA::SecureArray result;
+    result.append(cipher.update(QCA::MemoryRegion(secret.value.toByteArray())));
+    result.append(cipher.final());
+
+    QVERIFY(cipher.ok());
+    QCOMPARE(QString::fromUtf8(result.toByteArray()), "It's a secret");
 }
 
 void FdoSecretsTest::attributes()
