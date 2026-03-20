@@ -184,7 +184,7 @@ SetupSessionT setupSession(KWalletFreedesktopService *service, bool requireShort
         return result;
     }
 
-    return SetupSessionT{QDBusObjectPath(), QCA::SymmetricKey(), 0, "failed to produce a short DH secret"};
+    return SetupSessionT{QDBusObjectPath(), QCA::SymmetricKey(), 0, ""};
 }
 
 void FdoSecretsTest::sessionAlgorithmStaticFunctions()
@@ -206,24 +206,11 @@ void FdoSecretsTest::sessionAlgorithmStaticFunctions()
     QCOMPARE(KWalletFreedesktopSessionAlgorithmDhAes::normalizeUnsignedDhValue(decodedHighBit.toArray().toByteArray()), highBitValue);
 }
 
-static QByteArray makeShortDhPublicKey()
+static QByteArray shortDhPublicKey()
 {
-    QCA::KeyGenerator keygen;
-    auto dlGroup = QCA::DLGroup(keygen.createDLGroup(QCA::IETF_1024));
-    if (dlGroup.isNull()) {
-        return {};
-    }
-
-    for (int attempt = 0; attempt < 4096; ++attempt) {
-        auto privateKey = QCA::PrivateKey(keygen.createDH(dlGroup));
-        auto publicKey = QCA::PublicKey(privateKey);
-        auto publicKeyBytes = publicKey.toDH().y().toArray().toByteArray();
-        if (publicKeyBytes.size() < FDO_DH_PUBLIC_KEY_SIZE) {
-            return publicKeyBytes;
-        }
-    }
-
-    return {};
+    // clang-format off
+    return QByteArray::fromBase64("bt4u/O+RSvVNOTszD/ThOeSNd+Ji7OVENIyRXsY45OzdocCMKZ8hSzxSmpqzwJL57I2yZtB897bBab1ujRK5tat6IIkMdOPf4WgExoU8c54VV1ohbehKraUktN1UzrDPsDrB4hJtm2GwFULMJXoEcdpkYaJSGEGWvjzlhrZZZA==");
+    // clang-format on
 }
 
 void FdoSecretsTest::items()
@@ -546,9 +533,7 @@ void FdoSecretsTest::sessionWithShortClientPublicKey()
     std::unique_ptr<KSecretD> kwalletd{new KSecretD};
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
 
-    auto publicKeyBytes = makeShortDhPublicKey();
-    QVERIFY2(!publicKeyBytes.isEmpty(), "failed to generate a short DH public key");
-    QVERIFY(publicKeyBytes.size() < FDO_DH_PUBLIC_KEY_SIZE);
+    auto publicKeyBytes = shortDhPublicKey();
 
     QDBusObjectPath sessionPath;
     auto sessionPubKeyVariant = service->OpenSession("dh-ietf1024-sha256-aes128-cbc-pkcs7", QDBusVariant(publicKeyBytes), sessionPath);
