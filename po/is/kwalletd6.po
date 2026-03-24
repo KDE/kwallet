@@ -2,14 +2,14 @@
 # Copyright (C) 2009 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2009, 2016, 2022, 2023, 2024, 2025 Sveinn í Felli <sveinki@nett.is>
+# SPDX-FileCopyrightText: 2009, 2016, 2022, 2023, 2024, 2025, 2026 Sveinn í Felli <sveinki@nett.is>
 # SPDX-FileCopyrightText: 2024 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-18 00:41+0000\n"
-"PO-Revision-Date: 2025-10-08 09:25+0000\n"
+"PO-Revision-Date: 2026-03-23 11:50+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -741,90 +741,88 @@ msgstr ""
 #: kwalletd/kwalletd.cpp:119
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
-msgstr ""
+msgstr "Færi yfir veskið \"%1\". Settu inn lykilorð til að aflæsa."
 
 #: kwalletd/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "KWallet"
+#, kde-format
 msgid "kwalletd"
-msgstr "KWallet"
+msgstr "kwalletd"
 
 #: kwalletd/main.cpp:34
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
-msgstr ""
+msgstr "KWallet-samhæfniþjónusta, pökkuð utan um Secret Service"
 
 #: kwalletd/main.cpp:36
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2025, The KDE Developers"
+#, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr "(C) -2002-2025, KDE-þróunarteymið"
+msgstr "(C) 2025, KDE-þróunarteymið"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Höfundur"
 
 #: kwalletd/secretserviceclient.cpp:241
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "Atriði fannst ekki"
 
 #: kwalletd/secretserviceclient.cpp:261
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "Gat ekki tengst við Secret Service"
 
 #: kwalletd/secretserviceclient.cpp:423
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "Tókst ekki að aflæsa collectionName %1"
 
 #: kwalletd/secretserviceclient.cpp:515
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "Engin söfn"
 
 #: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
 #: kwalletd/secretserviceclient.cpp:702
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "Engar færslur"
 
 #: kwalletd/secretserviceclient.cpp:617
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "Færsla fannst ekki, lykill: %1, mappa: %2"
 
 #: kwalletd/secretserviceclient.cpp:726
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "Tókst ekki að aflæsa atriði"
 
 #: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "Færsla til að endurnefna fannst ekki"
 
 #: kwalletd/secretserviceclient.cpp:776
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr ""
+msgstr "Færsla með heitinu %1 í möppunni %2 og veskinu %3 er þegar til staðar."
 
 #: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "Færsla til að endurnefna er ófullgerð"
 
 #: kwalletd/secretserviceclient.cpp:851
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
+msgstr "Mistókst að búa til SecretValue"
 
 #, fuzzy
 #~| msgid "KDE Wallet Service"
