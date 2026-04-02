@@ -47,8 +47,12 @@ set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprec
 
 find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
 
-if(BUILD_KSECRETD OR BUILD_KWALLETD)
-    find_package(KF6 ${KF_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n WindowSystem)
+if(BUILD_KSECRETD)
+    find_package(KF6 ${KF_DEP_VERSION} REQUIRED COMPONENTS WindowSystem)
+endif()
+
+if(BUILD_KSECRETD OR BUILD_KWALLETD OR BUILD_KWALLET_QUERY)
+    find_package(KF6 ${KF_DEP_VERSION} REQUIRED COMPONENTS CoreAddons I18n)
 endif()
 
 ecm_set_disabled_deprecation_versions(
