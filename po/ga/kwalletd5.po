@@ -2,20 +2,22 @@
 # Copyright (C) 2009 This_file_is_part_of_KDE
 # This file is distributed under the same license as the kwalletd package.
 # Kevin Scannell <kscanne@gmail.com>, 2009.
+# SPDX-FileCopyrightText: 2026 charlotte <altronic25@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/kwalletd.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2009-01-20 10:11-0500\n"
-"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
-"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2026-04-28 23:35+0100\n"
+"Last-Translator: charlotte <altronic25@protonmail.com>\n"
+"Language-Team: Irish\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -177,19 +179,15 @@ msgid "Deny &Forever"
 msgstr "Diúltaigh i g&Cónaí"
 
 #: knewwalletdialog.cpp:50
-#, fuzzy, kde-format
-#| msgid ""
-#| "KDE has requested to open the wallet. This is used to store sensitive "
-#| "data in a secure fashion. Please enter a password to use with this wallet "
-#| "or click cancel to deny the application's request."
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
 "to store sensitive data in a secure fashion. Please choose the new wallet's "
 "type below or click cancel to deny the application's request.</qt>"
 msgstr ""
-"Tá KDE ag iarraidh an sparán a oscailt. Úsáidtear an sparán chun sonraí "
-"íogaire a stóráil go slán. Iontráil focal faire a úsáidfear leis an sparán "
-"seo nó cliceáil Cealaigh chun iarratas an fheidhmchláir a dhiúltú."
+"<qt>Tá KDE ag iarraidh an sparán '<b>%1</b>' a chruthú. Úsáidtear an sparán "
+"chun sonraí íogaire a stóráil go slán. Roghnaigh cineál an sparáin thíos nó "
+"cliceáil Cealaigh chun iarratas an fheidhmchláir a dhiúltú.</qt>"
 
 #: knewwalletdialog.cpp:55
 #, fuzzy, kde-format
@@ -242,19 +240,19 @@ msgstr ""
 #: knewwalletdialoggpg.ui:59
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "Ainm"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:64
 #, kde-format
 msgid "E-Mail"
-msgstr ""
+msgstr "Ríomhphost"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:69
 #, kde-format
 msgid "Key-ID"
-msgstr ""
+msgstr "Aitheantas na hEochrach"
 
 #. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
 #: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
@@ -671,12 +669,12 @@ msgstr ""
 #: main.cpp:173
 #, kde-format
 msgid "(C) 2002-2013, The KDE Developers"
-msgstr ""
+msgstr "(C) 2002-2013, Forbróirí KDE"
 
 #: main.cpp:174
 #, kde-format
 msgid "Valentin Rusu"
-msgstr ""
+msgstr "Valentin Rusu"
 
 #: main.cpp:174
 #, kde-format
