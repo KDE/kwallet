@@ -1,4 +1,5 @@
 # Translation of kwalletd into Japanese.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 # This file is distributed under the same license as the kdebase package.
 # Taiki Komoda <kom@kde.gr.jp>, 2002.
 # Noriko Mizumoto <noriko@redhat.com>, 2004.
@@ -13,9 +14,9 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2010-05-08 15:59-0700\n"
-"Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
-"Language-Team: Japanese <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2026-05-10 18:32+0900\n"
+"Last-Translator: Mint <5602mint@gmail.com>\n"
+"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,16 +24,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Taiki Komoda,Noriko Mizumoto,AWASHIRO Ikuya,Shinichi Tsunoda"
+msgstr "Taiki Komoda,Noriko Mizumoto,AWASHIRO Ikuya,Shinichi Tsunoda,Mint"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kom@kde.gr.jp,noriko@redhat.com,ikuya@oooug.jp,tsuno@ngy.1st.ne.jp"
+msgstr ""
+"kom@kde.gr.jp,noriko@redhat.com,ikuya@oooug.jp,tsuno@ngy.1st.ne."
+"jp,5602mint@gmail.com"
 
 #: backend/backendpersisthandler.cpp:489
 #, kde-format
@@ -184,38 +188,29 @@ msgid "Deny &Forever"
 msgstr "永久に拒否(&F)"
 
 #: knewwalletdialog.cpp:50
-#, fuzzy, kde-format
-#| msgid ""
-#| "KDE has requested to open the wallet. This is used to store sensitive "
-#| "data in a secure fashion. Please enter a password to use with this wallet "
-#| "or click cancel to deny the application's request."
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
 "to store sensitive data in a secure fashion. Please choose the new wallet's "
 "type below or click cancel to deny the application's request.</qt>"
 msgstr ""
-"KDE がウォレットを開くよう要求しています。これは機密データを安全な方法で保存"
-"するために使用されます。このウォレットで使用するパスワードを入力するか、"
-"<interface>キャンセル</interface>をクリックしてアプリケーションの要求を拒否し"
-"てください。"
+"<qt>KDE が新しいウォレット \"<b>%1</b>\" を作成するよう要求しています。これは"
+"機密データを安全な方法で保存するために使用されます。新しいウォレットの形式を"
+"選択するか、「キャンセル」をクリックしてアプリケーションの要求を拒否してくだ"
+"さい。</qt>"
 
 #: knewwalletdialog.cpp:55
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
-#| "This is used to store sensitive data in a secure fashion. Please enter a "
-#| "password to use with this wallet or click cancel to deny the "
-#| "application's request.</qt>"
+#, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
 "'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
 "Please choose the new wallet's type below or click cancel to deny the "
 "application's request.</qt>"
 msgstr ""
-"<qt>アプリケーション <application>%1</application> が KDE ウォレットを開くよ"
-"う要求しています。これは機密データを安全な方法で保存するのに使用されます。こ"
-"のウォレットで使用するパスワードを入力するか、<interface>キャンセル</"
-"interface>をクリックしてアプリケーションの要求を拒否してください。</qt>"
+"<qt>アプリケーション \"<b>%1</b>\" が新しいウォレット \"<b>%2</b>\" を作成す"
+"るよう要求しています。これは機密データを安全な方法で保存するために使用されま"
+"す。新しいウォレットの形式を選択するか、「キャンセル」をクリックしてアプリ"
+"ケーションの要求を拒否してください。</qt>"
 
 #: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
 #: kwalletwizard.cpp:157
@@ -231,12 +226,14 @@ msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
 "least one encryption key, then try again."
 msgstr ""
+"このシステムに登録された暗号化に利用できる鍵が見つかりませんでした。少なくと"
+"もひとつの暗号化鍵を設定してから、もう一度お試しください。"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: knewwalletdialoggpg.ui:17
 #, kde-format
 msgid "Please select the signing key from the list below:"
-msgstr ""
+msgstr "以下のリストから署名キーを選択してください:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: knewwalletdialoggpg.ui:24
@@ -245,24 +242,26 @@ msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">注意:</span>このリス"
+"トは&quot;極めて高い&quot;信頼度のキーのみ表示しています。</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:59
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:64
 #, kde-format
 msgid "E-Mail"
-msgstr ""
+msgstr "電子メール"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:69
 #, kde-format
 msgid "Key-ID"
-msgstr ""
+msgstr "キー ID"
 
 #. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
 #: knewwalletdialogintro.ui:17 kwalletwizardpageintro.ui:17
@@ -272,36 +271,32 @@ msgstr "KDE ウォレットシステム"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: knewwalletdialogintro.ui:30
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
-#| "This is used to store sensitive data in a secure fashion. Please enter a "
-#| "password to use with this wallet or click cancel to deny the "
-#| "application's request.</qt>"
+#, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
 "span>' has requested to open the KDE wallet. This is used to store sensitive "
 "data in a secure fashion. Please choose the new wallet's type below or click "
 "cancel to deny the application's request.</p></body></html>"
 msgstr ""
-"<qt>アプリケーション <application>%1</application> が KDE ウォレットを開くよ"
-"う要求しています。これは機密データを安全な方法で保存するのに使用されます。こ"
-"のウォレットで使用するパスワードを入力するか、<interface>キャンセル</"
-"interface>をクリックしてアプリケーションの要求を拒否してください。</qt>"
+"<html><head/><body><p>アプリケーション \"<span style=\" font-weight:600;\">"
+"%1</span>\" が KDE ウォレットを開くよう要求しています。これは機密データを安全"
+"な方法で保存するために使用されます。新しいウォレットの形式を選択するか、"
+"「キャンセル」をクリックしてアプリケーションの要求を拒否してください。</p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
 #, kde-format
 msgid "Classic, blowfish encrypted file"
-msgstr ""
+msgstr "クラシックな blowfish 暗号化ファイル"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
 #: knewwalletdialogintro.ui:73 kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
 msgid "Use GPG encryption, for better protection"
-msgstr ""
+msgstr "GPG 暗号化を利用したより良いセキュリティ"
 
 #: kwalletd.cpp:640
 #, kde-format
@@ -415,7 +410,8 @@ msgstr ""
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
-"<qt>KDE が開いているウォレット “%1” へのアクセスを要求しています。</qt>"
+"<qt>KDE が開いているウォレット “<b>%1</b>” へのアクセスを要求しています。</"
+"qt>"
 
 #: kwalletd.cpp:871
 #, kde-format
