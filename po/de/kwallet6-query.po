@@ -31,7 +31,7 @@ msgstr "Abfrageschnittstelle für KWallet"
 #: main.cpp:28
 #, kde-format
 msgid "(c) 2015, The KDE Developers"
-msgstr "(c) 2015, die KDE-Entwickler"
+msgstr "© 2015 Die KDE-Entwickler"
 
 #: main.cpp:32
 #, kde-format
