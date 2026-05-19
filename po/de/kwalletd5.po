@@ -1,23 +1,24 @@
-# SPDX-FileCopyrightText: 2018, 2025 Frank Steinmetzger <Warp_7@gmx.de>
-# SPDX-FileCopyrightText: 2008, 2009 Thomas Reitelbach <tr@erdfunkstelle.de>
-# SPDX-FileCopyrightText: 2009, 2013, 2014, 2015, 2017, 2019, 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2008-2009 Thomas Reitelbach <tr@erdfunkstelle.de>
+# SPDX-FileCopyrightText: 2009, 2013-2015, 2017, 2019, 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2010 Panagiotis Papadopoulos <pano_90@gmx.net>
-# SPDX-FileCopyrightText: 2010, 2011, 2013, 2016 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2010-2011, 2013, 2016 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2013 Benjamin Weis <benjamin.weis@gmx.com>
+# SPDX-FileCopyrightText: 2018, 2025 Frank Steinmetzger <Warp_7@gmx.de>
+# SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2021-07-14 14:44+0200\n"
-"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"PO-Revision-Date: 2026-05-16 15:20+0200\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -58,10 +59,10 @@ msgid ""
 "again. This error may occur if you are not using a full trust GPG key. "
 "Please ensure you have the secret key for the key you are using.</qt>"
 msgstr ""
-"<qt>Verschlüsselungsfehler beim Versuch den Passwortspeicher <b>%1</b> zu "
+"<qt>Verschlüsselungsfehler beim Versuch, den Passwortspeicher <b>%1</b> zu "
 "speichern. Der Fehlercode lautet <b>%2 (%3)</b>. Bitte korrigieren Sie Ihre "
 "Systemeinrichtung und versuchen es dann erneut. Der Fehler kann auftreten, "
-"wenn Sie einen nicht vollständig vertrauenswürdigen GPG-Schlüssel benutzen. "
+"wenn Sie einen nicht vollständig vertrauenswürdigen GPG-Schlüssel verwenden. "
 "Überprüfen Sie, ob Sie den geheimen Schlüssel für den verwendeten Schlüssel "
 "haben.</qt>"
 
@@ -464,7 +465,7 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 "<qt>Der Passwortspeicher <b>%1</b> ist mit GPG-Schlüssel <b>%2</b> "
-"verschlüsselt. Bitte benutzen Sie Programme für <b>GPG</b> wie zum Beispiel "
+"verschlüsselt. Bitte verwenden Sie Programme für <b>GPG</b> wie zum Beispiel "
 "<b>Kleopatra</b>, um die Passphrase für diesen Schlüssel zu ändern.</qt>"
 
 #: kwalletd.cpp:1002
@@ -533,15 +534,15 @@ msgid ""
 "allowing you to easily copy a wallet to a remote system.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Das Passwortspeicher-System speichert Ihre Daten in "
-"einer <i>Passwortspeicher</i>-Datei auf Ihrer lokalen Festplatte. Diese "
-"Daten werden ausschließlich in verschlüsselter Form abgelegt und benutzen "
-"dabei den Blowfish-Algorithmus mit Ihrem Passwort als Schlüssel oder die GPG-"
-"Verschlüsselung. Sobald ein Passwortspeicher geöffnet wird, startet das "
-"Verwaltungsprogramm und zeigt ein entsprechendes Symbol im Systemabschnitt "
-"der Kontrollleiste an. Sie können dieses Programm verwenden, um alle "
-"Passwortspeicher zu verwalten. Es erlaubt Ihnen z. B. Passwortspeicher und "
-"ihren Inhalt per „Ziehen und Ablegen“ auf Fremdrechner zu kopieren.</p></"
-"body></html>"
+"einer <span style=\" font-style:italic;\">Passwortspeicher</span>-Datei auf "
+"Ihrer lokalen Festplatte. Diese Daten werden ausschließlich in "
+"verschlüsselter Form abgelegt und verwenden dabei den Blowfish-Algorithmus "
+"mit Ihrem Passwort als Schlüssel oder die GPG-Verschlüsselung. Sobald ein "
+"Passwortspeicher geöffnet wird, startet das Verwaltungsprogramm und zeigt "
+"ein entsprechendes Symbol im Systemabschnitt der Kontrollleiste an. Sie "
+"können dieses Programm verwenden, um alle Ihre Passwortspeicher zu "
+"verwalten. Es erlaubt Ihnen z. B. Passwortspeicher und ihren Inhalt per "
+"„Ziehen und Ablegen“ auf einen Fremdrechner zu kopieren.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: kwalletwizardpagegpgkey.ui:24
@@ -555,14 +556,14 @@ msgid ""
 "font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Der Passwortspeicher mit GPG-Verschlüsselung benutzt "
+"<html><head/><body><p>Der Passwortspeicher mit GPG-Verschlüsselung verwendet "
 "einen GPG-Schlüssel, um Daten sicher auf der Festplatte zu verschlüsseln. "
 "Dieser Schlüssel muss verfügbar sein, wenn eine Entschlüsselung gebraucht "
 "wird, ansonsten haben Sie keinen Zugriff auf Ihren Passwortspeicher. "
 "Verwenden Sie zum Beispiel einen Schlüssel auf einer Chipkarte, benötigen "
 "Sie diese Chipkarte und die zugehörige PIN, um den Passwortspeicher zu "
-"öffnen. <span style=\" font-weight:600;\">Hinweis:</span> Diese List enthält "
-"nur „sehr“ vertrauenswürdige Schlüssel.</p></body></html>"
+"öffnen. <span style=\" font-weight:600;\">Hinweis:</span> Diese Liste "
+"enthält nur „sehr“ vertrauenswürdige Schlüssel.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kwalletwizardpagegpgkey.ui:42
@@ -657,12 +658,12 @@ msgid ""
 "in the wallet."
 msgstr ""
 "Verschiedene Programme werden möglicherweise versuchen, den Passwortspeicher "
-"zu verwenden und Passwörter oder andere Informationen darin zu speichern wie "
-"z. B. Daten aus Webformularen oder Cookies. Wenn Sie das zulassen möchten, "
-"dann müssen Sie diese Einstellung jetzt aktivieren und ein Passwort wählen. "
-"Das Passwort lässt sich <i>nicht</i> wiederherstellen, falls es verloren "
-"geht und ermöglicht jedem, der es kennt, den Zugriff auf sämtliche Daten im "
-"Passwortspeicher."
+"zu verwenden und Passwörter oder andere Informationen darin zu speichern, "
+"wie z. B. Daten aus Webformularen oder Cookies. Wenn Sie das zulassen "
+"möchten, müssen Sie diese Einstellung jetzt aktivieren und ein Passwort "
+"wählen. Das Passwort lässt sich <i>nicht</i> wiederherstellen, falls es "
+"verloren geht und ermöglicht jedem, der es kennt, den Zugriff auf sämtliche "
+"Daten im Passwortspeicher."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: kwalletwizardpagepassword.ui:29 kwalletwizardpagepasswordgpg.ui:30
@@ -700,15 +701,15 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Verschiedene Programme werden möglicherweise "
 "versuchen, den Passwortspeicher zu verwenden und Passwörter oder andere "
-"Informationen darin zu speichern wie z. B. Daten aus Webformularen oder "
-"Cookies. Wenn Sie das zulassen möchten, dann müssen Sie diese Einstellung "
-"jetzt aktivieren und das Verfahren zur Verschlüsselung auswählen. </p><p>GPG "
-"ist sicherer, aber Sie müssen mindestens einen GPG-Schlüssel auf Ihrem "
-"System eingerichtet haben. </p><p>Wenn Sie das klassische Verfahren mit "
-"einem Passwort wählen. denken Sie daran, dass sich das Passwort <span style="
-"\" font-style:italic;\">nicht</span> wiederherstellen lässt, falls es "
-"verloren geht. Außerdem hat jeder, der das Passwort kennt, Zugriff auf "
-"sämtliche Daten im Passwortspeicher.</p></body></html>"
+"Informationen darin zu speichern, wie z. B. Daten aus Webformularen oder "
+"Cookies. Wenn Sie das zulassen möchten, müssen Sie diese Einstellung jetzt "
+"aktivieren und das Verfahren zur Verschlüsselung auswählen.</p><p>GPG ist "
+"sicherer, aber Sie müssen mindestens einen GPG-Schlüssel auf Ihrem System "
+"eingerichtet haben.</p><p>Wenn Sie das klassische Verfahren mit einem "
+"Passwort wählen, denken Sie daran, dass sich das Passwort <span style=\" "
+"font-style:italic;\">nicht</span> wiederherstellen lässt, falls es verloren "
+"geht. Außerdem hat jeder, der das Passwort kennt, Zugriff auf sämtliche "
+"Daten im Passwortspeicher.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: kwalletwizardpagepasswordgpg.ui:46
@@ -719,7 +720,7 @@ msgstr "Welche Verschlüsselungsart möchten Sie verwenden?"
 #: main.cpp:173
 #, kde-format
 msgid "(C) 2002-2013, The KDE Developers"
-msgstr "© 2002–2013, die KDE-Entwickler"
+msgstr "© 2002–2013 Die KDE-Entwickler"
 
 #: main.cpp:174
 #, kde-format
