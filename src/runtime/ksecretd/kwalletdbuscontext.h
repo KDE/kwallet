@@ -41,6 +41,12 @@ public:
     {
         return QDBusConnection::sessionBus();
     }
+    void sendErrorReply(QDBusError::ErrorType, const QString & = {}) const
+    {
+    }
+    void sendErrorReply(const QString &, const QString & = {}) const
+    {
+    }
 };
 
 #define FDO_DBUS_CONTEXT KWalletDBusContextDummy

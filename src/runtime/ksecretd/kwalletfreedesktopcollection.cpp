@@ -197,6 +197,14 @@ KWalletFreedesktopCollection::CreateItem(const PropertiesMap &properties, const 
             explicit_zero_mem(bytes.data(), bytes.size());
         } else if (xdgSchema == QStringLiteral("org.kde.KWallet.Password") || secret.mimeType.startsWith(QStringLiteral("text/"))) {
             auto bytes = decrypted.value.toByteArray();
+            if (!bytes.isValidUtf8()) {
+                explicit_zero_mem(bytes.data(), bytes.size());
+                sendErrorReply(QDBusError::ErrorType::InvalidArgs,
+                               QStringLiteral("Secret value contains invalid UTF-8 sequences but content_type declares text encoding; "
+                                              "use application/octet-stream for binary data"));
+                return QDBusObjectPath("/");
+            }
+
             auto str = QString::fromUtf8(bytes);
             backend()->writePassword(walletHandle(), dir, label, str, FDO_APPID);
             explicit_zero_mem(bytes.data(), bytes.size());

@@ -32,6 +32,7 @@ private Q_SLOTS:
     void sessionWithShortClientPublicKey();
     void sessionWithMsbSetClientPublicKey();
     void attributes();
+    void invalidUtf8Rejected();
     void walletNameEncodeDecode();
 };
 

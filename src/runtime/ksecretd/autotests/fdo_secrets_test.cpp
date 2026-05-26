@@ -606,6 +606,82 @@ void FdoSecretsTest::attributes()
     QCOMPARE(attribs.getStringParam({"dir1", "name1"}, "param1", "default"), "default");
 }
 
+void FdoSecretsTest::invalidUtf8Rejected()
+{
+    const QStringList wallets = {"wallet1"};
+    const QStringList folders = {FDO_SECRETS_DEFAULT_DIR};
+    const QStringList entries = {"item1"};
+    SET_FUNCTION_RESULT(KSecretD::wallets, wallets);
+    SET_FUNCTION_RESULT(KSecretD::folderList, folders);
+    SET_FUNCTION_RESULT(KSecretD::entryList, entries);
+
+    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &, const QString &) -> int {
+        return KWallet::Wallet::Password;
+    });
+
+    SET_FUNCTION_IMPL(KSecretD::readPassword, [](int, const QString &, const QString &, const QString &) -> QString {
+        return QStringLiteral("valid-password");
+    });
+
+    bool writePasswordCalled = false;
+    SET_FUNCTION_IMPL(KSecretD::writePassword, [&](int, const QString &, const QString &, const QString &, const QString &) -> int {
+        writePasswordCalled = true;
+        return 0;
+    });
+
+    std::unique_ptr<KSecretD> kwalletd{new KSecretD};
+    std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
+
+    auto collection = service->getCollectionByWalletName("wallet1");
+    QVERIFY(collection);
+
+    collection->itemAttributes().newItem({FDO_SECRETS_DEFAULT_DIR, "item1"});
+
+    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QString &, bool, const QDBusConnection &, const QDBusMessage &);
+    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync,
+                                 OpenAsyncT,
+                                 [](const QString &, qlonglong, const QString &, bool, const QDBusConnection &, const QDBusMessage &) -> int {
+                                     return 0;
+                                 });
+
+    QDBusObjectPath promptPath;
+    service->Unlock({collection->fdoObjectPath()}, promptPath);
+    auto prompt = service->getPromptByObjectPath(promptPath);
+    QVERIFY(prompt);
+    prompt->Prompt("wndid");
+    Q_EMIT kwalletd->walletAsyncOpened(0, 0);
+    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool(KSecretD::*)(int));
+    QVERIFY(!collection->locked());
+
+    auto item = collection->findItemByEntryLocation({FDO_SECRETS_DEFAULT_DIR, "item1"});
+    QVERIFY(item);
+
+    auto message = QDBusMessage::createSignal("dummy", "dummy", "dummy");
+    auto [sessionPath, symmetricKey, commonSecretSize, errorStr] = setupSession(service.get());
+    QVERIFY2(errorStr.isEmpty(), errorStr.constData());
+    Q_UNUSED(commonSecretSize);
+    Q_UNUSED(symmetricKey);
+
+    /* Invalid UTF-8 bytes (gzip magic + random binary) with text/plain must be rejected */
+    QByteArray invalidUtf8("\x1f\x8b\x08\x00\xff\xfe\xfd\xfc\xfb\xfa", 10);
+    QVERIFY(!invalidUtf8.isValidUtf8());
+
+    FreedesktopSecret invalidSecret(sessionPath, invalidUtf8, "text/plain; charset=utf8");
+    service->ensecret(message, invalidSecret);
+
+    writePasswordCalled = false;
+    item->SetSecret(invalidSecret);
+    QVERIFY2(!writePasswordCalled, "writePassword must not be called for invalid UTF-8 with text/ content_type");
+
+    /* Valid UTF-8 with text/plain must still be accepted */
+    FreedesktopSecret validSecret(sessionPath, QByteArray("Hello, valid UTF-8!"), "text/plain; charset=utf8");
+    service->ensecret(message, validSecret);
+
+    writePasswordCalled = false;
+    item->SetSecret(validSecret);
+    QVERIFY2(writePasswordCalled, "writePassword must be called for valid UTF-8 with text/ content_type");
+}
+
 void FdoSecretsTest::walletNameEncodeDecode()
 {
 #define ENCODE_DECODE_CHECK(DECODED, ENCODED)                                                                                                                  \

@@ -178,6 +178,14 @@ void KWalletFreedesktopItem::SetSecret(const FreedesktopSecret &secret)
 
     if (xdgSchema == QStringLiteral("org.kde.KWallet.Password") || secret.mimeType.startsWith(QStringLiteral("text/"))) {
         auto bytes = decrypted.value.toByteArray();
+        if (!bytes.isValidUtf8()) {
+            explicit_zero_mem(bytes.data(), bytes.size());
+            sendErrorReply(QDBusError::ErrorType::InvalidArgs,
+                           QStringLiteral("Secret value contains invalid UTF-8 sequences but content_type declares text encoding; "
+                                          "use application/octet-stream for binary data"));
+            return;
+        }
+
         auto str = QString::fromUtf8(bytes);
         backend()->writePassword(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, str, FDO_APPID);
         explicit_zero_mem(bytes.data(), bytes.size());
