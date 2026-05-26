@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2008, 2009, 2014, 2015, 2016, 2017, 2020, 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2008, 2009, 2014, 2015, 2016, 2017, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-18 00:41+0000\n"
-"PO-Revision-Date: 2025-04-22 01:26+0200\n"
+"PO-Revision-Date: 2026-05-25 21:44+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -721,6 +721,7 @@ msgstr ""
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr ""
+"\"%1\" 지갑을 이전하는 중입니다. 잠금을 해제하기 위해서 암호를 입력하십시오."
 
 #: kwalletd/main.cpp:32
 #, kde-format
@@ -730,80 +731,78 @@ msgstr "kwalletd"
 #: kwalletd/main.cpp:34
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
-msgstr ""
+msgstr "비밀 서비스와 연결되는 KWallet 호환성 서비스"
 
 #: kwalletd/main.cpp:36
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2025, The KDE Developers"
+#, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr "(C) 2002-2025, The KDE Developers"
+msgstr "(C) 2025, The KDE Developers"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: kwalletd/main.cpp:38
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "작성자"
 
 #: kwalletd/secretserviceclient.cpp:241
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "항목을 찾을 수 없음"
 
 #: kwalletd/secretserviceclient.cpp:261
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "비밀 서비스에 연결할 수 없음"
 
 #: kwalletd/secretserviceclient.cpp:423
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "collectionName %1의 잠금을 해제할 수 없음"
 
 #: kwalletd/secretserviceclient.cpp:515
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "모음집 없음"
 
 #: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
 #: kwalletd/secretserviceclient.cpp:702
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "항목 없음"
 
 #: kwalletd/secretserviceclient.cpp:617
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "항목을 찾을 수 없음. 키: %1, 폴더: %2"
 
 #: kwalletd/secretserviceclient.cpp:726
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "항목의 잠금을 해제할 수 없음"
 
 #: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "이름을 바꾸려는 항목을 찾을 수 없음"
 
 #: kwalletd/secretserviceclient.cpp:776
-#, fuzzy, kde-format
-#| msgid "* SKIPPING entry %1 in folder %2 as it seems already migrated"
+#, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr "* 폴더 %2의 항목 %1이(가) 이미 이전된 것 같으므로 건너뜀"
+msgstr "%3 지갑의 %2 폴더의 %1 항목이 이미 존재합니다."
 
 #: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "이름을 바꾸려는 항목이 불완전함"
 
 #: kwalletd/secretserviceclient.cpp:851
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
+msgstr "SecretValue를 생성할 수 없음"
 
 #~ msgid "Cannot read old wallet list. Aborting."
 #~ msgstr "이전 지갑 목록을 읽을 수 없습니다. 중단합니다."
