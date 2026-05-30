@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-18 00:41+0000\n"
-"PO-Revision-Date: 2026-05-10 18:32+0900\n"
+"PO-Revision-Date: 2026-05-17 17:38+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
@@ -204,11 +204,9 @@ msgid "KDE Wallet Service"
 msgstr "KDE ウォレットサービス"
 
 #: ksecretd/ksecretd.cpp:646
-#, fuzzy, kde-format
-#| msgid "<b>KDE</b> has requested to open a wallet (%1)."
+#, kde-format
 msgid "An application has requested to open a wallet (%1)."
-msgstr ""
-"<b>KDE</b> がウォレット <resource>%1</resource> を開くよう要求しています。"
+msgstr "アプリケーションがウォレット (%1) を開くよう要求しています。"
 
 #: ksecretd/ksecretd.cpp:647
 #, kde-format
@@ -560,10 +558,9 @@ msgid "Valentin Rusu"
 msgstr ""
 
 #: ksecretd/main.cpp:165
-#, fuzzy, kde-format
-#| msgid "Former maintainer"
+#, kde-format
 msgid "Former Maintainer, GPG backend support"
-msgstr "以前のメンテナ"
+msgstr "元メンテナ、GPG バックエンドのサポート"
 
 #: ksecretd/main.cpp:166
 #, kde-format
@@ -571,10 +568,9 @@ msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
 #: ksecretd/main.cpp:166
-#, fuzzy, kde-format
-#| msgid "Former maintainer"
+#, kde-format
 msgid "Former Maintainer"
-msgstr "以前のメンテナ"
+msgstr "元メンテナ"
 
 #: ksecretd/main.cpp:167
 #, kde-format
@@ -727,10 +723,9 @@ msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr ""
 
 #: kwalletd/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "KWallet"
+#, kde-format
 msgid "kwalletd"
-msgstr "KWallet"
+msgstr "kwalletd"
 
 #: kwalletd/main.cpp:34
 #, kde-format
