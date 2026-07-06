@@ -1,12 +1,11 @@
 # Translation of kwallet6-query to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2015-08-28 20:25+0100\n"
+"PO-Revision-Date: 2026-07-05 16:33+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 26.04.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -52,7 +51,7 @@ msgstr "vis passordoppføringar"
 #: main.cpp:33
 #, kde-format
 msgid "reads the secrets from the given <entry>"
-msgstr "leser løyndomar frå valt <oppføring>"
+msgstr "les løyndomar frå valt <oppføring>"
 
 #: main.cpp:33 main.cpp:34
 #, kde-format
