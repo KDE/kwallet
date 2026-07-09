@@ -189,14 +189,22 @@ SecretCollection *SecretServiceClient::retrieveCollection(const QString &name)
         return it->second.get();
     }
 
+    // get_collections() can return a cached, stale list; force a reload, as listCollections() does.
+    GError *error = nullptr;
+    secret_service_load_collections_sync(m_service.get(), nullptr, &error);
+    if (!wasErrorFree(&error)) {
+        return nullptr;
+    }
+
     GListPtr collections = GListPtr(secret_service_get_collections(m_service.get()));
 
     for (GList *l = collections.get(); l != nullptr; l = l->next) {
         SecretCollectionPtr colPtr = SecretCollectionPtr(SECRET_COLLECTION(l->data));
         const gchar *label = secret_collection_get_label(colPtr.get());
         if (QString::fromUtf8(label) == name) {
-            m_openCollections.insert(std::make_pair(name, std::move(colPtr)));
+            // get() must run before the move: a moved-from unique_ptr is null.
             SecretCollection *collection = colPtr.get();
+            m_openCollections.insert(std::make_pair(name, std::move(colPtr)));
             return collection;
         }
     }
@@ -274,8 +282,15 @@ void SecretServiceClient::watchCollection(const QString &collectionName, bool *o
 
     SecretCollection *collection = retrieveCollection(collectionName);
 
-    GObjectPtr<GDBusProxy> proxy = GObjectPtr<GDBusProxy>(G_DBUS_PROXY(collection));
-    const QString path = QString::fromUtf8(g_strdup(g_dbus_proxy_get_object_path(proxy.get())));
+    // retrieveCollection() may return null; g_dbus_proxy_get_object_path() asserts on that.
+    if (!collection || !G_IS_DBUS_PROXY(collection)) {
+        qCWarning(KWALLETD_LOG) << "Not watching collection" << collectionName << "- no valid Secret Service proxy";
+        *ok = false;
+        return;
+    }
+
+    // path is owned by the proxy: no strdup, and don't wrap the borrowed collection
+    const QString path = QString::fromUtf8(g_dbus_proxy_get_object_path(G_DBUS_PROXY(collection)));
     if (path.isEmpty()) {
         *ok = false;
         return;
@@ -367,6 +382,9 @@ void SecretServiceClient::onSecretItemChanged(const QDBusObjectPath &path)
 
     // 6 items: /org/freedesktop/secrets/collection/collectionName/itemName
     if (pieces.length() != 6) {
+        // unexpected path shape: refresh all collections so the change isn't lost
+        qCWarning(KWALLETD_LOG) << "Secret item changed at unexpected path" << path.path() << "- refreshing all collections";
+        Q_EMIT collectionListDirty();
         return;
     }
     pieces.pop_back();
