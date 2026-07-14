@@ -172,7 +172,15 @@ void QueryDriver::writeValue()
     if (verbose) {
         qDebug() << "writing" << entryName << "to" << entryFolder << "to" << walletName;
     }
-    theWallet->setFolder(entryFolder);
+    // setFolder() fails if the folder doesn't exist.
+    if (!theWallet->hasFolder(entryFolder)) {
+        theWallet->createFolder(entryFolder);
+    }
+    if (!theWallet->setFolder(entryFolder)) {
+        std::cout << i18n("The folder %1 does not exist!", entryFolder).toUtf8().constData() << std::endl;
+        exit(4);
+        return;
+    }
 
     QString passwordContents;
     for (std::string line; std::getline(std::cin, line);) {
@@ -185,6 +193,10 @@ void QueryDriver::writeValue()
         }
     }
     Wallet::EntryType kind = theWallet->entryType(entryName);
+    // entryType() reports Unknown for non-existent entries. Default to Password.
+    if (kind == Wallet::Unknown) {
+        kind = Wallet::Password;
+    }
     if (kind == Wallet::Password) {
         if (verbose) {
             qDebug() << "about to write" << passwordContents;
@@ -197,22 +209,29 @@ void QueryDriver::writeValue()
         }
     } else if (kind == Wallet::Map) {
         const QJsonDocument json = QJsonDocument::fromJson(passwordContents.toLatin1());
-        if (!json.isNull()) {
-            QJsonObject values = json.object();
-            QMap<QString, QString> map;
-            for (auto &e : values.keys()) {
-                map.insert(e, values.value(e).toString());
-            }
-            if (verbose) {
-                qDebug() << "about to write" << map;
-            }
-            int rc = theWallet->writeMap(entryName, map);
-            if (rc != 0) {
-                std::cout << i18n("Failed to write entry %1 value to %2 wallet", entryName, walletName).toUtf8().constData() << std::endl;
-                exit(4);
-                return;
-            }
+        if (json.isNull()) {
+            std::cout << i18n("Invalid argument: the value for entry %1 is not valid JSON", entryName).toUtf8().constData() << std::endl;
+            exit(1);
+            return;
         }
+        QJsonObject values = json.object();
+        QMap<QString, QString> map;
+        for (auto &e : values.keys()) {
+            map.insert(e, values.value(e).toString());
+        }
+        if (verbose) {
+            qDebug() << "about to write" << map;
+        }
+        int rc = theWallet->writeMap(entryName, map);
+        if (rc != 0) {
+            std::cout << i18n("Failed to write entry %1 value to %2 wallet", entryName, walletName).toUtf8().constData() << std::endl;
+            exit(4);
+            return;
+        }
+    } else {
+        std::cout << i18n("Unsupported entry type for entry %1", entryName).toUtf8().constData() << std::endl;
+        exit(1);
+        return;
     }
     quit();
 }
