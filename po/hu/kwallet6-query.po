@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-07-15 00:41+0000\n"
 "PO-Revision-Date: 2024-01-03 10:50+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -111,7 +111,7 @@ msgstr "A(z) %1 jelszótároló nem található"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "Nem sikerült megnyitni a(z) %1 jelszótárolót. Megszakítás"
 
-#: querydriver.cpp:104 querydriver.cpp:122
+#: querydriver.cpp:104 querydriver.cpp:122 querydriver.cpp:180
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "A(z) %1 mappa nem létezik."
@@ -127,10 +127,20 @@ msgstr ""
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "Nem sikerült olvasni a(z) %1 bejegyzés értékét a(z) %2 jelszótárolóból"
 
-#: querydriver.cpp:194 querydriver.cpp:211
+#: querydriver.cpp:206 querydriver.cpp:227
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Nem sikerült írni a(z) %1 bejegyzés értékét a(z) %2 jelszótárolóba"
+
+#: querydriver.cpp:213
+#, kde-format
+msgid "Invalid argument: the value for entry %1 is not valid JSON"
+msgstr ""
+
+#: querydriver.cpp:232
+#, kde-format
+msgid "Unsupported entry type for entry %1"
+msgstr ""
 
 #~ msgid "wallet"
 #~ msgstr "jelszótároló"

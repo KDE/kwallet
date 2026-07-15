@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-07-15 00:41+0000\n"
 "PO-Revision-Date: 2019-08-16 23:10+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -113,7 +113,7 @@ msgstr "Ҳамёни %1 ёфт нашуд"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "Кушодани ҳамёни %1 қатъ шуд. Қатъ шуда истодааст"
 
-#: querydriver.cpp:104 querydriver.cpp:122
+#: querydriver.cpp:104 querydriver.cpp:122 querydriver.cpp:180
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "Ҷузвадони %1 вуҷуд надорад!"
@@ -128,10 +128,20 @@ msgstr "Хондани қимати воридаи %1 аз ҳамёни %2 қа�
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "Хондани қимати воридаи %1 аз ҳамёни %2 қатъ шуд"
 
-#: querydriver.cpp:194 querydriver.cpp:211
+#: querydriver.cpp:206 querydriver.cpp:227
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Навиштани қимати воридаи %1 ба ҳамёни %2 қатъ шуд"
+
+#: querydriver.cpp:213
+#, kde-format
+msgid "Invalid argument: the value for entry %1 is not valid JSON"
+msgstr ""
+
+#: querydriver.cpp:232
+#, kde-format
+msgid "Unsupported entry type for entry %1"
+msgstr ""
 
 #~ msgid "wallet"
 #~ msgstr "Ҳамён"

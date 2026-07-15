@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-07-15 00:41+0000\n"
 "PO-Revision-Date: 2022-05-06 11:14+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -111,7 +111,7 @@ msgstr "Không tìm thấy ví %1"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "Mở ví %1 thất bại. Đang huỷ bỏ"
 
-#: querydriver.cpp:104 querydriver.cpp:122
+#: querydriver.cpp:104 querydriver.cpp:122 querydriver.cpp:180
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "Thư mục %1 không tồn tại!"
@@ -126,7 +126,17 @@ msgstr "Đọc giá trị mục %1 trong ví %2 thất bại."
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "Đọc giá trị mục %1 trong ví %2 thất bại"
 
-#: querydriver.cpp:194 querydriver.cpp:211
+#: querydriver.cpp:206 querydriver.cpp:227
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Ghi giá trị mục %1 vào ví %2 thất bại"
+
+#: querydriver.cpp:213
+#, kde-format
+msgid "Invalid argument: the value for entry %1 is not valid JSON"
+msgstr ""
+
+#: querydriver.cpp:232
+#, kde-format
+msgid "Unsupported entry type for entry %1"
+msgstr ""

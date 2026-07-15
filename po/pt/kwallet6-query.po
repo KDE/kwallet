@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet-query\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-07-15 00:41+0000\n"
 "PO-Revision-Date: 2015-06-15 16:08+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -109,7 +109,7 @@ msgstr "A carteira %1 não foi encontrada"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "Não foi possível abrir a carteira %1. A interromper"
 
-#: querydriver.cpp:104 querydriver.cpp:122
+#: querydriver.cpp:104 querydriver.cpp:122 querydriver.cpp:180
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "A pasta %1 não existe!"
@@ -124,10 +124,20 @@ msgstr "Não foi possível ler o valor do item %1 da carteira %2."
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "Não foi possível ler o valor do item %1 da carteira %2"
 
-#: querydriver.cpp:194 querydriver.cpp:211
+#: querydriver.cpp:206 querydriver.cpp:227
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Não foi possível gravar o valor do item %1 da carteira %2"
+
+#: querydriver.cpp:213
+#, kde-format
+msgid "Invalid argument: the value for entry %1 is not valid JSON"
+msgstr ""
+
+#: querydriver.cpp:232
+#, kde-format
+msgid "Unsupported entry type for entry %1"
+msgstr ""
 
 #~ msgid "wallet"
 #~ msgstr "carteira"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet-query\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-07-15 00:41+0000\n"
 "PO-Revision-Date: 2015-06-15 19:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -117,7 +117,7 @@ msgstr "Не знайдено сховища %1"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "Не вдалося відкрити сховище %1. Перериваємо обробку."
 
-#: querydriver.cpp:104 querydriver.cpp:122
+#: querydriver.cpp:104 querydriver.cpp:122 querydriver.cpp:180
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "Теки %1 не існує!"
@@ -132,10 +132,20 @@ msgstr "Не вдалося прочитати значення запису %1 
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "Не вдалося прочитати значення запису %1 зі сховища %2"
 
-#: querydriver.cpp:194 querydriver.cpp:211
+#: querydriver.cpp:206 querydriver.cpp:227
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Не вдалося записати значення запису %1 до сховища %2"
+
+#: querydriver.cpp:213
+#, kde-format
+msgid "Invalid argument: the value for entry %1 is not valid JSON"
+msgstr ""
+
+#: querydriver.cpp:232
+#, kde-format
+msgid "Unsupported entry type for entry %1"
+msgstr ""
 
 #~ msgid "wallet"
 #~ msgstr "сховище"

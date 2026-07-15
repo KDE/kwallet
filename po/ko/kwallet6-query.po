@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-07-15 00:41+0000\n"
 "PO-Revision-Date: 2020-04-04 15:05+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -113,7 +113,7 @@ msgstr ""
 "지갑 %1을(를) 열 수 없습니다. 중단합니다|/|지갑 %1$[을를 %1] 열 수 없습니다. "
 "중단합니다"
 
-#: querydriver.cpp:104 querydriver.cpp:122
+#: querydriver.cpp:104 querydriver.cpp:122 querydriver.cpp:180
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "폴더 %1이(가) 없습니다!|/|폴더 %1$[이가 %1] 없습니다!"
@@ -128,10 +128,20 @@ msgstr "지갑 %2에서 항목 %1의 값을 읽을 수 없습니다."
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "지갑 %2에서 항목 %1의 값을 읽을 수 없습니다"
 
-#: querydriver.cpp:194 querydriver.cpp:211
+#: querydriver.cpp:206 querydriver.cpp:227
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "지갑 %2에서 항목 %1의 값을 기록할 수 없습니다"
+
+#: querydriver.cpp:213
+#, kde-format
+msgid "Invalid argument: the value for entry %1 is not valid JSON"
+msgstr ""
+
+#: querydriver.cpp:232
+#, kde-format
+msgid "Unsupported entry type for entry %1"
+msgstr ""
 
 #~ msgid "wallet"
 #~ msgstr "지갑"

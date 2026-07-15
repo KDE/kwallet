@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet-query\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-07-15 00:41+0000\n"
 "PO-Revision-Date: 2015-07-17 17:22+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -110,7 +110,7 @@ msgstr "Peňaženka %1 nenájdená"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "Zlyhalo otvorenie peňaženky %1. Prerušujem"
 
-#: querydriver.cpp:104 querydriver.cpp:122
+#: querydriver.cpp:104 querydriver.cpp:122 querydriver.cpp:180
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "Priečinok %1 neexistuje!"
@@ -125,10 +125,20 @@ msgstr "Zlyhalo čítanie hodnoty položky %1 z peňaženky %2."
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "Zlyhalo čítanie hodnoty položky %1 z peňaženky %2"
 
-#: querydriver.cpp:194 querydriver.cpp:211
+#: querydriver.cpp:206 querydriver.cpp:227
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Zlyhal zápis hodnoty položky %1 do peňaženky %2"
+
+#: querydriver.cpp:213
+#, kde-format
+msgid "Invalid argument: the value for entry %1 is not valid JSON"
+msgstr ""
+
+#: querydriver.cpp:232
+#, kde-format
+msgid "Unsupported entry type for entry %1"
+msgstr ""
 
 #~ msgid "wallet"
 #~ msgstr "Peňaženka"

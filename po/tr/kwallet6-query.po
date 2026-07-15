@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet-query\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-07-15 00:41+0000\n"
 "PO-Revision-Date: 2026-05-02 19:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -112,7 +112,7 @@ msgstr "%1 cüzdanı bulunamadı"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "%1 cüzdanı açılamadı. İptal ediliyor"
 
-#: querydriver.cpp:104 querydriver.cpp:122
+#: querydriver.cpp:104 querydriver.cpp:122 querydriver.cpp:180
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "%1 klasörü mevcut değil!"
@@ -127,10 +127,20 @@ msgstr "%2 cüzdanından %1 girdi değeri okunamadı."
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "%2 cüzdanından %1 girdi değeri okunamadı"
 
-#: querydriver.cpp:194 querydriver.cpp:211
+#: querydriver.cpp:206 querydriver.cpp:227
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "%2 cüzdanına %1 girdi değeri yazılamadı"
+
+#: querydriver.cpp:213
+#, kde-format
+msgid "Invalid argument: the value for entry %1 is not valid JSON"
+msgstr ""
+
+#: querydriver.cpp:232
+#, kde-format
+msgid "Unsupported entry type for entry %1"
+msgstr ""
 
 #~ msgid "wallet"
 #~ msgstr "cüzdan"

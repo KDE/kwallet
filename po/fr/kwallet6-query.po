@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-07-15 00:41+0000\n"
 "PO-Revision-Date: 2025-12-18 10:06+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -119,7 +119,7 @@ msgstr "Impossible de trouver le portefeuille %1"
 msgid "Failed to open wallet %1. Aborting"
 msgstr "Impossible d'ouvrir le portefeuille %1. Annulation"
 
-#: querydriver.cpp:104 querydriver.cpp:122
+#: querydriver.cpp:104 querydriver.cpp:122 querydriver.cpp:180
 #, kde-format
 msgid "The folder %1 does not exist!"
 msgstr "Le dossier %1 n'existe pas !"
@@ -134,10 +134,20 @@ msgstr "Impossible de lire la valeur de l'entrée %1 du portefeuille %2."
 msgid "Failed to read entry %1 value from the %2 wallet"
 msgstr "Impossible de lire la valeur de l'entrée %1 du portefeuille %2"
 
-#: querydriver.cpp:194 querydriver.cpp:211
+#: querydriver.cpp:206 querydriver.cpp:227
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
 msgstr "Impossible d'écrire la valeur de l'entrée %1 dans le portefeuille %2"
+
+#: querydriver.cpp:213
+#, kde-format
+msgid "Invalid argument: the value for entry %1 is not valid JSON"
+msgstr ""
+
+#: querydriver.cpp:232
+#, kde-format
+msgid "Unsupported entry type for entry %1"
+msgstr ""
 
 #~ msgid "wallet"
 #~ msgstr "portefeuille"
