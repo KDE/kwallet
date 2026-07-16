@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-18 00:41+0000\n"
+"POT-Creation-Date: 2026-07-16 00:40+0000\n"
 "PO-Revision-Date: 2026-04-21 14:10+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -747,58 +747,58 @@ msgstr "מרקו מרטין"
 msgid "Author"
 msgstr "יוצר"
 
-#: kwalletd/secretserviceclient.cpp:241
+#: kwalletd/secretserviceclient.cpp:249
 #, kde-format
 msgid "Item not found"
 msgstr "הפריט לא נמצא"
 
-#: kwalletd/secretserviceclient.cpp:261
+#: kwalletd/secretserviceclient.cpp:269
 #, kde-format
 msgid "Could not connect to Secret Service"
 msgstr "לא ניתן להתחבר לשירות החשאי"
 
-#: kwalletd/secretserviceclient.cpp:423
+#: kwalletd/secretserviceclient.cpp:441
 #, kde-format
 msgid "Unable to unlock collectionName %1"
 msgstr "לא ניתן לשחרר את שם האוסף (collectionName) %1"
 
-#: kwalletd/secretserviceclient.cpp:515
+#: kwalletd/secretserviceclient.cpp:533
 #, kde-format
 msgid "No collections"
 msgstr "אין אוספים"
 
-#: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
-#: kwalletd/secretserviceclient.cpp:702
+#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
+#: kwalletd/secretserviceclient.cpp:720
 #, kde-format
 msgid "No entries"
 msgstr "אין רשומות"
 
-#: kwalletd/secretserviceclient.cpp:617
+#: kwalletd/secretserviceclient.cpp:635
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr "הרשומה לא נמצאה, מפתח: %1, תיקייה: %2"
 
-#: kwalletd/secretserviceclient.cpp:726
+#: kwalletd/secretserviceclient.cpp:744
 #, kde-format
 msgid "Unable to unlock item"
 msgstr "לא ניתן לשחרר פריט"
 
-#: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
+#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
 #, kde-format
 msgid "Entry to rename not found"
 msgstr "לא נמצאה רשומה לשינוי שם"
 
-#: kwalletd/secretserviceclient.cpp:776
+#: kwalletd/secretserviceclient.cpp:794
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr "רשומה בשם %1 בתיקייה %2 והארנק %3 כבר קיימת."
 
-#: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
+#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr "הרשומה לשינוי שם חלקית"
 
-#: kwalletd/secretserviceclient.cpp:851
+#: kwalletd/secretserviceclient.cpp:869
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "יצירת ערך סודי נכשלה"

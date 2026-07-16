@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-18 00:41+0000\n"
+"POT-Creation-Date: 2026-07-16 00:40+0000\n"
 "PO-Revision-Date: 2026-04-03 02:26+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -778,58 +778,58 @@ msgstr "Marco Martin"
 msgid "Author"
 msgstr "Автор"
 
-#: kwalletd/secretserviceclient.cpp:241
+#: kwalletd/secretserviceclient.cpp:249
 #, kde-format
 msgid "Item not found"
 msgstr "Елементът не е открит"
 
-#: kwalletd/secretserviceclient.cpp:261
+#: kwalletd/secretserviceclient.cpp:269
 #, kde-format
 msgid "Could not connect to Secret Service"
 msgstr "Неуспешна връзка със Secret Service"
 
-#: kwalletd/secretserviceclient.cpp:423
+#: kwalletd/secretserviceclient.cpp:441
 #, kde-format
 msgid "Unable to unlock collectionName %1"
 msgstr "Не може да се отключи collectionName %1"
 
-#: kwalletd/secretserviceclient.cpp:515
+#: kwalletd/secretserviceclient.cpp:533
 #, kde-format
 msgid "No collections"
 msgstr "Няма колекции"
 
-#: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
-#: kwalletd/secretserviceclient.cpp:702
+#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
+#: kwalletd/secretserviceclient.cpp:720
 #, kde-format
 msgid "No entries"
 msgstr "Няма записи"
 
-#: kwalletd/secretserviceclient.cpp:617
+#: kwalletd/secretserviceclient.cpp:635
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr "Записът не е намерен, ключ: %1, папка: %2"
 
-#: kwalletd/secretserviceclient.cpp:726
+#: kwalletd/secretserviceclient.cpp:744
 #, kde-format
 msgid "Unable to unlock item"
 msgstr "Не може да се отключи елемент"
 
-#: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
+#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
 #, kde-format
 msgid "Entry to rename not found"
 msgstr "Записът за преименуване не е намерен"
 
-#: kwalletd/secretserviceclient.cpp:776
+#: kwalletd/secretserviceclient.cpp:794
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr "Запис с име %1 в папка %2 и портфейл %3 вече съществува."
 
-#: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
+#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr "Записът за преименуване е непълен"
 
-#: kwalletd/secretserviceclient.cpp:851
+#: kwalletd/secretserviceclient.cpp:869
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "Неуспешно създаване на SecretValue"

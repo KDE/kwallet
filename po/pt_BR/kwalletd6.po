@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-18 00:41+0000\n"
+"POT-Creation-Date: 2026-07-16 00:40+0000\n"
 "PO-Revision-Date: 2026-02-18 08:21-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -791,58 +791,58 @@ msgstr "Marco Martin"
 msgid "Author"
 msgstr "Autor"
 
-#: kwalletd/secretserviceclient.cpp:241
+#: kwalletd/secretserviceclient.cpp:249
 #, kde-format
 msgid "Item not found"
 msgstr "Item não encontrado"
 
-#: kwalletd/secretserviceclient.cpp:261
+#: kwalletd/secretserviceclient.cpp:269
 #, kde-format
 msgid "Could not connect to Secret Service"
 msgstr "Não foi possível conectar-se ao Serviço Secreto"
 
-#: kwalletd/secretserviceclient.cpp:423
+#: kwalletd/secretserviceclient.cpp:441
 #, kde-format
 msgid "Unable to unlock collectionName %1"
 msgstr "Não foi possível desbloquear collectionName %1"
 
-#: kwalletd/secretserviceclient.cpp:515
+#: kwalletd/secretserviceclient.cpp:533
 #, kde-format
 msgid "No collections"
 msgstr "Nenhuma coleção"
 
-#: kwalletd/secretserviceclient.cpp:552 kwalletd/secretserviceclient.cpp:599
-#: kwalletd/secretserviceclient.cpp:702
+#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
+#: kwalletd/secretserviceclient.cpp:720
 #, kde-format
 msgid "No entries"
 msgstr "Nenhuma entrada"
 
-#: kwalletd/secretserviceclient.cpp:617
+#: kwalletd/secretserviceclient.cpp:635
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr "Entrada não encontrada, chave: %1, pasta: %2"
 
-#: kwalletd/secretserviceclient.cpp:726
+#: kwalletd/secretserviceclient.cpp:744
 #, kde-format
 msgid "Unable to unlock item"
 msgstr "Não foi possível desbloquear o item"
 
-#: kwalletd/secretserviceclient.cpp:769 kwalletd/secretserviceclient.cpp:887
+#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
 #, kde-format
 msgid "Entry to rename not found"
 msgstr "Entrada para renomear não encontrada"
 
-#: kwalletd/secretserviceclient.cpp:776
+#: kwalletd/secretserviceclient.cpp:794
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr "A entrada denominada %1 na pasta %2 e na carteira %3 já existe."
 
-#: kwalletd/secretserviceclient.cpp:791 kwalletd/secretserviceclient.cpp:806
+#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr "Entrada para renomear incompleta"
 
-#: kwalletd/secretserviceclient.cpp:851
+#: kwalletd/secretserviceclient.cpp:869
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "Falha ao criar SecretValue"
