@@ -1,21 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the kwallet package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-15 00:41+0000\n"
-"PO-Revision-Date: 2023-10-19 23:27+0300\n"
-"Last-Translator: \n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-07-17 12:18+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -138,9 +137,9 @@ msgstr "כתיבת ערך הרשומה %1 לארנק %2 נכשלה"
 #: querydriver.cpp:213
 #, kde-format
 msgid "Invalid argument: the value for entry %1 is not valid JSON"
-msgstr ""
+msgstr "ארגומנט שגוי: ערך הרשומה %1 אינו JSON תקני"
 
 #: querydriver.cpp:232
 #, kde-format
 msgid "Unsupported entry type for entry %1"
-msgstr ""
+msgstr "סוג רשומה לא נתמך לרשומה %1"
