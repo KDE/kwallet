@@ -2,21 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Franklin, 2015.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-15 00:41+0000\n"
-"PO-Revision-Date: 2023-05-28 16:50+0900\n"
+"PO-Revision-Date: 2026-07-22 01:22+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -135,12 +135,12 @@ msgstr "將項目 %1 的值寫入錢包 %2 失敗"
 #: querydriver.cpp:213
 #, kde-format
 msgid "Invalid argument: the value for entry %1 is not valid JSON"
-msgstr ""
+msgstr "無效參數：項目 %1 的值不是有效的 JSON"
 
 #: querydriver.cpp:232
 #, kde-format
 msgid "Unsupported entry type for entry %1"
-msgstr ""
+msgstr "項目 %1 的項目類型不支援"
 
 #~ msgid "wallet"
 #~ msgstr "錢包"

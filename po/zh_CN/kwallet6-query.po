@@ -134,9 +134,9 @@ msgstr "写入密码库 %2 的条目 %1 的值失败"
 #: querydriver.cpp:213
 #, kde-format
 msgid "Invalid argument: the value for entry %1 is not valid JSON"
-msgstr ""
+msgstr "无效的参数：条目 %1 的值是无效的 JSON"
 
 #: querydriver.cpp:232
 #, kde-format
 msgid "Unsupported entry type for entry %1"
-msgstr ""
+msgstr "不支持条目 %1 的条目类型"
