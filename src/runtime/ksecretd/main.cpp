@@ -8,8 +8,6 @@
 
 #include "ksecretd_debug.h"
 #include <KAboutData>
-#include <KConfig>
-#include <KConfigGroup>
 #include <KCrash>
 #include <KDBusService>
 #include <KLocalizedString>

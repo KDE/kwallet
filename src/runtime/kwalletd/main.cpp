@@ -7,8 +7,6 @@
 #include "kwalletd.h"
 
 #include <KAboutData>
-#include <KConfig>
-#include <KConfigGroup>
 #include <KCrash>
 #include <KDBusService>
 #include <KLocalizedString>
@@ -16,11 +14,12 @@
 #include <QApplication>
 #include <QCommandLineParser>
 
+#include "kwalletsettings.h"
+
 static bool isWalletEnabled()
 {
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup walletGroup(&cfg, QStringLiteral("Wallet"));
-    return walletGroup.readEntry(QStringLiteral("Enabled"), true);
+    KWalletSettings settings;
+    return settings.kWalletDEnabled();
 }
 
 int main(int argc, char **argv)

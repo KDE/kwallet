@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Nicolas Fella <nicolas.fella@gmx.de> -->
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name="kwalletrc"/>
+    <group name="Wallet">
+        <entry key="First Use" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry key="Launch Manager" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry key="Close When Idle" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry key="Prompt on Open" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry key="Leave Open" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="KWalletDEnabled" key="Enabled" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry key="Idle Timeout" type="Int">
+            <default>10</default>
+        </entry>
+        <entry key="Default Wallet" type="String">
+            <default>kdewallet</default>
+        </entry>
+        <entry key="Use One Wallet" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry key="Local Wallet" type="String">
+            <default>localwallet</default>
+        </entry>
+    </group>
+    <group name="KSecretD">
+        <entry name="KSecretDEnabled" key="Enabled" type="Bool">
+            <default>true</default>
+        </entry>
+    </group>
+    <group name="Migration">
+        <entry key="MigrateTo3rdParty" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry key="WalletsMigratedToSecretService" type="StringList">
+            <default></default>
+        </entry>
+    </group>
+</kcfg>

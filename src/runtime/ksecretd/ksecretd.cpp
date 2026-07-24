@@ -16,6 +16,7 @@
 #include "kwalletfreedesktopservice.h"
 #include "kwalletfreedesktopsession.h"
 #include "kwalletportalsecrets.h"
+#include "kwalletsettings.h"
 #include "kwalletwizard.h"
 
 #ifdef HAVE_GPGMEPP
@@ -466,15 +467,15 @@ int KSecretD::doTransactionOpen(const QString &appid, const QString &wallet, boo
         // if the user specifies a wallet name, the use it as the default
         // wallet name
         if (wallet != KWallet::Backend::localWallet()) {
-            KConfig kwalletrc(QStringLiteral("kwalletrc"));
-            KConfigGroup cfg(&kwalletrc, "Wallet");
-            cfg.writeEntry("Default Wallet", wallet);
+            KWalletSettings settings;
+            settings.setDefaultWallet(wallet);
+            settings.save();
         }
         if (wallets().contains(KWallet::Backend::localWallet())) {
-            KConfig kwalletrc(QStringLiteral("kwalletrc"));
-            KConfigGroup cfg(&kwalletrc, "Wallet");
+            KWalletSettings settings;
             _firstUse = false;
-            cfg.writeEntry("First Use", false);
+            settings.setFirstUse(false);
+            settings.save();
         }
         //         else {
         //             // First use wizard
@@ -1659,17 +1660,16 @@ void KSecretD::emitWalletListDirty()
 
 void KSecretD::reconfigure()
 {
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup walletGroup(&cfg, "Wallet");
-    _firstUse = walletGroup.readEntry("First Use", true);
-    _launchManager = walletGroup.readEntry("Launch Manager", false);
-    _leaveOpen = walletGroup.readEntry("Leave Open", true);
+    KWalletSettings settings;
+    _firstUse = settings.firstUse();
+    _launchManager = settings.launchManager();
+    _leaveOpen = settings.leaveOpen();
     bool idleSave = _closeIdle;
-    _closeIdle = walletGroup.readEntry("Close When Idle", false);
-    _openPrompt = walletGroup.readEntry("Prompt on Open", false);
+    _closeIdle = settings.closeWhenIdle();
+    _openPrompt = settings.promptonOpen();
     int timeSave = _idleTime;
     // in minutes!
-    _idleTime = walletGroup.readEntry("Idle Timeout", 10) * 60 * 1000;
+    _idleTime = settings.idleTimeout() * 60 * 1000;
     // Handle idle changes
     if (_closeIdle) {
         if (_idleTime != timeSave) { // Timer length changed
@@ -1691,6 +1691,7 @@ void KSecretD::reconfigure()
         _closeTimers.clear();
     }
 
+    KConfig cfg(QStringLiteral("kwalletrc"));
     // Update the implicit allow stuff
     _implicitAllowMap.clear();
     const KConfigGroup autoAllowGroup(&cfg, "Auto Allow");
@@ -1719,13 +1720,12 @@ void KSecretD::reconfigure()
 
 bool KSecretD::isEnabled()
 {
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup walletGroup(&cfg, "Wallet");
-    KConfigGroup ksecretdGroup(&cfg, "KSecretD");
+    KWalletSettings settings;
+
     // For KSecredD to be enabled, it needs both global kwallet enabled and ksecretd enabled
     // values, as it does not make sense without kwallet, but is possible kwallet without
     // ksecretd
-    return ksecretdGroup.readEntry("Enabled", true) && walletGroup.readEntry("Enabled", true);
+    return settings.kSecretDEnabled() && settings.kWalletDEnabled();
 }
 
 bool KSecretD::folderDoesNotExist(const QString &wallet, const QString &folder)

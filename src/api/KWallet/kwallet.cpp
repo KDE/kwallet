@@ -14,10 +14,8 @@
 #include <QDBusConnection>
 #include <QRegularExpression>
 
-#include <KConfigGroup>
-#include <KSharedConfig>
-
 #include "kwallet_interface.h"
+#include "kwalletsettings.h"
 
 typedef QMap<QString, QByteArray> StringByteArrayMap;
 Q_DECLARE_METATYPE(StringByteArrayMap)
@@ -34,7 +32,6 @@ public:
     org::kde::KWallet &getInterface();
 
     org::kde::KWallet *m_wallet_deamon;
-    KConfigGroup m_cgroup;
     bool m_walletEnabled;
 };
 
@@ -882,10 +879,11 @@ void Wallet::virtual_hook(int, void *)
 
 KWalletDLauncher::KWalletDLauncher()
     : m_wallet_deamon(nullptr)
-    , m_cgroup(KSharedConfig::openConfig(QStringLiteral("kwalletrc"), KConfig::NoGlobals)->group(QStringLiteral("Wallet")))
     , m_walletEnabled(false)
 {
-    m_walletEnabled = m_cgroup.readEntry("Enabled", true);
+    KWalletSettings settings;
+
+    m_walletEnabled = settings.kWalletDEnabled();
     if (!m_walletEnabled) {
         qCDebug(KWALLET_API_LOG) << "The wallet service was disabled by the user";
         return;

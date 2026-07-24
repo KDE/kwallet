@@ -13,6 +13,7 @@
 #include "kwalletfreedesktopprompt.h"
 #include "kwalletfreedesktopserviceadaptor.h"
 #include "kwalletfreedesktopsession.h"
+#include "kwalletsettings.h"
 #include <KConfigGroup>
 #include <QWidget>
 #include <string.h>
@@ -304,8 +305,7 @@ QDBusObjectPath KWalletFreedesktopService::ReadAlias(const QString &name)
 
     m_kwalletrc.reparseConfiguration();
     if (name == QStringLiteral("default")) {
-        KConfigGroup cfg(&m_kwalletrc, "Wallet");
-        walletName = defaultWalletName(cfg);
+        walletName = defaultWalletName();
 
     } else {
         KConfigGroup cfg(&m_kwalletrc, "org.freedesktop.secrets.aliases");
@@ -447,13 +447,10 @@ QString KWalletFreedesktopService::createSession(std::unique_ptr<KWalletFreedesk
     return sessionPath;
 }
 
-QString KWalletFreedesktopService::defaultWalletName(KConfigGroup &cfg)
+QString KWalletFreedesktopService::defaultWalletName()
 {
-    auto walletName = cfg.readEntry("Default Wallet", "kdewallet");
-    if (walletName.isEmpty()) {
-        walletName = QStringLiteral("kdewallet");
-    }
-    return walletName;
+    KWalletSettings settings;
+    return settings.defaultWallet();
 }
 
 QDBusObjectPath KWalletFreedesktopService::promptUnlockCollection(const QString &walletName, int handle)
@@ -732,8 +729,7 @@ QStringList KWalletFreedesktopService::readAliasesFor(const QString &walletName)
         }
     }
 
-    KConfigGroup cfgWallet(&m_kwalletrc, "Wallet");
-    if (defaultWalletName(cfgWallet) == walletName) {
+    if (defaultWalletName() == walletName) {
         aliases.push_back(QStringLiteral("default"));
     }
 

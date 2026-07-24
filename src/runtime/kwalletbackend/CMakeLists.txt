@@ -61,6 +61,7 @@ ecm_qt_declare_logging_category(KF6WalletBackend
     EXPORT KWALLET
 )
 
+kconfig_target_kcfg_file(KF6WalletBackend FILE ${CMAKE_SOURCE_DIR}/src/kwalletsettings.kcfg CLASS_NAME KWalletSettings)
 
 generate_export_header(KF6WalletBackend
     BASE_NAME kwalletbackend
@@ -71,7 +72,7 @@ target_link_libraries(KF6WalletBackend
     KF6::WidgetsAddons
     KF6::CoreAddons
     KF6::Notifications
-    KF6::ConfigCore
+    KF6::ConfigGui
     KF6::I18n
     ${LIBGCRYPT_LIBRARIES}
 )

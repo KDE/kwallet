@@ -73,7 +73,7 @@ target_link_libraries(KF6Wallet
         Qt6::Gui
     PRIVATE
         Qt6::DBus
-        KF6::ConfigCore   # used to store the wallet to be used
+        KF6::ConfigGui   # used to store the wallet to be used
 )
 
 if(MAC_USE_OSXKEYCHAIN)
@@ -95,6 +95,8 @@ ecm_generate_headers(KWallet_HEADERS
 )
 
 ecm_generate_qdoc(KF6Wallet kwallet.qdocconf)
+
+kconfig_target_kcfg_file(KF6Wallet FILE ${CMAKE_SOURCE_DIR}/src/kwalletsettings.kcfg CLASS_NAME KWalletSettings)
 
 install(TARGETS KF6Wallet EXPORT KF6WalletTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES

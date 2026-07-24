@@ -7,3 +7,5 @@ ecm_qt_install_logging_categories(
     FILE kwallet.categories
     DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
 )
+
+install(FILES kwalletsettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})

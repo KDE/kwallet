@@ -79,6 +79,8 @@ ki18n_wrap_ui(ksecretd
    kwalletwizardpagepassword.ui
 )
 
+kconfig_target_kcfg_file(ksecretd FILE ${CMAKE_SOURCE_DIR}/src/kwalletsettings.kcfg CLASS_NAME KWalletSettings MUTATORS)
+
 if (Gpgmepp_FOUND)
     target_sources(ksecretd PRIVATE
         knewwalletdialog.cpp
@@ -136,6 +138,7 @@ target_link_libraries(ksecretd
     KF6::ColorScheme
     KF6::CoreAddons
     KF6::ConfigCore
+    KF6::ConfigGui
     KF6::DBusAddons
     KF6::WidgetsAddons
     KF6::WindowSystem

@@ -14,10 +14,8 @@
 #ifdef HAVE_GPGMEPP
 #include <gpgme++/key.h>
 #endif
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KNotification>
-#include <KSharedConfig>
 #include <gcrypt.h>
 
 #include <QDir>
@@ -31,6 +29,7 @@
 #include "blowfish.h"
 #include "sha1.h"
 #include "cbc.h"
+#include "kwalletsettings.h"
 
 #include <assert.h>
 #include <cerrno>
@@ -66,31 +65,19 @@ QString Backend::decodeWalletName(const QString &encodedName) {
 
 QString Backend::networkWallet()
 {
-    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group(QStringLiteral("Wallet")));
-
-    QString tmp = cfg.readEntry("Default Wallet", "kdewallet");
-    if (tmp.isEmpty()) {
-        return QStringLiteral("kdewallet");
-    }
-    return tmp;
+    KWalletSettings settings;
+    return settings.defaultWallet();
 }
 
 QString Backend::localWallet()
 {
-    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group(QStringLiteral("Wallet")));
-    if (!cfg.readEntry("Use One Wallet", true)) {
-        QString tmp = cfg.readEntry("Local Wallet", "localwallet");
-        if (tmp.isEmpty()) {
-            return QStringLiteral("localwallet");
-        }
-        return tmp;
+    KWalletSettings settings;
+
+    if (!settings.useOneWallet()) {
+        return settings.localWallet();
     }
 
-    QString tmp = cfg.readEntry("Default Wallet", "kdewallet");
-    if (tmp.isEmpty()) {
-        return QStringLiteral("kdewallet");
-    }
-    return tmp;
+    return settings.defaultWallet();
 }
 
 gcry_error_t ensureGcryptInit()

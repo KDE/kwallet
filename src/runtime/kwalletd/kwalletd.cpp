@@ -9,12 +9,11 @@
 #include <QDBusConnection>
 #include <QDebug>
 
-#include <KConfig>
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KPasswordDialog>
 
 #include "kwalletadaptor.h"
+#include "kwalletsettings.h"
 #include "secretserviceclient.h"
 
 #include "../kwalletbackend/kwalletbackend.h"
@@ -169,15 +168,14 @@ void KWalletD::migrateData()
     if (!m_backend->isAvailable() || m_backend->useKSecretBackend()) {
         return;
     }
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup walletGroup(&cfg, QStringLiteral("Wallet"));
-    KConfigGroup migrationGroup(&cfg, QStringLiteral("Migration"));
 
-    if (!migrationGroup.readEntry(QStringLiteral("MigrateTo3rdParty"), false)) {
+    KWalletSettings settings;
+
+    if (!settings.migrateTo3rdParty()) {
         return;
     }
 
-    QStringList walletsMigrated = migrationGroup.readEntry(QStringLiteral("WalletsMigratedToSecretService"), QStringList());
+    QStringList walletsMigrated = settings.walletsMigratedToSecretService();
 
     // Get the list of all known kwallets
     const QString path = KWallet::Backend::getSaveLocation();
@@ -198,7 +196,7 @@ void KWalletD::migrateData()
     }
 
     bool ok = false;
-    const QString oldDefaultWallet = walletGroup.readEntry(QStringLiteral("Default Wallet"), QStringLiteral("kdewallet"));
+    const QString oldDefaultWallet = settings.defaultWallet();
     for (const QString &sourceWallet : std::as_const(wallets)) {
         QString destWallet = sourceWallet;
         // Use the SecretService default collection as the new default wallet
@@ -213,8 +211,8 @@ void KWalletD::migrateData()
         }
     }
 
-    migrationGroup.writeEntry(QStringLiteral("WalletsMigratedToSecretService"), walletsMigrated);
-    cfg.sync();
+    settings.setWalletsMigratedToSecretService(walletsMigrated);
+    settings.save();
 }
 
 QString KWalletD::walletForHandle(int handle, const QString &appId)
@@ -996,16 +994,16 @@ bool KWalletD::disconnectApplication(const QString &wallet, const QString &appli
 
 void KWalletD::reconfigure()
 {
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup walletGroup(&cfg, QStringLiteral("Wallet"));
+    KWalletSettings settings;
+
     const bool wasEnabled = m_enabled;
-    m_enabled = walletGroup.readEntry("Enabled", true);
-    m_launchManager = walletGroup.readEntry("Launch Manager", false);
+    m_enabled = settings.kWalletDEnabled();
+    m_launchManager = settings.launchManager();
     const bool closeIdle = m_closeIdle;
-    m_closeIdle = walletGroup.readEntry("Close When Idle", false);
+    m_closeIdle = settings.closeWhenIdle();
     const int idleTime = m_idleTime;
     // in minutes!
-    m_idleTime = walletGroup.readEntry("Idle Timeout", 10) * 60 * 1000;
+    m_idleTime = settings.idleTimeout();
 
     if (wasEnabled != m_enabled) {
         if (isEnabled()) {
@@ -1096,11 +1094,9 @@ QString KWalletD::networkWallet()
 
 QString KWalletD::localWallet()
 {
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup ksecretdGroup(&cfg, QStringLiteral("KSecretD"));
-    const bool ksecretdEnabled = ksecretdGroup.readEntry("Enabled", true);
+    KWalletSettings settings;
 
-    if (ksecretdEnabled) {
+    if (settings.kSecretDEnabled()) {
         return KWallet::Backend::localWallet();
     } else {
         bool ok;

@@ -51,6 +51,8 @@ target_sources(kwalletd6 PRIVATE
     ${kwalletd6_SRCS}
 )
 
+kconfig_target_kcfg_file(kwalletd6 FILE ${CMAKE_SOURCE_DIR}/src/kwalletsettings.kcfg CLASS_NAME KWalletSettings MUTATORS)
+
 ecm_qt_declare_logging_category(kwalletd6
     HEADER kwalletd_debug.h
     IDENTIFIER KWALLETD_LOG
@@ -61,7 +63,7 @@ ecm_qt_declare_logging_category(kwalletd6
 
 target_link_libraries(kwalletd6
     KF6WalletBackend
-    KF6::ConfigCore
+    KF6::ConfigGui
     KF6::CoreAddons
     KF6::WidgetsAddons
     KF6::Crash

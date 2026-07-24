@@ -72,5 +72,8 @@ ecm_add_test(
         Qt6::Test
         KF6::DBusAddons
         KF6::ConfigCore
+        KF6::ConfigGui
         ${Qca_LIBRARY}
 )
+
+kconfig_target_kcfg_file(fdo_secrets_test FILE ${CMAKE_SOURCE_DIR}/src/kwalletsettings.kcfg CLASS_NAME KWalletSettings MUTATORS)

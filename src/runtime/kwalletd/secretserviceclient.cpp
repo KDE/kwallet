@@ -7,8 +7,6 @@
 #include "secretserviceclient.h"
 #include "kwalletd_debug.h"
 
-#include <KConfig>
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -16,6 +14,8 @@
 #include <QDBusServiceWatcher>
 #include <QEventLoop>
 #include <QTimer>
+
+#include "kwalletsettings.h"
 
 // Copied from
 // https://github.com/frankosterfeld/qtkeychain/blob/main/qtkeychain/libsecret.cpp
@@ -104,9 +104,8 @@ static SecretServiceClient::Type stringToType(const QString &typeName)
 SecretServiceClient::SecretServiceClient(QObject *parent)
     : QObject(parent)
 {
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup ksecretGroup(&cfg, QStringLiteral("KSecretD"));
-    m_useKSecretBackend = ksecretGroup.readEntry("Enabled", true);
+    KWalletSettings settings;
+    m_useKSecretBackend = settings.kSecretDEnabled();
 
     if (m_useKSecretBackend) {
         // Tell libsecret where the secretservice api is

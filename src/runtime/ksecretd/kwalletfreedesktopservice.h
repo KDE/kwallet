@@ -174,7 +174,7 @@ private:
     std::unique_ptr<KWalletFreedesktopSessionAlgorithm> createSessionAlgorithmPlain() const;
     std::unique_ptr<KWalletFreedesktopSessionAlgorithm> createSessionAlgorithmDhAes(const QByteArray &clientKey) const;
     QString createSession(std::unique_ptr<KWalletFreedesktopSessionAlgorithm> algorithm);
-    QString defaultWalletName(KConfigGroup &cfg);
+    QString defaultWalletName();
 
 private:
     // must come first for the proper construction/destruction order
