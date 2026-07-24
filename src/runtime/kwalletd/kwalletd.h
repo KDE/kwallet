@@ -146,11 +146,6 @@ public Q_SLOTS:
     QString networkWallet();
     QString localWallet();
 
-    // STUB: Open a wallet using a pre-hashed password. This is only useful in cooperation
-    // with the kwallet PAM module. It's also less secure than manually entering the
-    // password as the password hash is transmitted using D-Bus.
-    int pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout);
-
 protected:
     int openInternal(const QString &wallet, qlonglong wId, const QString &appId);
     // Migrate a single wallet, returns true on success
