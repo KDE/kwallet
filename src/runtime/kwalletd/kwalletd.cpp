@@ -1115,21 +1115,4 @@ QString KWalletD::localWallet()
     return walletGroup.readEntry(QStringLiteral("Local Wallet"), networkWallet());
 }
 
-int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout)
-{
-    if (!m_backend->useKSecretBackend()) {
-        return -1;
-    }
-
-    QDBusInterface secretdInterface(QStringLiteral("org.kde.ksecretd"),
-                                    QStringLiteral("/ksecretd"),
-                                    QStringLiteral("org.kde.KWallet"),
-                                    QDBusConnection::sessionBus());
-
-    secretdInterface.call(QStringLiteral("pamOpen"), wallet, passwordHash, sessionTimeout);
-
-    // Return value is not much important as is not exposed on dbus
-    return 0;
-}
-
 #include "moc_kwalletd.cpp"
