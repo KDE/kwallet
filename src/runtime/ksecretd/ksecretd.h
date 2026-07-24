@@ -164,8 +164,6 @@ public Q_SLOTS:
 
     QString localWallet();
 
-    void screenSaverChanged(bool);
-
     // Open a wallet using a pre-hashed password. This is only useful in cooperation
     // with the kwallet PAM module. It's also less secure than manually entering the
     // password as the password hash is transmitted using D-Bus.
@@ -201,9 +199,6 @@ private Q_SLOTS:
     void notifyFailures();
     void processTransactions();
     void activatePasswordDialog();
-#ifdef Q_WS_X11
-    void connectToScreenSaver();
-#endif
 
 private:
     // Internal - open a wallet
@@ -254,10 +249,6 @@ private:
     KWalletTransaction *_curtrans; // current transaction
     QList<KWalletTransaction *> _transactions;
     QPointer<QWidget> activeDialog;
-
-#ifdef Q_WS_X11
-    QDBusInterface *screensaver;
-#endif
 
     // sessions
     KWalletSessionStore _sessions;

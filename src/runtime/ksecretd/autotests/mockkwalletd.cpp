@@ -118,7 +118,6 @@ MOCK_FUNCTION(KSecretD, sync, 2, );
 MOCK_FUNCTION(KSecretD, changePassword, 3, );
 MOCK_FUNCTION(KSecretD, reconfigure, 0, );
 MOCK_FUNCTION(KSecretD, closeAllWallets, 0, );
-MOCK_FUNCTION(KSecretD, screenSaverChanged, 1, );
 
 void KSecretD::slotServiceOwnerChanged(const QString &, const QString &, const QString &)
 {
