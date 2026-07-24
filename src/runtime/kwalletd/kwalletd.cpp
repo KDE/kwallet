@@ -1103,9 +1103,11 @@ QString KWalletD::networkWallet()
     bool ok;
     const QString defaultWallet = m_backend->defaultCollection(&ok);
 
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup walletGroup(&cfg, QStringLiteral("Wallet"));
-    return walletGroup.readEntry(QStringLiteral("Default Wallet"), defaultWallet);
+    if (!ok) {
+        sendErrorReply(QDBusError::Failed, QStringLiteral("Failed to query default collection"));
+        return {};
+    }
+    return defaultWallet;
 }
 
 QString KWalletD::localWallet()
