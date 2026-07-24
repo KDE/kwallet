@@ -1113,8 +1113,21 @@ QString KWalletD::networkWallet()
 QString KWalletD::localWallet()
 {
     KConfig cfg(QStringLiteral("kwalletrc"));
-    KConfigGroup walletGroup(&cfg, QStringLiteral("Wallet"));
-    return walletGroup.readEntry(QStringLiteral("Local Wallet"), networkWallet());
+    KConfigGroup ksecretdGroup(&cfg, QStringLiteral("KSecretD"));
+    const bool ksecretdEnabled = ksecretdGroup.readEntry("Enabled", true);
+
+    if (ksecretdEnabled) {
+        return KWallet::Wallet::LocalWallet(); // keep in sync with KSecretD::localWallet()
+    } else {
+        bool ok;
+        const QString defaultWallet = m_backend->defaultCollection(&ok);
+
+        if (!ok) {
+            sendErrorReply(QDBusError::Failed, QStringLiteral("Failed to query default collection"));
+            return {};
+        }
+        return defaultWallet;
+    }
 }
 
 int KWalletD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout)
