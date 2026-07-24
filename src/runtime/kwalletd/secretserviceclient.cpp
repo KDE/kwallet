@@ -481,6 +481,7 @@ QString SecretServiceClient::defaultCollection(bool *ok)
         return QStringLiteral("kdewallet");
     }
 
+    *ok = true;
     return label;
 }
 
