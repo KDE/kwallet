@@ -465,12 +465,12 @@ int KSecretD::doTransactionOpen(const QString &appid, const QString &wallet, boo
     if (_firstUse && !isPath) {
         // if the user specifies a wallet name, the use it as the default
         // wallet name
-        if (wallet != KWallet::Wallet::LocalWallet()) {
+        if (wallet != KWallet::Backend::localWallet()) {
             KConfig kwalletrc(QStringLiteral("kwalletrc"));
             KConfigGroup cfg(&kwalletrc, "Wallet");
             cfg.writeEntry("Default Wallet", wallet);
         }
-        if (wallets().contains(KWallet::Wallet::LocalWallet())) {
+        if (wallets().contains(KWallet::Backend::localWallet())) {
             KConfig kwalletrc(QStringLiteral("kwalletrc"));
             KConfigGroup cfg(&kwalletrc, "Wallet");
             _firstUse = false;
@@ -686,7 +686,7 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, bool isP
                 KNewPasswordDialog *kpd = new KNewPasswordDialog();
                 KColorScheme colorScheme(QPalette::Active, KColorScheme::View);
                 kpd->setBackgroundWarningColor(colorScheme.background(KColorScheme::NegativeBackground).color());
-                if (wallet == KWallet::Wallet::LocalWallet() || wallet == KWallet::Wallet::NetworkWallet()) {
+                if (wallet == KWallet::Backend::localWallet() || wallet == KWallet::Backend::networkWallet()) {
                     // Auto create these wallets.
                     if (appid.isEmpty()) {
                         kpd->setPrompt(
@@ -1800,12 +1800,12 @@ void KSecretD::closeAllWallets()
 
 QString KSecretD::networkWallet()
 {
-    return KWallet::Wallet::NetworkWallet();
+    return KWallet::Backend::networkWallet();
 }
 
 QString KSecretD::localWallet()
 {
-    return KWallet::Wallet::LocalWallet();
+    return KWallet::Backend::localWallet();
 }
 
 void KSecretD::activatePasswordDialog()

@@ -194,6 +194,8 @@ public:
     static QString getSaveLocation();
     static QString encodeWalletName(const QString &name);
     static QString decodeWalletName(const QString &encodedName);
+    static QString networkWallet();
+    static QString localWallet();
 
 private:
     Q_DISABLE_COPY(Backend)

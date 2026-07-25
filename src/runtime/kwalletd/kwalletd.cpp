@@ -1117,7 +1117,7 @@ QString KWalletD::localWallet()
     const bool ksecretdEnabled = ksecretdGroup.readEntry("Enabled", true);
 
     if (ksecretdEnabled) {
-        return KWallet::Wallet::LocalWallet(); // keep in sync with KSecretD::localWallet()
+        return KWallet::Backend::localWallet();
     } else {
         bool ok;
         const QString defaultWallet = m_backend->defaultCollection(&ok);

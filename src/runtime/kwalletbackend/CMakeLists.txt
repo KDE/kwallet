@@ -71,6 +71,7 @@ target_link_libraries(KF6WalletBackend
     KF6::WidgetsAddons
     KF6::CoreAddons
     KF6::Notifications
+    KF6::ConfigCore
     KF6::I18n
     ${LIBGCRYPT_LIBRARIES}
 )

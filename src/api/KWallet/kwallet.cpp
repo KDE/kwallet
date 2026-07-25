@@ -56,31 +56,32 @@ static void registerTypes()
 
 const QString Wallet::LocalWallet()
 {
-    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group(QStringLiteral("Wallet")));
-    if (!cfg.readEntry("Use One Wallet", true)) {
-        QString tmp = cfg.readEntry("Local Wallet", "localwallet");
-        if (tmp.isEmpty()) {
-            return QStringLiteral("localwallet");
+    if (walletLauncher()->m_walletEnabled) {
+        QDBusReply<QString> r = walletLauncher()->getInterface().localWallet();
+        if (!r.isValid()) {
+            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            return QString();
+        } else {
+            return r;
         }
-        return tmp;
+    } else {
+        return QString();
     }
-
-    QString tmp = cfg.readEntry("Default Wallet", "kdewallet");
-    if (tmp.isEmpty()) {
-        return QStringLiteral("kdewallet");
-    }
-    return tmp;
 }
 
 const QString Wallet::NetworkWallet()
 {
-    KConfigGroup cfg(KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group(QStringLiteral("Wallet")));
-
-    QString tmp = cfg.readEntry("Default Wallet", "kdewallet");
-    if (tmp.isEmpty()) {
-        return QStringLiteral("kdewallet");
+    if (walletLauncher()->m_walletEnabled) {
+        QDBusReply<QString> r = walletLauncher()->getInterface().networkWallet();
+        if (!r.isValid()) {
+            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            return QString();
+        } else {
+            return r;
+        }
+    } else {
+        return QString();
     }
-    return tmp;
 }
 
 const QString Wallet::PasswordFolder()
