@@ -90,19 +90,6 @@ KWalletD::KWalletD(QObject *parent)
     connect(m_backend, &SecretServiceClient::collectionListDirty, this, &KWalletD::walletListDirty);
 
     reconfigure();
-
-    m_configWatcher = KConfigWatcher::create(KSharedConfig::openConfig(QStringLiteral("kwalletrc")));
-    connect(m_configWatcher.data(), &KConfigWatcher::configChanged, this, [this]() {
-        bool ok = false;
-        KConfig cfg(QStringLiteral("kwalletrc"));
-        KConfigGroup walletGroup(&cfg, QStringLiteral("Wallet"));
-        const QString defaultCollection = m_backend->defaultCollection(&ok);
-        const QString newDefaultWallet = walletGroup.readEntry(QStringLiteral("Default Wallet"), defaultCollection);
-
-        if (newDefaultWallet != defaultCollection) {
-            m_backend->setDefaultCollection(newDefaultWallet, &ok);
-        }
-    });
 }
 
 KWalletD::~KWalletD()
@@ -225,9 +212,6 @@ void KWalletD::migrateData()
             walletsMigrated << sourceWallet;
         }
     }
-
-    // The default wallet will always be the one Secret Service says
-    walletGroup.writeEntry(QStringLiteral("Default Wallet"), m_backend->defaultCollection(&ok));
 
     migrationGroup.writeEntry(QStringLiteral("WalletsMigratedToSecretService"), walletsMigrated);
     cfg.sync();

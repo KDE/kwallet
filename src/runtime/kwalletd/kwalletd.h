@@ -9,8 +9,6 @@
 #include <QDBusContext>
 #include <QObject>
 
-#include <KConfigWatcher>
-
 #include "kwalletd_debug.h"
 
 struct Folder {
@@ -204,7 +202,6 @@ private:
     bool m_closeIdle = false;
     // in minutes
     int m_idleTime = 10 * 60 * 1000;
-    KConfigWatcher::Ptr m_configWatcher;
 
     static unsigned int s_lastTransaction;
 };
