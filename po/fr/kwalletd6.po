@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:40+0000\n"
+"POT-Creation-Date: 2026-07-26 00:40+0000\n"
 "PO-Revision-Date: 2026-02-21 17:10+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -180,7 +180,7 @@ msgstr "Classique,fichier chiffré par l'algorithme de Blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Utiliser le chiffrement GPG pour une meilleure protection"
 
-#: ksecretd/ksecretd.cpp:616
+#: ksecretd/ksecretd.cpp:593
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -189,7 +189,7 @@ msgstr ""
 "<qt>KDE a demandé l'ouverture du portefeuille « <b>%1</b> ». Veuillez saisir "
 "ci-dessous le mot de passe pour ce portefeuille.</qt>"
 
-#: ksecretd/ksecretd.cpp:620
+#: ksecretd/ksecretd.cpp:597
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -199,21 +199,21 @@ msgstr ""
 "b> ». Veuillez saisir ci-dessous le mot de passe pour ce portefeuille.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:631 ksecretd/ksecretd.cpp:740
-#: ksecretd/ksecretd.cpp:844 ksecretd/ksecretd.cpp:957
-#: ksecretd/ksecretd.cpp:980 ksecretd/ksecretd.cpp:991
-#: ksecretd/ksecretd.cpp:996 ksecretd/ksecretd.cpp:1586 ksecretd/main.cpp:160
+#: ksecretd/ksecretd.cpp:608 ksecretd/ksecretd.cpp:717
+#: ksecretd/ksecretd.cpp:821 ksecretd/ksecretd.cpp:934
+#: ksecretd/ksecretd.cpp:957 ksecretd/ksecretd.cpp:968
+#: ksecretd/ksecretd.cpp:973 ksecretd/ksecretd.cpp:1563 ksecretd/main.cpp:160
 #: ksecretd/main.cpp:162
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Service de portefeuilles de KDE"
 
-#: ksecretd/ksecretd.cpp:646
+#: ksecretd/ksecretd.cpp:623
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Une application a demandé l'ouverture d'un portefeuille (%1)."
 
-#: ksecretd/ksecretd.cpp:647
+#: ksecretd/ksecretd.cpp:624
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -221,19 +221,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Basculer vers l'application"
 
-#: ksecretd/ksecretd.cpp:649
+#: ksecretd/ksecretd.cpp:626
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> a demandé l'ouverture d'un portefeuille (%2)."
 
-#: ksecretd/ksecretd.cpp:651
+#: ksecretd/ksecretd.cpp:628
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Basculer vers %1"
 
-#: ksecretd/ksecretd.cpp:668 ksecretd/ksecretd.cpp:750
+#: ksecretd/ksecretd.cpp:645 ksecretd/ksecretd.cpp:727
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -242,7 +242,7 @@ msgstr ""
 "<qt>Erreur lors de l'ouverture du portefeuille « <b>%1</b> ». Veuillez "
 "réessayer.<br />(Code d'erreur %2 : %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:716
+#: ksecretd/ksecretd.cpp:693
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -254,7 +254,7 @@ msgstr ""
 "de passe à utiliser avec ce portefeuille ou cliquer sur « Annuler » pour "
 "rejeter la demande de l'application."
 
-#: ksecretd/ksecretd.cpp:721
+#: ksecretd/ksecretd.cpp:698
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -267,7 +267,7 @@ msgstr ""
 "sécurisée. Veuillez saisir un mot de passe à utiliser avec ce portefeuille "
 "ou cliquer sur « Annuler » pour rejeter la demande de l'application.</qt>"
 
-#: ksecretd/ksecretd.cpp:729
+#: ksecretd/ksecretd.cpp:706
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -278,7 +278,7 @@ msgstr ""
 "Veuillez choisir un mot de passe pour ce portefeuille ou cliquer sur "
 "« Annuler » pour rejeter la demande de l'application.</qt>"
 
-#: ksecretd/ksecretd.cpp:734
+#: ksecretd/ksecretd.cpp:711
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -289,14 +289,14 @@ msgstr ""
 "nommé « <b>%2</b> ». Veuillez choisir un mot de passe pour ce portefeuille "
 "ou cliquer sur « Annuler » pour rejeter la demande de l'application.</qt>"
 
-#: ksecretd/ksecretd.cpp:846
+#: ksecretd/ksecretd.cpp:823
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>KDE a demandé l'accès au portefeuille actuellement ouvert « <b>%1</b> »."
 "</qt>"
 
-#: ksecretd/ksecretd.cpp:848
+#: ksecretd/ksecretd.cpp:825
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -305,7 +305,7 @@ msgstr ""
 "<qt>L'application <b>%1</b> a demandé l'accès au portefeuille ouvert « <b>"
 "%2</b> ».</qt>"
 
-#: ksecretd/ksecretd.cpp:956
+#: ksecretd/ksecretd.cpp:933
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -314,7 +314,7 @@ msgstr ""
 "Il est impossible d'ouvrir le portefeuille. Il faut que ce dernier soit "
 "ouvert pour pouvoir changer le mot de passe."
 
-#: ksecretd/ksecretd.cpp:972
+#: ksecretd/ksecretd.cpp:949
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -325,28 +325,28 @@ msgstr ""
 "Veuillez utiliser les outils <b>GPG</b> (tels que <b>kleopatra</b>) pour "
 "changer la phrase secrète associée à cette clé.</qt>"
 
-#: ksecretd/ksecretd.cpp:979
+#: ksecretd/ksecretd.cpp:956
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>Veuillez choisir un nouveau mot de passe pour le portefeuille « <b>%1</"
 "b> ».</qt>"
 
-#: ksecretd/ksecretd.cpp:991
+#: ksecretd/ksecretd.cpp:968
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
 "Erreur lors du nouveau chiffrement du portefeuille. Le mot de passe n'a pas "
 "été changé."
 
-#: ksecretd/ksecretd.cpp:996
+#: ksecretd/ksecretd.cpp:973
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Erreur lors de la réouverture du portefeuille. Des données risquent d'être "
 "perdues."
 
-#: ksecretd/ksecretd.cpp:1585
+#: ksecretd/ksecretd.cpp:1562
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
