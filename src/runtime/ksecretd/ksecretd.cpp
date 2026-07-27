@@ -53,7 +53,7 @@
 
 #include <assert.h>
 
-#include "kwalletadaptor.h"
+#include "kwalletcompatadaptor.h"
 
 static void startManagerForKSecretD()
 {
@@ -137,7 +137,7 @@ KSecretD::KSecretD()
     KConfigGroup cfgWallet(&kwalletrc, "Wallet");
 
     if (cfgWallet.readEntry<bool>("apiEnabled", true)) {
-        (void)new KWalletAdaptor(this);
+        (void)new KWalletCompatAdaptor(this);
         // register legacy services
         QDBusConnection::sessionBus().registerObject(QStringLiteral("/ksecretd"), this);
         QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.ksecretd"));

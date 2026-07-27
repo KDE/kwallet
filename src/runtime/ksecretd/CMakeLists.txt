@@ -93,13 +93,7 @@ if (Gpgmepp_FOUND)
     )
 endif(Gpgmepp_FOUND)
 
-if (NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
-    EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.72.0)
-    set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.KWallet.xml)
-else()
-    # copy of org.kde.KWallet.xml, but with all deprecated API removed
-    set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.nodeprecated.KWallet.xml)
-endif()
+set(kwalletcompat_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.kwalletcompat.xml)
 set(fdo_service_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Service.xml)
 set(fdo_session_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Session.xml)
 set(fdo_collection_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Collection.xml)
@@ -108,7 +102,7 @@ set(fdo_prompt_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.P
 set(fdo_portal_secret_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.impl.portal.Secret.xml)
 
 set(ksecretd_dbus_SRCS)
-qt_add_dbus_adaptor(ksecretd_dbus_SRCS ${kwallet_xml} ksecretd.h KSecretD kwalletadaptor KWalletAdaptor)
+qt_add_dbus_adaptor(ksecretd_dbus_SRCS ${kwalletcompat_xml} ksecretd.h KSecretD kwalletcompatadaptor KWalletCompatAdaptor)
 qt_add_dbus_adaptor(ksecretd_dbus_SRCS ${fdo_service_xml} kwalletfreedesktopservice.h KWalletFreedesktopService
     kwalletfreedesktopserviceadaptor KWalletFreedesktopServiceAdaptor)
 qt_add_dbus_adaptor(ksecretd_dbus_SRCS ${fdo_session_xml} kwalletfreedesktopsession.h KWalletFreedesktopSession

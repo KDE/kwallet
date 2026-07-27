@@ -15,13 +15,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../../api/KWallet)
 add_definitions(-DFDO_ENABLE_DUMMY_MESSAGE_CONNECTION)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
-if (NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
-    EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.72.0)
-    set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.KWallet.xml)
-else()
-    # copy of org.kde.KWallet.xml, but with all deprecated API removed
-    set(kwallet_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.kde.nodeprecated.KWallet.xml)
-endif()
 set(fdo_service_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Service.xml)
 set(fdo_session_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Session.xml)
 set(fdo_collection_xml ${CMAKE_SOURCE_DIR}/src/api/KWallet/org.freedesktop.Secrets.Collection.xml)
@@ -38,7 +31,6 @@ set(TEST_SRC
     ../kwalletfreedesktopattributes.cpp
 )
 
-qt_add_dbus_adaptor( TEST_SRC ${kwallet_xml} ../ksecretd.h KSecretD kwalletadaptor KWalletAdaptor)
 qt_add_dbus_adaptor( TEST_SRC ${fdo_service_xml} ../kwalletfreedesktopservice.h KWalletFreedesktopService
     kwalletfreedesktopserviceadaptor KWalletFreedesktopServiceAdaptor)
 qt_add_dbus_adaptor( TEST_SRC ${fdo_session_xml} ../kwalletfreedesktopsession.h KWalletFreedesktopSession
