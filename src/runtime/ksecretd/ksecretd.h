@@ -49,26 +49,6 @@ public:
     int close(int handle, bool force, const QString &appid, const QDBusMessage &message);
 
 public Q_SLOTS:
-
-    // Open and unlock the wallet
-    int open(const QString &wallet, qlonglong wId, const QString &appid);
-
-    // Open and unlock the wallet with this path
-    int openPath(const QString &path, qlonglong wId, const QString &appid);
-
-    // Open the wallet asynchronously
-    int openAsync(const QString &wallet, qlonglong wId, const QString &appid, bool handleSession);
-
-    // Open and unlock the wallet with this path asynchronously
-    int openPathAsync(const QString &path, qlonglong wId, const QString &appid, bool handleSession);
-
-    // Close and lock the wallet
-    // If force = true, will close it for all users.  Behave.  This
-    // can break applications, and is generally intended for use by
-    // the wallet manager app only.
-    int close(const QString &wallet, bool force);
-    int close(int handle, bool force, const QString &appid);
-
     // Save to disk but leave open
     Q_NOREPLY void sync(int handle, const QString &appid);
 
@@ -76,11 +56,7 @@ public Q_SLOTS:
     int deleteWallet(const QString &wallet);
 
     // Returns true if the wallet is open
-    bool isOpen(const QString &wallet);
     bool isOpen(int handle);
-
-    // List the users of this wallet
-    QStringList users(const QString &wallet) const;
 
     // Change the password of this wallet
     void changePassword(const QString &wallet, qlonglong wId, const QString &appid);
@@ -91,14 +67,8 @@ public Q_SLOTS:
     // A list of all folders in this wallet
     QStringList folderList(int handle, const QString &appid);
 
-    // Does this wallet have this folder?
-    bool hasFolder(int handle, const QString &folder, const QString &appid);
-
     // Create this folder
     bool createFolder(int handle, const QString &folder, const QString &appid);
-
-    // Remove this folder
-    bool removeFolder(int handle, const QString &folder, const QString &appid);
 
     // List of entries in this folder
     QStringList entryList(int handle, const QString &folder, const QString &appid);
@@ -110,25 +80,6 @@ public Q_SLOTS:
     QByteArray readMap(int handle, const QString &folder, const QString &key, const QString &appid);
     QString readPassword(int handle, const QString &folder, const QString &key, const QString &appid);
 
-#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
-    // use entriesList()
-    QVariantMap readEntryList(int handle, const QString &folder, const QString &key, const QString &appid);
-#endif
-
-#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
-    // use mapList()
-    QVariantMap readMapList(int handle, const QString &folder, const QString &key, const QString &appid);
-#endif
-
-#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
-    // use passwordList()
-    QVariantMap readPasswordList(int handle, const QString &folder, const QString &key, const QString &appid);
-#endif
-
-    QVariantMap entriesList(int handle, const QString &folder, const QString &appid);
-    QVariantMap mapList(int handle, const QString &folder, const QString &appid);
-    QVariantMap passwordList(int handle, const QString &folder, const QString &appid);
-
     // Rename an entry.  rc=0 on success.
     int renameEntry(int handle, const QString &folder, const QString &oldName, const QString &newName, const QString &appid);
     // Rename the wallet
@@ -137,7 +88,6 @@ public Q_SLOTS:
     // Write an entry.  rc=0 on success.
     int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType, const QString &appid);
     int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, const QString &appid);
-    int writeMap(int handle, const QString &folder, const QString &key, const QByteArray &value, const QString &appid);
     int writePassword(int handle, const QString &folder, const QString &key, const QString &value, const QString &appid);
 
     // Does the entry exist?
@@ -149,20 +99,11 @@ public Q_SLOTS:
     // Remove an entry.  rc=0 on success.
     int removeEntry(int handle, const QString &folder, const QString &key, const QString &appid);
 
-    // Disconnect an app from a wallet
-    bool disconnectApplication(const QString &wallet, const QString &application);
-
     void reconfigure();
-
-    // Determine
-    bool folderDoesNotExist(const QString &wallet, const QString &folder);
-    bool keyDoesNotExist(const QString &wallet, const QString &folder, const QString &key);
 
     void closeAllWallets();
 
     QString networkWallet();
-
-    QString localWallet();
 
     // Open a wallet using a pre-hashed password. This is only useful in cooperation
     // with the kwallet PAM module. It's also less secure than manually entering the
@@ -171,25 +112,14 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void walletAsyncOpened(int id, int handle); // used to notify KWallet::Wallet
-    void walletListDirty();
     void walletCreated(const QString &wallet);
     void walletOpened(const QString &wallet);
     void walletDeleted(const QString &wallet);
     void walletClosed(const QString &wallet); // clazy:exclude=overloaded-signal
 
-    // TODO KF6 remove this signal, replaced by walletClosedId(int)
-    void walletClosed(int handle); // clazy:exclude=overloaded-signal
-
-    // since 5.81
-    void walletClosedId(int handle);
-
-    void allWalletsClosed();
-    void folderListUpdated(const QString &wallet);
-    void folderUpdated(const QString &, const QString &);
     void entryUpdated(const QString &, const QString &, const QString &);
     void entryRenamed(const QString &, const QString &, const QString &, const QString &);
     void entryDeleted(const QString &, const QString &, const QString &);
-    void applicationDisconnected(const QString &wallet, const QString &application);
 
 private Q_SLOTS:
     void slotServiceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
@@ -213,7 +143,6 @@ private:
     int generateHandle();
     // Emit signals about closing wallets
     void doCloseSignals(int, const QString &);
-    void emitFolderUpdated(const QString &, const QString &);
     void emitEntryUpdated(const QString &, const QString &, const QString &);
     void emitEntryRenamed(const QString &, const QString &, const QString &, const QString &);
     void emitEntryDeleted(const QString &, const QString &, const QString &);
