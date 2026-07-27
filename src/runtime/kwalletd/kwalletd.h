@@ -198,7 +198,6 @@ private:
     QHash<QPair<int, QString>, int> m_idleTimers;
 
     bool m_enabled = true;
-    bool m_launchManager = false;
     bool m_closeIdle = false;
     // in minutes
     int m_idleTime = 10 * 60 * 1000;

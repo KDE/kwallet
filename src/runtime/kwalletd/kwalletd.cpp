@@ -21,15 +21,6 @@
 
 unsigned int KWalletD::s_lastTransaction = 0;
 
-static void startManagerForKwalletd()
-{
-    if (!QStandardPaths::findExecutable(QStringLiteral("kstart")).isEmpty()) {
-        QProcess::startDetached(QStringLiteral("kstart"), {QStringLiteral("--application"), QStringLiteral("kwalletmanager5-kwalletd")});
-    } else {
-        QProcess::startDetached(QStringLiteral("kwalletmanager5"), QStringList{QStringLiteral("--kwalletd")});
-    }
-}
-
 KWalletD::KWalletD(QObject *parent)
     : QObject(parent)
 {
@@ -998,7 +989,6 @@ void KWalletD::reconfigure()
 
     const bool wasEnabled = m_enabled;
     m_enabled = settings.kWalletDEnabled();
-    m_launchManager = settings.launchManager();
     const bool closeIdle = m_closeIdle;
     m_closeIdle = settings.closeWhenIdle();
     const int idleTime = m_idleTime;
@@ -1029,10 +1019,6 @@ void KWalletD::reconfigure()
             killTimer(it.value());
             *it = (startTimer(m_idleTime));
         }
-    }
-
-    if (m_launchManager) {
-        startManagerForKwalletd();
     }
 }
 
