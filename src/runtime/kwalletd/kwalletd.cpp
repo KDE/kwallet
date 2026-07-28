@@ -215,13 +215,6 @@ void KWalletD::migrateData()
 
 QString KWalletD::walletForHandle(int handle, const QString &appId)
 {
-    // This is called by all accessing functions, so reset the idle timer here
-    if (m_closeIdle) {
-        const QPair<int, QString> key(handle, appId);
-        killTimer(m_idleTimers[key]);
-        m_idleTimers[key] = startTimer(m_idleTime);
-    }
-
     const QString walletName = m_openWallets.value(QPair<int, QString>(handle, appId));
 
     return walletName;
@@ -292,19 +285,6 @@ void KWalletD::removeItem(const QString &key, const QString &folder, const QStri
     m_backend->deleteEntry(key, folder, wallet, ok);
 }
 
-void KWalletD::timerEvent(QTimerEvent *ev)
-{
-    const int timer = ev->timerId();
-
-    for (auto it = m_idleTimers.constBegin(); it != m_idleTimers.end(); it++) {
-        if (it.value() == timer) {
-            close(it.key().first, true, it.key().second);
-            break;
-        }
-    }
-    killTimer(timer);
-}
-
 // KWallet API
 
 bool KWalletD::isEnabled() const
@@ -342,10 +322,6 @@ int KWalletD::openInternal(const QString &wallet, qlonglong wId, const QString &
     const int rnd = std::abs(int(rand.generate()));
 
     m_openWallets[QPair<int, QString>(rnd, appId)] = wallet;
-
-    if (m_closeIdle) {
-        m_idleTimers[QPair<int, QString>(rnd, appId)] = startTimer(m_idleTime);
-    }
 
     return rnd;
 }
@@ -977,35 +953,12 @@ void KWalletD::reconfigure()
 
     const bool wasEnabled = m_enabled;
     m_enabled = settings.kWalletDEnabled();
-    const bool closeIdle = m_closeIdle;
-    m_closeIdle = settings.closeWhenIdle();
-    const int idleTime = m_idleTime;
-    // in minutes!
-    m_idleTime = settings.idleTimeout();
 
     if (wasEnabled != m_enabled) {
         if (isEnabled()) {
             Q_EMIT walletListDirty();
         } else {
             closeAllWallets();
-        }
-    }
-
-    if (closeIdle != m_closeIdle) {
-        if (m_closeIdle) {
-            for (auto it = m_openWallets.constBegin(); it != m_openWallets.constEnd(); it++) {
-                m_idleTimers[it.key()] = startTimer(m_idleTime);
-            }
-        } else {
-            for (auto it = m_idleTimers.constBegin(); it != m_idleTimers.constEnd(); it++) {
-                killTimer(it.value());
-            }
-            m_idleTimers.clear();
-        }
-    } else if (idleTime != m_idleTime) {
-        for (auto it = m_idleTimers.begin(); it != m_idleTimers.constEnd(); it++) {
-            killTimer(it.value());
-            *it = (startTimer(m_idleTime));
         }
     }
 }
