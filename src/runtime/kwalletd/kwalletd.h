@@ -168,8 +168,6 @@ protected:
     void writeRawJson(const QString &key, const QByteArray &value, const QString &folder, const QString &wallet, bool *ok);
     void removeItem(const QString &key, const QString &folder, const QString &wallet, bool *ok);
 
-    void timerEvent(QTimerEvent *) override;
-
 Q_SIGNALS:
     void walletAsyncOpened(int id, int handle); // used to notify KWallet::Wallet
     void walletListDirty();
@@ -195,12 +193,8 @@ private:
     // We need to store a structure here as well, because the api has createFolder that would make a folder without any keys
     QMultiHash<QString, QString> m_structure;
     QHash<QPair<int, QString>, QString> m_openWallets;
-    QHash<QPair<int, QString>, int> m_idleTimers;
 
     bool m_enabled = true;
-    bool m_closeIdle = false;
-    // in minutes
-    int m_idleTime = 10 * 60 * 1000;
 
     static unsigned int s_lastTransaction;
 };
