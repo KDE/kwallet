@@ -31,6 +31,10 @@
         <entry key="Local Wallet" type="String">
             <default>localwallet</default>
         </entry>
+        <!--used by kwalletmanager-->
+        <entry key="Leave Manager Open" type="Bool">
+            <default>false</default>
+        </entry>
     </group>
     <group name="KSecretD">
         <entry name="KSecretDEnabled" key="Enabled" type="Bool">
