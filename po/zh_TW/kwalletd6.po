@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:40+0000\n"
+"POT-Creation-Date: 2026-07-29 00:42+0000\n"
 "PO-Revision-Date: 2026-03-02 05:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -644,52 +644,52 @@ msgstr ""
 "<qt>試著開啟錢包 <b>%1</b> 時發生錯誤。此錢包使用 GPG 金鑰代碼 <b>%2</b> 加"
 "密，但是您的系統中找不到該金鑰。</qt>"
 
-#: kwalletbackend/kwalletbackend.cc:272
+#: kwalletbackend/kwalletbackend.cc:303
 #, kde-format
 msgid "Already open."
 msgstr "已開啟。"
 
-#: kwalletbackend/kwalletbackend.cc:274
+#: kwalletbackend/kwalletbackend.cc:305
 #, kde-format
 msgid "Error opening file."
 msgstr "開啟檔案時發生錯誤。"
 
-#: kwalletbackend/kwalletbackend.cc:276
+#: kwalletbackend/kwalletbackend.cc:307
 #, kde-format
 msgid "Not a wallet file."
 msgstr "不是一個錢包檔案。"
 
-#: kwalletbackend/kwalletbackend.cc:278
+#: kwalletbackend/kwalletbackend.cc:309
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "不支援的檔案格式版本。"
 
-#: kwalletbackend/kwalletbackend.cc:282
+#: kwalletbackend/kwalletbackend.cc:313
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "不明的加密方案。"
 
-#: kwalletbackend/kwalletbackend.cc:284
+#: kwalletbackend/kwalletbackend.cc:315
 #, kde-format
 msgid "Corrupt file?"
 msgstr "檔案或已損毀﹖"
 
-#: kwalletbackend/kwalletbackend.cc:286
+#: kwalletbackend/kwalletbackend.cc:317
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "檢驗錢包完整度時發生錯誤。可能已損壞。"
 
-#: kwalletbackend/kwalletbackend.cc:290
+#: kwalletbackend/kwalletbackend.cc:321
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "讀取錯誤 - 密碼可能有誤。"
 
-#: kwalletbackend/kwalletbackend.cc:292
+#: kwalletbackend/kwalletbackend.cc:323
 #, kde-format
 msgid "Decryption error."
 msgstr "解密錯誤。"
 
-#: kwalletbackend/kwalletbackend.cc:472
+#: kwalletbackend/kwalletbackend.cc:503
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
@@ -700,7 +700,7 @@ msgstr ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>。請將此錯誤與相關資訊回報到 bugs.kde.org"
 
-#: kwalletd/kwalletd.cpp:119
+#: kwalletd/kwalletd.cpp:106
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr "正在移轉錢包「%1」。請提供密碼來解鎖。"
@@ -745,43 +745,43 @@ msgstr "無法連線到 Secret Service 祕密服務"
 msgid "Unable to unlock collectionName %1"
 msgstr "無法解鎖收藏名稱 %1"
 
-#: kwalletd/secretserviceclient.cpp:533
+#: kwalletd/secretserviceclient.cpp:534
 #, kde-format
 msgid "No collections"
 msgstr "沒有收藏"
 
-#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
-#: kwalletd/secretserviceclient.cpp:720
+#: kwalletd/secretserviceclient.cpp:571 kwalletd/secretserviceclient.cpp:618
+#: kwalletd/secretserviceclient.cpp:721
 #, kde-format
 msgid "No entries"
 msgstr "沒有項目"
 
-#: kwalletd/secretserviceclient.cpp:635
+#: kwalletd/secretserviceclient.cpp:636
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr "找不到項目，鍵：%1，資料夾：%2"
 
-#: kwalletd/secretserviceclient.cpp:744
+#: kwalletd/secretserviceclient.cpp:745
 #, kde-format
 msgid "Unable to unlock item"
 msgstr "無法解鎖項目"
 
-#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
+#: kwalletd/secretserviceclient.cpp:788 kwalletd/secretserviceclient.cpp:906
 #, kde-format
 msgid "Entry to rename not found"
 msgstr "找不到要重新命名的項目"
 
-#: kwalletd/secretserviceclient.cpp:794
+#: kwalletd/secretserviceclient.cpp:795
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr "在錢包 %3 資料夾 %2 已經有名為 %1 的項目了。"
 
-#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
+#: kwalletd/secretserviceclient.cpp:810 kwalletd/secretserviceclient.cpp:825
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr "要重新命名的項目是不完整的"
 
-#: kwalletd/secretserviceclient.cpp:869
+#: kwalletd/secretserviceclient.cpp:870
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "無法建立秘密值"

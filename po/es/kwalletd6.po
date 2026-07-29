@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:40+0000\n"
+"POT-Creation-Date: 2026-07-29 00:42+0000\n"
 "PO-Revision-Date: 2026-02-18 17:28+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -695,54 +695,54 @@ msgstr ""
 "cartera estaba cifrada usando la ID de clave GPG <b>%2</b>, pero esta clave "
 "no se ha encontrado en el sistema.</qt>"
 
-#: kwalletbackend/kwalletbackend.cc:272
+#: kwalletbackend/kwalletbackend.cc:303
 #, kde-format
 msgid "Already open."
 msgstr "Ya está abierta."
 
-#: kwalletbackend/kwalletbackend.cc:274
+#: kwalletbackend/kwalletbackend.cc:305
 #, kde-format
 msgid "Error opening file."
 msgstr "Ha ocurrido un error al abrir el archivo."
 
-#: kwalletbackend/kwalletbackend.cc:276
+#: kwalletbackend/kwalletbackend.cc:307
 #, kde-format
 msgid "Not a wallet file."
 msgstr "No es un archivo de cartera."
 
-#: kwalletbackend/kwalletbackend.cc:278
+#: kwalletbackend/kwalletbackend.cc:309
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "Revisión de formato de archivo no permitida."
 
-#: kwalletbackend/kwalletbackend.cc:282
+#: kwalletbackend/kwalletbackend.cc:313
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Esquema de cifrado desconocido."
 
-#: kwalletbackend/kwalletbackend.cc:284
+#: kwalletbackend/kwalletbackend.cc:315
 #, kde-format
 msgid "Corrupt file?"
 msgstr "¿Archivo dañado?"
 
-#: kwalletbackend/kwalletbackend.cc:286
+#: kwalletbackend/kwalletbackend.cc:317
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr ""
 "Ha ocurrido un error al validar la integridad de la cartera. Es posible que "
 "esté dañada."
 
-#: kwalletbackend/kwalletbackend.cc:290
+#: kwalletbackend/kwalletbackend.cc:321
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "Error de lectura: es posible que la contraseña sea incorrecta."
 
-#: kwalletbackend/kwalletbackend.cc:292
+#: kwalletbackend/kwalletbackend.cc:323
 #, kde-format
 msgid "Decryption error."
 msgstr "Ha ocurrido un error al descifrar."
 
-#: kwalletbackend/kwalletbackend.cc:472
+#: kwalletbackend/kwalletbackend.cc:503
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
@@ -755,7 +755,7 @@ msgstr ""
 "SF <b>%3</b>. Cree un informe de error usando esta información en bugs.kde."
 "org."
 
-#: kwalletd/kwalletd.cpp:119
+#: kwalletd/kwalletd.cpp:106
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr "Migrando la cartera «%1». Introduzca la contraseña para desbloquearla."
@@ -800,43 +800,43 @@ msgstr "No se puede conectar con Secret Service"
 msgid "Unable to unlock collectionName %1"
 msgstr "No se ha podido desbloquear collectionName %1"
 
-#: kwalletd/secretserviceclient.cpp:533
+#: kwalletd/secretserviceclient.cpp:534
 #, kde-format
 msgid "No collections"
 msgstr "No hay colecciones"
 
-#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
-#: kwalletd/secretserviceclient.cpp:720
+#: kwalletd/secretserviceclient.cpp:571 kwalletd/secretserviceclient.cpp:618
+#: kwalletd/secretserviceclient.cpp:721
 #, kde-format
 msgid "No entries"
 msgstr "No hay entradas"
 
-#: kwalletd/secretserviceclient.cpp:635
+#: kwalletd/secretserviceclient.cpp:636
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr "Entrada no encontrada. Clave: %1. Carpeta: %2"
 
-#: kwalletd/secretserviceclient.cpp:744
+#: kwalletd/secretserviceclient.cpp:745
 #, kde-format
 msgid "Unable to unlock item"
 msgstr "No se ha podido desbloquear el elemento"
 
-#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
+#: kwalletd/secretserviceclient.cpp:788 kwalletd/secretserviceclient.cpp:906
 #, kde-format
 msgid "Entry to rename not found"
 msgstr "No se ha encontrado la entrada cuyo nombre se quiere cambiar"
 
-#: kwalletd/secretserviceclient.cpp:794
+#: kwalletd/secretserviceclient.cpp:795
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr "La entrada %1 de la carpeta %2 ya existe en la cartera %3."
 
-#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
+#: kwalletd/secretserviceclient.cpp:810 kwalletd/secretserviceclient.cpp:825
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr "La entrada cuyo nombre se quiere cambiar está incompleta"
 
-#: kwalletd/secretserviceclient.cpp:869
+#: kwalletd/secretserviceclient.cpp:870
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "No se ha podido crear el SecretValue"

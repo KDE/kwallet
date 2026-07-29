@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:40+0000\n"
+"POT-Creation-Date: 2026-07-29 00:42+0000\n"
 "PO-Revision-Date: 2026-03-07 21:37+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -690,52 +690,52 @@ msgstr ""
 "gako IDa erabiliz zifratu zen, baino gako hori ez da aurkitu zure sisteman.</"
 "qt>"
 
-#: kwalletbackend/kwalletbackend.cc:272
+#: kwalletbackend/kwalletbackend.cc:303
 #, kde-format
 msgid "Already open."
 msgstr "Dagoeneko irekita."
 
-#: kwalletbackend/kwalletbackend.cc:274
+#: kwalletbackend/kwalletbackend.cc:305
 #, kde-format
 msgid "Error opening file."
 msgstr "Errorea fitxategia irekitzerakoan."
 
-#: kwalletbackend/kwalletbackend.cc:276
+#: kwalletbackend/kwalletbackend.cc:307
 #, kde-format
 msgid "Not a wallet file."
 msgstr "Ez da zorro fitxategi bat."
 
-#: kwalletbackend/kwalletbackend.cc:278
+#: kwalletbackend/kwalletbackend.cc:309
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "Onartu gabeko fitxategi formatu berrikuspena."
 
-#: kwalletbackend/kwalletbackend.cc:282
+#: kwalletbackend/kwalletbackend.cc:313
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Zifratzeko eskema ezezaguna."
 
-#: kwalletbackend/kwalletbackend.cc:284
+#: kwalletbackend/kwalletbackend.cc:315
 #, kde-format
 msgid "Corrupt file?"
 msgstr "Fitxategi hondatua?"
 
-#: kwalletbackend/kwalletbackend.cc:286
+#: kwalletbackend/kwalletbackend.cc:317
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "Errorea zorroaren osotasuna balioztatzen. Agian hondatuta."
 
-#: kwalletbackend/kwalletbackend.cc:290
+#: kwalletbackend/kwalletbackend.cc:321
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "Irakurketa errorea - Agian pasahitz okerra."
 
-#: kwalletbackend/kwalletbackend.cc:292
+#: kwalletbackend/kwalletbackend.cc:323
 #, kde-format
 msgid "Decryption error."
 msgstr "Deszifratzeko errorea."
 
-#: kwalletbackend/kwalletbackend.cc:472
+#: kwalletbackend/kwalletbackend.cc:503
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
@@ -747,7 +747,7 @@ msgstr ""
 "SF <b>%3</b>. Bidali akats-txosten bat informazio hau erabiliz \"bugs.kde.org"
 "\"-era"
 
-#: kwalletd/kwalletd.cpp:119
+#: kwalletd/kwalletd.cpp:106
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr ""
@@ -793,43 +793,43 @@ msgstr "Ezin izan da Secret Service-rekin konektatu"
 msgid "Unable to unlock collectionName %1"
 msgstr "Ezin izan da %1 bilduma-izena giltzapetik askatu"
 
-#: kwalletd/secretserviceclient.cpp:533
+#: kwalletd/secretserviceclient.cpp:534
 #, kde-format
 msgid "No collections"
 msgstr "Ez dago bildumarik"
 
-#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
-#: kwalletd/secretserviceclient.cpp:720
+#: kwalletd/secretserviceclient.cpp:571 kwalletd/secretserviceclient.cpp:618
+#: kwalletd/secretserviceclient.cpp:721
 #, kde-format
 msgid "No entries"
 msgstr "Ez dago sarrerarik"
 
-#: kwalletd/secretserviceclient.cpp:635
+#: kwalletd/secretserviceclient.cpp:636
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr "Sarrera ez da aurkitu, gakoa: %1, karpeta: %2"
 
-#: kwalletd/secretserviceclient.cpp:744
+#: kwalletd/secretserviceclient.cpp:745
 #, kde-format
 msgid "Unable to unlock item"
 msgstr "Ezin da elementua giltzapetik askatu"
 
-#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
+#: kwalletd/secretserviceclient.cpp:788 kwalletd/secretserviceclient.cpp:906
 #, kde-format
 msgid "Entry to rename not found"
 msgstr "Berrizendatu beharreko sarrera ez da aurkitu"
 
-#: kwalletd/secretserviceclient.cpp:794
+#: kwalletd/secretserviceclient.cpp:795
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr "%3 zorroko %2 karpetan %1 izeneko sarrera lehendik ere badago."
 
-#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
+#: kwalletd/secretserviceclient.cpp:810 kwalletd/secretserviceclient.cpp:825
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr "Berrizendatu beharreko sarrera osatu gabe dago"
 
-#: kwalletd/secretserviceclient.cpp:869
+#: kwalletd/secretserviceclient.cpp:870
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "Huts egin du SecretValue sortzean"

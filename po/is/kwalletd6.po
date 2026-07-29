@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:40+0000\n"
+"POT-Creation-Date: 2026-07-29 00:42+0000\n"
 "PO-Revision-Date: 2026-03-25 13:19+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -682,52 +682,52 @@ msgstr ""
 "<qt>Villa við að reyna að opna veskið <b>%1</b>. Veskið var dulritað með GPG-"
 "lykilkenninu <b>%2</b> en þessi lykill fannst ekki í tölvunni þinni.</qt>"
 
-#: kwalletbackend/kwalletbackend.cc:272
+#: kwalletbackend/kwalletbackend.cc:303
 #, kde-format
 msgid "Already open."
 msgstr "Þegar opið."
 
-#: kwalletbackend/kwalletbackend.cc:274
+#: kwalletbackend/kwalletbackend.cc:305
 #, kde-format
 msgid "Error opening file."
 msgstr "Villa við að opna skrá."
 
-#: kwalletbackend/kwalletbackend.cc:276
+#: kwalletbackend/kwalletbackend.cc:307
 #, kde-format
 msgid "Not a wallet file."
 msgstr "Ekki veskisskrá."
 
-#: kwalletbackend/kwalletbackend.cc:278
+#: kwalletbackend/kwalletbackend.cc:309
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "Óþekkt útgáfa skráarsniðs."
 
-#: kwalletbackend/kwalletbackend.cc:282
+#: kwalletbackend/kwalletbackend.cc:313
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Óþekkt dulritunarskema."
 
-#: kwalletbackend/kwalletbackend.cc:284
+#: kwalletbackend/kwalletbackend.cc:315
 #, kde-format
 msgid "Corrupt file?"
 msgstr "Skemmd skrá?"
 
-#: kwalletbackend/kwalletbackend.cc:286
+#: kwalletbackend/kwalletbackend.cc:317
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "Villa við staðfestingu á heilleika veskis. Það er hugsanlega skemmt."
 
-#: kwalletbackend/kwalletbackend.cc:290
+#: kwalletbackend/kwalletbackend.cc:321
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "Lesvilla - mögulega rangt lykilorð."
 
-#: kwalletbackend/kwalletbackend.cc:292
+#: kwalletbackend/kwalletbackend.cc:323
 #, kde-format
 msgid "Decryption error."
 msgstr "Afkóðunarvilla."
 
-#: kwalletbackend/kwalletbackend.cc:472
+#: kwalletbackend/kwalletbackend.cc:503
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
@@ -738,7 +738,7 @@ msgstr ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Sendu villuskýrslu með þessum upplýsingum til bugs.kde.org"
 
-#: kwalletd/kwalletd.cpp:119
+#: kwalletd/kwalletd.cpp:106
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr "Færi yfir veskið \"%1\". Settu inn lykilorð til að aflæsa."
@@ -783,43 +783,43 @@ msgstr "Gat ekki tengst við Secret Service"
 msgid "Unable to unlock collectionName %1"
 msgstr "Tókst ekki að aflæsa collectionName %1"
 
-#: kwalletd/secretserviceclient.cpp:533
+#: kwalletd/secretserviceclient.cpp:534
 #, kde-format
 msgid "No collections"
 msgstr "Engin söfn"
 
-#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
-#: kwalletd/secretserviceclient.cpp:720
+#: kwalletd/secretserviceclient.cpp:571 kwalletd/secretserviceclient.cpp:618
+#: kwalletd/secretserviceclient.cpp:721
 #, kde-format
 msgid "No entries"
 msgstr "Engar færslur"
 
-#: kwalletd/secretserviceclient.cpp:635
+#: kwalletd/secretserviceclient.cpp:636
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr "Færsla fannst ekki, lykill: %1, mappa: %2"
 
-#: kwalletd/secretserviceclient.cpp:744
+#: kwalletd/secretserviceclient.cpp:745
 #, kde-format
 msgid "Unable to unlock item"
 msgstr "Tókst ekki að aflæsa atriði"
 
-#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
+#: kwalletd/secretserviceclient.cpp:788 kwalletd/secretserviceclient.cpp:906
 #, kde-format
 msgid "Entry to rename not found"
 msgstr "Færsla til að endurnefna fannst ekki"
 
-#: kwalletd/secretserviceclient.cpp:794
+#: kwalletd/secretserviceclient.cpp:795
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr "Færsla með heitinu %1 í möppunni %2 og veskinu %3 er þegar til staðar."
 
-#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
+#: kwalletd/secretserviceclient.cpp:810 kwalletd/secretserviceclient.cpp:825
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr "Færsla til að endurnefna er ófullgerð"
 
-#: kwalletd/secretserviceclient.cpp:869
+#: kwalletd/secretserviceclient.cpp:870
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "Mistókst að búa til SecretValue"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:40+0000\n"
+"POT-Creation-Date: 2026-07-29 00:42+0000\n"
 "PO-Revision-Date: 2026-05-25 21:44+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -662,52 +662,52 @@ msgstr ""
 "%2</b>(으)로 암호화되어 있지만 시스템에 해당하는 키가 설치되어 있지 않습니다."
 "</qt>"
 
-#: kwalletbackend/kwalletbackend.cc:272
+#: kwalletbackend/kwalletbackend.cc:303
 #, kde-format
 msgid "Already open."
 msgstr "이미 열려 있습니다."
 
-#: kwalletbackend/kwalletbackend.cc:274
+#: kwalletbackend/kwalletbackend.cc:305
 #, kde-format
 msgid "Error opening file."
 msgstr "파일을 여는 중 오류가 발생했습니다."
 
-#: kwalletbackend/kwalletbackend.cc:276
+#: kwalletbackend/kwalletbackend.cc:307
 #, kde-format
 msgid "Not a wallet file."
 msgstr "지갑 파일이 아닙니다."
 
-#: kwalletbackend/kwalletbackend.cc:278
+#: kwalletbackend/kwalletbackend.cc:309
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "지원하지 않는 파일 형식 리비전입니다."
 
-#: kwalletbackend/kwalletbackend.cc:282
+#: kwalletbackend/kwalletbackend.cc:313
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "알 수 없는 암호화 방식입니다."
 
-#: kwalletbackend/kwalletbackend.cc:284
+#: kwalletbackend/kwalletbackend.cc:315
 #, kde-format
 msgid "Corrupt file?"
 msgstr "파일이 깨진 것 같습니다?"
 
-#: kwalletbackend/kwalletbackend.cc:286
+#: kwalletbackend/kwalletbackend.cc:317
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "지갑 무결성을 검사하는 중 오류가 발생했습니다. 잘못된 것 같습니다."
 
-#: kwalletbackend/kwalletbackend.cc:290
+#: kwalletbackend/kwalletbackend.cc:321
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "읽기 오류 - 암호가 잘못된 것 같습니다."
 
-#: kwalletbackend/kwalletbackend.cc:292
+#: kwalletbackend/kwalletbackend.cc:323
 #, kde-format
 msgid "Decryption error."
 msgstr "복호화 오류."
 
-#: kwalletbackend/kwalletbackend.cc:472
+#: kwalletbackend/kwalletbackend.cc:503
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
@@ -717,7 +717,7 @@ msgstr ""
 "지갑 <b>%1</b>을(를) 디스크에 동기화할 수 없습니다. 오류 코드: RC <b>%2</b>\n"
 "SF <b>%3</b>. bugs.kde.org에 이 정보를 사용하여 버그를 보고해 주십시오."
 
-#: kwalletd/kwalletd.cpp:119
+#: kwalletd/kwalletd.cpp:106
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr ""
@@ -763,43 +763,43 @@ msgstr "비밀 서비스에 연결할 수 없음"
 msgid "Unable to unlock collectionName %1"
 msgstr "collectionName %1의 잠금을 해제할 수 없음"
 
-#: kwalletd/secretserviceclient.cpp:533
+#: kwalletd/secretserviceclient.cpp:534
 #, kde-format
 msgid "No collections"
 msgstr "모음집 없음"
 
-#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
-#: kwalletd/secretserviceclient.cpp:720
+#: kwalletd/secretserviceclient.cpp:571 kwalletd/secretserviceclient.cpp:618
+#: kwalletd/secretserviceclient.cpp:721
 #, kde-format
 msgid "No entries"
 msgstr "항목 없음"
 
-#: kwalletd/secretserviceclient.cpp:635
+#: kwalletd/secretserviceclient.cpp:636
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr "항목을 찾을 수 없음. 키: %1, 폴더: %2"
 
-#: kwalletd/secretserviceclient.cpp:744
+#: kwalletd/secretserviceclient.cpp:745
 #, kde-format
 msgid "Unable to unlock item"
 msgstr "항목의 잠금을 해제할 수 없음"
 
-#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
+#: kwalletd/secretserviceclient.cpp:788 kwalletd/secretserviceclient.cpp:906
 #, kde-format
 msgid "Entry to rename not found"
 msgstr "이름을 바꾸려는 항목을 찾을 수 없음"
 
-#: kwalletd/secretserviceclient.cpp:794
+#: kwalletd/secretserviceclient.cpp:795
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr "%3 지갑의 %2 폴더의 %1 항목이 이미 존재합니다."
 
-#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
+#: kwalletd/secretserviceclient.cpp:810 kwalletd/secretserviceclient.cpp:825
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr "이름을 바꾸려는 항목이 불완전함"
 
-#: kwalletd/secretserviceclient.cpp:869
+#: kwalletd/secretserviceclient.cpp:870
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "SecretValue를 생성할 수 없음"
