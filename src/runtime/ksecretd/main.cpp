@@ -22,6 +22,7 @@
 #include "../kwalletbackend/kwalletbackend.h" //For the hash size
 #include "ksecretd.h"
 #include "ksecretd_version.h"
+#include "kwalletbackend.h"
 #include "kwalletfreedesktopservice.h"
 
 #ifndef Q_OS_WIN
@@ -198,7 +199,7 @@ int main(int argc, char **argv)
 
     if (hash) {
         QByteArray passHash(hash, PBKDF2_SHA512_KEYSIZE);
-        int wallet = secretd.pamOpen(KWallet::Wallet::LocalWallet(), passHash, 0);
+        int wallet = secretd.pamOpen(KWallet::Backend::localWallet(), passHash, 0);
         if (wallet < 0) {
             qCWarning(KSECRETD_LOG) << "Wallet failed to get opened by PAM, error code is" << wallet;
         } else {
