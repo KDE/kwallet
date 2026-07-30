@@ -13,9 +13,6 @@
         <entry key="Close When Idle" type="Bool">
             <default>false</default>
         </entry>
-        <entry key="Prompt on Open" type="Bool">
-            <default>false</default>
-        </entry>
         <entry key="Leave Open" type="Bool">
             <default>true</default>
         </entry>

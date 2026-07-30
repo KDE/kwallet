@@ -9,7 +9,6 @@
 #include "ksecretd.h"
 #include "ksecretd_debug.h"
 
-#include "kbetterthankdialog.h"
 #include "kwalletfreedesktopcollection.h"
 #include "kwalletfreedesktopitem.h"
 #include "kwalletfreedesktopprompt.h"
@@ -477,10 +476,6 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, bool isP
         thisApp = appid;
     }
 
-    if (implicitDeny(wallet, thisApp)) {
-        return -1;
-    }
-
     QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
     int rc = walletInfo.first;
     if (rc == -1) {
@@ -672,7 +667,7 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, bool isP
             return -1;
         }
 
-        if (emptyPass && !isAuthorizedApp(appid, wallet, w)) {
+        if (emptyPass) {
             delete b;
             return -1;
         }
@@ -702,7 +697,7 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, bool isP
         // the
         // authorization dialog is being shown.
         walletInfo.second->ref();
-        bool isAuthorized = _sessions.hasSession(appid, rc) || isAuthorizedApp(appid, wallet, w);
+        bool isAuthorized = _sessions.hasSession(appid, rc);
         // as the wallet might have been forcefully closed, find it again to
         // make sure it's
         // still available (isAuthorizedApp might show a dialog).
@@ -727,69 +722,6 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, bool isP
     return rc;
 }
 
-bool KSecretD::isAuthorizedApp(const QString &appid, const QString &wallet, WId w)
-{
-    if (!_openPrompt) {
-        return true;
-    }
-
-    int response = 0;
-
-    QString thisApp;
-    if (appid.isEmpty()) {
-        thisApp = QStringLiteral("KDE System");
-    } else {
-        thisApp = appid;
-    }
-
-    if (!implicitAllow(wallet, thisApp)) {
-        KConfigGroup cfg = KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Auto Allow");
-        if (!cfg.isEntryImmutable(wallet)) {
-            KBetterThanKDialog *dialog = new KBetterThanKDialog;
-            dialog->setWindowTitle(i18n("KDE Wallet Service"));
-            if (appid.isEmpty()) {
-                dialog->setLabel(i18n("<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>", wallet.toHtmlEscaped()));
-            } else {
-                dialog->setLabel(i18n("<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>%2</b>'.</qt>",
-                                      appid.toHtmlEscaped(),
-                                      wallet.toHtmlEscaped()));
-            }
-            setupDialog(dialog, w, appid, false);
-            response = dialog->exec();
-            delete dialog;
-        }
-    }
-
-    if (response == 0 || response == 1) {
-        if (response == 1) {
-            KConfigGroup cfg = KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Auto Allow");
-            QStringList apps = cfg.readEntry(wallet, QStringList());
-            if (!apps.contains(thisApp)) {
-                if (cfg.isEntryImmutable(wallet)) {
-                    return false;
-                }
-                apps += thisApp;
-                _implicitAllowMap[wallet] += thisApp;
-                cfg.writeEntry(wallet, apps);
-                cfg.sync();
-            }
-        }
-    } else if (response == 3) {
-        KConfigGroup cfg = KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Auto Deny");
-        QStringList apps = cfg.readEntry(wallet, QStringList());
-        if (!apps.contains(thisApp)) {
-            apps += thisApp;
-            _implicitDenyMap[wallet] += thisApp;
-            cfg.writeEntry(wallet, apps);
-            cfg.sync();
-        }
-        return false;
-    } else {
-        return false;
-    }
-    return true;
-}
-
 int KSecretD::deleteWallet(const QString &wallet)
 {
     int result = -1;
@@ -801,12 +733,6 @@ int KSecretD::deleteWallet(const QString &wallet)
         internalClose(walletInfo.second, walletInfo.first, true);
         QFile::remove(path);
         Q_EMIT walletDeleted(wallet);
-        // also delete access control entries
-        KConfigGroup cfgAllow = KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Auto Allow");
-        cfgAllow.deleteEntry(wallet);
-
-        KConfigGroup cfgDeny = KSharedConfig::openConfig(QStringLiteral("kwalletrc"))->group("Auto Deny");
-        cfgDeny.deleteEntry(wallet);
 
         if (QFile::exists(pathSalt)) {
             QFile::remove(pathSalt);
@@ -1370,7 +1296,6 @@ void KSecretD::reconfigure()
     _leaveOpen = settings.leaveOpen();
     bool idleSave = _closeIdle;
     _closeIdle = settings.closeWhenIdle();
-    _openPrompt = settings.promptonOpen();
     int timeSave = _idleTime;
     // in minutes!
     _idleTime = settings.idleTimeout() * 60 * 1000;
@@ -1395,23 +1320,6 @@ void KSecretD::reconfigure()
         _closeTimers.clear();
     }
 
-    KConfig cfg(QStringLiteral("kwalletrc"));
-    // Update the implicit allow stuff
-    _implicitAllowMap.clear();
-    const KConfigGroup autoAllowGroup(&cfg, "Auto Allow");
-    QStringList entries = autoAllowGroup.entryMap().keys();
-    for (QStringList::const_iterator i = entries.constBegin(); i != entries.constEnd(); ++i) {
-        _implicitAllowMap[*i] = autoAllowGroup.readEntry(*i, QStringList());
-    }
-
-    // Update the implicit allow stuff
-    _implicitDenyMap.clear();
-    const KConfigGroup autoDenyGroup(&cfg, "Auto Deny");
-    entries = autoDenyGroup.entryMap().keys();
-    for (QStringList::const_iterator i = entries.constBegin(); i != entries.constEnd(); ++i) {
-        _implicitDenyMap[*i] = autoDenyGroup.readEntry(*i, QStringList());
-    }
-
     // Update if wallet was enabled/disabled
     if (!isEnabled()) { // close all wallets
         while (!_wallets.isEmpty()) {
@@ -1430,16 +1338,6 @@ bool KSecretD::isEnabled()
     // values, as it does not make sense without kwallet, but is possible kwallet without
     // ksecretd
     return settings.kSecretDEnabled() && settings.kWalletDEnabled();
-}
-
-bool KSecretD::implicitAllow(const QString &wallet, const QString &app)
-{
-    return _implicitAllowMap[wallet].contains(app);
-}
-
-bool KSecretD::implicitDeny(const QString &wallet, const QString &app)
-{
-    return _implicitDenyMap[wallet].contains(app);
 }
 
 void KSecretD::timedOutClose(int id)
