@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:42+0000\n"
+"POT-Creation-Date: 2026-07-30 00:40+0000\n"
 "PO-Revision-Date: 2010-02-26 14:38+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -170,7 +170,7 @@ msgstr ""
 msgid "Use GPG encryption, for better protection"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:593
+#: ksecretd/ksecretd.cpp:594
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -179,7 +179,7 @@ msgstr ""
 "<qt>KDE ได้ทำการร้องขอที่จะเปิดกระเป๋าคุมข้อมูล '<b>%1</b>' "
 "โปรดป้อนรหัสผ่านสำหรับกระเป๋าคุมข้อมูลนี้ที่ด้านล่าง</qt>"
 
-#: ksecretd/ksecretd.cpp:597
+#: ksecretd/ksecretd.cpp:598
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -189,22 +189,22 @@ msgstr ""
 "โปรดป้อนรหัสผ่านสำหรับกระเป๋าคุมข้อมูลนี้ที่ด้านล่าง</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:608 ksecretd/ksecretd.cpp:717
-#: ksecretd/ksecretd.cpp:821 ksecretd/ksecretd.cpp:934
-#: ksecretd/ksecretd.cpp:957 ksecretd/ksecretd.cpp:968
-#: ksecretd/ksecretd.cpp:973 ksecretd/ksecretd.cpp:1563 ksecretd/main.cpp:160
-#: ksecretd/main.cpp:162
+#: ksecretd/ksecretd.cpp:609 ksecretd/ksecretd.cpp:718
+#: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:935
+#: ksecretd/ksecretd.cpp:958 ksecretd/ksecretd.cpp:969
+#: ksecretd/ksecretd.cpp:974 ksecretd/ksecretd.cpp:1564 ksecretd/main.cpp:158
+#: ksecretd/main.cpp:160
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "บริการกระเป๋าคุมข้อมูลของ KDE"
 
-#: ksecretd/ksecretd.cpp:623
+#: ksecretd/ksecretd.cpp:624
 #, fuzzy, kde-format
 #| msgid "<b>KDE</b> has requested to open a wallet (%1)."
 msgid "An application has requested to open a wallet (%1)."
 msgstr "<b>KDE</b> ได้ร้องขอใช้งานกระเป๋าคุมข้อมูล (%1)"
 
-#: ksecretd/ksecretd.cpp:624
+#: ksecretd/ksecretd.cpp:625
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -212,19 +212,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "สลับมาที่นี่"
 
-#: ksecretd/ksecretd.cpp:626
+#: ksecretd/ksecretd.cpp:627
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "โปรแกรม '<b>%1</b>' ได้ร้องขอใช้งานกระเป๋าคุมข้อมูล (%2)"
 
-#: ksecretd/ksecretd.cpp:628
+#: ksecretd/ksecretd.cpp:629
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "สลับไปยัง %1"
 
-#: ksecretd/ksecretd.cpp:645 ksecretd/ksecretd.cpp:727
+#: ksecretd/ksecretd.cpp:646 ksecretd/ksecretd.cpp:728
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -233,7 +233,7 @@ msgstr ""
 "<qt>เกิดข้อผิดพลาดในการเปิดกระเป๋าคุมข้อมูล '<b>%1</b>' โปรดลองใหม่อีกครั้ง<br /"
 ">(รหัสความผิดพลาด %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:693
+#: ksecretd/ksecretd.cpp:694
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -243,7 +243,7 @@ msgstr ""
 "KDE ได้ทำการร้องขอที่จะเปิดกระเป๋าคุมข้อมูล ซึ่งใช้สำหรับเก็บข้อมูลสำคัญไว้อย่างปลอดภัย "
 "โปรดป้อนรหัสผ่านเพื่อใช้งานกระเป๋าคุมข้อมูลนี้ หรือคลิกที่ ยกเลิก เพื่อปฏิเสธการร้องขอของโปรแกรม"
 
-#: ksecretd/ksecretd.cpp:698
+#: ksecretd/ksecretd.cpp:699
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -255,7 +255,7 @@ msgstr ""
 "ซึ่งใช้สำหรับเก็บข้อมูลที่มีความสำคัญไว้อย่างปลอดภัย โปรดป้อนรหัสผ่านเพื่อใช้งานกระเป๋าคุมข้อมูลนี้ "
 "หรือคลิกที่ ยกเลิก เพื่อปฏิเสธการร้องขอของโปรแกรม</qt>"
 
-#: ksecretd/ksecretd.cpp:706
+#: ksecretd/ksecretd.cpp:707
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -265,7 +265,7 @@ msgstr ""
 "<qt>KDE ได้ร้องขอให้มีการสร้างกระเป๋าคุมข้อมูลอันใหม่ ชื่อ '<b>%1</b>' "
 "โปรดเลือกรหัสอ่านสำหรับกระเป๋าคุมข้อมูลนี้ หรือคลิกยกเลิก เพื่อปฏิเสธการร้องขอของโปรแกรม</qt>"
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:712
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -275,19 +275,19 @@ msgstr ""
 "<qt>โปรแกรม '<b>%1</b>' ได้ร้องขอให้มีการสร้างกระเป๋าคุมข้อมูลตัวใหม่ ชื่อ '<b>%2</b>' "
 "โปรดเลือกรหัสผ่านสำหรับกระเป๋าคุมข้อมูลนี้ หรือคลิก ยกเลิกเพื่อปฏิเสธการร้องขอของโปรแกรม</qt>"
 
-#: ksecretd/ksecretd.cpp:823
+#: ksecretd/ksecretd.cpp:824
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE ได้ร้องขอใช้งานกระเป๋าคุมข้อมูล '<b>%1</b>'</qt>"
 
-#: ksecretd/ksecretd.cpp:825
+#: ksecretd/ksecretd.cpp:826
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
 "%2</b>'.</qt>"
 msgstr "<qt>โปรแกรม '<b>%1</b>' ได้ร้องขอใช้งานกระเป๋าคุมข้อมูล '<b>%2</b>'</qt>"
 
-#: ksecretd/ksecretd.cpp:933
+#: ksecretd/ksecretd.cpp:934
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -296,7 +296,7 @@ msgstr ""
 "ไม่สามารถเปิดใช้งานกระเป๋าคุมข้อมูลได้ โดยกระเป๋าคุมข้อมูล "
 "จะถูกเปิดใช้งานก็ต่อเมื่อมีคำสั่งให้ทำการเปลี่ยนรหัสผ่าน"
 
-#: ksecretd/ksecretd.cpp:949
+#: ksecretd/ksecretd.cpp:950
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -304,22 +304,22 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:956
+#: ksecretd/ksecretd.cpp:957
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>โปรดเลือกรหัสผ่านใหม่สำหรับใช้กับกระเป๋าคุมข้อมูล '<b>%1</b>'</qt>"
 
-#: ksecretd/ksecretd.cpp:968
+#: ksecretd/ksecretd.cpp:969
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "รหัสผ่านไม่เปลี่ยนแปลง เนื่องจากเกิดข้อผิดพลาดในการเข้ารหัสกระเป๋าคุมข้อมูลอีกครั้ง"
 
-#: ksecretd/ksecretd.cpp:973
+#: ksecretd/ksecretd.cpp:974
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "ข้อมูลอาจมีการสูญหาย เนื่องจากข้อผิดพลาดในการเปิดกระเป๋าคุมข้อมูลอีกครั้ง"
 
-#: ksecretd/ksecretd.cpp:1562
+#: ksecretd/ksecretd.cpp:1563
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -532,49 +532,49 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr ""
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:162
 #, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
 msgstr ""
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:163
 #, kde-format
 msgid "Valentin Rusu"
 msgstr ""
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:163
 #, fuzzy, kde-format
 #| msgid "Former maintainer"
 msgid "Former Maintainer, GPG backend support"
 msgstr "ผู้ดูแลคนก่อน"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:164
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:164
 #, fuzzy, kde-format
 #| msgid "Former maintainer"
 msgid "Former Maintainer"
 msgstr "ผู้ดูแลคนก่อน"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "Former maintainer"
 msgstr "ผู้ดูแลคนก่อน"
 
-#: ksecretd/main.cpp:168
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: ksecretd/main.cpp:168
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "ส่วนเชื่อมต่อ D-Bus"
@@ -651,52 +651,52 @@ msgid ""
 "system.</qt>"
 msgstr ""
 
-#: kwalletbackend/kwalletbackend.cc:303
+#: kwalletbackend/kwalletbackend.cc:290
 #, kde-format
 msgid "Already open."
 msgstr "ถูกเปิดอยู่แล้ว"
 
-#: kwalletbackend/kwalletbackend.cc:305
+#: kwalletbackend/kwalletbackend.cc:292
 #, kde-format
 msgid "Error opening file."
 msgstr "การเปิดแฟ้มผิดพลาด"
 
-#: kwalletbackend/kwalletbackend.cc:307
+#: kwalletbackend/kwalletbackend.cc:294
 #, kde-format
 msgid "Not a wallet file."
 msgstr "ไม่ใช่แฟ้มของ wallet"
 
-#: kwalletbackend/kwalletbackend.cc:309
+#: kwalletbackend/kwalletbackend.cc:296
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "รูปแบบแฟ้มรุ่นใหม่ยังไม่ถูกรองรับ"
 
-#: kwalletbackend/kwalletbackend.cc:313
+#: kwalletbackend/kwalletbackend.cc:300
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "ไม่ทราบรูปแบบการเข้ารหัส"
 
-#: kwalletbackend/kwalletbackend.cc:315
+#: kwalletbackend/kwalletbackend.cc:302
 #, kde-format
 msgid "Corrupt file?"
 msgstr "แฟ้มเสียหายหรือไม่ ?"
 
-#: kwalletbackend/kwalletbackend.cc:317
+#: kwalletbackend/kwalletbackend.cc:304
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "เกิดข้อผิดพลาดในการตรวจสอบการรวมกับ wallet ซึ่งอาจเป็นเพราะแฟ้มเสียหายก็ได้"
 
-#: kwalletbackend/kwalletbackend.cc:321
+#: kwalletbackend/kwalletbackend.cc:308
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "การอ่านผิดพลาด - รหัสผ่านอาจจะไม่ถูกต้อง"
 
-#: kwalletbackend/kwalletbackend.cc:323
+#: kwalletbackend/kwalletbackend.cc:310
 #, kde-format
 msgid "Decryption error."
 msgstr "ผิดพลาดในการถอดรหัส"
 
-#: kwalletbackend/kwalletbackend.cc:503
+#: kwalletbackend/kwalletbackend.cc:490
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
@@ -704,89 +704,89 @@ msgid ""
 "SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
 msgstr ""
 
-#: kwalletd/kwalletd.cpp:106
+#: kwalletd/kwalletd.cpp:105
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr ""
 
-#: kwalletd/main.cpp:32
+#: kwalletd/main.cpp:31
 #, fuzzy, kde-format
 #| msgid "KWallet"
 msgid "kwalletd"
 msgstr "กระเป๋าคุมข้อมูล-K"
 
-#: kwalletd/main.cpp:34
+#: kwalletd/main.cpp:33
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
 msgstr ""
 
-#: kwalletd/main.cpp:36
+#: kwalletd/main.cpp:35
 #, kde-format
 msgid "(C) 2025, The KDE Developers"
 msgstr ""
 
-#: kwalletd/main.cpp:38
+#: kwalletd/main.cpp:37
 #, kde-format
 msgid "Marco Martin"
 msgstr ""
 
-#: kwalletd/main.cpp:38
+#: kwalletd/main.cpp:37
 #, kde-format
 msgid "Author"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:249
+#: kwalletd/secretserviceclient.cpp:248
 #, kde-format
 msgid "Item not found"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:269
+#: kwalletd/secretserviceclient.cpp:268
 #, kde-format
 msgid "Could not connect to Secret Service"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:441
+#: kwalletd/secretserviceclient.cpp:440
 #, kde-format
 msgid "Unable to unlock collectionName %1"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:534
+#: kwalletd/secretserviceclient.cpp:533
 #, kde-format
 msgid "No collections"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:571 kwalletd/secretserviceclient.cpp:618
-#: kwalletd/secretserviceclient.cpp:721
+#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
+#: kwalletd/secretserviceclient.cpp:720
 #, kde-format
 msgid "No entries"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:636
+#: kwalletd/secretserviceclient.cpp:635
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:745
+#: kwalletd/secretserviceclient.cpp:744
 #, kde-format
 msgid "Unable to unlock item"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:788 kwalletd/secretserviceclient.cpp:906
+#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
 #, kde-format
 msgid "Entry to rename not found"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:795
+#: kwalletd/secretserviceclient.cpp:794
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:810 kwalletd/secretserviceclient.cpp:825
+#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:870
+#: kwalletd/secretserviceclient.cpp:869
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr ""

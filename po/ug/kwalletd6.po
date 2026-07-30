@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:42+0000\n"
+"POT-Creation-Date: 2026-07-30 00:40+0000\n"
 "PO-Revision-Date: 2026-05-31 19:57-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -166,7 +166,7 @@ msgstr "ئەنئەنىۋى ئۇسۇلدا، blowfish شىفىرلىغان ھۆج
 msgid "Use GPG encryption, for better protection"
 msgstr "GPG شىفىرلاش ئۇسۇلى ئىشلىتىلسە تېخىمۇ بىخەتەر"
 
-#: ksecretd/ksecretd.cpp:593
+#: ksecretd/ksecretd.cpp:594
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -175,7 +175,7 @@ msgstr ""
 "<qt>ھەميان «<b>%1</b>» نى ئېچىشنى KDE تەلەپ قىلدى. بۇ ھەمياننىڭ ئىمىنى "
 "كىرگۈزۈڭ.</qt>"
 
-#: ksecretd/ksecretd.cpp:597
+#: ksecretd/ksecretd.cpp:598
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -185,21 +185,21 @@ msgstr ""
 "ھەمياننىڭ ئىمىنى كىرگۈزۈڭ.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:608 ksecretd/ksecretd.cpp:717
-#: ksecretd/ksecretd.cpp:821 ksecretd/ksecretd.cpp:934
-#: ksecretd/ksecretd.cpp:957 ksecretd/ksecretd.cpp:968
-#: ksecretd/ksecretd.cpp:973 ksecretd/ksecretd.cpp:1563 ksecretd/main.cpp:160
-#: ksecretd/main.cpp:162
+#: ksecretd/ksecretd.cpp:609 ksecretd/ksecretd.cpp:718
+#: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:935
+#: ksecretd/ksecretd.cpp:958 ksecretd/ksecretd.cpp:969
+#: ksecretd/ksecretd.cpp:974 ksecretd/ksecretd.cpp:1564 ksecretd/main.cpp:158
+#: ksecretd/main.cpp:160
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE ھەميان مۇلازىمىتى"
 
-#: ksecretd/ksecretd.cpp:623
+#: ksecretd/ksecretd.cpp:624
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "پىروگرامما ھەميان (%1) ئېچىشنى ئىلتىماس قىلدى."
 
-#: ksecretd/ksecretd.cpp:624
+#: ksecretd/ksecretd.cpp:625
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -207,19 +207,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "بۇ يەرگە ئالماشتۇر"
 
-#: ksecretd/ksecretd.cpp:626
+#: ksecretd/ksecretd.cpp:627
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "ھەميان (%2) نى ئېچىشنى <b>%1</b> تەلەپ قىلدى."
 
-#: ksecretd/ksecretd.cpp:628
+#: ksecretd/ksecretd.cpp:629
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "«%1» غا ئالماشتۇر"
 
-#: ksecretd/ksecretd.cpp:645 ksecretd/ksecretd.cpp:727
+#: ksecretd/ksecretd.cpp:646 ksecretd/ksecretd.cpp:728
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -228,7 +228,7 @@ msgstr ""
 "<qt>ھەميان «<b>%1</b>» نى ئېچىشتا خاتالىق كۆرۈلدى. قايتا سىناڭ.<br /"
 ">(خاتالىق كودى %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:693
+#: ksecretd/ksecretd.cpp:694
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -239,7 +239,7 @@ msgstr ""
 "مەلۇماتلار ساقلانغان. ھەمياننى ئىشلىتىش ئۈچۈن ئىم كىرگۈزۈڭ ياكى «ۋاز كەچ» نى "
 "چېكىپ پىروگراممىنىڭ ئىلتىماسىنى رەت قىلىڭ."
 
-#: ksecretd/ksecretd.cpp:698
+#: ksecretd/ksecretd.cpp:699
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -251,7 +251,7 @@ msgstr ""
 "ئىنتايىن مۇھىم سانلىق مەلۇماتلار ساقلانغان. ھەمياننى ئىشلىتىش ئۈچۈن ئىم "
 "كىرگۈزۈڭ ياكى «ۋاز كەچ» نى چېكىپ پىروگراممىنىڭ ئىلتىماسنى رەت قىلىڭ.</qt>"
 
-#: ksecretd/ksecretd.cpp:706
+#: ksecretd/ksecretd.cpp:707
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -261,7 +261,7 @@ msgstr ""
 "<qt>يېڭى بىر ھەميان «<b>%1</b>» نى قۇرۇشنى KDE تەلەپ قىلىۋاتىدۇ. ھەميانغا "
 "ئىم بېكىتىڭ ياكى «ۋاز كەچ» نى چېكىپ پىروگراممىنىڭ ئىلتىماسنى رەت قىلىڭ.</qt>"
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:712
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -272,13 +272,13 @@ msgstr ""
 "قىلىۋاتىدۇ. ھەميانغا ئىم بېكىتىڭ ياكى «ۋاز كەچ» نى چېكىپ پىروگراممىنىڭ "
 "ئىلتىماسنى رەت قىلىڭ.</qt>"
 
-#: ksecretd/ksecretd.cpp:823
+#: ksecretd/ksecretd.cpp:824
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>ھەميان «<b>%1</b>» نى ئېچىپ زىيارەت قىلىشنى KDE ئىلتىماس قىلىۋاتىدۇ.</qt>"
 
-#: ksecretd/ksecretd.cpp:825
+#: ksecretd/ksecretd.cpp:826
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -287,7 +287,7 @@ msgstr ""
 "<qt>ھەميان ‹<b>%2</b>› نى ئېچىپ زىيارەت قىلىشنى پىروگرامما «<b>%1</b>» "
 "ئىلتىماس قىلىۋاتىدۇ.</qt>"
 
-#: ksecretd/ksecretd.cpp:933
+#: ksecretd/ksecretd.cpp:934
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -295,7 +295,7 @@ msgid ""
 msgstr ""
 "ھەمياننى ئاچقىلى بولمىدى. ئىمنى ئۆزگەرتىش ئۈچۈن ھەميان چوقۇم ئېچىلىشى كېرەك."
 
-#: ksecretd/ksecretd.cpp:949
+#: ksecretd/ksecretd.cpp:950
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -306,24 +306,24 @@ msgstr ""
 "قورالى (<b>kleopatra</b> غا ئوخشاش) ئارقىلىق شىفىرلىق ئاچقۇچنىڭ ئىم "
 "ئىبارىسىنى ئۆزگەرتىڭ.</qt>"
 
-#: ksecretd/ksecretd.cpp:956
+#: ksecretd/ksecretd.cpp:957
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>يېڭى ھەميان «<b>%1</b>» غا يېڭى ئىم بېكىتىڭ.</qt>"
 
-#: ksecretd/ksecretd.cpp:968
+#: ksecretd/ksecretd.cpp:969
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "ھەمياننى قايتا شىفىرلاشتا خاتالىق كۆرۈلدى. ئىم ئۆزگەرتىلمىدى."
 
-#: ksecretd/ksecretd.cpp:973
+#: ksecretd/ksecretd.cpp:974
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "ھەمياننى قايتا ئېچىشتا خاتالىق كۆرۈلدى. سانلىق مەلۇماتلار يوقاپ كېتىشى "
 "مۇمكىن."
 
-#: ksecretd/ksecretd.cpp:1562
+#: ksecretd/ksecretd.cpp:1563
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -542,47 +542,47 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "قانداق شىفىرلاش ئۇسۇلىنى ئىشلىتىسىز؟"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:162
 #, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
 msgstr "(C) 2002-2025, KDE ئىجادىيەتچىلىرى"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:163
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:163
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "سابىق ئاسرىغۇچى، GPG ئارقا ئۇچ قوللاش"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:164
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:164
 #, kde-format
 msgid "Former Maintainer"
 msgstr "سابىق ئاسرىغۇچى"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "Former maintainer"
 msgstr "سابىق ئاسرىغۇچى"
 
-#: ksecretd/main.cpp:168
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: ksecretd/main.cpp:168
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "D-Bus ئارايۈزى"
@@ -684,52 +684,52 @@ msgstr ""
 "شىفىرلىق ئاچقۇچ كىملىكى <b>%2</b> نى ئىشلىتىپ شىفىرلانغان ئەمما بۇ ئاچقۇچ "
 "سىستېمىڭىزدا تېپىلمىدى.</qt>"
 
-#: kwalletbackend/kwalletbackend.cc:303
+#: kwalletbackend/kwalletbackend.cc:290
 #, kde-format
 msgid "Already open."
 msgstr "ئاللىقاچان ئوچۇق."
 
-#: kwalletbackend/kwalletbackend.cc:305
+#: kwalletbackend/kwalletbackend.cc:292
 #, kde-format
 msgid "Error opening file."
 msgstr "ھۆججەت ئېچىۋاتقاندا خاتالىق كۆرۈلدى."
 
-#: kwalletbackend/kwalletbackend.cc:307
+#: kwalletbackend/kwalletbackend.cc:294
 #, kde-format
 msgid "Not a wallet file."
 msgstr "ھەميان ھۆججەت ئەمەس."
 
-#: kwalletbackend/kwalletbackend.cc:309
+#: kwalletbackend/kwalletbackend.cc:296
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "قوللىمايدىغان ھۆججەت پىچىمى."
 
-#: kwalletbackend/kwalletbackend.cc:313
+#: kwalletbackend/kwalletbackend.cc:300
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "نامەلۇم شىفىرلاش لايىھەسى."
 
-#: kwalletbackend/kwalletbackend.cc:315
+#: kwalletbackend/kwalletbackend.cc:302
 #, kde-format
 msgid "Corrupt file?"
 msgstr "ھۆججەت بۇزۇقمۇ؟"
 
-#: kwalletbackend/kwalletbackend.cc:317
+#: kwalletbackend/kwalletbackend.cc:304
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "ھەمياننىڭ پۈتۈنلۈكىنى تەكشۈرۈشتە خاتالىق كۆرۈلدى. بۇزۇلغاندەك قىلىدۇ."
 
-#: kwalletbackend/kwalletbackend.cc:321
+#: kwalletbackend/kwalletbackend.cc:308
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "ئوقۇشتا خاتالىق كۆرۈلدى - ئىم توغرا ئەمەستەك قىلىدۇ."
 
-#: kwalletbackend/kwalletbackend.cc:323
+#: kwalletbackend/kwalletbackend.cc:310
 #, kde-format
 msgid "Decryption error."
 msgstr "شىفىرسىزلاش خاتالىقى."
 
-#: kwalletbackend/kwalletbackend.cc:503
+#: kwalletbackend/kwalletbackend.cc:490
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
@@ -740,88 +740,88 @@ msgstr ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. بۇ ئۇچۇر ئارقىلىق bugs.kde.org غا كەمتۈكلۈك مەلۇم قىلىڭ"
 
-#: kwalletd/kwalletd.cpp:106
+#: kwalletd/kwalletd.cpp:105
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr "«%1» ھەمياننى كۆچۈرۈۋاتىدۇ. قۇلۇپ ئاچىدىغان ئىمنى تەمىنلەڭ."
 
-#: kwalletd/main.cpp:32
+#: kwalletd/main.cpp:31
 #, kde-format
 msgid "kwalletd"
 msgstr "kwalletd"
 
-#: kwalletd/main.cpp:34
+#: kwalletd/main.cpp:33
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
 msgstr "KWallet ماسلىشىش مۇلازىمىتى، مەخپىيەت مۇلازىمىتىدە ئورالغان"
 
-#: kwalletd/main.cpp:36
+#: kwalletd/main.cpp:35
 #, kde-format
 msgid "(C) 2025, The KDE Developers"
 msgstr "(C) 2025,  KDE ئىجادىيەتچىلىرى"
 
-#: kwalletd/main.cpp:38
+#: kwalletd/main.cpp:37
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: kwalletd/main.cpp:38
+#: kwalletd/main.cpp:37
 #, kde-format
 msgid "Author"
 msgstr "يازغۇچى"
 
-#: kwalletd/secretserviceclient.cpp:249
+#: kwalletd/secretserviceclient.cpp:248
 #, kde-format
 msgid "Item not found"
 msgstr "تۈر تېپىلمىدى"
 
-#: kwalletd/secretserviceclient.cpp:269
+#: kwalletd/secretserviceclient.cpp:268
 #, kde-format
 msgid "Could not connect to Secret Service"
 msgstr "مەخپىيەت مۇلازىمىتىگە باغلىنالمىدى"
 
-#: kwalletd/secretserviceclient.cpp:441
+#: kwalletd/secretserviceclient.cpp:440
 #, kde-format
 msgid "Unable to unlock collectionName %1"
 msgstr "%1 توپلام ئاتىنىڭ قۇلۇپىنى ئاچالمايدۇ"
 
-#: kwalletd/secretserviceclient.cpp:534
+#: kwalletd/secretserviceclient.cpp:533
 #, kde-format
 msgid "No collections"
 msgstr "توپلام يوق"
 
-#: kwalletd/secretserviceclient.cpp:571 kwalletd/secretserviceclient.cpp:618
-#: kwalletd/secretserviceclient.cpp:721
+#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
+#: kwalletd/secretserviceclient.cpp:720
 #, kde-format
 msgid "No entries"
 msgstr "تۈر يوق"
 
-#: kwalletd/secretserviceclient.cpp:636
+#: kwalletd/secretserviceclient.cpp:635
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr "تۈر تېپىلمىدى، ئاچقۇچ: %1، قىسقۇچ: %2"
 
-#: kwalletd/secretserviceclient.cpp:745
+#: kwalletd/secretserviceclient.cpp:744
 #, kde-format
 msgid "Unable to unlock item"
 msgstr "تۈر قۇلۇپىنى ئاچالمايدۇ"
 
-#: kwalletd/secretserviceclient.cpp:788 kwalletd/secretserviceclient.cpp:906
+#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
 #, kde-format
 msgid "Entry to rename not found"
 msgstr "ئات ئۆزگەرتىلىدىغان تۈر تېپىلمىدى"
 
-#: kwalletd/secretserviceclient.cpp:795
+#: kwalletd/secretserviceclient.cpp:794
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr "%2 قىسقۇچتىكى %1 دەپ ئاتالغان تۈر ۋە %3 ھەميان مەۋجۇت."
 
-#: kwalletd/secretserviceclient.cpp:810 kwalletd/secretserviceclient.cpp:825
+#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr "ئاتىنى ئۆزگەرتىدىغان تۈر تولۇق ئەمەس"
 
-#: kwalletd/secretserviceclient.cpp:870
+#: kwalletd/secretserviceclient.cpp:869
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "مەخپىيەت قىممىتى قۇرالمىدى"

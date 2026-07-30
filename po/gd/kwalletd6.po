@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:42+0000\n"
+"POT-Creation-Date: 2026-07-30 00:40+0000\n"
 "PO-Revision-Date: 2016-05-04 18:07+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
@@ -180,7 +180,7 @@ msgstr "Clasaigeach, faidhle le crioptachadh blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Cleachd crioptachadh PGP a chum dìon nas fhearr"
 
-#: ksecretd/ksecretd.cpp:593
+#: ksecretd/ksecretd.cpp:594
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -189,7 +189,7 @@ msgstr ""
 "<qt>Dh'iarr KDE fosgladh an sporain \"<b>%1</b>\". Cuir a-steach am facal-"
 "faire airson an sporain gu h-ìosal.</qt>"
 
-#: ksecretd/ksecretd.cpp:597
+#: ksecretd/ksecretd.cpp:598
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -199,21 +199,21 @@ msgstr ""
 "Cuir a-steach am facal-faire airson an sporain gu h-ìosal.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:608 ksecretd/ksecretd.cpp:717
-#: ksecretd/ksecretd.cpp:821 ksecretd/ksecretd.cpp:934
-#: ksecretd/ksecretd.cpp:957 ksecretd/ksecretd.cpp:968
-#: ksecretd/ksecretd.cpp:973 ksecretd/ksecretd.cpp:1563 ksecretd/main.cpp:160
-#: ksecretd/main.cpp:162
+#: ksecretd/ksecretd.cpp:609 ksecretd/ksecretd.cpp:718
+#: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:935
+#: ksecretd/ksecretd.cpp:958 ksecretd/ksecretd.cpp:969
+#: ksecretd/ksecretd.cpp:974 ksecretd/ksecretd.cpp:1564 ksecretd/main.cpp:158
+#: ksecretd/main.cpp:160
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Seirbheis sporain KDE"
 
-#: ksecretd/ksecretd.cpp:623
+#: ksecretd/ksecretd.cpp:624
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Dh'iarr aplacaid fosgladh sporain (%1)."
 
-#: ksecretd/ksecretd.cpp:624
+#: ksecretd/ksecretd.cpp:625
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -221,19 +221,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Gearr leum thuice"
 
-#: ksecretd/ksecretd.cpp:626
+#: ksecretd/ksecretd.cpp:627
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "Dh'iarr <b>%1</b> fosgladh sporain (%2)."
 
-#: ksecretd/ksecretd.cpp:628
+#: ksecretd/ksecretd.cpp:629
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Gearr leum %1"
 
-#: ksecretd/ksecretd.cpp:645 ksecretd/ksecretd.cpp:727
+#: ksecretd/ksecretd.cpp:646 ksecretd/ksecretd.cpp:728
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -242,7 +242,7 @@ msgstr ""
 "<qt>Mearachd le fosgladh an sporain \"<b>%1</b>\". am feuch thu ris a-"
 "rithist?<br />(Còd na mearachd: %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:693
+#: ksecretd/ksecretd.cpp:694
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -254,7 +254,7 @@ msgstr ""
 "chleachdadh leis an sporan seo no briog air \"Sguir dheth\" gus iarrtas na h-"
 "aplacaid a dhiùltadh."
 
-#: ksecretd/ksecretd.cpp:698
+#: ksecretd/ksecretd.cpp:699
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -267,7 +267,7 @@ msgstr ""
 "steach am facal-faire a thèid a chleachdadh leis an sporan seo no briog air "
 "\"Sguir dheth\" gus iarrtas na h-aplacaid a dhiùltadh.</qt>"
 
-#: ksecretd/ksecretd.cpp:706
+#: ksecretd/ksecretd.cpp:707
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -278,7 +278,7 @@ msgstr ""
 "Tagh facal-faire airson an sporain sin no sguir dheth gus iarrtas na h-"
 "aplacaid a dhiùltadh.</qt>"
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:712
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -289,12 +289,12 @@ msgstr ""
 "a bheil \"<b>%2</b>\". Tagh facal-faire airson an sporain sin no sguir dheth "
 "gus iarrtas na h-aplacaid a dhiùltadh.</qt>"
 
-#: ksecretd/ksecretd.cpp:823
+#: ksecretd/ksecretd.cpp:824
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Dh'iarr KDE inntrigeadh dhan sporan fhosgailte \"<b>%1</b>\".</qt>"
 
-#: ksecretd/ksecretd.cpp:825
+#: ksecretd/ksecretd.cpp:826
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -303,7 +303,7 @@ msgstr ""
 "<qt>Dh'iarr an aplacaid \"<b>%1</b>\" inntrigeadh dhan sporan fhosgailte "
 "\"<b>%2</b>\".</qt>"
 
-#: ksecretd/ksecretd.cpp:933
+#: ksecretd/ksecretd.cpp:934
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -312,7 +312,7 @@ msgstr ""
 "Cha deach leinn an sporan fhosgladh. Feumaidh an sporan a bhith fosgailte "
 "mus gabh am facal-faire atharrachadh."
 
-#: ksecretd/ksecretd.cpp:949
+#: ksecretd/ksecretd.cpp:950
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -323,25 +323,25 @@ msgstr ""
 "Cleachd inneal <b>GPG</b> (can <b>kleopatra</b>) gus abairt-fhaire na h-"
 "iuchrach sin atharrachadh.</qt>"
 
-#: ksecretd/ksecretd.cpp:956
+#: ksecretd/ksecretd.cpp:957
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Tagh facal-faire ùr airson an sporain \"<b>%1</b>\".</qt>"
 
-#: ksecretd/ksecretd.cpp:968
+#: ksecretd/ksecretd.cpp:969
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
 "Mearachd le ath-chrioptachadh an sporain. Cha deach am facal-faire "
 "atharrachadh."
 
-#: ksecretd/ksecretd.cpp:973
+#: ksecretd/ksecretd.cpp:974
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Mearachd le ath-fhosgladh an sporain. Dh'fhaoidte gun deach dàta air chall."
 
-#: ksecretd/ksecretd.cpp:1562
+#: ksecretd/ksecretd.cpp:1563
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -579,49 +579,49 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "Dè an seòrsa crioptachaidh a thogras tu?"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:162
 #, fuzzy, kde-format
 #| msgid "(C) 2002-2013, The KDE Developers"
 msgid "(C) 2002-2025, The KDE Developers"
 msgstr "(C) 2002-2013, The KDE Developers"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:163
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:163
 #, fuzzy, kde-format
 #| msgid "Maintainer, GPG backend support"
 msgid "Former Maintainer, GPG backend support"
 msgstr "Neach-glèidhidh, taic dha backend GPG"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:164
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:164
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Neach-glèidhidh roimhe"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "Former maintainer"
 msgstr "Neach-glèidhidh roimhe"
 
-#: ksecretd/main.cpp:168
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: ksecretd/main.cpp:168
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "Eadar-aghaidh D-Bus"
@@ -725,54 +725,54 @@ msgstr ""
 "chrioptachadh le iuchair GPG air a bheil an ID <b>%2</b> ach cha deach an "
 "iuchair sin a lorg air an t-siostam agad.</qt>"
 
-#: kwalletbackend/kwalletbackend.cc:303
+#: kwalletbackend/kwalletbackend.cc:290
 #, kde-format
 msgid "Already open."
 msgstr "Tha e fosgailte mar-thà."
 
-#: kwalletbackend/kwalletbackend.cc:305
+#: kwalletbackend/kwalletbackend.cc:292
 #, kde-format
 msgid "Error opening file."
 msgstr "Mearachd le fosgladh an fhaidhle."
 
-#: kwalletbackend/kwalletbackend.cc:307
+#: kwalletbackend/kwalletbackend.cc:294
 #, kde-format
 msgid "Not a wallet file."
 msgstr "Chan e faidhle sporain a th' ann."
 
-#: kwalletbackend/kwalletbackend.cc:309
+#: kwalletbackend/kwalletbackend.cc:296
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "Cha chuir sinn taic ris an tionndadh seo dhe fhòrmat an fhaidhle."
 
-#: kwalletbackend/kwalletbackend.cc:313
+#: kwalletbackend/kwalletbackend.cc:300
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Sgeama crioptachaidh nach aithne dhuinn."
 
-#: kwalletbackend/kwalletbackend.cc:315
+#: kwalletbackend/kwalletbackend.cc:302
 #, kde-format
 msgid "Corrupt file?"
 msgstr "Faidhle coirbte, 's dòcha"
 
-#: kwalletbackend/kwalletbackend.cc:317
+#: kwalletbackend/kwalletbackend.cc:304
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr ""
 "Mearachd a' dearbhadh treibhdhireas an sporain. Dh'fhaoidte gu bheil e "
 "coirbte."
 
-#: kwalletbackend/kwalletbackend.cc:321
+#: kwalletbackend/kwalletbackend.cc:308
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "Mearachd leughaidh - facal-faire cearr, 's dòcha."
 
-#: kwalletbackend/kwalletbackend.cc:323
+#: kwalletbackend/kwalletbackend.cc:310
 #, kde-format
 msgid "Decryption error."
 msgstr "Mearachd dì-chrioptachaidh."
 
-#: kwalletbackend/kwalletbackend.cc:503
+#: kwalletbackend/kwalletbackend.cc:490
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
@@ -785,79 +785,79 @@ msgstr ""
 "SF <b>%3</b>. Cuir aithris air buga leis an fiosrachadh seo a-null gu bugs."
 "kde.org"
 
-#: kwalletd/kwalletd.cpp:106
+#: kwalletd/kwalletd.cpp:105
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr ""
 
-#: kwalletd/main.cpp:32
+#: kwalletd/main.cpp:31
 #, kde-format
 msgid "kwalletd"
 msgstr "kwalletd"
 
-#: kwalletd/main.cpp:34
+#: kwalletd/main.cpp:33
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
 msgstr ""
 
-#: kwalletd/main.cpp:36
+#: kwalletd/main.cpp:35
 #, fuzzy, kde-format
 #| msgid "(C) 2002-2013, The KDE Developers"
 msgid "(C) 2025, The KDE Developers"
 msgstr "(C) 2002-2013, The KDE Developers"
 
-#: kwalletd/main.cpp:38
+#: kwalletd/main.cpp:37
 #, kde-format
 msgid "Marco Martin"
 msgstr ""
 
-#: kwalletd/main.cpp:38
+#: kwalletd/main.cpp:37
 #, kde-format
 msgid "Author"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:249
+#: kwalletd/secretserviceclient.cpp:248
 #, kde-format
 msgid "Item not found"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:269
+#: kwalletd/secretserviceclient.cpp:268
 #, kde-format
 msgid "Could not connect to Secret Service"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:441
+#: kwalletd/secretserviceclient.cpp:440
 #, kde-format
 msgid "Unable to unlock collectionName %1"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:534
+#: kwalletd/secretserviceclient.cpp:533
 #, kde-format
 msgid "No collections"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:571 kwalletd/secretserviceclient.cpp:618
-#: kwalletd/secretserviceclient.cpp:721
+#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
+#: kwalletd/secretserviceclient.cpp:720
 #, kde-format
 msgid "No entries"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:636
+#: kwalletd/secretserviceclient.cpp:635
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:745
+#: kwalletd/secretserviceclient.cpp:744
 #, kde-format
 msgid "Unable to unlock item"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:788 kwalletd/secretserviceclient.cpp:906
+#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
 #, kde-format
 msgid "Entry to rename not found"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:795
+#: kwalletd/secretserviceclient.cpp:794
 #, fuzzy, kde-format
 #| msgid "* SKIPPING entry %1 in folder %2 as it seems already migrated"
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
@@ -865,12 +865,12 @@ msgstr ""
 "* A' gearradh LEUM thairis air an innteart \"%1\" sa phasgan \"%2\" on a tha "
 "coltas air gun deach imrich mar-thà"
 
-#: kwalletd/secretserviceclient.cpp:810 kwalletd/secretserviceclient.cpp:825
+#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr ""
 
-#: kwalletd/secretserviceclient.cpp:870
+#: kwalletd/secretserviceclient.cpp:869
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr ""
