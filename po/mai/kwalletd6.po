@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:40+0000\n"
+"POT-Creation-Date: 2026-08-01 00:42+0000\n"
 "PO-Revision-Date: 2010-09-24 21:47+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <bhashaghar@googlegroups.com>\n"
@@ -173,8 +173,8 @@ msgstr ""
 #: ksecretd/ksecretd.cpp:609 ksecretd/ksecretd.cpp:718
 #: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:935
 #: ksecretd/ksecretd.cpp:958 ksecretd/ksecretd.cpp:969
-#: ksecretd/ksecretd.cpp:974 ksecretd/ksecretd.cpp:1564 ksecretd/main.cpp:158
-#: ksecretd/main.cpp:160
+#: ksecretd/ksecretd.cpp:974 ksecretd/ksecretd.cpp:1564 ksecretd/main.cpp:159
+#: ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE वालेट सेवा"
@@ -457,49 +457,49 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr ""
 
-#: ksecretd/main.cpp:162
+#: ksecretd/main.cpp:163
 #, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
 msgstr ""
 
-#: ksecretd/main.cpp:163
+#: ksecretd/main.cpp:164
 #, kde-format
 msgid "Valentin Rusu"
 msgstr ""
 
-#: ksecretd/main.cpp:163
+#: ksecretd/main.cpp:164
 #, fuzzy, kde-format
 #| msgid "Former maintainer"
 msgid "Former Maintainer, GPG backend support"
 msgstr "पहिनुक मेंटेनर"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "Michael Leupold"
 msgstr "मिटाइल लिओपोल्ड"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:165
 #, fuzzy, kde-format
 #| msgid "Former maintainer"
 msgid "Former Maintainer"
 msgstr "पहिनुक मेंटेनर"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "George Staikos"
 msgstr "जार्ज स्टायकास"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "Former maintainer"
 msgstr "पहिनुक मेंटेनर"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:167
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "थैगो मर्सिया"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:167
 #, fuzzy, kde-format
 #| msgid "DBus Interface"
 msgid "D-Bus Interface"

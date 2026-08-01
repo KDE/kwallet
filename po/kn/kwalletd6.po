@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:40+0000\n"
+"POT-Creation-Date: 2026-08-01 00:42+0000\n"
 "PO-Revision-Date: 2009-01-09 15:19+0530\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: Kannada <en@li.org>\n"
@@ -166,8 +166,8 @@ msgstr ""
 #: ksecretd/ksecretd.cpp:609 ksecretd/ksecretd.cpp:718
 #: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:935
 #: ksecretd/ksecretd.cpp:958 ksecretd/ksecretd.cpp:969
-#: ksecretd/ksecretd.cpp:974 ksecretd/ksecretd.cpp:1564 ksecretd/main.cpp:158
-#: ksecretd/main.cpp:160
+#: ksecretd/ksecretd.cpp:974 ksecretd/ksecretd.cpp:1564 ksecretd/main.cpp:159
+#: ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr ""
@@ -450,49 +450,49 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr ""
 
-#: ksecretd/main.cpp:162
+#: ksecretd/main.cpp:163
 #, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
 msgstr ""
 
-#: ksecretd/main.cpp:163
+#: ksecretd/main.cpp:164
 #, kde-format
 msgid "Valentin Rusu"
 msgstr ""
 
-#: ksecretd/main.cpp:163
+#: ksecretd/main.cpp:164
 #, fuzzy, kde-format
 #| msgid "Former maintainer"
 msgid "Former Maintainer, GPG backend support"
 msgstr "ಮೊದಲಿನ ಪಾಲಕ"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:165
 #, fuzzy, kde-format
 #| msgid "Former maintainer"
 msgid "Former Maintainer"
 msgstr "ಮೊದಲಿನ ಪಾಲಕ"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "Former maintainer"
 msgstr "ಮೊದಲಿನ ಪಾಲಕ"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:167
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:167
 #, fuzzy, kde-format
 #| msgid "DBus Interface"
 msgid "D-Bus Interface"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:40+0000\n"
+"POT-Creation-Date: 2026-08-01 00:42+0000\n"
 "PO-Revision-Date: 2026-04-03 02:26+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -190,8 +190,8 @@ msgstr ""
 #: ksecretd/ksecretd.cpp:609 ksecretd/ksecretd.cpp:718
 #: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:935
 #: ksecretd/ksecretd.cpp:958 ksecretd/ksecretd.cpp:969
-#: ksecretd/ksecretd.cpp:974 ksecretd/ksecretd.cpp:1564 ksecretd/main.cpp:158
-#: ksecretd/main.cpp:160
+#: ksecretd/ksecretd.cpp:974 ksecretd/ksecretd.cpp:1564 ksecretd/main.cpp:159
+#: ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Портфейл за KDE"
@@ -547,47 +547,47 @@ msgstr ""
 msgid "What kind of encryption do you wish?"
 msgstr "Какъв вид шифриране искате?"
 
-#: ksecretd/main.cpp:162
+#: ksecretd/main.cpp:163
 #, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
 msgstr "(C) 2002-2025, Разработчиците на KDE"
 
-#: ksecretd/main.cpp:163
+#: ksecretd/main.cpp:164
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: ksecretd/main.cpp:163
+#: ksecretd/main.cpp:164
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "Предишна поддръжка, поддръжка на GPG бекенда"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:165
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Бивш  разработчик"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:166
 #, kde-format
 msgid "Former maintainer"
 msgstr "Предишна поддръжка"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:167
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:167
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "Интерфейс към D-Bus"
