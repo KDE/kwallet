@@ -262,8 +262,6 @@ Wallet *Wallet::openWallet(const QString &name, WId w, OpenType ot)
         // will not match. We'll get that handle from the reply - see below
     } else if (ot == Asynchronous) {
         r = interface.openAsync(name, (qlonglong)w, appid(), true);
-    } else if (ot == Path) {
-        r = interface.openPathAsync(name, (qlonglong)w, appid(), true);
     } else {
         delete wallet;
         return nullptr;

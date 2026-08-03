@@ -70,7 +70,7 @@ public:
 class KWALLETBACKEND_EXPORT Backend
 {
 public:
-    explicit Backend(const QString &name = QStringLiteral("kdewallet"), bool isPath = false);
+    explicit Backend(const QString &name = QStringLiteral("kdewallet"));
     ~Backend();
 
     // Open and unlock the wallet.
@@ -100,7 +100,7 @@ public:
     const QString &walletName() const;
 
     // Rename the wallet
-    int renameWallet(const QString &newName, bool isPath = false);
+    int renameWallet(const QString &newName);
 
     // The list of folders.
     QStringList folderList() const;

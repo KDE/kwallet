@@ -132,7 +132,7 @@ private Q_SLOTS:
 
 private:
     // Internal - open a wallet
-    int internalOpen(const QString &appid, const QString &wallet, bool isPath, WId w, bool modal, const QString &service);
+    int internalOpen(const QString &appid, const QString &wallet, WId w, bool modal, const QString &service);
     // Internal - close this wallet.
     int internalClose(KWallet::Backend *const w, const int handle, const bool force, const bool saveBeforeClose = true);
 
@@ -148,7 +148,7 @@ private:
 
     void doTransactionChangePassword(const QString &appid, const QString &wallet, qlonglong wId);
     void doTransactionOpenCancelled(const QString &appid, const QString &wallet, const QString &service);
-    int doTransactionOpen(const QString &appid, const QString &wallet, bool isPath, qlonglong wId, bool modal, const QString &service);
+    int doTransactionOpen(const QString &appid, const QString &wallet, qlonglong wId, bool modal, const QString &service);
     void initiateSync(int handle);
 
     void setupDialog(QWidget *dialog, WId wId, const QString &appid, bool modal);

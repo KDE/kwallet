@@ -102,7 +102,6 @@ public:
     QString service;
     bool cancelled = false; // set true if the client dies before open
     bool modal;
-    bool isPath;
     int tId; // transaction id
     int res;
     QDBusMessage message;
@@ -221,7 +220,7 @@ void KSecretD::processTransactions()
 
         switch (_curtrans->tType) {
         case KWalletTransaction::Open:
-            res = doTransactionOpen(_curtrans->appid, _curtrans->wallet, _curtrans->isPath, _curtrans->wId, _curtrans->modal, _curtrans->service);
+            res = doTransactionOpen(_curtrans->appid, _curtrans->wallet, _curtrans->wId, _curtrans->modal, _curtrans->service);
 
             // multiple requests from the same client
             // should not produce multiple password
@@ -310,7 +309,6 @@ int KSecretD::openAsync(const QString &wallet,
     xact->wId = wId;
     xact->modal = true; // mark dialogs as modal, the app has blocking wait
     xact->tType = KWalletTransaction::Open;
-    xact->isPath = false;
     if (handleSession) {
         qCDebug(KSECRETD_LOG) << "openAsync for " << message.service();
         _serviceWatcher.setConnection(connection);
@@ -387,9 +385,9 @@ void KSecretD::checkActiveDialog()
 #endif
 }
 
-int KSecretD::doTransactionOpen(const QString &appid, const QString &wallet, bool isPath, qlonglong wId, bool modal, const QString &service)
+int KSecretD::doTransactionOpen(const QString &appid, const QString &wallet, qlonglong wId, bool modal, const QString &service)
 {
-    if (_firstUse && !isPath) {
+    if (_firstUse) {
         // if the user specifies a wallet name, the use it as the default
         // wallet name
         if (wallet != KWallet::Backend::localWallet()) {
@@ -461,11 +459,11 @@ int KSecretD::doTransactionOpen(const QString &appid, const QString &wallet, boo
         //         }
     }
 
-    int rc = internalOpen(appid, wallet, isPath, WId(wId), modal, service);
+    int rc = internalOpen(appid, wallet, WId(wId), modal, service);
     return rc;
 }
 
-int KSecretD::internalOpen(const QString &appid, const QString &wallet, bool isPath, WId w, bool modal, const QString &service)
+int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, bool modal, const QString &service)
 {
     bool brandNew = false;
 
@@ -484,10 +482,10 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, bool isP
             return -1;
         }
 
-        KWallet::Backend *b = new KWallet::Backend(wallet, isPath);
+        KWallet::Backend *b = new KWallet::Backend(wallet);
         QString password;
         bool emptyPass = false;
-        if ((isPath && QFile::exists(wallet)) || (!isPath && KWallet::Backend::exists(wallet))) {
+        if (KWallet::Backend::exists(wallet)) {
             // this open attempt will set wallet type from the file header,
             // even if password is needed
             int pwless = b->open(QByteArray(), w);
@@ -509,7 +507,7 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, bool isP
                     if (pwless == 0) {
                         // release, start anew
                         delete b;
-                        b = new KWallet::Backend(wallet, isPath);
+                        b = new KWallet::Backend(wallet);
                     }
                     KPasswordDialog *kpd = new KPasswordDialog();
                     if (appid.isEmpty()) {
@@ -766,7 +764,7 @@ void KSecretD::doTransactionChangePassword(const QString &appid, const QString &
 
     bool reclose = false;
     if (!w) {
-        handle = doTransactionOpen(appid, wallet, false, wId, false, QLatin1String(""));
+        handle = doTransactionOpen(appid, wallet, wId, false, QLatin1String(""));
         if (-1 == handle) {
             KMessageBox::errorWId((WId)wId,
                                   i18n("Unable to open wallet. The wallet must be opened in order to change the password."),
