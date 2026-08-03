@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 00:42+0000\n"
+"POT-Creation-Date: 2026-08-03 00:39+0000\n"
 "PO-Revision-Date: 2026-05-17 17:38+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -175,7 +175,7 @@ msgstr "クラシックな blowfish 暗号化ファイル"
 msgid "Use GPG encryption, for better protection"
 msgstr "GPG 暗号化を利用したより良いセキュリティ"
 
-#: ksecretd/ksecretd.cpp:594
+#: ksecretd/ksecretd.cpp:521
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -184,7 +184,7 @@ msgstr ""
 "<qt>KDE がウォレット “%1” を開くよう要求しています。このウォレットのパスワー"
 "ドを下に入力してください。</qt>"
 
-#: ksecretd/ksecretd.cpp:598
+#: ksecretd/ksecretd.cpp:525
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -194,21 +194,21 @@ msgstr ""
 "レットのパスワードを下に入力してください。</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:609 ksecretd/ksecretd.cpp:718
-#: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:935
-#: ksecretd/ksecretd.cpp:958 ksecretd/ksecretd.cpp:969
-#: ksecretd/ksecretd.cpp:974 ksecretd/ksecretd.cpp:1564 ksecretd/main.cpp:159
+#: ksecretd/ksecretd.cpp:536 ksecretd/ksecretd.cpp:645
+#: ksecretd/ksecretd.cpp:749 ksecretd/ksecretd.cpp:862
+#: ksecretd/ksecretd.cpp:885 ksecretd/ksecretd.cpp:896
+#: ksecretd/ksecretd.cpp:901 ksecretd/ksecretd.cpp:1308 ksecretd/main.cpp:159
 #: ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE ウォレットサービス"
 
-#: ksecretd/ksecretd.cpp:624
+#: ksecretd/ksecretd.cpp:551
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "アプリケーションがウォレット (%1) を開くよう要求しています。"
 
-#: ksecretd/ksecretd.cpp:625
+#: ksecretd/ksecretd.cpp:552
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -216,19 +216,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "そこに切り替え"
 
-#: ksecretd/ksecretd.cpp:627
+#: ksecretd/ksecretd.cpp:554
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> がウォレット “%2” を開くよう要求しています。"
 
-#: ksecretd/ksecretd.cpp:629
+#: ksecretd/ksecretd.cpp:556
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "%1 に切り替え"
 
-#: ksecretd/ksecretd.cpp:646 ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:573 ksecretd/ksecretd.cpp:655
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -237,7 +237,7 @@ msgstr ""
 "<qt>ウォレット “%1” を開くときにエラーが発生しました。やり直してください。"
 "<br />(エラーコード %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:694
+#: ksecretd/ksecretd.cpp:621
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -248,7 +248,7 @@ msgstr ""
 "するために使用されます。このウォレットで使用するパスワードを入力するか、"
 "「キャンセル」をクリックしてアプリケーションの要求を拒否してください。"
 
-#: ksecretd/ksecretd.cpp:699
+#: ksecretd/ksecretd.cpp:626
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -261,7 +261,7 @@ msgstr ""
 "ワードを入力するか、「キャンセル」をクリックしてアプリケーションの要求を拒否"
 "してください。</qt>"
 
-#: ksecretd/ksecretd.cpp:707
+#: ksecretd/ksecretd.cpp:634
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -272,7 +272,7 @@ msgstr ""
 "レットのパスワードを選択するか、「キャンセル」をクリックしてアプリケーション"
 "の要求を拒否してください。</qt>"
 
-#: ksecretd/ksecretd.cpp:712
+#: ksecretd/ksecretd.cpp:639
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -283,14 +283,14 @@ msgstr ""
 "います。このウォレットのパスワードを選択するか、「キャンセル」をクリックして"
 "アプリケーションの要求を拒否してください。</qt>"
 
-#: ksecretd/ksecretd.cpp:824
+#: ksecretd/ksecretd.cpp:751
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>KDE が開いているウォレット “<b>%1</b>” へのアクセスを要求しています。</"
 "qt>"
 
-#: ksecretd/ksecretd.cpp:826
+#: ksecretd/ksecretd.cpp:753
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -299,7 +299,7 @@ msgstr ""
 "<qt>アプリケーション %1 が開いているウォレット “%2” へのアクセスを要求してい"
 "ます。</qt>"
 
-#: ksecretd/ksecretd.cpp:934
+#: ksecretd/ksecretd.cpp:861
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -308,7 +308,7 @@ msgstr ""
 "ウォレットを開けません。パスワードを変更するためには、ウォレットを開く必要が"
 "あります。"
 
-#: ksecretd/ksecretd.cpp:950
+#: ksecretd/ksecretd.cpp:877
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -316,22 +316,22 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:957
+#: ksecretd/ksecretd.cpp:884
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>ウォレット “%1” の新しいパスワードを選択してください。</qt>"
 
-#: ksecretd/ksecretd.cpp:969
+#: ksecretd/ksecretd.cpp:896
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "ウォレットの再暗号化でエラー。パスワードは変更されていません。"
 
-#: ksecretd/ksecretd.cpp:974
+#: ksecretd/ksecretd.cpp:901
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "ウォレットを開き直す際にエラー。データが失われた可能性があります。"
 
-#: ksecretd/ksecretd.cpp:1563
+#: ksecretd/ksecretd.cpp:1307
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

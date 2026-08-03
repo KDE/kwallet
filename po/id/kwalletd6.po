@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 00:42+0000\n"
+"POT-Creation-Date: 2026-08-03 00:39+0000\n"
 "PO-Revision-Date: 2020-02-25 21:56+0700\n"
 "Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -171,7 +171,7 @@ msgstr "Klasik, file terenkripsi blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Gunakan enkripsi GPG, untuk proteksi lebih baik"
 
-#: ksecretd/ksecretd.cpp:594
+#: ksecretd/ksecretd.cpp:521
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -180,7 +180,7 @@ msgstr ""
 "<qt>KDE telah meminta untuk membuka wallet '<b>%1</b>'. Silakan masukkan "
 "sandi untuk wallet ini di bawah.</qt>"
 
-#: ksecretd/ksecretd.cpp:598
+#: ksecretd/ksecretd.cpp:525
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -190,21 +190,21 @@ msgstr ""
 "Silakan masukkan sandi untuk wallet ini di bawah.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:609 ksecretd/ksecretd.cpp:718
-#: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:935
-#: ksecretd/ksecretd.cpp:958 ksecretd/ksecretd.cpp:969
-#: ksecretd/ksecretd.cpp:974 ksecretd/ksecretd.cpp:1564 ksecretd/main.cpp:159
+#: ksecretd/ksecretd.cpp:536 ksecretd/ksecretd.cpp:645
+#: ksecretd/ksecretd.cpp:749 ksecretd/ksecretd.cpp:862
+#: ksecretd/ksecretd.cpp:885 ksecretd/ksecretd.cpp:896
+#: ksecretd/ksecretd.cpp:901 ksecretd/ksecretd.cpp:1308 ksecretd/main.cpp:159
 #: ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Layanan Wallet KDE"
 
-#: ksecretd/ksecretd.cpp:624
+#: ksecretd/ksecretd.cpp:551
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Sebuah aplikasi telah meminta untuk membuka wallet (%1)."
 
-#: ksecretd/ksecretd.cpp:625
+#: ksecretd/ksecretd.cpp:552
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -212,19 +212,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Ganti di sana"
 
-#: ksecretd/ksecretd.cpp:627
+#: ksecretd/ksecretd.cpp:554
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> telah meminta untuk membuka wallet (%2)."
 
-#: ksecretd/ksecretd.cpp:629
+#: ksecretd/ksecretd.cpp:556
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Ganti ke %1"
 
-#: ksecretd/ksecretd.cpp:646 ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:573 ksecretd/ksecretd.cpp:655
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -233,7 +233,7 @@ msgstr ""
 "<qt>Error membuka wallet '<b>%1</b>'. Silakan coba lagi.<br />(Kode error "
 "%2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:694
+#: ksecretd/ksecretd.cpp:621
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -244,7 +244,7 @@ msgstr ""
 "sensitif dengan cara yang aman. Silakan masukkan sandi untuk digunakan oleh "
 "wallet ini atau klik batal untuk menolak permintaan aplikasi."
 
-#: ksecretd/ksecretd.cpp:699
+#: ksecretd/ksecretd.cpp:626
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -257,7 +257,7 @@ msgstr ""
 "masukkan sandi untuk digunakan oleh wallet ini atau klik batal untuk menolak "
 "permintaan aplikasi.</qt>"
 
-#: ksecretd/ksecretd.cpp:707
+#: ksecretd/ksecretd.cpp:634
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -268,7 +268,7 @@ msgstr ""
 "pilih sandi untuk wallet ini, atau batal untuk menolak permintaan aplikasi.</"
 "qt>"
 
-#: ksecretd/ksecretd.cpp:712
+#: ksecretd/ksecretd.cpp:639
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -279,12 +279,12 @@ msgstr ""
 "%2</b>'. Silakan pilih sandi baru untuk wallet ini, atau batal untuk menolak "
 "permintaan aplikasi.</qt>"
 
-#: ksecretd/ksecretd.cpp:824
+#: ksecretd/ksecretd.cpp:751
 #, kde-format
 msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>KDE telah meminta akses untuk membuka wallet '<b>%1</b>'.</qt>"
 
-#: ksecretd/ksecretd.cpp:826
+#: ksecretd/ksecretd.cpp:753
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
@@ -293,7 +293,7 @@ msgstr ""
 "<qt>Aplikasi '<b>%1</b>' telah meminta akses untuk membuka wallet '<b>%2</"
 "b>'.</qt>"
 
-#: ksecretd/ksecretd.cpp:934
+#: ksecretd/ksecretd.cpp:861
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -301,7 +301,7 @@ msgid ""
 msgstr ""
 "Tak dapat membuka wallet. wallet harus dibuka agar dapat mengubah sandi."
 
-#: ksecretd/ksecretd.cpp:950
+#: ksecretd/ksecretd.cpp:877
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -312,22 +312,22 @@ msgstr ""
 "gunakan alat <b>GPG</b> (seperti <b>kleopatra</b>) untuk mengubah frasa kata "
 "yang diasosiasikan dengan kunci tersebut.</qt>"
 
-#: ksecretd/ksecretd.cpp:957
+#: ksecretd/ksecretd.cpp:884
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Silakan pilih sandi baru untuk wallet '<b>%1</b>'.</qt>"
 
-#: ksecretd/ksecretd.cpp:969
+#: ksecretd/ksecretd.cpp:896
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Error mengenkripsi ulang wallet. Sandi tidak diubah."
 
-#: ksecretd/ksecretd.cpp:974
+#: ksecretd/ksecretd.cpp:901
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Error membuka ulang wallet. Data mungkin hilang."
 
-#: ksecretd/ksecretd.cpp:1563
+#: ksecretd/ksecretd.cpp:1307
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
