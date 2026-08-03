@@ -46,12 +46,8 @@ public Q_SLOTS:
     bool isEnabled() const;
     // Open and unlock the wallet
     int open(const QString &wallet, qlonglong wId, const QString &appId);
-    // STUB: Open and unlock the wallet with this path
-    int openPath(const QString &path, qlonglong wId, const QString &appId);
     // Open the wallet asynchronously
     int openAsync(const QString &wallet, qlonglong wId, const QString &appId, bool handleSession);
-    // STUB: Open and unlock the wallet with this path asynchronously
-    int openPathAsync(const QString &path, qlonglong wId, const QString &appId, bool handleSession);
 
     // Close and lock the wallet
     // If force = true, will close it for all users.  Behave.  This

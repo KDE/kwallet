@@ -89,7 +89,7 @@ KWalletD::~KWalletD()
 bool KWalletD::migrateWallet(const QString &sourceWallet, const QString &destWallet)
 {
     qCWarning(KWALLETD_LOG) << "Migrating" << sourceWallet;
-    KWallet::Backend backend(sourceWallet, sourceWallet.endsWith(QStringLiteral(".kwl")));
+    KWallet::Backend backend(sourceWallet);
     backend.open(QByteArray());
     while (!backend.isOpen()) {
         KPasswordDialog dlg;
@@ -354,15 +354,6 @@ int KWalletD::open(const QString &wallet, qlonglong wId, const QString &appId)
     return rnd;
 }
 
-int KWalletD::openPath(const QString &path, qlonglong wId, const QString &appId)
-{
-    // This is intended to just be a stub, so it will always fail
-    Q_UNUSED(path);
-    Q_UNUSED(wId);
-    Q_UNUSED(appId);
-    return -1;
-}
-
 int KWalletD::openAsync(const QString &wallet, qlonglong wId, const QString &appId, bool handleSession)
 {
     Q_UNUSED(handleSession);
@@ -382,16 +373,6 @@ int KWalletD::openAsync(const QString &wallet, qlonglong wId, const QString &app
     });
 
     return tid;
-}
-
-int KWalletD::openPathAsync(const QString &path, qlonglong wId, const QString &appId, bool handleSession)
-{
-    // This is intended to just be a stub, so it will always fail
-    Q_UNUSED(path);
-    Q_UNUSED(wId);
-    Q_UNUSED(appId);
-    Q_UNUSED(handleSession);
-    return -1;
 }
 
 int KWalletD::close(const QString &wallet, bool force)

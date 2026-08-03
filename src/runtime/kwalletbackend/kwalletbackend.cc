@@ -107,20 +107,16 @@ class Backend::BackendPrivate
 //     KGlobal::dirs()->addResourceType("kwallet", 0, "share/apps/kwallet");
 // }
 
-Backend::Backend(const QString &name, bool isPath)
-    : d(nullptr),
-      _name(name),
-      _cipherType(KWallet::BACKEND_CIPHER_UNKNOWN)
+Backend::Backend(const QString &name)
+    : d(nullptr)
+    , _name(name)
+    , _cipherType(KWallet::BACKEND_CIPHER_UNKNOWN)
 {
 //  initKWalletDir();
 
     ensureGcryptInit();
 
-    if (isPath) {
-        _path = name;
-    } else {
-        _path = getSaveLocation() + '/' + encodeWalletName(_name) + ".kwl";
-    }
+    _path = getSaveLocation() + '/' + encodeWalletName(_name) + ".kwl";
 
     _open = false;
 }
@@ -534,16 +530,12 @@ const QString &Backend::walletName() const
     return _name;
 }
 
-int Backend::renameWallet(const QString &newName, bool isPath)
+int Backend::renameWallet(const QString &newName)
 {
     QString newPath;
     const auto saveLocation = getSaveLocation();
 
-    if (isPath) {
-        newPath = newName;
-    } else {
-        newPath = saveLocation + QChar::fromLatin1('/') + encodeWalletName(newName) + QStringLiteral(".kwl");
-    }
+    newPath = saveLocation + QChar::fromLatin1('/') + encodeWalletName(newName) + QStringLiteral(".kwl");
 
     if (newPath == _path) {
         return 0;
