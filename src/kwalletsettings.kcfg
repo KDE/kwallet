@@ -48,4 +48,9 @@
             <default></default>
         </entry>
     </group>
+    <group name="org.freedesktop.secrets" type="Bool">
+        <entry key="apiEnabled" name="fdoSecretsApiEnabled" type="Bool">
+            <default>true</default>
+        </entry>
+    </group>
 </kcfg>

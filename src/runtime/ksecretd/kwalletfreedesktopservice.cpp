@@ -153,10 +153,8 @@ KWalletFreedesktopService::KWalletFreedesktopService(KSecretD *parent)
     /* register */
     QDBusConnection::sessionBus().registerObject(QStringLiteral(FDO_SECRETS_SERVICE_OBJECT), this);
 
-    KConfig kwalletrc(QStringLiteral("kwalletrc"));
-    KConfigGroup cfgSecrets(&kwalletrc, "org.freedesktop.secrets");
-
-    if (cfgSecrets.readEntry<bool>("apiEnabled", true)) {
+    KWalletSettings settings;
+    if (settings.fdoSecretsApiEnabled()) {
         QDBusConnection::sessionBus().registerService(QStringLiteral("org.freedesktop.secrets"));
     }
 
