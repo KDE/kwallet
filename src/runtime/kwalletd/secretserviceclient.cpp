@@ -58,9 +58,17 @@ struct SecretValueDeleter {
     }
 };
 
+struct GCharDeleter {
+    void operator()(gchar *data) const
+    {
+        g_free(data);
+    }
+};
+
 using GListPtr = std::unique_ptr<GList, GListDeleter>;
 using GHashTablePtr = std::unique_ptr<GHashTable, GHashTableDeleter>;
 using SecretValuePtr = std::unique_ptr<SecretValue, SecretValueDeleter>;
+using GCharPtr = std::unique_ptr<gchar, GCharDeleter>;
 
 static bool wasErrorFree(GError **error)
 {
@@ -199,8 +207,8 @@ SecretCollection *SecretServiceClient::retrieveCollection(const QString &name)
 
     for (GList *l = collections.get(); l != nullptr; l = l->next) {
         SecretCollectionPtr colPtr = SecretCollectionPtr(SECRET_COLLECTION(l->data));
-        const gchar *label = secret_collection_get_label(colPtr.get());
-        if (QString::fromUtf8(label) == name) {
+        const GCharPtr label = GCharPtr(secret_collection_get_label(colPtr.get()));
+        if (QString::fromUtf8(label.get()) == name) {
             // get() must run before the move: a moved-from unique_ptr is null.
             SecretCollection *collection = colPtr.get();
             m_openCollections.insert(std::make_pair(name, std::move(colPtr)));
@@ -218,7 +226,7 @@ SecretServiceClient::retrieveItem(const QString &key, const SecretServiceClient:
 
     SecretCollection *collection = retrieveCollection(collectionName);
 
-    GHashTablePtr attributes = GHashTablePtr(g_hash_table_new(g_str_hash, g_str_equal));
+    GHashTablePtr attributes = GHashTablePtr(g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free));
     g_hash_table_insert(attributes.get(), g_strdup("server"), g_strdup(folder.toUtf8().constData()));
     g_hash_table_insert(attributes.get(), g_strdup("user"), g_strdup(key.toUtf8().constData()));
     if (type != Unknown) {
@@ -523,8 +531,8 @@ QStringList SecretServiceClient::listCollections(bool *ok)
     if (glist) {
         for (GList *iter = glist.get(); iter != nullptr; iter = iter->next) {
             SecretCollection *collection = SECRET_COLLECTION(iter->data);
-            const gchar *rawLabel = secret_collection_get_label(collection);
-            const QString label = QString::fromUtf8(rawLabel);
+            const GCharPtr rawLabel = GCharPtr(secret_collection_get_label(collection));
+            const QString label = QString::fromUtf8(rawLabel.get());
             if (!label.isEmpty()) {
                 collections.append(label);
             }
@@ -558,9 +566,9 @@ QStringList SecretServiceClient::listFolders(const QString &collectionName, bool
         for (GList *iter = glist.get(); iter != nullptr; iter = iter->next) {
             SecretItem *item = static_cast<SecretItem *>(iter->data);
 
-            GHashTable *attributes = secret_item_get_attributes(item);
+            GHashTablePtr attributes = GHashTablePtr(secret_item_get_attributes(item));
             if (attributes) {
-                const gchar *value = (const char *)g_hash_table_lookup(attributes, "server");
+                const gchar *value = (const char *)g_hash_table_lookup(attributes.get(), "server");
                 if (value) {
                     folders.insert(QString::fromUtf8(value));
                 }
@@ -591,7 +599,7 @@ QStringList SecretServiceClient::listEntries(const QString &folder, const QStrin
         return {};
     }
 
-    GHashTablePtr attributes = GHashTablePtr(g_hash_table_new(g_str_hash, g_str_equal));
+    GHashTablePtr attributes = GHashTablePtr(g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free));
     g_hash_table_insert(attributes.get(), g_strdup("server"), g_strdup(folder.toUtf8().constData()));
 
     GListPtr glist = GListPtr(secret_collection_search_sync(collection, qtKeychainSchema(), attributes.get(), SECRET_SEARCH_ALL, nullptr, &error));
@@ -698,7 +706,7 @@ void SecretServiceClient::deleteFolder(const QString &folder, const QString &col
 
     SecretCollection *collection = retrieveCollection(collectionName);
 
-    GHashTablePtr attributes = GHashTablePtr(g_hash_table_new(g_str_hash, g_str_equal));
+    GHashTablePtr attributes = GHashTablePtr(g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free));
     g_hash_table_insert(attributes.get(), g_strdup("server"), g_strdup(folder.toUtf8().constData()));
 
     GListPtr glist = GListPtr(secret_collection_search_sync(collection, qtKeychainSchema(), attributes.get(), SECRET_SEARCH_ALL, nullptr, &error));
@@ -870,7 +878,7 @@ void SecretServiceClient::writeEntry(const QString &display_name,
         return;
     }
 
-    GHashTablePtr attributes = GHashTablePtr(g_hash_table_new(g_str_hash, g_str_equal));
+    GHashTablePtr attributes = GHashTablePtr(g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free));
     g_hash_table_insert(attributes.get(), g_strdup("user"), g_strdup(key.toUtf8().constData()));
     g_hash_table_insert(attributes.get(), g_strdup("type"), g_strdup(typeToString(type).toUtf8().constData()));
     g_hash_table_insert(attributes.get(), g_strdup("server"), g_strdup(folder.toUtf8().constData()));
