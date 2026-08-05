@@ -89,6 +89,7 @@ Q_SIGNALS:
     void collectionDirty(const QString &collection);
     void collectionCreated(const QString &collection);
     void collectionDeleted(const QString &collection);
+    void collectionLockedChanged(const QString &collection, bool locked);
 
 protected:
     bool attemptConnection();
@@ -103,6 +104,7 @@ protected Q_SLOTS:
     void handlePrompt(bool dismissed);
     void onCollectionCreated(const QDBusObjectPath &path);
     void onCollectionDeleted(const QDBusObjectPath &path);
+    void onCollectionChanged(const QDBusObjectPath &path);
     void onSecretItemChanged(const QDBusObjectPath &path);
 
 private:
