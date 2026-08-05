@@ -153,6 +153,12 @@ SecretServiceClient::SecretServiceClient(QObject *parent)
                 QStringLiteral("CollectionDeleted"),
                 this,
                 SLOT(onCollectionDeleted(QDBusObjectPath)));
+    bus.connect(m_serviceBusName,
+                QStringLiteral("/org/freedesktop/secrets"),
+                QStringLiteral("org.freedesktop.Secret.Service"),
+                QStringLiteral("CollectionChanged"),
+                this,
+                SLOT(onCollectionChanged(QDBusObjectPath)));
 }
 
 QString SecretServiceClient::collectionLabelForPath(const QDBusObjectPath &path)
@@ -363,6 +369,34 @@ void SecretServiceClient::onCollectionDeleted(const QDBusObjectPath &path)
     // Only emitting collectionListDirty here as we can't know the actual label
     // of the collection as is already deleted
     Q_EMIT collectionListDirty();
+}
+
+void SecretServiceClient::onCollectionChanged(const QDBusObjectPath &path)
+{
+    const QString label = collectionLabelForPath(path);
+    if (label.isEmpty()) {
+        return;
+    }
+
+    if (!attemptConnection()) {
+        return;
+    }
+
+    QDBusInterface collectionInterface(m_serviceBusName, path.path(), QStringLiteral("org.freedesktop.Secret.Collection"), QDBusConnection::sessionBus());
+
+    if (!collectionInterface.isValid()) {
+        qCWarning(KWALLETD_LOG) << "Failed to connect to the DBus collection object:" << path.path();
+        return;
+    }
+
+    QVariant reply = collectionInterface.property("Locked");
+
+    if (!reply.isValid()) {
+        qCWarning(KWALLETD_LOG) << "Error reading locked:" << collectionInterface.lastError();
+        return;
+    }
+
+    Q_EMIT collectionLockedChanged(label, reply.toBool());
 }
 
 void SecretServiceClient::onSecretItemChanged(const QDBusObjectPath &path)

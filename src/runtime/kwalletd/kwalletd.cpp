@@ -78,6 +78,13 @@ KWalletD::KWalletD(QObject *parent)
     connect(m_backend, &SecretServiceClient::collectionCreated, this, &KWalletD::walletCreated);
     connect(m_backend, &SecretServiceClient::collectionDeleted, this, &KWalletD::walletDeleted);
     connect(m_backend, &SecretServiceClient::collectionListDirty, this, &KWalletD::walletListDirty);
+    connect(m_backend, &SecretServiceClient::collectionLockedChanged, this, [this](const QString &collection, bool locked) {
+        if (isOpen(collection) && locked) {
+            close(collection, true);
+        } else if (!isOpen(collection) && !locked) {
+            Q_EMIT walletOpened(collection);
+        }
+    });
 
     reconfigure();
 }
