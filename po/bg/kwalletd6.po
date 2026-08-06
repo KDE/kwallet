@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-03 00:39+0000\n"
+"POT-Creation-Date: 2026-08-06 00:40+0000\n"
 "PO-Revision-Date: 2026-04-03 02:26+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -748,7 +748,7 @@ msgstr ""
 "SF <b>%3</b>. Моля, подайте доклад за ГРЕШКА, използвайки тази информация, "
 "на bugs.kde.org"
 
-#: kwalletd/kwalletd.cpp:105
+#: kwalletd/kwalletd.cpp:96
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr "Мигриране на портфейла „%1“. Моля, въведете паролата за отключване."

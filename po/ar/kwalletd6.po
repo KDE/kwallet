@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-03 00:39+0000\n"
+"POT-Creation-Date: 2026-08-06 00:40+0000\n"
 "PO-Revision-Date: 2026-02-18 18:02+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -722,7 +722,7 @@ msgstr ""
 "RC <b>%2 </b> \n"
 "SF <b>%3</b>. يرجى تقديم تقرير علة باستخدام هذه المعلومات إلى bugs.kde.org"
 
-#: kwalletd/kwalletd.cpp:105
+#: kwalletd/kwalletd.cpp:96
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr "ترحيل المحفظة ”%1“. يرجى إدخال كلمة السر لإلغاء القفل."
