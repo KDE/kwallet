@@ -558,9 +558,9 @@ QStringList SecretServiceClient::listFolders(const QString &collectionName, bool
         for (GList *iter = glist.get(); iter != nullptr; iter = iter->next) {
             SecretItem *item = static_cast<SecretItem *>(iter->data);
 
-            GHashTable *attributes = secret_item_get_attributes(item);
+            GHashTablePtr attributes = GHashTablePtr(secret_item_get_attributes(item));
             if (attributes) {
-                const gchar *value = (const char *)g_hash_table_lookup(attributes, "server");
+                const gchar *value = (const char *)g_hash_table_lookup(attributes.get(), "server");
                 if (value) {
                     folders.insert(QString::fromUtf8(value));
                 }
