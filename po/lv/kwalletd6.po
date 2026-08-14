@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:40+0000\n"
+"POT-Creation-Date: 2026-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-02-23 14:41+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -29,30 +29,6 @@ msgstr "Viesturs Zariņš, Toms Trasūns"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "viesturs.zarins@mii.lu.lv, toms.trasuns@posteo.net"
-
-#. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
-#: ksecretd/kbetterthankdialogbase.ui:50
-#, kde-format
-msgid "Allow &Once"
-msgstr "Atļaut &vienreiz"
-
-#. i18n: ectx: property (text), widget (QPushButton, _allowAlways)
-#: ksecretd/kbetterthankdialogbase.ui:60
-#, kde-format
-msgid "Allow &Always"
-msgstr "Atļaut v&ienmēr"
-
-#. i18n: ectx: property (text), widget (QPushButton, _deny)
-#: ksecretd/kbetterthankdialogbase.ui:67
-#, kde-format
-msgid "&Deny"
-msgstr "&Aizliegt"
-
-#. i18n: ectx: property (text), widget (QPushButton, _denyForever)
-#: ksecretd/kbetterthankdialogbase.ui:74
-#, kde-format
-msgid "Deny &Forever"
-msgstr "Aizliegt &vienmēr"
 
 #: ksecretd/knewwalletdialog.cpp:50
 #, kde-format
@@ -168,7 +144,7 @@ msgstr "Klasiska „Blowfish“ šifrēta datne"
 msgid "Use GPG encryption, for better protection"
 msgstr "Izmantojiet GPG šifrēšanu labākai aizsardzībai"
 
-#: ksecretd/ksecretd.cpp:521
+#: ksecretd/ksecretd.cpp:516
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -176,7 +152,7 @@ msgid ""
 msgstr ""
 "<qt>KDE pieprasa atvērt maku „<b>%1</b>“. Ievadiet šī maka paroli.</qt>"
 
-#: ksecretd/ksecretd.cpp:525
+#: ksecretd/ksecretd.cpp:520
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -186,21 +162,20 @@ msgstr ""
 "paroli.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:536 ksecretd/ksecretd.cpp:645
-#: ksecretd/ksecretd.cpp:749 ksecretd/ksecretd.cpp:862
-#: ksecretd/ksecretd.cpp:885 ksecretd/ksecretd.cpp:896
-#: ksecretd/ksecretd.cpp:901 ksecretd/ksecretd.cpp:1308 ksecretd/main.cpp:159
-#: ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:531 ksecretd/ksecretd.cpp:640
+#: ksecretd/ksecretd.cpp:788 ksecretd/ksecretd.cpp:811
+#: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:827
+#: ksecretd/ksecretd.cpp:1234 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE maka serviss"
 
-#: ksecretd/ksecretd.cpp:551
+#: ksecretd/ksecretd.cpp:546
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Programma pieprasa atvērt maku (%1)."
 
-#: ksecretd/ksecretd.cpp:552
+#: ksecretd/ksecretd.cpp:547
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -208,19 +183,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Pārslēgties uz to"
 
-#: ksecretd/ksecretd.cpp:554
+#: ksecretd/ksecretd.cpp:549
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> pieprasīja atvērt maku (%2)."
 
-#: ksecretd/ksecretd.cpp:556
+#: ksecretd/ksecretd.cpp:551
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Pārslēgties uz %1"
 
-#: ksecretd/ksecretd.cpp:573 ksecretd/ksecretd.cpp:655
+#: ksecretd/ksecretd.cpp:568 ksecretd/ksecretd.cpp:650
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -229,7 +204,7 @@ msgstr ""
 "<qt>Kļūda, atverot maku „<b>%1</b>“. Mēģiniet vēlreiz. <br />(Kļūdas kods "
 "%2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:621
+#: ksecretd/ksecretd.cpp:616
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -240,7 +215,7 @@ msgstr ""
 "Ievadiet šī maka paroli vai spiediet uz atcelšanas pogas, lai noraidītu "
 "programmas pieprasījumu."
 
-#: ksecretd/ksecretd.cpp:626
+#: ksecretd/ksecretd.cpp:621
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -252,7 +227,7 @@ msgstr ""
 "glabāt sensitīvus datus. Ievadiet maka paroli vai spiediet uz atcelšanas "
 "pogas, lai noraidītu programmas pieprasījumu.</qt>"
 
-#: ksecretd/ksecretd.cpp:634
+#: ksecretd/ksecretd.cpp:629
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -263,7 +238,7 @@ msgstr ""
 "maka paroli vai spiediet uz atcelšanas pogas, lai pieprasījumu noraidītu.</"
 "qt>"
 
-#: ksecretd/ksecretd.cpp:639
+#: ksecretd/ksecretd.cpp:634
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -274,28 +249,14 @@ msgstr ""
 "%2</b>“. Ievadiet paroli šim makam vai spiediet uz atcelšanas pogas, lai "
 "noraidītu programmas pieprasījumu.</qt>"
 
-#: ksecretd/ksecretd.cpp:751
-#, kde-format
-msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
-msgstr "<qt>KDE pieprasīja piekļuvi maka „<b>%1</b>“ atvēršanai.</qt>"
-
-#: ksecretd/ksecretd.cpp:753
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
-"%2</b>'.</qt>"
-msgstr ""
-"<qt>Programma „<b>%1</b>“ pieprasīja piekļuvi maka „<b>%2</b>“ atvēršanai.</"
-"qt>"
-
-#: ksecretd/ksecretd.cpp:861
+#: ksecretd/ksecretd.cpp:787
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "Neizdodas atvērt maku. Maks ir jāatver, lai mainītu paroli."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:803
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -306,22 +267,22 @@ msgstr ""
 "<b>GPG</b> rīkus (piemēram, „<b>kleopatra</b>“), lai mainītu ar šo atslēgu "
 "saistīto paroli.</qt>"
 
-#: ksecretd/ksecretd.cpp:884
+#: ksecretd/ksecretd.cpp:810
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Izvēlieties jaunu paroli makam „<b>%1</b>“.</qt>"
 
-#: ksecretd/ksecretd.cpp:896
+#: ksecretd/ksecretd.cpp:822
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Kļūda, šifrējot maku. Parole nav nomainīta."
 
-#: ksecretd/ksecretd.cpp:901
+#: ksecretd/ksecretd.cpp:827
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Kļūda, no jauna atverot maku. Iespējams, ir zaudēti dati."
 
-#: ksecretd/ksecretd.cpp:1307
+#: ksecretd/ksecretd.cpp:1233
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -820,6 +781,28 @@ msgstr ""
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr ""
+
+#~ msgid "Allow &Once"
+#~ msgstr "Atļaut &vienreiz"
+
+#~ msgid "Allow &Always"
+#~ msgstr "Atļaut v&ienmēr"
+
+#~ msgid "&Deny"
+#~ msgstr "&Aizliegt"
+
+#~ msgid "Deny &Forever"
+#~ msgstr "Aizliegt &vienmēr"
+
+#~ msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
+#~ msgstr "<qt>KDE pieprasīja piekļuvi maka „<b>%1</b>“ atvēršanai.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested access to the open wallet "
+#~ "'<b>%2</b>'.</qt>"
+#~ msgstr ""
+#~ "<qt>Programma „<b>%1</b>“ pieprasīja piekļuvi maka „<b>%2</b>“ atvēršanai."
+#~ "</qt>"
 
 #, fuzzy
 #~| msgid "KDE Wallet Service"

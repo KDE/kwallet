@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:40+0000\n"
+"POT-Creation-Date: 2026-08-14 00:41+0000\n"
 "PO-Revision-Date: 2026-02-18 05:24+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -27,30 +27,6 @@ msgstr "Temuri Doghonadze"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
-
-#. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
-#: ksecretd/kbetterthankdialogbase.ui:50
-#, kde-format
-msgid "Allow &Once"
-msgstr "&ერთხელ დაშვება"
-
-#. i18n: ectx: property (text), widget (QPushButton, _allowAlways)
-#: ksecretd/kbetterthankdialogbase.ui:60
-#, kde-format
-msgid "Allow &Always"
-msgstr "&ყოველთვის დაშვება"
-
-#. i18n: ectx: property (text), widget (QPushButton, _deny)
-#: ksecretd/kbetterthankdialogbase.ui:67
-#, kde-format
-msgid "&Deny"
-msgstr "&უარყოფა"
-
-#. i18n: ectx: property (text), widget (QPushButton, _denyForever)
-#: ksecretd/kbetterthankdialogbase.ui:74
-#, kde-format
-msgid "Deny &Forever"
-msgstr "&სამუდამოდ უარყოფა"
 
 #: ksecretd/knewwalletdialog.cpp:50
 #, kde-format
@@ -166,7 +142,7 @@ msgstr "კლასიკური, blowfish-ით დაშიფრული
 msgid "Use GPG encryption, for better protection"
 msgstr "გამოიყენეთ GPG დაშიფვრა, უკეთესი დაცვისთვის"
 
-#: ksecretd/ksecretd.cpp:521
+#: ksecretd/ksecretd.cpp:516
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -175,7 +151,7 @@ msgstr ""
 "<qt>KDE-მა საფულის '<b>%1</b>' გახსნა მოითხოვა. შეიყვანეთ ამ საფულის პაროლი."
 "</qt>"
 
-#: ksecretd/ksecretd.cpp:525
+#: ksecretd/ksecretd.cpp:520
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -185,21 +161,20 @@ msgstr ""
 "საფულის პაროლი.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:536 ksecretd/ksecretd.cpp:645
-#: ksecretd/ksecretd.cpp:749 ksecretd/ksecretd.cpp:862
-#: ksecretd/ksecretd.cpp:885 ksecretd/ksecretd.cpp:896
-#: ksecretd/ksecretd.cpp:901 ksecretd/ksecretd.cpp:1308 ksecretd/main.cpp:159
-#: ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:531 ksecretd/ksecretd.cpp:640
+#: ksecretd/ksecretd.cpp:788 ksecretd/ksecretd.cpp:811
+#: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:827
+#: ksecretd/ksecretd.cpp:1234 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE საფულის სერვისი"
 
-#: ksecretd/ksecretd.cpp:551
+#: ksecretd/ksecretd.cpp:546
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "აპლიკაციამ მოითხოვა საფულის გახსნა (%1)."
 
-#: ksecretd/ksecretd.cpp:552
+#: ksecretd/ksecretd.cpp:547
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -207,19 +182,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "იქ გადართვა"
 
-#: ksecretd/ksecretd.cpp:554
+#: ksecretd/ksecretd.cpp:549
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1-მა</b> საფულის გახსნა მოითხოვა (%2)."
 
-#: ksecretd/ksecretd.cpp:556
+#: ksecretd/ksecretd.cpp:551
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "%1-ზე გადართვა"
 
-#: ksecretd/ksecretd.cpp:573 ksecretd/ksecretd.cpp:655
+#: ksecretd/ksecretd.cpp:568 ksecretd/ksecretd.cpp:650
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -228,7 +203,7 @@ msgstr ""
 "<qt>შეცდომა საფულის '<b>%1</b>' გახსნისას. თავიდან სცადეთ.<br />(შეცდომის "
 "კოდი %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:621
+#: ksecretd/ksecretd.cpp:616
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -239,7 +214,7 @@ msgstr ""
 "გამოიყენება. შეიყვანეთ საფულის პაროლი ან, აპლიკაციის მოთხოვნის უარყოფისთვის, "
 "გაუქმებაზე დააწკაპუნეთ."
 
-#: ksecretd/ksecretd.cpp:626
+#: ksecretd/ksecretd.cpp:621
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -251,7 +226,7 @@ msgstr ""
 "ინფორმაციის დაცულად შესანახად გამოიყენება. შეიყვანეთ ამ საფულის პაროლი, ან, "
 "აპლიკაციის მოთხოვნის უარყოფისთვის, გაუქმებაზე დააწკაპუნეთ.</qt>"
 
-#: ksecretd/ksecretd.cpp:634
+#: ksecretd/ksecretd.cpp:629
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -261,7 +236,7 @@ msgstr ""
 "<qt>KDE-მა მოითხოვა ახალი საფულის შექმნა სახელით '<b>%1</b>'. შეიყვანეთ "
 "პაროლი ამ საფულისთვის ან გააუქმეთ აპლიკაციის მოთხოვნა.</qt>"
 
-#: ksecretd/ksecretd.cpp:639
+#: ksecretd/ksecretd.cpp:634
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -272,21 +247,7 @@ msgstr ""
 "მოითხოვა. შეიყვანეთ პაროლი ამ საფულისთვის, ან, აპლიკაციის მოთხოვნის "
 "უარყოფისთვის, გაუქმებაზე დააწკაპუნეთ.</qt>"
 
-#: ksecretd/ksecretd.cpp:751
-#, kde-format
-msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
-msgstr "<qt>KDE ითხოვს წვდომას, გახსნას საფულე  '<b>%1</b>'.</qt>"
-
-#: ksecretd/ksecretd.cpp:753
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
-"%2</b>'.</qt>"
-msgstr ""
-"<qt>აპლიკაცია '<b>%1</b>' ითხოვს წვდომას, რათა გახსნას საფულე '<b>%2</b>'.</"
-"qt>"
-
-#: ksecretd/ksecretd.cpp:861
+#: ksecretd/ksecretd.cpp:787
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -294,7 +255,7 @@ msgid ""
 msgstr ""
 "საფულის გახსნის შეცდომა. პაროლის შესაცვლელად საფულის გახსნა აუცილებელია."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:803
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -305,22 +266,22 @@ msgstr ""
 "ფრაზის შესაცვლელდ <b>GPG</b>-ის პროგრამები (მაგალითად <b>kleopatra</b>) "
 "გამოიყენეთ.</qt>"
 
-#: ksecretd/ksecretd.cpp:884
+#: ksecretd/ksecretd.cpp:810
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>შეიყვანეთ ახალი პაროლი საფულისთვის '<b>%1</b>'.</qt>"
 
-#: ksecretd/ksecretd.cpp:896
+#: ksecretd/ksecretd.cpp:822
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "საფულის ხელახალი დაშიფვრის შეცდომა. პაროლი არ შეცვლილა."
 
-#: ksecretd/ksecretd.cpp:901
+#: ksecretd/ksecretd.cpp:827
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "პაროლის ხელახლა გახსნის შეცდომა. მონაცემები შეიძლება დაიკარგოს."
 
-#: ksecretd/ksecretd.cpp:1307
+#: ksecretd/ksecretd.cpp:1233
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -818,3 +779,25 @@ msgstr "ჩანაწერი, რომლის სახელის გ�
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "SecretValue-ის შექმნა ჩავარდა"
+
+#~ msgid "Allow &Once"
+#~ msgstr "&ერთხელ დაშვება"
+
+#~ msgid "Allow &Always"
+#~ msgstr "&ყოველთვის დაშვება"
+
+#~ msgid "&Deny"
+#~ msgstr "&უარყოფა"
+
+#~ msgid "Deny &Forever"
+#~ msgstr "&სამუდამოდ უარყოფა"
+
+#~ msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
+#~ msgstr "<qt>KDE ითხოვს წვდომას, გახსნას საფულე  '<b>%1</b>'.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested access to the open wallet "
+#~ "'<b>%2</b>'.</qt>"
+#~ msgstr ""
+#~ "<qt>აპლიკაცია '<b>%1</b>' ითხოვს წვდომას, რათა გახსნას საფულე '<b>%2</b>'."
+#~ "</qt>"

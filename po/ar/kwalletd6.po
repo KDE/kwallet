@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:40+0000\n"
+"POT-Creation-Date: 2026-08-14 00:41+0000\n"
 "PO-Revision-Date: 2026-02-18 18:02+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -28,30 +28,6 @@ msgstr "زايد السعيدي"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
-
-#. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
-#: ksecretd/kbetterthankdialogbase.ui:50
-#, kde-format
-msgid "Allow &Once"
-msgstr "ا&سمح مرة واحدة"
-
-#. i18n: ectx: property (text), widget (QPushButton, _allowAlways)
-#: ksecretd/kbetterthankdialogbase.ui:60
-#, kde-format
-msgid "Allow &Always"
-msgstr "اسمح &دائما"
-
-#. i18n: ectx: property (text), widget (QPushButton, _deny)
-#: ksecretd/kbetterthankdialogbase.ui:67
-#, kde-format
-msgid "&Deny"
-msgstr "ا&رفض"
-
-#. i18n: ectx: property (text), widget (QPushButton, _denyForever)
-#: ksecretd/kbetterthankdialogbase.ui:74
-#, kde-format
-msgid "Deny &Forever"
-msgstr "ارفض للأ&بد"
 
 #: ksecretd/knewwalletdialog.cpp:50
 #, kde-format
@@ -166,7 +142,7 @@ msgstr "تقليدي، ملف تعمية blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "استخدم تعمية GPG لحماية أفضل"
 
-#: ksecretd/ksecretd.cpp:521
+#: ksecretd/ksecretd.cpp:516
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -174,7 +150,7 @@ msgid ""
 msgstr ""
 "<qt>طلبت كِيدِي فتح الحافظة '<b>%1</b>'. الرجاء أدخل كلمة سرها في الأسفل.</qt>"
 
-#: ksecretd/ksecretd.cpp:525
+#: ksecretd/ksecretd.cpp:520
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -184,21 +160,20 @@ msgstr ""
 "في الأسفل.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:536 ksecretd/ksecretd.cpp:645
-#: ksecretd/ksecretd.cpp:749 ksecretd/ksecretd.cpp:862
-#: ksecretd/ksecretd.cpp:885 ksecretd/ksecretd.cpp:896
-#: ksecretd/ksecretd.cpp:901 ksecretd/ksecretd.cpp:1308 ksecretd/main.cpp:159
-#: ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:531 ksecretd/ksecretd.cpp:640
+#: ksecretd/ksecretd.cpp:788 ksecretd/ksecretd.cpp:811
+#: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:827
+#: ksecretd/ksecretd.cpp:1234 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "خدمة حافظة كِيدِي"
 
-#: ksecretd/ksecretd.cpp:551
+#: ksecretd/ksecretd.cpp:546
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "طلب تطبيق فتح حافظة (%1)."
 
-#: ksecretd/ksecretd.cpp:552
+#: ksecretd/ksecretd.cpp:547
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -206,19 +181,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "غير هناك"
 
-#: ksecretd/ksecretd.cpp:554
+#: ksecretd/ksecretd.cpp:549
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "طلب البرنامج<b>%1</b> فتح الحافظة<b>%2</b>."
 
-#: ksecretd/ksecretd.cpp:556
+#: ksecretd/ksecretd.cpp:551
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "بدل إلى %1"
 
-#: ksecretd/ksecretd.cpp:573 ksecretd/ksecretd.cpp:655
+#: ksecretd/ksecretd.cpp:568 ksecretd/ksecretd.cpp:650
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -227,7 +202,7 @@ msgstr ""
 "<qt>خطأ في فتح الحافظة '<b>%1</b>'. الرجاء المحاولة مرة أخرى.<br />(رمز "
 "الخطأ %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:621
+#: ksecretd/ksecretd.cpp:616
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -238,7 +213,7 @@ msgstr ""
 "الرجاء إدخال كلمة السر لاستعمال هذه الحافظة، أو النقر على ألغ لرفض طلب "
 "البرنامج."
 
-#: ksecretd/ksecretd.cpp:626
+#: ksecretd/ksecretd.cpp:621
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -250,7 +225,7 @@ msgstr ""
 "البيانات الحساسة بطريقة أمنة. الرجاء إدخال كلمة السر لاستعمال هذه الحافظة، "
 "أو النقر على ألغ لرفض طلب البرنامج.</qt>"
 
-#: ksecretd/ksecretd.cpp:634
+#: ksecretd/ksecretd.cpp:629
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -260,7 +235,7 @@ msgstr ""
 "<qt>طلبت كِيدِي إنشاء حافظة جديدة باسم '<b>%1</b>'. الرجاء اختيار كلمة سر لهذه "
 "الحافظة أو النقر على ألغ لرفض طلب البرنامج.</qt>"
 
-#: ksecretd/ksecretd.cpp:639
+#: ksecretd/ksecretd.cpp:634
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -270,20 +245,7 @@ msgstr ""
 "<qt>طلب البرنامج '<b>%1</b>'  إنشاء حافظة جديدة باسم '<b>%2</b>'. الرجاء "
 "اختيار كلمة سر لهذه الحافظة أو النقر على ألغ لرفض طلب البرنامج.</qt>"
 
-#: ksecretd/ksecretd.cpp:751
-#, kde-format
-msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
-msgstr "<qt>طلبت كِيدِي النفاذ إلى الحافظة المفتوحة '<b>%1</b>'.</qt>"
-
-#: ksecretd/ksecretd.cpp:753
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested access to the open wallet '<b>"
-"%2</b>'.</qt>"
-msgstr ""
-"<qt>طلب البرنامج'<b>%1</b>' النفاذ إلى الحافظة المفتوحة '<b>%2</b>'.</qt>"
-
-#: ksecretd/ksecretd.cpp:861
+#: ksecretd/ksecretd.cpp:787
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -291,7 +253,7 @@ msgid ""
 msgstr ""
 "غير قادر على فتح الحافظة. يجب فتح الحافظة أولا حتى تستطيع تغيير  كلمة سرها."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:803
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -302,22 +264,22 @@ msgstr ""
 "أدوات <b> GPG </b> (مثل <b> kleopatra </b>) لتغيير عبارة السر المرتبطة بهذا "
 "المفتاح. </qt>"
 
-#: ksecretd/ksecretd.cpp:884
+#: ksecretd/ksecretd.cpp:810
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>الرجاء اختيار كلمة سر جديدة للحافظة '<b>%1</b>'.</qt>"
 
-#: ksecretd/ksecretd.cpp:896
+#: ksecretd/ksecretd.cpp:822
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "خطأ في إعادة تعمية الحافظة. كلمة السر لم تغير"
 
-#: ksecretd/ksecretd.cpp:901
+#: ksecretd/ksecretd.cpp:827
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "خطأ في فتح الحافظة، البيانات قد تكون فقدت."
 
-#: ksecretd/ksecretd.cpp:1307
+#: ksecretd/ksecretd.cpp:1233
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -807,6 +769,27 @@ msgstr "إدخال لإعادة تسمية غير مكتمل"
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "فشل في إنشاء SecretValue"
+
+#~ msgid "Allow &Once"
+#~ msgstr "ا&سمح مرة واحدة"
+
+#~ msgid "Allow &Always"
+#~ msgstr "اسمح &دائما"
+
+#~ msgid "&Deny"
+#~ msgstr "ا&رفض"
+
+#~ msgid "Deny &Forever"
+#~ msgstr "ارفض للأ&بد"
+
+#~ msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
+#~ msgstr "<qt>طلبت كِيدِي النفاذ إلى الحافظة المفتوحة '<b>%1</b>'.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested access to the open wallet "
+#~ "'<b>%2</b>'.</qt>"
+#~ msgstr ""
+#~ "<qt>طلب البرنامج'<b>%1</b>' النفاذ إلى الحافظة المفتوحة '<b>%2</b>'.</qt>"
 
 #, fuzzy
 #~| msgid "KDE Wallet Service"
