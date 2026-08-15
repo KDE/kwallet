@@ -773,26 +773,3 @@ msgstr ""
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr ""
-
-#~ msgid "Allow &Once"
-#~ msgstr "Tillat &en gang"
-
-#~ msgid "Allow &Always"
-#~ msgstr "Tillatt &alltid"
-
-#~ msgid "&Deny"
-#~ msgstr "&Nekt"
-
-#~ msgid "Deny &Forever"
-#~ msgstr "Nekt &for alltid"
-
-#~ msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
-#~ msgstr ""
-#~ "<qt>KDE har bedt om tilgang til den åpne lommeboka «<b>%1</b>».</qt>"
-
-#~ msgid ""
-#~ "<qt>The application '<b>%1</b>' has requested access to the open wallet "
-#~ "'<b>%2</b>'.</qt>"
-#~ msgstr ""
-#~ "<qt>Programmet «<b>%1</b>» har bedt om tilgang til den åpne lommeboka «<b>"
-#~ "%2</b>».</qt>"

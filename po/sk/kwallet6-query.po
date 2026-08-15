@@ -133,12 +133,12 @@ msgstr "Zlyhal zápis hodnoty položky %1 do peňaženky %2"
 #: querydriver.cpp:213
 #, kde-format
 msgid "Invalid argument: the value for entry %1 is not valid JSON"
-msgstr ""
+msgstr "Neplatný argument: hodnota položky %1 nie je platný JSON"
 
 #: querydriver.cpp:232
 #, kde-format
 msgid "Unsupported entry type for entry %1"
-msgstr ""
+msgstr "Nepodporovaný typ položky %1"
 
 #~ msgid "wallet"
 #~ msgstr "Peňaženka"
