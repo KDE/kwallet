@@ -794,25 +794,3 @@ msgstr "Записът за преименуване е непълен"
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "Неуспешно създаване на SecretValue"
-
-#~ msgid "Allow &Once"
-#~ msgstr "Разрешаване &веднъж"
-
-#~ msgid "Allow &Always"
-#~ msgstr "Разрешаване вина&ги"
-
-#~ msgid "&Deny"
-#~ msgstr "&Отказ"
-
-#~ msgid "Deny &Forever"
-#~ msgstr "Отказ &завинаги"
-
-#~ msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
-#~ msgstr "<qt>KDE поиска достъп до отворения портфейл \"<b>%1</b>\".</qt>"
-
-#~ msgid ""
-#~ "<qt>The application '<b>%1</b>' has requested access to the open wallet "
-#~ "'<b>%2</b>'.</qt>"
-#~ msgstr ""
-#~ "<qt>Програмата \"<b>%1</b>\" поиска достъп до отворения портфейл \"<b>%2</"
-#~ "b>\".</qt>"
