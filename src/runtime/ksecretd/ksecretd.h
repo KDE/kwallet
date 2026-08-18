@@ -136,6 +136,7 @@ private:
     // Internal - close this wallet.
     int internalClose(KWallet::Backend *const w, const int handle, const bool force, const bool saveBeforeClose = true);
 
+    bool isAuthorizedApp(const QString &appid, const QString &wallet, WId w);
     // This also validates the handle.  May return NULL.
     KWallet::Backend *getWallet(const QString &appid, int handle);
     // Generate a new unique handle.
@@ -145,6 +146,9 @@ private:
     void emitEntryUpdated(const QString &, const QString &, const QString &);
     void emitEntryRenamed(const QString &, const QString &, const QString &, const QString &);
     void emitEntryDeleted(const QString &, const QString &, const QString &);
+    // Implicitly allow access for this application
+    bool implicitAllow(const QString &wallet, const QString &app);
+    bool implicitDeny(const QString &wallet, const QString &app);
 
     void doTransactionChangePassword(const QString &appid, const QString &wallet, qlonglong wId);
     void doTransactionOpenCancelled(const QString &appid, const QString &wallet, const QString &service);
@@ -163,8 +167,9 @@ private:
 
     // configuration values
     bool _leaveOpen, _closeIdle, _launchManager;
-    bool _firstUse, _showingFailureNotify;
+    bool _openPrompt, _firstUse, _showingFailureNotify;
     int _idleTime;
+    QMap<QString, QStringList> _implicitAllowMap, _implicitDenyMap;
     KTimeout _closeTimers;
     KTimeout _syncTimers;
     const int _syncTime;

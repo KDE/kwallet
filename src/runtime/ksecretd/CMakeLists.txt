@@ -48,6 +48,7 @@ ecm_setup_version(${KF_VERSION} VARIABLE_PREFIX KSECRETD
 
 target_sources(ksecretd PRIVATE
    main.cpp
+   kbetterthankdialog.cpp
    ksecretd.cpp
    kwalletwizard.cpp
    ktimeout.cpp
@@ -71,6 +72,7 @@ ecm_qt_declare_logging_category(ksecretd
 )
 
 ki18n_wrap_ui(ksecretd
+   kbetterthankdialogbase.ui
    kwalletwizardpageexplanation.ui
    kwalletwizardpageintro.ui
    kwalletwizardpageoptions.ui
