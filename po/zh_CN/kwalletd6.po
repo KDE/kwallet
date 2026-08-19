@@ -738,23 +738,3 @@ msgstr "要重命名的条目不完整"
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "创建 SecretValue 失败"
-
-#~ msgid "Allow &Once"
-#~ msgstr "允许一次(&O)"
-
-#~ msgid "Allow &Always"
-#~ msgstr "总是允许(&A)"
-
-#~ msgid "&Deny"
-#~ msgstr "拒绝(&D)"
-
-#~ msgid "Deny &Forever"
-#~ msgstr "总是拒绝(&F)"
-
-#~ msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
-#~ msgstr "<qt>KDE 请求打开密码库“<b>%1</b>”的访问权限。</qt>"
-
-#~ msgid ""
-#~ "<qt>The application '<b>%1</b>' has requested access to the open wallet "
-#~ "'<b>%2</b>'.</qt>"
-#~ msgstr "<qt>应用程序“<b>%1</b>”请求打开密码库“<b>%2</b>”的访问权限。</qt>"
