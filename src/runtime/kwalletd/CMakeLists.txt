@@ -76,3 +76,4 @@ target_link_libraries(kwalletd6
 )
 
 install( TARGETS kwalletd6 ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
+install( FILES org.kde.kwalletd.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
