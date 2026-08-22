@@ -599,30 +599,6 @@ Entry *Backend::readEntry(const QString &key)
     return rc;
 }
 
-#if KWALLET_BUILD_DEPRECATED_SINCE(5, 72)
-QList<Entry *> Backend::readEntryList(const QString &key)
-{
-    QList<Entry *> rc;
-
-    if (!_open) {
-        return rc;
-    }
-
-    // HACK: see Wallet::WalletPrivate::forEachItemThatMatches()
-    const QString pattern = QRegularExpression::wildcardToRegularExpression(key).replace(
-                                                         QLatin1String("[^/]"), QLatin1String("."));
-    const QRegularExpression re(pattern);
-
-    const EntryMap &map = _entries[_folder];
-    for (EntryMap::ConstIterator i = map.begin(); i != map.end(); ++i) {
-        if (re.match(i.key()).hasMatch()) {
-            rc.append(i.value());
-        }
-    }
-    return rc;
-}
-#endif
-
 QList<Entry *> Backend::entriesList() const
 {
     if (!_open) {
