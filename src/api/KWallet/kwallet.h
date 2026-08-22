@@ -241,14 +241,21 @@ public:
      */
     static void changePassword(const QString &name, WId w);
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(6, 30)
     /*!
      * This syncs the wallet file on disk with what is in memory.
      * You don't normally need to use this.  It happens
      * automatically on close.
      *
      * Returns 0 on success, non-zero on error.
+     *
+     * \deprecated[6.30]
+     *
+     * Not implemented.
      */
+    KWALLET_DEPRECATED_VERSION(6, 30, "Not implemented")
     virtual int sync();
+#endif
 
     /*!
      * This closes and locks the current wallet.  It will

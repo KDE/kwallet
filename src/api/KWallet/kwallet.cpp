@@ -335,6 +335,7 @@ QStringList Wallet::users(const QString &name)
     }
 }
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(6, 30)
 int Wallet::sync()
 {
     if (d->handle == -1) {
@@ -344,6 +345,7 @@ int Wallet::sync()
     walletLauncher()->getInterface().sync(d->handle, appid());
     return 0;
 }
+#endif
 
 int Wallet::lockWallet()
 {
