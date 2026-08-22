@@ -285,6 +285,7 @@ public:
      */
     virtual bool isOpen() const;
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(6, 30)
     /*!
      * Request to the wallet service to change the password of
      * the current wallet.
@@ -292,8 +293,14 @@ public:
      * \a w The window id to associate any dialogs with. You can pass
      *           0 if you don't have a window the password dialog should
      *           associate with.
+     *
+     * \deprecated[6.30]
+     *
+     * Use changePassword
      */
+    KWALLET_DEPRECATED_VERSION(6, 30, "Use changePassword")
     virtual void requestChangePassword(WId w);
+#endif
 
     /*!
      * Obtain the list of all folders contained in the wallet.
