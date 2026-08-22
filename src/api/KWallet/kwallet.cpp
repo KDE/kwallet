@@ -292,18 +292,6 @@ Wallet *Wallet::openWallet(const QString &name, WId w, OpenType ot)
     return wallet;
 }
 
-void Wallet::slotCollectionStatusChanged(int status)
-{
-    Q_UNUSED(status)
-}
-
-void Wallet::slotCollectionDeleted()
-{
-    d->folder.clear();
-    d->name.clear();
-    Q_EMIT walletClosed();
-}
-
 bool Wallet::disconnectApplication(const QString &wallet, const QString &app)
 {
     if (walletLauncher()->m_walletEnabled) {
