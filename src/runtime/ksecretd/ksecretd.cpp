@@ -667,11 +667,6 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, bool isP
             return -1;
         }
 
-        if (emptyPass) {
-            delete b;
-            return -1;
-        }
-
         _wallets.insert(rc = generateHandle(), b);
         _sessions.addSession(appid, service, rc);
         _syncTimers.addTimer(rc, _syncTime);
@@ -697,25 +692,15 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, bool isP
         // the
         // authorization dialog is being shown.
         walletInfo.second->ref();
-        bool isAuthorized = _sessions.hasSession(appid, rc);
         // as the wallet might have been forcefully closed, find it again to
         // make sure it's
         // still available (isAuthorizedApp might show a dialog).
         walletInfo = findWallet(wallet);
-        if (!isAuthorized) {
-            if (walletInfo.first != -1) {
-                walletInfo.second->deref();
-                // check if the wallet should be closed now.
-                internalClose(walletInfo.second, walletInfo.first, false);
-            }
-            return -1;
+        if (walletInfo.first != -1) {
+            _sessions.addSession(appid, service, rc);
         } else {
-            if (walletInfo.first != -1) {
-                _sessions.addSession(appid, service, rc);
-            } else {
-                // wallet was forcefully closed.
-                return -1;
-            }
+            // wallet was forcefully closed.
+            return -1;
         }
     }
 
