@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:41+0000\n"
+"POT-Creation-Date: 2026-08-22 00:41+0000\n"
 "PO-Revision-Date: 2026-07-05 16:33+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -727,58 +727,58 @@ msgstr "Marco Martin"
 msgid "Author"
 msgstr "Opphavsperson"
 
-#: kwalletd/secretserviceclient.cpp:248
+#: kwalletd/secretserviceclient.cpp:256
 #, kde-format
 msgid "Item not found"
 msgstr "Fann ikkje elementet"
 
-#: kwalletd/secretserviceclient.cpp:268
+#: kwalletd/secretserviceclient.cpp:276
 #, kde-format
 msgid "Could not connect to Secret Service"
 msgstr "Klarte ikkje kopla til Secret Service"
 
-#: kwalletd/secretserviceclient.cpp:440
+#: kwalletd/secretserviceclient.cpp:448
 #, kde-format
 msgid "Unable to unlock collectionName %1"
 msgstr "Klarte ikkje låsa opp collectionName %1"
 
-#: kwalletd/secretserviceclient.cpp:533
+#: kwalletd/secretserviceclient.cpp:541
 #, kde-format
 msgid "No collections"
 msgstr "Ingen samlingar"
 
-#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
-#: kwalletd/secretserviceclient.cpp:720
+#: kwalletd/secretserviceclient.cpp:578 kwalletd/secretserviceclient.cpp:625
+#: kwalletd/secretserviceclient.cpp:728
 #, kde-format
 msgid "No entries"
 msgstr "Ingen oppføringar"
 
-#: kwalletd/secretserviceclient.cpp:635
+#: kwalletd/secretserviceclient.cpp:643
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr "Fann ikkje oppføring. Nøkkel: %1. Mappe: %2"
 
-#: kwalletd/secretserviceclient.cpp:744
+#: kwalletd/secretserviceclient.cpp:752
 #, kde-format
 msgid "Unable to unlock item"
 msgstr "Klarte ikkje låsa opp element"
 
-#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
+#: kwalletd/secretserviceclient.cpp:795 kwalletd/secretserviceclient.cpp:913
 #, kde-format
 msgid "Entry to rename not found"
 msgstr "Fann ikkje element å endra namn på"
 
-#: kwalletd/secretserviceclient.cpp:794
+#: kwalletd/secretserviceclient.cpp:802
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr "Elementet med namn %1 i mappa %2 og lommeboka %3 finst frå før."
 
-#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
+#: kwalletd/secretserviceclient.cpp:817 kwalletd/secretserviceclient.cpp:832
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr "Oppføring som skal endrast namn på, er ufullstendig"
 
-#: kwalletd/secretserviceclient.cpp:869
+#: kwalletd/secretserviceclient.cpp:877
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "Klarte ikkje oppretta SecretValue"
