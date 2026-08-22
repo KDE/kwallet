@@ -257,13 +257,20 @@ public:
     virtual int sync();
 #endif
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(6, 30)
     /*!
      * This closes and locks the current wallet.  It will
      * disconnect all applications using the wallet.
      *
      * Returns 0 on success, non-zero on error.
+     *
+     * \deprecated[6.30]
+     *
+     * Use closeWallet()
      */
+    KWALLET_DEPRECATED_VERSION(6, 30, "Use closeWallet")
     virtual int lockWallet();
+#endif
 
     /*!
      * Returns the name of the current wallet.
