@@ -12,7 +12,6 @@
 #include "kwalletbackend.h"
 #include <QDBusConnection>
 #include <QDBusContext>
-#include <QDBusServiceWatcher>
 #include <QHash>
 #include <QPointer>
 #include <QString>
@@ -42,8 +41,7 @@ public:
     static bool isEnabled();
 
     int nextTransactionId() const;
-    int
-    openAsync(const QString &wallet, qlonglong wId, const QString &appid, bool handleSession, const QDBusConnection &connection, const QDBusMessage &message);
+    int openAsync(const QString &wallet, qlonglong wId, const QString &appid, const QDBusConnection &connection, const QDBusMessage &message);
     // Close and lock the wallet
     // Accepts "message" for working from other QDBusContexts
     int close(int handle, bool force, const QString &appid, const QDBusMessage &message);
@@ -122,7 +120,6 @@ Q_SIGNALS:
     void entryDeleted(const QString &, const QString &, const QString &);
 
 private Q_SLOTS:
-    void slotServiceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
     void emitWalletListDirty();
     void timedOutClose(int handle);
     void timedOutSync(int handle);
@@ -176,7 +173,6 @@ private:
 
     // sessions
     KWalletSessionStore _sessions;
-    QDBusServiceWatcher _serviceWatcher;
 
     std::unique_ptr<KWalletFreedesktopService> _fdoService;
 

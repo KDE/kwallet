@@ -37,7 +37,7 @@ uint KWalletPortalSecrets::RetrieveSecret(const QDBusObjectPath &handle,
 
     const QString wallet = m_kwalletd->networkWallet();
 
-    int transactionId = m_kwalletd->openAsync(wallet, 0, "xdg-desktop-portal", false, connection(), message());
+    int transactionId = m_kwalletd->openAsync(wallet, 0, "xdg-desktop-portal", connection(), message());
     Request request{message(), fd.fileDescriptor(), app_id};
     m_pendingRequests.insert(transactionId, request);
 

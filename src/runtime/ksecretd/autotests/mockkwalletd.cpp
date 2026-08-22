@@ -65,8 +65,8 @@ MOCK_FUNCTION_RES(KSecretD, renameEntry, 5, 0, );
 
 MOCK_FUNCTION_RES(KSecretD, isEnabled, 0, 1);
 
-using OVOpenAsync6 = int (KSecretD::*)(const QString &, qlonglong, const QString &, bool, const QDBusConnection &, const QDBusMessage &);
-MOCK_FUNCTION_OVERLOADED(KSecretD, openAsync, 6, OVOpenAsync6);
+using OVOpenAsync5 = int (KSecretD::*)(const QString &, qlonglong, const QString &, const QDBusConnection &, const QDBusMessage &);
+MOCK_FUNCTION_OVERLOADED(KSecretD, openAsync, 5, OVOpenAsync5);
 
 using OVClose4 = int (KSecretD::*)(int, bool, const QString &, const QDBusMessage &);
 MOCK_FUNCTION_OVERLOADED(KSecretD, close, 4, OVClose4);
@@ -89,9 +89,6 @@ MOCK_FUNCTION(KSecretD, changePassword, 3, );
 MOCK_FUNCTION(KSecretD, reconfigure, 0, );
 MOCK_FUNCTION(KSecretD, closeAllWallets, 0, );
 
-void KSecretD::slotServiceOwnerChanged(const QString &, const QString &, const QString &)
-{
-}
 void KSecretD::emitWalletListDirty()
 {
 }

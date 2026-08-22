@@ -155,9 +155,6 @@ KSecretD::KSecretD()
     connect(_dw, &KDirWatch::dirty, this, &KSecretD::emitWalletListDirty);
     connect(_dw, &KDirWatch::deleted, this, &KSecretD::emitWalletListDirty);
 
-    _serviceWatcher.setWatchMode(QDBusServiceWatcher::WatchForOwnerChange);
-    connect(&_serviceWatcher, &QDBusServiceWatcher::serviceOwnerChanged, this, &KSecretD::slotServiceOwnerChanged);
-
     _fdoService.reset(new KWalletFreedesktopService(this));
 }
 
@@ -290,12 +287,7 @@ int KSecretD::nextTransactionId() const
     return KWalletTransaction::getTransactionId();
 }
 
-int KSecretD::openAsync(const QString &wallet,
-                        qlonglong wId,
-                        const QString &appid,
-                        bool handleSession,
-                        const QDBusConnection &connection,
-                        const QDBusMessage &message)
+int KSecretD::openAsync(const QString &wallet, qlonglong wId, const QString &appid, const QDBusConnection &connection, const QDBusMessage &message)
 {
     if (!isEnabled()) { // guard
         return -1;
@@ -309,12 +301,7 @@ int KSecretD::openAsync(const QString &wallet,
     xact->wId = wId;
     xact->modal = true; // mark dialogs as modal, the app has blocking wait
     xact->tType = KWalletTransaction::Open;
-    if (handleSession) {
-        qCDebug(KSECRETD_LOG) << "openAsync for " << message.service();
-        _serviceWatcher.setConnection(connection);
-        _serviceWatcher.addWatchedService(message.service());
-        xact->service = message.service();
-    }
+
     QTimer::singleShot(0, this, SLOT(processTransactions()));
     checkActiveDialog();
     // opening is in progress. return the transaction number
@@ -1130,55 +1117,6 @@ int KSecretD::removeEntry(int handle, const QString &folder, const QString &key,
     }
 
     return -1;
-}
-
-void KSecretD::slotServiceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner)
-{
-    Q_UNUSED(name);
-    qCDebug(KSECRETD_LOG) << "slotServiceOwnerChanged " << name << ", " << oldOwner << ", " << newOwner;
-
-    if (!newOwner.isEmpty()) {
-        return; // no application exit, don't care.
-    }
-
-    // as we don't have the application id we have to cycle
-    // all sessions. As an application can basically open wallets
-    // with several appids, we can't stop if we found one.
-    QString service(oldOwner);
-    const QList<KWalletAppHandlePair> sessremove(_sessions.findSessions(service));
-    KWallet::Backend *b = nullptr;
-
-    // check all sessions for wallets to close
-    for (const KWalletAppHandlePair &s : sessremove) {
-        b = getWallet(s.first, s.second);
-        if (b) {
-            b->deref();
-            internalClose(b, s.second, false);
-        }
-    }
-
-    // remove all the sessions in case they aren't gone yet
-    for (const KWalletAppHandlePair &s : sessremove) {
-        _sessions.removeSession(s.first, service, s.second);
-    }
-
-    // cancel all open-transactions still running for the service
-    QList<KWalletTransaction *>::iterator tit;
-    for (tit = _transactions.begin(); tit != _transactions.end(); ++tit) {
-        if ((*tit)->tType == KWalletTransaction::Open && (*tit)->service == oldOwner) {
-            delete (*tit);
-            *tit = nullptr;
-        }
-    }
-    _transactions.removeAll(nullptr);
-
-    // if there's currently an open-transaction being handled,
-    // mark it as cancelled.
-    if (_curtrans && _curtrans->tType == KWalletTransaction::Open && _curtrans->service == oldOwner) {
-        qCDebug(KSECRETD_LOG) << "Cancelling current transaction!";
-        _curtrans->cancelled = true;
-    }
-    _serviceWatcher.removeWatchedService(oldOwner);
 }
 
 KWallet::Backend *KSecretD::getWallet(const QString &appid, int handle)
