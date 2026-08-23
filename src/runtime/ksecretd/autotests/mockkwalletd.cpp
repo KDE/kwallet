@@ -21,13 +21,6 @@ KSecretD::~KSecretD()
 {
 }
 
-KWalletSessionStore::KWalletSessionStore()
-{
-}
-KWalletSessionStore::~KWalletSessionStore()
-{
-}
-
 KTimeout::KTimeout(QObject *)
 {
 }

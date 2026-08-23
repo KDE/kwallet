@@ -51,7 +51,6 @@ target_sources(ksecretd PRIVATE
    ksecretd.cpp
    kwalletwizard.cpp
    ktimeout.cpp
-   kwalletsessionstore.cpp
    kwalletfreedesktopservice.cpp
    kwalletfreedesktopsession.cpp
    kwalletfreedesktopcollection.cpp

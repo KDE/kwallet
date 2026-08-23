@@ -17,14 +17,12 @@
 #include <QString>
 
 #include "ktimeout.h"
-#include "kwalletsessionstore.h"
 
 class KDirWatch;
 class KTimeout;
 
 // @Private
 class KWalletTransaction;
-class KWalletSessionStore;
 class KWalletFreedesktopService;
 
 class KSecretD : public QObject, protected QDBusContext
@@ -170,9 +168,6 @@ private:
     KWalletTransaction *_curtrans; // current transaction
     QList<KWalletTransaction *> _transactions;
     QPointer<QWidget> activeDialog;
-
-    // sessions
-    KWalletSessionStore _sessions;
 
     std::unique_ptr<KWalletFreedesktopService> _fdoService;
 

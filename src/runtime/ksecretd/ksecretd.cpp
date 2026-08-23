@@ -653,7 +653,6 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, b
         }
 
         _wallets.insert(rc = generateHandle(), b);
-        _sessions.addSession(appid, service, rc);
         _syncTimers.addTimer(rc, _syncTime);
 
         if (brandNew) {
@@ -681,9 +680,7 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, b
         // make sure it's
         // still available (isAuthorizedApp might show a dialog).
         walletInfo = findWallet(wallet);
-        if (walletInfo.first != -1) {
-            _sessions.addSession(appid, service, rc);
-        } else {
+        if (walletInfo.first == -1) {
             // wallet was forcefully closed.
             return -1;
         }
@@ -816,8 +813,6 @@ int KSecretD::internalClose(KWallet::Backend *const w, const int handle, const b
     if (w) {
         const QString &wallet = w->walletName();
         if ((w->refCount() == 0 && !_leaveOpen) || force) {
-            // this is only a safety measure. sessions should be gone already.
-            _sessions.removeAllSessions(handle);
             if (_closeIdle) {
                 _closeTimers.removeTimer(handle);
             }
@@ -839,16 +834,8 @@ int KSecretD::close(int handle, bool force, const QString &appid, const QDBusMes
     KWallet::Backend *w = _wallets.value(handle);
 
     if (w) {
-        if (_sessions.hasSession(appid, handle)) {
-            // remove one handle for the application
-            bool removed = _sessions.removeSession(appid, message.service(), handle);
-            // alternatively try sessionless
-            if (removed || _sessions.removeSession(appid, QLatin1String(""), handle)) {
-                w->deref();
-            }
-            return internalClose(w, handle, force);
-        }
-        return 1; // not closed, handle unknown
+        w->deref();
+        return internalClose(w, handle, force);
     }
     return -1; // not open to begin with, or other error
 }
@@ -913,13 +900,6 @@ void KSecretD::timedOutSync(int handle)
 
 void KSecretD::doTransactionOpenCancelled(const QString &appid, const QString &wallet, const QString &service)
 {
-    // there will only be one session left to remove - all others
-    // have already been removed in slotServiceOwnerChanged and all
-    // transactions for opening new sessions have been deleted.
-    if (!_sessions.hasSession(appid)) {
-        return;
-    }
-
     const QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
     int handle = walletInfo.first;
     KWallet::Backend *b = walletInfo.second;
@@ -927,9 +907,6 @@ void KSecretD::doTransactionOpenCancelled(const QString &appid, const QString &w
         b->deref();
         internalClose(b, handle, false);
     }
-
-    // close the session in case the wallet hasn't been closed yet
-    _sessions.removeSession(appid, service, handle);
 }
 
 QStringList KSecretD::folderList(int handle, const QString &appid)
@@ -1128,14 +1105,11 @@ KWallet::Backend *KSecretD::getWallet(const QString &appid, int handle)
     KWallet::Backend *w = _wallets.value(handle);
 
     if (w) { // the handle is valid
-        if (_sessions.hasSession(appid, handle)) {
-            // the app owns this handle
-            _failed = 0;
-            if (_closeIdle) {
-                _closeTimers.resetTimer(handle, _idleTime);
-            }
-            return w;
+        _failed = 0;
+        if (_closeIdle) {
+            _closeTimers.resetTimer(handle, _idleTime);
         }
+        return w;
     }
 
     if (++_failed > 5) {
