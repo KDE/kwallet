@@ -64,11 +64,11 @@ void KWalletFreedesktopItem::setLabel(const QString &value)
     const auto newEntryLocation = m_uniqueLabel.toEntryLocation();
 
     if (newEntryLocation.folder != entryLocation.folder) {
-        const auto data = backend()->readEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, FDO_APPID);
-        backend()->writeEntry(fdoCollection()->walletHandle(), newEntryLocation.folder, newEntryLocation.key, data, FDO_APPID);
-        backend()->removeEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, FDO_APPID);
+        const auto data = backend()->readEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key);
+        backend()->writeEntry(fdoCollection()->walletHandle(), newEntryLocation.folder, newEntryLocation.key, data);
+        backend()->removeEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key);
     } else if (newEntryLocation.key != entryLocation.key) {
-        backend()->renameEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, newEntryLocation.key, FDO_APPID);
+        backend()->renameEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, newEntryLocation.key);
     }
 
     fdoCollection()->itemAttributes().setParam(entryLocation, FDO_KEY_MODIFIED, static_cast<qulonglong>(QDateTime::currentSecsSinceEpoch()));
@@ -104,7 +104,7 @@ QDBusObjectPath KWalletFreedesktopItem::Delete()
 {
     const auto entryLocation = m_uniqueLabel.toEntryLocation();
 
-    backend()->removeEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, FDO_APPID);
+    backend()->removeEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key);
     QDBusConnection::sessionBus().unregisterObject(fdoObjectPath().path());
 
     m_collection->onItemDeleted(fdoObjectPath());
@@ -119,15 +119,15 @@ FreedesktopSecret KWalletFreedesktopItem::getSecret(const QDBusConnection &conne
 
     FreedesktopSecret fdoSecret;
 
-    const auto entryType = backend()->entryType(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, FDO_APPID);
+    const auto entryType = backend()->entryType(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key);
     if (entryType == KWallet::Wallet::Password) {
-        auto password = backend()->readPassword(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, FDO_APPID);
+        auto password = backend()->readPassword(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key);
         auto bytes = password.toUtf8();
         fdoSecret = FreedesktopSecret(session, bytes, mimeType);
         explicit_zero_mem(bytes.data(), bytes.size());
         explicit_zero_mem(password.data(), password.size() * sizeof(QChar));
     } else if (entryType == KWallet::Wallet::Map) {
-        auto serializedMap = backend()->readMap(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, FDO_APPID);
+        auto serializedMap = backend()->readMap(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key);
         QMap<QString, QString> map;
         QDataStream ds(&serializedMap, QIODevice::ReadOnly);
         ds >> map;
@@ -138,7 +138,7 @@ FreedesktopSecret KWalletFreedesktopItem::getSecret(const QDBusConnection &conne
         fdoSecret = FreedesktopSecret(session, QJsonDocument(obj).toJson(QJsonDocument::Compact), mimeType);
         explicit_zero_mem(serializedMap.data(), serializedMap.size());
     } else {
-        auto bytes = backend()->readEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, FDO_APPID);
+        auto bytes = backend()->readEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key);
         fdoSecret = FreedesktopSecret(session, bytes, mimeType);
         explicit_zero_mem(bytes.data(), bytes.size());
     }
@@ -187,12 +187,12 @@ void KWalletFreedesktopItem::SetSecret(const FreedesktopSecret &secret)
         }
 
         auto str = QString::fromUtf8(bytes);
-        backend()->writePassword(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, str, FDO_APPID);
+        backend()->writePassword(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, str);
         explicit_zero_mem(bytes.data(), bytes.size());
         explicit_zero_mem(str.data(), str.size() * sizeof(QChar));
     } else {
         auto bytes = decrypted.value.toByteArray();
-        backend()->writeEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, bytes, KWallet::Wallet::Stream, FDO_APPID);
+        backend()->writeEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key, bytes, KWallet::Wallet::Stream);
     }
 }
 

@@ -19,11 +19,11 @@ Q_DECLARE_METATYPE(GpgME::Key)
 
 namespace KWallet
 {
-KNewWalletDialog::KNewWalletDialog(const QString &appName, const QString &walletName, QWidget *parent)
+KNewWalletDialog::KNewWalletDialog(const QString &walletName, QWidget *parent)
     : QWizard(parent)
 {
     setOption(HaveFinishButtonOnEarlyPages);
-    _intro = new KNewWalletDialogIntro(appName, walletName, this);
+    _intro = new KNewWalletDialogIntro(walletName, this);
     _introId = addPage(_intro);
 
     _gpg = new KNewWalletDialogGpg(this);
@@ -41,22 +41,14 @@ GpgME::Key KNewWalletDialog::gpgKey() const
     return varKey.value<GpgME::Key>();
 }
 
-KNewWalletDialogIntro::KNewWalletDialogIntro(const QString &appName, const QString &walletName, QWidget *parent)
+KNewWalletDialogIntro::KNewWalletDialogIntro(const QString &walletName, QWidget *parent)
     : QWizardPage(parent)
 {
     _ui.setupUi(this);
-    if (appName.isEmpty()) {
-        _ui.labelIntro->setText(
-            i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used to store sensitive data in a secure fashion. Please choose the "
-                 "new wallet's type below or click cancel to deny the application's request.</qt>",
-                 walletName.toHtmlEscaped()));
-    } else {
-        _ui.labelIntro->setText(
-            i18n("<qt>The application '<b>%1</b>' has requested to create a new wallet named '<b>%2</b>'. This is used to store sensitive data in a secure "
-                 "fashion. Please choose the new wallet's type below or click cancel to deny the application's request.</qt>",
-                 appName.toHtmlEscaped(),
-                 walletName.toHtmlEscaped()));
-    }
+    _ui.labelIntro->setText(
+        i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used to store sensitive data in a secure fashion. Please choose the "
+             "new wallet's type below or click cancel to deny the application's request.</qt>",
+             walletName.toHtmlEscaped()));
 }
 
 void KNewWalletDialogIntro::onBlowfishToggled(bool blowfish)

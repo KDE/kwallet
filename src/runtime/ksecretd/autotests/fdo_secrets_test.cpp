@@ -222,7 +222,7 @@ void FdoSecretsTest::items()
     SET_FUNCTION_RESULT(KSecretD::folderList, folders);
     SET_FUNCTION_RESULT(KSecretD::entryList, entries);
 
-    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &key, const QString &) -> int {
+    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &key) -> int {
         if (key == "item1")
             return KWallet::Wallet::Password;
         else if (key == "item2")
@@ -254,17 +254,17 @@ void FdoSecretsTest::items()
         ds << map;
     }
 
-    SET_FUNCTION_IMPL(KSecretD::readPassword, [&](int, const QString &, const QString &key, const QString &) -> QString {
+    SET_FUNCTION_IMPL(KSecretD::readPassword, [&](int, const QString &, const QString &key) -> QString {
         QTEST_ASSERT(key == "item1");
         return _secretHolder1;
     });
 
-    SET_FUNCTION_IMPL(KSecretD::readEntry, [&](int, const QString &, const QString &key, const QString &) -> QByteArray {
+    SET_FUNCTION_IMPL(KSecretD::readEntry, [&](int, const QString &, const QString &key) -> QByteArray {
         QTEST_ASSERT(key == "item2");
         return _secretHolder2;
     });
 
-    SET_FUNCTION_IMPL(KSecretD::readMap, [&](int, const QString &, const QString &key, const QString &) -> QByteArray {
+    SET_FUNCTION_IMPL(KSecretD::readMap, [&](int, const QString &, const QString &key) -> QByteArray {
         QTEST_ASSERT(key == "item3");
         return _secretHolder3;
 
@@ -282,23 +282,21 @@ void FdoSecretsTest::items()
         return data;
     });
 
-    SET_FUNCTION_IMPL(KSecretD::writePassword, [&](int, const QString &, const QString &key, const QString &value, const QString &) -> int {
+    SET_FUNCTION_IMPL(KSecretD::writePassword, [&](int, const QString &, const QString &key, const QString &value) -> int {
         QTEST_ASSERT(key == "item1");
         _secretHolder1 = value;
         return 0;
     });
 
-    using writeEntryT = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, int, const QString &);
-    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::writeEntry,
-                                 writeEntryT,
-                                 [&](int, const QString &, const QString &key, const QByteArray &value, int, const QString &) -> int {
-                                     QTEST_ASSERT(key == "item3" || key == "item2");
-                                     if (key == "item2")
-                                         _secretHolder2 = value;
-                                     else
-                                         _secretHolder3 = value;
-                                     return 0;
-                                 });
+    using writeEntryT = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, int);
+    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::writeEntry, writeEntryT, [&](int, const QString &, const QString &key, const QByteArray &value, int) -> int {
+        QTEST_ASSERT(key == "item3" || key == "item2");
+        if (key == "item2")
+            _secretHolder2 = value;
+        else
+            _secretHolder3 = value;
+        return 0;
+    });
 
     std::unique_ptr<KSecretD> kwalletd{new KSecretD};
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
@@ -324,14 +322,12 @@ void FdoSecretsTest::items()
     }
 
     /* Create collection */
-    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QString &, const QDBusConnection &, const QDBusMessage &);
+    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &);
     bool openAsyncCalled = false;
-    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync,
-                                 OpenAsyncT,
-                                 [&](const QString &, qlonglong, const QString &, const QDBusConnection &, const QDBusMessage &) -> int {
-                                     openAsyncCalled = true;
-                                     return 0;
-                                 });
+    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [&](const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &) -> int {
+        openAsyncCalled = true;
+        return 0;
+    });
 
     QDBusObjectPath promptPath;
     service->Unlock({collection->fdoObjectPath()}, promptPath);
@@ -424,14 +420,12 @@ void FdoSecretsTest::createLockUnlockCollection()
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
 
     /* Create collection */
-    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QString &, const QDBusConnection &, const QDBusMessage &);
+    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &);
     bool openAsyncCalled = false;
-    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync,
-                                 OpenAsyncT,
-                                 [&](const QString &, qlonglong, const QString &, const QDBusConnection &, const QDBusMessage &) -> int {
-                                     openAsyncCalled = true;
-                                     return 0;
-                                 });
+    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [&](const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &) -> int {
+        openAsyncCalled = true;
+        return 0;
+    });
 
     QVariantMap props;
     props["org.freedesktop.Secret.Collection.Label"] = QString("walletName");
@@ -615,16 +609,16 @@ void FdoSecretsTest::invalidUtf8Rejected()
     SET_FUNCTION_RESULT(KSecretD::folderList, folders);
     SET_FUNCTION_RESULT(KSecretD::entryList, entries);
 
-    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &, const QString &) -> int {
+    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &) -> int {
         return KWallet::Wallet::Password;
     });
 
-    SET_FUNCTION_IMPL(KSecretD::readPassword, [](int, const QString &, const QString &, const QString &) -> QString {
+    SET_FUNCTION_IMPL(KSecretD::readPassword, [](int, const QString &, const QString &) -> QString {
         return QStringLiteral("valid-password");
     });
 
     bool writePasswordCalled = false;
-    SET_FUNCTION_IMPL(KSecretD::writePassword, [&](int, const QString &, const QString &, const QString &, const QString &) -> int {
+    SET_FUNCTION_IMPL(KSecretD::writePassword, [&](int, const QString &, const QString &, const QString &) -> int {
         writePasswordCalled = true;
         return 0;
     });
@@ -637,12 +631,10 @@ void FdoSecretsTest::invalidUtf8Rejected()
 
     collection->itemAttributes().newItem({FDO_SECRETS_DEFAULT_DIR, "item1"});
 
-    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QString &, const QDBusConnection &, const QDBusMessage &);
-    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync,
-                                 OpenAsyncT,
-                                 [](const QString &, qlonglong, const QString &, const QDBusConnection &, const QDBusMessage &) -> int {
-                                     return 0;
-                                 });
+    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &);
+    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [](const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &) -> int {
+        return 0;
+    });
 
     QDBusObjectPath promptPath;
     service->Unlock({collection->fdoObjectPath()}, promptPath);

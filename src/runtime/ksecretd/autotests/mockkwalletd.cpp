@@ -37,43 +37,43 @@ void KTimeout::timerEvent(QTimerEvent *)
 {
 }
 
-MOCK_FUNCTION(KSecretD, readEntry, 4, );
-MOCK_FUNCTION(KSecretD, readMap, 4, );
-MOCK_FUNCTION(KSecretD, readPassword, 4, );
+MOCK_FUNCTION(KSecretD, readEntry, 3, );
+MOCK_FUNCTION(KSecretD, readMap, 3, );
+MOCK_FUNCTION(KSecretD, readPassword, 3, );
 
-MOCK_FUNCTION_RES(KSecretD, removeEntry, 4, 0, );
-MOCK_FUNCTION_RES(KSecretD, writePassword, 5, 0, );
+MOCK_FUNCTION_RES(KSecretD, removeEntry, 3, 0, );
+MOCK_FUNCTION_RES(KSecretD, writePassword, 4, 0, );
 
-using OVWriteEntry_6 = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, int, const QString &);
-MOCK_FUNCTION_OVERLOADED_RES(KSecretD, writeEntry, 6, 0, OVWriteEntry_6);
-
-using OVWriteEntry_5 = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, const QString &);
+using OVWriteEntry_5 = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, int);
 MOCK_FUNCTION_OVERLOADED_RES(KSecretD, writeEntry, 5, 0, OVWriteEntry_5);
 
-MOCK_FUNCTION(KSecretD, entryType, 4, );
-MOCK_FUNCTION_RES(KSecretD, renameEntry, 5, 0, );
+using OVWriteEntry_4 = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &);
+MOCK_FUNCTION_OVERLOADED_RES(KSecretD, writeEntry, 4, 0, OVWriteEntry_4);
+
+MOCK_FUNCTION(KSecretD, entryType, 3, );
+MOCK_FUNCTION_RES(KSecretD, renameEntry, 4, 0, );
 
 MOCK_FUNCTION_RES(KSecretD, isEnabled, 0, 1);
 
-using OVOpenAsync5 = int (KSecretD::*)(const QString &, qlonglong, const QString &, const QDBusConnection &, const QDBusMessage &);
-MOCK_FUNCTION_OVERLOADED(KSecretD, openAsync, 5, OVOpenAsync5);
+using OVOpenAsync4 = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &);
+MOCK_FUNCTION_OVERLOADED(KSecretD, openAsync, 4, OVOpenAsync4);
 
-using OVClose3 = int (KSecretD::*)(int, const QString &, const QDBusMessage &);
-MOCK_FUNCTION_OVERLOADED(KSecretD, close, 3, OVClose3);
+using OVClose2 = int (KSecretD::*)(int, const QDBusMessage &);
+MOCK_FUNCTION_OVERLOADED(KSecretD, close, 2, OVClose2);
 
 MOCK_FUNCTION(KSecretD, deleteWallet, 1, );
 
 MOCK_FUNCTION_OVERLOADED(KSecretD, isOpen, 1, bool (KSecretD::*)(int));
 
 MOCK_FUNCTION(KSecretD, wallets, 0, const);
-MOCK_FUNCTION(KSecretD, folderList, 2, );
-MOCK_FUNCTION(KSecretD, createFolder, 3, );
-MOCK_FUNCTION(KSecretD, entryList, 3, );
+MOCK_FUNCTION(KSecretD, folderList, 1, );
+MOCK_FUNCTION(KSecretD, createFolder, 2, );
+MOCK_FUNCTION(KSecretD, entryList, 2, );
 
 MOCK_FUNCTION(KSecretD, renameWallet, 2, );
-MOCK_FUNCTION(KSecretD, hasEntry, 4, );
+MOCK_FUNCTION(KSecretD, hasEntry, 3, );
 MOCK_FUNCTION(KSecretD, pamOpen, 3, );
-MOCK_FUNCTION(KSecretD, sync, 2, );
+MOCK_FUNCTION(KSecretD, sync, 1, );
 MOCK_FUNCTION(KSecretD, changePassword, 3, );
 MOCK_FUNCTION(KSecretD, reconfigure, 0, );
 MOCK_FUNCTION(KSecretD, closeAllWallets, 0, );

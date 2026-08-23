@@ -17,7 +17,6 @@
 
 #include "kwalletdbuscontext.h"
 
-#define FDO_APPID QString()
 #define FDO_SECRETS_SERVICE_OBJECT "/org/freedesktop/secrets"
 #define FDO_ALIAS_PATH "/org/freedesktop/secrets/aliases/"
 

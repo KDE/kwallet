@@ -37,14 +37,14 @@ public:
     static bool isEnabled();
 
     int nextTransactionId() const;
-    int openAsync(const QString &wallet, qlonglong wId, const QString &appid, const QDBusConnection &connection, const QDBusMessage &message);
+    int openAsync(const QString &wallet, qlonglong wId, const QDBusConnection &connection, const QDBusMessage &message);
     // Close and lock the wallet
     // Accepts "message" for working from other QDBusContexts
-    int close(int handle, const QString &appid, const QDBusMessage &message);
+    int close(int handle, const QDBusMessage &message);
 
 public Q_SLOTS:
     // Save to disk but leave open
-    Q_NOREPLY void sync(int handle, const QString &appid);
+    Q_NOREPLY void sync(int handle);
 
     // Physically deletes the wallet from disk.
     int deleteWallet(const QString &wallet);
@@ -53,45 +53,45 @@ public Q_SLOTS:
     bool isOpen(int handle);
 
     // Change the password of this wallet
-    void changePassword(const QString &wallet, qlonglong wId, const QString &appid);
+    void changePassword(const QString &wallet, qlonglong wId, const QString &appId);
 
     // A list of all wallets
     QStringList wallets() const;
 
     // A list of all folders in this wallet
-    QStringList folderList(int handle, const QString &appid);
+    QStringList folderList(int handle);
 
     // Create this folder
-    bool createFolder(int handle, const QString &folder, const QString &appid);
+    bool createFolder(int handle, const QString &folder);
 
     // List of entries in this folder
-    QStringList entryList(int handle, const QString &folder, const QString &appid);
+    QStringList entryList(int handle, const QString &folder);
 
     // Read an entry.  If the entry does not exist, it just
     // returns an empty result.  It is your responsibility to check
     // hasEntry() first.
-    QByteArray readEntry(int handle, const QString &folder, const QString &key, const QString &appid);
-    QByteArray readMap(int handle, const QString &folder, const QString &key, const QString &appid);
-    QString readPassword(int handle, const QString &folder, const QString &key, const QString &appid);
+    QByteArray readEntry(int handle, const QString &folder, const QString &key);
+    QByteArray readMap(int handle, const QString &folder, const QString &key);
+    QString readPassword(int handle, const QString &folder, const QString &key);
 
     // Rename an entry.  rc=0 on success.
-    int renameEntry(int handle, const QString &folder, const QString &oldName, const QString &newName, const QString &appid);
+    int renameEntry(int handle, const QString &folder, const QString &oldName, const QString &newName);
     // Rename the wallet
     int renameWallet(const QString &oldName, const QString &newName);
 
     // Write an entry.  rc=0 on success.
-    int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType, const QString &appid);
-    int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, const QString &appid);
-    int writePassword(int handle, const QString &folder, const QString &key, const QString &value, const QString &appid);
+    int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType);
+    int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value);
+    int writePassword(int handle, const QString &folder, const QString &key, const QString &value);
 
     // Does the entry exist?
-    bool hasEntry(int handle, const QString &folder, const QString &key, const QString &appid);
+    bool hasEntry(int handle, const QString &folder, const QString &key);
 
     // What type is the entry?
-    int entryType(int handle, const QString &folder, const QString &key, const QString &appid);
+    int entryType(int handle, const QString &folder, const QString &key);
 
     // Remove an entry.  rc=0 on success.
-    int removeEntry(int handle, const QString &folder, const QString &key, const QString &appid);
+    int removeEntry(int handle, const QString &folder, const QString &key);
 
     void reconfigure();
 
@@ -122,12 +122,12 @@ private Q_SLOTS:
 
 private:
     // Internal - open a wallet
-    int internalOpen(const QString &appid, const QString &wallet, WId w, bool modal, const QString &service);
+    int internalOpen(const QString &wallet, WId w, bool modal, const QString &service);
     // Internal - close this wallet.
     int internalClose(KWallet::Backend *const w, const int handle, const bool saveBeforeClose = true);
 
     // This also validates the handle.  May return NULL.
-    KWallet::Backend *getWallet(const QString &appid, int handle);
+    KWallet::Backend *getWallet(int handle);
     // Generate a new unique handle.
     int generateHandle();
     // Emit signals about closing wallets
@@ -135,11 +135,11 @@ private:
     void emitEntryRenamed(const QString &, const QString &, const QString &, const QString &);
     void emitEntryDeleted(const QString &, const QString &, const QString &);
 
-    void doTransactionChangePassword(const QString &appid, const QString &wallet, qlonglong wId);
-    int doTransactionOpen(const QString &appid, const QString &wallet, qlonglong wId, bool modal, const QString &service);
+    void doTransactionChangePassword(const QString &wallet, qlonglong wId);
+    int doTransactionOpen(const QString &wallet, qlonglong wId, bool modal, const QString &service);
     void initiateSync(int handle);
 
-    void setupDialog(QWidget *dialog, WId wId, const QString &appid, bool modal);
+    void setupDialog(QWidget *dialog, WId wId, bool modal);
     void checkActiveDialog();
 
     QPair<int, KWallet::Backend *> findWallet(const QString &walletName) const;

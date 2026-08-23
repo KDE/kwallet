@@ -95,7 +95,6 @@ public:
         OpenFail,
     };
     Type tType = Unknown;
-    QString appid;
     qlonglong wId;
     QString wallet;
     QString service;
@@ -205,7 +204,7 @@ void KSecretD::processTransactions()
 
         switch (_curtrans->tType) {
         case KWalletTransaction::Open:
-            res = doTransactionOpen(_curtrans->appid, _curtrans->wallet, _curtrans->wId, _curtrans->modal, _curtrans->service);
+            res = doTransactionOpen(_curtrans->wallet, _curtrans->wId, _curtrans->modal, _curtrans->service);
 
             // multiple requests from the same client
             // should not produce multiple password
@@ -214,7 +213,7 @@ void KSecretD::processTransactions()
                 QList<KWalletTransaction *>::iterator it;
                 for (it = _transactions.begin(); it != _transactions.end(); ++it) {
                     KWalletTransaction *x = *it;
-                    if (_curtrans->appid == x->appid && x->tType == KWalletTransaction::Open && x->wallet == _curtrans->wallet && x->wId == _curtrans->wId) {
+                    if (x->tType == KWalletTransaction::Open && x->wallet == _curtrans->wallet && x->wId == _curtrans->wId) {
                         x->tType = KWalletTransaction::OpenFail;
                     }
                 }
@@ -232,7 +231,7 @@ void KSecretD::processTransactions()
             break;
 
         case KWalletTransaction::ChangePassword:
-            doTransactionChangePassword(_curtrans->appid, _curtrans->wallet, _curtrans->wId);
+            doTransactionChangePassword(_curtrans->wallet, _curtrans->wId);
             break;
 
         case KWalletTransaction::Unknown:
@@ -262,7 +261,7 @@ int KSecretD::nextTransactionId() const
     return KWalletTransaction::getTransactionId();
 }
 
-int KSecretD::openAsync(const QString &wallet, qlonglong wId, const QString &appid, const QDBusConnection &connection, const QDBusMessage &message)
+int KSecretD::openAsync(const QString &wallet, qlonglong wId, const QDBusConnection &connection, const QDBusMessage &message)
 {
     if (!isEnabled()) { // guard
         return -1;
@@ -271,7 +270,6 @@ int KSecretD::openAsync(const QString &wallet, qlonglong wId, const QString &app
     KWalletTransaction *xact = new KWalletTransaction(connection);
     _transactions.append(xact);
 
-    xact->appid = appid;
     xact->wallet = wallet;
     xact->wId = wId;
     xact->modal = true; // mark dialogs as modal, the app has blocking wait
@@ -284,18 +282,14 @@ int KSecretD::openAsync(const QString &wallet, qlonglong wId, const QString &app
 }
 
 // Sets up a dialog that will be shown by kwallet.
-void KSecretD::setupDialog(QWidget *dialog, WId wId, const QString &appid, bool modal)
+void KSecretD::setupDialog(QWidget *dialog, WId wId, bool modal)
 {
     if (wId != 0) {
         // correct, set dialog parent
         dialog->setAttribute(Qt::WA_NativeWindow, true);
         KWindowSystem::setMainWindow(dialog->windowHandle(), wId);
     } else {
-        if (appid.isEmpty()) {
-            qWarning() << "Using kwallet without parent window!";
-        } else {
-            qWarning() << "Application" << appid << "using kwallet without parent window!";
-        }
+        qWarning() << "Using kwallet without parent window!";
         // allow dialog activation even if it interrupts, better than trying
         // hacks
         // with keeping the dialog on top or on all desktops
@@ -347,7 +341,7 @@ void KSecretD::checkActiveDialog()
 #endif
 }
 
-int KSecretD::doTransactionOpen(const QString &appid, const QString &wallet, qlonglong wId, bool modal, const QString &service)
+int KSecretD::doTransactionOpen(const QString &wallet, qlonglong wId, bool modal, const QString &service)
 {
     if (_firstUse) {
         // if the user specifies a wallet name, the use it as the default
@@ -365,20 +359,15 @@ int KSecretD::doTransactionOpen(const QString &appid, const QString &wallet, qlo
         }
     }
 
-    int rc = internalOpen(appid, wallet, WId(wId), modal, service);
+    int rc = internalOpen(wallet, WId(wId), modal, service);
     return rc;
 }
 
-int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, bool modal, const QString &service)
+int KSecretD::internalOpen(const QString &wallet, WId w, bool modal, const QString &service)
 {
     bool brandNew = false;
 
-    QString thisApp;
-    if (appid.isEmpty()) {
-        thisApp = QStringLiteral("KDE System");
-    } else {
-        thisApp = appid;
-    }
+    QString thisApp = QStringLiteral("KDE System");
 
     QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
     int rc = walletInfo.first;
@@ -416,16 +405,8 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, b
                         b = new KWallet::Backend(wallet);
                     }
                     KPasswordDialog *kpd = new KPasswordDialog();
-                    if (appid.isEmpty()) {
-                        kpd->setPrompt(i18n("<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the password for this wallet below.</qt>",
-                                            wallet.toHtmlEscaped()));
-                    } else {
-                        kpd->setPrompt(
-                            i18n("<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</b>'. Please enter the password for this wallet "
-                                 "below.</qt>",
-                                 appid.toHtmlEscaped(),
-                                 wallet.toHtmlEscaped()));
-                    }
+                    kpd->setPrompt(i18n("<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the password for this wallet below.</qt>",
+                                        wallet.toHtmlEscaped()));
                     brandNew = false;
                     // don't use KStdGuiItem::open() here which has trailing
                     // ellipsis!
@@ -446,14 +427,8 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, b
                             new KNotification(QStringLiteral("needsPassword"), KNotification::Persistent | KNotification::CloseWhenWindowActivated);
                         notification->setWindow(kpd->windowHandle());
                         QString actionText;
-                        if (appid.isEmpty()) {
-                            notification->setText(i18n("An application has requested to open a wallet (%1).", wallet.toHtmlEscaped()));
-                            actionText = i18nc("Text of a button for switching to the (unnamed) application requesting a password", "Switch there");
-                        } else {
-                            notification->setText(i18n("<b>%1</b> has requested to open a wallet (%2).", appid.toHtmlEscaped(), wallet.toHtmlEscaped()));
-                            actionText =
-                                i18nc("Text of a button for switching to the application requesting a password", "Switch to %1", appid.toHtmlEscaped());
-                        }
+                        notification->setText(i18n("An application has requested to open a wallet (%1).", wallet.toHtmlEscaped()));
+                        actionText = i18nc("Text of a button for switching to the (unnamed) application requesting a password", "Switch there");
 
                         KNotificationAction *action = notification->addAction(actionText);
                         connect(action, &KNotificationAction::activated, this, &KSecretD::activatePasswordDialog);
@@ -462,7 +437,7 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, b
 #endif
 
                     while (!b->isOpen()) {
-                        setupDialog(kpd, w, appid, modal);
+                        setupDialog(kpd, w, modal);
                         if (kpd->exec() == QDialog::Accepted) {
                             password = kpd->password();
                             int rc = b->open(password.toUtf8());
@@ -492,9 +467,9 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, b
             // prompt the user for the new wallet format here
             KWallet::BackendCipherType newWalletType = KWallet::BACKEND_CIPHER_UNKNOWN;
 
-            std::shared_ptr<KWallet::KNewWalletDialog> newWalletDlg(new KWallet::KNewWalletDialog(appid, wallet, QWidget::find(w)));
+            std::shared_ptr<KWallet::KNewWalletDialog> newWalletDlg(new KWallet::KNewWalletDialog(wallet, QWidget::find(w)));
             GpgME::Key gpgKey;
-            setupDialog(newWalletDlg.get(), (WId)w, appid, true);
+            setupDialog(newWalletDlg.get(), (WId)w, true);
             if (newWalletDlg->exec() == QDialog::Accepted) {
                 newWalletType = newWalletDlg->isBlowfish() ? KWallet::BACKEND_CIPHER_BLOWFISH : KWallet::BACKEND_CIPHER_GPG;
                 gpgKey = newWalletDlg->gpgKey();
@@ -515,38 +490,22 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, b
                 kpd->setBackgroundWarningColor(colorScheme.background(KColorScheme::NegativeBackground).color());
                 if (wallet == KWallet::Backend::localWallet() || wallet == KWallet::Backend::networkWallet()) {
                     // Auto create these wallets.
-                    if (appid.isEmpty()) {
-                        kpd->setPrompt(
-                            i18n("KDE has requested to open the wallet. This is used to store sensitive data in a "
-                                 "secure fashion. Please enter a password to use with this wallet or click cancel to "
-                                 "deny the application's request."));
-                    } else {
-                        kpd->setPrompt(
-                            i18n("<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This is "
-                                 "used to store sensitive data in a secure fashion. Please enter a password to use "
-                                 "with this wallet or click cancel to deny the application's request.</qt>",
-                                 appid.toHtmlEscaped()));
-                    }
+                    kpd->setPrompt(
+                        i18n("KDE has requested to open the wallet. This is used to store sensitive data in a "
+                             "secure fashion. Please enter a password to use with this wallet or click cancel to "
+                             "deny the application's request."));
                 } else {
-                    if (appid.length() == 0) {
-                        kpd->setPrompt(
-                            i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please choose a "
-                                 "password for this wallet, or cancel to deny the application's request.</qt>",
-                                 wallet.toHtmlEscaped()));
-                    } else {
-                        kpd->setPrompt(
-                            i18n("<qt>The application '<b>%1</b>' has requested to create a new wallet named '<b>%2</b>'. "
-                                 "Please choose a password for this wallet, or cancel to deny the application's request.</qt>",
-                                 appid.toHtmlEscaped(),
-                                 wallet.toHtmlEscaped()));
-                    }
+                    kpd->setPrompt(
+                        i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please choose a "
+                             "password for this wallet, or cancel to deny the application's request.</qt>",
+                             wallet.toHtmlEscaped()));
                 }
                 kpd->setWindowTitle(i18n("KDE Wallet Service"));
                 // KF5 FIXME what should we use now instead of this:
                 //              kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
                 kpd->setIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
                 while (!b->isOpen()) {
-                    setupDialog(kpd, w, appid, modal);
+                    setupDialog(kpd, w, modal);
                     if (kpd->exec() == QDialog::Accepted) {
                         password = kpd->password();
                         int rc = b->open(password.toUtf8());
@@ -575,8 +534,8 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, b
         _syncTimers.addTimer(rc, _syncTime);
 
         if (brandNew) {
-            createFolder(rc, KWallet::Wallet::PasswordFolder(), appid);
-            createFolder(rc, KWallet::Wallet::FormDataFolder(), appid);
+            createFolder(rc, KWallet::Wallet::PasswordFolder());
+            createFolder(rc, KWallet::Wallet::FormDataFolder());
         }
 
         b->ref();
@@ -629,8 +588,10 @@ int KSecretD::deleteWallet(const QString &wallet)
     return result;
 }
 
-void KSecretD::changePassword(const QString &wallet, qlonglong wId, const QString &appid)
+void KSecretD::changePassword(const QString &wallet, qlonglong wId, const QString &appId)
 {
+    Q_UNUSED(appId);
+
     KWalletTransaction *xact = new KWalletTransaction(connection());
 
     message().setDelayedReply(true);
@@ -638,7 +599,6 @@ void KSecretD::changePassword(const QString &wallet, qlonglong wId, const QStrin
     // TODO GPG this shouldn't be allowed on a GPG managed wallet; a warning
     // should be displayed about this
 
-    xact->appid = appid;
     xact->wallet = wallet;
     xact->wId = wId;
     xact->modal = false;
@@ -658,7 +618,7 @@ void KSecretD::initiateSync(int handle)
     _syncTimers.resetTimer(handle, _syncTime);
 }
 
-void KSecretD::doTransactionChangePassword(const QString &appid, const QString &wallet, qlonglong wId)
+void KSecretD::doTransactionChangePassword(const QString &wallet, qlonglong wId)
 {
     const QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
     int handle = walletInfo.first;
@@ -666,7 +626,7 @@ void KSecretD::doTransactionChangePassword(const QString &appid, const QString &
 
     bool reclose = false;
     if (!w) {
-        handle = doTransactionOpen(appid, wallet, wId, false, QLatin1String(""));
+        handle = doTransactionOpen(wallet, wId, false, QLatin1String(""));
         if (-1 == handle) {
             KMessageBox::errorWId((WId)wId,
                                   i18n("Unable to open wallet. The wallet must be opened in order to change the password."),
@@ -697,7 +657,7 @@ void KSecretD::doTransactionChangePassword(const QString &appid, const QString &
         kpd->setAllowEmptyPasswords(true);
         KColorScheme colorScheme(QPalette::Active, KColorScheme::View);
         kpd->setBackgroundWarningColor(colorScheme.background(KColorScheme::NegativeBackground).color());
-        setupDialog(kpd, (WId)wId, appid, false);
+        setupDialog(kpd, (WId)wId, false);
         if (kpd->exec() == QDialog::Accepted && kpd) {
             QString p = kpd->password();
             if (!p.isNull()) {
@@ -744,7 +704,7 @@ int KSecretD::internalClose(KWallet::Backend *const w, const int handle, const b
     return -1;
 }
 
-int KSecretD::close(int handle, const QString &appid, const QDBusMessage &message)
+int KSecretD::close(int handle, const QDBusMessage &message)
 {
     KWallet::Backend *w = _wallets.value(handle);
 
@@ -792,12 +752,12 @@ QStringList KSecretD::wallets() const
     return rc;
 }
 
-void KSecretD::sync(int handle, const QString &appid)
+void KSecretD::sync(int handle)
 {
     KWallet::Backend *b;
 
     // get the wallet and check if we have a password for it (safety measure)
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         QString wallet = b->walletName();
         b->sync(0);
     }
@@ -813,22 +773,22 @@ void KSecretD::timedOutSync(int handle)
     }
 }
 
-QStringList KSecretD::folderList(int handle, const QString &appid)
+QStringList KSecretD::folderList(int handle)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         return b->folderList();
     }
 
     return QStringList();
 }
 
-bool KSecretD::createFolder(int handle, const QString &f, const QString &appid)
+bool KSecretD::createFolder(int handle, const QString &f)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         bool rc = b->createFolder(f);
         initiateSync(handle);
         return rc;
@@ -837,11 +797,11 @@ bool KSecretD::createFolder(int handle, const QString &f, const QString &appid)
     return false;
 }
 
-QByteArray KSecretD::readMap(int handle, const QString &folder, const QString &key, const QString &appid)
+QByteArray KSecretD::readMap(int handle, const QString &folder, const QString &key)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         b->setFolder(folder);
         KWallet::Entry *e = b->readEntry(key);
         if (e && e->type() == KWallet::Wallet::Map) {
@@ -852,11 +812,11 @@ QByteArray KSecretD::readMap(int handle, const QString &folder, const QString &k
     return QByteArray();
 }
 
-QByteArray KSecretD::readEntry(int handle, const QString &folder, const QString &key, const QString &appid)
+QByteArray KSecretD::readEntry(int handle, const QString &folder, const QString &key)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         b->setFolder(folder);
         KWallet::Entry *e = b->readEntry(key);
         if (e) {
@@ -867,11 +827,11 @@ QByteArray KSecretD::readEntry(int handle, const QString &folder, const QString 
     return QByteArray();
 }
 
-QStringList KSecretD::entryList(int handle, const QString &folder, const QString &appid)
+QStringList KSecretD::entryList(int handle, const QString &folder)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         b->setFolder(folder);
         return b->entryList();
     }
@@ -879,11 +839,11 @@ QStringList KSecretD::entryList(int handle, const QString &folder, const QString
     return QStringList();
 }
 
-QString KSecretD::readPassword(int handle, const QString &folder, const QString &key, const QString &appid)
+QString KSecretD::readPassword(int handle, const QString &folder, const QString &key)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         b->setFolder(folder);
         KWallet::Entry *e = b->readEntry(key);
         if (e && e->type() == KWallet::Wallet::Password) {
@@ -894,11 +854,11 @@ QString KSecretD::readPassword(int handle, const QString &folder, const QString 
     return QString();
 }
 
-int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, const QString &appid)
+int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         b->setFolder(folder);
         KWallet::Entry e;
         e.setKey(key);
@@ -913,11 +873,11 @@ int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, 
     return -1;
 }
 
-int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType, const QString &appid)
+int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         b->setFolder(folder);
         KWallet::Entry e;
         e.setKey(key);
@@ -931,11 +891,11 @@ int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, 
     return -1;
 }
 
-int KSecretD::writePassword(int handle, const QString &folder, const QString &key, const QString &value, const QString &appid)
+int KSecretD::writePassword(int handle, const QString &folder, const QString &key, const QString &value)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         b->setFolder(folder);
         KWallet::Entry e;
         e.setKey(key);
@@ -950,11 +910,11 @@ int KSecretD::writePassword(int handle, const QString &folder, const QString &ke
     return -1;
 }
 
-int KSecretD::entryType(int handle, const QString &folder, const QString &key, const QString &appid)
+int KSecretD::entryType(int handle, const QString &folder, const QString &key)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         if (!b->hasFolder(folder)) {
             return KWallet::Wallet::Unknown;
         }
@@ -967,11 +927,11 @@ int KSecretD::entryType(int handle, const QString &folder, const QString &key, c
     return KWallet::Wallet::Unknown;
 }
 
-bool KSecretD::hasEntry(int handle, const QString &folder, const QString &key, const QString &appid)
+bool KSecretD::hasEntry(int handle, const QString &folder, const QString &key)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         if (!b->hasFolder(folder)) {
             return false;
         }
@@ -982,11 +942,11 @@ bool KSecretD::hasEntry(int handle, const QString &folder, const QString &key, c
     return false;
 }
 
-int KSecretD::removeEntry(int handle, const QString &folder, const QString &key, const QString &appid)
+int KSecretD::removeEntry(int handle, const QString &folder, const QString &key)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         if (!b->hasFolder(folder)) {
             return 0;
         }
@@ -1000,7 +960,7 @@ int KSecretD::removeEntry(int handle, const QString &folder, const QString &key,
     return -1;
 }
 
-KWallet::Backend *KSecretD::getWallet(const QString &appid, int handle)
+KWallet::Backend *KSecretD::getWallet(int handle)
 {
     if (handle == 0) {
         return nullptr;
@@ -1035,11 +995,11 @@ void KSecretD::notifyFailures()
     }
 }
 
-int KSecretD::renameEntry(int handle, const QString &folder, const QString &oldName, const QString &newName, const QString &appid)
+int KSecretD::renameEntry(int handle, const QString &folder, const QString &oldName, const QString &newName)
 {
     KWallet::Backend *b;
 
-    if ((b = getWallet(appid, handle))) {
+    if ((b = getWallet(handle))) {
         b->setFolder(folder);
         int rc = b->renameEntry(oldName, newName);
         initiateSync(handle);
