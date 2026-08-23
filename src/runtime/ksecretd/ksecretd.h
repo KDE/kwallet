@@ -42,7 +42,7 @@ public:
     int openAsync(const QString &wallet, qlonglong wId, const QString &appid, const QDBusConnection &connection, const QDBusMessage &message);
     // Close and lock the wallet
     // Accepts "message" for working from other QDBusContexts
-    int close(int handle, bool force, const QString &appid, const QDBusMessage &message);
+    int close(int handle, const QString &appid, const QDBusMessage &message);
 
 public Q_SLOTS:
     // Save to disk but leave open

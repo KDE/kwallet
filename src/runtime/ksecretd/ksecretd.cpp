@@ -829,13 +829,13 @@ int KSecretD::internalClose(KWallet::Backend *const w, const int handle, const b
     return -1;
 }
 
-int KSecretD::close(int handle, bool force, const QString &appid, const QDBusMessage &message)
+int KSecretD::close(int handle, const QString &appid, const QDBusMessage &message)
 {
     KWallet::Backend *w = _wallets.value(handle);
 
     if (w) {
         w->deref();
-        return internalClose(w, handle, force);
+        return internalClose(w, handle, true);
     }
     return -1; // not open to begin with, or other error
 }
