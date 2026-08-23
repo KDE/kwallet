@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:41+0000\n"
+"POT-Creation-Date: 2026-08-23 00:41+0000\n"
 "PO-Revision-Date: 2026-03-02 05:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -139,14 +139,14 @@ msgstr "傳統加密檔"
 msgid "Use GPG encryption, for better protection"
 msgstr "使用 GPG 加密，取得較佳的保護"
 
-#: ksecretd/ksecretd.cpp:516
+#: ksecretd/ksecretd.cpp:514
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
 "password for this wallet below.</qt>"
 msgstr "<qt>KDE 被要求開啟錢包「<b>%1</b>」。請在下面輸入這個錢包的密碼。</qt>"
 
-#: ksecretd/ksecretd.cpp:520
+#: ksecretd/ksecretd.cpp:518
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -156,20 +156,20 @@ msgstr ""
 "碼。</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:531 ksecretd/ksecretd.cpp:640
-#: ksecretd/ksecretd.cpp:788 ksecretd/ksecretd.cpp:811
-#: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:827
-#: ksecretd/ksecretd.cpp:1234 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:529 ksecretd/ksecretd.cpp:638
+#: ksecretd/ksecretd.cpp:771 ksecretd/ksecretd.cpp:794
+#: ksecretd/ksecretd.cpp:805 ksecretd/ksecretd.cpp:810
+#: ksecretd/ksecretd.cpp:1217 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE 錢包服務"
 
-#: ksecretd/ksecretd.cpp:546
+#: ksecretd/ksecretd.cpp:544
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "有個應用程式要求開啟錢包（%1）。"
 
-#: ksecretd/ksecretd.cpp:547
+#: ksecretd/ksecretd.cpp:545
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -177,19 +177,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "在那裡切換"
 
-#: ksecretd/ksecretd.cpp:549
+#: ksecretd/ksecretd.cpp:547
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> 已要求開啟錢包（%2）。"
 
-#: ksecretd/ksecretd.cpp:551
+#: ksecretd/ksecretd.cpp:549
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "切換到 %1"
 
-#: ksecretd/ksecretd.cpp:568 ksecretd/ksecretd.cpp:650
+#: ksecretd/ksecretd.cpp:566 ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -198,7 +198,7 @@ msgstr ""
 "<qt>在開啟錢包「<b>%1</b>」時發生錯誤。請再試一次。<br />(錯誤代碼 %2: %3)</"
 "qt>"
 
-#: ksecretd/ksecretd.cpp:616
+#: ksecretd/ksecretd.cpp:614
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -208,7 +208,7 @@ msgstr ""
 "KDE 被要求開啟錢包。這是一種很安全的儲存敏感資料的方式。請輸入密碼來使用這個"
 "錢包或者按取消來拒絕應用程式的要求。"
 
-#: ksecretd/ksecretd.cpp:621
+#: ksecretd/ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -219,7 +219,7 @@ msgstr ""
 "<qt>應用程式「<b>%1</b>」要求開啟 KDE 錢包。這是一種很安全的儲存敏感資料的方"
 "式。請輸入密碼來使用這個錢包或者按取消來拒絕應用程式的要求。</qt>"
 
-#: ksecretd/ksecretd.cpp:629
+#: ksecretd/ksecretd.cpp:627
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -229,7 +229,7 @@ msgstr ""
 "<qt>KDE 被要求建立一個新的名為「<b>%1</b>」的錢包。請選擇給這個錢包使用的密"
 "碼，或者按取消來拒絕應用程式的要求。</qt>"
 
-#: ksecretd/ksecretd.cpp:634
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -239,14 +239,14 @@ msgstr ""
 "<qt>應用程式「<b>%1</b>」要求建立一個新的名為「<b>%2</b>」的錢包。請選擇給這"
 "個錢包使用的密碼，或者按取消來拒絕應用程式的要求。</qt>"
 
-#: ksecretd/ksecretd.cpp:787
+#: ksecretd/ksecretd.cpp:770
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "無法開啟錢包。必須開啟這個錢包才能夠改變密碼。"
 
-#: ksecretd/ksecretd.cpp:803
+#: ksecretd/ksecretd.cpp:786
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -256,22 +256,22 @@ msgstr ""
 "<qt>錢包 <b>%1</b> 是用 GPG 金鑰 <b>%2</b> 加密的。請用 <b>GPG</b> 工具（如 "
 "<b>kleopatra</b>）來變更該金鑰的密碼片語。</qt>"
 
-#: ksecretd/ksecretd.cpp:810
+#: ksecretd/ksecretd.cpp:793
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>請選擇一個新的密碼給錢包「<b>%1</b>」。</qt>"
 
-#: ksecretd/ksecretd.cpp:822
+#: ksecretd/ksecretd.cpp:805
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "重新加密錢包時發生錯誤。密碼尚未變更。"
 
-#: ksecretd/ksecretd.cpp:827
+#: ksecretd/ksecretd.cpp:810
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "重開錢包發生錯誤。資料可能流失。"
 
-#: ksecretd/ksecretd.cpp:1233
+#: ksecretd/ksecretd.cpp:1216
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -607,52 +607,52 @@ msgstr ""
 "<qt>試著開啟錢包 <b>%1</b> 時發生錯誤。此錢包使用 GPG 金鑰代碼 <b>%2</b> 加"
 "密，但是您的系統中找不到該金鑰。</qt>"
 
-#: kwalletbackend/kwalletbackend.cc:290
+#: kwalletbackend/kwalletbackend.cc:286
 #, kde-format
 msgid "Already open."
 msgstr "已開啟。"
 
-#: kwalletbackend/kwalletbackend.cc:292
+#: kwalletbackend/kwalletbackend.cc:288
 #, kde-format
 msgid "Error opening file."
 msgstr "開啟檔案時發生錯誤。"
 
-#: kwalletbackend/kwalletbackend.cc:294
+#: kwalletbackend/kwalletbackend.cc:290
 #, kde-format
 msgid "Not a wallet file."
 msgstr "不是一個錢包檔案。"
 
-#: kwalletbackend/kwalletbackend.cc:296
+#: kwalletbackend/kwalletbackend.cc:292
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "不支援的檔案格式版本。"
 
-#: kwalletbackend/kwalletbackend.cc:300
+#: kwalletbackend/kwalletbackend.cc:296
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "不明的加密方案。"
 
-#: kwalletbackend/kwalletbackend.cc:302
+#: kwalletbackend/kwalletbackend.cc:298
 #, kde-format
 msgid "Corrupt file?"
 msgstr "檔案或已損毀﹖"
 
-#: kwalletbackend/kwalletbackend.cc:304
+#: kwalletbackend/kwalletbackend.cc:300
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "檢驗錢包完整度時發生錯誤。可能已損壞。"
 
-#: kwalletbackend/kwalletbackend.cc:308
+#: kwalletbackend/kwalletbackend.cc:304
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "讀取錯誤 - 密碼可能有誤。"
 
-#: kwalletbackend/kwalletbackend.cc:310
+#: kwalletbackend/kwalletbackend.cc:306
 #, kde-format
 msgid "Decryption error."
 msgstr "解密錯誤。"
 
-#: kwalletbackend/kwalletbackend.cc:490
+#: kwalletbackend/kwalletbackend.cc:486
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"

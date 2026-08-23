@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:41+0000\n"
+"POT-Creation-Date: 2026-08-23 00:41+0000\n"
 "PO-Revision-Date: 2009-06-26 00:18+0200\n"
 "Last-Translator: Rinse de Vries <rinsedevries@kde.nl>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -133,14 +133,14 @@ msgstr ""
 msgid "Use GPG encryption, for better protection"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:516
+#: ksecretd/ksecretd.cpp:514
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
 "password for this wallet below.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:520
+#: ksecretd/ksecretd.cpp:518
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -148,20 +148,20 @@ msgid ""
 msgstr ""
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:531 ksecretd/ksecretd.cpp:640
-#: ksecretd/ksecretd.cpp:788 ksecretd/ksecretd.cpp:811
-#: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:827
-#: ksecretd/ksecretd.cpp:1234 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:529 ksecretd/ksecretd.cpp:638
+#: ksecretd/ksecretd.cpp:771 ksecretd/ksecretd.cpp:794
+#: ksecretd/ksecretd.cpp:805 ksecretd/ksecretd.cpp:810
+#: ksecretd/ksecretd.cpp:1217 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, fuzzy, kde-format
 msgid "KDE Wallet Service"
 msgstr "KWallet Slûf-tsjinst"
 
-#: ksecretd/ksecretd.cpp:546
+#: ksecretd/ksecretd.cpp:544
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:547
+#: ksecretd/ksecretd.cpp:545
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -169,26 +169,26 @@ msgctxt ""
 msgid "Switch there"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:549
+#: ksecretd/ksecretd.cpp:547
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:551
+#: ksecretd/ksecretd.cpp:549
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:568 ksecretd/ksecretd.cpp:650
+#: ksecretd/ksecretd.cpp:566 ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
 "%2: %3)</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:616
+#: ksecretd/ksecretd.cpp:614
 #, fuzzy, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -199,7 +199,7 @@ msgstr ""
 "feilich bewarjen fan fertroulike ynformaasje. Fier in wachtwurd yn om dizze "
 "slûf te brûken, of klik ôfbrekke om it fersyk ôf te wizen."
 
-#: ksecretd/ksecretd.cpp:621
+#: ksecretd/ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -208,7 +208,7 @@ msgid ""
 "qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:629
+#: ksecretd/ksecretd.cpp:627
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -216,7 +216,7 @@ msgid ""
 "request.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:634
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -224,7 +224,7 @@ msgid ""
 "application's request.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:787
+#: ksecretd/ksecretd.cpp:770
 #, fuzzy, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -233,7 +233,7 @@ msgstr ""
 "Kin de slûf net iepenje. De slûf moat iepene wurde om it wachtwurd oanpasse "
 "te kinnen."
 
-#: ksecretd/ksecretd.cpp:803
+#: ksecretd/ksecretd.cpp:786
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -241,25 +241,25 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:810
+#: ksecretd/ksecretd.cpp:793
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:822
+#: ksecretd/ksecretd.cpp:805
 #, fuzzy, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
 "Flater by it op 'e nij fersiferen fan de slûf. Wachtwurd is net wizige."
 
-#: ksecretd/ksecretd.cpp:827
+#: ksecretd/ksecretd.cpp:810
 #, fuzzy, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Flater by it op 'e nij iepenjen fan de slûf. Ynformaasje is mooglik wei "
 "wurden."
 
-#: ksecretd/ksecretd.cpp:1233
+#: ksecretd/ksecretd.cpp:1216
 #, fuzzy, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -578,53 +578,53 @@ msgid ""
 "system.</qt>"
 msgstr ""
 
-#: kwalletbackend/kwalletbackend.cc:290
+#: kwalletbackend/kwalletbackend.cc:286
 #, fuzzy, kde-format
 msgid "Already open."
 msgstr "Is al iepene."
 
-#: kwalletbackend/kwalletbackend.cc:292
+#: kwalletbackend/kwalletbackend.cc:288
 #, fuzzy, kde-format
 msgid "Error opening file."
 msgstr "Flater by it iepenjen fan triem."
 
-#: kwalletbackend/kwalletbackend.cc:294
+#: kwalletbackend/kwalletbackend.cc:290
 #, fuzzy, kde-format
 msgid "Not a wallet file."
 msgstr "Gjin slûftriem."
 
-#: kwalletbackend/kwalletbackend.cc:296
+#: kwalletbackend/kwalletbackend.cc:292
 #, fuzzy, kde-format
 msgid "Unsupported file format revision."
 msgstr "Net-stipe triem revyzje."
 
-#: kwalletbackend/kwalletbackend.cc:300
+#: kwalletbackend/kwalletbackend.cc:296
 #, fuzzy, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Unbekend fersifere skema."
 
-#: kwalletbackend/kwalletbackend.cc:302
+#: kwalletbackend/kwalletbackend.cc:298
 #, fuzzy, kde-format
 msgid "Corrupt file?"
 msgstr "Triem skansearre?"
 
-#: kwalletbackend/kwalletbackend.cc:304
+#: kwalletbackend/kwalletbackend.cc:300
 #, fuzzy, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr ""
 "In flater by de yntegriteitkontrôle fan de slûf. Wierskynlik skansearre."
 
-#: kwalletbackend/kwalletbackend.cc:308
+#: kwalletbackend/kwalletbackend.cc:304
 #, fuzzy, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "Lêsflater - Wierskinlik in ynkorrekt wachtwurd."
 
-#: kwalletbackend/kwalletbackend.cc:310
+#: kwalletbackend/kwalletbackend.cc:306
 #, fuzzy, kde-format
 msgid "Decryption error."
 msgstr "Flater by it ûntsiferjen."
 
-#: kwalletbackend/kwalletbackend.cc:490
+#: kwalletbackend/kwalletbackend.cc:486
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"

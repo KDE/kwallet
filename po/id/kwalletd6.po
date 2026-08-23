@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:41+0000\n"
+"POT-Creation-Date: 2026-08-23 00:41+0000\n"
 "PO-Revision-Date: 2020-02-25 21:56+0700\n"
 "Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -147,7 +147,7 @@ msgstr "Klasik, file terenkripsi blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Gunakan enkripsi GPG, untuk proteksi lebih baik"
 
-#: ksecretd/ksecretd.cpp:516
+#: ksecretd/ksecretd.cpp:514
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -156,7 +156,7 @@ msgstr ""
 "<qt>KDE telah meminta untuk membuka wallet '<b>%1</b>'. Silakan masukkan "
 "sandi untuk wallet ini di bawah.</qt>"
 
-#: ksecretd/ksecretd.cpp:520
+#: ksecretd/ksecretd.cpp:518
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -166,20 +166,20 @@ msgstr ""
 "Silakan masukkan sandi untuk wallet ini di bawah.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:531 ksecretd/ksecretd.cpp:640
-#: ksecretd/ksecretd.cpp:788 ksecretd/ksecretd.cpp:811
-#: ksecretd/ksecretd.cpp:822 ksecretd/ksecretd.cpp:827
-#: ksecretd/ksecretd.cpp:1234 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:529 ksecretd/ksecretd.cpp:638
+#: ksecretd/ksecretd.cpp:771 ksecretd/ksecretd.cpp:794
+#: ksecretd/ksecretd.cpp:805 ksecretd/ksecretd.cpp:810
+#: ksecretd/ksecretd.cpp:1217 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Layanan Wallet KDE"
 
-#: ksecretd/ksecretd.cpp:546
+#: ksecretd/ksecretd.cpp:544
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Sebuah aplikasi telah meminta untuk membuka wallet (%1)."
 
-#: ksecretd/ksecretd.cpp:547
+#: ksecretd/ksecretd.cpp:545
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -187,19 +187,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Ganti di sana"
 
-#: ksecretd/ksecretd.cpp:549
+#: ksecretd/ksecretd.cpp:547
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> telah meminta untuk membuka wallet (%2)."
 
-#: ksecretd/ksecretd.cpp:551
+#: ksecretd/ksecretd.cpp:549
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Ganti ke %1"
 
-#: ksecretd/ksecretd.cpp:568 ksecretd/ksecretd.cpp:650
+#: ksecretd/ksecretd.cpp:566 ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -208,7 +208,7 @@ msgstr ""
 "<qt>Error membuka wallet '<b>%1</b>'. Silakan coba lagi.<br />(Kode error "
 "%2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:616
+#: ksecretd/ksecretd.cpp:614
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -219,7 +219,7 @@ msgstr ""
 "sensitif dengan cara yang aman. Silakan masukkan sandi untuk digunakan oleh "
 "wallet ini atau klik batal untuk menolak permintaan aplikasi."
 
-#: ksecretd/ksecretd.cpp:621
+#: ksecretd/ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -232,7 +232,7 @@ msgstr ""
 "masukkan sandi untuk digunakan oleh wallet ini atau klik batal untuk menolak "
 "permintaan aplikasi.</qt>"
 
-#: ksecretd/ksecretd.cpp:629
+#: ksecretd/ksecretd.cpp:627
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -243,7 +243,7 @@ msgstr ""
 "pilih sandi untuk wallet ini, atau batal untuk menolak permintaan aplikasi.</"
 "qt>"
 
-#: ksecretd/ksecretd.cpp:634
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -254,7 +254,7 @@ msgstr ""
 "%2</b>'. Silakan pilih sandi baru untuk wallet ini, atau batal untuk menolak "
 "permintaan aplikasi.</qt>"
 
-#: ksecretd/ksecretd.cpp:787
+#: ksecretd/ksecretd.cpp:770
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -262,7 +262,7 @@ msgid ""
 msgstr ""
 "Tak dapat membuka wallet. wallet harus dibuka agar dapat mengubah sandi."
 
-#: ksecretd/ksecretd.cpp:803
+#: ksecretd/ksecretd.cpp:786
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -273,22 +273,22 @@ msgstr ""
 "gunakan alat <b>GPG</b> (seperti <b>kleopatra</b>) untuk mengubah frasa kata "
 "yang diasosiasikan dengan kunci tersebut.</qt>"
 
-#: ksecretd/ksecretd.cpp:810
+#: ksecretd/ksecretd.cpp:793
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Silakan pilih sandi baru untuk wallet '<b>%1</b>'.</qt>"
 
-#: ksecretd/ksecretd.cpp:822
+#: ksecretd/ksecretd.cpp:805
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Error mengenkripsi ulang wallet. Sandi tidak diubah."
 
-#: ksecretd/ksecretd.cpp:827
+#: ksecretd/ksecretd.cpp:810
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Error membuka ulang wallet. Data mungkin hilang."
 
-#: ksecretd/ksecretd.cpp:1233
+#: ksecretd/ksecretd.cpp:1216
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -661,52 +661,52 @@ msgstr ""
 "menggunakan ID Kunci GPG <b>%2</b> tapi kunci ini tidak ditemukan di sistem "
 "anda.</qt>"
 
-#: kwalletbackend/kwalletbackend.cc:290
+#: kwalletbackend/kwalletbackend.cc:286
 #, kde-format
 msgid "Already open."
 msgstr "Telah terbuka."
 
-#: kwalletbackend/kwalletbackend.cc:292
+#: kwalletbackend/kwalletbackend.cc:288
 #, kde-format
 msgid "Error opening file."
 msgstr "Error membuka file."
 
-#: kwalletbackend/kwalletbackend.cc:294
+#: kwalletbackend/kwalletbackend.cc:290
 #, kde-format
 msgid "Not a wallet file."
 msgstr "Buka file wallet."
 
-#: kwalletbackend/kwalletbackend.cc:296
+#: kwalletbackend/kwalletbackend.cc:292
 #, kde-format
 msgid "Unsupported file format revision."
 msgstr "Revisi format file tidak didukung."
 
-#: kwalletbackend/kwalletbackend.cc:300
+#: kwalletbackend/kwalletbackend.cc:296
 #, kde-format
 msgid "Unknown encryption scheme."
 msgstr "Skema enkripsi tak diketahui."
 
-#: kwalletbackend/kwalletbackend.cc:302
+#: kwalletbackend/kwalletbackend.cc:298
 #, kde-format
 msgid "Corrupt file?"
 msgstr "File korup?"
 
-#: kwalletbackend/kwalletbackend.cc:304
+#: kwalletbackend/kwalletbackend.cc:300
 #, kde-format
 msgid "Error validating wallet integrity. Possibly corrupted."
 msgstr "Error mengabsahkan integritas wallet. Kemungkinan korup."
 
-#: kwalletbackend/kwalletbackend.cc:308
+#: kwalletbackend/kwalletbackend.cc:304
 #, kde-format
 msgid "Read error - possibly incorrect password."
 msgstr "Error baca - kemungkinan sandi salah."
 
-#: kwalletbackend/kwalletbackend.cc:310
+#: kwalletbackend/kwalletbackend.cc:306
 #, kde-format
 msgid "Decryption error."
 msgstr "Error dekripsi."
 
-#: kwalletbackend/kwalletbackend.cc:490
+#: kwalletbackend/kwalletbackend.cc:486
 #, kde-format
 msgid ""
 "Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
