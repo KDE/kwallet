@@ -974,7 +974,7 @@ void KWalletD::reconfigure()
     m_closeIdle = settings.closeWhenIdle();
     const int idleTime = m_idleTime;
     // in minutes!
-    m_idleTime = settings.idleTimeout();
+    m_idleTime = settings.idleTimeout() * 60 * 1000;
 
     if (wasEnabled != m_enabled) {
         if (isEnabled()) {
