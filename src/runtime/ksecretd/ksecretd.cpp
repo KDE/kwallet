@@ -93,14 +93,12 @@ public:
         Open,
         ChangePassword,
         OpenFail,
-        CloseCancelled,
     };
     Type tType = Unknown;
     QString appid;
     qlonglong wId;
     QString wallet;
     QString service;
-    bool cancelled = false; // set true if the client dies before open
     bool modal;
     int tId; // transaction id
     int res;
@@ -220,15 +218,6 @@ void KSecretD::processTransactions()
                         x->tType = KWalletTransaction::OpenFail;
                     }
                 }
-            } else if (_curtrans->cancelled) {
-                // the wallet opened successfully but the application
-                // opening exited/crashed while the dialog was still shown.
-                KWalletTransaction *_xact = new KWalletTransaction(_curtrans->connection);
-                _xact->tType = KWalletTransaction::CloseCancelled;
-                _xact->appid = _curtrans->appid;
-                _xact->wallet = _curtrans->wallet;
-                _xact->service = _curtrans->service;
-                _transactions.append(_xact);
             }
 
             // emit the AsyncOpened signal as a reply
@@ -244,10 +233,6 @@ void KSecretD::processTransactions()
 
         case KWalletTransaction::ChangePassword:
             doTransactionChangePassword(_curtrans->appid, _curtrans->wallet, _curtrans->wId);
-            break;
-
-        case KWalletTransaction::CloseCancelled:
-            doTransactionOpenCancelled(_curtrans->appid, _curtrans->wallet, _curtrans->service);
             break;
 
         case KWalletTransaction::Unknown:
@@ -828,17 +813,6 @@ void KSecretD::timedOutSync(int handle)
         _wallets[handle]->sync(0);
     } else {
         qDebug("wallet not found for sync!");
-    }
-}
-
-void KSecretD::doTransactionOpenCancelled(const QString &appid, const QString &wallet, const QString &service)
-{
-    const QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
-    int handle = walletInfo.first;
-    KWallet::Backend *b = walletInfo.second;
-    if (handle != -1 && b) {
-        b->deref();
-        internalClose(b, handle, false);
     }
 }
 

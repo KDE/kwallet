@@ -136,7 +136,6 @@ private:
     void emitEntryDeleted(const QString &, const QString &, const QString &);
 
     void doTransactionChangePassword(const QString &appid, const QString &wallet, qlonglong wId);
-    void doTransactionOpenCancelled(const QString &appid, const QString &wallet, const QString &service);
     int doTransactionOpen(const QString &appid, const QString &wallet, qlonglong wId, bool modal, const QString &service);
     void initiateSync(int handle);
 
