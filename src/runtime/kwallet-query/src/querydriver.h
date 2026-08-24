@@ -17,7 +17,11 @@ class QueryDriver : public QCoreApplication
 {
     Q_OBJECT
 public:
-    enum Mode { List, Read, Write };
+    enum Mode {
+        List,
+        Read,
+        Write
+    };
     QueryDriver(int &argc, char *argv[]);
     ~QueryDriver() override;
 

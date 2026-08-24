@@ -87,7 +87,7 @@ void FdoSecretsTest::precreatedWallets()
 {
     const QStringList wallets = {"wallet1", "wallet2", "wallet2__0_", "wallet2__1_"};
     SET_FUNCTION_RESULT(KSecretD::wallets, wallets);
-    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool(KSecretD::*)(int));
+    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool (KSecretD::*)(int));
 
     std::unique_ptr<KSecretD> kwalletd{new KSecretD};
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
@@ -339,7 +339,7 @@ void FdoSecretsTest::items()
     QVERIFY(prompt);
     prompt->Prompt("wndid");
     Q_EMIT kwalletd->walletAsyncOpened(0, 0);
-    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool(KSecretD::*)(int));
+    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool (KSecretD::*)(int));
     QVERIFY(!collection->locked());
 
     auto item1 = collection->findItemByEntryLocation({FDO_SECRETS_DEFAULT_DIR, "item1"});
@@ -465,7 +465,7 @@ void FdoSecretsTest::createLockUnlockCollection()
     auto lockedObjects = service->Lock({createdCollection->fdoObjectPath()}, promptPath);
     QCOMPARE(lockedObjects.size(), 1);
     QCOMPARE(lockedObjects.front(), createdCollection->fdoObjectPath());
-    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, false, bool(KSecretD::*)(int));
+    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, false, bool (KSecretD::*)(int));
     QVERIFY(createdCollection->locked());
 
     service->Unlock({createdCollection->fdoObjectPath()}, promptPath);
@@ -475,7 +475,7 @@ void FdoSecretsTest::createLockUnlockCollection()
     prompt->Prompt("wndid");
     QVERIFY(openAsyncCalled);
     Q_EMIT kwalletd->walletAsyncOpened(0, 0);
-    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool(KSecretD::*)(int));
+    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool (KSecretD::*)(int));
     QVERIFY(!createdCollection->locked());
 }
 
@@ -650,7 +650,7 @@ void FdoSecretsTest::invalidUtf8Rejected()
     QVERIFY(prompt);
     prompt->Prompt("wndid");
     Q_EMIT kwalletd->walletAsyncOpened(0, 0);
-    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool(KSecretD::*)(int));
+    SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool (KSecretD::*)(int));
     QVERIFY(!collection->locked());
 
     auto item = collection->findItemByEntryLocation({FDO_SECRETS_DEFAULT_DIR, "item1"});

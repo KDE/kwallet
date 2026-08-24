@@ -173,9 +173,7 @@ int main(int argc, char **argv)
     // BUG 509680: When launched by PAM (hash != nullptr), use Replace so that
     // if a premature D-Bus-activated instance grabbed the bus name, the PAM
     // instance takes over (it has the password hash for auto-unlock).
-    KDBusService dbusUniqueInstance(hash
-        ? (KDBusService::Unique | KDBusService::Replace)
-        : KDBusService::Unique);
+    KDBusService dbusUniqueInstance(hash ? (KDBusService::Unique | KDBusService::Replace) : KDBusService::Unique);
 
     // NOTE: the command should be parsed only after KDBusService instantiation
     QCommandLineParser cmdParser;
