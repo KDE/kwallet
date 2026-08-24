@@ -347,6 +347,7 @@ int Wallet::sync()
 }
 #endif
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(6, 30)
 int Wallet::lockWallet()
 {
     if (d->handle == -1) {
@@ -364,6 +365,7 @@ int Wallet::lockWallet()
         return -1;
     }
 }
+#endif
 
 const QString &Wallet::walletName() const
 {
@@ -375,6 +377,7 @@ bool Wallet::isOpen() const
     return d->handle != -1;
 }
 
+#if KWALLET_BUILD_DEPRECATED_SINCE(6, 30)
 void Wallet::requestChangePassword(WId w)
 {
     if (w == 0) {
@@ -387,6 +390,7 @@ void Wallet::requestChangePassword(WId w)
 
     walletLauncher()->getInterface().changePassword(d->name, (qlonglong)w, appid());
 }
+#endif
 
 void Wallet::slotWalletClosed(int handle)
 {
