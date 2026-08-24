@@ -1087,7 +1087,6 @@ void KSecretD::reconfigure()
     KWalletSettings settings;
     _firstUse = settings.firstUse();
     _launchManager = settings.launchManager();
-    _leaveOpen = settings.leaveOpen();
     bool idleSave = _closeIdle;
     _closeIdle = settings.closeWhenIdle();
     int timeSave = _idleTime;

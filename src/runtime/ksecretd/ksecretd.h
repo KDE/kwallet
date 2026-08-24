@@ -150,7 +150,7 @@ private:
     int _failed;
 
     // configuration values
-    bool _leaveOpen, _closeIdle, _launchManager;
+    bool _closeIdle, _launchManager;
     bool _firstUse, _showingFailureNotify;
     int _idleTime;
     KTimeout _closeTimers;
