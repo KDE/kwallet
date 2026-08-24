@@ -124,7 +124,7 @@ private:
     // Internal - open a wallet
     int internalOpen(const QString &appid, const QString &wallet, WId w, bool modal, const QString &service);
     // Internal - close this wallet.
-    int internalClose(KWallet::Backend *const w, const int handle, const bool force, const bool saveBeforeClose = true);
+    int internalClose(KWallet::Backend *const w, const int handle, const bool saveBeforeClose = true);
 
     // This also validates the handle.  May return NULL.
     KWallet::Backend *getWallet(const QString &appid, int handle);

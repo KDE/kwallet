@@ -615,7 +615,7 @@ int KSecretD::deleteWallet(const QString &wallet)
 
     if (QFile::exists(path)) {
         const QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
-        internalClose(walletInfo.second, walletInfo.first, true);
+        internalClose(walletInfo.second, walletInfo.first);
         QFile::remove(path);
         Q_EMIT walletDeleted(wallet);
 
@@ -722,26 +722,23 @@ void KSecretD::doTransactionChangePassword(const QString &appid, const QString &
 #endif
 
     if (reclose) {
-        internalClose(w, handle, true);
+        internalClose(w, handle);
     }
 }
 
-int KSecretD::internalClose(KWallet::Backend *const w, const int handle, const bool force, const bool saveBeforeClose)
+int KSecretD::internalClose(KWallet::Backend *const w, const int handle, const bool saveBeforeClose)
 {
     if (w) {
         const QString &wallet = w->walletName();
-        if ((w->refCount() == 0 && !_leaveOpen) || force) {
-            if (_closeIdle) {
-                _closeTimers.removeTimer(handle);
-            }
-            _syncTimers.removeTimer(handle);
-            _wallets.remove(handle);
-            w->close(saveBeforeClose);
-            _fdoService->lockCollection(wallet);
-            delete w;
-            return 0;
+        if (_closeIdle) {
+            _closeTimers.removeTimer(handle);
         }
-        return 1;
+        _syncTimers.removeTimer(handle);
+        _wallets.remove(handle);
+        w->close(saveBeforeClose);
+        _fdoService->lockCollection(wallet);
+        delete w;
+        return 0;
     }
 
     return -1;
@@ -753,7 +750,7 @@ int KSecretD::close(int handle, const QString &appid, const QDBusMessage &messag
 
     if (w) {
         w->deref();
-        return internalClose(w, handle, true);
+        return internalClose(w, handle);
     }
     return -1; // not open to begin with, or other error
 }
@@ -1080,7 +1077,7 @@ void KSecretD::emitWalletListDirty()
     const auto lst = _wallets.values();
     for (auto i : lst) {
         if (!walletsInDisk.contains(i->walletName())) {
-            internalClose(i, _wallets.key(i), true, false);
+            internalClose(i, _wallets.key(i), false);
         }
     }
 }
@@ -1121,7 +1118,7 @@ void KSecretD::reconfigure()
     if (!isEnabled()) { // close all wallets
         while (!_wallets.isEmpty()) {
             Wallets::const_iterator it = _wallets.constBegin();
-            internalClose(it.value(), it.key(), true);
+            internalClose(it.value(), it.key());
         }
         QApplication::exit(0);
     }
@@ -1141,7 +1138,7 @@ void KSecretD::timedOutClose(int id)
 {
     KWallet::Backend *w = _wallets.value(id);
     if (w) {
-        internalClose(w, id, true);
+        internalClose(w, id);
     }
 }
 
@@ -1152,7 +1149,7 @@ void KSecretD::closeAllWallets()
     Wallets::const_iterator it = walletsCopy.constBegin();
     const Wallets::const_iterator end = walletsCopy.constEnd();
     for (; it != end; ++it) {
-        internalClose(it.value(), it.key(), true);
+        internalClose(it.value(), it.key());
     }
 
     walletsCopy.clear();
