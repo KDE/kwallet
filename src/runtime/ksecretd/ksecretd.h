@@ -107,7 +107,6 @@ public Q_SLOTS:
 Q_SIGNALS:
     void walletAsyncOpened(int id, int handle); // used to notify KWallet::Wallet
     void walletCreated(const QString &wallet);
-    void walletOpened(const QString &wallet);
     void walletDeleted(const QString &wallet);
     void walletClosed(const QString &wallet); // clazy:exclude=overloaded-signal
 

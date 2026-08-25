@@ -601,7 +601,6 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, b
         if (brandNew) {
             Q_EMIT walletCreated(wallet);
         }
-        Q_EMIT walletOpened(wallet);
         if (_wallets.count() == 1 && _launchManager) {
             startManagerForKSecretD();
         }
@@ -1254,7 +1253,6 @@ int KSecretD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
     if (brandNew) {
         Q_EMIT walletCreated(wallet);
     }
-    Q_EMIT walletOpened(wallet);
 
     auto collection = _fdoService->getCollectionByWalletName(wallet);
     collection->onWalletChangeState(handle);
