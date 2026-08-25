@@ -198,7 +198,7 @@ private:
 public Q_SLOTS:
     QDBusObjectPath CreateCollection(const QVariantMap &properties, const QString &alias, QDBusObjectPath &prompt);
     FreedesktopSecretMap GetSecrets(const QList<QDBusObjectPath> &items, const QDBusObjectPath &session);
-    QList<QDBusObjectPath> Lock(const QList<QDBusObjectPath> &objects, QDBusObjectPath &Prompt);
+    QList<QDBusObjectPath> Lock(const QList<QDBusObjectPath> &objects, QDBusObjectPath &prompt);
     QDBusVariant OpenSession(const QString &algorithm, const QDBusVariant &input, QDBusObjectPath &result);
     QDBusObjectPath ReadAlias(const QString &name);
     QList<QDBusObjectPath> SearchItems(const StrStrMap &attributes, QList<QDBusObjectPath> &locked);
