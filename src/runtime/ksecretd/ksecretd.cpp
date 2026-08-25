@@ -752,7 +752,7 @@ int KSecretD::internalClose(KWallet::Backend *const w, const int handle, const b
             _syncTimers.removeTimer(handle);
             _wallets.remove(handle);
             w->close(saveBeforeClose);
-            doCloseSignals(handle, wallet);
+            _fdoService->lockCollection(wallet);
             delete w;
             return 0;
         }
@@ -1062,11 +1062,6 @@ void KSecretD::notifyFailures()
                                  i18n("KDE Wallet Service"));
         _showingFailureNotify = false;
     }
-}
-
-void KSecretD::doCloseSignals(int handle, const QString &wallet)
-{
-    Q_EMIT walletClosed(wallet);
 }
 
 int KSecretD::renameEntry(int handle, const QString &folder, const QString &oldName, const QString &newName, const QString &appid)

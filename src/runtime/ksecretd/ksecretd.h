@@ -133,7 +133,6 @@ private:
     // Generate a new unique handle.
     int generateHandle();
     // Emit signals about closing wallets
-    void doCloseSignals(int, const QString &);
     void emitEntryUpdated(const QString &, const QString &, const QString &);
     void emitEntryRenamed(const QString &, const QString &, const QString &, const QString &);
     void emitEntryDeleted(const QString &, const QString &, const QString &);

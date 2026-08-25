@@ -471,7 +471,6 @@ QDBusObjectPath KWalletFreedesktopService::promptUnlockCollection(const QString 
     return QDBusObjectPath(objectPath);
 }
 
-/* Triggered after KSecretD::walletClosed signal */
 void KWalletFreedesktopService::lockCollection(const QString &name)
 {
     auto *collection = getCollectionByWalletName(name);
