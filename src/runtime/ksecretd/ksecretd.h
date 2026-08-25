@@ -96,7 +96,7 @@ public Q_SLOTS:
 
     // Open a wallet using a pre-hashed password. This is only useful in cooperation
     // with the kwallet PAM module
-    int pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout);
+    int pamOpen(const QString &wallet, const QByteArray &passwordHash);
 
 Q_SIGNALS:
     void walletAsyncOpened(int id, int handle); // used to notify KWallet::Wallet

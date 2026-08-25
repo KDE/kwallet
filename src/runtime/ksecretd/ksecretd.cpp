@@ -1111,7 +1111,7 @@ void KSecretD::activatePasswordDialog()
     checkActiveDialog();
 }
 
-int KSecretD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int sessionTimeout)
+int KSecretD::pamOpen(const QString &wallet, const QByteArray &passwordHash)
 {
     if (_processing) {
         return -1;
@@ -1154,9 +1154,7 @@ int KSecretD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
     // don't reference the wallet or add a session so it
     // can be reclosed easily.
 
-    if (sessionTimeout > 0) {
-        _closeTimers.addTimer(handle, sessionTimeout);
-    } else if (_closeIdle) {
+    if (_closeIdle) {
         _closeTimers.addTimer(handle, _idleTime);
     }
     if (brandNew) {

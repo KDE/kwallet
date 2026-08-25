@@ -197,7 +197,7 @@ int main(int argc, char **argv)
 
     if (hash) {
         QByteArray passHash(hash, PBKDF2_SHA512_KEYSIZE);
-        int wallet = secretd.pamOpen(KWallet::Backend::localWallet(), passHash, 0);
+        int wallet = secretd.pamOpen(KWallet::Backend::localWallet(), passHash);
         if (wallet < 0) {
             qCWarning(KSECRETD_LOG) << "Wallet failed to get opened by PAM, error code is" << wallet;
         } else {
