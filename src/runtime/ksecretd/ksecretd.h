@@ -33,8 +33,6 @@ public:
     KSecretD();
     ~KSecretD() override;
 
-    static QString encodeWalletName(const QString &name);
-    static QString decodeWalletName(const QString &mangledName);
     // Is the wallet enabled?  If not, all open() calls fail.
     static bool isEnabled();
 

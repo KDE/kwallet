@@ -28,9 +28,6 @@ KTimeout::~KTimeout()
 {
 }
 
-MOCK_FUNCTION(KSecretD, encodeWalletName, 1, );
-MOCK_FUNCTION(KSecretD, decodeWalletName, 1, );
-
 MOCK_FUNCTION(KTimeout, clear, 0, );
 MOCK_FUNCTION(KTimeout, resetTimer, 2, );
 MOCK_FUNCTION(KTimeout, removeTimer, 1, );

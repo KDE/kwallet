@@ -17,7 +17,7 @@
 KWalletFreedesktopAttributes::KWalletFreedesktopAttributes(const QString &walletName)
 {
     const QString writeLocation = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kwalletd");
-    _path = writeLocation + QChar::fromLatin1('/') + KSecretD::encodeWalletName(walletName) + QStringLiteral("_attributes.json");
+    _path = writeLocation + QChar::fromLatin1('/') + KWallet::Backend::encodeWalletName(walletName) + QStringLiteral("_attributes.json");
 
     read();
 

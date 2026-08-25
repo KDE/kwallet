@@ -164,16 +164,6 @@ KSecretD::~KSecretD()
     qDeleteAll(_transactions);
 }
 
-QString KSecretD::encodeWalletName(const QString &name)
-{
-    return KWallet::Backend::encodeWalletName(name);
-}
-
-QString KSecretD::decodeWalletName(const QString &mangledName)
-{
-    return KWallet::Backend::decodeWalletName(mangledName);
-}
-
 int KSecretD::generateHandle()
 {
     int rc;
@@ -636,8 +626,8 @@ int KSecretD::internalOpen(const QString &appid, const QString &wallet, WId w, b
 int KSecretD::deleteWallet(const QString &wallet)
 {
     int result = -1;
-    QString path = KWallet::Backend::getSaveLocation() + "/" + encodeWalletName(wallet) + ".kwl";
-    QString pathSalt = KWallet::Backend::getSaveLocation() + "/" + encodeWalletName(wallet) + ".salt";
+    QString path = KWallet::Backend::getSaveLocation() + "/" + KWallet::Backend::encodeWalletName(wallet) + ".kwl";
+    QString pathSalt = KWallet::Backend::getSaveLocation() + "/" + KWallet::Backend::encodeWalletName(wallet) + ".salt";
 
     if (QFile::exists(path)) {
         const QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
@@ -816,7 +806,7 @@ QStringList KSecretD::wallets() const
         if (fn.endsWith(QLatin1String(".kwl"))) {
             fn.truncate(fn.length() - 4);
         }
-        rc += decodeWalletName(fn);
+        rc += KWallet::Backend::decodeWalletName(fn);
     }
     return rc;
 }
