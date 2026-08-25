@@ -1,7 +1,7 @@
 # Finnish messages for kwalletd.
 # Copyright © 2010 This_file_is_part_of_KDE
 # This file is distributed under the same license as the kdebase package.
-# SPDX-FileCopyrightText: 2009, 2010, 2011, 2019, 2021, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2009, 2010, 2011, 2019, 2021, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Jorma Karvonen <karvonen.jorma@gmail.com>, 2010.
 # Lasse Liehu <lliehu@kolumbus.fi>, 2011, 2013, 2014, 2015, 2016.
 #
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:41+0000\n"
-"PO-Revision-Date: 2025-05-27 23:38+0300\n"
+"POT-Creation-Date: 2026-08-25 00:41+0000\n"
+"PO-Revision-Date: 2026-02-25 16:16+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -145,14 +145,14 @@ msgstr "Perinteinen, Blowfish-salattu tiedosto"
 msgid "Use GPG encryption, for better protection"
 msgstr "Käytä GPG-salausta (turvallisempi)"
 
-#: ksecretd/ksecretd.cpp:514
+#: ksecretd/ksecretd.cpp:501
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
 "password for this wallet below.</qt>"
 msgstr "<qt>KDE pyytää avata lompakon ”<b>%1</b>”. Syötä sen salasana.</qt>"
 
-#: ksecretd/ksecretd.cpp:518
+#: ksecretd/ksecretd.cpp:505
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -161,20 +161,20 @@ msgstr ""
 "<qt>”<b>%1</b>” pyytää avata lompakon ”<b>%2</b>”. Syötä sen salasana.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:529 ksecretd/ksecretd.cpp:638
-#: ksecretd/ksecretd.cpp:771 ksecretd/ksecretd.cpp:794
-#: ksecretd/ksecretd.cpp:805 ksecretd/ksecretd.cpp:810
-#: ksecretd/ksecretd.cpp:1217 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:516 ksecretd/ksecretd.cpp:625
+#: ksecretd/ksecretd.cpp:755 ksecretd/ksecretd.cpp:778
+#: ksecretd/ksecretd.cpp:789 ksecretd/ksecretd.cpp:794
+#: ksecretd/ksecretd.cpp:1129 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE:n lompakkopalvelu"
 
-#: ksecretd/ksecretd.cpp:544
+#: ksecretd/ksecretd.cpp:531
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Sovellus pyytää saada avata lompakon (%1)."
 
-#: ksecretd/ksecretd.cpp:545
+#: ksecretd/ksecretd.cpp:532
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -182,19 +182,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Vaihda sovellukseen"
 
-#: ksecretd/ksecretd.cpp:547
+#: ksecretd/ksecretd.cpp:534
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> pyytää saada avata lompakon (%2)."
 
-#: ksecretd/ksecretd.cpp:549
+#: ksecretd/ksecretd.cpp:536
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Vaihda sovellukseen %1|/|Vaihda $[illat %1]"
 
-#: ksecretd/ksecretd.cpp:566 ksecretd/ksecretd.cpp:648
+#: ksecretd/ksecretd.cpp:553 ksecretd/ksecretd.cpp:635
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -203,7 +203,7 @@ msgstr ""
 "<qt>Virhe avattaessa lompakkoa ”<b>%1</b>”. Yritä uudelleen.<br /> "
 "(Virhekoodi %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:614
+#: ksecretd/ksecretd.cpp:601
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -213,7 +213,7 @@ msgstr ""
 "KDE pyytää saada avata arkaluontoisen tiedon turvalliseen tallennukseen "
 "käytetyn lompakon. Syötä sen salasana tai torju pyyntö napsauttamalla ”Peru”."
 
-#: ksecretd/ksecretd.cpp:619
+#: ksecretd/ksecretd.cpp:606
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -225,7 +225,7 @@ msgstr ""
 "tallennukseen käytetyn KDE:n lompakon. Syötä sen salasana tai torju pyyntö "
 "napsauttamalla ”Peru”.</qt>"
 
-#: ksecretd/ksecretd.cpp:627
+#: ksecretd/ksecretd.cpp:614
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -235,7 +235,7 @@ msgstr ""
 "<qt>KDE pyytää saada avata lompakon nimeltä ”<b>%1</b>”. Syötä lompakon "
 "salasana tai torju sovelluksen pyyntö napsauttamalla ”Peru”.</qt>"
 
-#: ksecretd/ksecretd.cpp:632
+#: ksecretd/ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -245,7 +245,7 @@ msgstr ""
 "<qt>”<b>%1</b>” pyytää saada luoda uuden lompakon nimeltä ”<b>%2</b>”. Anna "
 "lompakolle salasana tai torju sovelluksen pyyntö napsauttamalla ”Peru”.</qt>"
 
-#: ksecretd/ksecretd.cpp:770
+#: ksecretd/ksecretd.cpp:754
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -254,7 +254,7 @@ msgstr ""
 "Lompakon avaaminen epäonnistui. Jotta salasanan voi vaihtaa, lompakon on "
 "oltava auki."
 
-#: ksecretd/ksecretd.cpp:786
+#: ksecretd/ksecretd.cpp:770
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -264,22 +264,22 @@ msgstr ""
 "<qt>Lompakko <b>%1</b> on salattu GPG-avaimella <b>%2</b>. Vaihda avaimeen "
 "kytketty salasana <b>GPG</b>-työkalulla (kuten <b>kleopatra</b>).</qt>"
 
-#: ksecretd/ksecretd.cpp:793
+#: ksecretd/ksecretd.cpp:777
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Anna lompakolle ”<b>%1</b>” uusi salasana.</qt>"
 
-#: ksecretd/ksecretd.cpp:805
+#: ksecretd/ksecretd.cpp:789
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Lompakkoa salattaessa tapahtui virhe: salasanaa ei vaihdettu."
 
-#: ksecretd/ksecretd.cpp:810
+#: ksecretd/ksecretd.cpp:794
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Virhe avattaessa lompakkoa uudelleen: tietoa on voinut kadota."
 
-#: ksecretd/ksecretd.cpp:1216
+#: ksecretd/ksecretd.cpp:1128
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -689,94 +689,91 @@ msgstr ""
 "SF <b>%3</b>. Ole hyvä ja tee asiasta vikailmoitus bugs.kde.org-sivustolle "
 "käyttäen näitä tietoja"
 
-#: kwalletd/kwalletd.cpp:96
+#: kwalletd/kwalletd.cpp:103
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
-msgstr ""
+msgstr "Siirretään lompakkoa ”%1”. Avaa lukitus antamalla salasana."
 
 #: kwalletd/main.cpp:31
-#, fuzzy, kde-format
-#| msgid "kwalletd"
+#, kde-format
 msgid "kwalletd"
 msgstr "kwalletd"
 
 #: kwalletd/main.cpp:33
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
-msgstr ""
+msgstr "KWalletin salaisuuspalvelun yhteensopivuuspalvelu"
 
 #: kwalletd/main.cpp:35
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2025, The KDE Developers"
+#, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr "© 2002–2025 KDE:n kehittäjät"
+msgstr "© 2025 KDE:n kehittäjät"
 
 #: kwalletd/main.cpp:37
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: kwalletd/main.cpp:37
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Tekijä"
 
-#: kwalletd/secretserviceclient.cpp:256
+#: kwalletd/secretserviceclient.cpp:262
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "Tietuetta ei löytynyt"
 
-#: kwalletd/secretserviceclient.cpp:276
+#: kwalletd/secretserviceclient.cpp:282
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "Salaisuuspalveluun ei saada yhteyttä"
 
-#: kwalletd/secretserviceclient.cpp:448
+#: kwalletd/secretserviceclient.cpp:482
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "Kokoelmanimen %1 lukitusta ei saada avattua"
 
-#: kwalletd/secretserviceclient.cpp:541
+#: kwalletd/secretserviceclient.cpp:575
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "Ei kokoelmia"
 
-#: kwalletd/secretserviceclient.cpp:578 kwalletd/secretserviceclient.cpp:625
-#: kwalletd/secretserviceclient.cpp:728
+#: kwalletd/secretserviceclient.cpp:612 kwalletd/secretserviceclient.cpp:659
+#: kwalletd/secretserviceclient.cpp:762
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "Ei tietueita"
 
-#: kwalletd/secretserviceclient.cpp:643
+#: kwalletd/secretserviceclient.cpp:677
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "Tietuetta ei löytynyt, avain: %1, kansio: %2"
 
-#: kwalletd/secretserviceclient.cpp:752
+#: kwalletd/secretserviceclient.cpp:786
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "Tietueen lukitusta ei saada avattua"
 
-#: kwalletd/secretserviceclient.cpp:795 kwalletd/secretserviceclient.cpp:913
+#: kwalletd/secretserviceclient.cpp:829 kwalletd/secretserviceclient.cpp:947
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "Tietuetta, jonka nimeä muutetaan, ei löytynyt"
 
-#: kwalletd/secretserviceclient.cpp:802
-#, fuzzy, kde-format
-#| msgid "* SKIPPING entry %1 in folder %2 as it seems already migrated"
+#: kwalletd/secretserviceclient.cpp:836
+#, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr "* OHITETAAN tietue %1 kansiossa %2, koska se on näemmä jo siirretty"
+msgstr "Tietue nimeltä %1 kansiossa %2 ja lompakossa %3 on jo olemassa."
 
-#: kwalletd/secretserviceclient.cpp:817 kwalletd/secretserviceclient.cpp:832
+#: kwalletd/secretserviceclient.cpp:851 kwalletd/secretserviceclient.cpp:866
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "Tietue, jonka nimeä muutetaan, ei ole valmis"
 
-#: kwalletd/secretserviceclient.cpp:877
+#: kwalletd/secretserviceclient.cpp:911
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
+msgstr "Salaisen arvon luominen epäonnistui"
 
 #~ msgid "Allow &Once"
 #~ msgstr "Salli &kerran"

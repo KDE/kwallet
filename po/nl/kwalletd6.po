@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:41+0000\n"
+"POT-Creation-Date: 2026-08-25 00:41+0000\n"
 "PO-Revision-Date: 2026-02-18 11:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -144,7 +144,7 @@ msgstr "Klassiek, met blowfish versleuteld bestand"
 msgid "Use GPG encryption, for better protection"
 msgstr "Gebruik GPG versleuteling, voor een betere bescherming"
 
-#: ksecretd/ksecretd.cpp:514
+#: ksecretd/ksecretd.cpp:501
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -153,7 +153,7 @@ msgstr ""
 "<qt>KDE heeft verzocht om de portefeuille '<b>%1</b>' te openen. Voer "
 "hieronder het wachtwoord in voor deze portefeuille.</qt>"
 
-#: ksecretd/ksecretd.cpp:518
+#: ksecretd/ksecretd.cpp:505
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -163,20 +163,20 @@ msgstr ""
 "te openen. Voer hieronder het wachtwoord in voor deze portefeuille.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:529 ksecretd/ksecretd.cpp:638
-#: ksecretd/ksecretd.cpp:771 ksecretd/ksecretd.cpp:794
-#: ksecretd/ksecretd.cpp:805 ksecretd/ksecretd.cpp:810
-#: ksecretd/ksecretd.cpp:1217 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:516 ksecretd/ksecretd.cpp:625
+#: ksecretd/ksecretd.cpp:755 ksecretd/ksecretd.cpp:778
+#: ksecretd/ksecretd.cpp:789 ksecretd/ksecretd.cpp:794
+#: ksecretd/ksecretd.cpp:1129 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KWallet portefeuilledienst"
 
-#: ksecretd/ksecretd.cpp:544
+#: ksecretd/ksecretd.cpp:531
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Een programma heeft verzocht een portefeuille te openen (%1)."
 
-#: ksecretd/ksecretd.cpp:545
+#: ksecretd/ksecretd.cpp:532
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -184,19 +184,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Daarnaar omschakelen"
 
-#: ksecretd/ksecretd.cpp:547
+#: ksecretd/ksecretd.cpp:534
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> verzocht om de portefeuille (%2) te openen."
 
-#: ksecretd/ksecretd.cpp:549
+#: ksecretd/ksecretd.cpp:536
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "Omschakelen naar %1"
 
-#: ksecretd/ksecretd.cpp:566 ksecretd/ksecretd.cpp:648
+#: ksecretd/ksecretd.cpp:553 ksecretd/ksecretd.cpp:635
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -205,7 +205,7 @@ msgstr ""
 "<qt>Fout bij het openen van de portefeuille '<b>%1</b>'. Probeer het "
 "nogmaals. <br />(Foutcode %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:614
+#: ksecretd/ksecretd.cpp:601
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -217,7 +217,7 @@ msgstr ""
 "wachtwoord in om deze portefeuille te gebruiken, of annuleer om het verzoek "
 "af te wijzen."
 
-#: ksecretd/ksecretd.cpp:619
+#: ksecretd/ksecretd.cpp:606
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -230,7 +230,7 @@ msgstr ""
 "informatie. Voer uw wachtwoord in om deze portefeuille te gebruiken, of "
 "annuleer om het verzoek af te wijzen.</qt>"
 
-#: ksecretd/ksecretd.cpp:627
+#: ksecretd/ksecretd.cpp:614
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -241,7 +241,7 @@ msgstr ""
 "maken. Kies een nieuw wachtwoord voor deze portefeuille, of annuleer om het "
 "verzoek af te wijzen.</qt>"
 
-#: ksecretd/ksecretd.cpp:632
+#: ksecretd/ksecretd.cpp:619
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -252,7 +252,7 @@ msgstr ""
 "genaamd '<b>%2</b>' aan te maken. Kies een wachtwoord voor deze "
 "portefeuille, of annuleer om het verzoek af te wijzen.</qt>"
 
-#: ksecretd/ksecretd.cpp:770
+#: ksecretd/ksecretd.cpp:754
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -261,7 +261,7 @@ msgstr ""
 "De portefeuille kon niet worden geopend. De portefeuille dient te worden "
 "geopend om het wachtwoord te kunnen wijzigen."
 
-#: ksecretd/ksecretd.cpp:786
+#: ksecretd/ksecretd.cpp:770
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -272,27 +272,27 @@ msgstr ""
 "Gebruik <b>GPG</b> hulpmiddelen (zoals <b>kleopatra</b>) om de wachtwoordzin "
 "gekoppeld aan deze sleutel te wijzigen.</qt>"
 
-#: ksecretd/ksecretd.cpp:793
+#: ksecretd/ksecretd.cpp:777
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>Kies a.u.b. een nieuw wachtwoord voor portefeuille '<b>%1</b>'.</qt>"
 
-#: ksecretd/ksecretd.cpp:805
+#: ksecretd/ksecretd.cpp:789
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
 "Fout bij het herversleutelen van de portefeuille. Wachtwoord is niet "
 "gewijzigd."
 
-#: ksecretd/ksecretd.cpp:810
+#: ksecretd/ksecretd.cpp:794
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Fout bij het heropenen van de portefeuille. Gegevens kunnen verloren zijn "
 "gegaan."
 
-#: ksecretd/ksecretd.cpp:1216
+#: ksecretd/ksecretd.cpp:1128
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -720,7 +720,7 @@ msgstr ""
 "RC <b>%2</b>\n"
 "SF <b>%3</b>. Stuur een bugrapport met deze informatie naar bugs.kde.org"
 
-#: kwalletd/kwalletd.cpp:96
+#: kwalletd/kwalletd.cpp:103
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
 msgstr ""
@@ -752,58 +752,58 @@ msgstr "Marco Martin"
 msgid "Author"
 msgstr "Auteur"
 
-#: kwalletd/secretserviceclient.cpp:256
+#: kwalletd/secretserviceclient.cpp:262
 #, kde-format
 msgid "Item not found"
 msgstr "Item niet gevonden"
 
-#: kwalletd/secretserviceclient.cpp:276
+#: kwalletd/secretserviceclient.cpp:282
 #, kde-format
 msgid "Could not connect to Secret Service"
 msgstr "Kon niet verbinden naar Secret Service"
 
-#: kwalletd/secretserviceclient.cpp:448
+#: kwalletd/secretserviceclient.cpp:482
 #, kde-format
 msgid "Unable to unlock collectionName %1"
 msgstr "Ontgrendelen van verzamelingnaam %1 lukt niet"
 
-#: kwalletd/secretserviceclient.cpp:541
+#: kwalletd/secretserviceclient.cpp:575
 #, kde-format
 msgid "No collections"
 msgstr "Geen verzamelingen"
 
-#: kwalletd/secretserviceclient.cpp:578 kwalletd/secretserviceclient.cpp:625
-#: kwalletd/secretserviceclient.cpp:728
+#: kwalletd/secretserviceclient.cpp:612 kwalletd/secretserviceclient.cpp:659
+#: kwalletd/secretserviceclient.cpp:762
 #, kde-format
 msgid "No entries"
 msgstr "Geen items"
 
-#: kwalletd/secretserviceclient.cpp:643
+#: kwalletd/secretserviceclient.cpp:677
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
 msgstr "Item niet gevonden, sleutel: %1, map: %2"
 
-#: kwalletd/secretserviceclient.cpp:752
+#: kwalletd/secretserviceclient.cpp:786
 #, kde-format
 msgid "Unable to unlock item"
 msgstr "Ontgrendelen van item lukt niet"
 
-#: kwalletd/secretserviceclient.cpp:795 kwalletd/secretserviceclient.cpp:913
+#: kwalletd/secretserviceclient.cpp:829 kwalletd/secretserviceclient.cpp:947
 #, kde-format
 msgid "Entry to rename not found"
 msgstr "Te hernoemen item niet gevonden"
 
-#: kwalletd/secretserviceclient.cpp:802
+#: kwalletd/secretserviceclient.cpp:836
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
 msgstr "Item genaamd %1 in map %2 en portefeuille %3 bestaat al."
 
-#: kwalletd/secretserviceclient.cpp:817 kwalletd/secretserviceclient.cpp:832
+#: kwalletd/secretserviceclient.cpp:851 kwalletd/secretserviceclient.cpp:866
 #, kde-format
 msgid "Entry to rename incomplete"
 msgstr "Te hernoemen item is onvolledig"
 
-#: kwalletd/secretserviceclient.cpp:877
+#: kwalletd/secretserviceclient.cpp:911
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "SecretValue aanmaken is mislukt"
