@@ -13,7 +13,7 @@
    <item>
     <widget class="QLabel" name="textLabel1_3" >
      <property name="text" >
-      <string>The KDE Wallet system allows you to control the level of security of your personal data.  Some of these settings do impact usability.  While the default settings are generally acceptable for most users, you may wish to change some of them.  You may further tune these settings from the KWallet control module.</string>
+      <string>KWallet lets you adjust the security of your personal data. While the default settings work for most users, you can modify them if needed. Additional adjustments can be made on the KWallet settings page.</string>
      </property>
      <property name="textFormat" >
       <enum>Qt::RichText</enum>

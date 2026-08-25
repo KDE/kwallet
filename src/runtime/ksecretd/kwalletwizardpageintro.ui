@@ -27,7 +27,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your passwords and other personal information on disk in an encrypted file, preventing others from viewing the information.  This wizard will tell you about KWallet and help you configure it for the first time.</string>
+      <string>Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your passwords and other sensitive information on disk in an encrypted file, preventing unauthorized access. This wizard will help you set up KWallet for the first time.</string>
      </property>
      <property name="textFormat">
       <enum>Qt::RichText</enum>

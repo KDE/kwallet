@@ -27,7 +27,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The application '&lt;span style=&quot; font-weight:600;&quot;&gt;%1&lt;/span&gt;' has requested to open the KDE wallet. This is used to store sensitive data in a secure fashion. Please choose the new wallet's type below or click cancel to deny the application's request.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The application '&lt;span style=&quot; font-weight:600;&quot;&gt;%1&lt;/span&gt;' has requested to open the KDE wallet. This is used to securely store sensitive data, such as account passwords. Choose the type of the new wallet below or click Cancel to deny the application's request.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="textFormat">
       <enum>Qt::RichText</enum>
@@ -63,17 +63,31 @@
        <item>
         <widget class="QRadioButton" name="radioBlowfish">
          <property name="text">
-          <string>Classic, blowfish encrypted file</string>
+          <string>Blowfish encryption</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel">
+         <property name="text">
+          <string>Password-protected, so it does not require the setup of encryption keys.</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QRadioButton" name="radioGpg">
          <property name="text">
-          <string>Use GPG encryption, for better protection</string>
+          <string>GPG encryption</string>
          </property>
          <property name="checked">
           <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel">
+         <property name="text">
+          <string>More secure, but requires the setup of GPG encryption keys.</string>
          </property>
         </widget>
        </item>

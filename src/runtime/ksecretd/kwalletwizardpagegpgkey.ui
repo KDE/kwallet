@@ -21,7 +21,7 @@
        <item>
         <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The GPG-based wallet use a GPG encryption key to securely encrypt data on disk. The key must be available when decrypting is needed or your wallet will not be accessible. For example, if you choose a SmartCard-based encryption key, the GPG system will prompt you to enter it and its associated PIN when attempting to open the wallet. &lt;span style=&quot; font-weight:600;&quot;&gt;NOTE:&lt;/span&gt; this list contains only &amp;quot;ultimate-level&amp;quot; trusted keys.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The GPG-based wallet uses a GPG encryption key to securely encrypt data on disk. The key must be available when the wallet is decrypted or your wallet will not be accessible. For example, if you choose a SmartCard-based encryption key, you will be prompted to insert it and enter its associated PIN when attempting to open the wallet. &lt;span style=&quot; font-weight:600;&quot;&gt;Note:&lt;/span&gt; this list contains only &amp;quot;ultimate-level&amp;quot; trusted keys.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="textFormat">
           <enum>Qt::AutoText</enum>
@@ -39,7 +39,7 @@
             <bool>true</bool>
            </property>
            <property name="text">
-            <string>Select encryption GPG key:</string>
+            <string>Select GPG encryption key:</string>
            </property>
           </widget>
          </item>
@@ -78,7 +78,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Unable to locate at least one &lt;b&gt;encrypting GPG key&lt;/b&gt;. KDE Wallet needs such &lt;b&gt;encrypting key&lt;/b&gt; to securely store passwords or other sensitive data on disk. If you still want to setup a GPG-based wallet, then cancel this wizard, set-up an &lt;b&gt;encrypting GPG key&lt;/b&gt;, then retry this assistant. Otherwise, you may still click back, then choose a classic, blowfish encrypted file format on the previous page.</string>
+          <string>Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG encryption key to securely store passwords or other sensitive data on disk. If you still want to setup a GPG-based wallet, exit this wizard, create an encryption key and return to this wizard. Otherwise, you can return to the previous page and select Blowfish encryption, which does not require an encryption key.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>

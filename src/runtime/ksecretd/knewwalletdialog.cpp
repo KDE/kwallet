@@ -9,8 +9,10 @@
 #include "ksecretd_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QPushButton>
 #include <QTableWidget>
 #include <QTableWidgetItem>
+#include <algorithm>
 #include <gpgme++/context.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
@@ -46,8 +48,9 @@ KNewWalletDialogIntro::KNewWalletDialogIntro(const QString &walletName, QWidget 
 {
     _ui.setupUi(this);
     _ui.labelIntro->setText(
-        i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used to store sensitive data in a secure fashion. Please choose the "
-             "new wallet's type below or click cancel to deny the application's request.</qt>",
+        i18n("<qt>KDE has requested to create a new wallet named '<b>%1</b>'. "
+             "This is used to securely store sensitive data, such as account passwords. "
+             "Choose the type of the new wallet below or click Cancel to deny the application's request.</qt>",
              walletName.toHtmlEscaped()));
 }
 
@@ -74,6 +77,7 @@ KNewWalletDialogGpg::KNewWalletDialogGpg(QWidget *parent)
     : QWizardPage(parent)
 {
     _ui.setupUi(this);
+    registerField(QStringLiteral("key"), this);
 }
 
 struct AddKeyToList {
@@ -103,12 +107,6 @@ struct AddKeyToList {
 
 void KNewWalletDialogGpg::initializePage()
 {
-    if (_alreadyInitialized) {
-        return;
-    }
-
-    registerField(QStringLiteral("key"), this);
-
     GpgME::initializeLibrary();
     GpgME::Error err = GpgME::checkEngine(GpgME::OpenPGP);
     if (err) {
@@ -118,7 +116,7 @@ void KNewWalletDialogGpg::initializePage()
         Q_EMIT completeChanged();
         return;
     }
-    std::shared_ptr<GpgME::Context> _ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
+    _ctx = std::shared_ptr<GpgME::Context>(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (!_ctx) {
         KMessageBox::error(this,
                            i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));
@@ -127,8 +125,21 @@ void KNewWalletDialogGpg::initializePage()
     }
     _ctx->setKeyListMode(GpgME::Local);
 
+    std::vector<GpgME::Key> keys = getKeys();
+
+    if (keys.size() == 0 && !_alreadyPrompted) {
+        createGpgKeyDialog();
+        _alreadyPrompted = true;
+        Q_EMIT completeChanged();
+    }
+    connect(_ui.reloadCertificates, &QPushButton::released, this, &KNewWalletDialogGpg::loadKeys, Qt::UniqueConnection);
+    loadKeys();
+}
+
+std::vector<GpgME::Key> KNewWalletDialogGpg::getKeys()
+{
     std::vector<GpgME::Key> keys;
-    err = _ctx->startKeyListing();
+    GpgME::Error err = _ctx->startKeyListing();
     while (!err) {
         GpgME::Key k = _ctx->nextKey(err);
         if (err) {
@@ -139,26 +150,42 @@ void KNewWalletDialogGpg::initializePage()
         }
     }
     _ctx->endKeyListing();
+    return keys;
+}
 
-    if (keys.size() == 0) {
-        KMessageBox::error(this,
-                           i18n("Seems that your system has no keys suitable for encryption. Please set-up at least one encryption key, then try again."));
-        Q_EMIT completeChanged();
-        return;
-    }
+void KNewWalletDialogGpg::loadKeys()
+{
+    std::vector<GpgME::Key> keys = getKeys();
 
+    _complete = false;
+    setField(QStringLiteral("key"), QVariant());
+    _ui.listCertificates->clearContents();
     _ui.listCertificates->setRowCount(keys.size());
     std::for_each(keys.begin(), keys.end(), AddKeyToList(_ui.listCertificates));
     _ui.listCertificates->resizeColumnsToContents();
-    _ui.listCertificates->setCurrentCell(0, 0);
+    if (!keys.empty()) {
+        _ui.listCertificates->setCurrentCell(0, 0);
+    }
+    onItemSelectionChanged();
+}
 
-    _alreadyInitialized = true;
+void KNewWalletDialogGpg::createGpgKeyDialog()
+{
+    KMessageBox::error(this,
+                       xi18nc("@info",
+                              "No suitable GPG encryption keys were found. To create one, choose one of the following options:<list>"
+                              "<item>Install Kleopatra and use it to create a new key. See these"
+                              " <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>instructions</link>.</item>"
+                              "<item>Open a terminal and enter <command>gpg --full-gen-key</command>.</item>"
+                              "<item>Go back and use Blowfish encryption instead, which only requires a password.</item></list>"));
 }
 
 void KNewWalletDialogGpg::onItemSelectionChanged()
 {
-    _complete = _ui.listCertificates->currentRow() >= 0;
-    QVariant varKey = _ui.listCertificates->item(_ui.listCertificates->currentRow(), 0)->data(Qt::UserRole);
+    const int currentRow = _ui.listCertificates->currentRow();
+    const auto item = currentRow >= 0 ? _ui.listCertificates->item(currentRow, 0) : nullptr;
+    _complete = item != nullptr;
+    const QVariant varKey = item ? item->data(Qt::UserRole) : QVariant();
     setField(QStringLiteral("key"), varKey);
     Q_EMIT completeChanged();
 }

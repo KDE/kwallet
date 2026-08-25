@@ -9,6 +9,7 @@
 #define KNEWWALLETDIALOG_H
 
 #include <QWizard>
+#include <gpgme++/context.h>
 
 #include "ui_knewwalletdialoggpg.h"
 #include "ui_knewwalletdialogintro.h"
@@ -67,11 +68,15 @@ public:
     virtual bool validateCurrentPage();
 protected Q_SLOTS:
     void onItemSelectionChanged();
+    void loadKeys();
 
 private:
-    bool _alreadyInitialized = false;
     Ui_KNewWalletDialogGpg _ui;
+    std::shared_ptr<GpgME::Context> _ctx;
     bool _complete = false;
+    bool _alreadyPrompted = false;
+    void createGpgKeyDialog();
+    std::vector<GpgME::Key> getKeys();
 };
 
 } // namespace

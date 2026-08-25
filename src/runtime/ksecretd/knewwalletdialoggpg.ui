@@ -14,14 +14,14 @@
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Please select the signing key from the list below:</string>
+      <string>Select the signing key from the list below:</string>
      </property>
     </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;NOTE:&lt;/span&gt; this list shows only &amp;quot;ultimate-level&amp;quot; trusted keys&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Note:&lt;/span&gt; this list shows only &amp;quot;ultimate-level&amp;quot; trusted keys&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
@@ -71,7 +71,20 @@
      </column>
     </widget>
    </item>
-  </layout>
+  <item>
+   <widget class="QPushButton" name="reloadCertificates">
+    <property name="text">
+     <string>Refresh</string>
+    </property>
+    <property name="toolTip">
+     <string>Refresh the list of GPG certificates.</string>
+    </property>
+    <property name="icon">
+     <iconset theme="QIcon::ThemeIcon::ViewRefresh"/>
+    </property>
+   </widget>
+  </item>
+ </layout>
  </widget>
  <resources/>
  <connections>

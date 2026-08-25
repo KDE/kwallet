@@ -585,8 +585,8 @@ void KSecretD::doTransactionChangePassword(const QString &wallet, qlonglong wId)
         QString keyID = w->gpgKey().shortKeyID();
         assert(!keyID.isNull());
         KMessageBox::errorWId((WId)wId,
-                              i18n("<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use <b>GPG</b> tools (such "
-                                   "as <b>kleopatra</b>) to change the passphrase associated to that key.</qt>",
+                              i18n("<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use <b>GPG</b> tools to "
+                                   "change the passphrase associated to that key.</qt>",
                                    wallet.toHtmlEscaped(),
                                    keyID));
     } else {
