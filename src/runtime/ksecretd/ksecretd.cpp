@@ -1256,6 +1256,9 @@ int KSecretD::pamOpen(const QString &wallet, const QByteArray &passwordHash, int
     }
     Q_EMIT walletOpened(wallet);
 
+    auto collection = _fdoService->getCollectionByWalletName(wallet);
+    collection->onWalletChangeState(handle);
+
     if (_wallets.count() == 1 && _launchManager) {
         startManagerForKSecretD();
     }
