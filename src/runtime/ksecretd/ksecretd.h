@@ -97,8 +97,6 @@ public Q_SLOTS:
 
     void closeAllWallets();
 
-    QString networkWallet();
-
     // Open a wallet using a pre-hashed password. This is only useful in cooperation
     // with the kwallet PAM module. It's also less secure than manually entering the
     // password as the password hash is transmitted using D-Bus.

@@ -1187,11 +1187,6 @@ void KSecretD::closeAllWallets()
     _wallets.clear();
 }
 
-QString KSecretD::networkWallet()
-{
-    return KWallet::Backend::networkWallet();
-}
-
 void KSecretD::activatePasswordDialog()
 {
     checkActiveDialog();

@@ -72,7 +72,6 @@ MOCK_FUNCTION(KSecretD, entryList, 3, );
 
 MOCK_FUNCTION(KSecretD, renameWallet, 2, );
 MOCK_FUNCTION(KSecretD, hasEntry, 4, );
-MOCK_FUNCTION(KSecretD, networkWallet, 0, );
 MOCK_FUNCTION(KSecretD, pamOpen, 3, );
 MOCK_FUNCTION(KSecretD, sync, 2, );
 MOCK_FUNCTION(KSecretD, changePassword, 3, );
