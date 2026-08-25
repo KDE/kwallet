@@ -756,7 +756,7 @@ void KSecretD::timedOutSync(int handle)
 {
     _syncTimers.removeTimer(handle);
     if (_wallets.contains(handle) && _wallets[handle]) {
-        _wallets[handle]->sync(0);
+        _wallets[handle]->sync();
     } else {
         qDebug("wallet not found for sync!");
     }

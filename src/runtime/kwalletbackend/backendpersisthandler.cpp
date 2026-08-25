@@ -75,7 +75,7 @@ BackendPersistHandler *BackendPersistHandler::getPersistHandler(char magicBuf[12
     return nullptr; // unknown cipher or hash
 }
 
-int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WId)
+int BlowfishPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version)
 {
     assert(wb->_cipherType == BACKEND_CIPHER_BLOWFISH);
 
@@ -379,7 +379,7 @@ GpgME::Error initGpgME()
     return err;
 }
 
-int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w)
+int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version)
 {
     version[2] = KWALLET_CIPHER_GPG;
     version[3] = 0;
@@ -391,11 +391,11 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     GpgME::Error err = initGpgME();
     if (err) {
         qCDebug(KWALLETBACKEND_LOG) << "initGpgME returned " << err.code();
-        KMessageBox::errorWId(w,
-                              i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Error code is <b>%2</b>. "
-                                   "Please fix your system configuration, then try again.</qt>",
-                                   wb->_name.toHtmlEscaped(),
-                                   err.code()));
+        KMessageBox::error(nullptr,
+                           i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Error code is <b>%2</b>. "
+                                "Please fix your system configuration, then try again.</qt>",
+                                wb->_name.toHtmlEscaped(),
+                                err.code()));
         sf.cancelWriting();
         return -5;
     }
@@ -403,10 +403,10 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     std::shared_ptr<GpgME::Context> ctx(GpgME::Context::createForProtocol(GpgME::OpenPGP));
     if (!ctx) {
         qCDebug(KWALLETBACKEND_LOG) << "Cannot setup OpenPGP context!";
-        KMessageBox::errorWId(w,
-                              i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Please fix your system "
-                                   "configuration, then try again.</qt>"),
-                              wb->_name.toHtmlEscaped());
+        KMessageBox::error(nullptr,
+                           i18n("<qt>Error when attempting to initialize OpenPGP while attempting to save the wallet <b>%1</b>. Please fix your system "
+                                "configuration, then try again.</qt>"),
+                           wb->_name.toHtmlEscaped());
         return -6;
     }
 
@@ -457,13 +457,13 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     const GpgME::EncryptionResult res = ctx->encrypt(keys, decryptedData, encryptedData, GpgME::Context::None);
     if (res.error()) {
         const int gpgerr = res.error().code();
-        KMessageBox::errorWId(w,
-                              i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2 (%3)</b>. Please fix your system "
-                                   "configuration, then try again. This error may occur if you are not using a full trust GPG key. Please ensure you have the "
-                                   "secret key for the key you are using.</qt>",
-                                   wb->_name.toHtmlEscaped(),
-                                   gpgerr,
-                                   res.error().asString()));
+        KMessageBox::error(nullptr,
+                           i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2 (%3)</b>. Please fix your system "
+                                "configuration, then try again. This error may occur if you are not using a full trust GPG key. Please ensure you have the "
+                                "secret key for the key you are using.</qt>",
+                                wb->_name.toHtmlEscaped(),
+                                gpgerr,
+                                res.error().asString()));
         qCDebug(KWALLETBACKEND_LOG) << "GpgME encryption error: " << gpgerr;
         sf.cancelWriting();
         return -7;
@@ -474,11 +474,11 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version, WI
     encryptedData.seek(0, SEEK_SET);
     while ((bytes = encryptedData.read(buffer, sizeof(buffer) / sizeof(buffer[0]))) > 0) {
         if (sf.write(buffer, bytes) != bytes) {
-            KMessageBox::errorWId(w,
-                                  i18n("<qt>File handling error while attempting to save the wallet <b>%1</b>. Error was <b>%2</b>. Please fix your system "
-                                       "configuration, then try again.</qt>",
-                                       wb->_name.toHtmlEscaped(),
-                                       sf.errorString()));
+            KMessageBox::error(nullptr,
+                               i18n("<qt>File handling error while attempting to save the wallet <b>%1</b>. Error was <b>%2</b>. Please fix your system "
+                                    "configuration, then try again.</qt>",
+                                    wb->_name.toHtmlEscaped(),
+                                    sf.errorString()));
             sf.cancelWriting();
             return -4; // write error
         }

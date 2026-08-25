@@ -47,7 +47,7 @@ public:
     static BackendPersistHandler *getPersistHandler(BackendCipherType cipherType);
     static BackendPersistHandler *getPersistHandler(char magicBuf[KWMAGIC_LEN]);
 
-    virtual int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) = 0;
+    virtual int write(Backend *wb, QSaveFile &sf, QByteArray &version) = 0;
     virtual int read(Backend *wb, QFile &sf, WId w) = 0;
 };
 
@@ -62,7 +62,7 @@ public:
     {
     }
 
-    int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) override;
+    int write(Backend *wb, QSaveFile &sf, QByteArray &version) override;
     int read(Backend *wb, QFile &sf, WId w) override;
 
 private:
@@ -80,7 +80,7 @@ public:
     {
     }
 
-    int write(Backend *wb, QSaveFile &sf, QByteArray &version, WId w) override;
+    int write(Backend *wb, QSaveFile &sf, QByteArray &version) override;
     int read(Backend *wb, QFile &sf, WId w) override;
 };
 #endif // HAVE_GPGMEPP

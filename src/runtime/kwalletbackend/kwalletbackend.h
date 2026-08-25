@@ -91,7 +91,7 @@ public:
     int close(bool save = false);
 
     // Write the wallet to disk
-    int sync(WId w);
+    int sync();
 
     // Returns true if the current wallet is open.
     bool isOpen() const;

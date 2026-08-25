@@ -361,7 +361,7 @@ int Backend::openInternal(WId w)
         }
         newfile.close();
         _open = true;
-        if (sync(w) != 0) {
+        if (sync() != 0) {
             return -2;
         }
     }
@@ -441,7 +441,7 @@ QByteArray Backend::createAndSaveSalt(const QString &path) const
     return salt;
 }
 
-int Backend::sync(WId w)
+int Backend::sync()
 {
     if (!_open) {
         return -255;  // not open yet
@@ -478,7 +478,7 @@ int Backend::sync(WId w)
     if (nullptr == phandler) {
         return -4; // write error
     }
-    int rc = phandler->write(this, sf, version, w);
+    int rc = phandler->write(this, sf, version);
     if (rc < 0) {
         // Oops! wallet file sync filed! Display a notification about that
         // TODO: change kwalletd status flags, when status flags will be implemented
@@ -494,7 +494,7 @@ int Backend::closeInternal(bool save)
 {
     // save if requested
     if (save) {
-        int rc = sync(0);
+        int rc = sync();
         if (rc != 0) {
             return rc;
         }
