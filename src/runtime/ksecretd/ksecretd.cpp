@@ -752,17 +752,6 @@ QStringList KSecretD::wallets() const
     return rc;
 }
 
-void KSecretD::sync(int handle)
-{
-    KWallet::Backend *b;
-
-    // get the wallet and check if we have a password for it (safety measure)
-    if ((b = getWallet(handle))) {
-        QString wallet = b->walletName();
-        b->sync(0);
-    }
-}
-
 void KSecretD::timedOutSync(int handle)
 {
     _syncTimers.removeTimer(handle);

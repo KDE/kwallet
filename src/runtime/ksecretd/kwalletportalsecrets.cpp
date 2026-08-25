@@ -60,7 +60,6 @@ void KWalletPortalSecrets::walletOpened(int transactionId, int walletHandle)
     } else {
         secret = generateSecret();
         m_kwalletd->writeEntry(walletHandle, "xdg-desktop-portal", request.appId, secret);
-        m_kwalletd->sync(walletHandle);
     }
 
     QFile outFile;

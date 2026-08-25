@@ -43,9 +43,6 @@ public:
     int close(int handle, const QDBusMessage &message);
 
 public Q_SLOTS:
-    // Save to disk but leave open
-    Q_NOREPLY void sync(int handle);
-
     // Physically deletes the wallet from disk.
     int deleteWallet(const QString &wallet);
 
