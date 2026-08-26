@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-25 00:41+0000\n"
+"POT-Creation-Date: 2026-08-26 00:42+0000\n"
 "PO-Revision-Date: 2008-09-26 16:25+0300\n"
 "Last-Translator: kom <me@komzpa.net>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -126,14 +126,14 @@ msgstr ""
 msgid "Use GPG encryption, for better protection"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:501
+#: ksecretd/ksecretd.cpp:435
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
 "password for this wallet below.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:505
+#: ksecretd/ksecretd.cpp:439
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -141,20 +141,20 @@ msgid ""
 msgstr ""
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:516 ksecretd/ksecretd.cpp:625
-#: ksecretd/ksecretd.cpp:755 ksecretd/ksecretd.cpp:778
-#: ksecretd/ksecretd.cpp:789 ksecretd/ksecretd.cpp:794
-#: ksecretd/ksecretd.cpp:1129 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
+#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
+#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Сервіс гаманцоў KDE"
 
-#: ksecretd/ksecretd.cpp:531
+#: ksecretd/ksecretd.cpp:465
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:532
+#: ksecretd/ksecretd.cpp:466
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -162,26 +162,26 @@ msgctxt ""
 msgid "Switch there"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:534
+#: ksecretd/ksecretd.cpp:468
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:536
+#: ksecretd/ksecretd.cpp:470
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:553 ksecretd/ksecretd.cpp:635
+#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
 "%2: %3)</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:601
+#: ksecretd/ksecretd.cpp:535
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -189,7 +189,7 @@ msgid ""
 "click cancel to deny the application's request."
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:606
+#: ksecretd/ksecretd.cpp:540
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -198,7 +198,7 @@ msgid ""
 "qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:614
+#: ksecretd/ksecretd.cpp:548
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -206,7 +206,7 @@ msgid ""
 "request.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:619
+#: ksecretd/ksecretd.cpp:553
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -214,7 +214,7 @@ msgid ""
 "application's request.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:754
+#: ksecretd/ksecretd.cpp:688
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -222,7 +222,7 @@ msgid ""
 msgstr ""
 "Немагчыма адкрыць гаманец. Каб змяніць пароль, неабходна адкрыць гаманец."
 
-#: ksecretd/ksecretd.cpp:770
+#: ksecretd/ksecretd.cpp:704
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -230,22 +230,22 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:777
+#: ksecretd/ksecretd.cpp:711
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:789
+#: ksecretd/ksecretd.cpp:723
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Памылка перашыфравання гаманца. Пароль не зменены."
 
-#: ksecretd/ksecretd.cpp:794
+#: ksecretd/ksecretd.cpp:728
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Памылка адкрыцця гаманца. Дадзеныя могуць згубіцца."
 
-#: ksecretd/ksecretd.cpp:1128
+#: ksecretd/ksecretd.cpp:1062
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

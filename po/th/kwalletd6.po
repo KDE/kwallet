@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-25 00:41+0000\n"
+"POT-Creation-Date: 2026-08-26 00:42+0000\n"
 "PO-Revision-Date: 2010-02-26 14:38+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Use GPG encryption, for better protection"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:501
+#: ksecretd/ksecretd.cpp:435
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -155,7 +155,7 @@ msgstr ""
 "<qt>KDE ได้ทำการร้องขอที่จะเปิดกระเป๋าคุมข้อมูล '<b>%1</b>' "
 "โปรดป้อนรหัสผ่านสำหรับกระเป๋าคุมข้อมูลนี้ที่ด้านล่าง</qt>"
 
-#: ksecretd/ksecretd.cpp:505
+#: ksecretd/ksecretd.cpp:439
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -165,21 +165,21 @@ msgstr ""
 "โปรดป้อนรหัสผ่านสำหรับกระเป๋าคุมข้อมูลนี้ที่ด้านล่าง</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:516 ksecretd/ksecretd.cpp:625
-#: ksecretd/ksecretd.cpp:755 ksecretd/ksecretd.cpp:778
-#: ksecretd/ksecretd.cpp:789 ksecretd/ksecretd.cpp:794
-#: ksecretd/ksecretd.cpp:1129 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
+#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
+#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "บริการกระเป๋าคุมข้อมูลของ KDE"
 
-#: ksecretd/ksecretd.cpp:531
+#: ksecretd/ksecretd.cpp:465
 #, fuzzy, kde-format
 #| msgid "<b>KDE</b> has requested to open a wallet (%1)."
 msgid "An application has requested to open a wallet (%1)."
 msgstr "<b>KDE</b> ได้ร้องขอใช้งานกระเป๋าคุมข้อมูล (%1)"
 
-#: ksecretd/ksecretd.cpp:532
+#: ksecretd/ksecretd.cpp:466
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -187,19 +187,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "สลับมาที่นี่"
 
-#: ksecretd/ksecretd.cpp:534
+#: ksecretd/ksecretd.cpp:468
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "โปรแกรม '<b>%1</b>' ได้ร้องขอใช้งานกระเป๋าคุมข้อมูล (%2)"
 
-#: ksecretd/ksecretd.cpp:536
+#: ksecretd/ksecretd.cpp:470
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "สลับไปยัง %1"
 
-#: ksecretd/ksecretd.cpp:553 ksecretd/ksecretd.cpp:635
+#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -208,7 +208,7 @@ msgstr ""
 "<qt>เกิดข้อผิดพลาดในการเปิดกระเป๋าคุมข้อมูล '<b>%1</b>' โปรดลองใหม่อีกครั้ง<br /"
 ">(รหัสความผิดพลาด %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:601
+#: ksecretd/ksecretd.cpp:535
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -218,7 +218,7 @@ msgstr ""
 "KDE ได้ทำการร้องขอที่จะเปิดกระเป๋าคุมข้อมูล ซึ่งใช้สำหรับเก็บข้อมูลสำคัญไว้อย่างปลอดภัย "
 "โปรดป้อนรหัสผ่านเพื่อใช้งานกระเป๋าคุมข้อมูลนี้ หรือคลิกที่ ยกเลิก เพื่อปฏิเสธการร้องขอของโปรแกรม"
 
-#: ksecretd/ksecretd.cpp:606
+#: ksecretd/ksecretd.cpp:540
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -230,7 +230,7 @@ msgstr ""
 "ซึ่งใช้สำหรับเก็บข้อมูลที่มีความสำคัญไว้อย่างปลอดภัย โปรดป้อนรหัสผ่านเพื่อใช้งานกระเป๋าคุมข้อมูลนี้ "
 "หรือคลิกที่ ยกเลิก เพื่อปฏิเสธการร้องขอของโปรแกรม</qt>"
 
-#: ksecretd/ksecretd.cpp:614
+#: ksecretd/ksecretd.cpp:548
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -240,7 +240,7 @@ msgstr ""
 "<qt>KDE ได้ร้องขอให้มีการสร้างกระเป๋าคุมข้อมูลอันใหม่ ชื่อ '<b>%1</b>' "
 "โปรดเลือกรหัสอ่านสำหรับกระเป๋าคุมข้อมูลนี้ หรือคลิกยกเลิก เพื่อปฏิเสธการร้องขอของโปรแกรม</qt>"
 
-#: ksecretd/ksecretd.cpp:619
+#: ksecretd/ksecretd.cpp:553
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -250,7 +250,7 @@ msgstr ""
 "<qt>โปรแกรม '<b>%1</b>' ได้ร้องขอให้มีการสร้างกระเป๋าคุมข้อมูลตัวใหม่ ชื่อ '<b>%2</b>' "
 "โปรดเลือกรหัสผ่านสำหรับกระเป๋าคุมข้อมูลนี้ หรือคลิก ยกเลิกเพื่อปฏิเสธการร้องขอของโปรแกรม</qt>"
 
-#: ksecretd/ksecretd.cpp:754
+#: ksecretd/ksecretd.cpp:688
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -259,7 +259,7 @@ msgstr ""
 "ไม่สามารถเปิดใช้งานกระเป๋าคุมข้อมูลได้ โดยกระเป๋าคุมข้อมูล "
 "จะถูกเปิดใช้งานก็ต่อเมื่อมีคำสั่งให้ทำการเปลี่ยนรหัสผ่าน"
 
-#: ksecretd/ksecretd.cpp:770
+#: ksecretd/ksecretd.cpp:704
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -267,22 +267,22 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:777
+#: ksecretd/ksecretd.cpp:711
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>โปรดเลือกรหัสผ่านใหม่สำหรับใช้กับกระเป๋าคุมข้อมูล '<b>%1</b>'</qt>"
 
-#: ksecretd/ksecretd.cpp:789
+#: ksecretd/ksecretd.cpp:723
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "รหัสผ่านไม่เปลี่ยนแปลง เนื่องจากเกิดข้อผิดพลาดในการเข้ารหัสกระเป๋าคุมข้อมูลอีกครั้ง"
 
-#: ksecretd/ksecretd.cpp:794
+#: ksecretd/ksecretd.cpp:728
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "ข้อมูลอาจมีการสูญหาย เนื่องจากข้อผิดพลาดในการเปิดกระเป๋าคุมข้อมูลอีกครั้ง"
 
-#: ksecretd/ksecretd.cpp:1128
+#: ksecretd/ksecretd.cpp:1062
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

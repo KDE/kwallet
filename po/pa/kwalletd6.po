@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-25 00:41+0000\n"
+"POT-Creation-Date: 2026-08-26 00:42+0000\n"
 "PO-Revision-Date: 2024-01-28 19:15-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -137,7 +137,7 @@ msgstr "ਕਲਾਸਿਕ, ਬਲੋਅਫਿਸ਼ ਇੰਕ੍ਰਿਪਟ ਕ�
 msgid "Use GPG encryption, for better protection"
 msgstr "ਵਧੀਆ ਸੁਰੱਖਿਆ ਲਈ, GPG ਇਕ੍ਰਿਪਸ਼ਨ ਵਰਤੋਂ"
 
-#: ksecretd/ksecretd.cpp:501
+#: ksecretd/ksecretd.cpp:435
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -146,7 +146,7 @@ msgstr ""
 "<qt>KDE ਵਾਲਟ '<b>%1</b>' ਖੋਲ੍ਹਣ ਲਈ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਵਾਲਟ ਲਈ ਪਾਸਵਰਡ ਲਈ ਹੇਠਾਂ ਦਿਓ ਜੀ।"
 "</qt>"
 
-#: ksecretd/ksecretd.cpp:505
+#: ksecretd/ksecretd.cpp:439
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
@@ -156,20 +156,20 @@ msgstr ""
 "ਪਾਸਵਰਡ ਦਿਓ ਜੀ।</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:516 ksecretd/ksecretd.cpp:625
-#: ksecretd/ksecretd.cpp:755 ksecretd/ksecretd.cpp:778
-#: ksecretd/ksecretd.cpp:789 ksecretd/ksecretd.cpp:794
-#: ksecretd/ksecretd.cpp:1129 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
+#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
+#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE ਵਾਲਟ ਸਰਵਿਸ"
 
-#: ksecretd/ksecretd.cpp:531
+#: ksecretd/ksecretd.cpp:465
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਵਾਲਟ (%1) ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।"
 
-#: ksecretd/ksecretd.cpp:532
+#: ksecretd/ksecretd.cpp:466
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -177,19 +177,19 @@ msgctxt ""
 msgid "Switch there"
 msgstr "ਉੱਥੇ ਬਦਲੋ"
 
-#: ksecretd/ksecretd.cpp:534
+#: ksecretd/ksecretd.cpp:468
 #, kde-format
 msgid "<b>%1</b> has requested to open a wallet (%2)."
 msgstr "<b>%1</b> ਨੇ ਵਾਲਟ (%2) ਖੋਲ੍ਹਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ।"
 
-#: ksecretd/ksecretd.cpp:536
+#: ksecretd/ksecretd.cpp:470
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the application requesting a password"
 msgid "Switch to %1"
 msgstr "%1 ਲਈ ਬਦਲੋ"
 
-#: ksecretd/ksecretd.cpp:553 ksecretd/ksecretd.cpp:635
+#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -198,7 +198,7 @@ msgstr ""
 "<qt>ਵਾਲਟ '<b>%1</b>' ਖੋਲ੍ਹਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ। ਮੁੜ ਟਰਾਈ ਕਰੋ ਜੀ।<br />(ਗਲਤੀ ਕੋਡ %2: %3)</"
 "qt>"
 
-#: ksecretd/ksecretd.cpp:601
+#: ksecretd/ksecretd.cpp:535
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -209,7 +209,7 @@ msgstr ""
 "ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਟ ਨਾਲ ਵਰਤਣ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਦਿਓ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ "
 "ਕਰੋ ਕਲਿੱਕ ਕਰੋ।"
 
-#: ksecretd/ksecretd.cpp:606
+#: ksecretd/ksecretd.cpp:540
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
@@ -221,7 +221,7 @@ msgstr ""
 "ਡਾਟਾ ਸਟੋਰ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਾਲਟ ਨਾਲ ਵਰਤਣ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਦਿਓ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ "
 "ਦੀ ਮੰਗ ਨੂੰ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ ਕਲਿੱਕ ਕਰੋ।</qt>"
 
-#: ksecretd/ksecretd.cpp:614
+#: ksecretd/ksecretd.cpp:548
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -231,7 +231,7 @@ msgstr ""
 "<qt>KDE ਨੇ ਇੱਕ ਨਵਾਂ ਵਾਲਟ '<b>%1</b>' ਨਾਂ ਨਾਲ ਬਣਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ। ਇਸ ਵਾਲਟ ਲਈ ਇੱਕ "
 "ਪਾਸਵਰਡ ਚੁਣੋ ਜੀ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ।</qt>"
 
-#: ksecretd/ksecretd.cpp:619
+#: ksecretd/ksecretd.cpp:553
 #, kde-format
 msgid ""
 "<qt>The application '<b>%1</b>' has requested to create a new wallet named "
@@ -241,14 +241,14 @@ msgstr ""
 "<qt>ਐਪਲੀਕੇਸ਼ਨ '<b>%1</b>' ਨੇ ਇੱਕ ਨਵਾਂ ਵਾਲਟ '<b>%2</b>' ਨਾਂ ਨਾਲ ਬਣਾਉਣ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ। "
 "ਇਸ ਵਾਲਟ ਲਈ ਇੱਕ ਪਾਸਵਰਡ ਚੁਣੋ ਜੀ ਜਾਂ ਐਪਲੀਕੇਸ਼ਨ ਦੀ ਮੰਗ ਰੱਦ ਕਰਨ ਵਾਸਤੇ ਰੱਦ ਕਰੋ।</qt>"
 
-#: ksecretd/ksecretd.cpp:754
+#: ksecretd/ksecretd.cpp:688
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "ਵਾਲਟ ਖੋਲ੍ਹਣ ਲਈ ਅਸਮੱਰਥ ਹੈ। ਪਾਸਵਰਡ ਬਦਲਣ ਲਈ ਵਾਲਟ ਨੂੰ ਖੋਲ੍ਹਣ ਲਾਜ਼ਮੀ ਹੈ।"
 
-#: ksecretd/ksecretd.cpp:770
+#: ksecretd/ksecretd.cpp:704
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -256,22 +256,22 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:777
+#: ksecretd/ksecretd.cpp:711
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>ਵਾਲਟ '<b>%1</b>' ਲਈ ਨਵਾਂ ਪਾਸਵਰਡ ਚੁਣੋ ਜੀ।</qt>"
 
-#: ksecretd/ksecretd.cpp:789
+#: ksecretd/ksecretd.cpp:723
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "ਵਾਲਟ ਲਈ ਮੁੜ-ਇੰਕ੍ਰਿਪਸ਼ਨ ਕਰਨ ਲਈ ਗਲਤੀ। ਪਾਸਵਰਡ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
 
-#: ksecretd/ksecretd.cpp:794
+#: ksecretd/ksecretd.cpp:728
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "ਵਾਲਟ ਨੂੰ ਮੁੜ-ਖੋਲ੍ਹਣ ਦੌਰਾਨ ਗਲਤੀ ਹੈ। ਡਾਟਾ ਖਰਾਬ ਹੋ ਸਕਦਾ ਹੈ।"
 
-#: ksecretd/ksecretd.cpp:1128
+#: ksecretd/ksecretd.cpp:1062
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
