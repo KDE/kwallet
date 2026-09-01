@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:42+0000\n"
+"POT-Creation-Date: 2026-09-01 00:41+0000\n"
 "PO-Revision-Date: 2026-03-02 05:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "franklin@goodhorse.idv.tw, s8321414@gmail.com, mail@kisaragi-hiu.com"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:49
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
@@ -41,19 +41,7 @@ msgstr ""
 "<qt>KDE 要求建立一個名為 '<b>%1</b>' 的新錢包。這是一種很安全的儲存敏感資料的"
 "方式。請在底下選擇新錢包的型態，或者按取消來拒絕應用程式的要求。</qt>"
 
-#: ksecretd/knewwalletdialog.cpp:55
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
-"Please choose the new wallet's type below or click cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>應用程式 '<b>%1</b>' 要求建立一個名為 '<b>%2</b>' 的新錢包。這是一種很安"
-"全的儲存敏感資料的方式。請在底下選擇新錢包的型態，或者按取消來拒絕應用程式的"
-"要求。</qt>"
-
-#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/knewwalletdialog.cpp:117 ksecretd/knewwalletdialog.cpp:124
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
 #, kde-format
 msgid ""
@@ -62,7 +50,7 @@ msgid ""
 msgstr ""
 "GpgME 函式庫在初始化 OpenPGP 協定時失敗。請檢查您的系統設定，然後再試一次。"
 
-#: ksecretd/knewwalletdialog.cpp:153
+#: ksecretd/knewwalletdialog.cpp:145
 #, kde-format
 msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
@@ -139,37 +127,28 @@ msgstr "傳統加密檔"
 msgid "Use GPG encryption, for better protection"
 msgstr "使用 GPG 加密，取得較佳的保護"
 
-#: ksecretd/ksecretd.cpp:435
+#: ksecretd/ksecretd.cpp:408
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
 "password for this wallet below.</qt>"
 msgstr "<qt>KDE 被要求開啟錢包「<b>%1</b>」。請在下面輸入這個錢包的密碼。</qt>"
 
-#: ksecretd/ksecretd.cpp:439
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
-"b>'. Please enter the password for this wallet below.</qt>"
-msgstr ""
-"<qt>應用程式「<b>%1</b>」要求開啟錢包「<b>%2</b>」。請在下面輸入這個錢包的密"
-"碼。</qt>"
-
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
-#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
-#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
-#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:416 ksecretd/ksecretd.cpp:503
+#: ksecretd/ksecretd.cpp:633 ksecretd/ksecretd.cpp:656
+#: ksecretd/ksecretd.cpp:667 ksecretd/ksecretd.cpp:672
+#: ksecretd/ksecretd.cpp:982 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE 錢包服務"
 
-#: ksecretd/ksecretd.cpp:465
+#: ksecretd/ksecretd.cpp:430
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "有個應用程式要求開啟錢包（%1）。"
 
-#: ksecretd/ksecretd.cpp:466
+#: ksecretd/ksecretd.cpp:431
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -177,19 +156,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "在那裡切換"
 
-#: ksecretd/ksecretd.cpp:468
-#, kde-format
-msgid "<b>%1</b> has requested to open a wallet (%2)."
-msgstr "<b>%1</b> 已要求開啟錢包（%2）。"
-
-#: ksecretd/ksecretd.cpp:470
-#, kde-format
-msgctxt ""
-"Text of a button for switching to the application requesting a password"
-msgid "Switch to %1"
-msgstr "切換到 %1"
-
-#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
+#: ksecretd/ksecretd.cpp:447 ksecretd/ksecretd.cpp:513
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -198,7 +165,7 @@ msgstr ""
 "<qt>在開啟錢包「<b>%1</b>」時發生錯誤。請再試一次。<br />(錯誤代碼 %2: %3)</"
 "qt>"
 
-#: ksecretd/ksecretd.cpp:535
+#: ksecretd/ksecretd.cpp:494
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -208,18 +175,7 @@ msgstr ""
 "KDE 被要求開啟錢包。這是一種很安全的儲存敏感資料的方式。請輸入密碼來使用這個"
 "錢包或者按取消來拒絕應用程式的要求。"
 
-#: ksecretd/ksecretd.cpp:540
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
-"is used to store sensitive data in a secure fashion. Please enter a password "
-"to use with this wallet or click cancel to deny the application's request.</"
-"qt>"
-msgstr ""
-"<qt>應用程式「<b>%1</b>」要求開啟 KDE 錢包。這是一種很安全的儲存敏感資料的方"
-"式。請輸入密碼來使用這個錢包或者按取消來拒絕應用程式的要求。</qt>"
-
-#: ksecretd/ksecretd.cpp:548
+#: ksecretd/ksecretd.cpp:499
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -229,24 +185,14 @@ msgstr ""
 "<qt>KDE 被要求建立一個新的名為「<b>%1</b>」的錢包。請選擇給這個錢包使用的密"
 "碼，或者按取消來拒絕應用程式的要求。</qt>"
 
-#: ksecretd/ksecretd.cpp:553
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>應用程式「<b>%1</b>」要求建立一個新的名為「<b>%2</b>」的錢包。請選擇給這"
-"個錢包使用的密碼，或者按取消來拒絕應用程式的要求。</qt>"
-
-#: ksecretd/ksecretd.cpp:688
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "無法開啟錢包。必須開啟這個錢包才能夠改變密碼。"
 
-#: ksecretd/ksecretd.cpp:704
+#: ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -256,22 +202,22 @@ msgstr ""
 "<qt>錢包 <b>%1</b> 是用 GPG 金鑰 <b>%2</b> 加密的。請用 <b>GPG</b> 工具（如 "
 "<b>kleopatra</b>）來變更該金鑰的密碼片語。</qt>"
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:655
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>請選擇一個新的密碼給錢包「<b>%1</b>」。</qt>"
 
-#: ksecretd/ksecretd.cpp:723
+#: ksecretd/ksecretd.cpp:667
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "重新加密錢包時發生錯誤。密碼尚未變更。"
 
-#: ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:672
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "重開錢包發生錯誤。資料可能流失。"
 
-#: ksecretd/ksecretd.cpp:1062
+#: ksecretd/ksecretd.cpp:981
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -748,6 +694,48 @@ msgstr "要重新命名的項目是不完整的"
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "無法建立秘密值"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. This is used to store sensitive data in a secure "
+#~ "fashion. Please choose the new wallet's type below or click cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>應用程式 '<b>%1</b>' 要求建立一個名為 '<b>%2</b>' 的新錢包。這是一種很"
+#~ "安全的儲存敏感資料的方式。請在底下選擇新錢包的型態，或者按取消來拒絕應用程"
+#~ "式的要求。</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+#~ "b>'. Please enter the password for this wallet below.</qt>"
+#~ msgstr ""
+#~ "<qt>應用程式「<b>%1</b>」要求開啟錢包「<b>%2</b>」。請在下面輸入這個錢包的"
+#~ "密碼。</qt>"
+
+#~ msgid "<b>%1</b> has requested to open a wallet (%2)."
+#~ msgstr "<b>%1</b> 已要求開啟錢包（%2）。"
+
+#~ msgctxt ""
+#~ "Text of a button for switching to the application requesting a password"
+#~ msgid "Switch to %1"
+#~ msgstr "切換到 %1"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#~ "This is used to store sensitive data in a secure fashion. Please enter a "
+#~ "password to use with this wallet or click cancel to deny the "
+#~ "application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>應用程式「<b>%1</b>」要求開啟 KDE 錢包。這是一種很安全的儲存敏感資料的"
+#~ "方式。請輸入密碼來使用這個錢包或者按取消來拒絕應用程式的要求。</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. Please choose a password for this wallet, or cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>應用程式「<b>%1</b>」要求建立一個新的名為「<b>%2</b>」的錢包。請選擇給"
+#~ "這個錢包使用的密碼，或者按取消來拒絕應用程式的要求。</qt>"
 
 #~ msgid "Allow &Once"
 #~ msgstr "允許一次(&O)"

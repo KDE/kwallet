@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:42+0000\n"
+"POT-Creation-Date: 2026-09-01 00:41+0000\n"
 "PO-Revision-Date: 2023-12-13 06:44+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "axel@esperanto-jeunes.org, michael.moroni@mailoo.org"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:49
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
@@ -41,20 +41,7 @@ msgstr ""
 "konservi sentemajn datumojn en sekura modo. Bonvolu elekti la tipon de la "
 "nova monujo sube aŭ klaku nuligi por rifuzi la peton de la aplikaĵo.</qt>"
 
-#: ksecretd/knewwalletdialog.cpp:55
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
-"Please choose the new wallet's type below or click cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>La aplikaĵo '<b>%1</b>' petis krei novan monujon nomitan '<b>%2</b>'. Ĉi "
-"tio estas uzata por konservi sentemajn datumojn en sekura modo. Bonvolu "
-"elekti la tipon de la nova monujo sube aŭ klaku nuligi por rifuzi la peton "
-"de la aplikaĵo.</qt>"
-
-#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/knewwalletdialog.cpp:117 ksecretd/knewwalletdialog.cpp:124
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
 #, kde-format
 msgid ""
@@ -64,7 +51,7 @@ msgstr ""
 "La GpgME-biblioteko ne pravigis por la OpenPGP-protokolo. Bonvolu kontroli "
 "la agordon de via sistemo kaj provu denove."
 
-#: ksecretd/knewwalletdialog.cpp:153
+#: ksecretd/knewwalletdialog.cpp:145
 #, kde-format
 msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
@@ -144,7 +131,7 @@ msgstr "Klasika, blowfish ĉifrita dosiero"
 msgid "Use GPG encryption, for better protection"
 msgstr "Uzi GPG-ĉifradon, por pli bona protekto"
 
-#: ksecretd/ksecretd.cpp:435
+#: ksecretd/ksecretd.cpp:408
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -153,30 +140,21 @@ msgstr ""
 "<qt>KDE petis malfermi la monujon '<b>%1</b>'. Bonvolu enigi la pasvorton "
 "por ĉi tiu monujo sube.</qt>"
 
-#: ksecretd/ksecretd.cpp:439
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
-"b>'. Please enter the password for this wallet below.</qt>"
-msgstr ""
-"<qt>La aplikaĵo '<b>%1</b>' petis malfermi la monujon '<b>%2</b>'. Bonvolu "
-"enigi la pasvorton por ĉi tiu monujo sube.</qt>"
-
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
-#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
-#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
-#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:416 ksecretd/ksecretd.cpp:503
+#: ksecretd/ksecretd.cpp:633 ksecretd/ksecretd.cpp:656
+#: ksecretd/ksecretd.cpp:667 ksecretd/ksecretd.cpp:672
+#: ksecretd/ksecretd.cpp:982 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Servo de sekretejo de KDE"
 
-#: ksecretd/ksecretd.cpp:465
+#: ksecretd/ksecretd.cpp:430
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Apliko petis malfermi monujon (%1)."
 
-#: ksecretd/ksecretd.cpp:466
+#: ksecretd/ksecretd.cpp:431
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -184,19 +162,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Ŝalti ĉi tie"
 
-#: ksecretd/ksecretd.cpp:468
-#, kde-format
-msgid "<b>%1</b> has requested to open a wallet (%2)."
-msgstr "<b>%1</b> postulis malfermadon de sekretejo (%2)."
-
-#: ksecretd/ksecretd.cpp:470
-#, kde-format
-msgctxt ""
-"Text of a button for switching to the application requesting a password"
-msgid "Switch to %1"
-msgstr "Ŝalti al %1"
-
-#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
+#: ksecretd/ksecretd.cpp:447 ksecretd/ksecretd.cpp:513
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -205,7 +171,7 @@ msgstr ""
 "<qt>Eraro dum malfermado de la monujo '<b>%1</b>'. Bonvolu provi denove.<br /"
 ">(Erara kodo %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:535
+#: ksecretd/ksecretd.cpp:494
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -216,20 +182,7 @@ msgstr ""
 "datumojn en sekura modo. Bonvolu enigi pasvorton por uzi kun ĉi tiu monujo "
 "aŭ alklaku nuligi por rifuzi la peton de la aplikaĵo."
 
-#: ksecretd/ksecretd.cpp:540
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
-"is used to store sensitive data in a secure fashion. Please enter a password "
-"to use with this wallet or click cancel to deny the application's request.</"
-"qt>"
-msgstr ""
-"<qt>La aplikaĵo '<b>%1</b>' petis malfermi la KDE-monujon. Ĉi tio estas "
-"uzata por konservi sentemajn datumojn en sekura modo. Bonvolu enigi "
-"pasvorton por uzi kun ĉi tiu monujo aŭ klaki nuligi por rifuzi la peton de "
-"la aplikaĵo.</qt>"
-
-#: ksecretd/ksecretd.cpp:548
+#: ksecretd/ksecretd.cpp:499
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -240,18 +193,7 @@ msgstr ""
 "pasvorton por ĉi tiu monujo, aŭ nuligi por rifuzi la peton de la aplikaĵo.</"
 "qt>"
 
-#: ksecretd/ksecretd.cpp:553
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>La aplikaĵo '<b>%1</b>' petis krei novan monujon nomitan '<b>%2</b>'. "
-"Bonvolu elekti pasvorton por ĉi tiu monujo, aŭ nuligi por rifuzi la peton de "
-"la aplikaĵo.</qt>"
-
-#: ksecretd/ksecretd.cpp:688
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -260,7 +202,7 @@ msgstr ""
 "Ne eblas malfermi monujon. La monujo devas esti malfermita por ŝanĝi la "
 "pasvorton."
 
-#: ksecretd/ksecretd.cpp:704
+#: ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -271,22 +213,22 @@ msgstr ""
 "<b>GPG</b>-iloj (kiel <b>kleopatra</b>) por ŝanĝi la pasfrazon asociitan al "
 "tiu ŝlosilo.</qt>"
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:655
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Bonvolu elekti novan pasvorton por la monujo '<b>%1</b>'.</qt>"
 
-#: ksecretd/ksecretd.cpp:723
+#: ksecretd/ksecretd.cpp:667
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Eraro re-ĉifri la monujon. Pasvorto ne estis ŝanĝita."
 
-#: ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:672
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Eraro remalfermante la monujon. Datumoj povas esti perditaj."
 
-#: ksecretd/ksecretd.cpp:1062
+#: ksecretd/ksecretd.cpp:981
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -796,6 +738,52 @@ msgstr ""
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr ""
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. This is used to store sensitive data in a secure "
+#~ "fashion. Please choose the new wallet's type below or click cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>La aplikaĵo '<b>%1</b>' petis krei novan monujon nomitan '<b>%2</b>'. "
+#~ "Ĉi tio estas uzata por konservi sentemajn datumojn en sekura modo. "
+#~ "Bonvolu elekti la tipon de la nova monujo sube aŭ klaku nuligi por rifuzi "
+#~ "la peton de la aplikaĵo.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+#~ "b>'. Please enter the password for this wallet below.</qt>"
+#~ msgstr ""
+#~ "<qt>La aplikaĵo '<b>%1</b>' petis malfermi la monujon '<b>%2</b>'. "
+#~ "Bonvolu enigi la pasvorton por ĉi tiu monujo sube.</qt>"
+
+#~ msgid "<b>%1</b> has requested to open a wallet (%2)."
+#~ msgstr "<b>%1</b> postulis malfermadon de sekretejo (%2)."
+
+#~ msgctxt ""
+#~ "Text of a button for switching to the application requesting a password"
+#~ msgid "Switch to %1"
+#~ msgstr "Ŝalti al %1"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#~ "This is used to store sensitive data in a secure fashion. Please enter a "
+#~ "password to use with this wallet or click cancel to deny the "
+#~ "application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>La aplikaĵo '<b>%1</b>' petis malfermi la KDE-monujon. Ĉi tio estas "
+#~ "uzata por konservi sentemajn datumojn en sekura modo. Bonvolu enigi "
+#~ "pasvorton por uzi kun ĉi tiu monujo aŭ klaki nuligi por rifuzi la peton "
+#~ "de la aplikaĵo.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. Please choose a password for this wallet, or cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>La aplikaĵo '<b>%1</b>' petis krei novan monujon nomitan '<b>%2</b>'. "
+#~ "Bonvolu elekti pasvorton por ĉi tiu monujo, aŭ nuligi por rifuzi la peton "
+#~ "de la aplikaĵo.</qt>"
 
 #~ msgid "Allow &Once"
 #~ msgstr "Permesi unuf&oje"

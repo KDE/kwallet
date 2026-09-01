@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:42+0000\n"
+"POT-Creation-Date: 2026-09-01 00:41+0000\n"
 "PO-Revision-Date: 2021-09-09 21:35+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mschlander@opensuse.org"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:49
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
@@ -39,20 +39,7 @@ msgstr ""
 "tegnebog nedenfor eller klik på annullér for at afvise programmets anmodning."
 "</qt>"
 
-#: ksecretd/knewwalletdialog.cpp:55
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
-"Please choose the new wallet's type below or click cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>Programmet \"<b>%1</b>\" har anmodet om at oprette en ny tegnebog ved "
-"navn \"<b>%2</b>\". Den bruges til at bruges til at gemme følsomme data på "
-"en sikker måde. Vælg type for den nye tegnebog nedenfor eller klik på "
-"annullér for at afvise programmets anmodning.</qt>"
-
-#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/knewwalletdialog.cpp:117 ksecretd/knewwalletdialog.cpp:124
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
 #, kde-format
 msgid ""
@@ -62,7 +49,7 @@ msgstr ""
 "Biblioteket GpgME kunne ikke starte OpenPGP-protokollen. Tjek din "
 "systemkonfiguration og prøv igen."
 
-#: ksecretd/knewwalletdialog.cpp:153
+#: ksecretd/knewwalletdialog.cpp:145
 #, kde-format
 msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
@@ -142,7 +129,7 @@ msgstr "Klassisk blowfish-krypteret fil"
 msgid "Use GPG encryption, for better protection"
 msgstr "Brug GPG-kryptering for større beskyttelse"
 
-#: ksecretd/ksecretd.cpp:435
+#: ksecretd/ksecretd.cpp:408
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -151,30 +138,21 @@ msgstr ""
 "<qt>KDE har anmodet om at åbne tegnebogen \"<b>%1</b>\". Indtast "
 "adgangskoden for denne tegnebog nedenfor.</qt>"
 
-#: ksecretd/ksecretd.cpp:439
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
-"b>'. Please enter the password for this wallet below.</qt>"
-msgstr ""
-"<qt>Programmet \"<b>%1</b>\" har anmodet om at åbne tegnebogen \"<b>%2</b>"
-"\". Indtast adgangskoden for denne tegnebog nedenfor.</qt>"
-
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
-#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
-#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
-#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:416 ksecretd/ksecretd.cpp:503
+#: ksecretd/ksecretd.cpp:633 ksecretd/ksecretd.cpp:656
+#: ksecretd/ksecretd.cpp:667 ksecretd/ksecretd.cpp:672
+#: ksecretd/ksecretd.cpp:982 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE's tegnebogstjeneste"
 
-#: ksecretd/ksecretd.cpp:465
+#: ksecretd/ksecretd.cpp:430
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Et program har anmodet om at åbne en tegnebog (%1)."
 
-#: ksecretd/ksecretd.cpp:466
+#: ksecretd/ksecretd.cpp:431
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -182,19 +160,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Skift der"
 
-#: ksecretd/ksecretd.cpp:468
-#, kde-format
-msgid "<b>%1</b> has requested to open a wallet (%2)."
-msgstr "<b>%1</b> har anmodet om at åbne en tegnebog (%2)."
-
-#: ksecretd/ksecretd.cpp:470
-#, kde-format
-msgctxt ""
-"Text of a button for switching to the application requesting a password"
-msgid "Switch to %1"
-msgstr "Skift til %1"
-
-#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
+#: ksecretd/ksecretd.cpp:447 ksecretd/ksecretd.cpp:513
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -203,7 +169,7 @@ msgstr ""
 "<qt>Fejl under åbning af tegnebogen \"<b>%1</b>\". Prøv igen.<br />(Fejlkode "
 "%2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:535
+#: ksecretd/ksecretd.cpp:494
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -214,20 +180,7 @@ msgstr ""
 "data på en sikker måde. Indtast en adgangskode der skal bruges til denne "
 "tegnebog eller tryk på Annullér for at afvise programmets anmodning."
 
-#: ksecretd/ksecretd.cpp:540
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
-"is used to store sensitive data in a secure fashion. Please enter a password "
-"to use with this wallet or click cancel to deny the application's request.</"
-"qt>"
-msgstr ""
-"<qt>Programmet \"<b>%1</b>\" har anmodet om at åbne KDE's tegnebog. Denne "
-"bruges til at opbevare følsomme data på en sikker måde. Indtast en "
-"adgangskode der skal bruges til denne tegnebog eller tryk på Annullér for at "
-"afvise programmets anmodning.</qt>"
-
-#: ksecretd/ksecretd.cpp:548
+#: ksecretd/ksecretd.cpp:499
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -238,18 +191,7 @@ msgstr ""
 "en adgangskode til denne tegnebog eller annullér for at afvise programmets "
 "anmodning.</qt>"
 
-#: ksecretd/ksecretd.cpp:553
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>Programmet \"<b>%1</b>\" har anmodet om at oprette en ny tegnebog kaldet "
-"\"<b>%2</b>\". Vælg en adgangskode til denne tegnebog eller annullér for at "
-"afvise programmets anmodning.</qt>"
-
-#: ksecretd/ksecretd.cpp:688
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -257,7 +199,7 @@ msgid ""
 msgstr ""
 "Kan ikke åbne tegnebog. Tegnebogen skal åbnes for at adgangskoden kan ændres."
 
-#: ksecretd/ksecretd.cpp:704
+#: ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -268,22 +210,22 @@ msgstr ""
 "b>-værktøjer (såsom <b>kleopatra</b>) til at skifte adgangsfrasen der er "
 "knyttet til den nøgle.</qt>"
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:655
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Vælg en ny adgangskode for tegnebogen \"<b>%1</b>\".</qt>"
 
-#: ksecretd/ksecretd.cpp:723
+#: ksecretd/ksecretd.cpp:667
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Fejl ved re-kryptering af tegnebogen. Adgangskoden blev ikke ændret."
 
-#: ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:672
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Fejl ved genåbning af tegnebogen. Data kan være gået tabt."
 
-#: ksecretd/ksecretd.cpp:1062
+#: ksecretd/ksecretd.cpp:981
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -789,6 +731,52 @@ msgstr ""
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr ""
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. This is used to store sensitive data in a secure "
+#~ "fashion. Please choose the new wallet's type below or click cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Programmet \"<b>%1</b>\" har anmodet om at oprette en ny tegnebog ved "
+#~ "navn \"<b>%2</b>\". Den bruges til at bruges til at gemme følsomme data "
+#~ "på en sikker måde. Vælg type for den nye tegnebog nedenfor eller klik på "
+#~ "annullér for at afvise programmets anmodning.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+#~ "b>'. Please enter the password for this wallet below.</qt>"
+#~ msgstr ""
+#~ "<qt>Programmet \"<b>%1</b>\" har anmodet om at åbne tegnebogen \"<b>%2</b>"
+#~ "\". Indtast adgangskoden for denne tegnebog nedenfor.</qt>"
+
+#~ msgid "<b>%1</b> has requested to open a wallet (%2)."
+#~ msgstr "<b>%1</b> har anmodet om at åbne en tegnebog (%2)."
+
+#~ msgctxt ""
+#~ "Text of a button for switching to the application requesting a password"
+#~ msgid "Switch to %1"
+#~ msgstr "Skift til %1"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#~ "This is used to store sensitive data in a secure fashion. Please enter a "
+#~ "password to use with this wallet or click cancel to deny the "
+#~ "application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Programmet \"<b>%1</b>\" har anmodet om at åbne KDE's tegnebog. Denne "
+#~ "bruges til at opbevare følsomme data på en sikker måde. Indtast en "
+#~ "adgangskode der skal bruges til denne tegnebog eller tryk på Annullér for "
+#~ "at afvise programmets anmodning.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. Please choose a password for this wallet, or cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Programmet \"<b>%1</b>\" har anmodet om at oprette en ny tegnebog "
+#~ "kaldet \"<b>%2</b>\". Vælg en adgangskode til denne tegnebog eller "
+#~ "annullér for at afvise programmets anmodning.</qt>"
 
 #~ msgid "Allow &Once"
 #~ msgstr "Tillad én &gang"

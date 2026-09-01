@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:42+0000\n"
+"POT-Creation-Date: 2026-09-01 00:41+0000\n"
 "PO-Revision-Date: 2025-10-06 01:22+0400\n"
 "Last-Translator: linux <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xxmn77@gmail.com"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:49
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
@@ -41,19 +41,7 @@ msgstr ""
 "cüzdanın növünü seçin və ya bu sorğunu qəbul etməmək üçün İmtina et seçimini "
 "edin.<qt>"
 
-#: ksecretd/knewwalletdialog.cpp:55
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
-"Please choose the new wallet's type below or click cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"qt>'<b>%1</b>' Tətbiqi yeni '<b>%2</b>' adlı cüzdan yaratmağı tələb edir. "
-"Yaradılacaq cüzdanın növünü seçin və ya bu sorğunu qəbul etməmək üçün İmtina "
-"et seçimini edin.<qt>"
-
-#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/knewwalletdialog.cpp:117 ksecretd/knewwalletdialog.cpp:124
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
 #, kde-format
 msgid ""
@@ -63,7 +51,7 @@ msgstr ""
 "GpgME kitabxanası OpenPGP protokolu üçün işə salına bilmədi. Lütfən "
 "sisteminizin konfiqurasiyasını yoxlayın və yenidən cəhd edin."
 
-#: ksecretd/knewwalletdialog.cpp:153
+#: ksecretd/knewwalletdialog.cpp:145
 #, kde-format
 msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
@@ -143,7 +131,7 @@ msgstr "blowfish klassik şifrəsi"
 msgid "Use GPG encryption, for better protection"
 msgstr "Daha yaxşı qorunma üçün GPG şifrələmə istifadə edin"
 
-#: ksecretd/ksecretd.cpp:435
+#: ksecretd/ksecretd.cpp:408
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -152,30 +140,21 @@ msgstr ""
 "<qt>KDE <b>%1</b> cüzdanını açmağı tələb edir. Lütfən bu cüzdan üçün şifrə "
 "təyin edin.</qt>"
 
-#: ksecretd/ksecretd.cpp:439
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
-"b>'. Please enter the password for this wallet below.</qt>"
-msgstr ""
-"<qt>'<b>%1</b>' tətbiqi, '<b>%2</b>' cüzdanını açmağı tələb edir. Lütfən "
-"aşağıda, bu cüzdan üçün şifrəni daxil edin.</qt>"
-
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
-#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
-#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
-#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:416 ksecretd/ksecretd.cpp:503
+#: ksecretd/ksecretd.cpp:633 ksecretd/ksecretd.cpp:656
+#: ksecretd/ksecretd.cpp:667 ksecretd/ksecretd.cpp:672
+#: ksecretd/ksecretd.cpp:982 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE Cüzdanı Xidməti"
 
-#: ksecretd/ksecretd.cpp:465
+#: ksecretd/ksecretd.cpp:430
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Tətbiq (%1) cüzdanı açmaq üçün sorğu göndərdi."
 
-#: ksecretd/ksecretd.cpp:466
+#: ksecretd/ksecretd.cpp:431
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -183,19 +162,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Tətbiqə keçmək"
 
-#: ksecretd/ksecretd.cpp:468
-#, kde-format
-msgid "<b>%1</b> has requested to open a wallet (%2)."
-msgstr "<b>%1</b>, (%2) cüzdanını açmaq üçün sorğu göndərdi."
-
-#: ksecretd/ksecretd.cpp:470
-#, kde-format
-msgctxt ""
-"Text of a button for switching to the application requesting a password"
-msgid "Switch to %1"
-msgstr "%1 ə keçmək"
-
-#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
+#: ksecretd/ksecretd.cpp:447 ksecretd/ksecretd.cpp:513
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -204,7 +171,7 @@ msgstr ""
 "<qt>'<b>%1</b>' cüzdanının açılmasında səhv. Lütfən yenidən cəhd edin. <br /"
 ">(Xəta kodu %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:535
+#: ksecretd/ksecretd.cpp:494
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -215,20 +182,7 @@ msgstr ""
 "saxlamaq üçün istifadə oluna bilər. Yaradılacaq cüzdanın növünü seçin və ya "
 "bu sorğunu qəbul etməmək üçün İmtina et seçimini edin."
 
-#: ksecretd/ksecretd.cpp:540
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
-"is used to store sensitive data in a secure fashion. Please enter a password "
-"to use with this wallet or click cancel to deny the application's request.</"
-"qt>"
-msgstr ""
-"<qt>Tətbiq '<b>%1</b>' KDE cüzdanını açmaq üçün sorğu göndərdi. Bu cüzdan "
-"vacib məlumatları təhlükəsiz saxlamaq üçün istifadə oluna bilər. Yaradılacaq "
-"cüzdanın növünü seçin və ya bu sorğunu qəbul etməmək üçün İmtina et seçimini "
-"edin.</qt>"
-
-#: ksecretd/ksecretd.cpp:548
+#: ksecretd/ksecretd.cpp:499
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -239,25 +193,14 @@ msgstr ""
 "cüzdanın növünü seçin və ya bu sorğunu qəbul etməmək üçün İmtina et seçimini "
 "edin.</qt>"
 
-#: ksecretd/ksecretd.cpp:553
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt> Tətbiq '<b>%1</b>', yeni <b>%2</b> adlı cüzdan yaratmağı tələb edir. "
-"Yaradılacaq cüzdanın növünü seçin və ya bu sorğunu qəbul etməmək üçün İmtina "
-"et seçimini edin.</qt>"
-
-#: ksecretd/ksecretd.cpp:688
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "Cüzdan açıla bilmədi. Şifrəni ancaq cüzdan açıldıqda dəyişmək olar. "
 
-#: ksecretd/ksecretd.cpp:704
+#: ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -268,22 +211,22 @@ msgstr ""
 "Lütfən <b>GPG</b> vasitəsindən (<b>kleopatra</b> kimi) istifadə edərək bu "
 "açara uyğun şifrəni dəyişin.</qt>"
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:655
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Lütfən \"<b>%1</b>\" cüzdanı üçün yeni şifrə təyin edin.</qt>"
 
-#: ksecretd/ksecretd.cpp:723
+#: ksecretd/ksecretd.cpp:667
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Cüzdanın təkrar şifrələnməsində xəta baş verdi. Şifrə dəyişdirilmədi."
 
-#: ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:672
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Cüzdanın təkrar açılmasında səvv baş verdi. Məlumatlar itirilə bilər."
 
-#: ksecretd/ksecretd.cpp:1062
+#: ksecretd/ksecretd.cpp:981
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -787,6 +730,51 @@ msgstr ""
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr ""
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. This is used to store sensitive data in a secure "
+#~ "fashion. Please choose the new wallet's type below or click cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "qt>'<b>%1</b>' Tətbiqi yeni '<b>%2</b>' adlı cüzdan yaratmağı tələb edir. "
+#~ "Yaradılacaq cüzdanın növünü seçin və ya bu sorğunu qəbul etməmək üçün "
+#~ "İmtina et seçimini edin.<qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+#~ "b>'. Please enter the password for this wallet below.</qt>"
+#~ msgstr ""
+#~ "<qt>'<b>%1</b>' tətbiqi, '<b>%2</b>' cüzdanını açmağı tələb edir. Lütfən "
+#~ "aşağıda, bu cüzdan üçün şifrəni daxil edin.</qt>"
+
+#~ msgid "<b>%1</b> has requested to open a wallet (%2)."
+#~ msgstr "<b>%1</b>, (%2) cüzdanını açmaq üçün sorğu göndərdi."
+
+#~ msgctxt ""
+#~ "Text of a button for switching to the application requesting a password"
+#~ msgid "Switch to %1"
+#~ msgstr "%1 ə keçmək"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#~ "This is used to store sensitive data in a secure fashion. Please enter a "
+#~ "password to use with this wallet or click cancel to deny the "
+#~ "application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Tətbiq '<b>%1</b>' KDE cüzdanını açmaq üçün sorğu göndərdi. Bu cüzdan "
+#~ "vacib məlumatları təhlükəsiz saxlamaq üçün istifadə oluna bilər. "
+#~ "Yaradılacaq cüzdanın növünü seçin və ya bu sorğunu qəbul etməmək üçün "
+#~ "İmtina et seçimini edin.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. Please choose a password for this wallet, or cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt> Tətbiq '<b>%1</b>', yeni <b>%2</b> adlı cüzdan yaratmağı tələb edir. "
+#~ "Yaradılacaq cüzdanın növünü seçin və ya bu sorğunu qəbul etməmək üçün "
+#~ "İmtina et seçimini edin.</qt>"
 
 #~ msgid "Allow &Once"
 #~ msgstr "Bir &dəfəyə icazə ver"

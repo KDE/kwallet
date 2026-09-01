@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:42+0000\n"
+"POT-Creation-Date: 2026-09-01 00:41+0000\n"
 "PO-Revision-Date: 2011-07-17 16:06+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "jean.cayron@gmail.com"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:49
 #, fuzzy, kde-format
 #| msgid ""
 #| "KDE has requested to open the wallet. This is used to store sensitive "
@@ -45,25 +45,7 @@ msgstr ""
 "manoye, s' i vs plait oudon-bén clitchî so Rinoncî po rbôrer l' dimande do "
 "programe."
 
-#: ksecretd/knewwalletdialog.cpp:55
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
-#| "This is used to store sensitive data in a secure fashion. Please enter a "
-#| "password to use with this wallet or click cancel to deny the "
-#| "application's request.</qt>"
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
-"Please choose the new wallet's type below or click cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>Li programe « <b>%1</b> » a dmandé po drovi l' poite-manoye KDE. Ci chal "
-"est eployî po wårder des sinsibès dnêyes d' ene såve manire. Tapez on scret "
-"a eployî avou c' poite-manoye, s' i vs plait oudon-bén clitchî so Rinoncî po "
-"rbôrer l' dimande do programe.</qt>"
-
-#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/knewwalletdialog.cpp:117 ksecretd/knewwalletdialog.cpp:124
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
 #, kde-format
 msgid ""
@@ -71,7 +53,7 @@ msgid ""
 "check your system's configuration then try again."
 msgstr ""
 
-#: ksecretd/knewwalletdialog.cpp:153
+#: ksecretd/knewwalletdialog.cpp:145
 #, kde-format
 msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
@@ -151,7 +133,7 @@ msgstr ""
 msgid "Use GPG encryption, for better protection"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:435
+#: ksecretd/ksecretd.cpp:408
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -160,31 +142,22 @@ msgstr ""
 "<qt>KDE a dmandé po drovi l' poite-manoye « <b>%1</b> ». Tapez l' sicret do "
 "poite-manoye chal pa dzo s' i vs plait.</qt>"
 
-#: ksecretd/ksecretd.cpp:439
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
-"b>'. Please enter the password for this wallet below.</qt>"
-msgstr ""
-"<qt>Li programe « <b>%1</b> » a dmandé po drovi l' poite-manoye « <b>%2</b> "
-"».  Tapez l' sicret do poite-manoye chal pa dzo s' i vs plait.</qt>"
-
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
-#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
-#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
-#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:416 ksecretd/ksecretd.cpp:503
+#: ksecretd/ksecretd.cpp:633 ksecretd/ksecretd.cpp:656
+#: ksecretd/ksecretd.cpp:667 ksecretd/ksecretd.cpp:672
+#: ksecretd/ksecretd.cpp:982 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Siervice di poite-manoye KDE"
 
-#: ksecretd/ksecretd.cpp:465
+#: ksecretd/ksecretd.cpp:430
 #, fuzzy, kde-format
 #| msgid "<b>KDE</b> has requested to open a wallet (%1)."
 msgid "An application has requested to open a wallet (%1)."
 msgstr "<b>KDE</b> a dmandé po drovi on poite-manoye (%1)."
 
-#: ksecretd/ksecretd.cpp:466
+#: ksecretd/ksecretd.cpp:431
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -192,19 +165,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Passez chal"
 
-#: ksecretd/ksecretd.cpp:468
-#, kde-format
-msgid "<b>%1</b> has requested to open a wallet (%2)."
-msgstr "<b>%1</b> a dmandé po drovi on poite-manoye (%2)."
-
-#: ksecretd/ksecretd.cpp:470
-#, kde-format
-msgctxt ""
-"Text of a button for switching to the application requesting a password"
-msgid "Switch to %1"
-msgstr "Passer a %1"
-
-#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
+#: ksecretd/ksecretd.cpp:447 ksecretd/ksecretd.cpp:513
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -213,7 +174,7 @@ msgstr ""
 "<qt>Åk n' a nén stî come dji droveu l' poite-manoye « <b>%1</b> ». Sayîz co "
 "on côp s' i vs plait.<br />(Côde d' aroke %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:535
+#: ksecretd/ksecretd.cpp:494
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -225,20 +186,7 @@ msgstr ""
 "manoye, s' i vs plait oudon-bén clitchî so Rinoncî po rbôrer l' dimande do "
 "programe."
 
-#: ksecretd/ksecretd.cpp:540
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
-"is used to store sensitive data in a secure fashion. Please enter a password "
-"to use with this wallet or click cancel to deny the application's request.</"
-"qt>"
-msgstr ""
-"<qt>Li programe « <b>%1</b> » a dmandé po drovi l' poite-manoye KDE. Ci chal "
-"est eployî po wårder des sinsibès dnêyes d' ene såve manire. Tapez on scret "
-"a eployî avou c' poite-manoye, s' i vs plait oudon-bén clitchî so Rinoncî po "
-"rbôrer l' dimande do programe.</qt>"
-
-#: ksecretd/ksecretd.cpp:548
+#: ksecretd/ksecretd.cpp:499
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -249,18 +197,7 @@ msgstr ""
 "Tchoezixhoz on scret po c' poite-manoye s' i vs plait oudon-bén rinoncî po "
 "rbôrer l' dimande då programe.</qt>"
 
-#: ksecretd/ksecretd.cpp:553
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>Li programe « <b>%1</b> » a dmandé po ahiver on novea poite-manoye lomé "
-"« <b>%2</b> ». Tchoezixhoz on scret po c' poite-manoye s' i vs plait oudon-"
-"bén rinoncî po rbôrer l' dimande då programe.</qt>"
-
-#: ksecretd/ksecretd.cpp:688
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -269,7 +206,7 @@ msgstr ""
 "Dji n' sai drovi l' poite-manoye. I fåt kel poite-manoye soeye drovou po "
 "saveur candjî l' sicret."
 
-#: ksecretd/ksecretd.cpp:704
+#: ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -277,28 +214,28 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:655
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>Tchoezixhoz on novea scret pol poite-manoye « <b>%1</b> », s' i vs plait."
 "</qt>"
 
-#: ksecretd/ksecretd.cpp:723
+#: ksecretd/ksecretd.cpp:667
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
 "Åk n' a nén stî come dji recripteu l' poite-manoye. Li scret n' a nén stî "
 "candjî."
 
-#: ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:672
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Åk n' a nén stî come dji rdroveu l' poite-manoye. Des dnêyes on kécfeye sitî "
 "pierdowes."
 
-#: ksecretd/ksecretd.cpp:1062
+#: ksecretd/ksecretd.cpp:981
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -782,6 +719,58 @@ msgstr ""
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#~| "This is used to store sensitive data in a secure fashion. Please enter a "
+#~| "password to use with this wallet or click cancel to deny the "
+#~| "application's request.</qt>"
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. This is used to store sensitive data in a secure "
+#~ "fashion. Please choose the new wallet's type below or click cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Li programe « <b>%1</b> » a dmandé po drovi l' poite-manoye KDE. Ci "
+#~ "chal est eployî po wårder des sinsibès dnêyes d' ene såve manire. Tapez "
+#~ "on scret a eployî avou c' poite-manoye, s' i vs plait oudon-bén clitchî "
+#~ "so Rinoncî po rbôrer l' dimande do programe.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+#~ "b>'. Please enter the password for this wallet below.</qt>"
+#~ msgstr ""
+#~ "<qt>Li programe « <b>%1</b> » a dmandé po drovi l' poite-manoye « <b>%2</"
+#~ "b> ».  Tapez l' sicret do poite-manoye chal pa dzo s' i vs plait.</qt>"
+
+#~ msgid "<b>%1</b> has requested to open a wallet (%2)."
+#~ msgstr "<b>%1</b> a dmandé po drovi on poite-manoye (%2)."
+
+#~ msgctxt ""
+#~ "Text of a button for switching to the application requesting a password"
+#~ msgid "Switch to %1"
+#~ msgstr "Passer a %1"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#~ "This is used to store sensitive data in a secure fashion. Please enter a "
+#~ "password to use with this wallet or click cancel to deny the "
+#~ "application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Li programe « <b>%1</b> » a dmandé po drovi l' poite-manoye KDE. Ci "
+#~ "chal est eployî po wårder des sinsibès dnêyes d' ene såve manire. Tapez "
+#~ "on scret a eployî avou c' poite-manoye, s' i vs plait oudon-bén clitchî "
+#~ "so Rinoncî po rbôrer l' dimande do programe.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. Please choose a password for this wallet, or cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Li programe « <b>%1</b> » a dmandé po ahiver on novea poite-manoye "
+#~ "lomé « <b>%2</b> ». Tchoezixhoz on scret po c' poite-manoye s' i vs plait "
+#~ "oudon-bén rinoncî po rbôrer l' dimande då programe.</qt>"
 
 #~ msgid "Allow &Once"
 #~ msgstr "Permete &on côp"

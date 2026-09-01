@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:42+0000\n"
+"POT-Creation-Date: 2026-09-01 00:41+0000\n"
 "PO-Revision-Date: 2026-02-18 17:28+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net,jaime@kde.org,santi@kde-es.org"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:49
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
@@ -41,20 +41,7 @@ msgstr ""
 "el nuevo tipo de la cartera abajo, o pulse «Cancelar» si desea denegar la "
 "petición de la aplicación.</qt>"
 
-#: ksecretd/knewwalletdialog.cpp:55
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
-"Please choose the new wallet's type below or click cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>La aplicación «<b>%1</b>» ha solicitado crear una nueva cartera con el "
-"nombre «<b>%2</b>». Esto se usa para almacenar información importante de un "
-"modo seguro. Escoja el nuevo tipo de la cartera abajo, o pulse «Cancelar» si "
-"desea denegar la petición de la aplicación.</qt>"
-
-#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/knewwalletdialog.cpp:117 ksecretd/knewwalletdialog.cpp:124
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
 #, kde-format
 msgid ""
@@ -65,7 +52,7 @@ msgstr ""
 "OpenPGP. Por favor, compruebe la configuración del sistema y vuelva a "
 "intentarlo."
 
-#: ksecretd/knewwalletdialog.cpp:153
+#: ksecretd/knewwalletdialog.cpp:145
 #, kde-format
 msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
@@ -145,7 +132,7 @@ msgstr "Clásico, archivo cifrado con blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Usar cifrado GPG, para una mejor protección"
 
-#: ksecretd/ksecretd.cpp:435
+#: ksecretd/ksecretd.cpp:408
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -154,30 +141,21 @@ msgstr ""
 "<qt>KDE ha solicitado abrir la cartera «<b>%1</b>». Introduzca la contraseña "
 "de esta cartera más abajo.</qt>"
 
-#: ksecretd/ksecretd.cpp:439
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
-"b>'. Please enter the password for this wallet below.</qt>"
-msgstr ""
-"<qt>La aplicación <b>«%1</b>» ha solicitado abrir la cartera «<b>%2</b>». "
-"Introduzca la contraseña de esta cartera más abajo.</qt>"
-
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
-#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
-#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
-#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:416 ksecretd/ksecretd.cpp:503
+#: ksecretd/ksecretd.cpp:633 ksecretd/ksecretd.cpp:656
+#: ksecretd/ksecretd.cpp:667 ksecretd/ksecretd.cpp:672
+#: ksecretd/ksecretd.cpp:982 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Servicio de cartera de KDE"
 
-#: ksecretd/ksecretd.cpp:465
+#: ksecretd/ksecretd.cpp:430
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Una aplicación ha solicitado abrir una cartera (%1)."
 
-#: ksecretd/ksecretd.cpp:466
+#: ksecretd/ksecretd.cpp:431
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -185,19 +163,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Cambiar"
 
-#: ksecretd/ksecretd.cpp:468
-#, kde-format
-msgid "<b>%1</b> has requested to open a wallet (%2)."
-msgstr "<b>%1</b> ha solicitado abrir una cartera (%2)."
-
-#: ksecretd/ksecretd.cpp:470
-#, kde-format
-msgctxt ""
-"Text of a button for switching to the application requesting a password"
-msgid "Switch to %1"
-msgstr "Cambiar a %1"
-
-#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
+#: ksecretd/ksecretd.cpp:447 ksecretd/ksecretd.cpp:513
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -206,7 +172,7 @@ msgstr ""
 "<qt>Error al abrir la cartera «<b>%1</b>». Inténtelo de nuevo.<br />(Código "
 "de error %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:535
+#: ksecretd/ksecretd.cpp:494
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -218,20 +184,7 @@ msgstr ""
 "si desea abrirlo, o pulse «Cancelar» si desea denegar la petición de la "
 "aplicación."
 
-#: ksecretd/ksecretd.cpp:540
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
-"is used to store sensitive data in a secure fashion. Please enter a password "
-"to use with this wallet or click cancel to deny the application's request.</"
-"qt>"
-msgstr ""
-"<qt>La aplicación «<b>%1</b>» ha solicitado abrir la cartera de KDE. Esto se "
-"usa para almacenar información importante de un modo seguro. Introduzca la "
-"contraseña de esta cartera más abajo si desea abrirla, o cancele si desea "
-"denegar la petición de la aplicación.</qt>"
-
-#: ksecretd/ksecretd.cpp:548
+#: ksecretd/ksecretd.cpp:499
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -242,18 +195,7 @@ msgstr ""
 "una contraseña para esta cartera, o pulse «Cancelar» para denegar la "
 "solicitud de la aplicación.</qt>"
 
-#: ksecretd/ksecretd.cpp:553
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>La aplicación «<b>%1</b>» ha solicitado crear una nueva cartera "
-"denominada «<b>%2</b>». Escoja una contraseña para esta cartera, o cancele "
-"para denegar la solicitud de la aplicación.</qt>"
-
-#: ksecretd/ksecretd.cpp:688
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -262,7 +204,7 @@ msgstr ""
 "Imposible abrir cartera. La cartera debe abrirse para poder cambiar la "
 "contraseña."
 
-#: ksecretd/ksecretd.cpp:704
+#: ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -273,22 +215,22 @@ msgstr ""
 "utilice las herramientas <b>GPG</b> (como <b>kleopatra</b>) para cambiar la "
 "contraseña larga asociada con esta clave.</qt>"
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:655
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Escoja una nueva contraseña para la cartera «<b>%1</b>».</qt>"
 
-#: ksecretd/ksecretd.cpp:723
+#: ksecretd/ksecretd.cpp:667
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Error al cifrar de nuevo la cartera. La contraseña no cambió."
 
-#: ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:672
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Error al reabrir la cartera. Los datos pueden haberse perdido."
 
-#: ksecretd/ksecretd.cpp:1062
+#: ksecretd/ksecretd.cpp:981
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -800,6 +742,52 @@ msgstr "La entrada cuyo nombre se quiere cambiar está incompleta"
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "No se ha podido crear el SecretValue"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. This is used to store sensitive data in a secure "
+#~ "fashion. Please choose the new wallet's type below or click cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>La aplicación «<b>%1</b>» ha solicitado crear una nueva cartera con "
+#~ "el nombre «<b>%2</b>». Esto se usa para almacenar información importante "
+#~ "de un modo seguro. Escoja el nuevo tipo de la cartera abajo, o pulse "
+#~ "«Cancelar» si desea denegar la petición de la aplicación.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+#~ "b>'. Please enter the password for this wallet below.</qt>"
+#~ msgstr ""
+#~ "<qt>La aplicación <b>«%1</b>» ha solicitado abrir la cartera «<b>%2</b>». "
+#~ "Introduzca la contraseña de esta cartera más abajo.</qt>"
+
+#~ msgid "<b>%1</b> has requested to open a wallet (%2)."
+#~ msgstr "<b>%1</b> ha solicitado abrir una cartera (%2)."
+
+#~ msgctxt ""
+#~ "Text of a button for switching to the application requesting a password"
+#~ msgid "Switch to %1"
+#~ msgstr "Cambiar a %1"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#~ "This is used to store sensitive data in a secure fashion. Please enter a "
+#~ "password to use with this wallet or click cancel to deny the "
+#~ "application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>La aplicación «<b>%1</b>» ha solicitado abrir la cartera de KDE. Esto "
+#~ "se usa para almacenar información importante de un modo seguro. "
+#~ "Introduzca la contraseña de esta cartera más abajo si desea abrirla, o "
+#~ "cancele si desea denegar la petición de la aplicación.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. Please choose a password for this wallet, or cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>La aplicación «<b>%1</b>» ha solicitado crear una nueva cartera "
+#~ "denominada «<b>%2</b>». Escoja una contraseña para esta cartera, o "
+#~ "cancele para denegar la solicitud de la aplicación.</qt>"
 
 #~ msgid "Allow &Once"
 #~ msgstr "Permitir una ve&z"

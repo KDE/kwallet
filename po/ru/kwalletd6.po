@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:42+0000\n"
+"POT-Creation-Date: 2026-09-01 00:41+0000\n"
 "PO-Revision-Date: 2026-02-18 08:44+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -35,7 +35,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "shaforostoff@kde.ru,skull@kde.ru,aspotashev@gmail.com"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:49
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
@@ -47,20 +47,7 @@ msgstr ""
 "для создаваемого бумажника или нажмите Отмена, чтобы отклонить этот запрос.</"
 "qt>"
 
-#: ksecretd/knewwalletdialog.cpp:55
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
-"Please choose the new wallet's type below or click cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>Приложение «<b>%1</b>» запросило создание нового бумажника «<b>%2</b>». "
-"Этот бумажник может использоваться для безопасного хранения важных данных. "
-"Выберите тип для создаваемого бумажника или нажмите Отмена, чтобы отклонить "
-"запрос приложения.</qt>"
-
-#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/knewwalletdialog.cpp:117 ksecretd/knewwalletdialog.cpp:124
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
 #, kde-format
 msgid ""
@@ -70,7 +57,7 @@ msgstr ""
 "Библиотека GpgME не смогла инициализировать протокол OpenPGP. Убедитесь в "
 "правильности настройки вашей системы и повторите попытку."
 
-#: ksecretd/knewwalletdialog.cpp:153
+#: ksecretd/knewwalletdialog.cpp:145
 #, kde-format
 msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
@@ -150,7 +137,7 @@ msgstr "Классический шифр blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Использовать шифрование GPG, для лучшей защиты"
 
-#: ksecretd/ksecretd.cpp:435
+#: ksecretd/ksecretd.cpp:408
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -159,31 +146,22 @@ msgstr ""
 "<qt>Среда KDE запросила открытие бумажника <b>%1</b>. Введите пароль для "
 "этого бумажника.</qt>"
 
-#: ksecretd/ksecretd.cpp:439
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
-"b>'. Please enter the password for this wallet below.</qt>"
-msgstr ""
-"<qt>Приложение <b>%1</b> запросило открытие бумажника <b>%2</b>. Введите "
-"пароль для бумажника.</qt>"
-
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
-#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
-#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
-#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:416 ksecretd/ksecretd.cpp:503
+#: ksecretd/ksecretd.cpp:633 ksecretd/ksecretd.cpp:656
+#: ksecretd/ksecretd.cpp:667 ksecretd/ksecretd.cpp:672
+#: ksecretd/ksecretd.cpp:982 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Служба бумажника KDE"
 
 # BUGME: what is %1 here? --aspotashev
-#: ksecretd/ksecretd.cpp:465
+#: ksecretd/ksecretd.cpp:430
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Приложение запросило открытие бумажника «%1»."
 
-#: ksecretd/ksecretd.cpp:466
+#: ksecretd/ksecretd.cpp:431
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -191,19 +169,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Переключиться на приложение"
 
-#: ksecretd/ksecretd.cpp:468
-#, kde-format
-msgid "<b>%1</b> has requested to open a wallet (%2)."
-msgstr "Приложение <b>%1</b> запросило открытие бумажника (%2)."
-
-#: ksecretd/ksecretd.cpp:470
-#, kde-format
-msgctxt ""
-"Text of a button for switching to the application requesting a password"
-msgid "Switch to %1"
-msgstr "Переключиться на %1"
-
-#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
+#: ksecretd/ksecretd.cpp:447 ksecretd/ksecretd.cpp:513
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -212,7 +178,7 @@ msgstr ""
 "<qt>Ошибка при открытии бумажника <b>%1</b>. Попробуйте ещё раз.<br />(код "
 "ошибки %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:535
+#: ksecretd/ksecretd.cpp:494
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -223,20 +189,7 @@ msgstr ""
 "важных данных в защищённом виде. Введите пароль, чтобы открыть бумажник, или "
 "нажмите «Отмена», чтобы отклонить запрос приложения."
 
-#: ksecretd/ksecretd.cpp:540
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
-"is used to store sensitive data in a secure fashion. Please enter a password "
-"to use with this wallet or click cancel to deny the application's request.</"
-"qt>"
-msgstr ""
-"<qt>Приложение <b>%1</b> запросило открытие бумажника KDE. Бумажник "
-"используется для хранения важных данных в защищённом виде. Введите пароль, "
-"чтобы открыть бумажник, или нажмите «Отмена», чтобы отклонить запрос "
-"приложения.</qt>"
-
-#: ksecretd/ksecretd.cpp:548
+#: ksecretd/ksecretd.cpp:499
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -247,19 +200,8 @@ msgstr ""
 "Выберите пароль для этого бумажника, или нажмите «Отмена», чтобы отклонить "
 "запрос приложения.</qt>"
 
-#: ksecretd/ksecretd.cpp:553
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>Приложение <b>%1</b> запросило создание нового бумажника с именем <b>%2</"
-"b>. Выберите пароль для этого бумажника, или нажмите «Отмена», чтобы "
-"отклонить запрос приложения.</qt>"
-
 # BUGME: TBD: check grammar --aspotashev
-#: ksecretd/ksecretd.cpp:688
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -268,7 +210,7 @@ msgstr ""
 "Невозможно открыть бумажник. Изменить пароль можно, только когда бумажник "
 "открыт."
 
-#: ksecretd/ksecretd.cpp:704
+#: ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -279,22 +221,22 @@ msgstr ""
 "пароля, связанного с этим ключом, используйте средства <b>GPG</b> (например, "
 "программу <b>kleopatra</b>).</qt>"
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:655
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Укажите новый пароль для бумажника <b>%1</b>.</qt>"
 
-#: ksecretd/ksecretd.cpp:723
+#: ksecretd/ksecretd.cpp:667
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Ошибка шифрования бумажника. Пароль не был изменён."
 
-#: ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:672
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Ошибка повторного открытия бумажника. Данные могут быть утрачены."
 
-#: ksecretd/ksecretd.cpp:1062
+#: ksecretd/ksecretd.cpp:981
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -798,6 +740,52 @@ msgstr "Запись для переименования неполная"
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "Не удалось создать запись SecretValue"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. This is used to store sensitive data in a secure "
+#~ "fashion. Please choose the new wallet's type below or click cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Приложение «<b>%1</b>» запросило создание нового бумажника «<b>%2</"
+#~ "b>». Этот бумажник может использоваться для безопасного хранения важных "
+#~ "данных. Выберите тип для создаваемого бумажника или нажмите Отмена, чтобы "
+#~ "отклонить запрос приложения.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+#~ "b>'. Please enter the password for this wallet below.</qt>"
+#~ msgstr ""
+#~ "<qt>Приложение <b>%1</b> запросило открытие бумажника <b>%2</b>. Введите "
+#~ "пароль для бумажника.</qt>"
+
+#~ msgid "<b>%1</b> has requested to open a wallet (%2)."
+#~ msgstr "Приложение <b>%1</b> запросило открытие бумажника (%2)."
+
+#~ msgctxt ""
+#~ "Text of a button for switching to the application requesting a password"
+#~ msgid "Switch to %1"
+#~ msgstr "Переключиться на %1"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#~ "This is used to store sensitive data in a secure fashion. Please enter a "
+#~ "password to use with this wallet or click cancel to deny the "
+#~ "application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Приложение <b>%1</b> запросило открытие бумажника KDE. Бумажник "
+#~ "используется для хранения важных данных в защищённом виде. Введите "
+#~ "пароль, чтобы открыть бумажник, или нажмите «Отмена», чтобы отклонить "
+#~ "запрос приложения.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. Please choose a password for this wallet, or cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Приложение <b>%1</b> запросило создание нового бумажника с именем <b>"
+#~ "%2</b>. Выберите пароль для этого бумажника, или нажмите «Отмена», чтобы "
+#~ "отклонить запрос приложения.</qt>"
 
 #~ msgid "Allow &Once"
 #~ msgstr "Позволить &однократно"

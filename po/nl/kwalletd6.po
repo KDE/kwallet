@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:42+0000\n"
+"POT-Creation-Date: 2026-09-01 00:41+0000\n"
 "PO-Revision-Date: 2026-02-18 11:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:49
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
@@ -39,20 +39,7 @@ msgstr ""
 "informatie. Kies hieronder het type van de nieuwe portefeuille of annuleren "
 "om het verzoek van de toepassing af te wijzen.</qt>"
 
-#: ksecretd/knewwalletdialog.cpp:55
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
-"Please choose the new wallet's type below or click cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>De toepassing '<b>%1</b>' heeft verzocht om een nieuwe portefeuille met "
-"de naam '<b>%2</b>' te maken. Deze wordt gebruikt voor het veilig opslaan "
-"van gevoelige informatie.  Kies hieronder het type van de nieuwe "
-"portefeuille of annuleren om het verzoek van de toepassing af te wijzen.</qt>"
-
-#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/knewwalletdialog.cpp:117 ksecretd/knewwalletdialog.cpp:124
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
 #, kde-format
 msgid ""
@@ -62,7 +49,7 @@ msgstr ""
 "De bibliotheek GpgME kon het OpenPGP protocol niet initialiseren. Controleer "
 "uw systeeminstellingen en probeer opnieuw."
 
-#: ksecretd/knewwalletdialog.cpp:153
+#: ksecretd/knewwalletdialog.cpp:145
 #, kde-format
 msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
@@ -144,7 +131,7 @@ msgstr "Klassiek, met blowfish versleuteld bestand"
 msgid "Use GPG encryption, for better protection"
 msgstr "Gebruik GPG versleuteling, voor een betere bescherming"
 
-#: ksecretd/ksecretd.cpp:435
+#: ksecretd/ksecretd.cpp:408
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -153,30 +140,21 @@ msgstr ""
 "<qt>KDE heeft verzocht om de portefeuille '<b>%1</b>' te openen. Voer "
 "hieronder het wachtwoord in voor deze portefeuille.</qt>"
 
-#: ksecretd/ksecretd.cpp:439
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
-"b>'. Please enter the password for this wallet below.</qt>"
-msgstr ""
-"<qt>Het programma '<b>%1</b>' heeft verzocht om de portefeuille '<b>%2</b>' "
-"te openen. Voer hieronder het wachtwoord in voor deze portefeuille.</qt>"
-
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
-#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
-#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
-#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:416 ksecretd/ksecretd.cpp:503
+#: ksecretd/ksecretd.cpp:633 ksecretd/ksecretd.cpp:656
+#: ksecretd/ksecretd.cpp:667 ksecretd/ksecretd.cpp:672
+#: ksecretd/ksecretd.cpp:982 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KWallet portefeuilledienst"
 
-#: ksecretd/ksecretd.cpp:465
+#: ksecretd/ksecretd.cpp:430
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Een programma heeft verzocht een portefeuille te openen (%1)."
 
-#: ksecretd/ksecretd.cpp:466
+#: ksecretd/ksecretd.cpp:431
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -184,19 +162,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Daarnaar omschakelen"
 
-#: ksecretd/ksecretd.cpp:468
-#, kde-format
-msgid "<b>%1</b> has requested to open a wallet (%2)."
-msgstr "<b>%1</b> verzocht om de portefeuille (%2) te openen."
-
-#: ksecretd/ksecretd.cpp:470
-#, kde-format
-msgctxt ""
-"Text of a button for switching to the application requesting a password"
-msgid "Switch to %1"
-msgstr "Omschakelen naar %1"
-
-#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
+#: ksecretd/ksecretd.cpp:447 ksecretd/ksecretd.cpp:513
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -205,7 +171,7 @@ msgstr ""
 "<qt>Fout bij het openen van de portefeuille '<b>%1</b>'. Probeer het "
 "nogmaals. <br />(Foutcode %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:535
+#: ksecretd/ksecretd.cpp:494
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -217,20 +183,7 @@ msgstr ""
 "wachtwoord in om deze portefeuille te gebruiken, of annuleer om het verzoek "
 "af te wijzen."
 
-#: ksecretd/ksecretd.cpp:540
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
-"is used to store sensitive data in a secure fashion. Please enter a password "
-"to use with this wallet or click cancel to deny the application's request.</"
-"qt>"
-msgstr ""
-"<qt>Het programma '<b>%1</b>' heeft verzocht om de KDE-portefeuille te "
-"openen. De portefeuille wordt gebruikt voor het veilig opslaan van gevoelige "
-"informatie. Voer uw wachtwoord in om deze portefeuille te gebruiken, of "
-"annuleer om het verzoek af te wijzen.</qt>"
-
-#: ksecretd/ksecretd.cpp:548
+#: ksecretd/ksecretd.cpp:499
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -241,18 +194,7 @@ msgstr ""
 "maken. Kies een nieuw wachtwoord voor deze portefeuille, of annuleer om het "
 "verzoek af te wijzen.</qt>"
 
-#: ksecretd/ksecretd.cpp:553
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>Het programma '<b>%1</b>' heeft verzocht om een nieuwe portefeuille "
-"genaamd '<b>%2</b>' aan te maken. Kies een wachtwoord voor deze "
-"portefeuille, of annuleer om het verzoek af te wijzen.</qt>"
-
-#: ksecretd/ksecretd.cpp:688
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -261,7 +203,7 @@ msgstr ""
 "De portefeuille kon niet worden geopend. De portefeuille dient te worden "
 "geopend om het wachtwoord te kunnen wijzigen."
 
-#: ksecretd/ksecretd.cpp:704
+#: ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -272,27 +214,27 @@ msgstr ""
 "Gebruik <b>GPG</b> hulpmiddelen (zoals <b>kleopatra</b>) om de wachtwoordzin "
 "gekoppeld aan deze sleutel te wijzigen.</qt>"
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:655
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr ""
 "<qt>Kies a.u.b. een nieuw wachtwoord voor portefeuille '<b>%1</b>'.</qt>"
 
-#: ksecretd/ksecretd.cpp:723
+#: ksecretd/ksecretd.cpp:667
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
 "Fout bij het herversleutelen van de portefeuille. Wachtwoord is niet "
 "gewijzigd."
 
-#: ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:672
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Fout bij het heropenen van de portefeuille. Gegevens kunnen verloren zijn "
 "gegaan."
 
-#: ksecretd/ksecretd.cpp:1062
+#: ksecretd/ksecretd.cpp:981
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -807,6 +749,54 @@ msgstr "Te hernoemen item is onvolledig"
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "SecretValue aanmaken is mislukt"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. This is used to store sensitive data in a secure "
+#~ "fashion. Please choose the new wallet's type below or click cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>De toepassing '<b>%1</b>' heeft verzocht om een nieuwe portefeuille "
+#~ "met de naam '<b>%2</b>' te maken. Deze wordt gebruikt voor het veilig "
+#~ "opslaan van gevoelige informatie.  Kies hieronder het type van de nieuwe "
+#~ "portefeuille of annuleren om het verzoek van de toepassing af te wijzen.</"
+#~ "qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+#~ "b>'. Please enter the password for this wallet below.</qt>"
+#~ msgstr ""
+#~ "<qt>Het programma '<b>%1</b>' heeft verzocht om de portefeuille '<b>%2</"
+#~ "b>' te openen. Voer hieronder het wachtwoord in voor deze portefeuille.</"
+#~ "qt>"
+
+#~ msgid "<b>%1</b> has requested to open a wallet (%2)."
+#~ msgstr "<b>%1</b> verzocht om de portefeuille (%2) te openen."
+
+#~ msgctxt ""
+#~ "Text of a button for switching to the application requesting a password"
+#~ msgid "Switch to %1"
+#~ msgstr "Omschakelen naar %1"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#~ "This is used to store sensitive data in a secure fashion. Please enter a "
+#~ "password to use with this wallet or click cancel to deny the "
+#~ "application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Het programma '<b>%1</b>' heeft verzocht om de KDE-portefeuille te "
+#~ "openen. De portefeuille wordt gebruikt voor het veilig opslaan van "
+#~ "gevoelige informatie. Voer uw wachtwoord in om deze portefeuille te "
+#~ "gebruiken, of annuleer om het verzoek af te wijzen.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. Please choose a password for this wallet, or cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Het programma '<b>%1</b>' heeft verzocht om een nieuwe portefeuille "
+#~ "genaamd '<b>%2</b>' aan te maken. Kies een wachtwoord voor deze "
+#~ "portefeuille, of annuleer om het verzoek af te wijzen.</qt>"
 
 #~ msgid "Allow &Once"
 #~ msgstr "Eenmalig t&oestaan"

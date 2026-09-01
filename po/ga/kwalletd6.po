@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/kwalletd.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:42+0000\n"
+"POT-Creation-Date: 2026-09-01 00:41+0000\n"
 "PO-Revision-Date: 2026-04-28 23:35+0100\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kscanne@gmail.com"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:49
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
@@ -40,16 +40,7 @@ msgstr ""
 "chun sonraí íogaire a stóráil go slán. Roghnaigh cineál an sparáin thíos nó "
 "cliceáil Cealaigh chun iarratas an fheidhmchláir a dhiúltú.</qt>"
 
-#: ksecretd/knewwalletdialog.cpp:55
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
-"Please choose the new wallet's type below or click cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-
-#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/knewwalletdialog.cpp:117 ksecretd/knewwalletdialog.cpp:124
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
 #, kde-format
 msgid ""
@@ -57,7 +48,7 @@ msgid ""
 "check your system's configuration then try again."
 msgstr ""
 
-#: ksecretd/knewwalletdialog.cpp:153
+#: ksecretd/knewwalletdialog.cpp:145
 #, kde-format
 msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
@@ -128,7 +119,7 @@ msgstr ""
 msgid "Use GPG encryption, for better protection"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:435
+#: ksecretd/ksecretd.cpp:408
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -137,30 +128,21 @@ msgstr ""
 "<qt>Tá KDE ag iarraidh sparán '<b>%1</b>' a oscailt. Iontráil focal faire an "
 "sparáin seo thíos.</qt>"
 
-#: ksecretd/ksecretd.cpp:439
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
-"b>'. Please enter the password for this wallet below.</qt>"
-msgstr ""
-"<qt>Tá feidhmchlár '<b>%1</b>' ag iarraidh sparán '<b>%2</b>' a oscailt. "
-"Iontráil focal faire an sparáin seo thíos.</qt>"
-
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:450 ksecretd/ksecretd.cpp:559
-#: ksecretd/ksecretd.cpp:689 ksecretd/ksecretd.cpp:712
-#: ksecretd/ksecretd.cpp:723 ksecretd/ksecretd.cpp:728
-#: ksecretd/ksecretd.cpp:1063 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:416 ksecretd/ksecretd.cpp:503
+#: ksecretd/ksecretd.cpp:633 ksecretd/ksecretd.cpp:656
+#: ksecretd/ksecretd.cpp:667 ksecretd/ksecretd.cpp:672
+#: ksecretd/ksecretd.cpp:982 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Seirbhís Sparáin KDE"
 
-#: ksecretd/ksecretd.cpp:465
+#: ksecretd/ksecretd.cpp:430
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:466
+#: ksecretd/ksecretd.cpp:431
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -168,19 +150,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Téigh ansin"
 
-#: ksecretd/ksecretd.cpp:468
-#, kde-format
-msgid "<b>%1</b> has requested to open a wallet (%2)."
-msgstr "Tá <b>%1</b> ag iarraidh sparán a oscailt (%2)."
-
-#: ksecretd/ksecretd.cpp:470
-#, kde-format
-msgctxt ""
-"Text of a button for switching to the application requesting a password"
-msgid "Switch to %1"
-msgstr "Malartaigh go %1"
-
-#: ksecretd/ksecretd.cpp:487 ksecretd/ksecretd.cpp:569
+#: ksecretd/ksecretd.cpp:447 ksecretd/ksecretd.cpp:513
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -189,7 +159,7 @@ msgstr ""
 "<qt>Earráid agus sparán '<b>%1</b>' á oscailt. Bain triail eile as.<br /"
 ">(Cód earráide %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:535
+#: ksecretd/ksecretd.cpp:494
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -200,20 +170,7 @@ msgstr ""
 "íogaire a stóráil go slán. Iontráil focal faire a úsáidfear leis an sparán "
 "seo nó cliceáil Cealaigh chun iarratas an fheidhmchláir a dhiúltú."
 
-#: ksecretd/ksecretd.cpp:540
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
-"is used to store sensitive data in a secure fashion. Please enter a password "
-"to use with this wallet or click cancel to deny the application's request.</"
-"qt>"
-msgstr ""
-"<qt>Tá feidhmchlár '<b>%1</b>' ag iarraidh an sparán KDE a oscailt. "
-"Úsáidtear an sparán seo chun sonraí íogaire a stóráil go slán. Iontráil "
-"focal faire a úsáidfear leis an sparán seo nó cliceáil Cealaigh chun "
-"iarratas an fheidhmchláir a dhiúltú.</qt>"
-
-#: ksecretd/ksecretd.cpp:548
+#: ksecretd/ksecretd.cpp:499
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -224,18 +181,7 @@ msgstr ""
 "focal faire le haghaidh an sparáin seo, nó cealaigh chun iarratas an "
 "fheidhmchláir a dhiúltú.</qt>"
 
-#: ksecretd/ksecretd.cpp:553
-#, kde-format
-msgid ""
-"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
-"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
-"application's request.</qt>"
-msgstr ""
-"<qt>Tá feidhmchlár '<b>%1</b>' ag iarraidh sparán nua a chruthú darb ainm "
-"'<b>%2</b>'. Roghnaigh focal faire le haghaidh an sparáin seo, nó cealaigh "
-"chun iarratas an fheidhmchláir a dhiúltú.</qt>"
-
-#: ksecretd/ksecretd.cpp:688
+#: ksecretd/ksecretd.cpp:632
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -244,7 +190,7 @@ msgstr ""
 "Ní féidir an sparán a oscailt. Caithfear é a oscailt chun an focal faire a "
 "athrú."
 
-#: ksecretd/ksecretd.cpp:704
+#: ksecretd/ksecretd.cpp:648
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -252,24 +198,24 @@ msgid ""
 "associated to that key.</qt>"
 msgstr ""
 
-#: ksecretd/ksecretd.cpp:711
+#: ksecretd/ksecretd.cpp:655
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Roghnaigh focal faire nua le haghaidh sparán '<b>%1</b>'.</qt>"
 
-#: ksecretd/ksecretd.cpp:723
+#: ksecretd/ksecretd.cpp:667
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr ""
 "Tharla earráid agus an sparán á chriptiú arís. Níor athraíodh an focal faire."
 
-#: ksecretd/ksecretd.cpp:728
+#: ksecretd/ksecretd.cpp:672
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr ""
 "Tharla earráid agus an sparán á oscailt arís. Seans gur cailleadh sonraí."
 
-#: ksecretd/ksecretd.cpp:1062
+#: ksecretd/ksecretd.cpp:981
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
@@ -715,6 +661,41 @@ msgstr ""
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr ""
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+#~ "b>'. Please enter the password for this wallet below.</qt>"
+#~ msgstr ""
+#~ "<qt>Tá feidhmchlár '<b>%1</b>' ag iarraidh sparán '<b>%2</b>' a oscailt. "
+#~ "Iontráil focal faire an sparáin seo thíos.</qt>"
+
+#~ msgid "<b>%1</b> has requested to open a wallet (%2)."
+#~ msgstr "Tá <b>%1</b> ag iarraidh sparán a oscailt (%2)."
+
+#~ msgctxt ""
+#~ "Text of a button for switching to the application requesting a password"
+#~ msgid "Switch to %1"
+#~ msgstr "Malartaigh go %1"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
+#~ "This is used to store sensitive data in a secure fashion. Please enter a "
+#~ "password to use with this wallet or click cancel to deny the "
+#~ "application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Tá feidhmchlár '<b>%1</b>' ag iarraidh an sparán KDE a oscailt. "
+#~ "Úsáidtear an sparán seo chun sonraí íogaire a stóráil go slán. Iontráil "
+#~ "focal faire a úsáidfear leis an sparán seo nó cliceáil Cealaigh chun "
+#~ "iarratas an fheidhmchláir a dhiúltú.</qt>"
+
+#~ msgid ""
+#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
+#~ "named '<b>%2</b>'. Please choose a password for this wallet, or cancel to "
+#~ "deny the application's request.</qt>"
+#~ msgstr ""
+#~ "<qt>Tá feidhmchlár '<b>%1</b>' ag iarraidh sparán nua a chruthú darb ainm "
+#~ "'<b>%2</b>'. Roghnaigh focal faire le haghaidh an sparáin seo, nó "
+#~ "cealaigh chun iarratas an fheidhmchláir a dhiúltú.</qt>"
 
 #~ msgid "Allow &Once"
 #~ msgstr "Ceadaigh &uair amháin"
