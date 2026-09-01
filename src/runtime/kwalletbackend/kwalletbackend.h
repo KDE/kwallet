@@ -70,7 +70,7 @@ public:
 class KWALLETBACKEND_EXPORT Backend
 {
 public:
-    explicit Backend(const QString &name = QStringLiteral("kdewallet"));
+    explicit Backend(const QString &name);
     ~Backend();
 
     // Open and unlock the wallet.
@@ -88,7 +88,7 @@ public:
 
     // Close the wallet, losing any changes.
     // if save is true, the wallet is saved prior to closing it.
-    int close(bool save = false);
+    int close(bool save);
 
     // Write the wallet to disk
     int sync();

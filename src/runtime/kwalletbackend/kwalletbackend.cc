@@ -124,7 +124,7 @@ Backend::Backend(const QString &name)
 Backend::~Backend()
 {
     if (_open) {
-        close();
+        close(false);
     }
     delete d;
 }
