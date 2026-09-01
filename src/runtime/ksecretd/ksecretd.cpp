@@ -366,8 +366,6 @@ int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
 {
     bool brandNew = false;
 
-    QString thisApp = QStringLiteral("KDE System");
-
     QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
     int rc = walletInfo.first;
     if (rc == -1) {
