@@ -37,10 +37,9 @@ public:
     static bool isEnabled();
 
     int nextTransactionId() const;
-    int openAsync(const QString &wallet, qlonglong wId, const QDBusConnection &connection, const QDBusMessage &message);
+    int openAsync(const QString &wallet, qlonglong wId, const QDBusConnection &connection);
     // Close and lock the wallet
-    // Accepts "message" for working from other QDBusContexts
-    int close(int handle, const QDBusMessage &message);
+    int close(int handle);
 
 public Q_SLOTS:
     // Physically deletes the wallet from disk.
@@ -118,7 +117,7 @@ private Q_SLOTS:
 
 private:
     // Internal - open a wallet
-    int internalOpen(const QString &wallet, WId w, bool modal, const QString &service);
+    int internalOpen(const QString &wallet, WId w, bool modal);
     // Internal - close this wallet.
     int internalClose(KWallet::Backend *const w, const int handle, const bool saveBeforeClose = true);
 
@@ -132,7 +131,7 @@ private:
     void emitEntryDeleted(const QString &, const QString &, const QString &);
 
     void doTransactionChangePassword(const QString &wallet, qlonglong wId);
-    int doTransactionOpen(const QString &wallet, qlonglong wId, bool modal, const QString &service);
+    int doTransactionOpen(const QString &wallet, qlonglong wId, bool modal);
     void initiateSync(int handle);
 
     void setupDialog(QWidget *dialog, WId wId, bool modal);

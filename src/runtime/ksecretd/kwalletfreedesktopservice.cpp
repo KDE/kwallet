@@ -253,7 +253,7 @@ QList<QDBusObjectPath> KWalletFreedesktopService::Lock(const QList<QDBusObjectPa
         const auto foundCollection = m_collections.find(collectionPath);
         if (foundCollection != m_collections.end()) {
             const int walletHandle = foundCollection->second->walletHandle();
-            const int rc = m_parent->close(walletHandle, message());
+            const int rc = m_parent->close(walletHandle);
 
             if (rc == 0) {
                 result.push_back(QDBusObjectPath(collectionPath));

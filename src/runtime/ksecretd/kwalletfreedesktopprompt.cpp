@@ -77,7 +77,7 @@ void KWalletFreedesktopPrompt::Prompt(const QString &window_id)
             fdoService()->createCollectionAlias(properties.alias, walletName);
         }
 
-        const int tId = backend()->openAsync(walletName, wId, connection(), message());
+        const int tId = backend()->openAsync(walletName, wId, connection());
         m_transactionIds.insert(tId);
         m_transactionIdToCollectionProperties.emplace(tId, std::move(properties));
     }

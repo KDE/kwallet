@@ -35,7 +35,7 @@ uint KWalletPortalSecrets::RetrieveSecret(const QDBusObjectPath &handle,
 
     setDelayedReply(true);
 
-    int transactionId = m_kwalletd->openAsync(KWallet::Backend::networkWallet(), 0, connection(), message());
+    int transactionId = m_kwalletd->openAsync(KWallet::Backend::networkWallet(), 0, connection());
     Request request{message(), fd.fileDescriptor(), app_id};
     m_pendingRequests.insert(transactionId, request);
 

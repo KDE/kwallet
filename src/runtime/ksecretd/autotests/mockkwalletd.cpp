@@ -55,11 +55,11 @@ MOCK_FUNCTION_RES(KSecretD, renameEntry, 4, 0, );
 
 MOCK_FUNCTION_RES(KSecretD, isEnabled, 0, 1);
 
-using OVOpenAsync4 = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &);
-MOCK_FUNCTION_OVERLOADED(KSecretD, openAsync, 4, OVOpenAsync4);
+using OVOpenAsync3 = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &);
+MOCK_FUNCTION_OVERLOADED(KSecretD, openAsync, 3, OVOpenAsync3);
 
-using OVClose2 = int (KSecretD::*)(int, const QDBusMessage &);
-MOCK_FUNCTION_OVERLOADED(KSecretD, close, 2, OVClose2);
+using OVClose1 = int (KSecretD::*)(int);
+MOCK_FUNCTION_OVERLOADED(KSecretD, close, 1, OVClose1);
 
 MOCK_FUNCTION(KSecretD, deleteWallet, 1, );
 

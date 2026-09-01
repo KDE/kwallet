@@ -322,9 +322,9 @@ void FdoSecretsTest::items()
     }
 
     /* Create collection */
-    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &);
+    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &);
     bool openAsyncCalled = false;
-    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [&](const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &) -> int {
+    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [&](const QString &, qlonglong, const QDBusConnection &) -> int {
         openAsyncCalled = true;
         return 0;
     });
@@ -420,9 +420,9 @@ void FdoSecretsTest::createLockUnlockCollection()
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
 
     /* Create collection */
-    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &);
+    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &);
     bool openAsyncCalled = false;
-    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [&](const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &) -> int {
+    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [&](const QString &, qlonglong, const QDBusConnection &) -> int {
         openAsyncCalled = true;
         return 0;
     });
@@ -631,8 +631,8 @@ void FdoSecretsTest::invalidUtf8Rejected()
 
     collection->itemAttributes().newItem({FDO_SECRETS_DEFAULT_DIR, "item1"});
 
-    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &);
-    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [](const QString &, qlonglong, const QDBusConnection &, const QDBusMessage &) -> int {
+    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &);
+    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [](const QString &, qlonglong, const QDBusConnection &) -> int {
         return 0;
     });
 

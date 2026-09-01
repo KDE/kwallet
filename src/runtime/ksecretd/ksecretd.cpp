@@ -97,7 +97,6 @@ public:
     Type tType = Unknown;
     qlonglong wId;
     QString wallet;
-    QString service;
     bool modal;
     int tId; // transaction id
     int res;
@@ -204,7 +203,7 @@ void KSecretD::processTransactions()
 
         switch (_curtrans->tType) {
         case KWalletTransaction::Open:
-            res = doTransactionOpen(_curtrans->wallet, _curtrans->wId, _curtrans->modal, _curtrans->service);
+            res = doTransactionOpen(_curtrans->wallet, _curtrans->wId, _curtrans->modal);
 
             // multiple requests from the same client
             // should not produce multiple password
@@ -261,7 +260,7 @@ int KSecretD::nextTransactionId() const
     return KWalletTransaction::getTransactionId();
 }
 
-int KSecretD::openAsync(const QString &wallet, qlonglong wId, const QDBusConnection &connection, const QDBusMessage &message)
+int KSecretD::openAsync(const QString &wallet, qlonglong wId, const QDBusConnection &connection)
 {
     if (!isEnabled()) { // guard
         return -1;
@@ -341,7 +340,7 @@ void KSecretD::checkActiveDialog()
 #endif
 }
 
-int KSecretD::doTransactionOpen(const QString &wallet, qlonglong wId, bool modal, const QString &service)
+int KSecretD::doTransactionOpen(const QString &wallet, qlonglong wId, bool modal)
 {
     if (_firstUse) {
         // if the user specifies a wallet name, the use it as the default
@@ -359,11 +358,11 @@ int KSecretD::doTransactionOpen(const QString &wallet, qlonglong wId, bool modal
         }
     }
 
-    int rc = internalOpen(wallet, WId(wId), modal, service);
+    int rc = internalOpen(wallet, WId(wId), modal);
     return rc;
 }
 
-int KSecretD::internalOpen(const QString &wallet, WId w, bool modal, const QString &service)
+int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
 {
     bool brandNew = false;
 
@@ -626,7 +625,7 @@ void KSecretD::doTransactionChangePassword(const QString &wallet, qlonglong wId)
 
     bool reclose = false;
     if (!w) {
-        handle = doTransactionOpen(wallet, wId, false, QLatin1String(""));
+        handle = doTransactionOpen(wallet, wId, false);
         if (-1 == handle) {
             KMessageBox::errorWId((WId)wId,
                                   i18n("Unable to open wallet. The wallet must be opened in order to change the password."),
@@ -704,7 +703,7 @@ int KSecretD::internalClose(KWallet::Backend *const w, const int handle, const b
     return -1;
 }
 
-int KSecretD::close(int handle, const QDBusMessage &message)
+int KSecretD::close(int handle)
 {
     KWallet::Backend *w = _wallets.value(handle);
 
