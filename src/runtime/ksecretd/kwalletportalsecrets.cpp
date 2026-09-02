@@ -51,6 +51,13 @@ void KWalletPortalSecrets::walletOpened(int transactionId, int walletHandle)
 
     const Request request = m_pendingRequests.take(transactionId);
 
+    if (walletHandle == -1) {
+        const auto replyList = QVariantList{{(uint)2}, {{QVariantMap{}}}};
+        auto reply = request.message.createReply(replyList);
+        QDBusConnection::sessionBus().send(reply);
+        return;
+    }
+
     bool exists = m_kwalletd->hasEntry(walletHandle, "xdg-desktop-portal", request.appId);
 
     QByteArray secret;
