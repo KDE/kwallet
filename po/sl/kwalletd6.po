@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:41+0000\n"
+"POT-Creation-Date: 2026-09-02 00:40+0000\n"
 "PO-Revision-Date: 2026-02-18 07:31+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -133,7 +133,7 @@ msgstr "Klasično, datoteka šifrirana z blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Uporabi šifriranje GPG, boljša zaščita"
 
-#: ksecretd/ksecretd.cpp:408
+#: ksecretd/ksecretd.cpp:405
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -143,20 +143,20 @@ msgstr ""
 "listnico.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:416 ksecretd/ksecretd.cpp:503
-#: ksecretd/ksecretd.cpp:633 ksecretd/ksecretd.cpp:656
-#: ksecretd/ksecretd.cpp:667 ksecretd/ksecretd.cpp:672
-#: ksecretd/ksecretd.cpp:982 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:413 ksecretd/ksecretd.cpp:500
+#: ksecretd/ksecretd.cpp:630 ksecretd/ksecretd.cpp:653
+#: ksecretd/ksecretd.cpp:664 ksecretd/ksecretd.cpp:669
+#: ksecretd/ksecretd.cpp:979 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE-jeva storitev Listnica"
 
-#: ksecretd/ksecretd.cpp:430
+#: ksecretd/ksecretd.cpp:427
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Program je zahteval odprtje listnice (%1)."
 
-#: ksecretd/ksecretd.cpp:431
+#: ksecretd/ksecretd.cpp:428
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -164,7 +164,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Preklopi tja"
 
-#: ksecretd/ksecretd.cpp:447 ksecretd/ksecretd.cpp:513
+#: ksecretd/ksecretd.cpp:444 ksecretd/ksecretd.cpp:510
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -173,7 +173,7 @@ msgstr ""
 "<qt>Napaka med odpiranjem listnice »<b>%1</b>«. Poskusite znova.<br />(koda "
 "napake %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:494
+#: ksecretd/ksecretd.cpp:491
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -184,7 +184,7 @@ msgstr ""
 "občutljivih podatkov na varen način. Vnesite geslo za to listnico ali pa "
 "kliknite »Prekliči«, da bi zavrnili zahtevo programa."
 
-#: ksecretd/ksecretd.cpp:499
+#: ksecretd/ksecretd.cpp:496
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -195,7 +195,7 @@ msgstr ""
 "geslo za to listnico ali pa kliknite »Prekliči«, da bi zavrnili zahtevo "
 "programa.</qt>"
 
-#: ksecretd/ksecretd.cpp:632
+#: ksecretd/ksecretd.cpp:629
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -204,7 +204,7 @@ msgstr ""
 "Ni mogoče odpreti listnice. Listnica mora biti odprta, da bi lahko "
 "spremenili geslo."
 
-#: ksecretd/ksecretd.cpp:648
+#: ksecretd/ksecretd.cpp:645
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -215,22 +215,22 @@ msgstr ""
 "Uporabite orodja za <b>GPG</b> (kot na primer <b>kleopatra</b>), da "
 "spremenite šifrirno frazo, ki je povezana s tem ključem.</qt>"
 
-#: ksecretd/ksecretd.cpp:655
+#: ksecretd/ksecretd.cpp:652
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Izberite novo geslo za listnico »<b>%1</b>«.</qt>"
 
-#: ksecretd/ksecretd.cpp:667
+#: ksecretd/ksecretd.cpp:664
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Napaka med ponovnim šifriranjem listnice. Geslo ni bilo spremenjeno."
 
-#: ksecretd/ksecretd.cpp:672
+#: ksecretd/ksecretd.cpp:669
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Napaka med ponovnim odpiranjem listnice. Podatki so mogoče izgubljeni."
 
-#: ksecretd/ksecretd.cpp:981
+#: ksecretd/ksecretd.cpp:978
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "

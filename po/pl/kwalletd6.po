@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:41+0000\n"
+"POT-Creation-Date: 2026-09-02 00:40+0000\n"
 "PO-Revision-Date: 2026-03-21 06:54+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -132,7 +132,7 @@ msgstr "Plik zaszyfrowany algorytmem blowfish"
 msgid "Use GPG encryption, for better protection"
 msgstr "Użyj szyfrowania GPG dla lepszej ochrony"
 
-#: ksecretd/ksecretd.cpp:408
+#: ksecretd/ksecretd.cpp:405
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -142,20 +142,20 @@ msgstr ""
 "tego portfela.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:416 ksecretd/ksecretd.cpp:503
-#: ksecretd/ksecretd.cpp:633 ksecretd/ksecretd.cpp:656
-#: ksecretd/ksecretd.cpp:667 ksecretd/ksecretd.cpp:672
-#: ksecretd/ksecretd.cpp:982 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:413 ksecretd/ksecretd.cpp:500
+#: ksecretd/ksecretd.cpp:630 ksecretd/ksecretd.cpp:653
+#: ksecretd/ksecretd.cpp:664 ksecretd/ksecretd.cpp:669
+#: ksecretd/ksecretd.cpp:979 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Usługa Portfela KDE"
 
-#: ksecretd/ksecretd.cpp:430
+#: ksecretd/ksecretd.cpp:427
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Aplikacja zażądała otwarcia portfela  (%1)."
 
-#: ksecretd/ksecretd.cpp:431
+#: ksecretd/ksecretd.cpp:428
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -163,7 +163,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Przełącz tutaj"
 
-#: ksecretd/ksecretd.cpp:447 ksecretd/ksecretd.cpp:513
+#: ksecretd/ksecretd.cpp:444 ksecretd/ksecretd.cpp:510
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -172,7 +172,7 @@ msgstr ""
 "<qt>Błąd otwierania portfela \"<b>%1</b>\". Proszę spróbuj ponownie.<br /"
 ">(Kod błędu %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:494
+#: ksecretd/ksecretd.cpp:491
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -183,7 +183,7 @@ msgstr ""
 "ważnych danych w bezpieczny sposób. Proszę podaj hasło dostępu do tego "
 "portfela lub kliknij \"Anuluj\" aby odrzucić żądanie programu."
 
-#: ksecretd/ksecretd.cpp:499
+#: ksecretd/ksecretd.cpp:496
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -194,7 +194,7 @@ msgstr ""
 "proszę hasło dostępu dla tego portfela lub kliknij \"Anuluj\" aby odrzucić "
 "żądanie programu.</qt>"
 
-#: ksecretd/ksecretd.cpp:632
+#: ksecretd/ksecretd.cpp:629
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
@@ -203,7 +203,7 @@ msgstr ""
 "Nie można otworzyć portfela. Portfel musi zostać otwarty aby można było "
 "zmienić hasło dostępu."
 
-#: ksecretd/ksecretd.cpp:648
+#: ksecretd/ksecretd.cpp:645
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -214,22 +214,22 @@ msgstr ""
 "b>. Proszę użyć narzędzia <b>GPG</b> (jak <b>kleopatra</b>) aby zmienić "
 "hasło tego klucza.</qt>"
 
-#: ksecretd/ksecretd.cpp:655
+#: ksecretd/ksecretd.cpp:652
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Wybierz nowe hasło dla portfela \"<b>%1</b>\".</qt>"
 
-#: ksecretd/ksecretd.cpp:667
+#: ksecretd/ksecretd.cpp:664
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Błąd ponownego szyfrowania portfela. Hasło nie zostało zmienione."
 
-#: ksecretd/ksecretd.cpp:672
+#: ksecretd/ksecretd.cpp:669
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Błąd ponownego otwarcia portfela. Dane mogą zostać stracone."
 
-#: ksecretd/ksecretd.cpp:981
+#: ksecretd/ksecretd.cpp:978
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
