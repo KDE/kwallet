@@ -163,7 +163,8 @@ void KSecretD::processTransactions()
             if (res < 0) {
                 for (auto &x : _transactions) {
                     if (x.tType == KWalletTransaction::Open && x.wallet == curtrans.wallet && x.wId == curtrans.wId) {
-                        x.tType = KWalletTransaction::OpenFail;
+                        x.promise.addResult(-1);
+                        x.promise.finish();
                     }
                 }
             }
@@ -172,18 +173,10 @@ void KSecretD::processTransactions()
             curtrans.promise.finish();
             break;
 
-        case KWalletTransaction::OpenFail:
-            curtrans.promise.addResult(-1);
-            curtrans.promise.finish();
-            break;
-
         case KWalletTransaction::ChangePassword:
             doTransactionChangePassword(curtrans.wallet, curtrans.wId);
             curtrans.promise.addResult(0); // not used but needs to be there
             curtrans.promise.finish();
-            break;
-
-        default:
             break;
         }
     }
