@@ -34,7 +34,6 @@ public:
     enum Type {
         Open,
         ChangePassword,
-        OpenFail,
     };
 
     explicit KWalletTransaction(Type type)
