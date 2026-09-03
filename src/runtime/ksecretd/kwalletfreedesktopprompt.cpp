@@ -77,9 +77,17 @@ void KWalletFreedesktopPrompt::Prompt(const QString &window_id)
             fdoService()->createCollectionAlias(properties.alias, walletName);
         }
 
-        const int tId = backend()->openAsync(walletName, wId, connection());
-        m_transactionIds.insert(tId);
-        m_transactionIdToCollectionProperties.emplace(tId, std::move(properties));
+        static int transactionId = 0;
+
+        auto future = backend()->open(walletName, wId, connection());
+        m_transactionIds.insert(transactionId);
+        m_transactionIdToCollectionProperties.emplace(transactionId, std::move(properties));
+
+        future.then(this, [this, tId = transactionId](int walletHandle) {
+            walletAsyncOpened(tId, walletHandle);
+        });
+
+        ++transactionId;
     }
 }
 
@@ -128,7 +136,6 @@ void KWalletFreedesktopPrompt::walletAsyncOpened(int transactionId, int walletHa
 
 void KWalletFreedesktopPrompt::subscribeForWalletAsyncOpened()
 {
-    connect(backend(), &KSecretD::walletAsyncOpened, this, &KWalletFreedesktopPrompt::walletAsyncOpened);
     QDBusConnection::sessionBus().registerObject(fdoObjectPath().path(), this);
 }
 

@@ -67,21 +67,9 @@ class KWalletTransaction
 {
 public:
     explicit KWalletTransaction(QDBusConnection conn)
-        : tId(nextTransactionId)
-        , res(-1)
+        : res(-1)
         , connection(conn)
     {
-        nextTransactionId++;
-        // make sure the id is never < 0 as that's used for the
-        // error conditions.
-        if (nextTransactionId < 0) {
-            nextTransactionId = 0;
-        }
-    }
-
-    static int getTransactionId()
-    {
-        return nextTransactionId;
     }
 
     ~KWalletTransaction()
@@ -98,16 +86,11 @@ public:
     qlonglong wId;
     QString wallet;
     bool modal;
-    int tId; // transaction id
     int res;
     QDBusMessage message;
     QDBusConnection connection;
-
-private:
-    static int nextTransactionId;
+    QPromise<int> promise;
 };
-
-int KWalletTransaction::nextTransactionId = 0;
 
 KSecretD::KSecretD()
     : QObject(nullptr)
@@ -218,15 +201,15 @@ void KSecretD::processTransactions()
                 }
             }
 
-            // emit the AsyncOpened signal as a reply
             _curtrans->res = res;
-            Q_EMIT walletAsyncOpened(_curtrans->tId, res);
+            _curtrans->promise.addResult(res);
+            _curtrans->promise.finish();
             break;
 
         case KWalletTransaction::OpenFail:
-            // emit the AsyncOpened signal with an invalid handle
             _curtrans->res = -1;
-            Q_EMIT walletAsyncOpened(_curtrans->tId, -1);
+            _curtrans->promise.addResult(-1);
+            _curtrans->promise.finish();
             break;
 
         case KWalletTransaction::ChangePassword:
@@ -255,15 +238,10 @@ void KSecretD::processTransactions()
     _processing = false;
 }
 
-int KSecretD::nextTransactionId() const
-{
-    return KWalletTransaction::getTransactionId();
-}
-
-int KSecretD::openAsync(const QString &wallet, qlonglong wId, const QDBusConnection &connection)
+QFuture<int> KSecretD::open(const QString &wallet, qlonglong wId, const QDBusConnection &connection)
 {
     if (!isEnabled()) { // guard
-        return -1;
+        return QtFuture::makeReadyValueFuture<int>(-1);
     }
 
     KWalletTransaction *xact = new KWalletTransaction(connection);
@@ -276,8 +254,10 @@ int KSecretD::openAsync(const QString &wallet, qlonglong wId, const QDBusConnect
 
     QTimer::singleShot(0, this, SLOT(processTransactions()));
     checkActiveDialog();
-    // opening is in progress. return the transaction number
-    return xact->tId;
+
+    xact->promise.start();
+
+    return xact->promise.future();
 }
 
 // Sets up a dialog that will be shown by kwallet.

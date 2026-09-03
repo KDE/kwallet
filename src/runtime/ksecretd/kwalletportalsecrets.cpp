@@ -19,8 +19,6 @@ KWalletPortalSecrets::KWalletPortalSecrets(KSecretD *parent)
 
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/freedesktop/portal/desktop"), this, QDBusConnection::ExportAdaptors);
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.freedesktop.impl.portal.desktop.kwallet"));
-
-    connect(m_kwalletd, &KSecretD::walletAsyncOpened, this, &KWalletPortalSecrets::walletOpened);
 }
 
 uint KWalletPortalSecrets::RetrieveSecret(const QDBusObjectPath &handle,
@@ -35,22 +33,18 @@ uint KWalletPortalSecrets::RetrieveSecret(const QDBusObjectPath &handle,
 
     setDelayedReply(true);
 
-    int transactionId = m_kwalletd->openAsync(KWallet::Backend::networkWallet(), 0, connection());
     Request request{message(), fd.fileDescriptor(), app_id};
-    m_pendingRequests.insert(transactionId, request);
+
+    auto future = m_kwalletd->open(KWallet::Backend::networkWallet(), 0, connection());
+    future.then(this, [this, request](int walletHandle) {
+        walletOpened(request, walletHandle);
+    });
 
     return 0;
 }
 
-void KWalletPortalSecrets::walletOpened(int transactionId, int walletHandle)
+void KWalletPortalSecrets::walletOpened(const Request &request, int walletHandle)
 {
-    if (!m_pendingRequests.contains(transactionId)) {
-        // wallet open request was not from us
-        return;
-    }
-
-    const Request request = m_pendingRequests.take(transactionId);
-
     if (walletHandle == -1) {
         const auto replyList = QVariantList{{(uint)2}, {{QVariantMap{}}}};
         auto reply = request.message.createReply(replyList);
