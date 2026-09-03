@@ -66,7 +66,14 @@ static void startManagerForKSecretD()
 class KWalletTransaction
 {
 public:
-    explicit KWalletTransaction()
+    enum Type {
+        Open,
+        ChangePassword,
+        OpenFail,
+    };
+
+    explicit KWalletTransaction(Type type)
+        : tType(type)
     {
     }
 
@@ -74,13 +81,7 @@ public:
     {
     }
 
-    enum Type {
-        Unknown,
-        Open,
-        ChangePassword,
-        OpenFail,
-    };
-    Type tType = Unknown;
+    Type tType;
     qlonglong wId;
     QString wallet;
     bool modal;
@@ -177,8 +178,6 @@ void KSecretD::processTransactions()
         _curtrans = _transactions.takeFirst();
         int res;
 
-        assert(_curtrans->tType != KWalletTransaction::Unknown);
-
         switch (_curtrans->tType) {
         case KWalletTransaction::Open:
             res = doTransactionOpen(_curtrans->wallet, _curtrans->wId, _curtrans->modal);
@@ -211,8 +210,6 @@ void KSecretD::processTransactions()
             _curtrans->promise.finish();
             break;
 
-        case KWalletTransaction::Unknown:
-            break;
         default:
             break;
         }
@@ -230,13 +227,12 @@ QFuture<int> KSecretD::open(const QString &wallet, qlonglong wId)
         return QtFuture::makeReadyValueFuture<int>(-1);
     }
 
-    KWalletTransaction *xact = new KWalletTransaction();
+    KWalletTransaction *xact = new KWalletTransaction(KWalletTransaction::Open);
     _transactions.append(xact);
 
     xact->wallet = wallet;
     xact->wId = wId;
     xact->modal = true; // mark dialogs as modal, the app has blocking wait
-    xact->tType = KWalletTransaction::Open;
 
     QTimer::singleShot(0, this, SLOT(processTransactions()));
     checkActiveDialog();
@@ -566,7 +562,7 @@ void KSecretD::changePassword(const QString &wallet, qlonglong wId, const QStrin
 
 QFuture<int> KSecretD::internalChangePassword(const QString &wallet, qlonglong wId)
 {
-    KWalletTransaction *xact = new KWalletTransaction();
+    KWalletTransaction *xact = new KWalletTransaction(KWalletTransaction::ChangePassword);
 
     message().setDelayedReply(true);
     // TODO GPG this shouldn't be allowed on a GPG managed wallet; a warning
@@ -575,7 +571,6 @@ QFuture<int> KSecretD::internalChangePassword(const QString &wallet, qlonglong w
     xact->wallet = wallet;
     xact->wId = wId;
     xact->modal = false;
-    xact->tType = KWalletTransaction::ChangePassword;
     xact->promise = QPromise<int>();
 
     _transactions.append(xact);
