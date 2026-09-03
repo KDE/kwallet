@@ -120,6 +120,8 @@ private:
     // Internal - close this wallet.
     int internalClose(KWallet::Backend *const w, const int handle, const bool saveBeforeClose = true);
 
+    QFuture<int> internalChangePassword(const QString &wallet, qlonglong wId);
+
     // This also validates the handle.  May return NULL.
     KWallet::Backend *getWallet(int handle);
     // Generate a new unique handle.
