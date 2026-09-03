@@ -19,12 +19,35 @@
 
 #include "ktimeout.h"
 
+#include <deque>
+
 class KDirWatch;
 class KTimeout;
 
 // @Private
 class KWalletTransaction;
 class KWalletFreedesktopService;
+
+class KWalletTransaction
+{
+public:
+    enum Type {
+        Open,
+        ChangePassword,
+        OpenFail,
+    };
+
+    explicit KWalletTransaction(Type type)
+        : tType(type)
+    {
+    }
+
+    Type tType;
+    qlonglong wId;
+    QString wallet;
+    bool modal;
+    QPromise<int> promise;
+};
 
 class KSecretD : public QObject, protected QDBusContext
 {
@@ -154,8 +177,7 @@ private:
     const int _syncTime;
     static bool _processing;
 
-    KWalletTransaction *_curtrans; // current transaction
-    QList<KWalletTransaction *> _transactions;
+    std::deque<KWalletTransaction> _transactions;
     QPointer<QWidget> activeDialog;
 
     std::unique_ptr<KWalletFreedesktopService> _fdoService;
