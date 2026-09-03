@@ -214,6 +214,8 @@ void KSecretD::processTransactions()
 
         case KWalletTransaction::ChangePassword:
             doTransactionChangePassword(_curtrans->wallet, _curtrans->wId);
+            _curtrans->promise.addResult(0); // not used but needs to be there
+            _curtrans->promise.finish();
             break;
 
         case KWalletTransaction::Unknown:
@@ -569,10 +571,20 @@ void KSecretD::changePassword(const QString &wallet, qlonglong wId, const QStrin
 {
     Q_UNUSED(appId);
 
+    message().setDelayedReply(true);
+
+    auto future = internalChangePassword(wallet, wId);
+    future.then(this, [connection = connection(), message = message()](int) {
+        auto reply = message.createReply();
+        connection.send(reply);
+    });
+}
+
+QFuture<int> KSecretD::internalChangePassword(const QString &wallet, qlonglong wId)
+{
     KWalletTransaction *xact = new KWalletTransaction(connection());
 
     message().setDelayedReply(true);
-    xact->message = message();
     // TODO GPG this shouldn't be allowed on a GPG managed wallet; a warning
     // should be displayed about this
 
@@ -580,12 +592,17 @@ void KSecretD::changePassword(const QString &wallet, qlonglong wId, const QStrin
     xact->wId = wId;
     xact->modal = false;
     xact->tType = KWalletTransaction::ChangePassword;
+    xact->promise = QPromise<int>();
 
     _transactions.append(xact);
 
     QTimer::singleShot(0, this, SLOT(processTransactions()));
     checkActiveDialog();
     checkActiveDialog();
+
+    xact->promise.start();
+
+    return xact->promise.future();
 }
 
 void KSecretD::initiateSync(int handle)
