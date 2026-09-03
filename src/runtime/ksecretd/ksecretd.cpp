@@ -66,9 +66,7 @@ static void startManagerForKSecretD()
 class KWalletTransaction
 {
 public:
-    explicit KWalletTransaction(QDBusConnection conn)
-        : res(-1)
-        , connection(conn)
+    explicit KWalletTransaction()
     {
     }
 
@@ -86,9 +84,6 @@ public:
     qlonglong wId;
     QString wallet;
     bool modal;
-    int res;
-    QDBusMessage message;
-    QDBusConnection connection;
     QPromise<int> promise;
 };
 
@@ -201,13 +196,11 @@ void KSecretD::processTransactions()
                 }
             }
 
-            _curtrans->res = res;
             _curtrans->promise.addResult(res);
             _curtrans->promise.finish();
             break;
 
         case KWalletTransaction::OpenFail:
-            _curtrans->res = -1;
             _curtrans->promise.addResult(-1);
             _curtrans->promise.finish();
             break;
@@ -224,15 +217,6 @@ void KSecretD::processTransactions()
             break;
         }
 
-        // send delayed dbus message reply to the caller
-        if (_curtrans->message.type() != QDBusMessage::InvalidMessage) {
-            if (_curtrans->connection.isConnected()) {
-                QDBusMessage reply = _curtrans->message.createReply();
-                reply << _curtrans->res;
-                _curtrans->connection.send(reply);
-            }
-        }
-
         delete _curtrans;
         _curtrans = nullptr;
     }
@@ -240,13 +224,13 @@ void KSecretD::processTransactions()
     _processing = false;
 }
 
-QFuture<int> KSecretD::open(const QString &wallet, qlonglong wId, const QDBusConnection &connection)
+QFuture<int> KSecretD::open(const QString &wallet, qlonglong wId)
 {
     if (!isEnabled()) { // guard
         return QtFuture::makeReadyValueFuture<int>(-1);
     }
 
-    KWalletTransaction *xact = new KWalletTransaction(connection);
+    KWalletTransaction *xact = new KWalletTransaction();
     _transactions.append(xact);
 
     xact->wallet = wallet;
@@ -582,7 +566,7 @@ void KSecretD::changePassword(const QString &wallet, qlonglong wId, const QStrin
 
 QFuture<int> KSecretD::internalChangePassword(const QString &wallet, qlonglong wId)
 {
-    KWalletTransaction *xact = new KWalletTransaction(connection());
+    KWalletTransaction *xact = new KWalletTransaction();
 
     message().setDelayedReply(true);
     // TODO GPG this shouldn't be allowed on a GPG managed wallet; a warning

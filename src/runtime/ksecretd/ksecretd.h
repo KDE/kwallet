@@ -37,7 +37,7 @@ public:
     // Is the wallet enabled?  If not, all open() calls fail.
     static bool isEnabled();
 
-    QFuture<int> open(const QString &wallet, qlonglong wId, const QDBusConnection &connection);
+    QFuture<int> open(const QString &wallet, qlonglong wId);
     // Close and lock the wallet
     int close(int handle);
 

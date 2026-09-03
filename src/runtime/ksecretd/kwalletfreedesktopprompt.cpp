@@ -79,7 +79,7 @@ void KWalletFreedesktopPrompt::Prompt(const QString &window_id)
 
         static int transactionId = 0;
 
-        auto future = backend()->open(walletName, wId, connection());
+        auto future = backend()->open(walletName, wId);
         m_transactionIds.insert(transactionId);
         m_transactionIdToCollectionProperties.emplace(transactionId, std::move(properties));
 
