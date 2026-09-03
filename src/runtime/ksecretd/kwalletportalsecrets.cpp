@@ -35,7 +35,7 @@ uint KWalletPortalSecrets::RetrieveSecret(const QDBusObjectPath &handle,
 
     Request request{message(), fd.fileDescriptor(), app_id};
 
-    auto future = m_kwalletd->open(KWallet::Backend::networkWallet(), 0, connection());
+    auto future = m_kwalletd->open(KWallet::Backend::networkWallet(), 0);
     future.then(this, [this, request](int walletHandle) {
         walletOpened(request, walletHandle);
     });
