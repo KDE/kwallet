@@ -77,10 +77,6 @@ public:
     {
     }
 
-    ~KWalletTransaction()
-    {
-    }
-
     Type tType;
     qlonglong wId;
     QString wallet;
