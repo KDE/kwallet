@@ -55,9 +55,6 @@ MOCK_FUNCTION_RES(KSecretD, renameEntry, 4, 0, );
 
 MOCK_FUNCTION_RES(KSecretD, isEnabled, 0, 1);
 
-using OVOpenAsync3 = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &);
-MOCK_FUNCTION_OVERLOADED(KSecretD, openAsync, 3, OVOpenAsync3);
-
 using OVClose1 = int (KSecretD::*)(int);
 MOCK_FUNCTION_OVERLOADED(KSecretD, close, 1, OVClose1);
 
@@ -94,6 +91,15 @@ void KSecretD::processTransactions()
 }
 void KSecretD::activatePasswordDialog()
 {
+}
+
+QFuture<int> KSecretD::open(const QString & /*wallet*/, qlonglong /*wId*/, const QDBusConnection & /*connection*/)
+{
+    QPromise<int> promise;
+    promise.start();
+    promise.addResult(0);
+    promise.finish();
+    return promise.future();
 }
 
 #include <QLoggingCategory>

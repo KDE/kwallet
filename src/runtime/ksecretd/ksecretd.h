@@ -12,6 +12,7 @@
 #include "kwalletbackend.h"
 #include <QDBusConnection>
 #include <QDBusContext>
+#include <QFuture>
 #include <QHash>
 #include <QPointer>
 #include <QString>
@@ -36,8 +37,7 @@ public:
     // Is the wallet enabled?  If not, all open() calls fail.
     static bool isEnabled();
 
-    int nextTransactionId() const;
-    int openAsync(const QString &wallet, qlonglong wId, const QDBusConnection &connection);
+    QFuture<int> open(const QString &wallet, qlonglong wId, const QDBusConnection &connection);
     // Close and lock the wallet
     int close(int handle);
 
@@ -98,7 +98,6 @@ public Q_SLOTS:
     int pamOpen(const QString &wallet, const QByteArray &passwordHash);
 
 Q_SIGNALS:
-    void walletAsyncOpened(int id, int handle); // used to notify KWallet::Wallet
     void walletCreated(const QString &wallet);
     void walletDeleted(const QString &wallet);
     void walletClosed(const QString &wallet); // clazy:exclude=overloaded-signal

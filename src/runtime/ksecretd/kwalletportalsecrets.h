@@ -26,9 +26,6 @@ public Q_SLOTS:
     uint
     RetrieveSecret(const QDBusObjectPath &handle, const QString &app_id, const QDBusUnixFileDescriptor &fd, const QVariantMap &options, QVariantMap &results);
 
-private Q_SLOTS:
-    void walletOpened(int id, int handle);
-
 private:
     struct Request {
         QDBusMessage message;
@@ -36,9 +33,9 @@ private:
         QString appId;
     };
 
-    QByteArray generateSecret() const;
+    void walletOpened(const Request &request, int handle);
 
-    QHash<int, Request> m_pendingRequests;
+    QByteArray generateSecret() const;
 
     KSecretD *m_kwalletd;
 };

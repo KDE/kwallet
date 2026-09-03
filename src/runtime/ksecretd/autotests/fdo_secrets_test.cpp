@@ -322,19 +322,11 @@ void FdoSecretsTest::items()
     }
 
     /* Create collection */
-    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &);
-    bool openAsyncCalled = false;
-    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [&](const QString &, qlonglong, const QDBusConnection &) -> int {
-        openAsyncCalled = true;
-        return 0;
-    });
-
     QDBusObjectPath promptPath;
     service->Unlock({collection->fdoObjectPath()}, promptPath);
     auto prompt = service->getPromptByObjectPath(promptPath);
     QVERIFY(prompt);
     prompt->Prompt("wndid");
-    Q_EMIT kwalletd->walletAsyncOpened(0, 0);
     SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool (KSecretD::*)(int));
     QVERIFY(!collection->locked());
 
@@ -420,13 +412,6 @@ void FdoSecretsTest::createLockUnlockCollection()
     std::unique_ptr<KWalletFreedesktopService> service{new KWalletFreedesktopService(kwalletd.get())};
 
     /* Create collection */
-    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &);
-    bool openAsyncCalled = false;
-    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [&](const QString &, qlonglong, const QDBusConnection &) -> int {
-        openAsyncCalled = true;
-        return 0;
-    });
-
     QVariantMap props;
     props["org.freedesktop.Secret.Collection.Label"] = QString("walletName");
     QDBusObjectPath promptPath;
@@ -434,8 +419,6 @@ void FdoSecretsTest::createLockUnlockCollection()
     auto prompt = service->getPromptByObjectPath(promptPath);
     QVERIFY(prompt);
     prompt->Prompt("wndid");
-    QVERIFY(openAsyncCalled);
-    Q_EMIT kwalletd->walletAsyncOpened(0, 0);
 
     auto createdCollection = service->getCollectionByWalletName("walletName");
     QVERIFY(createdCollection);
@@ -465,10 +448,7 @@ void FdoSecretsTest::createLockUnlockCollection()
     service->Unlock({createdCollection->fdoObjectPath()}, promptPath);
     prompt = service->getPromptByObjectPath(promptPath);
     QVERIFY(prompt);
-    openAsyncCalled = false;
     prompt->Prompt("wndid");
-    QVERIFY(openAsyncCalled);
-    Q_EMIT kwalletd->walletAsyncOpened(0, 0);
     SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool (KSecretD::*)(int));
     QVERIFY(!createdCollection->locked());
 }
@@ -631,17 +611,11 @@ void FdoSecretsTest::invalidUtf8Rejected()
 
     collection->itemAttributes().newItem({FDO_SECRETS_DEFAULT_DIR, "item1"});
 
-    using OpenAsyncT = int (KSecretD::*)(const QString &, qlonglong, const QDBusConnection &);
-    SET_FUNCTION_IMPL_OVERLOADED(KSecretD::openAsync, OpenAsyncT, [](const QString &, qlonglong, const QDBusConnection &) -> int {
-        return 0;
-    });
-
     QDBusObjectPath promptPath;
     service->Unlock({collection->fdoObjectPath()}, promptPath);
     auto prompt = service->getPromptByObjectPath(promptPath);
     QVERIFY(prompt);
     prompt->Prompt("wndid");
-    Q_EMIT kwalletd->walletAsyncOpened(0, 0);
     SET_FUNCTION_RESULT_OVERLOADED(KSecretD::isOpen, true, bool (KSecretD::*)(int));
     QVERIFY(!collection->locked());
 
