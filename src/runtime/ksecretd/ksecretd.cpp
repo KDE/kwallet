@@ -48,6 +48,7 @@
 #include <QApplication>
 #include <QDir>
 #include <QIcon>
+#include <QScopedValueRollback>
 #include <QTimer>
 
 #include <assert.h>
@@ -167,7 +168,7 @@ void KSecretD::processTransactions()
         return;
     }
 
-    _processing = true;
+    QScopedValueRollback processing(_processing, true);
 
     // Process remaining transactions
     while (!_transactions.isEmpty()) {
@@ -213,8 +214,6 @@ void KSecretD::processTransactions()
         delete _curtrans;
         _curtrans = nullptr;
     }
-
-    _processing = false;
 }
 
 QFuture<int> KSecretD::open(const QString &wallet, qlonglong wId)
