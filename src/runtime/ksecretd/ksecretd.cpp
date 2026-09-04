@@ -177,13 +177,14 @@ int KSecretD::generateHandle()
 
 QPair<int, KWallet::Backend *> KSecretD::findWallet(const QString &walletName) const
 {
-    Wallets::const_iterator it = _wallets.constBegin();
-    const Wallets::const_iterator end = _wallets.constEnd();
-    for (; it != end; ++it) {
-        if (it.value()->walletName() == walletName) {
-            return qMakePair(it.key(), it.value());
-        }
+    auto it = std::find_if(_wallets.cbegin(), _wallets.cend(), [walletName](auto wallet) {
+        return wallet->walletName() == walletName;
+    });
+
+    if (it != _wallets.cend()) {
+        return qMakePair(it.key(), it.value());
     }
+
     return qMakePair(-1, static_cast<KWallet::Backend *>(nullptr));
 }
 
