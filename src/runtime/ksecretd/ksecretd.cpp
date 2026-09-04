@@ -689,20 +689,17 @@ void KSecretD::doTransactionChangePassword(const QString &wallet, qlonglong wId)
 
 int KSecretD::internalClose(KWallet::Backend *const w, const int handle, const bool saveBeforeClose)
 {
-    if (w) {
-        const QString &wallet = w->walletName();
-        if (_closeIdle) {
-            _closeTimers.removeTimer(handle);
-        }
-        _syncTimers.removeTimer(handle);
-        _wallets.remove(handle);
-        w->close(saveBeforeClose);
-        _fdoService->lockCollection(wallet);
-        delete w;
-        return 0;
+    const QString &wallet = w->walletName();
+    if (_closeIdle) {
+        _closeTimers.removeTimer(handle);
     }
+    _syncTimers.removeTimer(handle);
+    _wallets.remove(handle);
+    w->close(saveBeforeClose);
 
-    return -1;
+    _fdoService->lockCollection(wallet);
+    delete w;
+    return 0;
 }
 
 int KSecretD::close(int handle)
