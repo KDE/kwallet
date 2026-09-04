@@ -75,7 +75,6 @@ MOCK_FUNCTION(KSecretD, hasEntry, 3, );
 MOCK_FUNCTION(KSecretD, pamOpen, 2, );
 MOCK_FUNCTION(KSecretD, changePassword, 3, );
 MOCK_FUNCTION(KSecretD, reconfigure, 0, );
-MOCK_FUNCTION(KSecretD, closeAllWallets, 0, );
 
 void KSecretD::emitWalletListDirty()
 {

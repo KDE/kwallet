@@ -91,8 +91,6 @@ public Q_SLOTS:
 
     void reconfigure();
 
-    void closeAllWallets();
-
     // Open a wallet using a pre-hashed password. This is only useful in cooperation
     // with the kwallet PAM module
     int pamOpen(const QString &wallet, const QByteArray &passwordHash);
