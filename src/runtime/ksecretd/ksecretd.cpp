@@ -110,7 +110,10 @@ KSecretD::KSecretD()
 
 KSecretD::~KSecretD()
 {
-    closeAllWallets();
+    for (auto w : _wallets) {
+        w->close(true);
+        delete w;
+    }
 }
 
 int KSecretD::generateHandle()
@@ -1024,22 +1027,6 @@ void KSecretD::timedOutClose(int id)
     if (w) {
         internalClose(w, id);
     }
-}
-
-void KSecretD::closeAllWallets()
-{
-    Wallets walletsCopy = _wallets;
-
-    Wallets::const_iterator it = walletsCopy.constBegin();
-    const Wallets::const_iterator end = walletsCopy.constEnd();
-    for (; it != end; ++it) {
-        internalClose(it.value(), it.key());
-    }
-
-    walletsCopy.clear();
-
-    // All of this should be basically noop.  Let's just be safe.
-    _wallets.clear();
 }
 
 void KSecretD::activatePasswordDialog()
