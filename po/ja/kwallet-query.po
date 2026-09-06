@@ -1,10 +1,11 @@
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwallet-query\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2015-05-09 17:21-0700\n"
-"Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2026-08-31 19:29+0900\n"
+"Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -13,46 +14,47 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Mint"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "5602mint@gmail.com"
 
 #: main.cpp:22 main.cpp:24
 #, kde-format
 msgid "KWallet query interface"
-msgstr ""
+msgstr "KWallet クエリインターフェイス"
 
 #: main.cpp:26
 #, kde-format
 msgid "(c) 2015, The KDE Developers"
-msgstr ""
+msgstr "(c) 2015, The KDE Developers"
 
 #: main.cpp:31
 #, kde-format
 msgid "verbose output"
-msgstr ""
+msgstr "詳細な情報を出力"
 
 #: main.cpp:32
 #, kde-format
 msgid "list password entries"
-msgstr ""
+msgstr "パスワードエントリを一覧表示"
 
 #: main.cpp:33
 #, kde-format
 msgid "reads the secrets from the given <entry>"
-msgstr ""
+msgstr "指定された <entry> からシークレットを読み込む"
 
 #: main.cpp:33 main.cpp:34
 #, kde-format
 msgid "Entry"
-msgstr ""
+msgstr "エントリ"
 
 #: main.cpp:34
 #, kde-format
@@ -60,68 +62,70 @@ msgid ""
 "write secrets to the given <entry>. The values are read from the standard "
 "input. IMPORTANT: previous wallet entry value will be overwritten!"
 msgstr ""
+"指定された <entry> にシークレットを書き込む。値は標準入力から読み込まれます。"
+"【重要】以前のウォレットエントリの値は上書きされます。"
 
 #: main.cpp:35
 #, kde-format
 msgid "specify the folder in the wallet <folder>"
-msgstr ""
+msgstr "ウォレット内のフォルダ <folder> を指定"
 
 #: main.cpp:35
 #, kde-format
 msgid "Folder"
-msgstr ""
+msgstr "フォルダ"
 
 #: main.cpp:39
 #, kde-format
 msgid "The wallet to query"
-msgstr ""
+msgstr "クエリ対象のウォレット"
 
 #: main.cpp:49
 #, kde-format
 msgid "Missing argument"
-msgstr ""
+msgstr "引数が指定されていません"
 
 #: main.cpp:53
 #, kde-format
 msgid "Too many arguments given"
-msgstr ""
+msgstr "指定された引数が多すぎます"
 
 #: main.cpp:58
 #, kde-format
 msgid "Only one mode (list, read or write) can be set. Aborting"
-msgstr ""
+msgstr "設定できるモード (list, read, write) は 1 つのみです。処理を中止します"
 
 #: main.cpp:62
 #, kde-format
 msgid "Please specify the mode (list or read)."
-msgstr ""
+msgstr "モード (list または read) を指定してください。"
 
 #: querydriver.cpp:46
 #, kde-format
 msgid "Wallet %1 not found"
-msgstr ""
+msgstr "ウォレット %1 が見つかりません"
 
 #: querydriver.cpp:70
 #, kde-format
 msgid "Failed to open wallet %1. Aborting"
-msgstr ""
+msgstr "ウォレット %1 を開けませんでした。処理を中止します"
 
 #: querydriver.cpp:104 querydriver.cpp:121
 #, kde-format
 msgid "The folder %1 does not exist!"
-msgstr ""
+msgstr "フォルダ %1 は存在しません。"
 
 #: querydriver.cpp:130
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet."
-msgstr ""
+msgstr "ウォレット %2 からエントリ %1 の値を読み込めませんでした。"
 
 #: querydriver.cpp:141 querydriver.cpp:156
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet"
-msgstr ""
+msgstr "ウォレット %2 からエントリ %1 の値を読み込めませんでした"
 
 #: querydriver.cpp:189 querydriver.cpp:205
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
-msgstr ""
+msgstr "ウォレット %2 にエントリ %1 の値を書き込めませんでした"
