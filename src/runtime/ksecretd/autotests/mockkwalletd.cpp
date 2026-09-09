@@ -47,9 +47,6 @@ MOCK_FUNCTION_RES(KSecretD, writePassword, 4, 0, );
 using OVWriteEntry_5 = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, int);
 MOCK_FUNCTION_OVERLOADED_RES(KSecretD, writeEntry, 5, 0, OVWriteEntry_5);
 
-using OVWriteEntry_4 = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &);
-MOCK_FUNCTION_OVERLOADED_RES(KSecretD, writeEntry, 4, 0, OVWriteEntry_4);
-
 MOCK_FUNCTION(KSecretD, entryType, 3, );
 MOCK_FUNCTION_RES(KSecretD, renameEntry, 4, 0, );
 

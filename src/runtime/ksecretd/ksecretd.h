@@ -77,7 +77,6 @@ public Q_SLOTS:
 
     // Write an entry.  rc=0 on success.
     int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType);
-    int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value);
     int writePassword(int handle, const QString &folder, const QString &key, const QString &value);
 
     // Does the entry exist?
