@@ -55,7 +55,7 @@ public:
     KSecretD *backend() const;
     QDBusObjectPath fdoObjectPath() const;
     const FdoUniqueLabel &uniqueLabel() const;
-    void uniqueLabel(const FdoUniqueLabel &uniqLabel);
+    void setUniqueLabel(const FdoUniqueLabel &uniqLabel);
 
     /*
     QVariantMap readMap() const;
