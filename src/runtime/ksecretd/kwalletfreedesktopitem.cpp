@@ -222,7 +222,7 @@ const FdoUniqueLabel &KWalletFreedesktopItem::uniqueLabel() const
     return m_uniqueLabel;
 }
 
-void KWalletFreedesktopItem::uniqueLabel(const FdoUniqueLabel &uniqueLabel)
+void KWalletFreedesktopItem::setUniqueLabel(const FdoUniqueLabel &uniqueLabel)
 {
     m_uniqueLabel = uniqueLabel;
 }
