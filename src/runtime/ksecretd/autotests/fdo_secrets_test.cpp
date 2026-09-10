@@ -222,7 +222,7 @@ void FdoSecretsTest::items()
     SET_FUNCTION_RESULT(KSecretD::folderList, folders);
     SET_FUNCTION_RESULT(KSecretD::entryList, entries);
 
-    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &key) -> int {
+    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &key) -> KWallet::Wallet::EntryType {
         if (key == "item1")
             return KWallet::Wallet::Password;
         else if (key == "item2")
@@ -288,7 +288,7 @@ void FdoSecretsTest::items()
         return 0;
     });
 
-    using writeEntryT = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, int);
+    using writeEntryT = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, KWallet::Wallet::EntryType);
     SET_FUNCTION_IMPL_OVERLOADED(KSecretD::writeEntry, writeEntryT, [&](int, const QString &, const QString &key, const QByteArray &value, int) -> int {
         QTEST_ASSERT(key == "item3" || key == "item2");
         if (key == "item2")
@@ -609,7 +609,7 @@ void FdoSecretsTest::invalidUtf8Rejected()
     SET_FUNCTION_RESULT(KSecretD::folderList, folders);
     SET_FUNCTION_RESULT(KSecretD::entryList, entries);
 
-    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &) -> int {
+    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &) -> KWallet::Wallet::EntryType {
         return KWallet::Wallet::Password;
     });
 

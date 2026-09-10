@@ -76,14 +76,14 @@ public Q_SLOTS:
     int renameWallet(const QString &oldName, const QString &newName);
 
     // Write an entry.  rc=0 on success.
-    int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType);
+    int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, KWallet::Wallet::EntryType entryType);
     int writePassword(int handle, const QString &folder, const QString &key, const QString &value);
 
     // Does the entry exist?
     bool hasEntry(int handle, const QString &folder, const QString &key);
 
     // What type is the entry?
-    int entryType(int handle, const QString &folder, const QString &key);
+    KWallet::Wallet::EntryType entryType(int handle, const QString &folder, const QString &key);
 
     // Remove an entry.  rc=0 on success.
     int removeEntry(int handle, const QString &folder, const QString &key);
