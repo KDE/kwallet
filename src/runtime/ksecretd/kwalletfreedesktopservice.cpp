@@ -165,7 +165,6 @@ KWalletFreedesktopService::KWalletFreedesktopService(KSecretD *parent)
     }
 
     connect(m_parent, static_cast<void (KSecretD::*)(const QString &)>(&KSecretD::walletClosed), this, &KWalletFreedesktopService::lockCollection);
-    connect(m_parent, &KSecretD::entryUpdated, this, &KWalletFreedesktopService::entryUpdated);
     connect(m_parent, &KSecretD::entryDeleted, this, &KWalletFreedesktopService::entryDeleted);
     connect(m_parent, &KSecretD::entryRenamed, this, &KWalletFreedesktopService::entryRenamed);
     connect(m_parent, &KSecretD::walletDeleted, this, &KWalletFreedesktopService::walletDeleted);
@@ -477,25 +476,6 @@ void KWalletFreedesktopService::lockCollection(const QString &name)
     if (collection) {
         collection->onWalletChangeState(-1);
         onCollectionChanged(collection->fdoObjectPath());
-    }
-}
-
-/* Triggered after KSecretD::entryUpdated signal */
-void KWalletFreedesktopService::entryUpdated(const QString &walletName, const QString &folder, const QString &entryName)
-{
-    auto *collection = getCollectionByWalletName(walletName);
-    if (!collection) {
-        return;
-    }
-
-    const EntryLocation entryLocation{folder, entryName};
-    const auto *item = collection->findItemByEntryLocation(entryLocation);
-    if (item) {
-        collection->onItemChanged(item->fdoObjectPath());
-    } else {
-        auto objectPath = collection->nextItemPath();
-        collection->pushNewItem(entryLocation.toUniqueLabel(), objectPath);
-        collection->onItemCreated(objectPath);
     }
 }
 

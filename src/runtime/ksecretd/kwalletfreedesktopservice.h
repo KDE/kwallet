@@ -160,7 +160,6 @@ public:
     void lockCollection(const QString &name);
 
 private Q_SLOTS:
-    void entryUpdated(const QString &walletName, const QString &folder, const QString &entryName);
     void entryDeleted(const QString &walletName, const QString &folder, const QString &entryName);
     void entryRenamed(const QString &walletName, const QString &folder, const QString &oldName, const QString &newName);
     void walletDeleted(const QString &walletName);

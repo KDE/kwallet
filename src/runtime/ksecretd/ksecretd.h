@@ -102,7 +102,6 @@ Q_SIGNALS:
     void walletDeleted(const QString &wallet);
     void walletClosed(const QString &wallet); // clazy:exclude=overloaded-signal
 
-    void entryUpdated(const QString &, const QString &, const QString &);
     void entryRenamed(const QString &, const QString &, const QString &, const QString &);
     void entryDeleted(const QString &, const QString &, const QString &);
 
@@ -125,7 +124,6 @@ private:
     // Generate a new unique handle.
     int generateHandle();
     // Emit signals about closing wallets
-    void emitEntryUpdated(const QString &, const QString &, const QString &);
     void emitEntryRenamed(const QString &, const QString &, const QString &, const QString &);
     void emitEntryDeleted(const QString &, const QString &, const QString &);
 
