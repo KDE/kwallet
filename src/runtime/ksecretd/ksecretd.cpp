@@ -870,7 +870,6 @@ int KSecretD::writePassword(int handle, const QString &folder, const QString &ke
         e.setType(KWallet::Wallet::Password);
         b->writeEntry(&e);
         initiateSync(handle);
-        emitEntryUpdated(b->walletName(), folder, key);
         return 0;
     }
 
