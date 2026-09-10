@@ -44,7 +44,7 @@ MOCK_FUNCTION(KSecretD, readPassword, 3, );
 MOCK_FUNCTION_RES(KSecretD, removeEntry, 3, 0, );
 MOCK_FUNCTION_RES(KSecretD, writePassword, 4, 0, );
 
-using OVWriteEntry_5 = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, int);
+using OVWriteEntry_5 = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, KWallet::Wallet::EntryType);
 MOCK_FUNCTION_OVERLOADED_RES(KSecretD, writeEntry, 5, 0, OVWriteEntry_5);
 
 MOCK_FUNCTION(KSecretD, entryType, 3, );

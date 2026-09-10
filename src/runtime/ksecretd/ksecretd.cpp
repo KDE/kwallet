@@ -780,7 +780,7 @@ QString KSecretD::readPassword(int handle, const QString &folder, const QString 
     return QString();
 }
 
-int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType)
+int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, KWallet::Wallet::EntryType entryType)
 {
     KWallet::Backend *b;
 
@@ -789,7 +789,7 @@ int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, 
         KWallet::Entry e;
         e.setKey(key);
         e.setValue(value);
-        e.setType(KWallet::Wallet::EntryType(entryType));
+        e.setType(entryType);
         b->writeEntry(&e);
         initiateSync(handle);
         return 0;
@@ -816,7 +816,7 @@ int KSecretD::writePassword(int handle, const QString &folder, const QString &ke
     return -1;
 }
 
-int KSecretD::entryType(int handle, const QString &folder, const QString &key)
+KWallet::Wallet::EntryType KSecretD::entryType(int handle, const QString &folder, const QString &key)
 {
     KWallet::Backend *b;
 

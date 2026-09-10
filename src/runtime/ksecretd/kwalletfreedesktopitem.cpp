@@ -64,7 +64,7 @@ void KWalletFreedesktopItem::setLabel(const QString &value)
     const auto newEntryLocation = m_uniqueLabel.toEntryLocation();
 
     if (newEntryLocation.folder != entryLocation.folder) {
-        const int type = backend()->entryType(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key);
+        const KWallet::Wallet::EntryType type = backend()->entryType(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key);
         const auto data = backend()->readEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key);
         backend()->writeEntry(fdoCollection()->walletHandle(), newEntryLocation.folder, newEntryLocation.key, data, type);
         backend()->removeEntry(fdoCollection()->walletHandle(), entryLocation.folder, entryLocation.key);
