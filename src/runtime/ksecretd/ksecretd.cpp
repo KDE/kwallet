@@ -546,18 +546,7 @@ int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
             startManagerForKSecretD();
         }
     } else {
-        // prematurely add a reference so that the wallet does not close while
-        // the
-        // authorization dialog is being shown.
         walletInfo.second->ref();
-        // as the wallet might have been forcefully closed, find it again to
-        // make sure it's
-        // still available (isAuthorizedApp might show a dialog).
-        walletInfo = findWallet(wallet);
-        if (walletInfo.first == -1) {
-            // wallet was forcefully closed.
-            return -1;
-        }
     }
 
     return rc;
