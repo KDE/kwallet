@@ -922,11 +922,6 @@ int KSecretD::renameWallet(const QString &oldName, const QString &newName)
     return walletInfo.second->renameWallet(newName);
 }
 
-void KSecretD::emitEntryUpdated(const QString &wallet, const QString &folder, const QString &key)
-{
-    Q_EMIT entryUpdated(wallet, folder, key);
-}
-
 void KSecretD::emitEntryRenamed(const QString &wallet, const QString &folder, const QString &oldName, const QString &newName)
 {
     Q_EMIT entryRenamed(wallet, folder, oldName, newName);
