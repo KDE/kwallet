@@ -18,3 +18,4 @@ Options:
  test-before-installing: True
  require-passing-tests-on: ['@all']
  enable-lsan: True
+ run-installed-library-check-on: ['@all']

@@ -87,7 +87,7 @@ else()
     install(FILES ${kwallet_xml} DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} RENAME kf6_org.kde.KWallet.xml)
 endif()
 
-ecm_generate_headers(KWallet_HEADERS
+ecm_generate_headers(KWallet_CamelCase_HEADERS
   HEADER_NAMES
   KWallet
 
@@ -102,6 +102,7 @@ install(TARGETS KF6Wallet EXPORT KF6WalletTargets ${KF_INSTALL_TARGETS_DEFAULT_A
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kwallet_export.h
   ${KWallet_HEADERS}
+  ${KWallet_CamelCase_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KWallet COMPONENT Devel
 )
 
@@ -128,3 +129,15 @@ install(FILES
 
 install(EXPORT KF6WalletTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF6WalletTargets.cmake NAMESPACE KF6:: )
 
+ecm_add_installed_library_check(KF6Wallet
+    PACKAGE_NAME "KF6Wallet"
+    PACKAGE_TARGET_NAMESPACE "KF6::"
+)
+
+ecm_installed_library_check_include_strings(KF6Wallet
+    HEADERS ${KWallet_CamelCase_HEADERS}
+)
+
+ecm_installed_library_check_version_preprocessor_macros(KF6Wallet
+    PREFIX KWALLET
+)

@@ -27,6 +27,7 @@ include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
 include(ECMMarkNonGuiExecutable)
 include(ECMGenerateQDoc)
+include(ECMInstalledLibraryCheck)
 
 option(BUILD_KSECRETD "Build the ksecretd daemon" ON)
 if(NOT WIN32 AND NOT APPLE)
