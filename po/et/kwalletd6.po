@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:40+0000\n"
+"POT-Creation-Date: 2026-09-19 00:41+0000\n"
 "PO-Revision-Date: 2019-10-31 17:55+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -130,7 +130,7 @@ msgstr "Klassikaline, Blowfish-krüpteeringuga fail"
 msgid "Use GPG encryption, for better protection"
 msgstr "GPG krüptimise kasutamine parema turbe nimel"
 
-#: ksecretd/ksecretd.cpp:405
+#: ksecretd/ksecretd.cpp:334
 #, kde-format
 msgid ""
 "<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
@@ -140,20 +140,20 @@ msgstr ""
 "laeka parool.</qt>"
 
 #. i18n( "&Open" ), "wallet-open"));
-#: ksecretd/ksecretd.cpp:413 ksecretd/ksecretd.cpp:500
-#: ksecretd/ksecretd.cpp:630 ksecretd/ksecretd.cpp:653
-#: ksecretd/ksecretd.cpp:664 ksecretd/ksecretd.cpp:669
-#: ksecretd/ksecretd.cpp:979 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:342 ksecretd/ksecretd.cpp:429
+#: ksecretd/ksecretd.cpp:573 ksecretd/ksecretd.cpp:596
+#: ksecretd/ksecretd.cpp:607 ksecretd/ksecretd.cpp:612
+#: ksecretd/ksecretd.cpp:899 ksecretd/main.cpp:159 ksecretd/main.cpp:161
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE turvalaeka teenus"
 
-#: ksecretd/ksecretd.cpp:427
+#: ksecretd/ksecretd.cpp:356
 #, kde-format
 msgid "An application has requested to open a wallet (%1)."
 msgstr "Rakendus soovib ligipääsu turvalaeka avamiseks (%1)."
 
-#: ksecretd/ksecretd.cpp:428
+#: ksecretd/ksecretd.cpp:357
 #, kde-format
 msgctxt ""
 "Text of a button for switching to the (unnamed) application requesting a "
@@ -161,7 +161,7 @@ msgctxt ""
 msgid "Switch there"
 msgstr "Lülita ümber"
 
-#: ksecretd/ksecretd.cpp:444 ksecretd/ksecretd.cpp:510
+#: ksecretd/ksecretd.cpp:373 ksecretd/ksecretd.cpp:439
 #, kde-format
 msgid ""
 "<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
@@ -170,7 +170,7 @@ msgstr ""
 "<qt>Viga turvalaeka '<b>%1</b>' avamisel. Palun proovi uuesti. <br /"
 ">(Veakood %2: %3)</qt>"
 
-#: ksecretd/ksecretd.cpp:491
+#: ksecretd/ksecretd.cpp:420
 #, kde-format
 msgid ""
 "KDE has requested to open the wallet. This is used to store sensitive data "
@@ -181,7 +181,7 @@ msgstr ""
 "salvestamiseks. Palun anna selle laeka kasutamiseks parool või lükka "
 "loobumisega rakenduse soov tagasi."
 
-#: ksecretd/ksecretd.cpp:496
+#: ksecretd/ksecretd.cpp:425
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
@@ -191,14 +191,14 @@ msgstr ""
 "<qt>KDE soovib luua uue turvalaeka nimega '<b>%1</b>'. Palun anna selle "
 "laeka jaoks parool või lükka loobumisega rakenduse soov tagasi.</qt>"
 
-#: ksecretd/ksecretd.cpp:629
+#: ksecretd/ksecretd.cpp:572
 #, kde-format
 msgid ""
 "Unable to open wallet. The wallet must be opened in order to change the "
 "password."
 msgstr "Turvalaeka avamine nurjus. Parooli muutmiseks tuleb see avada."
 
-#: ksecretd/ksecretd.cpp:645
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
@@ -209,22 +209,22 @@ msgstr ""
 "võtmega seotud paroolifraasi muutmiseks <b>GPG</b> tööriistu (näiteks "
 "<b>kleopatra</b>).</qt>"
 
-#: ksecretd/ksecretd.cpp:652
+#: ksecretd/ksecretd.cpp:595
 #, kde-format
 msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
 msgstr "<qt>Palun anna turvalaeka '<b>%1</b>' jaoks uus parool.</qt>"
 
-#: ksecretd/ksecretd.cpp:664
+#: ksecretd/ksecretd.cpp:607
 #, kde-format
 msgid "Error re-encrypting the wallet. Password was not changed."
 msgstr "Viga turvalaeka taaskrüptimisel. Parooli ei muudetud."
 
-#: ksecretd/ksecretd.cpp:669
+#: ksecretd/ksecretd.cpp:612
 #, kde-format
 msgid "Error reopening the wallet. Data may be lost."
 msgstr "Viga turvalaeka taasavamisel. Andmed võivad kaotsi minna."
 
-#: ksecretd/ksecretd.cpp:978
+#: ksecretd/ksecretd.cpp:898
 #, kde-format
 msgid ""
 "There have been repeated failed attempts to gain access to a wallet. An "
