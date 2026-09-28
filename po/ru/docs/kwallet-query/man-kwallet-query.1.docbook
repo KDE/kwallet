@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE 
+refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd"
+[
+  <!ENTITY % Russian "INCLUDE"
+><!-- change language only here -->
+]>
+<refentry lang="&language;">
+  <refentryinfo>
+    <title
+>kwallet-query(1)</title>
+    <author
+><firstname
+>Valentin</firstname
+> <surname
+>Rusu</surname
+> <contrib
+>Первоначальный автор</contrib
+> <address
+> <email
+>kde@rusu.info</email
+> </address
+> </author>
+    <date
+>14 июня 2015 г.</date>
+    <releaseinfo
+>Frameworks 5.11</releaseinfo>
+    <productname
+>KDE Frameworks</productname>
+  </refentryinfo>
+  <refmeta>
+    <refentrytitle
+>kwallet-query</refentrytitle>
+    <manvolnum
+>1</manvolnum>
+    <refmiscinfo class="source"
+>&#160;</refmiscinfo>
+    <refmiscinfo class="manual"
+>&#160;</refmiscinfo>
+  </refmeta>
+  <refnamediv>
+    <refname
+>kwallet-query</refname>
+    <refpurpose
+>Средство работы с бумажником &kde; из командной строки</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv id="_synopsis">
+    <simpara
+><emphasis role="strong"
+>kwallet-query</emphasis
+> <emphasis
+>ПАРАМЕТРЫ</emphasis
+> <emphasis
+>бумажник</emphasis
+> </simpara>
+  </refsynopsisdiv>
+  <refsect1 id="_description">
+    <title
+>ОПИСАНИЕ</title>
+    <simpara
+>Программа <command
+>kwallet-query</command
+> удобна, когда сценарию командной оболочки требуется прочитать или изменить содержимое бумажника &kde;. Она работает с теми же записями, которые показывает <emphasis role="strong"
+>Диспетчер бумажника &kde;</emphasis
+>. Её единственный параметр — имя <emphasis
+>бумажника</emphasis
+>, который нужно прочитать или изменить. Режим работы задаётся параметрами.</simpara>
+  </refsect1>
+  <refsect1 id="_options">
+    <title
+>ПАРАМЕТРЫ</title>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>-h,--help</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Показать краткую справку.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>-l,--list-entries</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Показать список записей с паролями — это имена папок, которые показывает <emphasis role="strong"
+>Диспетчер бумажника &kde;</emphasis
+>. Если указан параметр <emphasis role="strong"
+>-f</emphasis
+>, показываются только вложенные папки указанной папки.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><emphasis role="strong"
+>-r,--read-password</emphasis
+> <emphasis
+>Запись</emphasis
+> </term>
+        <listitem>
+          <simpara
+>Прочитать содержимое указанной <emphasis
+>записи</emphasis
+> из раздела <emphasis role="strong"
+>Папка</emphasis
+> заданного <emphasis
+>бумажника</emphasis
+> и вывести его на стандартный вывод. Ассоциативные массивы экспортируются как объект &JSON;.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><emphasis role="strong"
+>-w,--write-password</emphasis
+> <emphasis
+>Запись</emphasis
+> </term>
+        <listitem>
+          <simpara
+>Записать секретные данные в указанную <emphasis
+>запись</emphasis
+> раздела <emphasis role="strong"
+>Папка</emphasis
+> заданного <emphasis
+>бумажника</emphasis
+>. Данные читаются со стандартного ввода. Для ассоциативных массивов на вход подаётся корректный объект &JSON;. <emphasis role="strong"
+>ВАЖНО:</emphasis
+> прежнее значение записи бумажника будет перезаписано, поэтому пользуйтесь этим параметром осторожно.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><emphasis role="strong"
+>-f,--folder</emphasis
+> <emphasis
+>Папка</emphasis
+> </term>
+        <listitem>
+          <simpara
+>Задать папку <emphasis
+>бумажника</emphasis
+>, равную значению <emphasis
+>Папка</emphasis
+>. По умолчанию используется <emphasis role="strong"
+>Passwords</emphasis
+>.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>-v,--verbose</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Выводить больше сведений во время выполнения операции — это помогает при отладке.</simpara>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="_exit_status">
+    <title
+>КОД ВОЗВРАТА</title>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>0</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Успешное выполнение.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>1</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Бумажник <emphasis
+>бумажник</emphasis
+> не найден.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>2</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Не удалось открыть бумажник <emphasis
+>бумажник</emphasis
+>. Это может означать, что введён неверный пароль, либо возникла другая неполадка в подсистеме бумажника &kde;.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>3</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Раздел <emphasis role="strong"
+>Папка</emphasis
+> не найден в бумажнике <emphasis
+>бумажник</emphasis
+>. Возможно, файл бумажника повреждён.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>4</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>Операция чтения или записи по какой-то причине не удалась.</simpara>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="_bugs">
+    <title
+>ОШИБКИ</title>
+    <simpara
+>Сообщайте обо всех ошибках на сайте отслеживания ошибок &kde;: bugs.kde.org. При отправке сообщения обязательно выберите компонент <quote
+>kwallet-query</quote
+>.</simpara>
+  </refsect1>
+  <refsect1 id="_author">
+    <title
+>АВТОР</title>
+    <simpara
+>Первоначальным автором программы <command
+>kwallet-query</command
+> является Valentin Rusu; программа входит в состав &kde;.</simpara>
+  </refsect1>
+  <refsect1 id="_copying">
+    <title
+>ЛИЦЕНЗИЯ</title>
+    <simpara
+>© Valentin Rusu, 2015. Свободное использование этой программы разрешено на условиях Универсальной общественной лицензии &GNU; (GPL).</simpara>
+  </refsect1>
+</refentry>
+
