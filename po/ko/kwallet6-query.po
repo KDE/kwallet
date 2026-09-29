@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2015, 2020.
+# SPDX-FileCopyrightText: 2015, 2020, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-15 00:41+0000\n"
-"PO-Revision-Date: 2020-04-04 15:05+0200\n"
+"PO-Revision-Date: 2026-09-29 00:58+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 19.04.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -136,12 +136,12 @@ msgstr "지갑 %2에서 항목 %1의 값을 기록할 수 없습니다"
 #: querydriver.cpp:213
 #, kde-format
 msgid "Invalid argument: the value for entry %1 is not valid JSON"
-msgstr ""
+msgstr "잘못된 인자: %1 항목의 값이 올바른 JSON이 아님"
 
 #: querydriver.cpp:232
 #, kde-format
 msgid "Unsupported entry type for entry %1"
-msgstr ""
+msgstr "%1 항목의 지원하지 않는 항목 형식"
 
 #~ msgid "wallet"
 #~ msgstr "지갑"
