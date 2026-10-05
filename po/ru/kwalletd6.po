@@ -80,8 +80,7 @@ msgid ""
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
 msgstr ""
 "<html><head/><body><p><span style=\" font-weight:600;\">Примечание:</span> в "
-"этом списке показаны только &quot;абсолютно&quot; доверенные ключи.</p></"
-"body></html>"
+"этом списке показаны только «абсолютно» доверенные ключи.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -135,7 +134,7 @@ msgstr "Классический шифр blowfish"
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
 msgid "Use GPG encryption, for better protection"
-msgstr "Использовать шифрование GPG, для лучшей защиты"
+msgstr "Использовать шифрование GPG для лучшей защиты"
 
 #: ksecretd/ksecretd.cpp:334
 #, kde-format
@@ -305,8 +304,8 @@ msgstr ""
 "расшифровки: если удалить ключ, бумажник станет недоступен. Если вы "
 "применяете смарт-карту, для открытия бумажника будет запрошена она и "
 "соответствующий пин-код. <span style=\" font-weight:600;\">Примечание:</"
-"span> в этом списке показаны только &quot;абсолютно&quot; доверенные ключи.</"
-"p></body></html>"
+"span> в этом списке показаны только «абсолютно» доверенные ключи.</p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
@@ -328,7 +327,7 @@ msgstr ""
 "Не удалось найти ни одного ключа <b>шифрования GPG</b>. Такой <b>ключ "
 "шифрования</b> необходим подсистеме бумажника KDE для безопасного хранения "
 "паролей и другой важной информации на диске. Если вы хотите настроить "
-"кошелёк именно на базе GPG, отмените работу этого мастера, установите "
+"бумажник именно на базе GPG, отмените работу этого мастера, установите "
 "<b>ключ шифрования GPG</b>, а затем запустите мастер снова. В противном "
 "случае вернитесь назад и выберите на предыдущей странице классический шифр "
 "blowfish."
@@ -459,7 +458,7 @@ msgstr "Какое шифрование вы хотите использоват
 #: ksecretd/main.cpp:163
 #, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr "© Разработчики KDE, 2002-2025"
+msgstr "© Разработчики KDE, 2002–2025"
 
 #: ksecretd/main.cpp:164
 #, kde-format
@@ -469,7 +468,7 @@ msgstr "Valentin Rusu"
 #: ksecretd/main.cpp:164
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
-msgstr "Бывший ведущий проекта, поддержка GPG"
+msgstr "Прежний сопровождающий, поддержка GPG"
 
 #: ksecretd/main.cpp:165
 #, kde-format
@@ -479,7 +478,7 @@ msgstr "Michael Leupold"
 #: ksecretd/main.cpp:165
 #, kde-format
 msgid "Former Maintainer"
-msgstr "Бывший ведущий проекта"
+msgstr "Прежний сопровождающий"
 
 #: ksecretd/main.cpp:166
 #, kde-format
@@ -616,7 +615,7 @@ msgstr "Это не файл бумажника."
 #: kwalletbackend/kwalletbackend.cc:292
 #, kde-format
 msgid "Unsupported file format revision."
-msgstr "Не поддерживаемая версия формата файла."
+msgstr "Неподдерживаемая версия формата файла."
 
 #: kwalletbackend/kwalletbackend.cc:296
 #, kde-format
@@ -636,7 +635,7 @@ msgstr "Ошибка проверки целостности бумажника.
 #: kwalletbackend/kwalletbackend.cc:304
 #, kde-format
 msgid "Read error - possibly incorrect password."
-msgstr "Ошибка чтения: неверный пароль."
+msgstr "Ошибка чтения: возможно, неверный пароль."
 
 #: kwalletbackend/kwalletbackend.cc:306
 #, kde-format
@@ -658,7 +657,7 @@ msgstr ""
 #: kwalletd/kwalletd.cpp:103
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
-msgstr "Переносится кошелёк «%1». Введите пароль для разблокировки."
+msgstr "Переносится бумажник «%1». Введите пароль для разблокировки."
 
 #: kwalletd/main.cpp:31
 #, kde-format
@@ -729,7 +728,7 @@ msgstr "Не найдена запись для переименования"
 #: kwalletd/secretserviceclient.cpp:836
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr "Запись «%1» в папке «%2» и кошельке «%3» уже существует."
+msgstr "Запись «%1» в папке «%2» и бумажнике «%3» уже существует."
 
 #: kwalletd/secretserviceclient.cpp:851 kwalletd/secretserviceclient.cpp:866
 #, kde-format

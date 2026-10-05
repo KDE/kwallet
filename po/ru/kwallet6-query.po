@@ -37,7 +37,7 @@ msgstr "Интерфейс запросов к бумажнику KDE"
 #: main.cpp:28
 #, kde-format
 msgid "(c) 2015, The KDE Developers"
-msgstr "© Разработчики KDE"
+msgstr "© Разработчики KDE, 2015"
 
 #: main.cpp:32
 #, kde-format
