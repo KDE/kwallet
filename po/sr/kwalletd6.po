@@ -1,13 +1,14 @@
 # Translation of kwalletd5.po into Serbian.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2009, 2010, 2013, 2014, 2015, 2016, 2017.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2009, 2010, 2011.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:41+0000\n"
-"PO-Revision-Date: 2017-09-28 17:58+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-06 08:03+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -22,12 +23,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Часлав Илић"
+msgstr "Часлав Илић,Немања Хиршл"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "caslav.ilic@gmx.net"
+msgstr "caslav.ilic@gmx.net,nemhirsl@gmail.com"
 
 # >? Really "click Cancel", or "click Deny"?
 # rewrite-msgid: /KDE//
@@ -70,10 +71,7 @@ msgstr "Изаберите кључ за потписивање са доњег 
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
-#| "list shows only \"ultimate-level\" trusted keys</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
@@ -294,15 +292,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-#| "securely encrypt data on disk. The key must be available when decrypting "
-#| "is needed or your wallet will not be accessible. For example, if you "
-#| "choose a SmartCard-based encryption key, the GPG system will prompt you "
-#| "to enter it and its associated PIN when attempting to open the wallet. "
-#| "<span style=\" font-weight:600;\">NOTE:</span> this list contains only "
-#| "\"ultimate-level\" trusted keys.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
 "securely encrypt data on disk. The key must be available when decrypting is "
@@ -467,10 +457,9 @@ msgid "What kind of encryption do you wish?"
 msgstr "Какву врсту шифровања желите?"
 
 #: ksecretd/main.cpp:163
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2013, The KDE Developers"
+#, kde-format
 msgid "(C) 2002-2025, The KDE Developers"
-msgstr "© 2002–2013, КДЕ програмери"
+msgstr "© 2002–2025, КДЕ програмери"
 
 #: ksecretd/main.cpp:164
 #, kde-format
@@ -478,10 +467,9 @@ msgid "Valentin Rusu"
 msgstr "Валантен Ризи"
 
 #: ksecretd/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "Maintainer, GPG backend support"
+#, kde-format
 msgid "Former Maintainer, GPG backend support"
-msgstr "одржавалац, подршка за ГПГ позадину"
+msgstr "бивши одржавалац, подршка за ГПГ позадину"
 
 #: ksecretd/main.cpp:165
 #, kde-format
@@ -667,7 +655,7 @@ msgstr ""
 #: kwalletd/kwalletd.cpp:103
 #, kde-format
 msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
-msgstr ""
+msgstr "Селим новчаник „%1“. Унесите лозинку за откључавање."
 
 #: kwalletd/main.cpp:31
 #, kde-format
@@ -677,146 +665,75 @@ msgstr "kwalletd"
 #: kwalletd/main.cpp:33
 #, kde-format
 msgid "A KWallet compatibility service, wrapping upon Secret Service"
-msgstr ""
+msgstr "Сервис за сагласност са К‑новчаником, омотач око сервиса тајни"
 
 #: kwalletd/main.cpp:35
-#, fuzzy, kde-format
-#| msgid "(C) 2002-2013, The KDE Developers"
+#, kde-format
 msgid "(C) 2025, The KDE Developers"
-msgstr "© 2002–2013, КДЕ програмери"
+msgstr "© 2025, КДЕ програмери"
 
 #: kwalletd/main.cpp:37
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Марко Мартин"
 
 #: kwalletd/main.cpp:37
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "аутор"
 
 #: kwalletd/secretserviceclient.cpp:262
 #, kde-format
 msgid "Item not found"
-msgstr ""
+msgstr "Ставка није нађена"
 
 #: kwalletd/secretserviceclient.cpp:282
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr ""
+msgstr "Не могу да се повежем са сервисом тајни"
 
 #: kwalletd/secretserviceclient.cpp:482
 #, kde-format
 msgid "Unable to unlock collectionName %1"
-msgstr ""
+msgstr "Не могу да откључам збирку %1"
 
 #: kwalletd/secretserviceclient.cpp:575
 #, kde-format
 msgid "No collections"
-msgstr ""
+msgstr "Нема збирки"
 
 #: kwalletd/secretserviceclient.cpp:612 kwalletd/secretserviceclient.cpp:659
 #: kwalletd/secretserviceclient.cpp:762
 #, kde-format
 msgid "No entries"
-msgstr ""
+msgstr "Нема уноса"
 
 #: kwalletd/secretserviceclient.cpp:677
 #, kde-format
 msgid "Entry not found, key: %1, folder: %2"
-msgstr ""
+msgstr "Унос није нађен, кључ: %1, фасцикла: %2"
 
 #: kwalletd/secretserviceclient.cpp:786
 #, kde-format
 msgid "Unable to unlock item"
-msgstr ""
+msgstr "Не могу да откључам ставку"
 
 #: kwalletd/secretserviceclient.cpp:829 kwalletd/secretserviceclient.cpp:947
 #, kde-format
 msgid "Entry to rename not found"
-msgstr ""
+msgstr "Унос за преименовање није нађен"
 
 #: kwalletd/secretserviceclient.cpp:836
 #, kde-format
 msgid "Entry named %1 in folder %2 and wallet %3 already exists."
-msgstr ""
+msgstr "Унос по имену %1 у фасцикли %2 и новчанику %3 већ постоји."
 
 #: kwalletd/secretserviceclient.cpp:851 kwalletd/secretserviceclient.cpp:866
 #, kde-format
 msgid "Entry to rename incomplete"
-msgstr ""
+msgstr "Унос за преименовање није потпун"
 
 #: kwalletd/secretserviceclient.cpp:911
 #, kde-format
 msgid "Failed to create SecretValue"
-msgstr ""
-
-# >? Really "click Cancel", or "click Deny"?
-#~ msgid ""
-#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
-#~ "named '<b>%2</b>'. This is used to store sensitive data in a secure "
-#~ "fashion. Please choose the new wallet's type below or click cancel to "
-#~ "deny the application's request.</qt>"
-#~ msgstr ""
-#~ "<qt>Програм <b>%1</b> затражио је стварање новог новчаника по имену <b>"
-#~ "%2</b>. Намена овога је безбедно складиштење осетљивих података. "
-#~ "Изаберите испод тип новог новчаника, или кликните на <i>Одбиј</i> да "
-#~ "одбијете захтев програма.</qt>"
-
-#~ msgid ""
-#~ "<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
-#~ "b>'. Please enter the password for this wallet below.</qt>"
-#~ msgstr ""
-#~ "<qt>Програм <b>%1</b> тражи да отвори новчаник <b>%2</b>. Унесите испод "
-#~ "лозинку новчаника.</qt>"
-
-#~ msgid "<b>%1</b> has requested to open a wallet (%2)."
-#~ msgstr "<b>%1</b> тражи да отвори новчаник (%2)."
-
-#~ msgctxt ""
-#~ "Text of a button for switching to the application requesting a password"
-#~ msgid "Switch to %1"
-#~ msgstr "Пребаци на %1|/|Пребаци на $[аку %1]"
-
-# >? Really "click Cancel", or "click Deny"?
-#~ msgid ""
-#~ "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
-#~ "This is used to store sensitive data in a secure fashion. Please enter a "
-#~ "password to use with this wallet or click cancel to deny the "
-#~ "application's request.</qt>"
-#~ msgstr ""
-#~ "<qt>Програм <b>%1</b> тражи да отвори КДЕ новчаник. Намена овога је "
-#~ "безбедно складиштење осетљивих података. Унесите лозинку која припада "
-#~ "овом новчанику, или кликните на <i>Одбиј</i> да одбијете захтев.</qt>"
-
-# >? Really "click Cancel", or "click Deny"?
-#~ msgid ""
-#~ "<qt>The application '<b>%1</b>' has requested to create a new wallet "
-#~ "named '<b>%2</b>'. Please choose a password for this wallet, or cancel to "
-#~ "deny the application's request.</qt>"
-#~ msgstr ""
-#~ "<qt>Програм <b>%1</b> тражи да направи нови новчаник по имену <b>%2</b>. "
-#~ "Изаберите лозинку за овај новчаник, или <i>Одбиј</i> да одбијете захтев.</"
-#~ "qt>"
-
-#~ msgid "Allow &Once"
-#~ msgstr "Дозволи &једном"
-
-#~ msgid "Allow &Always"
-#~ msgstr "Дозволи &увек"
-
-#~ msgid "&Deny"
-#~ msgstr "&Одбиј"
-
-#~ msgid "Deny &Forever"
-#~ msgstr "Одбиј &заувек"
-
-# rewrite-msgid: /KDE//
-#~ msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
-#~ msgstr "<qt>Затражен је приступ отвореном новчанику <b>%1</b>.</qt>"
-
-#~ msgid ""
-#~ "<qt>The application '<b>%1</b>' has requested access to the open wallet "
-#~ "'<b>%2</b>'.</qt>"
-#~ msgstr ""
-#~ "<qt>Програм <b>%1</b> тражи приступ отвореном новчанику <b>%2</b>.</qt>"
+msgstr "Не могу да направим SecretValue"

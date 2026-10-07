@@ -1,12 +1,13 @@
 # Translation of kwallet-query.po into Serbian.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2015.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kwallet-query\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-15 00:41+0000\n"
-"PO-Revision-Date: 2015-06-19 22:24+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-06 08:03+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavian\n"
 "MIME-Version: 1.0\n"
@@ -21,12 +22,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Часлав Илић"
+msgstr "Часлав Илић,Немања Хиршл"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "caslav.ilic@gmx.net"
+msgstr "caslav.ilic@gmx.net,nemhirsl@gmail.com"
 
 #: main.cpp:24 main.cpp:26
 #, kde-format
@@ -64,8 +65,8 @@ msgid ""
 "write secrets to the given <entry>. The values are read from the standard "
 "input. IMPORTANT: previous wallet entry value will be overwritten!"
 msgstr ""
-"уписује тајне у дати унос. Вредности се читају са стандардног улаза. ВАЖНО: "
-"претходна вредност уноса у новчанику биће пребрисана!"
+"уписује тајне у дати унос. Вриједности се читају са стандардног улаза. "
+"ВАЖНО: претходна вриједност уноса у новчанику биће пребрисана!"
 
 #: main.cpp:36
 #, kde-format
@@ -115,32 +116,29 @@ msgstr "Не могу да отворим новчаник %1. Обустављ�
 #: querydriver.cpp:104 querydriver.cpp:122 querydriver.cpp:180
 #, kde-format
 msgid "The folder %1 does not exist!"
-msgstr "Новчаник %1 не постоји."
+msgstr "Фасцикла %1 не постоји!"
 
 #: querydriver.cpp:132
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet."
-msgstr "Не могу да прочитам вредност уноса %1 у новчанику %2."
+msgstr "Не могу да прочитам вриједност уноса %1 у новчанику %2."
 
 #: querydriver.cpp:142 querydriver.cpp:159
 #, kde-format
 msgid "Failed to read entry %1 value from the %2 wallet"
-msgstr "Не могу да прочитам вредност уноса %1 у новчанику %2."
+msgstr "Не могу да прочитам вриједност уноса %1 у новчанику %2."
 
 #: querydriver.cpp:206 querydriver.cpp:227
 #, kde-format
 msgid "Failed to write entry %1 value to %2 wallet"
-msgstr "Не могу да упишем вредност уноса %1 у новчаник %2."
+msgstr "Не могу да упишем вриједност уноса %1 у новчаник %2."
 
 #: querydriver.cpp:213
 #, kde-format
 msgid "Invalid argument: the value for entry %1 is not valid JSON"
-msgstr ""
+msgstr "Лош аргумент: вриједност уноса %1 није исправан ЈСОН"
 
 #: querydriver.cpp:232
 #, kde-format
 msgid "Unsupported entry type for entry %1"
-msgstr ""
-
-#~ msgid "wallet"
-#~ msgstr "новчаник"
+msgstr "Неподржан тип уноса за унос %1"
