@@ -50,7 +50,6 @@ endif()
 include(FindPackageHandleStandardArgs)
 
 find_package_handle_standard_args(LibGcrypt
-    FOUND_VAR LIBGCRYPT_FOUND
     REQUIRED_VARS LIBGCRYPT_LIBRARY LIBGCRYPT_INCLUDE_DIR
     VERSION_VAR LIBGCRYPT_VERSION
 )
