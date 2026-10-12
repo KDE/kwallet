@@ -1,5 +1,4 @@
 # Translation of kwalletd into Japanese.
-# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 # This file is distributed under the same license as the kdebase package.
 # Taiki Komoda <kom@kde.gr.jp>, 2002.
 # Noriko Mizumoto <noriko@redhat.com>, 2004.
@@ -8,15 +7,16 @@
 # Shinichi Tsunoda <tsuno@ngy.1st.ne.jp>, 2005.
 # Yukiko Bando <ybando@k6.dion.ne.jp>, 2006, 2007, 2008, 2009.
 # Fumiaki Okushi <okushi@kde.gr.jp>, 2006, 2010.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2026-05-17 17:38+0900\n"
+"PO-Revision-Date: 2026-09-22 10:24+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
-"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
+"Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -194,10 +194,9 @@ msgid ""
 "to store sensitive data in a secure fashion. Please choose the new wallet's "
 "type below or click cancel to deny the application's request.</qt>"
 msgstr ""
-"<qt>KDE が新しいウォレット \"<b>%1</b>\" を作成するよう要求しています。これは"
-"機密データを安全な方法で保存するために使用されます。新しいウォレットの形式を"
-"選択するか、「キャンセル」をクリックしてアプリケーションの要求を拒否してくだ"
-"さい。</qt>"
+"<qt>KDE が新しいウォレット \"<b>%1</b>\" を作成するよう要求しています。ウォ"
+"レットは機密データを安全な方法で保存するものです。新しいウォレットの形式を選"
+"択するか、「キャンセル」でアプリケーションの要求を拒否してください。</qt>"
 
 #: knewwalletdialog.cpp:55
 #, kde-format
@@ -208,9 +207,9 @@ msgid ""
 "application's request.</qt>"
 msgstr ""
 "<qt>アプリケーション \"<b>%1</b>\" が新しいウォレット \"<b>%2</b>\" を作成す"
-"るよう要求しています。これは機密データを安全な方法で保存するために使用されま"
-"す。新しいウォレットの形式を選択するか、「キャンセル」をクリックしてアプリ"
-"ケーションの要求を拒否してください。</qt>"
+"るよう要求しています。ウォレットは機密データを安全な方法で保存するものです。"
+"新しいウォレットの形式を選択するか、「キャンセル」でアプリケーションの要求を"
+"拒否してください。</qt>"
 
 #: knewwalletdialog.cpp:125 knewwalletdialog.cpp:132 kwalletwizard.cpp:151
 #: kwalletwizard.cpp:157
@@ -226,14 +225,14 @@ msgid ""
 "Seems that your system has no keys suitable for encryption. Please set-up at "
 "least one encryption key, then try again."
 msgstr ""
-"このシステムに登録された暗号化に利用できる鍵が見つかりませんでした。少なくと"
-"もひとつの暗号化鍵を設定してから、もう一度お試しください。"
+"システム内で暗号化に使用できる鍵が見つかりませんでした。少なくともひとつの暗"
+"号化鍵を設定してから、もう一度お試しください。"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: knewwalletdialoggpg.ui:17
 #, kde-format
 msgid "Please select the signing key from the list below:"
-msgstr "以下のリストから署名キーを選択してください:"
+msgstr "以下のリストから署名キーを選択してください。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: knewwalletdialoggpg.ui:24
@@ -242,8 +241,9 @@ msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
 msgstr ""
-"<html><head/><body><p><span style=\" font-weight:600;\">注意:</span>このリス"
-"トは&quot;極めて高い&quot;信頼度のキーのみ表示しています。</p></body></html>"
+"<html><head/><body><p><span style=\" font-weight:600;\">注意:</span> このリス"
+"トは信頼度が「極めて高い」となっているキーのみ表示しています。</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: knewwalletdialoggpg.ui:59
@@ -289,14 +289,14 @@ msgstr ""
 #: knewwalletdialogintro.ui:66 kwalletwizardpagepasswordgpg.ui:68
 #, kde-format
 msgid "Classic, blowfish encrypted file"
-msgstr "クラシックな blowfish 暗号化ファイル"
+msgstr "blowfish 形式の暗号化ファイル (一般的)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
 #: knewwalletdialogintro.ui:73 kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
 msgid "Use GPG encryption, for better protection"
-msgstr "GPG 暗号化を利用したより良いセキュリティ"
+msgstr "GPG 暗号化を使用 (高セキュリティ)"
 
 #: kwalletd.cpp:640
 #, kde-format
