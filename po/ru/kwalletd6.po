@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-24 00:45+0000\n"
-"PO-Revision-Date: 2026-02-18 08:44+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-10-24 07:46+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -36,22 +36,17 @@ msgid "Your emails"
 msgstr "shaforostoff@kde.ru,skull@kde.ru,aspotashev@gmail.com"
 
 #: ksecretd/knewwalletdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is "
-#| "used to store sensitive data in a secure fashion. Please choose the new "
-#| "wallet's type below or click cancel to deny the application's request.</"
-#| "qt>"
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
 "to securely store sensitive data, such as account passwords. Choose the type "
 "of the new wallet below or click Cancel to deny the application's request.</"
 "qt>"
 msgstr ""
-"<qt>Среда KDE запросила создание нового бумажника «<b>%1</b>». Этот бумажник "
-"может использоваться для безопасного хранения важных данных. Выберите тип "
-"для создаваемого бумажника или нажмите Отмена, чтобы отклонить этот запрос.</"
-"qt>"
+"<qt>Среда KDE запросила создание нового бумажника «<b>%1</b>». Бумажник "
+"служит для безопасного хранения важных данных, например паролей учётных "
+"записей. Выберите ниже тип нового бумажника или нажмите «Отмена», чтобы "
+"отклонить запрос приложения.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:115 ksecretd/knewwalletdialog.cpp:122
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
@@ -75,26 +70,28 @@ msgid ""
 "back and use Blowfish encryption instead, which only requires a password.</"
 "item></list>"
 msgstr ""
+"Подходящих ключей шифрования GPG не найдено. Чтобы создать ключ, выберите "
+"один из вариантов:<list><item>Установите Kleopatra и создайте в ней новый "
+"ключ, см. <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/"
+"functions-newkey.html'>инструкцию</link>.</item><item>Откройте терминал и "
+"введите <command>gpg --full-gen-key</command>.</item><item>Вернитесь назад и "
+"выберите шифрование Blowfish — для него нужен только пароль.</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
-#, fuzzy, kde-format
-#| msgid "Please select the signing key from the list below:"
+#, kde-format
 msgid "Select the signing key from the list below:"
-msgstr "Пожалуйста, выберите ключ для подписывания в следующем списке:"
+msgstr "Выберите ключ для подписывания в следующем списке:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
-#| "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
 msgstr ""
 "<html><head/><body><p><span style=\" font-weight:600;\">Примечание:</span> в "
-"этом списке показаны только «абсолютно» доверенные ключи.</p></body></html>"
+"этом списке показаны только «абсолютно» доверенные ключи</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -118,13 +115,13 @@ msgstr "Идентификатор ключа"
 #: ksecretd/knewwalletdialoggpg.ui:77
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Обновить"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, reloadCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:80
 #, kde-format
 msgid "Refresh the list of GPG certificates."
-msgstr ""
+msgstr "Обновить список сертификатов GPG."
 
 #. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
 #: ksecretd/knewwalletdialogintro.ui:17 ksecretd/kwalletwizardpageintro.ui:17
@@ -134,12 +131,7 @@ msgstr "Бумажник KDE"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: ksecretd/knewwalletdialogintro.ui:30
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The application '<span style=\" font-weight:600;\">"
-#| "%1</span>' has requested to open the KDE wallet. This is used to store "
-#| "sensitive data in a secure fashion. Please choose the new wallet's type "
-#| "below or click cancel to deny the application's request.</p></body></html>"
+#, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
 "span>' has requested to open the KDE wallet. This is used to securely store "
@@ -147,18 +139,18 @@ msgid ""
 "below or click Cancel to deny the application's request.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Приложение «<span style=\" font-weight:600;\">%1</"
-"span>» обращается к бумажнику KDE. Этот бумажник может использоваться для "
-"безопасного хранения важных данных. Выберите тип для создаваемого бумажника "
-"или нажмите Отмена, чтобы отклонить запрос приложения.</p></body></html>"
+"span>» запросило открытие бумажника KDE. Бумажник служит для безопасного "
+"хранения важных данных, например паролей учётных записей. Выберите ниже тип "
+"нового бумажника или нажмите «Отмена», чтобы отклонить запрос приложения.</"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:55
-#, fuzzy, kde-format
-#| msgid "Classic, blowfish encrypted file"
+#, kde-format
 msgid "Blowfish encryption"
-msgstr "Классический шифр blowfish"
+msgstr "Шифрование Blowfish"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/knewwalletdialogintro.ui:73
@@ -166,7 +158,7 @@ msgstr "Классический шифр blowfish"
 #, kde-format
 msgid ""
 "Password-protected, so it does not require the setup of encryption keys."
-msgstr ""
+msgstr "Защищено паролем, настраивать ключи шифрования не нужно."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
@@ -174,13 +166,13 @@ msgstr ""
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
 msgid "GPG encryption"
-msgstr ""
+msgstr "Шифрование GPG"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/knewwalletdialogintro.ui:90
 #, kde-format
 msgid "More secure, but requires the setup of GPG encryption keys."
-msgstr ""
+msgstr "Надёжнее, но требует настройки ключей шифрования GPG."
 
 #: ksecretd/ksecretd.cpp:334
 #, kde-format
@@ -256,18 +248,13 @@ msgstr ""
 "открыт."
 
 #: ksecretd/ksecretd.cpp:588
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-#| "<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-#| "associated to that key.</qt>"
+#, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
 "<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
 msgstr ""
-"<qt>Бумажник <b>%1</b> зашифрован GPG-ключом <b>%2</b>. Для изменения "
-"пароля, связанного с этим ключом, используйте средства <b>GPG</b> (например, "
-"программу <b>kleopatra</b>).</qt>"
+"<qt>Бумажник <b>%1</b> зашифрован ключом GPG <b>%2</b>. Для изменения "
+"пароля, связанного с этим ключом, используйте средства <b>GPG</b>.</qt>"
 
 #: ksecretd/ksecretd.cpp:595
 #, kde-format
@@ -315,17 +302,7 @@ msgstr "Пароли не совпадают."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
 #: ksecretd/kwalletwizardpageexplanation.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
-#| "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-#| "The data is only written in the encrypted form of your choice - blowfish "
-#| "algorithm with your password as the key or using a GPG encryption key. "
-#| "When a wallet is opened, the wallet manager application will launch and "
-#| "display an icon in the system tray. You can use this application to "
-#| "manage all of your wallets. It even permits you to drag wallets and "
-#| "wallet contents, allowing you to easily copy a wallet to a remote system."
-#| "</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
@@ -336,27 +313,18 @@ msgid ""
 "permits you to drag-and-drop wallets and their contents, allowing you to "
 "easily copy a wallet to a remote system.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Служба бумажника KDE сохраняет ваши данные в файле "
-"<span style=\" font-style:italic;\">бумажника</span> на локальном жёстком "
-"диске в защищённом виде. При этом вы можете выбрать для защиты пароль "
-"(алгоритм blowfish) или ключ шифрования GPG. Когда открывается бумажник, "
-"система запускает приложение, управляющее бумажником, и в системном лотке "
-"появляется его значок. С помощью этого приложения вы можете управлять всеми "
-"своими бумажниками. Вы можете даже перетаскивать бумажники и их содержимое "
-"из одного в другой, и таким образом легко копировать бумажники в другое "
-"местоположение.</p></body></html>"
+"<html><head/><body><p>Служба бумажника KDE хранит ваши данные в файле <span "
+"style=\" font-style:italic;\">бумажника</span> на локальном жёстком диске. "
+"Данные шифруются выбранным способом: алгоритмом Blowfish с вашим паролем в "
+"качестве ключа или с помощью GPG и ключа шифрования. Когда бумажник открыт, "
+"запускается диспетчер бумажников, и в системном лотке появляется его значок. "
+"В этом приложении можно управлять всеми бумажниками. Бумажники и их "
+"содержимое можно даже перетаскивать, что позволяет легко скопировать "
+"бумажник на удалённую систему.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-#| "securely encrypt data on disk. The key must be available when decrypting "
-#| "is needed or your wallet will not be accessible. For example, if you "
-#| "choose a SmartCard-based encryption key, the GPG system will prompt you "
-#| "to enter it and its associated PIN when attempting to open the wallet. "
-#| "<span style=\" font-weight:600;\">NOTE:</span> this list contains only "
-#| "&quot;ultimate-level&quot; trusted keys.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
 "securely encrypt data on disk. The key must be available when the wallet is "
@@ -366,31 +334,22 @@ msgid ""
 "font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Бумажник на основе GPG использует ключ GPG для "
-"шифрования данных перед сохранением на диске. Этот ключ понадобится для "
-"расшифровки: если удалить ключ, бумажник станет недоступен. Если вы "
-"применяете смарт-карту, для открытия бумажника будет запрошена она и "
-"соответствующий пин-код. <span style=\" font-weight:600;\">Примечание:</"
-"span> в этом списке показаны только «абсолютно» доверенные ключи.</p></"
-"body></html>"
+"<html><head/><body><p>Бумажник на основе GPG шифрует данные на диске ключом "
+"шифрования GPG. Ключ должен быть доступен при расшифровке, иначе бумажник "
+"открыть не удастся. Например, если выбран ключ на смарт-карте, при открытии "
+"бумажника будет предложено вставить её и ввести пин-код. <span style=\" font-"
+"weight:600;\">Примечание:</span> в этом списке показаны только «абсолютно» "
+"доверенные ключи.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
-#, fuzzy, kde-format
-#| msgid "Select encryption GPG key:"
+#, kde-format
 msgid "Select GPG encryption key:"
-msgstr "Выберите ключ для шифрования GPG:"
+msgstr "Выберите ключ шифрования GPG:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-#| "such <b>encrypting key</b> to securely store passwords or other sensitive "
-#| "data on disk. If you still want to setup a GPG-based wallet, then cancel "
-#| "this wizard, set-up an <b>encrypting GPG key</b>, then retry this "
-#| "assistant. Otherwise, you may still click back, then choose a classic, "
-#| "blowfish encrypted file format on the previous page."
+#, kde-format
 msgid ""
 "Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
 "encryption key to securely store passwords or other sensitive data on disk. "
@@ -399,32 +358,26 @@ msgid ""
 "previous page and select Blowfish encryption, which does not require an "
 "encryption key."
 msgstr ""
-"Не удалось найти ни одного ключа <b>шифрования GPG</b>. Такой <b>ключ "
-"шифрования</b> необходим подсистеме бумажника KDE для безопасного хранения "
-"паролей и другой важной информации на диске. Если вы хотите настроить "
-"бумажник именно на базе GPG, отмените работу этого мастера, установите "
-"<b>ключ шифрования GPG</b>, а затем запустите мастер снова. В противном "
-"случае вернитесь назад и выберите на предыдущей странице классический шифр "
-"blowfish."
+"Не найдено ни одного ключа шифрования GPG. Бумажнику KDE нужен ключ "
+"шифрования GPG для безопасного хранения паролей и других важных данных на "
+"диске. Если вы всё же хотите настроить бумажник на основе GPG, закройте "
+"мастер, создайте ключ шифрования и запустите мастер снова. Иначе вернитесь "
+"на предыдущую страницу и выберите шифрование Blowfish, для которого ключ не "
+"нужен."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store "
-#| "your passwords and other personal information on disk in an encrypted "
-#| "file, preventing others from viewing the information.  This wizard will "
-#| "tell you about KWallet and help you configure it for the first time."
+#, kde-format
 msgid ""
 "Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
 "passwords and other sensitive information on disk in an encrypted file, "
 "preventing unauthorized access. This wizard will help you set up KWallet for "
 "the first time."
 msgstr ""
-"Добро пожаловать в KWallet, бумажник KDE. KWallet позволяет сохранить ваши "
-"пароли и другие личные данные в зашифрованном файле, что делает невозможным "
-"доступ других к этой информации.  Этот мастер расскажет вам о программе "
-"KWallet и поможет подготовить её к использованию."
+"Добро пожаловать в KWallet, бумажник KDE. KWallet хранит ваши пароли и "
+"другие важные данные на диске в зашифрованном файле, защищая их от "
+"несанкционированного доступа. Этот мастер поможет подготовить KWallet к "
+"первому использованию."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -446,6 +399,9 @@ msgid ""
 "default settings work for most users, you can modify them if needed. "
 "Additional adjustments can be made on the KWallet settings page."
 msgstr ""
+"KWallet позволяет настроить защиту ваших личных данных. Параметры по "
+"умолчанию подходят большинству пользователей, но при необходимости их можно "
+"изменить. Дополнительные параметры доступны на странице настройки KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -461,34 +417,24 @@ msgstr "Сохранять сетевые и локальные пароли в 
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepassword.ui:16
-#, fuzzy, kde-format
-#| msgid ""
-#| "Various applications may attempt to use the KDE wallet to store passwords "
-#| "or other information such as web form data and cookies.  If you would "
-#| "like these applications to use the wallet, you must enable it now and "
-#| "choose a password.  The password you choose <i>cannot</i> be recovered if "
-#| "it is lost, and will allow anyone who knows it to obtain all the "
-#| "information contained in the wallet."
+#, kde-format
 msgid ""
 "Various applications may request access to the KDE wallet to store "
 "passwords, web form data, or cookies. To allow this, enable the wallet and "
 "set a password. Note that the password <i>cannot</i> be recovered if lost "
 "and grants full access to all information stored in the wallet."
 msgstr ""
-"Различные приложения могут пытаться использовать бумажник KDE для хранения "
-"паролей и другой информации, такой как данные веб-форм или файлы cookies.  "
-"Если вы хотите, чтобы эти приложения могли использовать бумажник, включите "
-"его сейчас и выберите пароль.  Выбранный вами пароль <i>не может</i> быть "
-"восстановлен в случае утраты, и позволяет каждому, кто его знает, получить "
-"всю сохранённую в бумажнике информацию."
+"Различные приложения могут запрашивать доступ к бумажнику KDE для хранения "
+"паролей, данных веб-форм или файлов cookie. Чтобы разрешить это, включите "
+"бумажник и задайте пароль. Учтите, что утерянный пароль <i>нельзя</i> "
+"восстановить, а знание пароля даёт полный доступ ко всем данным бумажника."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
-#, fuzzy, kde-format
-#| msgid "Yes, I wish to use the KDE wallet to store my personal information."
+#, kde-format
 msgid "Use the KDE wallet to store sensitive information"
-msgstr "Да, я хочу использовать бумажник KDE для хранения личной информации."
+msgstr "Использовать бумажник KDE для хранения важных данных"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -506,17 +452,7 @@ msgstr "Повторите пароль:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Various applications may attempt to use the KDE "
-#| "wallet to store passwords or other information such as web form data and "
-#| "cookies. If you would like these applications to use the wallet, you must "
-#| "enable it now and choose method for its encryption.</p><p>GPG method is "
-#| "more secure, but you must have configured at least one encrypting key on "
-#| "your system.</p><p>If you choose the classic format, be warned that the "
-#| "password you choose <span style=\" font-style:italic;\">cannot</span> be "
-#| "recovered if it is lost, and will allow anyone who knows it to obtain all "
-#| "the information contained in the wallet.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Various applications may request access to the KDE "
 "wallet to store passwords, web form data, or cookies. To allow this, enable "
@@ -526,28 +462,26 @@ msgid ""
 "style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
 "full access to all information stored in the wallet.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Различные приложения могут использовать бумажник KDE "
-"для хранения паролей и другой информации, например данных веб-форм или "
-"файлов cookies. Если вы хотите, чтобы бумажник был им доступен, включите его "
-"сейчас и выберите способ шифрования.</p><p>Вариант GPG более безопасен, но "
-"для него вы должны настроить в системе минимум один ключ шифрования.</"
-"p><p>Если вы выберете классический шифр, учтите, что с одной стороны "
-"выбранный вами пароль <span style=\" font-style:italic;\">нельзя</span> "
-"восстановить в случае утраты, а с другой — любой, кто его знает, сможет "
-"получить всю сохранённую в бумажнике информацию.</p></body></html>"
+"<html><head/><body><p>Различные приложения могут запрашивать доступ к "
+"бумажнику KDE для хранения паролей, данных веб-форм или файлов cookie. Чтобы "
+"разрешить это, включите бумажник и выберите способ шифрования. </"
+"p><p>Шифрование GPG надёжнее, но для него в системе должен быть настроен "
+"хотя бы один ключ шифрования.</p><p>Если выбран классический формат, учтите, "
+"что утерянный пароль <span style=\" font-style:italic;\">нельзя</span> "
+"восстановить, а знание пароля даёт полный доступ ко всем данным бумажника.</"
+"p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
-#, fuzzy, kde-format
-#| msgid "Decryption error."
+#, kde-format
 msgid "Encryption type"
-msgstr "Ошибка расшифровки."
+msgstr "Тип шифрования"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:82
 #, kde-format
 msgid "More secure but requires the setup of GPG encryption keys."
-msgstr ""
+msgstr "Надёжнее, но требует настройки ключей шифрования GPG."
 
 #: ksecretd/main.cpp:163
 #, kde-format

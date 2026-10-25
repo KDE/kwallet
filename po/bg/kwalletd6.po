@@ -2,21 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Yasen Pramatarov <yasen@lindeas.com>, 2009, 2011, 2013.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022-2026 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-24 00:45+0000\n"
-"PO-Revision-Date: 2026-04-03 02:26+0200\n"
+"PO-Revision-Date: 2026-10-24 09:04+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.03.70\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,22 +29,17 @@ msgid "Your emails"
 msgstr "zlatkopopov@fsa-bg.org,yasen@lindeas.com"
 
 #: ksecretd/knewwalletdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is "
-#| "used to store sensitive data in a secure fashion. Please choose the new "
-#| "wallet's type below or click cancel to deny the application's request.</"
-#| "qt>"
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
 "to securely store sensitive data, such as account passwords. Choose the type "
 "of the new wallet below or click Cancel to deny the application's request.</"
 "qt>"
 msgstr ""
-"<qt>KDE поиска да създаде нов портфейл на име \"<b>%1</b>\". Това се "
-"използва за съхраняване на поверителни данни по сигурен начин. Моля, "
-"изберете вида на новия портфейл по-долу или щракнете върху отмяна, за да "
-"откажете заявката на приложението.</qt>"
+"<qt>KDE поиска създаване на нов портфейл с име '<b>%1</b>'. Той се използва "
+"за сигурно съхранение на чувствителни данни, като пароли за акаунти. "
+"Изберете тип на новия портфейл по-долу или натиснете Отказ, за да откажете "
+"заявката на приложението.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:115 ksecretd/knewwalletdialog.cpp:122
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
@@ -68,27 +63,31 @@ msgid ""
 "back and use Blowfish encryption instead, which only requires a password.</"
 "item></list>"
 msgstr ""
+"Не са намерени подходящи GPG ключове за криптиране. За създаване на такъв "
+"изберете един от следните варианти:<list><item>Инсталиране на Kleopatra и "
+"използване на приложението за създаване на нов ключ. Вижте тези <link "
+"url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey."
+"html'>инструкции</link>.</item><item>Отваряне на терминал и въвеждане на "
+"<command>gpg --full-gen-key</command>.</item><item>Връщане назад и "
+"използване на Blowfish криптиране, за което се изисква само парола.</item></"
+"list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
-#, fuzzy, kde-format
-#| msgid "Please select the signing key from the list below:"
+#, kde-format
 msgid "Select the signing key from the list below:"
-msgstr "Изберете ключ за подпис от списъка:"
+msgstr "Избор на ключ за подписване от списъка по-долу:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
-#| "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
 msgstr ""
-"<html><head/><body><p><span style=\" font-weight:600;\">ЗАБЕЛЕЖКА: </span> "
-"този списък показва само надеждни ключове с &quot;ултимативни нива&quot;</"
-"p></body></html>"
+"<html><head/><body><p><span style=\" font-weight:600;\">Забележка:</span> "
+"този списък показва само доверени ключове от „най-високо ниво“</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -112,13 +111,13 @@ msgstr "Идентификатор на ключ"
 #: ksecretd/knewwalletdialoggpg.ui:77
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Обновяване"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, reloadCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:80
 #, kde-format
 msgid "Refresh the list of GPG certificates."
-msgstr ""
+msgstr "Обновяване на списъка с GPG сертификати."
 
 #. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
 #: ksecretd/knewwalletdialogintro.ui:17 ksecretd/kwalletwizardpageintro.ui:17
@@ -128,32 +127,26 @@ msgstr "Система \"Портфейл\" за KDE"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: ksecretd/knewwalletdialogintro.ui:30
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The application '<span style=\" font-weight:600;\">"
-#| "%1</span>' has requested to open the KDE wallet. This is used to store "
-#| "sensitive data in a secure fashion. Please choose the new wallet's type "
-#| "below or click cancel to deny the application's request.</p></body></html>"
+#, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
 "span>' has requested to open the KDE wallet. This is used to securely store "
 "sensitive data, such as account passwords. Choose the type of the new wallet "
 "below or click Cancel to deny the application's request.</p></body></html>"
 msgstr ""
-"<html><head/><body><p> Приложението '<span style =\"font-weight: 600;\"> %1 "
-"</span> 'поиска да отвори портфейла на KDE. Това се използва за съхраняване "
-"на чувствителни данни по сигурен начин. Моля, изберете типа на новия "
-"портфейл по-долу или кликнете отменете, за да откажете заявката на "
+"<html><head/><body><p>Приложението '<span style=\" font-weight:600;\">%1</"
+"span>' поиска да отвори KDE портфейла. Това се използва за сигурно "
+"съхранение на чувствителни данни, като пароли за профили. Избор на тип нов "
+"портфейл от списъка по-долу или натискане на „Отказ“ за отказ от заявката на "
 "приложението.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:55
-#, fuzzy, kde-format
-#| msgid "Classic, blowfish encrypted file"
+#, kde-format
 msgid "Blowfish encryption"
-msgstr "Класически файл, криптиран с blowfish"
+msgstr "Криптиране с Blowfish"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/knewwalletdialogintro.ui:73
@@ -162,6 +155,7 @@ msgstr "Класически файл, криптиран с blowfish"
 msgid ""
 "Password-protected, so it does not require the setup of encryption keys."
 msgstr ""
+"Защитен с парола, така че не изисква настройка на ключове за криптиране."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
@@ -169,13 +163,13 @@ msgstr ""
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
 msgid "GPG encryption"
-msgstr ""
+msgstr "GPG криптиране"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/knewwalletdialogintro.ui:90
 #, kde-format
 msgid "More secure, but requires the setup of GPG encryption keys."
-msgstr ""
+msgstr "По-сигурен, но изисква настройка на GPG ключове за криптиране."
 
 #: ksecretd/ksecretd.cpp:334
 #, kde-format
@@ -248,18 +242,14 @@ msgstr ""
 "да смените паролата му."
 
 #: ksecretd/ksecretd.cpp:588
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-#| "<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-#| "associated to that key.</qt>"
+#, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
 "<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
 msgstr ""
-"<qt>Портфейлът <b>%1</b> е шифрован с помощта на GPG ключ <b>%2</b>. Моля "
-"използвайте<b>Инструменти за GPG</b> (като <b>kleopatra</b>) за промяна на "
-"паролата, свързана с този ключ.</qt>"
+"<qt>Портфейлът <b>%1</b> е криптиран с GPG ключ <b>%2</b>. Моля, използвайте "
+"инструментите на <b>GPG</b> за промяна на паролата, свързана с този ключ.</"
+"qt>"
 
 #: ksecretd/ksecretd.cpp:595
 #, kde-format
@@ -308,17 +298,7 @@ msgstr "Паролите не съвпадат."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
 #: ksecretd/kwalletwizardpageexplanation.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
-#| "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-#| "The data is only written in the encrypted form of your choice - blowfish "
-#| "algorithm with your password as the key or using a GPG encryption key. "
-#| "When a wallet is opened, the wallet manager application will launch and "
-#| "display an icon in the system tray. You can use this application to "
-#| "manage all of your wallets. It even permits you to drag wallets and "
-#| "wallet contents, allowing you to easily copy a wallet to a remote system."
-#| "</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
@@ -329,27 +309,19 @@ msgid ""
 "permits you to drag-and-drop wallets and their contents, allowing you to "
 "easily copy a wallet to a remote system.</p></body></html>"
 msgstr ""
-"<html><head/><body><p> Системата KDE Wallet съхранява вашите данни в <span "
-"style =\"font-style: italic;\"> портфейл </span> файл на вашия локален твърд "
-"диск.Данните се записват само в криптирана форма по ваш избор - blowfish "
-"алгоритъм с вашата парола като ключ или с помощта на GPG ключ за криптиране. "
-"Когато портфейлът се отвори, приложението за диспечер на портфейли ще се "
-"стартира и ще покаже икона в системната област. Можете да използвате това "
-"приложение, за да управлявате всичките си портфейли. Дори ви позволява да "
-"влачите портфейли и съдържанието на портфейла,което ви позволява лесно да "
-"копирате портфейл в отдалечена система.</p></body></html>"
+"<html><head/><body><p>Системата за портфейли на KDE съхранява вашите данни в "
+"файл <span style=\" font-style:italic;\">портфейл</span> на вашия локален "
+"твърд диск. Данните се криптират чрез избрания от вас метод: алгоритъма "
+"Blowfish с вашата парола като ключ или GPG с ключ за криптиране. Когато "
+"портфейл бъде отворен, мениджърът на портфейли ще се стартира и ще displays "
+"икона в системната област. Можете да използвате това приложение за "
+"управление на всички ваши портфейли. То дори позволява завличане на "
+"портфейли и тяхното съдържание, което ви дава възможност лесно да копирате "
+"портфейл в отдалечена система.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-#| "securely encrypt data on disk. The key must be available when decrypting "
-#| "is needed or your wallet will not be accessible. For example, if you "
-#| "choose a SmartCard-based encryption key, the GPG system will prompt you "
-#| "to enter it and its associated PIN when attempting to open the wallet. "
-#| "<span style=\" font-weight:600;\">NOTE:</span> this list contains only "
-#| "&quot;ultimate-level&quot; trusted keys.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
 "securely encrypt data on disk. The key must be available when the wallet is "
@@ -359,32 +331,24 @@ msgid ""
 "font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
-"<html><head/><body><p> Портфейлът, базиран на GPG, използва ключ за "
-"криптиране на GPG за сигурно криптиране на данни на диска. Ключът трябва да "
-"е наличен при дешифрирането или портфейлът ви няма да бъде достъпен. "
-"Например, ако изберете базиран на SmartCard ключ за шифроване, GPG системата "
-"ще ви подкани да го въведете, както и свързания с него ПИН, когато се "
-"опитвате да отворите портфейла. <span style=\" font-weight:600;\"> "
-"ЗАБЕЛЕЖКА: </span> този списък съдържа само\"ултимативно ниво\"надеждни "
-"ключове.</p></body></html>"
+"<html><head/><body><p>Портфейлът, базиран на GPG, използва GPG ключ за "
+"криптиране за сигурно криптиране на данните на диска. Ключът трябва да бъде "
+"наличен при декриптиране на портфейла, в противен случай той няма да бъде "
+"достъпен. Например, ако изберете ключ за криптиране, базиран на SmartCard, "
+"ще бъдете подканени да го поставите и да въведете съответния ПИН код при "
+"опит за отваряне на портфейла. <span style=\" font-weight:600;\">Забележка:</"
+"span> този списък съдържа само доверени ключове от „най-високо ниво“.</p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
-#, fuzzy, kde-format
-#| msgid "Select encryption GPG key:"
+#, kde-format
 msgid "Select GPG encryption key:"
-msgstr "Изберете GPG ключ за шифриране:"
+msgstr "Избор на GPG ключ за криптиране:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-#| "such <b>encrypting key</b> to securely store passwords or other sensitive "
-#| "data on disk. If you still want to setup a GPG-based wallet, then cancel "
-#| "this wizard, set-up an <b>encrypting GPG key</b>, then retry this "
-#| "assistant. Otherwise, you may still click back, then choose a classic, "
-#| "blowfish encrypted file format on the previous page."
+#, kde-format
 msgid ""
 "Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
 "encryption key to securely store passwords or other sensitive data on disk. "
@@ -393,32 +357,26 @@ msgid ""
 "previous page and select Blowfish encryption, which does not require an "
 "encryption key."
 msgstr ""
-"Не може да се намери поне един <b>криптиращ GPG ключ</b>. KDE Wallet се "
-"нуждае от такъв <b>ключ за криптиране</b> за сигурното съхраняване на пароли "
-"или други чувствителни данни на диск. Ако все още искате да настроите "
-"портфейл, базиран на GPG, анулирайте този съветник, настройте <b>шифроващ "
-"GPG ключ</b>, след което опитайте отново този асистент.В противен случай все "
-"още можете да щракнете назад, след което да изберете класически, Blowfish "
-"криптиран файлов формат на предишната страница."
+"Не може да бъде открит нито един GPG ключ за криптиране. KDE Wallet се "
+"нуждае от GPG ключ за криптиране, за да съхранява сигурно пароли или други "
+"чувствителни данни на диска. Ако все още желаете да настроите портфейл, "
+"базиран на GPG, излезте от този помощник, създайте ключ за криптиране и се "
+"върнете тук. В противен случай можете да се върнете на предишната страница и "
+"да изберете криптиране Blowfish, което не изисква ключ за криптиране."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store "
-#| "your passwords and other personal information on disk in an encrypted "
-#| "file, preventing others from viewing the information.  This wizard will "
-#| "tell you about KWallet and help you configure it for the first time."
+#, kde-format
 msgid ""
 "Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
 "passwords and other sensitive information on disk in an encrypted file, "
 "preventing unauthorized access. This wizard will help you set up KWallet for "
 "the first time."
 msgstr ""
-"Добре дошли в системата \"Портфейл\". Тази система ви позволява да "
-"съхранявате лична информация на диска в закодиран вид. По този начин никой "
-"друг освен вас няма да има достъп до нея. Помощникът ще ви помогне да я "
-"настроите."
+"Добре дошли в KWallet, системата за портфейли на KDE. KWallet позволява "
+"съхранението на пароли и друга чувствителна информация на диска в криптиран "
+"файл, предотвратявайки неоторизиран достъп. Този помощник ще ви помогне при "
+"първоначалната настройка на KWallet."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -440,6 +398,10 @@ msgid ""
 "default settings work for most users, you can modify them if needed. "
 "Additional adjustments can be made on the KWallet settings page."
 msgstr ""
+"KWallet позволява настройка на сигурността на вашите лични данни. Въпреки че "
+"настройките по подразбиране са подходящи за повечето потребители, те могат "
+"да бъдат променени при нужда. Допълнителни настройки могат да бъдат "
+"направени на страницата с настройки на KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -456,35 +418,25 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepassword.ui:16
-#, fuzzy, kde-format
-#| msgid ""
-#| "Various applications may attempt to use the KDE wallet to store passwords "
-#| "or other information such as web form data and cookies.  If you would "
-#| "like these applications to use the wallet, you must enable it now and "
-#| "choose a password.  The password you choose <i>cannot</i> be recovered if "
-#| "it is lost, and will allow anyone who knows it to obtain all the "
-#| "information contained in the wallet."
+#, kde-format
 msgid ""
 "Various applications may request access to the KDE wallet to store "
 "passwords, web form data, or cookies. To allow this, enable the wallet and "
 "set a password. Note that the password <i>cannot</i> be recovered if lost "
 "and grants full access to all information stored in the wallet."
 msgstr ""
-"Най-различни програми могат да ползват системата \"Портфейл\" за съхранение "
-"на данни като пароли, уеб формуляри, бисквитки и др. Ако искате тези "
-"програми да използват системата, трябва да я включите и да изберете парола. "
-"Паролата <i>не може</i> да бъде възстановена ако я забравите. Всеки който я "
-"знае ще има достъп до информацията в портфейла."
+"Различни приложения могат да поискат достъп до портфейла на KDE за "
+"съхранение на пароли, данни от уеб формуляри или бисквитки. За да разрешите "
+"това, активирайте портфейла и задайте парола. Имайте предвид, че паролата "
+"<i>не може</i> да бъде възстановена, ако бъде загубена, и дава пълен достъп "
+"до цялата информация, съхранена в портфейла."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
-#, fuzzy, kde-format
-#| msgid "Yes, I wish to use the KDE wallet to store my personal information."
+#, kde-format
 msgid "Use the KDE wallet to store sensitive information"
-msgstr ""
-"Да, искам да ползвам системата \"Портфейл\" за запазване на личните ми данни "
-"и пароли."
+msgstr "Използване на KDE портфейл за съхранение на чувствителна информация"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -502,17 +454,7 @@ msgstr "Въведете повторно паролата:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Various applications may attempt to use the KDE "
-#| "wallet to store passwords or other information such as web form data and "
-#| "cookies. If you would like these applications to use the wallet, you must "
-#| "enable it now and choose method for its encryption.</p><p>GPG method is "
-#| "more secure, but you must have configured at least one encrypting key on "
-#| "your system.</p><p>If you choose the classic format, be warned that the "
-#| "password you choose <span style=\" font-style:italic;\">cannot</span> be "
-#| "recovered if it is lost, and will allow anyone who knows it to obtain all "
-#| "the information contained in the wallet.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Various applications may request access to the KDE "
 "wallet to store passwords, web form data, or cookies. To allow this, enable "
@@ -522,29 +464,26 @@ msgid ""
 "style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
 "full access to all information stored in the wallet.</p></body></html>"
 msgstr ""
-"<html><head/><body><p> Различни приложения могат да се опитват да използват "
-"портфейла на KDE за съхраняване на пароли или друга информация като данни от "
-"уеб формуляри и бисквитки.Ако искате тези приложения да използват портфейла, "
-"трябва да го активирате сега и изберете метод за неговото криптиране.</p><p> "
-"GPG методът е по-сигурен,но трябва да сте конфигурирали поне един ключ за "
-"шифроване на вашата система.</p><p> Ако изберете класическия формат, бъдете "
-"предупредени, че паролата, която изберете <span style =\"font-style: italic;"
-"\"> не може </span> да бъде възстановена, ако се загуби и ще позволи на "
-"всеки, който го знае, да получи цялата информация, съдържаща се в портфейла."
-"</p></body></html>"
+"<html><head/><body><p>Различни приложения могат да поискат достъп до "
+"портфейла на KDE за съхранение на пароли, данни от уеб форми или бисквитки. "
+"За да позволите това, активирайте портфейла и изберете метод за криптиране.</"
+"p><p>GPG криптирането е по-сигурно, но трябва да имате поне един "
+"конфигуриран ключ за криптиране в системата си.</p><p>Ако изберете "
+"класическия формат, имайте предвид, че паролата <span style=\" font-style:"
+"italic;\">не може</span> да бъде възстановена, ако бъде загубена, и дава "
+"пълен достъп до цялата информация, съхранена в портфейла.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
-#, fuzzy, kde-format
-#| msgid "Decryption error."
+#, kde-format
 msgid "Encryption type"
-msgstr "Грешки при разшифроване."
+msgstr "Тип криптиране"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:82
 #, kde-format
 msgid "More secure but requires the setup of GPG encryption keys."
-msgstr ""
+msgstr "По-сигурно, но изисква настройка на ключове за GPG криптиране."
 
 #: ksecretd/main.cpp:163
 #, kde-format
@@ -832,28 +771,3 @@ msgstr "Записът за преименуване е непълен"
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr "Неуспешно създаване на SecretValue"
-
-#~ msgid ""
-#~ "Seems that your system has no keys suitable for encryption. Please set-up "
-#~ "at least one encryption key, then try again."
-#~ msgstr ""
-#~ "Изглежда, че вашата система няма ключове, подходящи за криптиране. Моля, "
-#~ "настройте на поне един ключ за шифроване, след което опитайте отново."
-
-#~ msgid "Use GPG encryption, for better protection"
-#~ msgstr "Използване на GPG криптиране за по-добра защита"
-
-#~ msgid ""
-#~ "The KDE Wallet system allows you to control the level of security of your "
-#~ "personal data.  Some of these settings do impact usability.  While the "
-#~ "default settings are generally acceptable for most users, you may wish to "
-#~ "change some of them.  You may further tune these settings from the "
-#~ "KWallet control module."
-#~ msgstr ""
-#~ "Системата \"Портфейл\" позволява да контролирате степента на защита на "
-#~ "информацията. Някои от тези настройки намаляват използваемостта на "
-#~ "системата, но за сметка на това я правят по-сигурна и защитена. "
-#~ "Настройките могат да бъдат променяни от Контролния център."
-
-#~ msgid "What kind of encryption do you wish?"
-#~ msgstr "Какъв вид шифриране искате?"

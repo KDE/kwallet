@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-24 00:45+0000\n"
-"PO-Revision-Date: 2026-02-18 05:24+0100\n"
+"PO-Revision-Date: 2026-10-24 08:08+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.10\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,12 +29,7 @@ msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
 #: ksecretd/knewwalletdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is "
-#| "used to store sensitive data in a secure fashion. Please choose the new "
-#| "wallet's type below or click cancel to deny the application's request.</"
-#| "qt>"
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
 "to securely store sensitive data, such as account passwords. Choose the type "
@@ -67,26 +62,30 @@ msgid ""
 "back and use Blowfish encryption instead, which only requires a password.</"
 "item></list>"
 msgstr ""
+"შესაფერისი GPG დაშიფვრის გასაღებები აღმოჩენილი არაა. შესაქმნელად აირჩიეთ "
+"ერთერთი შემდეგი არჩევნებიდან:<list><item>Kleopatra-ის დაყენება და მისი "
+"გამოყენება ახალი გასაღების შესაქმნელად. იხილეთ ეს <link url='https://docs."
+"kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey."
+"html'>ინსტრუქციები</link>.</item><item>გახსენით ახალი ტერმინალი და შეიყვანეთ "
+"ბრძანება <command>gpg --full-gen-key</command>.</item><item>დაბრუნება და "
+"ამის მაგიერ Blowfish დაშიფვრის გამოყენება. ის, მხოლოდ, პაროლს მოითხოვს.</"
+"item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
-#, fuzzy, kde-format
-#| msgid "Please select the signing key from the list below:"
+#, kde-format
 msgid "Select the signing key from the list below:"
 msgstr "აირჩიეთ ხელმოწერის გასაღები ქვედა სიიდან:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
-#| "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
 msgstr ""
 "<html><head/><body><p><span style=\" font-weight:600;\">შენიშვნა:</span> ეს "
-"სია მხოლოდ &quot;ultimate-level&quot; სანდო გასაღებებს შეიცავს</p></body></"
+"სიmა მხოლოდ, &quot;ბოლომდე-სანდო&quot; სანდო გასაღებებს შეიცავს</p></body></"
 "html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
@@ -111,13 +110,13 @@ msgstr "Key-ID"
 #: ksecretd/knewwalletdialoggpg.ui:77
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "განახლება"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, reloadCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:80
 #, kde-format
 msgid "Refresh the list of GPG certificates."
-msgstr ""
+msgstr "GPG სერტიფიკატების სიის განახლება."
 
 #. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
 #: ksecretd/knewwalletdialogintro.ui:17 ksecretd/kwalletwizardpageintro.ui:17
@@ -127,12 +126,7 @@ msgstr "KDE-ის საფულის სისტემა"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: ksecretd/knewwalletdialogintro.ui:30
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The application '<span style=\" font-weight:600;\">"
-#| "%1</span>' has requested to open the KDE wallet. This is used to store "
-#| "sensitive data in a secure fashion. Please choose the new wallet's type "
-#| "below or click cancel to deny the application's request.</p></body></html>"
+#, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
 "span>' has requested to open the KDE wallet. This is used to securely store "
@@ -148,10 +142,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:55
-#, fuzzy, kde-format
-#| msgid "Classic, blowfish encrypted file"
+#, kde-format
 msgid "Blowfish encryption"
-msgstr "კლასიკური, blowfish-ით დაშიფრული ფაილი"
+msgstr "Blowfish-ით დაშიფრული"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/knewwalletdialogintro.ui:73
@@ -159,7 +152,7 @@ msgstr "კლასიკური, blowfish-ით დაშიფრული
 #, kde-format
 msgid ""
 "Password-protected, so it does not require the setup of encryption keys."
-msgstr ""
+msgstr "დაცულია პაროლით, ამიტომ მას დაშიფვრის გასაღებების მორგება არ სჭირდება."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
@@ -167,13 +160,13 @@ msgstr ""
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
 msgid "GPG encryption"
-msgstr ""
+msgstr "GPG დაშიფვრა"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/knewwalletdialogintro.ui:90
 #, kde-format
 msgid "More secure, but requires the setup of GPG encryption keys."
-msgstr ""
+msgstr "უფრო დაცულია, მაგრამ სჭირდება GPG დაშიფვრის გასაღებების მორგება."
 
 #: ksecretd/ksecretd.cpp:334
 #, kde-format
@@ -245,18 +238,13 @@ msgstr ""
 "საფულის გახსნის შეცდომა. პაროლის შესაცვლელად საფულის გახსნა აუცილებელია."
 
 #: ksecretd/ksecretd.cpp:588
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-#| "<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-#| "associated to that key.</qt>"
+#, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
 "<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
 msgstr ""
 "<qt>საფულე <b>%1</b>დაშიფრულია GPG გასაღებით <b>%2</b>. გასაღების საკვანძო "
-"ფრაზის შესაცვლელდ <b>GPG</b>-ის პროგრამები (მაგალითად <b>kleopatra</b>) "
-"გამოიყენეთ.</qt>"
+"ფრაზის შესაცვლელდ <b>GPG</b>-ის პროგრამები გამოიყენეთ.</qt>"
 
 #: ksecretd/ksecretd.cpp:595
 #, kde-format
@@ -304,17 +292,7 @@ msgstr "პაროლები არ ემთხვევა."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
 #: ksecretd/kwalletwizardpageexplanation.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
-#| "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-#| "The data is only written in the encrypted form of your choice - blowfish "
-#| "algorithm with your password as the key or using a GPG encryption key. "
-#| "When a wallet is opened, the wallet manager application will launch and "
-#| "display an icon in the system tray. You can use this application to "
-#| "manage all of your wallets. It even permits you to drag wallets and "
-#| "wallet contents, allowing you to easily copy a wallet to a remote system."
-#| "</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
@@ -337,15 +315,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-#| "securely encrypt data on disk. The key must be available when decrypting "
-#| "is needed or your wallet will not be accessible. For example, if you "
-#| "choose a SmartCard-based encryption key, the GPG system will prompt you "
-#| "to enter it and its associated PIN when attempting to open the wallet. "
-#| "<span style=\" font-weight:600;\">NOTE:</span> this list contains only "
-#| "&quot;ultimate-level&quot; trusted keys.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
 "securely encrypt data on disk. The key must be available when the wallet is "
@@ -364,21 +334,13 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
-#, fuzzy, kde-format
-#| msgid "Select encryption GPG key:"
+#, kde-format
 msgid "Select GPG encryption key:"
-msgstr "აირჩიეთ დაშიფვრის GPG გასაღები:"
+msgstr "აირჩიეთ GPG დაშიფვრის გასაღები:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-#| "such <b>encrypting key</b> to securely store passwords or other sensitive "
-#| "data on disk. If you still want to setup a GPG-based wallet, then cancel "
-#| "this wizard, set-up an <b>encrypting GPG key</b>, then retry this "
-#| "assistant. Otherwise, you may still click back, then choose a classic, "
-#| "blowfish encrypted file format on the previous page."
+#, kde-format
 msgid ""
 "Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
 "encryption key to securely store passwords or other sensitive data on disk. "
@@ -388,20 +350,15 @@ msgid ""
 "encryption key."
 msgstr ""
 "შეუძლებელია სულ ცოტა ერთი <b>დაშიფვრის GPG გასაღების</b> პოვნა. KDE Wallet-ს "
-"ასეთი <b>დაშიფვრის გასაღები</b> პაროლებისა და სხვა მგრძნობიარე ინფორმაციის "
-"დისკზე უსაფრთხოდ შესანახად სჭირდება. თუ თქვენ მაინც გნებვთ GPG-ზე ბაზირებული "
+"ასეთი დაშიფვრის გასაღები პაროლებისა და სხვა მგრძნობიარე ინფორმაციის დისკზე "
+"უსაფრთხოდ შესანახად სჭირდება. თუ თქვენ მაინც გნებვთ GPG-ზე ბაზირებული "
 "საფულე, გააუქმეთ ეს ოსტატი, ააწყვეთ <b>დაშიფვრის GPG გასაღები</b>, შემდეგ კი "
 "ეს დამხმარე თავიდან გამოიძახეთ. ასევე შეგიძლიათ გადახვიდეთ წინა ეკრანზე და "
 "'კლასიკური' ან blowfish-ით დაშიფრული აირჩიოთ."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store "
-#| "your passwords and other personal information on disk in an encrypted "
-#| "file, preventing others from viewing the information.  This wizard will "
-#| "tell you about KWallet and help you configure it for the first time."
+#, kde-format
 msgid ""
 "Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
 "passwords and other sensitive information on disk in an encrypted file, "
@@ -410,8 +367,8 @@ msgid ""
 msgstr ""
 "მოგესალმებათ KWallet, KDE-ის საფულის სისტემა. KWallet საშუალებას გაძლევთ, "
 "პაროლები და სხვა პირადი ინფორმაცია დისკზე დაშიფრულ ფაილში შეინახოთ, რითიც "
-"სხვებს ამ ინფორმაციასთან წვდომა არ ჰქონდეთ. ოსტატი გეტყვით მეტს KWallet_ის "
-"შესახებ და დაგეხმარებათ, მოირგოთ ის."
+"სხვებს ამ ინფორმაციასთან წვდომა არ ჰქონდეთ. ეს ოსტატი გეტყვით მეტს "
+"KWallet_ის შესახებ და დაგეხმარებათ, მოირგოთ ის."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -433,6 +390,10 @@ msgid ""
 "default settings work for most users, you can modify them if needed. "
 "Additional adjustments can be made on the KWallet settings page."
 msgstr ""
+"KWallet საშუალებას გაძლევთ, თქვენი პირადი მონაცემების უსაფრთხოება მოირგოთ. "
+"მიუხედავად იმისა, რომ ნაგულისხმევი პარამეტრები მომხმარებლების "
+"უმრავლესობისთვის საკმარისია, თუ ეს საჭიროა, ისინი შეგიძლიათ, შეცვალოთ. "
+"დამატებითი პარამეტრების მორგება KWallet-ის მორგების დიალოგში შეგიძლიათ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -448,14 +409,7 @@ msgstr "ქსელური და ლოკალური პაროლე
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepassword.ui:16
-#, fuzzy, kde-format
-#| msgid ""
-#| "Various applications may attempt to use the KDE wallet to store passwords "
-#| "or other information such as web form data and cookies.  If you would "
-#| "like these applications to use the wallet, you must enable it now and "
-#| "choose a password.  The password you choose <i>cannot</i> be recovered if "
-#| "it is lost, and will allow anyone who knows it to obtain all the "
-#| "information contained in the wallet."
+#, kde-format
 msgid ""
 "Various applications may request access to the KDE wallet to store "
 "passwords, web form data, or cookies. To allow this, enable the wallet and "
@@ -463,20 +417,18 @@ msgid ""
 "and grants full access to all information stored in the wallet."
 msgstr ""
 "KDE-ის საფულის გამოყენების ცდა პაროლებისა და ისეთი ინფორმაციის შესანახად, "
-"როგორიც ვებფორმების მონაცემები და ქუქიებია, სხვადასხვა პროგრამების "
-"შეუძლიათ.  თუ გნებავთ, ამნაირმა აპლიკაციებმა საფულე გამოიყენონ, ის ახლა უნდა "
-"ჩართოთ და პაროლი შეიყვანოთ.   პაროლი, რომელსაც ახლა შეიყვანთ, დაკარგვის "
-"შემთხვევაში <i>ვეღარ</i> აღადგენთ. რითიც ყველას, ვისაც ის ჯერ კიდევ გააჩნია, "
-"საფულესთან და მის შემცველობასთან სრულ წვდომას მისცემს."
+"როგორიც ვებფორმების მონაცემები და ქუქიებია, სხვადასხვა პროგრამების შეუძლიათ. "
+"თუ გნებავთ, ამნაირმა აპლიკაციებმა საფულე გამოიყენონ, ის ახლა უნდა ჩართოთ და "
+"პაროლი შეიყვანოთ. პაროლი, რომელსაც ახლა შეიყვანთ, დაკარგვის შემთხვევაში "
+"<i>ვეღარ</i> აღადგენთ. რითიც ყველას, ვისაც ის ჯერ კიდევ გააჩნია, საფულესთან "
+"და მის შემცველობასთან სრულ წვდომას მისცემს."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
-#, fuzzy, kde-format
-#| msgid "Yes, I wish to use the KDE wallet to store my personal information."
+#, kde-format
 msgid "Use the KDE wallet to store sensitive information"
-msgstr ""
-"დიახ, მე მინდა ჩემი პირადი ინფორმაციის შესანახად KDE-ის საფულის გამოყენება."
+msgstr "KDE-ის საფულის გამოყენება პირადი ინფორმაციის შესანახად"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -494,17 +446,7 @@ msgstr "პაროლის გადამოწმება:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Various applications may attempt to use the KDE "
-#| "wallet to store passwords or other information such as web form data and "
-#| "cookies. If you would like these applications to use the wallet, you must "
-#| "enable it now and choose method for its encryption.</p><p>GPG method is "
-#| "more secure, but you must have configured at least one encrypting key on "
-#| "your system.</p><p>If you choose the classic format, be warned that the "
-#| "password you choose <span style=\" font-style:italic;\">cannot</span> be "
-#| "recovered if it is lost, and will allow anyone who knows it to obtain all "
-#| "the information contained in the wallet.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Various applications may request access to the KDE "
 "wallet to store passwords, web form data, or cookies. To allow this, enable "
@@ -526,16 +468,15 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
-#, fuzzy, kde-format
-#| msgid "Decryption error."
+#, kde-format
 msgid "Encryption type"
-msgstr "გაშიფვრის შეცდომა."
+msgstr "დაშიფვრის ტიპი"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:82
 #, kde-format
 msgid "More secure but requires the setup of GPG encryption keys."
-msgstr ""
+msgstr "უფრო დაცულია, მაგრამ სჭირდება GPG დაშიფვრის გასაღებების მორგება."
 
 #: ksecretd/main.cpp:163
 #, kde-format
