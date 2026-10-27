@@ -31,6 +31,13 @@
 #include <sys/un.h>
 #include <unistd.h>
 
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusObjectPath>
+#include <QDBusVariant>
+#include <QTimer>
+#include <QVariantMap>
+
 #define BSIZE 1000
 static int pipefd = 0;
 static int socketfd = 0;
@@ -139,6 +146,119 @@ char *checkPamModule(int argc, char **argv)
 }
 #endif
 
+#ifndef Q_OS_WIN
+/**
+ * Ties the lifetime of a session-scoped instance to its logind session,
+ * allowing the session to close cleanly.
+ * https://invent.kde.org/frameworks/kwallet/-/merge_requests/201
+ */
+class SessionCloseWatcher : public QObject
+{
+    Q_OBJECT
+public:
+    // pamSessionId names the session of a PAM login instance and is
+    // only a fallback for when logind cannot place this process in a
+    // session; it is empty for other instances, which then stay inert.
+    explicit SessionCloseWatcher(const QString &pamSessionId, QObject *parent = nullptr)
+        : QObject(parent)
+    {
+        QDBusConnection bus = QDBusConnection::systemBus();
+        if (!bus.isConnected()) {
+            return;
+        }
+
+        // Ask logind which session this process runs in. A process
+        // owned by the user manager (e.g. D-Bus-autostarted) is in no
+        // session, gets an error here and stays inert, so it keeps
+        // ending with the user manager as before.
+        m_sessionPath = sessionPathForPid(bus);
+        if (m_sessionPath.isEmpty() && !pamSessionId.isEmpty()) {
+            m_sessionPath = sessionPathForId(bus, pamSessionId);
+        }
+        if (m_sessionPath.isEmpty()) {
+            return;
+        }
+
+        if (!bus.connect(QStringLiteral("org.freedesktop.login1"),
+                         m_sessionPath,
+                         QStringLiteral("org.freedesktop.DBus.Properties"),
+                         QStringLiteral("PropertiesChanged"),
+                         this,
+                         SLOT(slotPropertiesChanged(QString, QVariantMap, QStringList)))) {
+            qCWarning(KSECRETD_LOG) << "failed to watch logind session" << m_sessionPath;
+            return;
+        }
+
+        // The session may already be closing before we get here. Check
+        // once the event loop runs; quitting from the constructor would
+        // be lost, as it runs before exec().
+        QTimer::singleShot(0, this, &SessionCloseWatcher::checkSessionState);
+    }
+
+private:
+    static QDBusMessage managerCall(QDBusConnection &bus, const QString &method, const QVariant &argument)
+    {
+        QDBusMessage call = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.login1"),
+                                                           QStringLiteral("/org/freedesktop/login1"),
+                                                           QStringLiteral("org.freedesktop.login1.Manager"),
+                                                           method);
+        call << argument;
+        // Bound the wait: a wedged logind must not stall the start.
+        return bus.call(call, QDBus::Block, 5000);
+    }
+
+    static QString sessionPathFromReply(const QDBusMessage &reply)
+    {
+        if (reply.type() == QDBusMessage::ReplyMessage && !reply.arguments().isEmpty()) {
+            return reply.arguments().at(0).value<QDBusObjectPath>().path();
+        }
+        return QString();
+    }
+
+    static QString sessionPathForPid(QDBusConnection &bus)
+    {
+        const QVariant pid = QVariant::fromValue(uint(QCoreApplication::applicationPid()));
+        return sessionPathFromReply(managerCall(bus, QStringLiteral("GetSessionByPID"), pid));
+    }
+
+    static QString sessionPathForId(QDBusConnection &bus, const QString &sessionId)
+    {
+        return sessionPathFromReply(managerCall(bus, QStringLiteral("GetSession"), QVariant(sessionId)));
+    }
+
+    void checkSessionState()
+    {
+        QDBusMessage call = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.login1"),
+                                                           m_sessionPath,
+                                                           QStringLiteral("org.freedesktop.DBus.Properties"),
+                                                           QStringLiteral("Get"));
+        call << QStringLiteral("org.freedesktop.login1.Session") << QStringLiteral("State");
+        const QDBusMessage reply = QDBusConnection::systemBus().call(call, QDBus::Block, 5000);
+        if (reply.type() != QDBusMessage::ReplyMessage || reply.arguments().isEmpty()) {
+            qCWarning(KSECRETD_LOG) << "failed to read the state of logind session" << m_sessionPath;
+            return;
+        }
+        // Properties.Get wraps the value in a variant.
+        if (reply.arguments().at(0).value<QDBusVariant>().variant().toString() == QLatin1String("closing")) {
+            qCDebug(KSECRETD_LOG) << "logind session is closing, exiting";
+            QCoreApplication::quit();
+        }
+    }
+
+    QString m_sessionPath;
+
+private Q_SLOTS:
+    void slotPropertiesChanged(const QString &interface, const QVariantMap &changed, const QStringList &invalidated)
+    {
+        Q_UNUSED(invalidated)
+        if (interface == QLatin1String("org.freedesktop.login1.Session") && changed.value(QStringLiteral("State")).toString() == QLatin1String("closing")) {
+            qCDebug(KSECRETD_LOG) << "logind session is closing, exiting";
+            QCoreApplication::quit();
+        }
+    }
+};
+#endif
+
 int main(int argc, char **argv)
 {
     char *hash = nullptr;
@@ -195,6 +315,15 @@ int main(int argc, char **argv)
     KSecretD secretd;
     qCDebug(KSECRETD_LOG) << "ksecretd6 started";
 
+#ifndef Q_OS_WIN
+    // An instance running in a logind session scope must not outlive
+    // that session; the watcher stays inert for instances owned by the
+    // user manager.
+    // Set by pam_systemd, passed by the KWallet PAM module with `execve`.
+    const QString pamSessionId = hash ? qEnvironmentVariable("XDG_SESSION_ID") : QString();
+    const SessionCloseWatcher sessionCloseWatcher(pamSessionId);
+#endif
+
     if (hash) {
         QByteArray passHash(hash, PBKDF2_SHA512_KEYSIZE);
         int wallet = secretd.pamOpen(KWallet::Backend::localWallet(), passHash);
@@ -208,3 +337,7 @@ int main(int argc, char **argv)
 
     return app.exec();
 }
+
+#ifndef Q_OS_WIN
+#include "main.moc"
+#endif
