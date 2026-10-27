@@ -801,22 +801,3 @@ msgstr ""
 #, kde-format
 msgid "Failed to create SecretValue"
 msgstr ""
-
-#~ msgid "Use GPG encryption, for better protection"
-#~ msgstr "Bruk GPG-kryptering som gir bedre beskyttelsse"
-
-#~ msgid ""
-#~ "The KDE Wallet system allows you to control the level of security of your "
-#~ "personal data.  Some of these settings do impact usability.  While the "
-#~ "default settings are generally acceptable for most users, you may wish to "
-#~ "change some of them.  You may further tune these settings from the "
-#~ "KWallet control module."
-#~ msgstr ""
-#~ "Med KDEs lommeboksystem kan du bestemme sikkerhetsnivået for dine "
-#~ "personlige opplysninger.  Noen av disse innstillingene gjør systemet litt "
-#~ "vanskeligere å bruke.  Standard-innstillingene er vanligvis akseptable "
-#~ "for de fleste brukere, men det kan være at du vil endre noen av dem.  Du "
-#~ "kan justere innstillingene videre med kontrollmodulen for KWallet."
-
-#~ msgid "What kind of encryption do you wish?"
-#~ msgstr "Hva slags kryptering vil du bruke?"
