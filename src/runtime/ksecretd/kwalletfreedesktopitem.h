@@ -67,7 +67,6 @@ public:
 
     /* Emitters */
     void onPropertiesChanged(const QVariantMap &properties);
-    void enableFdoFormat();
 
 private:
     KWalletFreedesktopCollection *m_collection;
