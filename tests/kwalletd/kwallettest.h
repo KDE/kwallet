@@ -3,11 +3,6 @@
 
 #include <QObject>
 
-namespace KWallet
-{
-class Wallet;
-}
-
 class WalletReceiver : public QObject
 {
     Q_OBJECT

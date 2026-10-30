@@ -9,7 +9,6 @@
 
 #include <QTest>
 #include <blowfish.h>
-#include <cbc.h>
 
 void KWalletCBCTest::encryptDecryptOneBlock()
 {
