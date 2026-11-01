@@ -1,14 +1,14 @@
 # translation of kwalletd.po to Arabic
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2008, 2021, 2022, 2024, 2025, 2026 zayed <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2008, 2021-2022, 2024-2026 zayed <zayed.alsaidi@gmail.com>
 # Abdalrahim Fakhouri <abdilra7eem@yahoo.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-24 00:45+0000\n"
-"PO-Revision-Date: 2026-02-18 18:02+0400\n"
+"PO-Revision-Date: 2026-10-31 20:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -30,21 +30,16 @@ msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
 #: ksecretd/knewwalletdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is "
-#| "used to store sensitive data in a secure fashion. Please choose the new "
-#| "wallet's type below or click cancel to deny the application's request.</"
-#| "qt>"
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
 "to securely store sensitive data, such as account passwords. Choose the type "
 "of the new wallet below or click Cancel to deny the application's request.</"
 "qt>"
 msgstr ""
-"<qt> طلبت كِيدِي إنشاء محفظة جديدة باسم '<b>%1</b>'. يستخدم هذا لتخزين "
-"البيانات الحساسة بطريقة آمنة. الرجاء اختيار نوع المحفظة الجديدة أدناه أو "
-"النقر فوق \"ألغ\" لرفض طلب التطبيق. </qt>"
+"<qt>طلبت كيدي إنشاء محفظة جديدة باسم '<b>%1</b>'. تُستخدم هذه المحفظة لتخزين "
+"البيانات الحساسة بأمان، مثل كلمات سر الحسابات. اختر نوع المحفظة الجديدة "
+"أدناه أو انقر إلغاء لرفض طلب التطبيق.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:115 ksecretd/knewwalletdialog.cpp:122
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
@@ -68,27 +63,29 @@ msgid ""
 "back and use Blowfish encryption instead, which only requires a password.</"
 "item></list>"
 msgstr ""
+"لم يُعثر على مفاتيح تعمية GPG مناسبة. لإنشاء مفتاح، اختر أحد الخيارات التالية:"
+"<list><item>ثبّت Kleopatra واستخدمه لإنشاء مفتاح جديد. راجع هذه <link "
+"url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey."
+"html'>التعليمات</link>.</item><item>افتح طرفية وأدخل <command>gpg --full-gen-"
+"key</command>.</item><item>ارجع واستخدم تعمية Blowfish بدلًا من ذلك، والتي "
+"تتطلب كلمة سر فقط.</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
-#, fuzzy, kde-format
-#| msgid "Please select the signing key from the list below:"
+#, kde-format
 msgid "Select the signing key from the list below:"
-msgstr "الرجاء تحديد مفتاح التوقيع من القائمة أدناه:"
+msgstr "اختر مفتاح التوقيع من القائمة أدناه:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
-#| "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
 msgstr ""
-"<html><head/><body> <p> <span style=\" font-weight:600;\">ملاحظة:</span>  "
-"هذه القائمة تظهر مفاتيح موثوقة فقط من &quot; المستوى النهائي &quot; </p> </"
-"body> </html> "
+"<html><head/><body><p><span style=\" font-weight:600;\">ملاحظة:</span> تعرض "
+"هذه القائمة مفاتيح موثوقة من &quot;المستوى النهائي&quot; فقط</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -112,13 +109,13 @@ msgstr "معرف المفتاح"
 #: ksecretd/knewwalletdialoggpg.ui:77
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "حدّث"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, reloadCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:80
 #, kde-format
 msgid "Refresh the list of GPG certificates."
-msgstr ""
+msgstr "حدّث قائمة شهادات GPG."
 
 #. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
 #: ksecretd/knewwalletdialogintro.ui:17 ksecretd/kwalletwizardpageintro.ui:17
@@ -128,31 +125,25 @@ msgstr "نظام حافظة كِيدِي"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: ksecretd/knewwalletdialogintro.ui:30
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The application '<span style=\" font-weight:600;\">"
-#| "%1</span>' has requested to open the KDE wallet. This is used to store "
-#| "sensitive data in a secure fashion. Please choose the new wallet's type "
-#| "below or click cancel to deny the application's request.</p></body></html>"
+#, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
 "span>' has requested to open the KDE wallet. This is used to securely store "
 "sensitive data, such as account passwords. Choose the type of the new wallet "
 "below or click Cancel to deny the application's request.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>طلب البرنامج  '<span style=\" font-weight:600;\">%1</"
-"span>' فتح حافظة كِيدِي، تستعمل الحافظة في تخزين البيانات الحساسة بطريقة أمنة. "
-"يستخدم هذا لتخزين البيانات الحساسة بطريقة آمنة. الرجاء اختيار نوع المحفظة "
-"الجديدة أدناه أو النقر فوق \"إلغاء\" لرفض طلب التطبيق.</p></body></html>"
+"<html><head/><body><p>طلب التطبيق '<span style=\" font-weight:600;\">%1</"
+"span>' فتح محفظة كيدي. تُستخدم هذه المحفظة لتخزين البيانات الحساسة بأمان، مثل "
+"كلمات سر الحسابات. اختر نوع المحفظة الجديدة أدناه أو انقر إلغاء لرفض طلب "
+"التطبيق.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:55
-#, fuzzy, kde-format
-#| msgid "Classic, blowfish encrypted file"
+#, kde-format
 msgid "Blowfish encryption"
-msgstr "تقليدي، ملف تعمية blowfish"
+msgstr "تعمية Blowfish"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/knewwalletdialogintro.ui:73
@@ -160,7 +151,7 @@ msgstr "تقليدي، ملف تعمية blowfish"
 #, kde-format
 msgid ""
 "Password-protected, so it does not require the setup of encryption keys."
-msgstr ""
+msgstr "محمية بكلمة سر، لذا لا تتطلب إعداد مفاتيح تعمية."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
@@ -168,13 +159,13 @@ msgstr ""
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
 msgid "GPG encryption"
-msgstr ""
+msgstr "تعمية GPG"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/knewwalletdialogintro.ui:90
 #, kde-format
 msgid "More secure, but requires the setup of GPG encryption keys."
-msgstr ""
+msgstr "أكثر أمانًا، لكنها تتطلب إعداد مفاتيح تعمية GPG."
 
 #: ksecretd/ksecretd.cpp:334
 #, kde-format
@@ -245,18 +236,13 @@ msgstr ""
 "غير قادر على فتح الحافظة. يجب فتح الحافظة أولا حتى تستطيع تغيير  كلمة سرها."
 
 #: ksecretd/ksecretd.cpp:588
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-#| "<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-#| "associated to that key.</qt>"
+#, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
 "<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
 msgstr ""
-"<qt> عميت المحفظة <b>%1</b> باستخدام مفتاح GPG <b>%2</b>. الرجاء استخدام "
-"أدوات <b> GPG </b> (مثل <b> kleopatra </b>) لتغيير عبارة السر المرتبطة بهذا "
-"المفتاح. </qt>"
+"<qt>محفظة <b>%1</b> معمّاة باستخدام مفتاح GPG <b>%2</b>. استخدم أدوات <b>GPG</"
+"b> لتغيير عبارة السر المرتبطة بذلك المفتاح.</qt>"
 
 #: ksecretd/ksecretd.cpp:595
 #, kde-format
@@ -304,17 +290,7 @@ msgstr "كلمات السر لم تتطابق"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
 #: ksecretd/kwalletwizardpageexplanation.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
-#| "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-#| "The data is only written in the encrypted form of your choice - blowfish "
-#| "algorithm with your password as the key or using a GPG encryption key. "
-#| "When a wallet is opened, the wallet manager application will launch and "
-#| "display an icon in the system tray. You can use this application to "
-#| "manage all of your wallets. It even permits you to drag wallets and "
-#| "wallet contents, allowing you to easily copy a wallet to a remote system."
-#| "</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
@@ -325,25 +301,17 @@ msgid ""
 "permits you to drag-and-drop wallets and their contents, allowing you to "
 "easily copy a wallet to a remote system.</p></body></html>"
 msgstr ""
-"<html><head/><body> <p> يخزن نظام محفظة كِيدِي بياناتك في ملف <span style = "
-"\"font-style: italic;\"> محفظة </span> على القرص الثابت المحلي.تُكتب البيانات "
-"فقط بالشكل المعمى الذي تختاره - خوارزمية السمكة المنتفخة blowfish مع كلمة "
-"السر الخاصة بك كمفتاح أو باستخدام مفتاح تعمية GPG. عند فتح المحفظة، سيُشغل "
-"تطبيق مدير المحفظة وعرض رمز في علبة النظام. يمكنك استخدام هذا التطبيق لإدارة "
-"جميع محافظك. حتى أنه يسمح لك بسحب المحافظ ومحتويات المحفظة، مما يتيح لك "
-"بسهولة نسخ المحفظة إلى نظام بعيد.  </p> </body> </html>"
+"<html><head/><body><p>يخزّن نظام محفظة كيدي بياناتك في ملف <span style=\" "
+"font-style:italic;\">محفظة</span> على قرصك الصلب المحلي. تُعمّى البيانات "
+"باستخدام الطريقة التي اخترتها: خوارزمية Blowfish بكلمة السر كمفتاح، أو GPG "
+"بمفتاح تعمية. عند فتح محفظة، ستُشغّل مديرة المحفظة وتعرض أيقونة في صينية "
+"النظام. يمكنك استخدام هذا التطبيق لإدارة جميع محافظك. بل يتيح لك سحب وإفلات "
+"المحافظ ومحتوياتها، مما يسمح لك بنسخ محفظة إلى نظام بعيد بسهولة.</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-#| "securely encrypt data on disk. The key must be available when decrypting "
-#| "is needed or your wallet will not be accessible. For example, if you "
-#| "choose a SmartCard-based encryption key, the GPG system will prompt you "
-#| "to enter it and its associated PIN when attempting to open the wallet. "
-#| "<span style=\" font-weight:600;\">NOTE:</span> this list contains only "
-#| "&quot;ultimate-level&quot; trusted keys.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
 "securely encrypt data on disk. The key must be available when the wallet is "
@@ -353,31 +321,22 @@ msgid ""
 "font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
-"<html><head/><body> <p> تستخدم المحفظة المستندة إلى GPG مفتاح تعمية GPG "
-"لتعمية البيانات بأمان على القرص. يجب أن يكون المفتاح متاحًا عند الحاجة إلى فك "
-"التعمية وإلا فلن يمكن الوصول إلى محفظتك. على سبيل المثال، إذا اخترت مفتاح "
-"تعمية قائم على البطاقة الذكية، سيطالبك نظام GPG بإدخاله ورقم التعريف الشخصي "
-"المرتبط به عند محاولة فتح المحفظة. <span style=\"font-weight:600;\">ملاحظة:</"
-"span> هذه القائمة تظهر مفاتيح موثوقة فقط من &quot; المستوى النهائي &quot;</"
-"p> </body> </html>"
+"<html><head/><body><p>تستخدم المحفظة المعتمدة على GPG مفتاح تعمية GPG لتعمية "
+"البيانات على القرص بأمان. يجب أن يكون المفتاح متاحًا عند فك تعمية المحفظة "
+"وإلا لن تكون محفظتك متاحة. مثلًا، إذا اخترت مفتاح تعمية معتمدًا على بطاقة "
+"ذكية، ستُطلب منك إدخالها وإدخال رقمها السري المرتبط عند محاولة فتح المحفظة. "
+"<span style=\" font-weight:600;\">ملاحظة:</span> تحتوي هذه القائمة على "
+"مفاتيح موثوقة من &quot;المستوى النهائي&quot; فقط.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
-#, fuzzy, kde-format
-#| msgid "Select encryption GPG key:"
+#, kde-format
 msgid "Select GPG encryption key:"
 msgstr "اختر مفتاح تعمية GPG:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-#| "such <b>encrypting key</b> to securely store passwords or other sensitive "
-#| "data on disk. If you still want to setup a GPG-based wallet, then cancel "
-#| "this wizard, set-up an <b>encrypting GPG key</b>, then retry this "
-#| "assistant. Otherwise, you may still click back, then choose a classic, "
-#| "blowfish encrypted file format on the previous page."
+#, kde-format
 msgid ""
 "Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
 "encryption key to securely store passwords or other sensitive data on disk. "
@@ -386,30 +345,24 @@ msgid ""
 "previous page and select Blowfish encryption, which does not require an "
 "encryption key."
 msgstr ""
-"تعذر تحديد موقع <b> مفتاح GPG واحد على الأقل </b>. تحتاج محفظة كِيدِي إلى <b> "
-"مفتاح التعمية </b> لتخزين كلمات السر أو البيانات الحساسة الأخرى بأمان على "
-"القرص. إذا كنت لا تزال ترغب في إعداد محفظة قائمة على GPG، فقم بإلغاء هذا "
-"المعالج، وأعد <b> مفتاح تعمية GPG </b>، ثم أعد محاولة هذا المساعد.بخلاف ذلك، "
-"لا يزال بإمكانك النقر مرة أخرى، ثم اختيار تنسيق ملف كلاسيكي مشفر على شكل "
-"سمكة المنتفخ في الصفحة السابقة."
+"تعذّر العثور على مفتاح تعمية GPG واحد على الأقل. تحتاج محفظة كيدي إلى مفتاح "
+"تعمية GPG لتخزين كلمات السر أو البيانات الحساسة الأخرى على القرص بأمان. إذا "
+"كنت لا تزال ترغب في إعداد محفظة معتمدة على GPG، فاخرج من هذا المعالج وأنشئ "
+"مفتاح تعمية ثم عد إلى هذا المعالج. وإلا، يمكنك العودة إلى الصفحة السابقة "
+"واختيار تعمية Blowfish، التي لا تتطلب مفتاح تعمية."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store "
-#| "your passwords and other personal information on disk in an encrypted "
-#| "file, preventing others from viewing the information.  This wizard will "
-#| "tell you about KWallet and help you configure it for the first time."
+#, kde-format
 msgid ""
 "Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
 "passwords and other sensitive information on disk in an encrypted file, "
 "preventing unauthorized access. This wizard will help you set up KWallet for "
 "the first time."
 msgstr ""
-"أهلا وسهلا إلى ك.والت. تسمح لك ك.والت بحفظ كلمات سرك و غيرها من المعلومات "
-"الشخصية في ملف مشفر على قرص صلبك؛ مما يمنع الآخرين من رؤية تلك المعلومات. "
-"هذا المعالج سيخبرك عن ك.والت و سيساعدك على ضبطها للمرة أولى."
+"مرحبًا بك في KWallet، نظام محفظة كيدي. يتيح لك KWallet تخزين كلمات سرك وغيرها "
+"من المعلومات الحساسة على القرص في ملف معمّى، مما يمنع الوصول غير المصرح به. "
+"سيساعدك هذا المعالج في إعداد KWallet للمرة الأولى."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -431,6 +384,9 @@ msgid ""
 "default settings work for most users, you can modify them if needed. "
 "Additional adjustments can be made on the KWallet settings page."
 msgstr ""
+"يتيح لك KWallet ضبط أمان بياناتك الشخصية. بينما تناسب الإعدادات المبدئية "
+"معظم المستخدمين، يمكنك تعديلها عند الحاجة. يمكن إجراء تعديلات إضافية في صفحة "
+"إعدادات KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -446,33 +402,24 @@ msgstr "احفظ كلمات سر الشبكة و كلمات السر المحل�
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepassword.ui:16
-#, fuzzy, kde-format
-#| msgid ""
-#| "Various applications may attempt to use the KDE wallet to store passwords "
-#| "or other information such as web form data and cookies.  If you would "
-#| "like these applications to use the wallet, you must enable it now and "
-#| "choose a password.  The password you choose <i>cannot</i> be recovered if "
-#| "it is lost, and will allow anyone who knows it to obtain all the "
-#| "information contained in the wallet."
+#, kde-format
 msgid ""
 "Various applications may request access to the KDE wallet to store "
 "passwords, web form data, or cookies. To allow this, enable the wallet and "
 "set a password. Note that the password <i>cannot</i> be recovered if lost "
 "and grants full access to all information stored in the wallet."
 msgstr ""
-"العديد من البرامج يمكن أن تحاول استعمال حافظة كِيدِي لحفظ كلمات السر أو "
-"معلومات مثل بيانات استمارات الويب أو الكعك. إذا كنت ترغب بالسماح لهذه "
-"البرامج أن تستعمل الحافظة، فيجب عليك تفعيل هذا الخيار الآن واختيار كلمة "
-"السر. كلمة السر التي تختارها <i>لا يمكن</i> استعادتها إذا فقدت، وستسمح لأي "
-"شخص يعرفها أن يحصل على كل المعلومات التي تحويها هذه الحافظة."
+"قد تطلب تطبيقات مختلفة الوصول إلى محفظة كيدي لتخزين كلمات السر أو بيانات "
+"نماذج الويب أو ملفات تعريف الارتباط. للسماح بذلك، مكّن المحفظة واضبط كلمة سر. "
+"لاحظ أن كلمة السر <i>لا يمكن</i> استعادتها إذا فُقدت، وأنها تمنح وصولًا كاملًا "
+"إلى جميع المعلومات المخزنة في المحفظة."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
-#, fuzzy, kde-format
-#| msgid "Yes, I wish to use the KDE wallet to store my personal information."
+#, kde-format
 msgid "Use the KDE wallet to store sensitive information"
-msgstr "نعم، أرغب في استخدام حافظة كِيدِي لحفظ معلوماتي الشخصية"
+msgstr "استخدم محفظة كيدي لتخزين المعلومات الحساسة"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -490,17 +437,7 @@ msgstr "أكد كلمة السر:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Various applications may attempt to use the KDE "
-#| "wallet to store passwords or other information such as web form data and "
-#| "cookies. If you would like these applications to use the wallet, you must "
-#| "enable it now and choose method for its encryption.</p><p>GPG method is "
-#| "more secure, but you must have configured at least one encrypting key on "
-#| "your system.</p><p>If you choose the classic format, be warned that the "
-#| "password you choose <span style=\" font-style:italic;\">cannot</span> be "
-#| "recovered if it is lost, and will allow anyone who knows it to obtain all "
-#| "the information contained in the wallet.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Various applications may request access to the KDE "
 "wallet to store passwords, web form data, or cookies. To allow this, enable "
@@ -510,27 +447,25 @@ msgid ""
 "style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
 "full access to all information stored in the wallet.</p></body></html>"
 msgstr ""
-"<html><head/><body> <p> قد تحاول العديد من التطبيقات استخدام محفظة كِيدِي "
-"لتخزين كلمات السر أو غيرها من المعلومات مثل بيانات نموذج الويب وملفات تعريف "
-"الارتباط. إذا كنت ترغب في استخدام هذه التطبيقات للمحفظة، فيجب عليك تمكينها "
-"الآن واختيار طريقة لتعميتها. </p> <p> طريقة GPG أكثر أمانًا، ولكن يجب أن تكون "
-"قد ضبطت مفتاح تعمية واحد على الأقل على نظامك. </p> <p> إذا اخترت التنسيق "
-"الكلاسيكي، فاحذر من أن كلمة السر التي تختارها <span style=\" font-style:"
-"italic;\"> لا يمكن </span> استردادها في حالة فقدها، وستسمح لأي شخص من يعرفها "
-"للحصول على جميع المعلومات الواردة في المحفظة. </p> </body> </html> "
+"<html><head/><body><p>قد تطلب تطبيقات مختلفة الوصول إلى محفظة كيدي لتخزين "
+"كلمات السر أو بيانات نماذج الويب أو ملفات تعريف الارتباط. للسماح بذلك، مكّن "
+"المحفظة واختر طريقة تعمية. </p><p>تعمية GPG أكثر أمانًا، لكن يجب أن يكون لديك "
+"مفتاح تعمية واحد على الأقل مضبوط على نظامك.</p><p>إذا اخترت التنسيق "
+"الكلاسيكي، فلاحظ أن كلمة السر <span style=\" font-style:italic;\">لا يمكن</"
+"span> استعادتها إذا فُقدت، وأنها تمنح وصولًا كاملًا إلى جميع المعلومات المخزنة "
+"في المحفظة.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
-#, fuzzy, kde-format
-#| msgid "Decryption error."
+#, kde-format
 msgid "Encryption type"
-msgstr "خطأ في فك التعمية."
+msgstr "نوع التعمية"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:82
 #, kde-format
 msgid "More secure but requires the setup of GPG encryption keys."
-msgstr ""
+msgstr "أكثر أمانًا لكنها تتطلب إعداد مفاتيح تعمية GPG."
 
 #: ksecretd/main.cpp:163
 #, kde-format
