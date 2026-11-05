@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:45+0000\n"
+"POT-Creation-Date: 2026-11-05 00:51+0000\n"
 "PO-Revision-Date: 2019-08-19 23:03+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik <kde-i18n-doc@kde.org>\n"
@@ -189,7 +189,7 @@ msgstr ""
 #: ksecretd/ksecretd.cpp:342 ksecretd/ksecretd.cpp:429
 #: ksecretd/ksecretd.cpp:573 ksecretd/ksecretd.cpp:596
 #: ksecretd/ksecretd.cpp:607 ksecretd/ksecretd.cpp:612
-#: ksecretd/ksecretd.cpp:899 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:899 ksecretd/main.cpp:279 ksecretd/main.cpp:281
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "Хидмати ҳамёнҳои KDE"
@@ -556,49 +556,49 @@ msgstr "Хатои рамзкушоӣ."
 msgid "More secure but requires the setup of GPG encryption keys."
 msgstr ""
 
-#: ksecretd/main.cpp:163
+#: ksecretd/main.cpp:283
 #, fuzzy, kde-format
 #| msgid "(C) 2002-2013, The KDE Developers"
 msgid "(C) 2002-2025, The KDE Developers"
 msgstr "(c) 2002-2013, Барномасозони KDE"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:284
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Валентин Русу (Valentin Rusu)"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:284
 #, fuzzy, kde-format
 #| msgid "Maintainer, GPG backend support"
 msgid "Former Maintainer, GPG backend support"
 msgstr "Барномасоз, дастгирии низоми дохилии GPG"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:285
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Мишел Леополд (Michael Leupold)"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:285
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Барномасози собиқ"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:286
 #, kde-format
 msgid "George Staikos"
 msgstr "Ҷорҷ Стайкос (George Staikos)"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:286
 #, kde-format
 msgid "Former maintainer"
 msgstr "Барномасози собиқ"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:287
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Файго Масейра (Thiago Maceira)"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:287
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "Воситаи намоиши D-Bus"

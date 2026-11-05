@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:45+0000\n"
+"POT-Creation-Date: 2026-11-05 00:51+0000\n"
 "PO-Revision-Date: 2014-08-13 00:15+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -193,7 +193,7 @@ msgstr ""
 #: ksecretd/ksecretd.cpp:342 ksecretd/ksecretd.cpp:429
 #: ksecretd/ksecretd.cpp:573 ksecretd/ksecretd.cpp:596
 #: ksecretd/ksecretd.cpp:607 ksecretd/ksecretd.cpp:612
-#: ksecretd/ksecretd.cpp:899 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:899 ksecretd/main.cpp:279 ksecretd/main.cpp:281
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "KDE-Deenst för Knippen"
@@ -548,49 +548,49 @@ msgstr "Fehler bi't Opslöteln."
 msgid "More secure but requires the setup of GPG encryption keys."
 msgstr ""
 
-#: ksecretd/main.cpp:163
+#: ksecretd/main.cpp:283
 #, fuzzy, kde-format
 #| msgid "(C) 2002-2013, The KDE Developers"
 msgid "(C) 2002-2025, The KDE Developers"
 msgstr "(C) 2002-2013, De KDE-Schrievers"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:284
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "Valentin Rusu"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:284
 #, fuzzy, kde-format
 #| msgid "Maintainer, GPG backend support"
 msgid "Former Maintainer, GPG backend support"
 msgstr "Pleger, Ünnerstütten för't GPG-Hülpprogramm"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:285
 #, kde-format
 msgid "Michael Leupold"
 msgstr "Michael Leupold"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:285
 #, kde-format
 msgid "Former Maintainer"
 msgstr "Verleden Pleger"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:286
 #, kde-format
 msgid "George Staikos"
 msgstr "George Staikos"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:286
 #, kde-format
 msgid "Former maintainer"
 msgstr "Verleden Pleger"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:287
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "Thiago Maceira"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:287
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "D-Bus-Koppelsteed"

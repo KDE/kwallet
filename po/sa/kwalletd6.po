@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:45+0000\n"
+"POT-Creation-Date: 2026-11-05 00:51+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -188,7 +188,7 @@ msgstr ""
 #: ksecretd/ksecretd.cpp:342 ksecretd/ksecretd.cpp:429
 #: ksecretd/ksecretd.cpp:573 ksecretd/ksecretd.cpp:596
 #: ksecretd/ksecretd.cpp:607 ksecretd/ksecretd.cpp:612
-#: ksecretd/ksecretd.cpp:899 ksecretd/main.cpp:159 ksecretd/main.cpp:161
+#: ksecretd/ksecretd.cpp:899 ksecretd/main.cpp:279 ksecretd/main.cpp:281
 #, kde-format
 msgid "KDE Wallet Service"
 msgstr "केडीई बटुआ सेवा"
@@ -530,48 +530,48 @@ msgstr "विगुप्तीकरणदोषः ।"
 msgid "More secure but requires the setup of GPG encryption keys."
 msgstr ""
 
-#: ksecretd/main.cpp:163
+#: ksecretd/main.cpp:283
 #, fuzzy, kde-format
 #| msgid "(C) 2002-2013, The KDE Developers"
 msgid "(C) 2002-2025, The KDE Developers"
 msgstr "(C) 2002-2013, द केडीई डेवलपर्स"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:284
 #, kde-format
 msgid "Valentin Rusu"
 msgstr "वैलेन्टिन रुसु"
 
-#: ksecretd/main.cpp:164
+#: ksecretd/main.cpp:284
 #, kde-format
 msgid "Former Maintainer, GPG backend support"
 msgstr "पूर्वं Maintainer, GPG backend समर्थनम्"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:285
 #, kde-format
 msgid "Michael Leupold"
 msgstr "माइकल ल्यूपोल्ड"
 
-#: ksecretd/main.cpp:165
+#: ksecretd/main.cpp:285
 #, kde-format
 msgid "Former Maintainer"
 msgstr "पूर्व रखरखावकर्ता"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:286
 #, kde-format
 msgid "George Staikos"
 msgstr "जार्ज स्टैइकोस"
 
-#: ksecretd/main.cpp:166
+#: ksecretd/main.cpp:286
 #, kde-format
 msgid "Former maintainer"
 msgstr "पूर्व परिपालक"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:287
 #, kde-format
 msgid "Thiago Maceira"
 msgstr "थिआगो मसेरा"
 
-#: ksecretd/main.cpp:167
+#: ksecretd/main.cpp:287
 #, kde-format
 msgid "D-Bus Interface"
 msgstr "D-Bus अन्तरफलकम्"
