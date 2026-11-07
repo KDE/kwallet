@@ -6,16 +6,16 @@
 # Vincent PINON <vpinon@kde.org>, 2014, 2016.
 # Maxime Corteel <mcorteel@gmail.com>, 2014, 2015.
 # Simon Depiets <sdepiets@gmail.com>, 2017.
-# SPDX-FileCopyrightText: 2021, 2023, 2024, 2025, 2026 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2021, 2023-2026 Xavier Besnard <xavier.besnard@kde.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kwalletd\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-02-21 17:10+0100\n"
+"PO-Revision-Date: 2026-11-05 20:59+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: \n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.08.1\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -38,12 +38,7 @@ msgstr ""
 "etienneb@gmail.com, jcorn@free.fr, mcorteel@gmail.com, sdepiets@gmail.com"
 
 #: ksecretd/knewwalletdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is "
-#| "used to store sensitive data in a secure fashion. Please choose the new "
-#| "wallet's type below or click cancel to deny the application's request.</"
-#| "qt>"
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
 "to securely store sensitive data, such as account passwords. Choose the type "
@@ -51,9 +46,10 @@ msgid ""
 "qt>"
 msgstr ""
 "<qt>KDE a demandé la création d'un nouveau portefeuille nommé « <b>%1</b> ». "
-"Cette opération est utilisée pour mémoriser des données sensibles de façon "
-"sécurisée. Veuillez choisir le type du nouveau portefeuille ci-dessous ou "
-"cliquer sur « Annuler » pour rejeter la demande de l'application.</qt>"
+"Cette opération est utilisée pour enregistrer des données sensibles de façon "
+"sécurisée, tel que les mots de passe des comptes. Veuillez sélectionner le "
+"type du nouveau portefeuille ci-dessous ou cliquer sur « Annuler » pour "
+"rejeter la demande de l'application.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:115 ksecretd/knewwalletdialog.cpp:122
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
@@ -81,17 +77,13 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
-#, fuzzy, kde-format
-#| msgid "Please select the signing key from the list below:"
+#, kde-format
 msgid "Select the signing key from the list below:"
-msgstr "Veuillez sélectionner la clé de signature dans la liste ci-dessous :"
+msgstr "Sélectionner la clé de signature dans la liste ci-dessous :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
-#| "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
@@ -122,13 +114,13 @@ msgstr "Identifiant de clé"
 #: ksecretd/knewwalletdialoggpg.ui:77
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Rafraichir"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, reloadCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:80
 #, kde-format
 msgid "Refresh the list of GPG certificates."
-msgstr ""
+msgstr "Rafraichir la liste des certificats GPG."
 
 #. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
 #: ksecretd/knewwalletdialogintro.ui:17 ksecretd/kwalletwizardpageintro.ui:17
@@ -160,10 +152,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:55
-#, fuzzy, kde-format
-#| msgid "Classic, blowfish encrypted file"
+#, kde-format
 msgid "Blowfish encryption"
-msgstr "Classique,fichier chiffré par l'algorithme de Blowfish"
+msgstr "Chiffrement par Blowfish"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/knewwalletdialogintro.ui:73
@@ -172,6 +163,8 @@ msgstr "Classique,fichier chiffré par l'algorithme de Blowfish"
 msgid ""
 "Password-protected, so it does not require the setup of encryption keys."
 msgstr ""
+"Protégé par mot de passe, il ne nécessite donc pas la configuration de clés "
+"de chiffrement."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
@@ -179,13 +172,14 @@ msgstr ""
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
 msgid "GPG encryption"
-msgstr ""
+msgstr "Chiffrement GPG"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/knewwalletdialogintro.ui:90
 #, kde-format
 msgid "More secure, but requires the setup of GPG encryption keys."
 msgstr ""
+"Plus sécurisé, mais nécessite la configuration de clés de chiffrement GPG."
 
 #: ksecretd/ksecretd.cpp:334
 #, kde-format
@@ -260,18 +254,14 @@ msgstr ""
 "ouvert pour pouvoir changer le mot de passe."
 
 #: ksecretd/ksecretd.cpp:588
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-#| "<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-#| "associated to that key.</qt>"
+#, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
 "<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
 msgstr ""
 "<qt>Le portefeuille <b>%1</b> est chiffré à l'aide de la clé GPG <b>%2</b>. "
-"Veuillez utiliser les outils <b>GPG</b> (tels que <b>kleopatra</b>) pour "
-"changer la phrase secrète associée à cette clé.</qt>"
+"Veuillez utiliser les outils <b>GPG</b> pour modifier la phrase de passe "
+"associée à cette clé.</qt>"
 
 #: ksecretd/ksecretd.cpp:595
 #, kde-format
@@ -391,8 +381,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
-#, fuzzy, kde-format
-#| msgid "Select encryption GPG key:"
+#, kde-format
 msgid "Select GPG encryption key:"
 msgstr "Sélectionnez la clé GPG de chiffrement :"
 
@@ -463,6 +452,11 @@ msgid ""
 "default settings work for most users, you can modify them if needed. "
 "Additional adjustments can be made on the KWallet settings page."
 msgstr ""
+"KWallet vous permet d'ajuster la sécurité de vos données personnelles. Bien "
+"que la configuration par défaut fonctionne pour la plupart des personnes "
+"utilisatrices, vous pouvez la modifier si nécessaire. Des ajustements "
+"supplémentaires peuvent être effectués sur la page de configuration de "
+"KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -505,12 +499,10 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
-#, fuzzy, kde-format
-#| msgid "Yes, I wish to use the KDE wallet to store my personal information."
+#, kde-format
 msgid "Use the KDE wallet to store sensitive information"
 msgstr ""
-"Oui, je souhaite utiliser le portefeuille KDE pour mémoriser mes "
-"informations personnelles."
+"Utiliser le portefeuille KDE pour mémoriser mes informations personnelles."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -562,16 +554,16 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
-#, fuzzy, kde-format
-#| msgid "Decryption error."
+#, kde-format
 msgid "Encryption type"
-msgstr "Erreur de déchiffrement."
+msgstr "Type de chiffrement"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:82
 #, kde-format
 msgid "More secure but requires the setup of GPG encryption keys."
 msgstr ""
+"Plus sécurisé mais nécessite la configuration des clés de cryptage GPG."
 
 #: ksecretd/main.cpp:283
 #, kde-format
