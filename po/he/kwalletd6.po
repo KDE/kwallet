@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-11-05 13:48+0200\n"
+"PO-Revision-Date: 2026-11-07 19:45+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -155,7 +155,7 @@ msgstr "הצפנת blowfish"
 #, kde-format
 msgid ""
 "Password-protected, so it does not require the setup of encryption keys."
-msgstr ""
+msgstr "מוגן בסיסמה, כך שאינו דורש הגדרת מפתחות הצפנה."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
@@ -413,6 +413,9 @@ msgid ""
 "default settings work for most users, you can modify them if needed. "
 "Additional adjustments can be made on the KWallet settings page."
 msgstr ""
+"KWallet מאפשר לך לכוון את האבטחה של הנתונים האישיים שלך. למרות שהגדרות ברירת "
+"המחדל עונות על הצרכים של רוב המשתמשים, אפשר לשנות אותן במקרה הצורך. אפשר "
+"לבצע כוונונים נוספים בעמוד ההגדרות של KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -450,10 +453,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
-#, fuzzy, kde-format
-#| msgid "Yes, I wish to use the KDE wallet to store my personal information."
+#, kde-format
 msgid "Use the KDE wallet to store sensitive information"
-msgstr "כן, ארצה להשתמש בארנק של KDE כדי לאחסן את המידע האישי שלי."
+msgstr "אפשר להשתמש בארנק KDE כדי לאחסן נתונים רגישים"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -501,10 +503,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
-#, fuzzy, kde-format
-#| msgid "Decryption error."
+#, kde-format
 msgid "Encryption type"
-msgstr "שגיאת פיענוח."
+msgstr "סוג הצפנה"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:82
