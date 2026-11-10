@@ -215,7 +215,7 @@ void KWalletD::migrateData()
 
 QString KWalletD::walletForHandle(int handle, const QString &appId)
 {
-    const QString walletName = m_openWallets.value(QPair<int, QString>(handle, appId));
+    const QString walletName = m_openWallets.value(std::pair<int, QString>(handle, appId));
 
     return walletName;
 }
@@ -321,7 +321,7 @@ int KWalletD::openInternal(const QString &wallet, qlonglong wId, const QString &
     QRandomGenerator rand = QRandomGenerator::securelySeeded();
     const int rnd = std::abs(int(rand.generate()));
 
-    m_openWallets[QPair<int, QString>(rnd, appId)] = wallet;
+    m_openWallets[std::pair<int, QString>(rnd, appId)] = wallet;
 
     return rnd;
 }
@@ -990,7 +990,7 @@ bool KWalletD::keyDoesNotExist(const QString &wallet, const QString &folder, con
 void KWalletD::closeAllWallets()
 {
     QSet<QString> openWallets;
-    QSet<QPair<QString, QString>> apps;
+    QSet<std::pair<QString, QString>> apps;
 
     for (auto it = m_openWallets.constBegin(); it != m_openWallets.constEnd(); it++) {
         openWallets.insert(it.value());
@@ -998,7 +998,7 @@ void KWalletD::closeAllWallets()
     }
 
     m_openWallets.clear();
-    for (const QPair<QString, QString> &connection : apps.values()) {
+    for (const std::pair<QString, QString> &connection : apps.values()) {
         Q_EMIT applicationDisconnected(connection.first, connection.second);
     }
     for (const QString &wallet : openWallets.values()) {

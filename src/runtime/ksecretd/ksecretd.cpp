@@ -128,17 +128,17 @@ int KSecretD::generateHandle()
     return rc;
 }
 
-QPair<int, KWallet::Backend *> KSecretD::findWallet(const QString &walletName) const
+std::pair<int, KWallet::Backend *> KSecretD::findWallet(const QString &walletName) const
 {
     auto it = std::find_if(_wallets.cbegin(), _wallets.cend(), [walletName](auto wallet) {
         return wallet->walletName() == walletName;
     });
 
     if (it != _wallets.cend()) {
-        return qMakePair(it.key(), it.value());
+        return std::make_pair(it.key(), it.value());
     }
 
-    return qMakePair(-1, static_cast<KWallet::Backend *>(nullptr));
+    return std::make_pair(-1, static_cast<KWallet::Backend *>(nullptr));
 }
 
 bool KSecretD::_processing = false;
@@ -295,7 +295,7 @@ int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
 {
     bool brandNew = false;
 
-    QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
+    std::pair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
     int rc = walletInfo.first;
     if (rc == -1) {
         if (_wallets.count() > 20) {
@@ -499,7 +499,7 @@ int KSecretD::deleteWallet(const QString &wallet)
     QString pathSalt = KWallet::Backend::getSaveLocation() + "/" + KWallet::Backend::encodeWalletName(wallet) + ".salt";
 
     if (QFile::exists(path)) {
-        const QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
+        const std::pair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
         internalClose(walletInfo.second, walletInfo.first);
         QFile::remove(path);
         Q_EMIT walletDeleted(wallet);
@@ -560,7 +560,7 @@ void KSecretD::initiateSync(int handle)
 
 void KSecretD::doTransactionChangePassword(const QString &wallet, qlonglong wId)
 {
-    const QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
+    const std::pair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
     int handle = walletInfo.first;
     KWallet::Backend *w = walletInfo.second;
 
@@ -918,7 +918,7 @@ int KSecretD::renameEntry(int handle, const QString &folder, const QString &oldN
 
 int KSecretD::renameWallet(const QString &oldName, const QString &newName)
 {
-    const QPair<int, KWallet::Backend *> walletInfo = findWallet(oldName);
+    const std::pair<int, KWallet::Backend *> walletInfo = findWallet(oldName);
     return walletInfo.second->renameWallet(newName);
 }
 
@@ -1016,7 +1016,7 @@ int KSecretD::pamOpen(const QString &wallet, const QByteArray &passwordHash)
     bool brandNew = false;
 
     // check if the wallet is already open
-    QPair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
+    const std::pair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
     int rc = walletInfo.first;
     if (rc != -1) {
         return rc; // Wallet already opened, return handle

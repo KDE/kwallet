@@ -20,6 +20,7 @@
 #include "ktimeout.h"
 
 #include <deque>
+#include <utility>
 
 class KDirWatch;
 class KTimeout;
@@ -155,7 +156,7 @@ private:
     void setupDialog(QWidget *dialog, WId wId, bool modal);
     void checkActiveDialog();
 
-    QPair<int, KWallet::Backend *> findWallet(const QString &walletName) const;
+    std::pair<int, KWallet::Backend *> findWallet(const QString &walletName) const;
 
     typedef QHash<int, KWallet::Backend *> Wallets;
     Wallets _wallets;

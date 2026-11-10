@@ -11,6 +11,8 @@
 
 #include "kwalletd_debug.h"
 
+#include <utility>
+
 struct Folder {
     QString name;
     QStringList passwords;
@@ -188,7 +190,7 @@ private:
     SecretServiceClient *m_backend;
     // We need to store a structure here as well, because the api has createFolder that would make a folder without any keys
     QMultiHash<QString, QString> m_structure;
-    QHash<QPair<int, QString>, QString> m_openWallets;
+    QHash<std::pair<int, QString>, QString> m_openWallets;
 
     bool m_enabled = true;
 
