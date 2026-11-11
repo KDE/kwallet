@@ -43,7 +43,7 @@ public:
     }
 
     Type tType;
-    qlonglong wId;
+    std::variant<QString, qulonglong> window;
     QString wallet;
     bool modal;
     QPromise<int> promise;
@@ -60,7 +60,8 @@ public:
     // Is the wallet enabled?  If not, all open() calls fail.
     static bool isEnabled();
 
-    QFuture<int> open(const QString &wallet, qlonglong wId);
+    QFuture<int> open(const QString &wallet, qulonglong wId);
+    QFuture<int> open(const QString &wallet, const QString &window);
     // Close and lock the wallet
     int close(int handle);
 
@@ -72,7 +73,7 @@ public Q_SLOTS:
     bool isOpen(int handle);
 
     // Change the password of this wallet
-    void changePassword(const QString &wallet, qlonglong wId, const QString &appId);
+    void changePassword(const QString &wallet, qulonglong wId, const QString &appId);
 
     // A list of all wallets
     QStringList wallets() const;
@@ -135,11 +136,11 @@ private Q_SLOTS:
 
 private:
     // Internal - open a wallet
-    int internalOpen(const QString &wallet, WId w, bool modal);
+    int internalOpen(const QString &wallet, const std::variant<QString, qulonglong> &wId, bool modal);
     // Internal - close this wallet.
     int internalClose(KWallet::Backend *const w, const int handle, const bool saveBeforeClose = true);
 
-    QFuture<int> internalChangePassword(const QString &wallet, qlonglong wId);
+    QFuture<int> internalChangePassword(const QString &wallet, qulonglong wId);
 
     // This also validates the handle.  May return NULL.
     KWallet::Backend *getWallet(int handle);
@@ -149,11 +150,11 @@ private:
     void emitEntryRenamed(const QString &, const QString &, const QString &, const QString &);
     void emitEntryDeleted(const QString &, const QString &, const QString &);
 
-    void doTransactionChangePassword(const QString &wallet, qlonglong wId);
-    int doTransactionOpen(const QString &wallet, qlonglong wId, bool modal);
+    void doTransactionChangePassword(const QString &wallet, const std::variant<QString, qulonglong> &window);
+    int doTransactionOpen(const QString &wallet, const std::variant<QString, qulonglong> &window, bool modal);
     void initiateSync(int handle);
 
-    void setupDialog(QWidget *dialog, WId wId, bool modal);
+    void setupDialog(QWidget *dialog, const std::variant<QString, qulonglong> &window, bool modal);
     void checkActiveDialog();
 
     std::pair<int, KWallet::Backend *> findWallet(const QString &walletName) const;

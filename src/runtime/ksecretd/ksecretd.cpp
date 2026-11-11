@@ -28,6 +28,7 @@
 #include <KDirWatch>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KMessageDialog>
 #include <KNewPasswordDialog>
 #include <KNotification>
 #include <KPasswordDialog>
@@ -62,6 +63,20 @@ static void startManagerForKSecretD()
     } else {
         QProcess::startDetached(QStringLiteral("kwalletmanager5"), QStringList{QStringLiteral("--kwalletd")});
     }
+}
+
+static void showError(const QString &message, const QString &title, const std::variant<QString, qulonglong> &window)
+{
+    KMessageDialog dialog(KMessageDialog::Error, message);
+    // Show default icon
+    dialog.setIcon(QIcon());
+    dialog.setCaption(title);
+    std::visit(
+        [&dialog](const auto &window) {
+            KWindowSystem::setMainWindow(dialog.windowHandle(), window);
+        },
+        window);
+    dialog.exec();
 }
 
 KSecretD::KSecretD()
@@ -159,14 +174,14 @@ void KSecretD::processTransactions()
 
         switch (curtrans.tType) {
         case KWalletTransaction::Open:
-            res = doTransactionOpen(curtrans.wallet, curtrans.wId, curtrans.modal);
+            res = doTransactionOpen(curtrans.wallet, curtrans.window, curtrans.modal);
 
             // multiple requests from the same client
             // should not produce multiple password
             // dialogs on a failure
             if (res < 0) {
                 for (auto &x : _transactions) {
-                    if (x.tType == KWalletTransaction::Open && x.wallet == curtrans.wallet && x.wId == curtrans.wId) {
+                    if (x.tType == KWalletTransaction::Open && x.wallet == curtrans.wallet && x.window == curtrans.window) {
                         x.promise.addResult(-1);
                         x.promise.finish();
                     }
@@ -178,7 +193,7 @@ void KSecretD::processTransactions()
             break;
 
         case KWalletTransaction::ChangePassword:
-            doTransactionChangePassword(curtrans.wallet, curtrans.wId);
+            doTransactionChangePassword(curtrans.wallet, curtrans.window);
             curtrans.promise.addResult(0); // not used but needs to be there
             curtrans.promise.finish();
             break;
@@ -186,7 +201,7 @@ void KSecretD::processTransactions()
     }
 }
 
-QFuture<int> KSecretD::open(const QString &wallet, qlonglong wId)
+QFuture<int> KSecretD::open(const QString &wallet, const QString &window)
 {
     if (!isEnabled()) { // guard
         return QtFuture::makeReadyValueFuture<int>(-1);
@@ -195,7 +210,7 @@ QFuture<int> KSecretD::open(const QString &wallet, qlonglong wId)
     KWalletTransaction xact(KWalletTransaction::Open);
 
     xact.wallet = wallet;
-    xact.wId = wId;
+    xact.window = window;
     xact.modal = true; // mark dialogs as modal, the app has blocking wait
     xact.promise.start();
 
@@ -209,20 +224,28 @@ QFuture<int> KSecretD::open(const QString &wallet, qlonglong wId)
     return future;
 }
 
-// Sets up a dialog that will be shown by kwallet.
-void KSecretD::setupDialog(QWidget *dialog, WId wId, bool modal)
+QFuture<int> KSecretD::open(const QString &wallet, qulonglong wId)
 {
-    if (wId != 0) {
+    if (!isEnabled()) { // guard
+        return QtFuture::makeReadyValueFuture<int>(-1);
+    }
+    auto ret = open(wallet, QString());
+    _transactions.back().window = wId;
+    return ret;
+}
+
+// Sets up a dialog that will be shown by kwallet.
+void KSecretD::setupDialog(QWidget *dialog, const std::variant<QString, qulonglong> &wId, bool modal)
+{
+    if (auto winId = std::get_if<qulonglong>(&wId); winId && *winId != 0) {
         // correct, set dialog parent
         dialog->setAttribute(Qt::WA_NativeWindow, true);
-        KWindowSystem::setMainWindow(dialog->windowHandle(), wId);
+        KWindowSystem::setMainWindow(dialog->windowHandle(), *winId);
+    } else if (auto handle = std::get_if<QString>(&wId); handle && !handle->isEmpty()) {
+        dialog->windowHandle()->create();
+        KWindowSystem::setMainWindow(dialog->windowHandle(), *handle);
     } else {
         qWarning() << "Using kwallet without parent window!";
-        // allow dialog activation even if it interrupts, better than trying
-        // hacks
-        // with keeping the dialog on top or on all desktops
-        // KF5 FIXME what should we use now instead of this:
-        //         kapp->updateUserTimestamp();
     }
 
 #if WITH_X11
@@ -232,8 +255,15 @@ void KSecretD::setupDialog(QWidget *dialog, WId wId, bool modal)
         } else {
             KX11Extras::clearState(dialog->winId(), NET::Modal);
         }
-    }
+    } else
 #endif
+    {
+        if (modal) {
+            dialog->windowHandle()->setModality(Qt::WindowModal);
+        } else {
+            dialog->windowHandle()->setModality(Qt::NonModal);
+        }
+    }
     activeDialog = dialog;
 }
 
@@ -269,7 +299,7 @@ void KSecretD::checkActiveDialog()
 #endif
 }
 
-int KSecretD::doTransactionOpen(const QString &wallet, qlonglong wId, bool modal)
+int KSecretD::doTransactionOpen(const QString &wallet, const std::variant<QString, qulonglong> &window, bool modal)
 {
     if (_firstUse) {
         // if the user specifies a wallet name, the use it as the default
@@ -287,11 +317,11 @@ int KSecretD::doTransactionOpen(const QString &wallet, qlonglong wId, bool modal
         }
     }
 
-    int rc = internalOpen(wallet, WId(wId), modal);
+    int rc = internalOpen(wallet, window, modal);
     return rc;
 }
 
-int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
+int KSecretD::internalOpen(const QString &wallet, const std::variant<QString, qulonglong> &window, bool modal)
 {
     bool brandNew = false;
 
@@ -309,7 +339,8 @@ int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
         if (KWallet::Backend::exists(wallet)) {
             // this open attempt will set wallet type from the file header,
             // even if password is needed
-            int pwless = b->open(QByteArray(), w);
+            const auto winId = std::get_if<qulonglong>(&window);
+            int pwless = b->open(QByteArray(), winId ? *winId : 0);
 #ifdef HAVE_GPGMEPP
             assert(b->cipherType() != KWallet::BACKEND_CIPHER_UNKNOWN);
             if (b->cipherType() == KWallet::BACKEND_CIPHER_GPG) {
@@ -343,7 +374,7 @@ int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
                     kpd->setIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
 
 #if WITH_X11
-                    if (KWindowSystem::isPlatformX11() && w != KX11Extras::activeWindow() && w != 0L) {
+                    if (const auto w = std::get_if<qulonglong>(&window); KWindowSystem::isPlatformX11() && w && *w != KX11Extras::activeWindow()) {
                         // If the dialog is modal to a minimized window it
                         // might not be visible
                         // (but still blocking the calling application).
@@ -363,7 +394,7 @@ int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
 #endif
 
                     while (!b->isOpen()) {
-                        setupDialog(kpd, w, modal);
+                        setupDialog(kpd, window, modal);
                         if (kpd->exec() == QDialog::Accepted) {
                             password = kpd->password();
                             int rc = b->open(password.toUtf8());
@@ -392,10 +423,10 @@ int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
 #ifdef HAVE_GPGMEPP
             // prompt the user for the new wallet format here
             KWallet::BackendCipherType newWalletType = KWallet::BACKEND_CIPHER_UNKNOWN;
-
+            const auto w = std::holds_alternative<qulonglong>(window) ? std::get<qulonglong>(window) : 0;
             std::shared_ptr<KWallet::KNewWalletDialog> newWalletDlg(new KWallet::KNewWalletDialog(wallet, QWidget::find(w)));
             GpgME::Key gpgKey;
-            setupDialog(newWalletDlg.get(), (WId)w, true);
+            setupDialog(newWalletDlg.get(), window, true);
             if (newWalletDlg->exec() == QDialog::Accepted) {
                 newWalletType = newWalletDlg->isBlowfish() ? KWallet::BACKEND_CIPHER_BLOWFISH : KWallet::BACKEND_CIPHER_GPG;
                 gpgKey = newWalletDlg->gpgKey();
@@ -431,7 +462,7 @@ int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
                 //              kpd->setButtonGuiItem(KDialog::Ok,KGuiItem(i18n("C&reate"),"document-new"));
                 kpd->setIcon(QIcon::fromTheme(QStringLiteral("kwalletmanager")));
                 while (!b->isOpen()) {
-                    setupDialog(kpd, w, modal);
+                    setupDialog(kpd, window, modal);
                     if (kpd->exec() == QDialog::Accepted) {
                         password = kpd->password();
                         int rc = b->open(password.toUtf8());
@@ -514,7 +545,7 @@ int KSecretD::deleteWallet(const QString &wallet)
     return result;
 }
 
-void KSecretD::changePassword(const QString &wallet, qlonglong wId, const QString &appId)
+void KSecretD::changePassword(const QString &wallet, qulonglong wId, const QString &appId)
 {
     Q_UNUSED(appId);
 
@@ -527,7 +558,7 @@ void KSecretD::changePassword(const QString &wallet, qlonglong wId, const QStrin
     });
 }
 
-QFuture<int> KSecretD::internalChangePassword(const QString &wallet, qlonglong wId)
+QFuture<int> KSecretD::internalChangePassword(const QString &wallet, qulonglong wId)
 {
     KWalletTransaction xact(KWalletTransaction::ChangePassword);
 
@@ -536,7 +567,7 @@ QFuture<int> KSecretD::internalChangePassword(const QString &wallet, qlonglong w
     // should be displayed about this
 
     xact.wallet = wallet;
-    xact.wId = wId;
+    xact.window = wId;
     xact.modal = false;
     xact.promise.start();
 
@@ -558,7 +589,7 @@ void KSecretD::initiateSync(int handle)
     _syncTimers.resetTimer(handle, _syncTime);
 }
 
-void KSecretD::doTransactionChangePassword(const QString &wallet, qlonglong wId)
+void KSecretD::doTransactionChangePassword(const QString &wallet, const std::variant<QString, qulonglong> &window)
 {
     const std::pair<int, KWallet::Backend *> walletInfo = findWallet(wallet);
     int handle = walletInfo.first;
@@ -566,11 +597,9 @@ void KSecretD::doTransactionChangePassword(const QString &wallet, qlonglong wId)
 
     bool reclose = false;
     if (!w) {
-        handle = doTransactionOpen(wallet, wId, false);
+        handle = doTransactionOpen(wallet, window, false);
         if (-1 == handle) {
-            KMessageBox::errorWId((WId)wId,
-                                  i18n("Unable to open wallet. The wallet must be opened in order to change the password."),
-                                  i18n("KDE Wallet Service"));
+            showError(i18n("Unable to open wallet. The wallet must be opened in order to change the password."), i18n("KDE Wallet Service"), window);
             return;
         }
 
@@ -584,11 +613,12 @@ void KSecretD::doTransactionChangePassword(const QString &wallet, qlonglong wId)
     if (w->cipherType() == KWallet::BACKEND_CIPHER_GPG) {
         QString keyID = w->gpgKey().shortKeyID();
         assert(!keyID.isNull());
-        KMessageBox::errorWId((WId)wId,
-                              i18n("<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use <b>GPG</b> tools to "
-                                   "change the passphrase associated to that key.</qt>",
-                                   wallet.toHtmlEscaped(),
-                                   keyID));
+        showError(i18n("<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use <b>GPG</b> tools to "
+                       "change the passphrase associated to that key.</qt>",
+                       wallet.toHtmlEscaped(),
+                       keyID),
+                  QString(),
+                  window);
     } else {
 #endif
         QPointer<KNewPasswordDialog> kpd = new KNewPasswordDialog();
@@ -597,19 +627,19 @@ void KSecretD::doTransactionChangePassword(const QString &wallet, qlonglong wId)
         kpd->setAllowEmptyPasswords(true);
         KColorScheme colorScheme(QPalette::Active, KColorScheme::View);
         kpd->setBackgroundWarningColor(colorScheme.background(KColorScheme::NegativeBackground).color());
-        setupDialog(kpd, (WId)wId, false);
+        setupDialog(kpd, window, false);
         if (kpd->exec() == QDialog::Accepted && kpd) {
             QString p = kpd->password();
             if (!p.isNull()) {
                 w->setPassword(p.toUtf8());
                 int rc = w->close(true);
                 if (rc < 0) {
-                    KMessageBox::errorWId((WId)wId, i18n("Error re-encrypting the wallet. Password was not changed."), i18n("KDE Wallet Service"));
+                    showError(i18n("Error re-encrypting the wallet. Password was not changed."), i18n("KDE Wallet Service"), window);
                     reclose = true;
                 } else {
                     rc = w->open(p.toUtf8());
                     if (rc < 0) {
-                        KMessageBox::errorWId((WId)wId, i18n("Error reopening the wallet. Data may be lost."), i18n("KDE Wallet Service"));
+                        showError(i18n("Error reopening the wallet. Data may be lost."), i18n("KDE Wallet Service"), window);
                         reclose = true;
                     }
                 }

@@ -89,7 +89,7 @@ void KSecretD::activatePasswordDialog()
 {
 }
 
-QFuture<int> KSecretD::open(const QString & /*wallet*/, qlonglong /*wId*/)
+QFuture<int> KSecretD::open(const QString & /*wallet*/, qulonglong /*wId*/)
 {
     QPromise<int> promise;
     promise.start();
