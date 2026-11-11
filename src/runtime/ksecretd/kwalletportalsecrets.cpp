@@ -11,6 +11,10 @@
 
 #include <QRandomGenerator>
 
+#include <KWindowSystem>
+
+using namespace Qt::StringLiterals;
+
 KWalletPortalSecrets::KWalletPortalSecrets(KSecretD *parent)
     : QObject(parent)
     , m_kwalletd(parent)
@@ -28,14 +32,27 @@ uint KWalletPortalSecrets::RetrieveSecret(const QDBusObjectPath &handle,
                                           QVariantMap &results)
 {
     Q_UNUSED(handle);
-    Q_UNUSED(options);
     Q_UNUSED(results);
 
     setDelayedReply(true);
 
     Request request{message(), fd.fileDescriptor(), app_id};
 
-    auto future = m_kwalletd->open(KWallet::Backend::networkWallet(), 0);
+    const auto parentWindow = options.value(u"parent_window"_s).toString();
+    const auto activationToken = options.value(u"activation_token"_s).toString();
+
+    std::variant<QString, qulonglong> windowHandle = 0u;
+    if (parentWindow.startsWith("x11:"_L1)) {
+        windowHandle = QStringView(parentWindow).mid(strlen("x11:")).toULongLong(nullptr, 16);
+    } else if (parentWindow.startsWith((QLatin1String("wayland:")))) {
+        windowHandle = parentWindow.mid(strlen("wayland:"));
+    }
+
+    auto future = std::visit(
+        [this](const auto &windowHandle) {
+            return m_kwalletd->open(KWallet::Backend::networkWallet(), windowHandle);
+        },
+        windowHandle);
     future.then(this, [this, request](int walletHandle) {
         walletOpened(request, walletHandle);
     });
