@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE 
+refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd"
+[
+  <!ENTITY % Arabic "INCLUDE"
+><!-- change language only here -->
+]>
+<refentry lang="&language;">
+  <refentryinfo>
+    <title
+>kwallet-query(1)</title>
+    <author
+><firstname
+>Valentin</firstname
+> <surname
+>Rusu</surname
+> <contrib
+>Original author</contrib
+> <address
+> <email
+>kde@rusu.info</email
+> </address
+> </author>
+    <date
+>2015-06-14</date>
+    <releaseinfo
+>أُطر العمل 5.11</releaseinfo>
+    <productname
+>إطار كِيدِي</productname>
+  </refentryinfo>
+  <refmeta>
+    <refentrytitle
+>kwallet-query</refentrytitle>
+    <manvolnum
+>1</manvolnum>
+    <refmiscinfo class="source"
+>&#160;</refmiscinfo>
+    <refmiscinfo class="manual"
+>&#160;</refmiscinfo>
+  </refmeta>
+  <refnamediv>
+    <refname
+>kwallet-query</refname>
+    <refpurpose
+>أداة التلاعب بمحفظة &kde; عبر سطر الأوامر</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv id="_synopsis">
+    <simpara
+><emphasis role="strong"
+>kwallet-query</emphasis
+> <emphasis
+>خيارات</emphasis
+> <emphasis
+>محفظة</emphasis
+> </simpara>
+  </refsynopsisdiv>
+  <refsect1 id="_description">
+    <title
+>الوصف</title>
+    <simpara
+>يفيد <command
+>kwallet-query</command
+> عندما تحتاج نصوص الصدفة إلى قراءة أو تحديث محفظة &kde;. يعمل عن طريق التلاعب بالمدخلات المعروضة في أداة <emphasis role="strong"
+>مدير محفظة &kde;</emphasis
+>. معلمته الوحيدة هي اسم <emphasis
+>المحفظة</emphasis
+> التي يجب على الأداة قراءتها أو تحديثها. يُحدد وضع التشغيل بواسطة الخيارات.</simpara>
+  </refsect1>
+  <refsect1 id="_options">
+    <title
+>خيارات</title>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>-h,--help</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>اعرض رسالة مساعدة قصيرة.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>-l,--list-entries</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>اسرد مدخلات كلمات السر. هذه هي أسماء المجلدات المعروضة في أداة <emphasis role="strong"
+>مدير محفظة &kde;</emphasis
+>. إذا أُعطي الخيار <emphasis role="strong"
+>-f</emphasis
+>، فسيُعرض فقط المجلدات الفرعية للمجلد المحدد.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><emphasis role="strong"
+>-r,--read-password</emphasis
+> <emphasis
+>مدخل</emphasis
+> </term>
+        <listitem>
+          <simpara
+>اقرأ محتويات <emphasis
+>المدخل</emphasis
+> المعطى من قسم <emphasis role="strong"
+>المجلد</emphasis
+> في <emphasis
+>المحفظة</emphasis
+> وأخرجه على المخرج المعياري. تُصدر الخرائط ككائن &JSON;.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><emphasis role="strong"
+>-w,--write-password</emphasis
+> <emphasis
+>مدخل</emphasis
+> </term>
+        <listitem>
+          <simpara
+>اكتب الأسرار إلى <emphasis
+>المدخل</emphasis
+> المعطى تحت قسم <emphasis role="strong"
+>المجلد</emphasis
+> في <emphasis
+>المحفظة</emphasis
+> المعطاة. تُقرأ الأسرار من المدخل المعياري. تأخذ الخرائط كمدخل كائن &JSON; جيد التكوين. <emphasis role="strong"
+>هام</emphasis
+> ستُستبدل قيمة مدخل المحفظة السابقة بهذا الخيار، لذا كن حذرًا عند استخدامه!</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><emphasis role="strong"
+>-f,--folder</emphasis
+> <emphasis
+>مجلد</emphasis
+> </term>
+        <listitem>
+          <simpara
+>اضبط مجلد <emphasis
+>المحفظة</emphasis
+> على قيمة <emphasis
+>المجلد</emphasis
+>. مبدئيًا يُستخدم <emphasis role="strong"
+>كلمات السر</emphasis
+>.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>-v,--verbose</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>أخرج معلومات إضافية عند تنفيذ العملية، للمساعدة في التنقيح.</simpara>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="_exit_status">
+    <title
+>حالة الخروج</title>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>0</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>نجاح.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>1</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>لم تُوجد المحفظة <emphasis
+>المحفظة</emphasis
+>.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>2</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>تعذر فتح المحفظة <emphasis
+>المحفظة</emphasis
+>. على سبيل المثال، قد يكون ذلك مؤشرًا على مدخل كلمة سر خاطئ أو مشكلة أخرى في نظام محفظة &kde;.</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>3</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>لم يُوجد قسم <emphasis role="strong"
+>المجلد</emphasis
+> داخل المحفظة <emphasis
+>المحفظة</emphasis
+>. ربما ملف المحفظة تالف؟</simpara>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <emphasis role="strong"
+>4</emphasis>
+        </term>
+        <listitem>
+          <simpara
+>فشلت عملية القراءة أو الكتابة لسبب ما.</simpara>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="_bugs">
+    <title
+>العلل</title>
+    <simpara
+>يرجى الإبلاغ عن جميع الأخطاء على موقع الإبلاغ عن أخطاء &kde;: bugs.kde.org. تأكد من اختيار <quote
+>kwallet-query</quote
+> عند تقديم تقرير الخطأ الخاص بك.</simpara>
+  </refsect1>
+  <refsect1 id="_author">
+    <title
+>المؤلّف</title>
+    <simpara
+>كُتب <command
+>kwallet-query</command
+> أصلًا بواسطة Valentin Rusu وهو جزء من &kde;.</simpara>
+  </refsect1>
+  <refsect1 id="_copying">
+    <title
+>حقوق النسخ</title>
+    <simpara
+>حقوق النشر (C) 2015 Valentin Rusu. يُمنح الاستخدام الحر لهذا البرنامج بموجب شروط رخصة &GNU; العمومية العامة (GPL).</simpara>
+  </refsect1>
+</refentry>
+
