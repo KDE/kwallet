@@ -6,9 +6,9 @@ msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-11-07 19:45+0200\n"
+"PO-Revision-Date: 2026-11-13 14:23+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Poedit-Language: Hebrew\n"
 "X-Poedit-Country: ISRAEL\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -124,12 +124,7 @@ msgstr "מערכת הארנקים של KDE"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: ksecretd/knewwalletdialogintro.ui:30
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The application '<span style=\" font-weight:600;\">"
-#| "%1</span>' has requested to open the KDE wallet. This is used to store "
-#| "sensitive data in a secure fashion. Please choose the new wallet's type "
-#| "below or click cancel to deny the application's request.</p></body></html>"
+#, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
 "span>' has requested to open the KDE wallet. This is used to securely store "
@@ -137,9 +132,9 @@ msgid ""
 "below or click Cancel to deny the application's request.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>היישום ‚<span style=\" font-weight:600;\">%1</span>’ "
-"ביקש לפתוח את הארנק של KDE. הוא משמש לאחסון נתונים רגישים באופן מאובטח. נא "
-"לבחור את סוג הארנק החדש להלן אוביטול כדי לדחות את בקשת היישום.</p></body></"
-"html>"
+"ביקש לפתוח את הארנק של KDE. הוא משמש לאחסון נתונים רגישים באופן מאובטח, כגון "
+"סיסמאות של חשבונות. נא לבחור את סוג הארנק החדש להלן או ללחוץ על ביטול כדי "
+"לדחות את בקשת היישום.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
@@ -431,24 +426,17 @@ msgstr "אפשר לאחסן סיסמאות רשת וסיסמאות מקומיו�
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepassword.ui:16
-#, fuzzy, kde-format
-#| msgid ""
-#| "Various applications may attempt to use the KDE wallet to store passwords "
-#| "or other information such as web form data and cookies.  If you would "
-#| "like these applications to use the wallet, you must enable it now and "
-#| "choose a password.  The password you choose <i>cannot</i> be recovered if "
-#| "it is lost, and will allow anyone who knows it to obtain all the "
-#| "information contained in the wallet."
+#, kde-format
 msgid ""
 "Various applications may request access to the KDE wallet to store "
 "passwords, web form data, or cookies. To allow this, enable the wallet and "
 "set a password. Note that the password <i>cannot</i> be recovered if lost "
 "and grants full access to all information stored in the wallet."
 msgstr ""
-"ייתכן ויישומים שונים ינסו להשתמש בארנק של KDE לאחסון סיסמאות או מידע אחר "
-"כגון, מילוי טופסי אינטרנט ועוגיות. כדי שיישומים אלו ישתמשו בארנק, צריך לאפשר "
-"זאת כעת ולבחור סיסמה. הסיסמה הנבחרת <b>אינה</b> ניתנת לשחזור אם תאבד, והיא "
-"תאפשר לכל מי שיודע אותה להשיג את כל המידע השמור בארנק."
+"מגוון יישומים עשויים לבקש לגשת לארנק KDE כדי לאחסן סיסמאות, נתוני טפסים "
+"מקוונים או עוגיות. כדי לאפשר את זה, יש להפעיל את הארנק ולהגדיר סיסמה. נא "
+"לשים לב ש<i>אי אפשר</i> לשחזר את הסיסמה אם הלכה לאיבוד והיא מעניקה גישה מלאה "
+"לכל המידע שמאוחסן בארנק."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
