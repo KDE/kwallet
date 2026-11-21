@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kwallet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-10-24 23:25+0200\n"
+"PO-Revision-Date: 2026-11-20 20:36+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -436,7 +436,7 @@ msgstr ""
 "Diverses aplicacions poden requerir accés a la cartera de KDE per a "
 "emmagatzemar contrasenyes, dades de formularis web o galetes. Si ho "
 "permeteu, habiliteu la cartera i definiu una contrasenya. Tingueu en compte "
-"que la La contrasenya <i>no pot</i> recuperar-se si es perd i permet accés "
+"que la contrasenya <i>no pot</i> recuperar-se si es perd i permet accés "
 "complet a tota la informació emmagatzemada a la cartera."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
@@ -736,7 +736,7 @@ msgstr "Element no trobat"
 #: kwalletd/secretserviceclient.cpp:282
 #, kde-format
 msgid "Could not connect to Secret Service"
-msgstr "No s'ha pogut connectar al servi de secrets"
+msgstr "No s'ha pogut connectar al servei de secrets"
 
 #: kwalletd/secretserviceclient.cpp:482
 #, kde-format

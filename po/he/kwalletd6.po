@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-11-13 14:23+0200\n"
+"PO-Revision-Date: 2026-11-17 08:51+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
@@ -30,12 +30,7 @@ msgid "Your emails"
 msgstr "klinger.ofir@gmail.com,kde-l10n-he@kde.org"
 
 #: ksecretd/knewwalletdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is "
-#| "used to store sensitive data in a secure fashion. Please choose the new "
-#| "wallet's type below or click cancel to deny the application's request.</"
-#| "qt>"
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
 "to securely store sensitive data, such as account passwords. Choose the type "
@@ -43,8 +38,8 @@ msgid ""
 "qt>"
 msgstr ""
 "<qt>התקבלה בקשה מ־KDE ליצור ארנק חדש בשם ‚<b>%1</b>’. משמש לאחסון נתונים "
-"רגישים באופן מאובטח. נא לבחור את סוג הארנק החדש או ללחוץ על ביטול כדי לדחות "
-"את בקשת היישום.</qt>"
+"רגישים באופן מאובטח, כגון סיסמאות של חשבונות. נא לבחור את סוג הארנק החדש "
+"להלן או ללחוץ על ביטול כדי לדחות את בקשת היישום.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:115 ksecretd/knewwalletdialog.cpp:122
 #: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
