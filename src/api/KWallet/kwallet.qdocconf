@@ -10,7 +10,7 @@ sourcedirs += .
 
 navigation.landingpage = "KWallet"
 
-depends = kde qtcore qtwidgets
+depends += kde qtcore qtwidgets
 
 qhp.projects            = KWallet
 
