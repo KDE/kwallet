@@ -146,7 +146,7 @@ refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 >cüzdan</emphasis
 > klasörünü <emphasis
 >klasör</emphasis
-> değerine ayarlayın. Öntanımlı olarak <emphasis role="strong"
+> değerine ayarlayın. Varsayılan olarak <emphasis role="strong"
 >parolalar</emphasis
 > kullanılır.</simpara>
         </listitem>
