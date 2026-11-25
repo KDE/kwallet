@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kwalletd5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-11-21 08:06+0200\n"
+"PO-Revision-Date: 2026-11-24 11:58+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
@@ -321,15 +321,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-#| "securely encrypt data on disk. The key must be available when decrypting "
-#| "is needed or your wallet will not be accessible. For example, if you "
-#| "choose a SmartCard-based encryption key, the GPG system will prompt you "
-#| "to enter it and its associated PIN when attempting to open the wallet. "
-#| "<span style=\" font-weight:600;\">NOTE:</span> this list contains only "
-#| "&quot;ultimate-level&quot; trusted keys.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
 "securely encrypt data on disk. The key must be available when the wallet is "
@@ -340,11 +332,11 @@ msgid ""
 "level&quot; trusted keys.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>הארנק שמבוסס על GPG משתמש במפתח הצפנת GPG כדי להצפין "
-"נתונים בצורה מאובטחת בכונן. המפתח חייב להיות זמין שצריך לפענח, אחרת הארנק לא "
-"יהיה זמין. למשל, אם בחרת במפתח הצפנה מבוסס SmartCard, מערכת ה־GPG תבקש ממך "
-"להכניס אותו ואת הקוד האישי שלו בעת ניסיון לפתוח את הארנק. <span style=\" "
-"font-weight:600;\">לתשומת לבך:</span> רשימה זו מכילה רק מפתחות מהימנים שהם "
-"&quot;ultimate-level&quot; (הרמה הגבוהה ביותר).</p></body></html>"
+"נתונים בכונן בצורה מאובטחת. המפתח חייב להיות זמין כשהארנק מפוענח אחרת הארנק "
+"שלך לא יהיה זמין. למשל, בחירה במפתח הצפנה מבוסס כרטיס חכם ידרוש ממך להכניס "
+"אותו ולמלא את הקוד הסודי (PIN) בעת ניסיון לפתוח את הארנק. <span style=\" "
+"font-weight:600;\">לתשומת ליבך:</span> הרשימה הזאת מכילה מפתחות אמינים ב„רמה "
+"העליונה” בלבד.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
@@ -462,17 +454,7 @@ msgstr "אימות הסיסמה:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Various applications may attempt to use the KDE "
-#| "wallet to store passwords or other information such as web form data and "
-#| "cookies. If you would like these applications to use the wallet, you must "
-#| "enable it now and choose method for its encryption.</p><p>GPG method is "
-#| "more secure, but you must have configured at least one encrypting key on "
-#| "your system.</p><p>If you choose the classic format, be warned that the "
-#| "password you choose <span style=\" font-style:italic;\">cannot</span> be "
-#| "recovered if it is lost, and will allow anyone who knows it to obtain all "
-#| "the information contained in the wallet.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Various applications may request access to the KDE "
 "wallet to store passwords, web form data, or cookies. To allow this, enable "
@@ -482,13 +464,13 @@ msgid ""
 "style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
 "full access to all information stored in the wallet.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>מגוון יישומים ינסו להשתמש בארנק של KDE כדי כדי לאחסן "
-"סיסמאות או מידע מסוג אחר כגון נתוני טופסי אינטרנט ועוגיות. כדי אפשר ליישומים "
-"האלה להשתמש בארנק לשיקולך, יש להפעיל אותו כעת ולבחור בשיטת ההצפנה שלו.</"
-"p><p>שיטת GPG היא מאובטחת יותר, אך חובה להגדיר לפחות מפתח מצפין אחד במערכת "
-"שלך.</p><p>בחירה בתצורה הקלסית <span style=\" font-style:bold;\">לא</span> "
-"תאפשר לך לשחזר את הסיסמהשבחרת אם היא אבדה ותאפשר לכל מי שיודע את הסיסמה לגשת "
-"למידע שמאוחסן בארנק..</p></body></html>"
+"<html><head/><body><p>מגוון יישומים עשויים לבקש גישה לארנק של KDE כדי לאחסן "
+"סיסמאות, נתונים של טפסים מקוונים או עוגיות. כדי לאפשר את זה, יש להפעיל את "
+"הארנק ולבחור את שיטת האימות. </p><p>הצפנת GPG היא מאובטחת יותר, אבל חובה "
+"שיהיה לפחות מפתח הצפנה אחד מוגדר במערכת שלך.</p><p>אם בחרת בתסדיר הקלסי, "
+"חשוב לשים לב ש<span style=\" font-style:italic;\">אי אפשר</span> לשחזר את "
+"הסיסמה אם היא הלכה לאיבוד ושהיא מעניקה גישה מלאה לכל המידע שמאוחסן בארנק.</"
+"p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
